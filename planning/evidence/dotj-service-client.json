@@ -1,0 +1,365 @@
+{
+  "id": "DJ-017",
+  "repo": "dotj-service-client",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/wcf",
+  "canonical_url": "https://github.com/dotnet/wcf",
+  "redirect_observed": false,
+  "inspected_revision": "d2d2036c3839b5dee95545ee08c613cfd34b86be",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md",
+      "sha256": "de51bd97617260860823d4e06c2c20277c9855776f2f4c54908dd7508c1e979c",
+      "bytes": 9967
+    },
+    {
+      "path": "LICENSE.TXT",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/LICENSE.TXT",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "bytes": 1116
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "9afe4c3e0254e03e96859c999c685deb27519a12baceaf44521424da5fa2e827",
+      "bytes": 2992
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/Directory.Build.props",
+      "sha256": "077fbdbd71d3f1cf3a68dbc744b62ab2f1a37dcdd92fb0cd089515bdd363fd58",
+      "bytes": 3649
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/global.json",
+      "sha256": "7624c38f2e2dcb9f228fe72eb254c667a9cd0a752bd99dbbb0c2c83e429d69a5",
+      "bytes": 347
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "src/System.Private.ServiceModel/tools/CertificateGenerator/CertificateGenerator/CertificateGenerator.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tools/CertificateGenerator/CertificateGenerator/CertificateGenerator.csproj",
+      "sha256": "8ef0e4382a3f7a4181058d2abc52c61a64827902086b57214aa93f32944cc6b4",
+      "bytes": 418
+    },
+    {
+      "path": "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "sha256": "3f752c024648f0ae640a50fe7823b1cbc382ed0997ac9d7740f58f8da6c0aa69",
+      "bytes": 603
+    },
+    {
+      "path": "src/System.Private.ServiceModel/tools/CertificateGenerator/CertificateGeneratorLibrary/CertificateGeneratorLibrary.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tools/CertificateGenerator/CertificateGeneratorLibrary/CertificateGeneratorLibrary.csproj",
+      "sha256": "8a2153f3b7bb4968ec396439649dfef09ec42a6e0973a59fb31f576fbfeec301",
+      "bytes": 292
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\CertificateGeneratorLibrary\\CertificateGeneratorLibrary.csproj",
+      "file": "src/System.Private.ServiceModel/tools/CertificateGenerator/CertificateGenerator/CertificateGenerator.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tools/CertificateGenerator/CertificateGenerator/CertificateGenerator.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "src/System.Private.ServiceModel/tools/CertificateGenerator/CertificateGenerator/CertificateGenerator.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tools/CertificateGenerator/CertificateGenerator/CertificateGenerator.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Crank.EventSources",
+      "file": "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ServiceModel.Duplex",
+      "file": "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ServiceModel.Http",
+      "file": "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ServiceModel.NetTcp",
+      "file": "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ServiceModel.Security",
+      "file": "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "url": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wcf",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/Microsoft/dotnet",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/core",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/aspnet/home",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/referencesource",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    },
+    {
+      "url": "https://github.com/CoreWCF/CoreWCF",
+      "source": "https://github.com/dotnet/wcf/blob/d2d2036c3839b5dee95545ee08c613cfd34b86be/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/common/internal/Tools.csproj",
+      "src/Common/src/System/ArrayT.cs",
+      "src/Common/src/System/SR.cs",
+      "src/Common/src/System/StringNormalizationExtensions.Unix.cs",
+      "src/Common/src/System/StringNormalizationExtensions.Windows.cs",
+      "src/Common/src/System/StringNormalizationExtensions.cs",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf.sln",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/ClientContracts.cs",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/Program.cs",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerfService/Program.cs",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerfService/WCFCorePerfService.csproj",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/benchmarks.wcfcore.Perf.yml",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/CertificateManager.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/ConditionalTestDetectors.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/ConditionalWcfTest.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/FrameworkHelper.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/FrameworkID.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/Infrastructure.Common.csproj",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/JsonSerializer.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/OSHelper.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/OsID.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/SafeKeychainHandle.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/ServiceUtilHelper.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/TestEventListener.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/TestProperties.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/testproperties.props",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/testproperties.targets",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/ConditionAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/FailFastAfterAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/IssueAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/RetryOnFailureAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfCurrentCultureAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfFactAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfFactDiscoverer.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfSkippableAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTestCase.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTestCaseRunner.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTestDiscoverer.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTestRunner.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTheoryAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTheoryDiscoverer.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTheoryTestCaseRunner.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/Endpoints.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ScenarioTestHelpers.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ScenarioTestTypes.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ScenarioTests.Common.Tests.csproj",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ServiceInterfaces.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/SetupValidationTests.4.1.1.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/TestMockStream.cs"
+    ],
+    "api": [
+      "src/System.ServiceModel.Http/ref/System.ServiceModel.Http.Ref.csproj",
+      "src/System.ServiceModel.Http/ref/System.ServiceModel.Http.cs",
+      "src/System.ServiceModel.Http/ref/netstandard.cs",
+      "src/System.ServiceModel.NetFramingBase/ref/System.ServiceModel.NetFramingBase.Ref.csproj",
+      "src/System.ServiceModel.NetFramingBase/ref/System.ServiceModel.NetFramingBase.cs",
+      "src/System.ServiceModel.NetTcp/ref/System.ServiceModel.NetTcp.Ref.csproj",
+      "src/System.ServiceModel.NetTcp/ref/System.ServiceModel.NetTcp.TypeForwards.cs",
+      "src/System.ServiceModel.NetTcp/ref/System.ServiceModel.NetTcp.cs",
+      "src/System.ServiceModel.NetTcp/ref/netstandard.cs",
+      "src/System.ServiceModel.Primitives/ref/NetFxTypeForwards.cs",
+      "src/System.ServiceModel.Primitives/ref/System.ServiceModel.Duplex.cs",
+      "src/System.ServiceModel.Primitives/ref/System.ServiceModel.Primitives.Netcoreapp.cs",
+      "src/System.ServiceModel.Primitives/ref/System.ServiceModel.Primitives.Ref.csproj",
+      "src/System.ServiceModel.Primitives/ref/System.ServiceModel.Primitives.netstandard.cs",
+      "src/System.ServiceModel.Primitives/ref/System.ServiceModel.Security.cs",
+      "src/System.Web.Services.Description/ref/System.Web.Services.Description.Ref.csproj",
+      "src/System.Web.Services.Description/ref/System.Web.Services.Description.cs",
+      "src/dotnet-svcutil/lib/tests/Baselines/CommandParserInvalid/ref/ref.cs",
+      "src/dotnet-svcutil/lib/tests/Baselines/CommandParserInvalid/ref/ref.csproj"
+    ],
+    "tests": [
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf.sln",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/ClientContracts.cs",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/Program.cs",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerf/WCFCorePerf.csproj",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerfService/Program.cs",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/WCFCorePerfService/WCFCorePerfService.csproj",
+      "src/System.Private.ServiceModel/tests/Benchmarks/WCFCorePerf/benchmarks.wcfcore.Perf.yml",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/CertificateManager.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/ConditionalTestDetectors.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/ConditionalWcfTest.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/FrameworkHelper.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/FrameworkID.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/Infrastructure.Common.csproj",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/JsonSerializer.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/OSHelper.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/OsID.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/SafeKeychainHandle.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/ServiceUtilHelper.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/TestEventListener.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/TestProperties.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/testproperties.props",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/testproperties.targets",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/ConditionAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/FailFastAfterAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/IssueAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/RetryOnFailureAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfCurrentCultureAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfFactAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfFactDiscoverer.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfSkippableAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTestCase.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTestCaseRunner.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTestDiscoverer.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTestRunner.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTheoryAttribute.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTheoryDiscoverer.cs",
+      "src/System.Private.ServiceModel/tests/Common/Infrastructure/xunit/WcfTheoryTestCaseRunner.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/Endpoints.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ScenarioTestHelpers.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ScenarioTestTypes.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ScenarioTests.Common.Tests.csproj",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ServiceInterfaces.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/SetupValidationTests.4.1.1.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/TestMockStream.cs",
+      "src/System.Private.ServiceModel/tests/Common/Scenarios/ThreadHoppingSynchronizationContext.cs",
+      "src/System.Private.ServiceModel/tests/Common/Unit/FakeAddress.cs",
+      "src/System.Private.ServiceModel/tests/Common/Unit/IMockCommunicationObject.cs",
+      "src/System.Private.ServiceModel/tests/Common/Unit/MemberDataSet.cs",
+      "src/System.Private.ServiceModel/tests/Common/Unit/MockAsyncResult.cs",
+      "src/System.Private.ServiceModel/tests/Common/Unit/MockChannelBase.cs"
+    ],
+    "docs": [
+      "Documentation/.NET Fx to .NET Core Porting Playbook.md",
+      "Documentation/HowToUseETW.md",
+      "Documentation/HowToUseWCFInContainers.md",
+      "Documentation/README.md",
+      "Documentation/System.ServiceModel.Duplex.md",
+      "Documentation/System.ServiceModel.Http.md",
+      "Documentation/System.ServiceModel.NetTcp.md",
+      "Documentation/System.ServiceModel.Primitives.md",
+      "Documentation/System.ServiceModel.Security.md",
+      "Documentation/archive/archive-makecert-certificate-generation.md",
+      "Documentation/building/cross-platform-testing.md",
+      "Documentation/building/unix-instructions.md",
+      "Documentation/certificate-generation-resources.md",
+      "Documentation/contributing.md",
+      "Documentation/developer-guide.md",
+      "Documentation/images/WCFCS-ConnectedServicesPage.png",
+      "Documentation/images/WCFCS-DataTypesPage.png",
+      "Documentation/images/WCFCS-ProgressWindow.png",
+      "Documentation/images/WCFCS-ServiceEndpointPage.png",
+      "Documentation/issue-guide.md",
+      "Documentation/manualtest-guide.md",
+      "Documentation/scenario-test-guide.md",
+      "Documentation/using-prerelease-wcf-packages.md"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

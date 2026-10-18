@@ -1,0 +1,389 @@
+{
+  "id": "DJ-029",
+  "repo": "dotj-jobs",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/HangfireIO/Hangfire",
+  "canonical_url": "https://github.com/HangfireIO/Hangfire",
+  "redirect_observed": false,
+  "inspected_revision": "c35077110cc8364b06ea30d39947bd5f688b2e8b",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/README.md",
+      "sha256": "bfb6fc9f338120e2256fb4eb0d51cdb4442e15ef1cfae571220270c8c3b37aa6",
+      "bytes": 9463
+    },
+    {
+      "path": "COPYING",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/COPYING",
+      "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+      "bytes": 35147
+    },
+    {
+      "path": "COPYING.LESSER",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/COPYING.LESSER",
+      "sha256": "da7eabb7bafdf7d3ae5e9f223aa5bdc1eece45ac569dc21b3b037520b4464768",
+      "bytes": 7651
+    },
+    {
+      "path": "NOTICES",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/NOTICES",
+      "sha256": "9c330aa46c8c30de312f5fff05b658e95b6b7ef8947b200d86aad245027afbf4",
+      "bytes": 14684
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/Directory.Build.props",
+      "sha256": "3bc398c29ef7230d0c6c3ab8042fc3662e9b2e69650022f7300a62f243bb0952",
+      "bytes": 350
+    },
+    {
+      "path": "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "sha256": "a74215ba9337febebf261d20a40576e634d1cbb01e8e73a05f7ea3bcceb7dfab",
+      "bytes": 1377
+    },
+    {
+      "path": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj",
+      "sha256": "0a020cb46164f6b7fc123bc14a06b9e87dcf2272486fc23c372b1f26ab41a7ea",
+      "bytes": 9936
+    },
+    {
+      "path": "tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj",
+      "sha256": "2b62d673cc5251dad2fd11cefd603e8b8fed6895bd3c2590db0658b0cd7f1b92",
+      "bytes": 1143
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/LICENSE.md",
+      "sha256": "8d389547068f9fe8cf61e9d3b0a40d2858dc217f4daa53e83208040530e0c9b0",
+      "bytes": 1256
+    },
+    {
+      "path": "LICENSE_ROYALTYFREE",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/LICENSE_ROYALTYFREE",
+      "sha256": "4ca53ffd44e5c64d00cc1d61ad6095a7f9aa24d3e8e0422fbc4fce43c5f9b12a",
+      "bytes": 12299
+    },
+    {
+      "path": "LICENSE_STANDARD",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/LICENSE_STANDARD",
+      "sha256": "f7fea42684435a253ab56432842b124d57a407f619ae4499bf9d8211f78341d5",
+      "bytes": 12414
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Hangfire.NetCore\\Hangfire.NetCore.csproj",
+      "file": "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Http.Abstractions",
+      "file": "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Antiforgery",
+      "file": "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Http.Abstractions",
+      "file": "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Antiforgery",
+      "file": "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj"
+    },
+    {
+      "kind": "FrameworkReference",
+      "name": "Microsoft.AspNetCore.App",
+      "file": "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MoreLinq.Source.MoreEnumerable.Pairwise",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "LibLog",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Cronos",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "StackTraceFormatter.Source",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "StackTraceParser.Source",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Owin",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "CronExpressionDescriptor",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Owin",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.Thread",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.ThreadPool",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CSharp",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "src/Hangfire.Core/Hangfire.Core.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/src/Hangfire.Core/Hangfire.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Moq.Sequences",
+      "file": "tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Hangfire.Core\\Hangfire.Core.csproj",
+      "file": "tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj",
+      "url": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/resque/resque",
+      "source": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/README.md"
+    },
+    {
+      "url": "https://github.com/collectiveidea/delayed_job",
+      "source": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/README.md"
+    },
+    {
+      "url": "https://github.com/HangfireIO/Hangfire",
+      "source": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/README.md"
+    },
+    {
+      "url": "https://github.com/psake/psake",
+      "source": "https://github.com/HangfireIO/Hangfire/blob/c35077110cc8364b06ea30d39947bd5f688b2e8b/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "samples/ConsoleSample/ConsoleSample.csproj",
+      "samples/NetCoreSample/NetCoreSample.csproj",
+      "src/Directory.Build.props",
+      "src/Hangfire.AspNetCore/Dashboard/AspNetCoreDashboardContext.cs",
+      "src/Hangfire.AspNetCore/Dashboard/AspNetCoreDashboardContextExtensions.cs",
+      "src/Hangfire.AspNetCore/Dashboard/AspNetCoreDashboardMiddleware.cs",
+      "src/Hangfire.AspNetCore/Dashboard/AspNetCoreDashboardRequest.cs",
+      "src/Hangfire.AspNetCore/Dashboard/AspNetCoreDashboardResponse.cs",
+      "src/Hangfire.AspNetCore/Hangfire.AspNetCore.csproj",
+      "src/Hangfire.AspNetCore/HangfireApplicationBuilderExtensions.cs",
+      "src/Hangfire.AspNetCore/HangfireEndpointRouteBuilderExtensions.cs",
+      "src/Hangfire.AspNetCore/Properties/AssemblyInfo.cs",
+      "src/Hangfire.AspNetCore/packages.lock.json",
+      "src/Hangfire.Core/AppBuilderExtensions.cs",
+      "src/Hangfire.Core/App_Packages/LibLog.1.4/LibLog.cs",
+      "src/Hangfire.Core/App_Packages/StackTraceFormatter/StackTraceFormatter.cs",
+      "src/Hangfire.Core/App_Packages/StackTraceParser/StackTraceParser.cs",
+      "src/Hangfire.Core/AttemptsExceededAction.cs",
+      "src/Hangfire.Core/AutomaticRetryAttribute.cs",
+      "src/Hangfire.Core/BackgroundJob.Instance.cs",
+      "src/Hangfire.Core/BackgroundJob.cs",
+      "src/Hangfire.Core/BackgroundJobClient.cs",
+      "src/Hangfire.Core/BackgroundJobClientException.cs",
+      "src/Hangfire.Core/BackgroundJobClientExtensions.cs",
+      "src/Hangfire.Core/BackgroundJobServer.cs",
+      "src/Hangfire.Core/BackgroundJobServerOptions.cs",
+      "src/Hangfire.Core/CaptureCultureAttribute.cs",
+      "src/Hangfire.Core/Client/BackgroundJobFactory.cs",
+      "src/Hangfire.Core/Client/ClientExceptionContext.cs",
+      "src/Hangfire.Core/Client/CoreBackgroundJobFactory.cs",
+      "src/Hangfire.Core/Client/CreateContext.cs",
+      "src/Hangfire.Core/Client/CreatedContext.cs",
+      "src/Hangfire.Core/Client/CreatingContext.cs",
+      "src/Hangfire.Core/Client/IBackgroundJobFactory.cs",
+      "src/Hangfire.Core/Client/IClientExceptionFilter.cs",
+      "src/Hangfire.Core/Client/IClientFilter.cs",
+      "src/Hangfire.Core/Common/CachedExpressionCompiler.cs",
+      "src/Hangfire.Core/Common/CancellationTokenExtentions.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/BinaryExpressionFingerprint.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/CachedExpressionCompiler.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/ConditionalExpressionFingerprint.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/ConstantExpressionFingerprint.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/DefaultExpressionFingerprint.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/ExpressionFingerprint.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/ExpressionFingerprintChain.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/FingerprintingExpressionVisitor.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/HashCodeCombiner.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/Hoisted.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/HoistingExpressionVisitor.cs",
+      "src/Hangfire.Core/Common/ExpressionUtil/IndexExpressionFingerprint.cs"
+    ],
+    "api": [],
+    "tests": [
+      "tests/Directory.Build.props",
+      "tests/Hangfire.Core.Tests/BackgroundJobClientExtensionsFacts.cs",
+      "tests/Hangfire.Core.Tests/BackgroundJobClientFacts.cs",
+      "tests/Hangfire.Core.Tests/BackgroundJobFacts.cs",
+      "tests/Hangfire.Core.Tests/BackgroundJobServerFacts.cs",
+      "tests/Hangfire.Core.Tests/CaptureCultureAttributeFacts.cs",
+      "tests/Hangfire.Core.Tests/Client/BackgroundJobFactoryFacts.cs",
+      "tests/Hangfire.Core.Tests/Client/ClientExceptionContextFacts.cs",
+      "tests/Hangfire.Core.Tests/Client/CoreBackgroundJobFactoryFacts.cs",
+      "tests/Hangfire.Core.Tests/Client/CreateContextFacts.cs",
+      "tests/Hangfire.Core.Tests/Client/CreatedContextFacts.cs",
+      "tests/Hangfire.Core.Tests/Client/CreatingContextFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/CancellationTokenExtentionsFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobArgumentFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobFilterAttributeFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobFilterAttributeFilterProviderFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobFilterCollectionFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobFilterFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobFilterProviderCollectionFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobHelperFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/JobLoadExceptionFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/MethodInfoExtensionsFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/SerializationHelperFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/ShallowExceptionHelperFacts.cs",
+      "tests/Hangfire.Core.Tests/Common/TypeExtensionsFacts.cs",
+      "tests/Hangfire.Core.Tests/ContinuationsSupportAttributeFacts.cs",
+      "tests/Hangfire.Core.Tests/CronFacts.cs",
+      "tests/Hangfire.Core.Tests/Dashboard/BatchCommandDispatcherFacts.cs",
+      "tests/Hangfire.Core.Tests/Dashboard/CommandDispatcherFacts.cs",
+      "tests/Hangfire.Core.Tests/Dashboard/DashboardOptionsFacts.cs",
+      "tests/Hangfire.Core.Tests/Dashboard/HtmlHelperFacts.cs",
+      "tests/Hangfire.Core.Tests/DisableConcurrentExecutionAttributeFacts.cs",
+      "tests/Hangfire.Core.Tests/GlobalConfigurationExtensionsFacts.cs",
+      "tests/Hangfire.Core.Tests/GlobalStateHandlersFacts.cs",
+      "tests/Hangfire.Core.Tests/GlobalTestsConfiguration.cs",
+      "tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj",
+      "tests/Hangfire.Core.Tests/Hangfire.Core.Tests.csproj.DotSettings",
+      "tests/Hangfire.Core.Tests/JobActivatorFacts.cs",
+      "tests/Hangfire.Core.Tests/JobCancellationTokenFacts.cs",
+      "tests/Hangfire.Core.Tests/JobParameterInjectionFilterFacts.cs",
+      "tests/Hangfire.Core.Tests/JobStorageFacts.cs",
+      "tests/Hangfire.Core.Tests/LatencyTimeoutAttributeFacts.cs",
+      "tests/Hangfire.Core.Tests/Mocks/ApplyStateContextMock.cs",
+      "tests/Hangfire.Core.Tests/Mocks/BackgroundJobMock.cs",
+      "tests/Hangfire.Core.Tests/Mocks/BackgroundProcessContextMock.cs",
+      "tests/Hangfire.Core.Tests/Mocks/CreateContextMock.cs",
+      "tests/Hangfire.Core.Tests/Mocks/ElectStateContextMock.cs",
+      "tests/Hangfire.Core.Tests/Mocks/PerformContextMock.cs",
+      "tests/Hangfire.Core.Tests/Mocks/StateChangeContextMock.cs"
+    ],
+    "docs": [],
+    "samples": [
+      "samples/ConsoleSample/ConsoleSample.csproj",
+      "samples/ConsoleSample/GenericServices.cs",
+      "samples/ConsoleSample/NewFeatures.cs",
+      "samples/ConsoleSample/Program.cs",
+      "samples/ConsoleSample/Services.cs",
+      "samples/ConsoleSample/Startup.cs",
+      "samples/ConsoleSample/app.config",
+      "samples/ConsoleSample/packages.lock.json",
+      "samples/NetCoreSample/NetCoreSample.csproj",
+      "samples/NetCoreSample/Program.cs",
+      "samples/NetCoreSample/packages.lock.json"
+    ]
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links"
+  ],
+  "access_errors": [],
+  "license_observation": "LGPL text plus additional terms; module/version review OPEN"
+}

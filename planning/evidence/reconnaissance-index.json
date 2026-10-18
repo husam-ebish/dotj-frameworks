@@ -1,0 +1,954 @@
+[
+  {
+    "id": "DJ-001",
+    "name": ".NET runtime and base libraries",
+    "url": "https://github.com/dotnet/runtime",
+    "repo": "dotj-core",
+    "category": "Platform and developer tools",
+    "product": ".j Core",
+    "inspection": "Partial reconnaissance",
+    "sha": "9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Git tree response truncated; missing tree ranges need separate inspection"
+    ]
+  },
+  {
+    "id": "DJ-002",
+    "name": ".NET SDK",
+    "url": "https://github.com/dotnet/sdk",
+    "repo": "dotj-sdk",
+    "category": "Platform and developer tools",
+    "product": ".j SDK",
+    "inspection": "Scoped reconnaissance",
+    "sha": "c70b3856e7948678daa3950ec5517759754bf47c",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-003",
+    "name": "Roslyn",
+    "url": "https://github.com/dotnet/roslyn",
+    "repo": "dotj-code",
+    "category": "Platform and developer tools",
+    "product": ".j Code",
+    "inspection": "Scoped reconnaissance",
+    "sha": "3645b6aa36ad41775a73e57a620787a3d38327a0",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-004",
+    "name": "Razor",
+    "url": "https://github.com/dotnet/razor",
+    "repo": "dotj-razor",
+    "category": "Platform and developer tools",
+    "product": ".j Razor",
+    "inspection": "Partial reconnaissance",
+    "sha": "8fcba40eb7566d4efc2765edb5fbd517605f720b",
+    "license": "Root license not retrieved; BLOCKED pending license location review",
+    "gaps": [
+      "License/notice material not retrieved",
+      "Project/package metadata not retrieved",
+      "Tests/fixtures location not established from inspected paths",
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit",
+      "Starting repository is a relocation notice; actual source baseline must be selected in the new owner"
+    ]
+  },
+  {
+    "id": "DJ-005",
+    "name": "MSBuild",
+    "url": "https://github.com/dotnet/msbuild",
+    "repo": "dotj-build",
+    "category": "Platform and developer tools",
+    "product": ".j Build",
+    "inspection": "Scoped reconnaissance",
+    "sha": "6348d0c087aeec18c323b01a2c77da089ddafea0",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-006",
+    "name": ".NET Extensions",
+    "url": "https://github.com/dotnet/extensions",
+    "repo": "dotj-extensions",
+    "category": "Platform and developer tools",
+    "product": ".j Extensions",
+    "inspection": "Scoped reconnaissance",
+    "sha": "42a0f358b14bb27bc324939d858dd04309f30477",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-007",
+    "name": ".NET diagnostics",
+    "url": "https://github.com/dotnet/diagnostics",
+    "repo": "dotj-diagnostics",
+    "category": "Platform and developer tools",
+    "product": ".j Diagnostics",
+    "inspection": "Partial reconnaissance",
+    "sha": "1d95e75015fa3ccd063a59ed3d0bfe26040a6637",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-008",
+    "name": ".NET Interactive",
+    "url": "https://github.com/dotnet/interactive",
+    "repo": "dotj-interactive",
+    "category": "Platform and developer tools",
+    "product": ".j Interactive",
+    "inspection": "Scoped reconnaissance",
+    "sha": "098a01b9183103186805a186a7dee3a3a70b2997",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-009",
+    "name": ".NET scaffolding",
+    "url": "https://github.com/dotnet/Scaffolding",
+    "repo": "dotj-scaffold",
+    "category": "Platform and developer tools",
+    "product": ".j Scaffold",
+    "inspection": "Partial reconnaissance",
+    "sha": "107111c945bcf1264c035457a0744318b6bae3d9",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-010",
+    "name": ".NET template engine",
+    "url": "https://github.com/dotnet/templating",
+    "repo": "dotj-templates",
+    "category": "Platform and developer tools",
+    "product": ".j Templates",
+    "inspection": "Partial reconnaissance",
+    "sha": "7ce3ee46d3fc002dccef042c7847bd9db0a730e9",
+    "license": "Root license not retrieved; BLOCKED pending license location review",
+    "gaps": [
+      "License/notice material not retrieved",
+      "Project/package metadata not retrieved",
+      "Tests/fixtures location not established from inspected paths",
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit",
+      "Starting repository is a relocation notice; actual source baseline must be selected in the new owner"
+    ]
+  },
+  {
+    "id": "DJ-011",
+    "name": ".NET container images",
+    "url": "https://github.com/dotnet/dotnet-docker",
+    "repo": "dotj-containers",
+    "category": "Platform and developer tools",
+    "product": ".j Containers",
+    "inspection": "Scoped reconnaissance",
+    "sha": "a5ada4c290f2dc087c6926beeeaffcd07912abe7",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-012",
+    "name": "ASP.NET Core",
+    "url": "https://github.com/dotnet/aspnetcore",
+    "repo": "dotj-web",
+    "category": "Web, authentication and distributed applications",
+    "product": ".j Web",
+    "inspection": "Scoped reconnaissance",
+    "sha": "c09e2b89bd8cf25e819230a94e9061023f508afe",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-013",
+    "name": "Aspire",
+    "url": "https://github.com/microsoft/aspire",
+    "repo": "dotj-aspire",
+    "category": "Web, authentication and distributed applications",
+    "product": ".j Aspire",
+    "inspection": "Scoped reconnaissance",
+    "sha": "118781118dddea1f7a524ab3d244fa4cee3c62cf",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-014",
+    "name": "YARP",
+    "url": "https://github.com/dotnet/yarp",
+    "repo": "dotj-proxy",
+    "category": "Web, authentication and distributed applications",
+    "product": ".j Proxy",
+    "inspection": "Scoped reconnaissance",
+    "sha": "2aa3d83550a9b7a719e347ef6a0363e5ea9505a9",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-015",
+    "name": "Orleans",
+    "url": "https://github.com/dotnet/orleans",
+    "repo": "dotj-actors",
+    "category": "Web, authentication and distributed applications",
+    "product": ".j Actors",
+    "inspection": "Scoped reconnaissance",
+    "sha": "9f8310cb6e5bbe35cd3bbb0752052993578eb083",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-016",
+    "name": "OpenIddict",
+    "url": "https://github.com/openiddict/openiddict-core",
+    "repo": "dotj-auth",
+    "category": "Web, authentication and distributed applications",
+    "product": ".j Auth",
+    "inspection": "Partial reconnaissance",
+    "sha": "ab23a1625279b8b656912202c2b81a63d3438ca6",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links"
+    ]
+  },
+  {
+    "id": "DJ-017",
+    "name": "WCF client libraries",
+    "url": "https://github.com/dotnet/wcf",
+    "repo": "dotj-service-client",
+    "category": "Web, authentication and distributed applications",
+    "product": ".j Service Client",
+    "inspection": "Partial reconnaissance",
+    "sha": "d2d2036c3839b5dee95545ee08c613cfd34b86be",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-018",
+    "name": "CoreWCF",
+    "url": "https://github.com/CoreWCF/CoreWCF",
+    "repo": "dotj-services",
+    "category": "Web, authentication and distributed applications",
+    "product": ".j Services",
+    "inspection": "Partial reconnaissance",
+    "sha": "6e2cce88349fe41056fe8afda0dbbdf98d54bb00",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-019",
+    "name": "Entity Framework Core",
+    "url": "https://github.com/dotnet/efcore",
+    "repo": "dotj-entity",
+    "category": "Database access and serialization",
+    "product": ".j Entity",
+    "inspection": "Partial reconnaissance",
+    "sha": "2e8882748cc45b317a98a6f27f0680948221ae3b",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-020",
+    "name": "Dapper",
+    "url": "https://github.com/DapperLib/Dapper",
+    "repo": "dotj-sql",
+    "category": "Database access and serialization",
+    "product": ".j SQL",
+    "inspection": "Partial reconnaissance",
+    "sha": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-021",
+    "name": "Npgsql",
+    "url": "https://github.com/npgsql/npgsql",
+    "repo": "dotj-postgresql",
+    "category": "Database access and serialization",
+    "product": ".j PostgreSQL",
+    "inspection": "Partial reconnaissance",
+    "sha": "1083526ef25018bd65772f18f313240fd36037bb",
+    "license": "PostgreSQL-style text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-022",
+    "name": "StackExchange.Redis",
+    "url": "https://github.com/StackExchange/StackExchange.Redis",
+    "repo": "dotj-redis",
+    "category": "Database access and serialization",
+    "product": ".j Redis",
+    "inspection": "Partial reconnaissance",
+    "sha": "84765eede5c49419ed251a9cfc491a2d58667fb9",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-023",
+    "name": "Newtonsoft.Json",
+    "url": "https://github.com/JamesNK/Newtonsoft.Json",
+    "repo": "dotj-json",
+    "category": "Database access and serialization",
+    "product": ".j JSON",
+    "inspection": "Scoped reconnaissance",
+    "sha": "52fa3aef1f2cadcd3a3f874251eddc98d3efbbaa",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-024",
+    "name": "Mapster",
+    "url": "https://github.com/MapsterMapper/Mapster",
+    "repo": "dotj-mapster",
+    "category": "Database access and serialization",
+    "product": ".j Mapster",
+    "inspection": "Partial reconnaissance",
+    "sha": "cbc1e5f04e6e003744b04f83d4705670a85e459b",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-025",
+    "name": "Autofac",
+    "url": "https://github.com/autofac/Autofac",
+    "repo": "dotj-container",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j Container",
+    "inspection": "Partial reconnaissance",
+    "sha": "ae9e1e1129b9c22e7ab111381308dcb02f80a8d2",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-026",
+    "name": "FluentValidation",
+    "url": "https://github.com/FluentValidation/FluentValidation",
+    "repo": "dotj-validation",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j Validation",
+    "inspection": "Partial reconnaissance",
+    "sha": "299ef377bde844af7d28b7aa21786a6853f930e3",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "README content not retrieved",
+      "Examples/samples location not established; check README and related repositories"
+    ]
+  },
+  {
+    "id": "DJ-027",
+    "name": "Polly",
+    "url": "https://github.com/App-vNext/Polly",
+    "repo": "dotj-resilience",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j Resilience",
+    "inspection": "Scoped reconnaissance",
+    "sha": "3f3adad9d5af85658fc3585018f02a2d8c2173e8",
+    "license": "BSD-style text observed; exact variant/file review OPEN",
+    "gaps": []
+  },
+  {
+    "id": "DJ-028",
+    "name": "Reactive Extensions",
+    "url": "https://github.com/dotnet/reactive",
+    "repo": "dotj-reactive",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j Reactive",
+    "inspection": "Partial reconnaissance",
+    "sha": "89e05b8730107983c3f77af54a52974ae12d37f4",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links"
+    ]
+  },
+  {
+    "id": "DJ-029",
+    "name": "Hangfire",
+    "url": "https://github.com/HangfireIO/Hangfire",
+    "repo": "dotj-jobs",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j Jobs",
+    "inspection": "Partial reconnaissance",
+    "sha": "c35077110cc8364b06ea30d39947bd5f688b2e8b",
+    "license": "LGPL text plus additional terms; module/version review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links"
+    ]
+  },
+  {
+    "id": "DJ-030",
+    "name": "Quartz.NET",
+    "url": "https://github.com/quartznet/quartznet",
+    "repo": "dotj-scheduler",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j Scheduler",
+    "inspection": "Partial reconnaissance",
+    "sha": "a94922ad3b1c2efa6d2613916fa2f386aede6681",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-031",
+    "name": "MailKit",
+    "url": "https://github.com/jstedfast/MailKit",
+    "repo": "dotj-mail",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j Mail",
+    "inspection": "Partial reconnaissance",
+    "sha": "7418d38dc27a47d8db9108d8fa994b2b784f1578",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Tests/fixtures location not established from inspected paths",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-032",
+    "name": "RestSharp",
+    "url": "https://github.com/restsharp/RestSharp",
+    "repo": "dotj-rest",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j REST",
+    "inspection": "Partial reconnaissance",
+    "sha": "64ee12995b8d7409a5863da7b71cddfa526ffb7a",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-033",
+    "name": "Refit",
+    "url": "https://github.com/reactiveui/refit",
+    "repo": "dotj-refit",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j Refit",
+    "inspection": "Partial reconnaissance",
+    "sha": "92ae878250798dc103a01304704a99bb8033ed77",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-034",
+    "name": "MQTTnet",
+    "url": "https://github.com/dotnet/MQTTnet",
+    "repo": "dotj-mqtt",
+    "category": "Application libraries, jobs and communication",
+    "product": ".j MQTT",
+    "inspection": "Partial reconnaissance",
+    "sha": "798a0e2250f40a241e0c8d2e7c9a366051be1b97",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-035",
+    "name": "ASP.NET API Versioning",
+    "url": "https://github.com/dotnet/aspnet-api-versioning",
+    "repo": "dotj-versioning",
+    "category": "API tooling and GraphQL",
+    "product": ".j Versioning",
+    "inspection": "Partial reconnaissance",
+    "sha": "1a22bb4281c03d44f387169eefa46765a6219118",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-036",
+    "name": "Swashbuckle",
+    "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+    "repo": "dotj-swagger",
+    "category": "API tooling and GraphQL",
+    "product": ".j Swagger",
+    "inspection": "Partial reconnaissance",
+    "sha": "1e2b358b23cb9f041e8a395d4541d46566be7f81",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-037",
+    "name": "NSwag",
+    "url": "https://github.com/RicoSuter/NSwag",
+    "repo": "dotj-openapi",
+    "category": "API tooling and GraphQL",
+    "product": ".j OpenAPI",
+    "inspection": "Partial reconnaissance",
+    "sha": "63daf8fcc3a25151b62eb4b326a1e8ea048a0d41",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-038",
+    "name": "Hot Chocolate / Strawberry Shake",
+    "url": "https://github.com/ChilliCream/graphql-platform",
+    "repo": "dotj-graph-platform",
+    "category": "API tooling and GraphQL",
+    "product": ".j Graph Platform",
+    "inspection": "Partial reconnaissance",
+    "sha": "284f0b5f44cf1670a546f5cb1a4311bab08ffd5c",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-039",
+    "name": "GraphQL.NET",
+    "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+    "repo": "dotj-graphql",
+    "category": "API tooling and GraphQL",
+    "product": ".j GraphQL",
+    "inspection": "Partial reconnaissance",
+    "sha": "af0b3e77b874cc73167d70910103ac708f14ed28",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-040",
+    "name": "WPF",
+    "url": "https://github.com/dotnet/wpf",
+    "repo": "dotj-presentation",
+    "category": "Desktop, mobile and UI",
+    "product": ".j Presentation",
+    "inspection": "Partial reconnaissance",
+    "sha": "65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-041",
+    "name": "Windows Forms",
+    "url": "https://github.com/dotnet/winforms",
+    "repo": "dotj-forms",
+    "category": "Desktop, mobile and UI",
+    "product": ".j Forms",
+    "inspection": "Partial reconnaissance",
+    "sha": "c4891de0851184dcbe95d16ca543969fe2540245",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-042",
+    "name": ".NET MAUI",
+    "url": "https://github.com/dotnet/maui",
+    "repo": "dotj-multiui",
+    "category": "Desktop, mobile and UI",
+    "product": ".j MultiUI",
+    "inspection": "Partial reconnaissance",
+    "sha": "3a7d72870b9c2ed006de7268a6257ae039cb7f99",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-043",
+    "name": "Avalonia",
+    "url": "https://github.com/AvaloniaUI/Avalonia",
+    "repo": "dotj-avalonia",
+    "category": "Desktop, mobile and UI",
+    "product": ".j Avalonia",
+    "inspection": "Partial reconnaissance",
+    "sha": "66b7273b9a2b5ba8416feb4376b9cdc3078b8573",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-044",
+    "name": "Uno Platform",
+    "url": "https://github.com/unoplatform/uno",
+    "repo": "dotj-uno",
+    "category": "Desktop, mobile and UI",
+    "product": ".j Uno",
+    "inspection": "Partial reconnaissance",
+    "sha": "78728530f26880286be77d9042a8e4118a42df43",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-045",
+    "name": ".NET Community Toolkit",
+    "url": "https://github.com/CommunityToolkit/dotnet",
+    "repo": "dotj-toolkit",
+    "category": "Desktop, mobile and UI",
+    "product": ".j Toolkit",
+    "inspection": "Partial reconnaissance",
+    "sha": "b135626dd54d33b8f05f2ff31591592c004aa848",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-046",
+    "name": "MudBlazor",
+    "url": "https://github.com/MudBlazor/MudBlazor",
+    "repo": "dotj-material",
+    "category": "Desktop, mobile and UI",
+    "product": ".j Material",
+    "inspection": "Partial reconnaissance",
+    "sha": "f28086704d9d488c3c200e74ff960022af34a6ef",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Tests/fixtures location not established from inspected paths",
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-047",
+    "name": "Radzen Blazor",
+    "url": "https://github.com/radzenhq/radzen-blazor",
+    "repo": "dotj-components",
+    "category": "Desktop, mobile and UI",
+    "product": ".j Components",
+    "inspection": "Partial reconnaissance",
+    "sha": "47709dc6fedfd92d66266017a0b50e0d327fa2c1",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-048",
+    "name": "Serilog",
+    "url": "https://github.com/serilog/serilog",
+    "repo": "dotj-structured-log",
+    "category": "Logging, testing and performance",
+    "product": ".j Structured Log",
+    "inspection": "Partial reconnaissance",
+    "sha": "81af75f3a5e28ec9f5be18ef74357a9914a51745",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-049",
+    "name": "NLog",
+    "url": "https://github.com/NLog/NLog",
+    "repo": "dotj-log",
+    "category": "Logging, testing and performance",
+    "product": ".j Log",
+    "inspection": "Partial reconnaissance",
+    "sha": "d9ebf823ee8ba54977c336709928a96ea58c6259",
+    "license": "BSD-style text observed; exact variant/file review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-050",
+    "name": "xUnit.net",
+    "url": "https://github.com/xunit/xunit",
+    "repo": "dotj-xtest",
+    "category": "Logging, testing and performance",
+    "product": ".j XTest",
+    "inspection": "Partial reconnaissance",
+    "sha": "e91cdbe7557649b1179fbc47b01e8d3a615d1256",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-051",
+    "name": "NUnit",
+    "url": "https://github.com/nunit/nunit",
+    "repo": "dotj-test",
+    "category": "Logging, testing and performance",
+    "product": ".j Test",
+    "inspection": "Partial reconnaissance",
+    "sha": "55d908f8cc4402f8d53955d20aefcee9f55a59ec",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-052",
+    "name": "Moq",
+    "url": "https://github.com/devlooped/moq",
+    "repo": "dotj-mock",
+    "category": "Logging, testing and performance",
+    "product": ".j Mock",
+    "inspection": "Partial reconnaissance",
+    "sha": "bdf16e758e8022c40cef2bfd025181f845bbd2a9",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-053",
+    "name": "NSubstitute",
+    "url": "https://github.com/nsubstitute/NSubstitute",
+    "repo": "dotj-substitute",
+    "category": "Logging, testing and performance",
+    "product": ".j Substitute",
+    "inspection": "Partial reconnaissance",
+    "sha": "f2b623d762fc28fc1a2fe3932b3b360d113c734d",
+    "license": "BSD-style text observed; exact variant/file review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-054",
+    "name": "Coverlet",
+    "url": "https://github.com/coverlet-coverage/coverlet",
+    "repo": "dotj-coverage",
+    "category": "Logging, testing and performance",
+    "product": ".j Coverage",
+    "inspection": "Partial reconnaissance",
+    "sha": "b5ba9197f032e22627836d899aa3956a50cd5017",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-055",
+    "name": "BenchmarkDotNet",
+    "url": "https://github.com/dotnet/BenchmarkDotNet",
+    "repo": "dotj-benchmark",
+    "category": "Logging, testing and performance",
+    "product": ".j Benchmark",
+    "inspection": "Partial reconnaissance",
+    "sha": "730b8b7cc67b8d75a7478e67eaa2b10af5ec562d",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-056",
+    "name": "Testcontainers for .NET",
+    "url": "https://github.com/testcontainers/testcontainers-dotnet",
+    "repo": "dotj-testcontainers",
+    "category": "Logging, testing and performance",
+    "product": ".j Testcontainers",
+    "inspection": "Partial reconnaissance",
+    "sha": "84f485caeded1cf8f8f983ddd2c0163c47e258fa",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-057",
+    "name": "ClosedXML",
+    "url": "https://github.com/ClosedXML/ClosedXML",
+    "repo": "dotj-excel",
+    "category": "Documents, AI and package infrastructure",
+    "product": ".j Excel",
+    "inspection": "Partial reconnaissance",
+    "sha": "09f2f21a60e821ce7fb18ca3576b272e5dd6d921",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-058",
+    "name": "Open XML SDK",
+    "url": "https://github.com/dotnet/Open-XML-SDK",
+    "repo": "dotj-openxml",
+    "category": "Documents, AI and package infrastructure",
+    "product": ".j OpenXML",
+    "inspection": "Partial reconnaissance",
+    "sha": "431ab05cf160248cc3885a4a766026d4f8243792",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-059",
+    "name": "Markdig",
+    "url": "https://github.com/xoofx/markdig",
+    "repo": "dotj-markdown",
+    "category": "Documents, AI and package infrastructure",
+    "product": ".j Markdown",
+    "inspection": "Partial reconnaissance",
+    "sha": "ccb9d8593f7a0aac232342a6705e8afc8c4f374d",
+    "license": "BSD-style text observed; exact variant/file review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-060",
+    "name": "ML.NET",
+    "url": "https://github.com/dotnet/machinelearning",
+    "repo": "dotj-ml",
+    "category": "Documents, AI and package infrastructure",
+    "product": ".j ML",
+    "inspection": "Partial reconnaissance",
+    "sha": "655f469b0d54bccf94dc251b8db457b57d56d084",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-061",
+    "name": "Semantic Kernel",
+    "url": "https://github.com/microsoft/semantic-kernel",
+    "repo": "dotj-semantic",
+    "category": "Documents, AI and package infrastructure",
+    "product": ".j Semantic",
+    "inspection": "Partial reconnaissance",
+    "sha": "7a92cd4e7c2712370b8d85b687a474b2e858cdcc",
+    "license": "MIT text observed; file-level review OPEN",
+    "gaps": [
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-062",
+    "name": "NuGet client",
+    "url": "https://github.com/NuGet/NuGet.Client",
+    "repo": "dotj-packages",
+    "category": "Documents, AI and package infrastructure",
+    "product": ".j Packages",
+    "inspection": "Partial reconnaissance",
+    "sha": "4c4510d29a64fcbcba6360e29c3a1e8288a87f9f",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-063",
+    "name": "NuGet Gallery",
+    "url": "https://github.com/NuGet/NuGetGallery",
+    "repo": "dotj-registry",
+    "category": "Documents, AI and package infrastructure",
+    "product": ".j Registry",
+    "inspection": "Partial reconnaissance",
+    "sha": "d6b9e689606e174e05c064a3531320200d4033c7",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-064",
+    "name": "AutoMapper",
+    "url": "https://github.com/LuckyPennySoftware/AutoMapper",
+    "repo": "dotj-automap",
+    "category": "Additional application frameworks",
+    "product": ".j Automap",
+    "inspection": "Partial reconnaissance",
+    "sha": "3019d86b3e2f1c879dfcf7d1026c90f51519a9a1",
+    "license": "RPL 1.5 / separate license terms; source-use decision OPEN",
+    "gaps": [
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-065",
+    "name": "MediatR",
+    "url": "https://github.com/LuckyPennySoftware/MediatR",
+    "repo": "dotj-mediator",
+    "category": "Additional application frameworks",
+    "product": ".j Mediator",
+    "inspection": "Partial reconnaissance",
+    "sha": "916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5",
+    "license": "RPL 1.5 / separate license terms; source-use decision OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  },
+  {
+    "id": "DJ-066",
+    "name": "MassTransit",
+    "url": "https://github.com/MassTransit/MassTransit",
+    "repo": "dotj-bus",
+    "category": "Additional application frameworks",
+    "product": ".j Bus",
+    "inspection": "Partial reconnaissance",
+    "sha": "d9f61f764c802785cc9a4be92547d8f5b63018d4",
+    "license": "Apache 2.0 text observed; file-level review OPEN",
+    "gaps": [
+      "Dedicated documentation tree not established; follow README documentation links",
+      "Examples/samples location not established; check README and related repositories",
+      "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+    ]
+  }
+]

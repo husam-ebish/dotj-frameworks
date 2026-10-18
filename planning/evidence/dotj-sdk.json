@@ -1,0 +1,1468 @@
+{
+  "id": "DJ-002",
+  "repo": "dotj-sdk",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/sdk",
+  "canonical_url": "https://github.com/dotnet/sdk",
+  "redirect_observed": false,
+  "inspected_revision": "c70b3856e7948678daa3950ec5517759754bf47c",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md",
+      "sha256": "2a993b64dfb6bbd4f1469b629d4eec43f56c1e110e0f17249a9ce60ea0d87156",
+      "bytes": 4872
+    },
+    {
+      "path": "LICENSE.TXT",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/LICENSE.TXT",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "bytes": 1116
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "8accab41d2456519d132b871d33ff2095e297b09f64d9a46893dc6a7e09bf614",
+      "bytes": 392
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props",
+      "sha256": "5473a5824a7d7ba105c59bab19e7ea87cc4b271020027998fa74740049ac523e",
+      "bytes": 20168
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Build.props",
+      "sha256": "7140c09cd67b070a2a72b0a60fe6338222559e1e61390afe8acca92df7fa5f96",
+      "bytes": 9123
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/global.json",
+      "sha256": "01ee3477d11c7c09353bbc87749c12da10ac4fa9bb49ca7a9f5ce91cb5004021",
+      "bytes": 1026
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "eng/dependabot/dependabot.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/eng/dependabot/dependabot.csproj",
+      "sha256": "d9ade2c7b8b90e648792afb3c3a4d4f5627f4d1b13dcfbfe7c4194b8bbe1bf09",
+      "bytes": 187
+    },
+    {
+      "path": "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "sha256": "8dbbce3e48168ed8e1294ea65a9ea82d82bffaaa0e4b5dcc32691c46fe43176e",
+      "bytes": 483
+    },
+    {
+      "path": "src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj",
+      "sha256": "0082f7fc41a9a662c1350175c7c0937c3546839013149a70f50ef0d48762a28d",
+      "bytes": 4921
+    },
+    {
+      "path": "src/BlazorWasmSdk/Tool/Microsoft.NET.Sdk.BlazorWebAssembly.Tool.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/BlazorWasmSdk/Tool/Microsoft.NET.Sdk.BlazorWebAssembly.Tool.csproj",
+      "sha256": "e1c4a9e5fb5cccbb70a74fb8db74ce66cc47c050febaff99a494b93ae1d7e2e5",
+      "bytes": 324
+    },
+    {
+      "path": "src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj",
+      "sha256": "c07b8fd32dc57a270a3c22b7875082638cbbc42bfe11c8ffff89463d42d7d18a",
+      "bytes": 2229
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Monitor.OpenTelemetry.Exporter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Basic.CompilerLog.Util",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet.Diagnostics.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "JsonSchema.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.DeveloperCertificates.XPlat",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Razor.Extensions.Tooling.Internal",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.TestHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.NuGetSdkResolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.TaskAuthoring.Analyzer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.InMemory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.PersistentStorage.FileSystem",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzer.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.BuildClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Contracts",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeStyle",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Razor.Tooling.Internal",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.CodeStyle",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.ExternalAccess.HotReload",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.CodeFix.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.CodeRefactoring.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Css.Parser",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DiaSymReader",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Deployment.DotNet.Releases",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Installers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Templating",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Workloads",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Installer.Windows.Security.TestData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.SignCheckTask",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.XUnitV3Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ObjectPool",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.FSharp.Compiler",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IO.Redist",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Net.Compilers.Toolset.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Management.Infrastructure",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.HostModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.ProjectData.Tasks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Sdk.Razor.SourceGenerators.Transport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.App.Runtime.win-x86",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.App.Runtime.win-x64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.App.Runtime.win-arm64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.DotNetHostResolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.Targets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Signed.Wix",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TestPlatform.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TestPlatform.CLI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TestPlatform.ObjectModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Composition",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Setup.Configuration.Interop",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.SolutionPersistence",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Web.Deployment",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Web.Xdt",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Win32.SystemEvents",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Windows.CsWin32",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Wix",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Bal.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Dependency.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Dtf.WindowsInstaller",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Heat",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Util.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.UI.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSBuild.StructuredLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TypeScript.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Build.Tasks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Build.Tasks.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Build.Tasks.Pack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.CommandLine.XPlat",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Commands",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Credentials",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Frameworks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.LibraryModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Localization",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Packaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.ProjectModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Protocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Versioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "runtime.linux-musl-x64.Microsoft.NETCore.DotNetHostResolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "runtime.linux-x64.Microsoft.NETCore.DotNetHostResolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "runtime.osx-x64.Microsoft.NETCore.DotNetHostResolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StyleCop.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CodeDom",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine.NamingConventionBinder",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.Composition",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Composition.AttributedModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Composition.Convention",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Composition.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Composition.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Composition.TypedParts",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Hashing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.MetadataLoadContext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Resources.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.ProtectedData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Permissions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceProcess.ServiceController",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Encoding.CodePages",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Windows.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Valleysoft.DockerCredsProvider",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xunit.Combinatorial",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.extensibility.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Localization",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Locator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Tasks.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.StringTools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Localization",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Locator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Tasks.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.StringTools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PolySharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit",
+      "file": "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.visualstudio",
+      "file": "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../MyProject.Console/MyProject.Console.csproj",
+      "file": "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Build.Framework",
+      "file": "src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.IO.Hashing",
+      "file": "src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine",
+      "file": "src/BlazorWasmSdk/Tool/Microsoft.NET.Sdk.BlazorWebAssembly.Tool.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/BlazorWasmSdk/Tool/Microsoft.NET.Sdk.BlazorWebAssembly.Tool.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis",
+      "file": "src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Test.Utilities\\Test.Utilities.csproj",
+      "file": "src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.CodeAnalysis.NetAnalyzers\\Microsoft.CodeAnalysis.NetAnalyzers.csproj",
+      "file": "src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.CodeAnalysis.CSharp.NetAnalyzers\\Microsoft.CodeAnalysis.CSharp.NetAnalyzers.csproj",
+      "file": "src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.CodeAnalysis.VisualBasic.NetAnalyzers\\Microsoft.CodeAnalysis.VisualBasic.NetAnalyzers.vbproj",
+      "file": "src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj",
+      "url": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/src/Microsoft.CodeAnalysis.NetAnalyzers/tests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests/Microsoft.CodeAnalysis.NetAnalyzers.UnitTests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/project-system",
+      "source": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/sdk",
+      "source": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/sdk",
+      "source": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet",
+      "source": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/install-scripts",
+      "source": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/sdk",
+      "source": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/sdk",
+      "source": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/sdk",
+      "source": "https://github.com/dotnet/sdk/blob/c70b3856e7948678daa3950ec5517759754bf47c/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "benchmarks/MicroBenchmark/MicroBenchmark.csproj",
+      "documentation/TemplateEngine/Samples/Microsoft.TemplateEngine.Samples.csproj",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/MyProject.StarterWeb.csproj",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console/MyProject.Console.csproj",
+      "documentation/TemplateEngine/Samples/content/06-console-csharp-fsharp/MyProject.Con.CSharp/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/07-param-with-custom-short-name/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/08-restore-on-create/MyProject.Con.CSharp/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/09-replace-onlyif-after/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/10-symbol-from-date/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/11-change-string-casing/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/12-random-number/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/13-constant-value/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/14-guid/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/15-computed-symbol/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/16-string-value-transform/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/17-rename-file/MyProject.Con/MyProject.Con.csproj",
+      "eng/common/internal/Tools.csproj",
+      "eng/dependabot/dependabot.csproj",
+      "src/BlazorWasmSdk/.editorconfig",
+      "src/BlazorWasmSdk/BlazorWasmSdk.slnf",
+      "src/BlazorWasmSdk/Sdk/Sdk.props",
+      "src/BlazorWasmSdk/Sdk/Sdk.targets",
+      "src/BlazorWasmSdk/Targets/BlazorWasm.web.config",
+      "src/BlazorWasmSdk/Targets/Microsoft.NET.Sdk.BlazorWebAssembly.5_0.targets",
+      "src/BlazorWasmSdk/Targets/Microsoft.NET.Sdk.BlazorWebAssembly.6_0.targets",
+      "src/BlazorWasmSdk/Targets/Microsoft.NET.Sdk.BlazorWebAssembly.Current.props",
+      "src/BlazorWasmSdk/Targets/Microsoft.NET.Sdk.BlazorWebAssembly.Current.targets",
+      "src/BlazorWasmSdk/Targets/Microsoft.NET.Sdk.BlazorWebAssembly.ServiceWorkerAssetsManifest.5_0.targets",
+      "src/BlazorWasmSdk/Tasks/AssetsManifestFile.cs",
+      "src/BlazorWasmSdk/Tasks/BlazorReadSatelliteAssemblyFile.cs",
+      "src/BlazorWasmSdk/Tasks/BlazorWriteSatelliteAssemblyFile.cs",
+      "src/BlazorWasmSdk/Tasks/BootExtensionJsonData.cs",
+      "src/BlazorWasmSdk/Tasks/BootJsonData.cs",
+      "src/BlazorWasmSdk/Tasks/BrotliCompress.cs",
+      "src/BlazorWasmSdk/Tasks/CreateBlazorTrimmerRootDescriptorFile.cs",
+      "src/BlazorWasmSdk/Tasks/GZipCompress.cs",
+      "src/BlazorWasmSdk/Tasks/GenerateBlazorBootExtensionJson.cs",
+      "src/BlazorWasmSdk/Tasks/GenerateBlazorWebAssemblyBootJson50.cs",
+      "src/BlazorWasmSdk/Tasks/GenerateServiceWorkerAssetsManifest.cs",
+      "src/BlazorWasmSdk/Tasks/Microsoft.NET.Sdk.BlazorWebAssembly.Tasks.csproj",
+      "src/BlazorWasmSdk/Tasks/UpgradeLegacyWasmStaticWebAssets.cs",
+      "src/BlazorWasmSdk/Tool/Microsoft.NET.Sdk.BlazorWebAssembly.Tool.csproj",
+      "src/BlazorWasmSdk/Tool/Program.cs",
+      "src/BlazorWasmSdk/Tool/runtimeconfig.template.json",
+      "src/Cli/AGENTS.md",
+      "src/Cli/MSBuildRuntimeReference.targets"
+    ],
+    "api": [
+      "documentation/TemplateEngine/api/Inside-the-Template-Engine.md",
+      "documentation/TemplateEngine/api/api-migration-from-net-5-to-net-6.md",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/ApiCompatServiceProvider.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/CommonResources.resx",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/Microsoft.DotNet.ApiCompat.Shared.projitems",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/Microsoft.DotNet.ApiCompat.Shared.shproj",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/RegexStringTransformer.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/RoslynResolver.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/SuppressionFileHelper.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/ValidateAssemblies.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/ValidateAssembliesOptions.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/ValidatePackage.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/ValidatePackageOptions.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.cs.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.de.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.es.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.fr.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.it.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.ja.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.ko.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.pl.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.pt-BR.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.ru.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.tr.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.zh-Hans.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Shared/xlf/CommonResources.zh-Hant.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/Microsoft.DotNet.ApiCompat.Task.csproj",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/README.md",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/Resources.resx",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/SuppressibleMSBuildLog.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/ValidateAssembliesTask.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/ValidatePackageTask.cs",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/build/Microsoft.DotNet.ApiCompat.Task.targets",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/build/Microsoft.DotNet.ApiCompat.ValidateAssemblies.Common.targets",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/build/Microsoft.DotNet.ApiCompat.ValidateAssemblies.CrossTargeting.targets",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/build/Microsoft.DotNet.ApiCompat.ValidateAssemblies.NonCrossTargeting.targets",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/buildMultiTargeting/Microsoft.DotNet.ApiCompat.Task.targets",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.cs.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.de.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.es.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.fr.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.it.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.ja.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.ko.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.pl.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.pt-BR.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.ru.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.tr.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.zh-Hans.xlf",
+      "src/Compatibility/ApiCompat/Microsoft.DotNet.ApiCompat.Task/xlf/Resources.zh-Hant.xlf"
+    ],
+    "tests": [
+      "src/Cli/Microsoft.DotNet.Cli.Definitions/Commands/Test/OutputOptions.cs",
+      "src/Cli/Microsoft.DotNet.Cli.Definitions/Commands/Test/TestCommandDefinition.MicrosoftTestingPlatform.cs",
+      "src/Cli/Microsoft.DotNet.Cli.Definitions/Commands/Test/TestCommandDefinition.VSTest.cs",
+      "src/Cli/Microsoft.DotNet.Cli.Definitions/Commands/Test/TestCommandDefinition.cs",
+      "src/Cli/dotnet/Commands/Test/AotTestCommand.cs",
+      "src/Cli/dotnet/Commands/Test/CliConstants.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/ArtifactPostProcessingManager.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/ArtifactPostProcessingPlanner.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/ArtifactPostProcessingTelemetry.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/CtrlCCancellationManager.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/ExitCode.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/HttpTestHostGateway.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/INamedPipeBase.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/INamedPipeSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/IRequest.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/IResponse.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/AzureDevOpsLogMessage.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/CommandLineOptionMessages.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/DiscoveredTestMessages.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/DisplayMessage.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/FileArtifactMessages.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/HandshakeMessage.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/ServerControlMessage.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/TestInProgressMessages.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/TestResultMessages.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/TestSessionEvent.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/UnknownMessage.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/VoidResponse.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Models/WaitForServerControlRequest.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/NamedPipeBase.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/NamedPipeServer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/ObjectFieldIds.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/ProtocolMessageSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/AzureDevOpsLogMessageSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/BaseSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/CommandLineOptionMessagesSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/DiscoveredTestMessagesSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/DisplayMessageSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/FileArtifactMessagesSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/HandshakeMessageSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/RegisterSerializers.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/ServerControlMessageSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/TestInProgressMessagesSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/TestResultMessagesSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/TestSessionEventSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/UnknownMessageSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/VoidResponseSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/IPC/Serializers/WaitForServerControlRequestSerializer.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/ITestHandler.cs",
+      "src/Cli/dotnet/Commands/Test/MTP/Logger.cs"
+    ],
+    "docs": [
+      "documentation/MigrationPlan/CLISDKPlan.md",
+      "documentation/ProjectJsonToCSProj.md",
+      "documentation/README.md",
+      "documentation/TemplateEngine/Available-Symbols-Generators.md",
+      "documentation/TemplateEngine/Available-templates-for-dotnet-new.md",
+      "documentation/TemplateEngine/Binding-and-project-context-evaluation.md",
+      "documentation/TemplateEngine/Blog-posts.md",
+      "documentation/TemplateEngine/Conditional-processing-and-comment-syntax.md",
+      "documentation/TemplateEngine/Conditions.md",
+      "documentation/TemplateEngine/Constraints.md",
+      "documentation/TemplateEngine/Exit-Codes.md",
+      "documentation/TemplateEngine/Home.md",
+      "documentation/TemplateEngine/Naming-and-default-value-forms.md",
+      "documentation/TemplateEngine/Post-Action-Registry.md",
+      "documentation/TemplateEngine/README.md",
+      "documentation/TemplateEngine/Reference-for-template.json.md",
+      "documentation/TemplateEngine/Reserved-Aliases.md",
+      "documentation/TemplateEngine/Samples/Microsoft.TemplateEngine.Samples.csproj",
+      "documentation/TemplateEngine/Samples/README.md",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/MyProject.Con/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/MyProject.Con/Program.cs",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/README.md",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/MyProject.Con/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/MyProject.Con/Program.cs",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/README.md",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Controllers/HomeController.cs",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/MyProject.StarterWeb.csproj",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Program.cs",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Startup.cs",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Home/About.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Home/Contact.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Home/Index.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Shared/Error.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Shared/_Layout.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/_ViewImports.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/_ViewStart.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/appsettings.Development.json",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/appsettings.json",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/README.md",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/Program.cs",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/contact.txt",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/README.md",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyTest.cs"
+    ],
+    "samples": [
+      "documentation/TemplateEngine/Samples/Microsoft.TemplateEngine.Samples.csproj",
+      "documentation/TemplateEngine/Samples/README.md",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/MyProject.Con/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/MyProject.Con/Program.cs",
+      "documentation/TemplateEngine/Samples/content/01-basic-template/README.md",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/MyProject.Con/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/MyProject.Con/Program.cs",
+      "documentation/TemplateEngine/Samples/content/02-add-parameters/README.md",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Controllers/HomeController.cs",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/MyProject.StarterWeb.csproj",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Program.cs",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Startup.cs",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Home/About.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Home/Contact.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Home/Index.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Shared/Error.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/Shared/_Layout.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/_ViewImports.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/Views/_ViewStart.cshtml",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/appsettings.Development.json",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/MyProject.StarterWeb/appsettings.json",
+      "documentation/TemplateEngine/Samples/content/03-optional-page/README.md",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/Program.cs",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/MyProject.Con/contact.txt",
+      "documentation/TemplateEngine/Samples/content/04-parameter-from-list/README.md",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyProject.Console.Test.csproj",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console.Test/MyTest.cs",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console/MyProject.Console.csproj",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/MyProject.Console/Sample.cs",
+      "documentation/TemplateEngine/Samples/content/05-multi-project/README.md",
+      "documentation/TemplateEngine/Samples/content/06-console-csharp-fsharp/MyProject.Con.CSharp/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/06-console-csharp-fsharp/MyProject.Con.CSharp/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/06-console-csharp-fsharp/MyProject.Con.CSharp/Program.cs",
+      "documentation/TemplateEngine/Samples/content/06-console-csharp-fsharp/MyProject.Con.FSharp/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/06-console-csharp-fsharp/MyProject.Con.FSharp/MyProject.Con.fsproj",
+      "documentation/TemplateEngine/Samples/content/06-console-csharp-fsharp/MyProject.Con.FSharp/Program.fs",
+      "documentation/TemplateEngine/Samples/content/06-console-csharp-fsharp/README.md",
+      "documentation/TemplateEngine/Samples/content/07-param-with-custom-short-name/MyProject.Con/.template.config/dotnetcli.host.json",
+      "documentation/TemplateEngine/Samples/content/07-param-with-custom-short-name/MyProject.Con/.template.config/template.json",
+      "documentation/TemplateEngine/Samples/content/07-param-with-custom-short-name/MyProject.Con/MyProject.Con.csproj",
+      "documentation/TemplateEngine/Samples/content/07-param-with-custom-short-name/MyProject.Con/Program.cs",
+      "documentation/TemplateEngine/Samples/content/07-param-with-custom-short-name/MyProject.Con/contact.txt",
+      "documentation/TemplateEngine/Samples/content/07-param-with-custom-short-name/README.md",
+      "documentation/TemplateEngine/Samples/content/08-restore-on-create/MyProject.Con.CSharp/.template.config/dotnetcli.host.json"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

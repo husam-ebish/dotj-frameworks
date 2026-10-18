@@ -1,0 +1,467 @@
+{
+  "id": "DJ-033",
+  "repo": "dotj-refit",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/reactiveui/refit",
+  "canonical_url": "https://github.com/reactiveui/refit",
+  "redirect_observed": false,
+  "inspected_revision": "92ae878250798dc103a01304704a99bb8033ed77",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/LICENSE",
+      "sha256": "36c8a0b3cc328ffbb65a0bc3e88da80e5e0663097ccf067178e4562afe5de507",
+      "bytes": 2687
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/README.md",
+      "sha256": "510282f9d5b856354841a2056f01e237324a8bdb808d820f4b29f7a10f57195b",
+      "bytes": 13535
+    },
+    {
+      "path": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj",
+      "sha256": "283996f9dbfaf49e5ff77ca2a8b62702b6654055ca1c5aaa36c861c5cb2c8954",
+      "bytes": 5819
+    },
+    {
+      "path": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props",
+      "sha256": "90c49d0997610af812ac45b9c3a0315c26969d982ef8afff66c840702571b347",
+      "bytes": 7386
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "ReactiveUI.Primitives",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Text.Json",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Net.Http.Json",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Net.ServerSentEvents",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\InterfaceStubGenerator.Roslyn48\\InterfaceStubGenerator.Roslyn48.csproj",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Refit.Analyzers.Roslyn48\\Refit.Analyzers.Roslyn48.csproj",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Refit.CodeFixes.Roslyn48\\Refit.CodeFixes.Roslyn48.csproj",
+      "file": "src/Refit/Refit.csproj",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Refit/Refit.csproj"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ReactiveUI.Primitives",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MinVer",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StyleSharp.Analyzers",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PerformanceSharp.Analyzers",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SecuritySharp.Analyzers",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PublicApiSharp.Analyzers",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "TUnit",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.CodeCoverage",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Sinks.Console",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Resilience",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.InMemory",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.RegularExpressions",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http.Json",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.ServerSentEvents",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http.Json",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.ServerSentEvents",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.WebAssembly",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.WebUtilities",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.WebAssembly",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.WebUtilities",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.WebAssembly",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.WebUtilities",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.WebAssembly",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.WebAssembly.DevServer",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.WebUtilities",
+      "file": "src/Directory.Packages.props",
+      "url": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/src/Directory.Packages.props"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/reactiveui/refit",
+      "source": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/README.md"
+    },
+    {
+      "url": "https://github.com/reactiveui/refit",
+      "source": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/README.md"
+    },
+    {
+      "url": "https://github.com/reactiveui/refit",
+      "source": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/README.md"
+    },
+    {
+      "url": "https://github.com/reactiveui/refit",
+      "source": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/README.md"
+    },
+    {
+      "url": "https://github.com/reactiveui/refit",
+      "source": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/README.md"
+    },
+    {
+      "url": "https://github.com/reactiveui/refit",
+      "source": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/README.md"
+    },
+    {
+      "url": "https://github.com/reactiveui/refit",
+      "source": "https://github.com/reactiveui/refit/blob/92ae878250798dc103a01304704a99bb8033ed77/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/InterfaceStubGenerator.Roslyn48",
+      "src/InterfaceStubGenerator.Shared",
+      "src/Polyfills",
+      "src/Refit.Analyzers.Roslyn48",
+      "src/Refit.Analyzers.Shared",
+      "src/Refit.CodeFixes.Roslyn48",
+      "src/Refit.CodeFixes.Shared",
+      "src/Refit.HttpClientFactory",
+      "src/Refit.NativeAotPackageSmoke",
+      "src/Refit.NativeAotSmoke",
+      "src/Refit.NetFrameworkSmoke",
+      "src/Refit.Newtonsoft.Json",
+      "src/Refit.Reflection",
+      "src/Refit.Testing",
+      "src/Refit.Xml",
+      "src/Refit",
+      "src/Shared",
+      "src/benchmarks",
+      "src/examples",
+      "src/tests",
+      "src/Directory.Build.props",
+      "src/Directory.Build.targets",
+      "src/Directory.Packages.props",
+      "src/Refit.slnx",
+      "src/global.json",
+      "src/testconfig.json",
+      "src/Polyfills/ArgumentExceptionHelper.cs",
+      "src/Polyfills/ArgumentOutOfRangeExceptionHelper.cs",
+      "src/Polyfills/CallerArgumentExpressionAttribute.cs",
+      "src/Polyfills/CollectionExtensions.cs",
+      "src/Polyfills/CompilerFeatureRequiredAttribute.cs",
+      "src/Polyfills/DoesNotReturnIfAttribute.cs",
+      "src/Polyfills/DynamicDependencyAttribute.cs",
+      "src/Polyfills/DynamicallyAccessedMemberTypes.cs",
+      "src/Polyfills/DynamicallyAccessedMembersAttribute.cs",
+      "src/Polyfills/HashCode.Public.cs",
+      "src/Polyfills/HashCode.cs",
+      "src/Polyfills/Index.cs",
+      "src/Polyfills/IsExternalInit.cs",
+      "src/Polyfills/MaybeNullWhenAttribute.cs",
+      "src/Polyfills/MemberNotNullWhenAttribute.cs",
+      "src/Polyfills/NotNullAttribute.cs",
+      "src/Polyfills/NotNullWhenAttribute.cs",
+      "src/Polyfills/OverloadResolutionPriorityAttribute.cs",
+      "src/Polyfills/Range.cs",
+      "src/Polyfills/RequiredMemberAttribute.cs",
+      "src/Polyfills/RequiresDynamicCodeAttribute.cs",
+      "src/Polyfills/RequiresUnreferencedCodeAttribute.cs",
+      "src/Polyfills/UnconditionalSuppressMessageAttribute.cs",
+      "src/Refit/Refit.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "src/tests"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": [
+      "src/examples"
+    ]
+  },
+  "gaps": [
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded",
+    "targeted Refit/Refit.csproj: HTTP Error 404: Not Found"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

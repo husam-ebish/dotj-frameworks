@@ -1,0 +1,995 @@
+{
+  "id": "DJ-008",
+  "repo": "dotj-interactive",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/interactive",
+  "canonical_url": "https://github.com/dotnet/interactive",
+  "redirect_observed": false,
+  "inspected_revision": "098a01b9183103186805a186a7dee3a3a70b2997",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/README.md",
+      "sha256": "1525277a40ec1d8afe6bdfe0aa60bbfe7df4fc1403b524aec4d72b77f479c56d",
+      "bytes": 5577
+    },
+    {
+      "path": "License.txt",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/License.txt",
+      "sha256": "480d420fd388a3ce0cecb73d79aee3f02f70fee060e95f4727b1335feff33201",
+      "bytes": 1106
+    },
+    {
+      "path": "NOTICE.txt",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/NOTICE.txt",
+      "sha256": "aeaee0f2a74c5cbf4810b49d719c00121d9b6dca179d6d75b137671aa4bcd666",
+      "bytes": 773387
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props",
+      "sha256": "c31ed1cc75a572151a489f8510f2aaa31c72a172e650ec4e488374ec1b2c91bb",
+      "bytes": 7738
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Build.props",
+      "sha256": "a7af9f242d363fead23a405b85329ab361bb9c4330af3d793b3e07d415425362",
+      "bytes": 1947
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/global.json",
+      "sha256": "6f272585a108a776424722007ee0b382ee6aa9d1234eed0c966c2d053fbfb976",
+      "bytes": 309
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/common/internal/Tools.csproj",
+      "sha256": "8a984a70f5f86c64c02aecb1fe6c4bde9122e0bc005e68896453d74e69fa0695",
+      "bytes": 2041
+    },
+    {
+      "path": "src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj",
+      "sha256": "4382b97634c06218b24717a4147bbcbbd5fb448bb64538d65d95e1f8fa5e7769",
+      "bytes": 1154
+    },
+    {
+      "path": "eng/perf-tests/perf-tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/perf-tests/perf-tests.csproj",
+      "sha256": "ec2e8cd17bb27e950c98ff0e343e5bffc45bbcdaa5d27591a331f48d849e028d",
+      "bytes": 446
+    },
+    {
+      "path": "src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj",
+      "sha256": "ccd73beaefdede12ad22cc149b8b27cf3f00c54f4561bd9617da28520f9c883e",
+      "bytes": 1685
+    },
+    {
+      "path": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "sha256": "e6144cd5cbd1cbddab39bf31382150fc1b3b3cf129b936b38339925e5757f723",
+      "bytes": 1385
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Assent",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DuckDB.NET.Data.Full",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DuckDB.NET.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FSharp.Compiler.Service",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FSharp.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "HtmlAgilityPack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Humanizer.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Humanizer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Iced",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ICSharpCode.Decompiler",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "JsonDiffPatch.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "JsonSchema.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Markdig.Signed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Html.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.SignalR.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Kusto.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Tasks.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Scripting.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Scripting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.Analysis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.Sqlite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Diagnostics.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.PlatformAbstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Design",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "microsoft.playwright",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.PowerShell.Archive",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.PowerShell.SDK",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.PowerShell.SecretManagement",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.PowerShell.SecretStore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Reactive.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Win32.Registry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Nerdbank.Streams",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NetMQ",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PackageManagement",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Pocket.Disposable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Pocket.TypeDiscovery",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PocketLogger.For.ApplicationInsights",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PocketLogger.For.Xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PocketLogger.Subscribe",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PocketLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PowerShellGet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Sinks.RollingFileAlternate",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SkiaSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StreamJsonRpc",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.Annotations",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Drawing.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Pipelines",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reactive",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.Caching",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.Loader",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.X509Certificates",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ThreadJob",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "FrameworkReference",
+      "name": "Microsoft.AspNetCore.App",
+      "file": "src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "PocketLogger",
+      "file": "src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Microsoft.DotNet.Interactive.CSharp\\Microsoft.DotNet.Interactive.CSharp.csproj",
+      "file": "src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Microsoft.DotNet.Interactive\\Microsoft.DotNet.Interactive.csproj",
+      "file": "src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "BenchmarkDotNet",
+      "file": "eng/perf-tests/perf-tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/perf-tests/perf-tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "eng/perf-tests/perf-tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/eng/perf-tests/perf-tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "microsoft.playwright",
+      "file": "src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Pocket.Disposable",
+      "file": "src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "PocketLogger",
+      "file": "src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Microsoft.DotNet.Interactive\\Microsoft.DotNet.Interactive.csproj",
+      "file": "src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/src/Microsoft.DotNet.Interactive.Browser/Microsoft.DotNet.Interactive.Browser.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "microsoft.dotnet.interactive.csharp",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "microsoft.dotnet.interactive.fsharp",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.visualstudio",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "coverlet.collector",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AwesomeAssertions",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ClockExtension\\ClockExtension.csproj",
+      "file": "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "url": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/interactive",
+      "source": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/README.md"
+    },
+    {
+      "url": "https://github.com/jonsequitur/dotnet-repl",
+      "source": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/README.md"
+    },
+    {
+      "url": "https://github.com/pi-top/pi-top-4-.NET-Core-API",
+      "source": "https://github.com/dotnet/interactive/blob/098a01b9183103186805a186a7dee3a3a70b2997/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/common/internal/Tools.csproj",
+      "eng/perf-tests/perf-tests.csproj",
+      "samples/connect-wpf/WpfConnect.csproj",
+      "samples/extensions/ClockExtension/ClockExtension.csproj",
+      "samples/extensions/Library.InteractiveExtension/Library.InteractiveExtension.csproj",
+      "samples/extensions/Library.nuget/Library.nuget.csproj",
+      "samples/extensions/Library/Library.csproj",
+      "samples/extensions/RandomNumber/RandomNumber.csproj",
+      "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "samples/simple-fsharp-console/FSharpConsole.csproj",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Document_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.DuckDB_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Formatting_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Interactive_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Journey_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.PackageManagement_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.cs",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.csharpProject_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.csharp_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.fsharp_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.httpRequest_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.jupyter_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.kql_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.mermaid_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.mssql_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.powershell_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.sqLite_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiContract.cs",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Microsoft.DotNet.Interactive.ApiCompatibility.Tests.csproj",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Microsoft.DotNet.Interactive.ApiCompatibility.Tests.v3.ncrunchproject",
+      "src/Microsoft.DotNet.Interactive.AspNetCore.Tests/AspNetCoreTests.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore.Tests/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.AspNetCore.Tests/Microsoft.DotNet.Interactive.AspNetCore.Tests.csproj",
+      "src/Microsoft.DotNet.Interactive.AspNetCore.Tests/Microsoft.DotNet.Interactive.AspNetCore.Tests.v3.ncrunchproject",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/AspNetCoreCSharpKernelExtensions.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/AspNetCoreKernelExtension.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/EndpointRouteBuilderExtensions.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/EnhancedHttpClient.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/InteractiveHost.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/InteractiveLoggerProvider.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/LogMessage.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.csproj",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/Microsoft.DotNet.Interactive.AspNetCore.v3.ncrunchproject",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/Startup.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore/extension.dib",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/(Pocket)/LogEvents.cs",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/HtmlKernelTests.cs"
+    ],
+    "api": [
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Document_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.DuckDB_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Formatting_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Interactive_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Journey_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.PackageManagement_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.cs",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.csharpProject_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.csharp_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.fsharp_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.httpRequest_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.jupyter_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.kql_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.mermaid_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.mssql_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.powershell_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.sqLite_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiContract.cs",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Microsoft.DotNet.Interactive.ApiCompatibility.Tests.csproj",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Microsoft.DotNet.Interactive.ApiCompatibility.Tests.v3.ncrunchproject"
+    ],
+    "tests": [
+      "samples/extensions/SampleExtensions.Tests/ClockExtensionTests.cs",
+      "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Document_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.DuckDB_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Formatting_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Interactive_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.Journey_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.PackageManagement_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.cs",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.csharpProject_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.csharp_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.fsharp_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.httpRequest_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.jupyter_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.kql_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.mermaid_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.mssql_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.powershell_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiCompatibilityTests.sqLite_api_is_not_changed.approved.txt",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/ApiContract.cs",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Microsoft.DotNet.Interactive.ApiCompatibility.Tests.csproj",
+      "src/Microsoft.DotNet.Interactive.ApiCompatibility.Tests/Microsoft.DotNet.Interactive.ApiCompatibility.Tests.v3.ncrunchproject",
+      "src/Microsoft.DotNet.Interactive.AspNetCore.Tests/AspNetCoreTests.cs",
+      "src/Microsoft.DotNet.Interactive.AspNetCore.Tests/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.AspNetCore.Tests/Microsoft.DotNet.Interactive.AspNetCore.Tests.csproj",
+      "src/Microsoft.DotNet.Interactive.AspNetCore.Tests/Microsoft.DotNet.Interactive.AspNetCore.Tests.v3.ncrunchproject",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/(Pocket)/LogEvents.cs",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/HtmlKernelTests.cs",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/JavaScriptKernelTests.cs",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/Microsoft.DotNet.Interactive.Browser.Tests.csproj",
+      "src/Microsoft.DotNet.Interactive.Browser.Tests/Microsoft.DotNet.Interactive.Browser.Tests.v3.ncrunchproject",
+      "src/Microsoft.DotNet.Interactive.CSharp.Tests/CSharpKernelTests.cs",
+      "src/Microsoft.DotNet.Interactive.CSharp.Tests/Directory.Build.props",
+      "src/Microsoft.DotNet.Interactive.CSharp.Tests/Microsoft.DotNet.Interactive.CSharp.Tests.csproj",
+      "src/Microsoft.DotNet.Interactive.CSharp.Tests/Microsoft.DotNet.Interactive.CSharp.Tests.v3.ncrunchproject",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/(Recipes)/LogEvents.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/(Recipes)/MarkupTestFileFacts.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/BufferExtractorTests.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/BufferIdTests.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/BufferInliningTransformerTests.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/CSharpProjectKernelTests.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/CodeManipulation.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/CodeMergeTransformerTests.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/CodeSamples/SourceCodeProvider.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/CollectionDefinitionForPrebuildFixture.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/CompletionItemTests.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/DirectoryAccessorTests.cs",
+      "src/Microsoft.DotNet.Interactive.CSharpProject.Tests/InMemoryDirectoryAccessor.cs"
+    ],
+    "docs": [
+      "docs/FAQ.md",
+      "docs/NotebookswithJupyter.md",
+      "docs/README.md",
+      "docs/adding-jupyter-kernels.md",
+      "docs/command-line-interface.md",
+      "docs/display-output-csharp.md",
+      "docs/extending-dotnet-interactive.md",
+      "docs/formatting.md",
+      "docs/import-magic-command.md",
+      "docs/input-prompts.md",
+      "docs/javascript-overview.md",
+      "docs/jupyter-in-polyglot-notebooks.md",
+      "docs/kernel-to-client-commands.md",
+      "docs/kernels-overview.md",
+      "docs/magic-commands.md",
+      "docs/nuget-overview.md",
+      "docs/pocketview.md",
+      "docs/polyglot-with-jupyter.md",
+      "docs/small-factor-devices.md",
+      "docs/variable-sharing.md",
+      "docs/working-with-data.md",
+      "docs/working-with-html.md"
+    ],
+    "samples": [
+      "samples/.gitignore",
+      "samples/Directory.Packages.props",
+      "samples/ExtensionLab/ExtensionLab-EF.ipynb",
+      "samples/ExtensionLab/ExtensionLab-SandDance.ipynb",
+      "samples/ExtensionLab/ExtensionLab-explain.ipynb",
+      "samples/connect-wpf/App.xaml",
+      "samples/connect-wpf/App.xaml.cs",
+      "samples/connect-wpf/AssemblyInfo.cs",
+      "samples/connect-wpf/MainWindow.xaml",
+      "samples/connect-wpf/MainWindow.xaml.cs",
+      "samples/connect-wpf/MainWindowViewModel.cs",
+      "samples/connect-wpf/NuGet.config",
+      "samples/connect-wpf/WpfConnect.csproj",
+      "samples/connect-wpf/WpfConnect.sln",
+      "samples/connect-wpf/WpfFormatterMixins.cs",
+      "samples/connect-wpf/readme.ipynb",
+      "samples/extensions/ClockExtension.ipynb",
+      "samples/extensions/ClockExtension/ClockExtension.csproj",
+      "samples/extensions/ClockExtension/ClockKernelExtension.cs",
+      "samples/extensions/ClockExtension/DisplayClock.cs",
+      "samples/extensions/ClockExtension/SvgClock.cs",
+      "samples/extensions/ClockExtension/extension.dib",
+      "samples/extensions/Directory.Build.props",
+      "samples/extensions/Directory.Build.targets",
+      "samples/extensions/Library.InteractiveExtension/Library.InteractiveExtension.csproj",
+      "samples/extensions/Library.nuget/Library.nuget.csproj",
+      "samples/extensions/Library/Library.csproj",
+      "samples/extensions/RandomNumber/README.md",
+      "samples/extensions/RandomNumber/RandomNumber.csproj",
+      "samples/extensions/RandomNumber/RandomNumberExtension.cs",
+      "samples/extensions/RandomNumber/extension.dib",
+      "samples/extensions/SampleExtensions.Tests/ClockExtensionTests.cs",
+      "samples/extensions/SampleExtensions.Tests/SampleExtensions.Tests.csproj",
+      "samples/extensions/SampleExtensions.sln",
+      "samples/extensions/SampleExtensions.v3.ncrunchsolution",
+      "samples/extensions/readme.md",
+      "samples/notebooks/csharp/Docs/Displaying-output.ipynb",
+      "samples/notebooks/csharp/Docs/Formatting-outputs.ipynb",
+      "samples/notebooks/csharp/Docs/HTML.ipynb",
+      "samples/notebooks/csharp/Docs/Importing-packages.ipynb",
+      "samples/notebooks/csharp/Docs/Math-and-LaTeX.ipynb",
+      "samples/notebooks/csharp/Docs/Plotting-with-Xplot.ipynb",
+      "samples/notebooks/csharp/Docs/Programming-model.ipynb",
+      "samples/notebooks/csharp/Samples/DataFrame-Getting Started.ipynb",
+      "samples/notebooks/csharp/Samples/HousingML.ipynb",
+      "samples/notebooks/csharp/Samples/interactive-metrics.ipynb",
+      "samples/notebooks/fsharp/Docs/Displaying-output.ipynb",
+      "samples/notebooks/fsharp/Docs/Formatting-outputs.ipynb",
+      "samples/notebooks/fsharp/Docs/Importing-packages.ipynb",
+      "samples/notebooks/fsharp/Docs/Math-and-LaTeX.ipynb"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

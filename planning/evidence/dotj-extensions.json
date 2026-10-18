@@ -1,0 +1,332 @@
+{
+  "id": "DJ-006",
+  "repo": "dotj-extensions",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/extensions",
+  "canonical_url": "https://github.com/dotnet/extensions",
+  "redirect_observed": false,
+  "inspected_revision": "42a0f358b14bb27bc324939d858dd04309f30477",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/README.md",
+      "sha256": "cc6e4547ff668add4c82fe4ce570b27f6539621186131ab1668a83f9578add27",
+      "bytes": 4579
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/LICENSE",
+      "sha256": "47f0ad8ba753eae5de6178291cd8f38bbb42d2368b177f8e11714ad17c701275",
+      "bytes": 1121
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "07f3e74329ed32ac9229a75ae994b98b30aadb1d9947eee926eed3d3fc4cf0c6",
+      "bytes": 354
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/Directory.Packages.props",
+      "sha256": "34138ca0d26d48007edcbc5b5fac8e17a239e48753ee10dee6b68a5aff5b2602",
+      "bytes": 197
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/Directory.Build.props",
+      "sha256": "f187bba9edf679ccad3298111f7f42052a3f0e5168aae996cecdbf4ff61d756a",
+      "bytes": 7404
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/global.json",
+      "sha256": "07e31344c49058dad8f91fb64558c5ea9ab53b1539e9ac6275e71d2fb7dde4af",
+      "bytes": 496
+    },
+    {
+      "path": "eng/Tools/ApiChief/ApiChief.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/ApiChief/ApiChief.csproj",
+      "sha256": "07e4cf68cf2e1e3db91cdfe5ee2a84e0bef39fc81eb547edb1cbed88f56d081b",
+      "bytes": 470
+    },
+    {
+      "path": "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/DiagConfig/DiagConfig.csproj",
+      "sha256": "0edadd4b06269b733972705c9ccf6fefb51ce108cda62304b9be05495f649333",
+      "bytes": 761
+    },
+    {
+      "path": "bench/Libraries/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/bench/Libraries/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests.csproj",
+      "sha256": "969042e842ea86f2704f3cfb6c7ddafbef85c73289c70c373d47c8ed73c451ec",
+      "bytes": 727
+    },
+    {
+      "path": "src/Analyzers/Microsoft.Analyzers.Extra/Microsoft.Analyzers.Extra.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Analyzers/Microsoft.Analyzers.Extra/Microsoft.Analyzers.Extra.csproj",
+      "sha256": "01f3c74ff4c3ed2ead39a4adf8ee553d07f6847c1de598e81fa2511653bce6bc",
+      "bytes": 1213
+    },
+    {
+      "path": "src/Analyzers/Microsoft.Analyzers.Local/Microsoft.Analyzers.Local.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Analyzers/Microsoft.Analyzers.Local/Microsoft.Analyzers.Local.csproj",
+      "sha256": "01b76019c1a330f7671d704128ff6ae12a08956ed0ee9f788f31c0f937cbeef3",
+      "bytes": 1239
+    },
+    {
+      "path": "src/Libraries/Microsoft.Extensions.Http.Resilience/Microsoft.Extensions.Http.Resilience.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Libraries/Microsoft.Extensions.Http.Resilience/Microsoft.Extensions.Http.Resilience.csproj",
+      "sha256": "c63de5ed7fc520cbb856ed216b53963e9b5f0123170e937a82f19f863c34086e",
+      "bytes": 3834
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine",
+      "file": "eng/Tools/ApiChief/ApiChief.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/ApiChief/ApiChief.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine.NamingConventionBinder",
+      "file": "eng/Tools/ApiChief/ApiChief.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/ApiChief/ApiChief.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "ICSharpCode.Decompiler",
+      "file": "eng/Tools/ApiChief/ApiChief.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/ApiChief/ApiChief.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/DiagConfig/DiagConfig.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine",
+      "file": "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/DiagConfig/DiagConfig.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine.NamingConventionBinder",
+      "file": "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/DiagConfig/DiagConfig.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/DiagConfig/DiagConfig.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/DiagConfig/DiagConfig.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/DiagConfig/DiagConfig.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "YamlDotNet",
+      "file": "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/eng/Tools/DiagConfig/DiagConfig.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\src\\Libraries\\Microsoft.AspNetCore.Diagnostics.Middleware\\Microsoft.AspNetCore.Diagnostics.Middleware.csproj",
+      "file": "bench/Libraries/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/bench/Libraries/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\src\\Libraries\\Microsoft.Extensions.Compliance.Testing\\Microsoft.Extensions.Compliance.Testing.csproj",
+      "file": "bench/Libraries/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/bench/Libraries/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "src/Analyzers/Microsoft.Analyzers.Extra/Microsoft.Analyzers.Extra.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Analyzers/Microsoft.Analyzers.Extra/Microsoft.Analyzers.Extra.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "src/Analyzers/Microsoft.Analyzers.Extra/Microsoft.Analyzers.Extra.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Analyzers/Microsoft.Analyzers.Extra/Microsoft.Analyzers.Extra.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "src/Analyzers/Microsoft.Analyzers.Local/Microsoft.Analyzers.Local.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Analyzers/Microsoft.Analyzers.Local/Microsoft.Analyzers.Local.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "src/Analyzers/Microsoft.Analyzers.Local/Microsoft.Analyzers.Local.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Analyzers/Microsoft.Analyzers.Local/Microsoft.Analyzers.Local.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Microsoft.Extensions.Resilience\\Microsoft.Extensions.Resilience.csproj",
+      "file": "src/Libraries/Microsoft.Extensions.Http.Resilience/Microsoft.Extensions.Http.Resilience.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Libraries/Microsoft.Extensions.Http.Resilience/Microsoft.Extensions.Http.Resilience.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Microsoft.Extensions.Http.Diagnostics\\Microsoft.Extensions.Http.Diagnostics.csproj",
+      "file": "src/Libraries/Microsoft.Extensions.Http.Resilience/Microsoft.Extensions.Http.Resilience.csproj",
+      "url": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/src/Libraries/Microsoft.Extensions.Http.Resilience/Microsoft.Extensions.Http.Resilience.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/extensions",
+      "source": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-api-docs",
+      "source": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/README.md"
+    },
+    {
+      "url": "https://github.com/Microsoft/dotnet",
+      "source": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet-foundation/Home",
+      "source": "https://github.com/dotnet/extensions/blob/42a0f358b14bb27bc324939d858dd04309f30477/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "bench/Libraries/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests/Microsoft.AspNetCore.Diagnostics.Middleware.PerformanceTests.csproj",
+      "bench/Libraries/Microsoft.Extensions.Http.Diagnostics.PerformanceTests/Microsoft.Extensions.Http.Diagnostics.PerformanceTests.csproj",
+      "bench/Libraries/Microsoft.Extensions.Http.Resilience.PerformanceTests/Microsoft.Extensions.Http.Resilience.PerformanceTests.csproj",
+      "bench/Libraries/Microsoft.Extensions.Resilience.PerformanceTests/Microsoft.Extensions.Resilience.PerformanceTests.csproj",
+      "bench/Libraries/Microsoft.Extensions.Telemetry.PerformanceTests/Microsoft.Extensions.Telemetry.PerformanceTests.csproj",
+      "eng/Tools/ApiChief/ApiChief.csproj",
+      "eng/Tools/DiagConfig/DiagConfig.csproj",
+      "eng/Tools/DiagPublisher/DiagPublisher.csproj",
+      "eng/common/internal/Tools.csproj",
+      "src/Analyzers/.editorconfig",
+      "src/Analyzers/Directory.Build.props",
+      "src/Analyzers/Directory.Build.targets",
+      "src/Analyzers/Microsoft.Analyzers.Extra/AsyncCallInsideUsingBlockAnalyzer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/AsyncMethodWithoutCancellation.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/Arrays.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/CallAnalyzer.Handlers.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/CallAnalyzer.Registrar.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/CallAnalyzer.State.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/CallAnalyzer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/Fixers/LegacyLoggingFixer.FixDetails.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/Fixers/LegacyLoggingFixer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/LegacyCollection.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/LegacyLogging.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/Split.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/StartsEndsWith.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/StaticTime.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CallAnalysis/ValueTuple.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/CoalesceAnalyzer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/ConditionalAccessAnalyzer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/DiagDescriptors.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/MakeExeTypesInternalAnalyzer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/MakeExeTypesInternalFixer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/Microsoft.Analyzers.Extra.csproj",
+      "src/Analyzers/Microsoft.Analyzers.Extra/Resources.Designer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/Resources.resx",
+      "src/Analyzers/Microsoft.Analyzers.Extra/UsingToStringInLoggersAnalyzer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/Utilities/CompilationExtensions.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/Utilities/OperationExtensions.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/Utilities/SymbolExtensions.cs",
+      "src/Analyzers/Microsoft.Analyzers.Extra/Utilities/SyntaxNodeExtensions.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/ApiLifecycleAnalyzer.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/AssemblyAnalysis.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/Json/JsonArray.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/Json/JsonObject.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/Json/JsonObjectExtensions.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/Json/JsonParseException.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/Json/JsonReader.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/Json/JsonValue.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/Json/JsonValueType.cs",
+      "src/Analyzers/Microsoft.Analyzers.Local/ApiLifecycle/Json/ParsingError.cs"
+    ],
+    "api": [],
+    "tests": [
+      "scripts/Slngen.Tests.ps1",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/ado.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/adoHostRoot.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/adoResize.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/announcer.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/booleanOnlySuite.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/casesView.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/chronologicalExecutions.test.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/comparisonAria.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/comparisonMissingMetrics.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/diagnostics.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/dumbbellGeometry.test.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/exec-rescope.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/filterTree.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/fixtures/richDataset.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/historyMetricTabIds.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/historyOrdering.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/keyboardNavigation.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/metricDirection.test.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/metricModel.test.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/metricPanel.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/moversOrdering.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/newCase.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/overviewView.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/prettifyJson.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/scopeDrawer.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/setup.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/summary.smoke.test.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/summaryCollision.test.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/summaryEmpty.test.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/transcript.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/trendChart.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/viewModels.test.ts",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/viewRouter.test.tsx",
+      "src/Libraries/Microsoft.Extensions.AI.Evaluation.Reporting/TypeScript/test/views.test.tsx",
+      "src/Packages/Microsoft.Extensions.StaticAnalysis/build/config/Test.globalconfig",
+      "test/.editorconfig",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/AsyncCallInsideUsingBlockAnalyzerTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/AsyncMethodWithoutCancellationTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CallAnalysis/ArraysTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CallAnalysis/LegacyCollectionTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CallAnalysis/LegacyLoggingTests.Extra.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CallAnalysis/LegacyLoggingTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CallAnalysis/SplitTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CallAnalysis/StartsEndsWithTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CallAnalysis/StaticTimeTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CallAnalysis/ValueTupleTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/CoalesceAnalyzerTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/ConditionalAccessAnalyzerTests.cs",
+      "test/Analyzers/Microsoft.Analyzers.Extra.Tests/MakeExeTypesInternalTests.cs"
+    ],
+    "docs": [
+      "docs/building.md",
+      "docs/list-of-diagnostics.md"
+    ],
+    "samples": [
+      "test/Libraries/Microsoft.Extensions.ServiceDiscovery.Dns.Tests.Fuzzing/corpus-seed/WriteDomainNameRoundTripFuzzer/example"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

@@ -1,0 +1,264 @@
+{
+  "id": "DJ-052",
+  "repo": "dotj-mock",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/devlooped/moq",
+  "canonical_url": "https://github.com/devlooped/moq",
+  "redirect_observed": false,
+  "inspected_revision": "bdf16e758e8022c40cef2bfd025181f845bbd2a9",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "global.json",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/global.json",
+      "sha256": "0579bd345a981e8531e1afd7b2bf1ee8bb14d9592cc4ba3f15e1651c851b7e2b",
+      "bytes": 70
+    },
+    {
+      "path": "license.txt",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/license.txt",
+      "sha256": "e3fda7a9ea6252ae97d0f7485799dea0341f0b2a25e054bf7c34437c5c08fe7f",
+      "bytes": 1096
+    },
+    {
+      "path": "readme.md",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md",
+      "sha256": "88049bfd801eb287aeaccc614a6f319a8f7bb764e6e0421092f8b5a9b075e436",
+      "bytes": 7959
+    },
+    {
+      "path": "Moq.slnx",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/Moq.slnx",
+      "sha256": "e4289d684e851067fa2684cb4b4838d9032361d5351e5bc86b73cf6f9ba81c70",
+      "bytes": 884
+    },
+    {
+      "path": "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "sha256": "32f9815672c64ebabbf7a15c00e22a8600ac45620e92dcae2f1625d0514cb28d",
+      "bytes": 734
+    },
+    {
+      "path": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "sha256": "8fac461f006b1108e0d5358fd4498fd71c54fdd13981917253201f88e6ed43c8",
+      "bytes": 1277
+    },
+    {
+      "path": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj",
+      "sha256": "88468ba6dbea7be739bea53f369c06bcbf5431c1b9929725783c8c87aaefb9af",
+      "bytes": 762
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "NuGetizer",
+      "file": "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.TestPlatform.ObjectModel",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.console",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.msbuild",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.visualstudio",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Moq.CodeAnalysis\\Moq.CodeAnalysis.csproj",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Moq\\Moq.csproj",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NuGetizer",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "IFluentInterface",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CSharp",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeStyle",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Moq.Sdk\\Moq.Sdk.csproj",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Moq.DynamicProxy\\Moq.DynamicProxy.csproj",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/moq/moq",
+      "source": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md"
+    },
+    {
+      "url": "https://github.com/moq/moq",
+      "source": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md"
+    },
+    {
+      "url": "https://github.com/moq/moq",
+      "source": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md"
+    },
+    {
+      "url": "https://github.com/moq/moq",
+      "source": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md"
+    },
+    {
+      "url": "https://github.com/devlooped/moq",
+      "source": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md"
+    },
+    {
+      "url": "https://github.com/devlooped/sponsors",
+      "source": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md"
+    },
+    {
+      "url": "https://github.com/sponsors/devlooped",
+      "source": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md"
+    },
+    {
+      "url": "https://github.com/devlooped/sponsors",
+      "source": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Acceptance",
+      "src/Moq.CodeAnalysis.UnitTests",
+      "src/Moq.CodeAnalysis",
+      "src/Moq.CodeFixes.UnitTests",
+      "src/Moq.CodeFixes",
+      "src/Moq.DynamicProxy",
+      "src/Moq.Package",
+      "src/Moq.Sdk.Tests",
+      "src/Moq.Sdk",
+      "src/Moq.StaticProxy.UnitTests",
+      "src/Moq.StaticProxy",
+      "src/Moq.Tests",
+      "src/Moq.Vsix",
+      "src/Moq",
+      "src/Directory.Build.props",
+      "src/Directory.Build.targets",
+      "src/Directory.Packages.props",
+      "src/Directory.props",
+      "src/Directory.targets",
+      "src/Moq.snk",
+      "src/nuget.config",
+      "src/Acceptance/Dynamic.Basic",
+      "src/Acceptance/Dynamic",
+      "src/Acceptance/Static",
+      "src/Acceptance/Acceptance.sln",
+      "src/Acceptance/Directory.Build.props",
+      "src/Acceptance/Directory.Build.targets",
+      "src/Acceptance/nuget.config",
+      "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "src/Moq.CodeFixes.UnitTests/Moq.CodeFixes.UnitTests.csproj",
+      "src/Moq.CodeFixes/Moq.CodeFixes.csproj",
+      "src/Moq.DynamicProxy/Moq.DynamicProxy.csproj",
+      "src/Moq.Sdk.Tests/Moq.Sdk.Tests.csproj",
+      "src/Moq.Sdk/Moq.Sdk.csproj",
+      "src/Moq.StaticProxy.UnitTests/Moq.StaticProxy.UnitTests.csproj",
+      "src/Moq.StaticProxy/Moq.StaticProxy.csproj",
+      "src/Moq.Tests/Moq.Tests.csproj",
+      "src/Moq.Vsix/Moq.Vsix.csproj",
+      "src/Moq/Moq.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "src/Moq.Sdk.Tests",
+      "src/Moq.Tests",
+      "src/Moq.Sdk.Tests/Moq.Sdk.Tests.csproj",
+      "src/Moq.Tests/Moq.Tests.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

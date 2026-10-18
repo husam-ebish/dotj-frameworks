@@ -1,0 +1,485 @@
+{
+  "id": "DJ-036",
+  "repo": "dotj-swagger",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+  "canonical_url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+  "redirect_observed": false,
+  "inspected_revision": "1e2b358b23cb9f041e8a395d4541d46566be7f81",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "master",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Build.props",
+      "sha256": "9ba2873261b3645879a6bd0b43f5deea2be663fea248b8d2de395fccc3a1bbd1",
+      "bytes": 4301
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props",
+      "sha256": "8d11f24408ccd0198f51db6296dd8b33a35c8a479fa9b83d96564ceed6f1fd19",
+      "bytes": 2187
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/LICENSE",
+      "sha256": "c87a9ab2520595bc7c31343b5250e8f3779a65c6051612118b0accd200f24d07",
+      "bytes": 1081
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md",
+      "sha256": "520816104062a7a6d15aececf497e3fff848587e796c91582b6e8f5fcd37141a",
+      "bytes": 39481
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/global.json",
+      "sha256": "23a9248c5e1bb07df11f267af391f6d32b33bd2e99d7415b592e8ddf9d869bb2",
+      "bytes": 183
+    },
+    {
+      "path": "Swashbuckle.AspNetCore.slnx",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Swashbuckle.AspNetCore.slnx",
+      "sha256": "7e3a60f2a59e54d7084f6b0d7a076c1588b1ddaff1db67b802db12ade6f2a98c",
+      "bytes": 5115
+    },
+    {
+      "path": "src/Swashbuckle.AspNetCore.Annotations/Swashbuckle.AspNetCore.Annotations.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.Annotations/Swashbuckle.AspNetCore.Annotations.csproj",
+      "sha256": "f1c8479acc167aedbec87bc0042a3f193deb74d20d176fb8344f544b04674e9e",
+      "bytes": 1458
+    },
+    {
+      "path": "src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "sha256": "ccc860d6bf869a2b16aa7e58fb5ce92e75b72263d3e6a5509d9462a00c400ab1",
+      "bytes": 1537
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "IdentityServer4",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "IdentityServer4.AccessTokenValidation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MartinCostello.Logging.XUnit.v3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.NewtonsoftJson",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Versioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.TestHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.InMemory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Kiota.Bundle",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.OpenApi",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.OpenApi.YamlReader",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Playwright",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.CodeCoverage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSBuild.ProjectCreation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NJsonSchema",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSubstitute",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSwag.CodeGeneration.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSwag.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Verify.XunitV3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.extensibility.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.mtp-v2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/Directory.Packages.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Swashbuckle.AspNetCore.SwaggerGen\\Swashbuckle.AspNetCore.SwaggerGen.csproj",
+      "file": "src/Swashbuckle.AspNetCore.Annotations/Swashbuckle.AspNetCore.Annotations.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.Annotations/Swashbuckle.AspNetCore.Annotations.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "src/Swashbuckle.AspNetCore.Annotations/Swashbuckle.AspNetCore.Annotations.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.Annotations/Swashbuckle.AspNetCore.Annotations.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.OpenApi",
+      "file": "src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/OpenAPI.NET",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/OpenAPI.NET",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/OpenAPI.NET",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/swagger-api/swagger-ui",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/swagger-api/swagger-ui",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/swagger-api/swagger-ui",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/Redocly/redoc",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/Redocly/redoc",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/Redocly/redoc",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/micro-elements/MicroElements.Swashbuckle.FluentValidation",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/ThreeMammals/Ocelot",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/Redocly/redoc",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/mattfrear/Swashbuckle.AspNetCore.Filters",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/swagger-api/swagger-codegen",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/swagger-api/swagger-ui",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    },
+    {
+      "url": "https://github.com/unchase/Unchase.Swashbuckle.AspNetCore.Extensions",
+      "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore/blob/1e2b358b23cb9f041e8a395d4541d46566be7f81/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Shared",
+      "src/Swashbuckle.AspNetCore.Annotations",
+      "src/Swashbuckle.AspNetCore.ApiTesting",
+      "src/Swashbuckle.AspNetCore.Cli",
+      "src/Swashbuckle.AspNetCore.Newtonsoft",
+      "src/Swashbuckle.AspNetCore.ReDoc",
+      "src/Swashbuckle.AspNetCore.Swagger",
+      "src/Swashbuckle.AspNetCore.SwaggerGen",
+      "src/Swashbuckle.AspNetCore.SwaggerUI",
+      "src/Swashbuckle.AspNetCore",
+      "src/Shared/EmbeddedResourceProvider.cs",
+      "src/Shared/JsonExtensions.cs",
+      "src/Shared/JsonSchemaTypes.cs",
+      "src/Shared/OpenApiTagComparer.cs",
+      "perf/Swashbuckle.AspNetCore.Benchmarks/Swashbuckle.AspNetCore.Benchmarks.csproj",
+      "src/Swashbuckle.AspNetCore.Annotations/Swashbuckle.AspNetCore.Annotations.csproj",
+      "src/Swashbuckle.AspNetCore.ApiTesting/Swashbuckle.AspNetCore.ApiTesting.csproj",
+      "src/Swashbuckle.AspNetCore.Cli/Swashbuckle.AspNetCore.Cli.csproj",
+      "src/Swashbuckle.AspNetCore.Newtonsoft/Swashbuckle.AspNetCore.Newtonsoft.csproj",
+      "src/Swashbuckle.AspNetCore.ReDoc/Swashbuckle.AspNetCore.ReDoc.csproj",
+      "src/Swashbuckle.AspNetCore.Swagger/Swashbuckle.AspNetCore.Swagger.csproj",
+      "src/Swashbuckle.AspNetCore.SwaggerGen/Swashbuckle.AspNetCore.SwaggerGen.csproj",
+      "src/Swashbuckle.AspNetCore.SwaggerUI/Swashbuckle.AspNetCore.SwaggerUI.csproj",
+      "src/Swashbuckle.AspNetCore/Swashbuckle.AspNetCore.csproj",
+      "test/Swashbuckle.AspNetCore.Annotations.Test/Swashbuckle.AspNetCore.Annotations.Test.csproj",
+      "test/Swashbuckle.AspNetCore.ApiTesting.Test/Swashbuckle.AspNetCore.ApiTesting.Test.csproj",
+      "test/Swashbuckle.AspNetCore.Cli.Test/Swashbuckle.AspNetCore.Cli.Test.csproj",
+      "test/Swashbuckle.AspNetCore.IntegrationTests/Swashbuckle.AspNetCore.IntegrationTests.csproj",
+      "test/Swashbuckle.AspNetCore.Newtonsoft.Test/Swashbuckle.AspNetCore.Newtonsoft.Test.csproj",
+      "test/Swashbuckle.AspNetCore.SwaggerGen.Test/Swashbuckle.AspNetCore.SwaggerGen.Test.csproj",
+      "test/Swashbuckle.AspNetCore.TestSupport/Swashbuckle.AspNetCore.TestSupport.csproj",
+      "test/WebSites/Authorization/Authorization.csproj",
+      "test/WebSites/Basic/Basic.csproj",
+      "test/WebSites/CliExample/CliExample.csproj",
+      "test/WebSites/CliExampleWithFactory/CliExampleWithFactory.csproj",
+      "test/WebSites/ConfigFromFile/ConfigFromFile.csproj",
+      "test/WebSites/CustomDocumentSerializer/CustomDocumentSerializer.csproj",
+      "test/WebSites/CustomUIConfig/CustomUIConfig.csproj",
+      "test/WebSites/CustomUIIndex/CustomUIIndex.csproj",
+      "test/WebSites/DocumentationSnippets/DocumentationSnippets.csproj",
+      "test/WebSites/GenericControllers/GenericControllers.csproj",
+      "test/WebSites/MinimalApp/MinimalApp.csproj",
+      "test/WebSites/MinimalAppWithHostedServices/MinimalAppWithHostedServices.csproj",
+      "test/WebSites/MinimalAppWithNullableEnums/MinimalAppWithNullableEnums.csproj",
+      "test/WebSites/MultipleVersions/MultipleVersions.csproj",
+      "test/WebSites/MvcWithNullable/MvcWithNullable.csproj",
+      "test/WebSites/NswagClientExample/NswagClientExample.csproj",
+      "test/WebSites/OAuth2Integration/OAuth2Integration.csproj",
+      "test/WebSites/ReDoc/ReDoc.csproj",
+      "test/WebSites/TestFirst/TestFirst.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "test",
+      "tests.runsettings",
+      "test/Swashbuckle.AspNetCore.Annotations.Test/Swashbuckle.AspNetCore.Annotations.Test.csproj",
+      "test/Swashbuckle.AspNetCore.ApiTesting.Test/Swashbuckle.AspNetCore.ApiTesting.Test.csproj",
+      "test/Swashbuckle.AspNetCore.Cli.Test/Swashbuckle.AspNetCore.Cli.Test.csproj",
+      "test/Swashbuckle.AspNetCore.IntegrationTests/Swashbuckle.AspNetCore.IntegrationTests.csproj",
+      "test/Swashbuckle.AspNetCore.Newtonsoft.Test/Swashbuckle.AspNetCore.Newtonsoft.Test.csproj",
+      "test/Swashbuckle.AspNetCore.SwaggerGen.Test/Swashbuckle.AspNetCore.SwaggerGen.Test.csproj",
+      "test/Swashbuckle.AspNetCore.TestSupport/Swashbuckle.AspNetCore.TestSupport.csproj",
+      "test/WebSites/Authorization/Authorization.csproj",
+      "test/WebSites/Basic/Basic.csproj",
+      "test/WebSites/CliExample/CliExample.csproj",
+      "test/WebSites/CliExampleWithFactory/CliExampleWithFactory.csproj",
+      "test/WebSites/ConfigFromFile/ConfigFromFile.csproj",
+      "test/WebSites/CustomDocumentSerializer/CustomDocumentSerializer.csproj",
+      "test/WebSites/CustomUIConfig/CustomUIConfig.csproj",
+      "test/WebSites/CustomUIIndex/CustomUIIndex.csproj",
+      "test/WebSites/DocumentationSnippets/DocumentationSnippets.csproj",
+      "test/WebSites/GenericControllers/GenericControllers.csproj",
+      "test/WebSites/MinimalApp/MinimalApp.csproj",
+      "test/WebSites/MinimalAppWithHostedServices/MinimalAppWithHostedServices.csproj",
+      "test/WebSites/MinimalAppWithNullableEnums/MinimalAppWithNullableEnums.csproj",
+      "test/WebSites/MultipleVersions/MultipleVersions.csproj",
+      "test/WebSites/MvcWithNullable/MvcWithNullable.csproj",
+      "test/WebSites/NswagClientExample/NswagClientExample.csproj",
+      "test/WebSites/OAuth2Integration/OAuth2Integration.csproj",
+      "test/WebSites/ReDoc/ReDoc.csproj",
+      "test/WebSites/TestFirst/TestFirst.csproj",
+      "test/WebSites/TodoApp/TodoApp.csproj",
+      "test/WebSites/TopLevelSwaggerDoc/TopLevelSwaggerDoc.csproj",
+      "test/WebSites/WebApi.Aot/WebApi.Aot.csproj",
+      "test/WebSites/WebApi.Map/WebApi.Map.csproj",
+      "test/WebSites/WebApi/WebApi.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

@@ -1,0 +1,2492 @@
+{
+  "id": "DJ-012",
+  "repo": "dotj-web",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/aspnetcore",
+  "canonical_url": "https://github.com/dotnet/aspnetcore",
+  "redirect_observed": false,
+  "inspected_revision": "c09e2b89bd8cf25e819230a94e9061023f508afe",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md",
+      "sha256": "88616c282310fe14a7efb450bcb99aee59111285feb20974ad78e9a15a4f1b03",
+      "bytes": 6797
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/LICENSE.txt",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "bytes": 1116
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/THIRD-PARTY-NOTICES.txt",
+      "sha256": "fe970484b338399def0b81b24d8a6005122d5c9f559a257c2ad22cbb83644cab",
+      "bytes": 56998
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props",
+      "sha256": "487642ce22920240553c18cd28a875651451697d4d09b1406cbdd9375c235aa8",
+      "bytes": 32176
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Build.props",
+      "sha256": "425ec35b46eae9b2fb2c0af4df4c07c9392364eba18756eb2369adb5e4b98a18",
+      "bytes": 22523
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/global.json",
+      "sha256": "8d23c4f17bfbeeb6f295224c6e04187ab247bd233541153f345246a1bd8393b2",
+      "bytes": 872
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "sha256": "f601682876bc26f99e7259562c9f6df83cab115c7ce1881da069e54f0bec7822",
+      "bytes": 7483
+    },
+    {
+      "path": ".github/skills/review-pull-request/scripts/PrepareReview.Tests.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/.github/skills/review-pull-request/scripts/PrepareReview.Tests.csproj",
+      "sha256": "fb628a91eb537dae470ca299e0f43dc75bb477e503a173de4b7e8dff07f198dd",
+      "bytes": 621
+    },
+    {
+      "path": "src/Analyzers/Analyzers/src/Microsoft.AspNetCore.Analyzers.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/src/Microsoft.AspNetCore.Analyzers.csproj",
+      "sha256": "7425ab3332c44e229a9875d6f1286cc7ec84f8356c977b7e1d1a8dbcccc636ab",
+      "bytes": 1299
+    },
+    {
+      "path": "src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj",
+      "sha256": "2452c29cc1da17c23d7377e1f1fafa86c95e07778be4d6773e77afe0ddeb2202",
+      "bytes": 2559
+    },
+    {
+      "path": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "sha256": "ba2ce7771a62c79a5d74fa5aa63972fd2d9f4081e39ff75e98a6c2c88ff39031",
+      "bytes": 2640
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Razor.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Razor.Language",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.SignalR",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Cryptography",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.TimeProvider",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Features.ExternalAccess",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Razor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Css.Parser",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Hybrid",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.FileExtensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Ini",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.UserSecrets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DiagnosticAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Composite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Physical",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.HostFactoryResolver.Sources",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.EventLog",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.EventSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.TraceSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options.DataAnnotations",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Primitives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.JsonWebTokens",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Internal.Runtime.AspNetCore.Transport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.OpenApi",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.OpenApi.YamlReader",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Win32.Registry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Buffers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine.Experimental",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.Annotations",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.EventLog",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.DirectoryServices.Protocols",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Cbor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IdentityModel.Tokens.Jwt",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Pipelines",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.ServerSentEvents",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Sockets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.Caching",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.InteropServices.RuntimeInformation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.X509Certificates",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Permissions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Principal.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Encodings.Web",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.AccessControl",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Channels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.RateLimiting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ValueTuple",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "@(_RuntimePackageVersion->Distinct())",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.10.0.x64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.10.0.x86",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.8.0.x64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.8.0.x86",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.9.0.x64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.9.0.x86",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.RemoteExecutor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Design",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.InMemory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Relational",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Sqlite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Tools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Protocols.OpenIdConnect",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Protocols.WsFederation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Internal.AspNetCore.H2Spec.All",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.BrowserDebugHost.Transport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Security.Cookies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Web.Administration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Web.Xdt",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NETStandard.Library",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Experimental.MsQuic",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http.WinHttpHandler",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceProcess.ServiceController",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Locator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AngleSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommandLineParser",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FSharp.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Api.CommonProtos",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Protobuf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.AspNetCore.Server",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Auth",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Net.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Tools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePackAnalyzer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient.Extensions.Azure",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Playwright",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Playwright.TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Windows.CsWin32",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ModelContextProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ModelContextProtocol.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Mono.Cecil",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Mono.TextTemplating",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json.Bson",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSwag.ApiDescription.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Frameworks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Versioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Photino.NET",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Selenium.Support",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Selenium.WebDriver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Sinks.File",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpFuzz",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StackExchange.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Swashbuckle.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reactive.Linq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Verify.SourceGenerators",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Verify.Xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.assert",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.extensibility.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.extensibility.execution",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.extensibility.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ServiceDiscovery",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ServiceDiscovery.Yarp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.TrxReport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest.TestFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Yarp.ReverseProxy",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI.OpenAI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AGUI.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AGUI.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AGUI.Formatting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AGUI.Server",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Resilience",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.AspNetCoreModuleV2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Components.Web",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.HttpsPolicy",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.ResponseCompression",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Server.IIS",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Server.IISIntegration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Server.Kestrel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Archives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Installers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Templating",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.App.Host.win-arm64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.App.Host.win-x64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETCore.App.Host.win-x86",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Wix",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Bal.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Dependency.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Heat",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.UI.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WixToolset.Util.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest.TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MySqlConnector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Pomelo.EntityFrameworkCore.MySql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "XunitXml.TestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AngleSharp",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Azure.Identity",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "BenchmarkDotNet",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "CommandLineParser",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "FSharp.Core",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Google.Api.CommonProtos",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Google.Protobuf",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Grpc.Auth",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Grpc.Net.Client",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Grpc.Tools",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MessagePack",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MessagePackAnalyzer",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNet.WebApi.Client",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.10.0.x64",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.10.0.x86",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.8.0.x64",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.8.0.x86",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.9.0.x64",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.AzureAppServices.SiteExtension.9.0.x86",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Mvc.Razor.Extensions",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Razor.Language",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Azure.SignalR",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Build.Locator",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Razor",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CSharp",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Css.Parser",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Data.SqlClient.Extensions.Azure",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DiagnosticAdapter",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Http.Resilience",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Internal.AspNetCore.H2Spec.All",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.OpenApi",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.OpenApi.YamlReader",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Playwright",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Playwright.TestAdapter",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Testing.Extensions.TrxReport",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Web.Administration",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Win32.Registry",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Windows.CsWin32",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "ModelContextProtocol",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Mono.Cecil",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Mono.TextTemplating",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Moq",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MSTest.TestFramework",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json.Bson",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NSwag.ApiDescription.Client",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Instrumentation.AspNetCore",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Instrumentation.Runtime",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Polly",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Polly.Extensions.Http",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Selenium.Support",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Selenium.WebDriver",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Serilog.Extensions.Logging",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Serilog.Sinks.File",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "SharpFuzz",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "StackExchange.Redis",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Swashbuckle.AspNetCore",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Buffers",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine.Experimental",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ComponentModel",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ComponentModel.Annotations",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Memory",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Net.Http",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Net.Sockets",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Reactive.Linq",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Runtime.InteropServices.RuntimeInformation",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Security.Cryptography.X509Certificates",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Security.Principal.Windows",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ValueTuple",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Verify.SourceGenerators",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Verify.Xunit",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.abstractions",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.analyzers",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.assert",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.extensibility.core",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.extensibility.execution",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.v3",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.v3.extensibility.core",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Owin.Security.Cookies",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Owin.Testing",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AGUI.Abstractions",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AGUI.Client",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AGUI.Formatting",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AGUI.Server",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Grpc.AspNetCore",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Grpc.AspNetCore.Server",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.AI",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.AI.Abstractions",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.AI.OpenAI",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "ModelContextProtocol.AspNetCore",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Photino.NET",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Yarp.ReverseProxy",
+      "file": "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/eng/tools/DependabotDiscovery/DependabotDiscovery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.v3",
+      "file": ".github/skills/review-pull-request/scripts/PrepareReview.Tests.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/.github/skills/review-pull-request/scripts/PrepareReview.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/Analyzers/Analyzers/src/Microsoft.AspNetCore.Analyzers.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/src/Microsoft.AspNetCore.Analyzers.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\DataProtection\\DataProtection\\src\\Microsoft.AspNetCore.DataProtection.csproj",
+      "file": "src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Http\\Http.Abstractions\\src\\Microsoft.AspNetCore.Http.Abstractions.csproj",
+      "file": "src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Http\\Http.Extensions\\src\\Microsoft.AspNetCore.Http.Extensions.csproj",
+      "file": "src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Http\\Http.Features\\src\\Microsoft.AspNetCore.Http.Features.csproj",
+      "file": "src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Http\\WebUtilities\\src\\Microsoft.AspNetCore.WebUtilities.csproj",
+      "file": "src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\ObjectPool\\src\\Microsoft.Extensions.ObjectPool.csproj",
+      "file": "src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/Microsoft.AspNetCore.Antiforgery.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Analyzers\\Analyzers\\src\\Microsoft.AspNetCore.Analyzers.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Components\\Server\\src\\Microsoft.AspNetCore.Components.Server.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\DefaultBuilder\\src\\Microsoft.AspNetCore.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Hosting\\Abstractions\\src\\Microsoft.AspNetCore.Hosting.Abstractions.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Http\\Http.Abstractions\\src\\Microsoft.AspNetCore.Http.Abstractions.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Http\\Http\\src\\Microsoft.AspNetCore.Http.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Http\\Routing\\src\\Microsoft.AspNetCore.Routing.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Middleware\\StaticFiles\\src\\Microsoft.AspNetCore.StaticFiles.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Mvc\\Mvc.Abstractions\\src\\Microsoft.AspNetCore.Mvc.Abstractions.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Mvc\\Mvc.Core\\src\\Microsoft.AspNetCore.Mvc.Core.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Mvc\\Mvc.Razor\\src\\Microsoft.AspNetCore.Mvc.Razor.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Mvc\\Mvc\\src\\Microsoft.AspNetCore.Mvc.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Security\\Authorization\\Core\\src\\Microsoft.AspNetCore.Authorization.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Security\\Authorization\\Policy\\src\\Microsoft.AspNetCore.Authorization.Policy.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\SignalR\\server\\Core\\src\\Microsoft.AspNetCore.SignalR.Core.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\SignalR\\server\\SignalR\\src\\Microsoft.AspNetCore.SignalR.csproj",
+      "file": "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/aspnetcore",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/aspnetcore",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/aspnet/Docs",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/efcore",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/razor",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet",
+      "source": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/common/internal/Tools.csproj",
+      "eng/tools/DependabotDiscovery/DependabotDiscovery.csproj",
+      "eng/tools/GenerateFiles/GenerateFiles.csproj",
+      "eng/tools/HelixTestRunner/HelixTestRunner.csproj",
+      "eng/tools/RepoTasks/RepoTasks.csproj",
+      "src/Analyzers/.vsconfig",
+      "src/Analyzers/Analyzers.slnf",
+      "src/Analyzers/Analyzers/src/BuildServiceProviderAnalyzer.cs",
+      "src/Analyzers/Analyzers/src/CompilationFeatureDetector.cs",
+      "src/Analyzers/Analyzers/src/ConfigureMethodVisitor.cs",
+      "src/Analyzers/Analyzers/src/Microsoft.AspNetCore.Analyzers.csproj",
+      "src/Analyzers/Analyzers/src/Microsoft.AspNetCore.Analyzers.nuspec",
+      "src/Analyzers/Analyzers/src/MiddlewareAnalysis.cs",
+      "src/Analyzers/Analyzers/src/MiddlewareAnalyzer.cs",
+      "src/Analyzers/Analyzers/src/MiddlewareItem.cs",
+      "src/Analyzers/Analyzers/src/OptionsAnalysis.cs",
+      "src/Analyzers/Analyzers/src/OptionsAnalyzer.cs",
+      "src/Analyzers/Analyzers/src/OptionsFacts.cs",
+      "src/Analyzers/Analyzers/src/OptionsItem.cs",
+      "src/Analyzers/Analyzers/src/ServicesAnalysis.cs",
+      "src/Analyzers/Analyzers/src/ServicesAnalyzer.cs",
+      "src/Analyzers/Analyzers/src/ServicesItem.cs",
+      "src/Analyzers/Analyzers/src/StartupAnalysis.cs",
+      "src/Analyzers/Analyzers/src/StartupAnalysisBuilder.cs",
+      "src/Analyzers/Analyzers/src/StartupAnalyzer.Diagnostics.cs",
+      "src/Analyzers/Analyzers/src/StartupAnalyzer.Events.cs",
+      "src/Analyzers/Analyzers/src/StartupAnalyzer.cs",
+      "src/Analyzers/Analyzers/src/StartupFacts.cs",
+      "src/Analyzers/Analyzers/src/StartupSymbols.cs",
+      "src/Analyzers/Analyzers/src/SymbolNames.cs",
+      "src/Analyzers/Analyzers/src/UseAuthorizationAnalyzer.cs",
+      "src/Analyzers/Analyzers/src/UseMvcAnalyzer.cs",
+      "src/Analyzers/Analyzers/src/WellKnownFeatures.cs",
+      "src/Analyzers/Analyzers/test/CompilationFeatureDetectorTest.cs",
+      "src/Analyzers/Analyzers/test/ConfigureMethodVisitorTest.cs",
+      "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "src/Analyzers/Analyzers/test/MinimalStartupTest.cs",
+      "src/Analyzers/Analyzers/test/StartupAnalyzerTest.cs",
+      "src/Analyzers/Analyzers/test/StartupCSharpAnalyzerTest.cs",
+      "src/Analyzers/Analyzers/test/StartupFactsTest.cs",
+      "src/Analyzers/Microsoft.AspNetCore.Analyzer.Testing/src/Assert.cs",
+      "src/Analyzers/Microsoft.AspNetCore.Analyzer.Testing/src/CodeFixRunner.cs",
+      "src/Analyzers/Microsoft.AspNetCore.Analyzer.Testing/src/DiagnosticAnalyzerRunner.cs",
+      "src/Analyzers/Microsoft.AspNetCore.Analyzer.Testing/src/DiagnosticLocation.cs",
+      "src/Analyzers/Microsoft.AspNetCore.Analyzer.Testing/src/DiagnosticProject.cs",
+      "src/Analyzers/Microsoft.AspNetCore.Analyzer.Testing/src/DiagnosticVerifier.cs",
+      "src/Analyzers/Microsoft.AspNetCore.Analyzer.Testing/src/Microsoft.AspNetCore.Analyzer.Testing.csproj",
+      "src/Analyzers/Microsoft.AspNetCore.Analyzer.Testing/src/TestSource.cs",
+      "src/Analyzers/Readme.md",
+      "src/Analyzers/build.cmd"
+    ],
+    "api": [
+      "eng/PublicAPI.empty.txt",
+      "src/Antiforgery/src/PublicAPI.Shipped.txt",
+      "src/Antiforgery/src/PublicAPI.Unshipped.txt",
+      "src/Azure/AzureAppServices.HostingStartup/src/PublicAPI.Shipped.txt",
+      "src/Azure/AzureAppServices.HostingStartup/src/PublicAPI.Unshipped.txt",
+      "src/Azure/AzureAppServicesIntegration/src/PublicAPI.Shipped.txt",
+      "src/Azure/AzureAppServicesIntegration/src/PublicAPI.Unshipped.txt",
+      "src/Caching/SqlServer/src/PublicAPI.Shipped.txt",
+      "src/Caching/SqlServer/src/PublicAPI.Unshipped.txt",
+      "src/Caching/StackExchangeRedis/src/PublicAPI/net10.0/PublicAPI.Shipped.txt",
+      "src/Caching/StackExchangeRedis/src/PublicAPI/net10.0/PublicAPI.Unshipped.txt",
+      "src/Caching/StackExchangeRedis/src/PublicAPI/net12.0/PublicAPI.Shipped.txt",
+      "src/Caching/StackExchangeRedis/src/PublicAPI/net12.0/PublicAPI.Unshipped.txt",
+      "src/Caching/StackExchangeRedis/src/PublicAPI/net462/PublicAPI.Shipped.txt",
+      "src/Caching/StackExchangeRedis/src/PublicAPI/net462/PublicAPI.Unshipped.txt",
+      "src/Caching/StackExchangeRedis/src/PublicAPI/netstandard2.0/PublicAPI.Shipped.txt",
+      "src/Caching/StackExchangeRedis/src/PublicAPI/netstandard2.0/PublicAPI.Unshipped.txt",
+      "src/Components/AI/src/PublicAPI.Shipped.txt",
+      "src/Components/AI/src/PublicAPI.Unshipped.txt",
+      "src/Components/Authorization/src/PublicAPI.Shipped.txt",
+      "src/Components/Authorization/src/PublicAPI.Unshipped.txt",
+      "src/Components/Components/src/PublicAPI.Shipped.txt",
+      "src/Components/Components/src/PublicAPI.Unshipped.txt",
+      "src/Components/CustomElements/src/PublicAPI.Shipped.txt",
+      "src/Components/CustomElements/src/PublicAPI.Unshipped.txt",
+      "src/Components/Endpoints/src/PublicAPI.Shipped.txt",
+      "src/Components/Endpoints/src/PublicAPI.Unshipped.txt",
+      "src/Components/Forms/src/PublicAPI.Shipped.txt",
+      "src/Components/Forms/src/PublicAPI.Unshipped.txt",
+      "src/Components/JSInterop/src/PublicAPI.Shipped.txt",
+      "src/Components/JSInterop/src/PublicAPI.Unshipped.txt",
+      "src/Components/Media/src/PublicAPI.Shipped.txt",
+      "src/Components/Media/src/PublicAPI.Unshipped.txt",
+      "src/Components/Platform/src/PublicAPI.Shipped.txt",
+      "src/Components/Platform/src/PublicAPI.Unshipped.txt",
+      "src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter/src/PublicAPI.Shipped.txt",
+      "src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid.EntityFrameworkAdapter/src/PublicAPI.Unshipped.txt",
+      "src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/PublicAPI.Shipped.txt",
+      "src/Components/QuickGrid/Microsoft.AspNetCore.Components.QuickGrid/src/PublicAPI.Unshipped.txt",
+      "src/Components/Server.AutoPause/src/PublicAPI.Shipped.txt",
+      "src/Components/Server.AutoPause/src/PublicAPI.Unshipped.txt",
+      "src/Components/Server/src/PublicAPI.Shipped.txt",
+      "src/Components/Server/src/PublicAPI.Unshipped.txt",
+      "src/Components/Testing/src/PublicAPI.Shipped.txt",
+      "src/Components/Testing/src/PublicAPI.Unshipped.txt",
+      "src/Components/Web/src/PublicAPI.Shipped.txt",
+      "src/Components/Web/src/PublicAPI.Unshipped.txt",
+      "src/Components/WebAssembly/Authentication.Msal/src/PublicAPI.Shipped.txt",
+      "src/Components/WebAssembly/Authentication.Msal/src/PublicAPI.Unshipped.txt",
+      "src/Components/WebAssembly/JSInterop/src/PublicAPI.Shipped.txt"
+    ],
+    "tests": [
+      "src/Analyzers/Analyzers/test/CompilationFeatureDetectorTest.cs",
+      "src/Analyzers/Analyzers/test/ConfigureMethodVisitorTest.cs",
+      "src/Analyzers/Analyzers/test/Microsoft.AspNetCore.Analyzers.Test.csproj",
+      "src/Analyzers/Analyzers/test/MinimalStartupTest.cs",
+      "src/Analyzers/Analyzers/test/StartupAnalyzerTest.cs",
+      "src/Analyzers/Analyzers/test/StartupCSharpAnalyzerTest.cs",
+      "src/Analyzers/Analyzers/test/StartupFactsTest.cs",
+      "src/Antiforgery/test/AntiforgeryApplicationBuilderExtensionsTest.cs",
+      "src/Antiforgery/test/AntiforgeryMiddlewareTest.cs",
+      "src/Antiforgery/test/AntiforgeryOptionsSetupTest.cs",
+      "src/Antiforgery/test/AntiforgeryTokenTest.cs",
+      "src/Antiforgery/test/BinaryBlobTest.cs",
+      "src/Antiforgery/test/DefaultAntiforgeryTest.cs",
+      "src/Antiforgery/test/DefaultAntiforgeryTokenGeneratorTest.cs",
+      "src/Antiforgery/test/DefaultAntiforgeryTokenSerializerTest.cs",
+      "src/Antiforgery/test/DefaultAntiforgeryTokenStoreTest.cs",
+      "src/Antiforgery/test/DefaultClaimUidExtractorTest.cs",
+      "src/Antiforgery/test/Microsoft.AspNetCore.Antiforgery.Test.csproj",
+      "src/Antiforgery/test/TestOptionsManager.cs",
+      "src/Azure/AzureAppServicesIntegration/test/AppServicesWebHostBuilderExtensionsTest.cs",
+      "src/Azure/AzureAppServicesIntegration/test/Microsoft.AspNetCore.AzureAppServicesIntegration.Tests.csproj",
+      "src/Caching/SqlServer/test/CacheItemInfo.cs",
+      "src/Caching/SqlServer/test/Microsoft.Extensions.Caching.SqlServer.Tests.csproj",
+      "src/Caching/SqlServer/test/README.md",
+      "src/Caching/SqlServer/test/SqlServerCacheServicesExtensionsTest.cs",
+      "src/Caching/SqlServer/test/SqlServerCacheWithDatabaseTest.cs",
+      "src/Caching/SqlServer/test/TestClock.cs",
+      "src/Caching/SqlServer/test/TestOptions.cs",
+      "src/Caching/SqlServer/test/config.json",
+      "src/Caching/SqlServer/test/run-db-tests.ps1",
+      "src/Caching/StackExchangeRedis/test/CacheServiceExtensionsTests.cs",
+      "src/Caching/StackExchangeRedis/test/Infrastructure/RedisTestConfig.cs",
+      "src/Caching/StackExchangeRedis/test/Microsoft.Extensions.Caching.StackExchangeRedis.Tests.csproj",
+      "src/Caching/StackExchangeRedis/test/RedisCacheSetAndRemoveTests.cs",
+      "src/Caching/StackExchangeRedis/test/TimeExpirationAsyncTests.cs",
+      "src/Caching/StackExchangeRedis/test/TimeExpirationTests.cs",
+      "src/Components/AI/gen/test/Microsoft.AspNetCore.Components.AI.SourceGenerators.Tests.csproj",
+      "src/Components/AI/gen/test/ToolBlockGeneratorTests.cs",
+      "src/Components/AI/test/Baselines/TextStreaming_MultiTurn.recording.json",
+      "src/Components/AI/test/Baselines/TextStreaming_SingleTurn.recording.json",
+      "src/Components/AI/test/Blocks/ContentBlockTests.cs",
+      "src/Components/AI/test/Blocks/FunctionApprovalBlockTests.cs",
+      "src/Components/AI/test/Blocks/FunctionInvocationContentBlockTests.cs",
+      "src/Components/AI/test/Blocks/RichTextContentTests.cs",
+      "src/Components/AI/test/Blocks/RichTextNodeTests.cs",
+      "src/Components/AI/test/Components/ChatPageTests.cs",
+      "src/Components/AI/test/Components/MessageInputTests.cs",
+      "src/Components/AI/test/Components/MessageListTests.cs",
+      "src/Components/AI/test/Engine/AgentContextApprovalTests.cs",
+      "src/Components/AI/test/Engine/AgentContextTests.cs"
+    ],
+    "docs": [
+      "docs/APIBaselines.md",
+      "docs/APIReviewPrinciples.md",
+      "docs/APIReviewProcess.md",
+      "docs/AddingNewProjects.md",
+      "docs/Artifacts.md",
+      "docs/Benchmarks.md",
+      "docs/BlazorComponentsGuidance.md",
+      "docs/BuildErrors.md",
+      "docs/BuildFromSource.md",
+      "docs/CIInvestigation.md",
+      "docs/CrossCuttingGuidance.md",
+      "docs/DailyBuilds.md",
+      "docs/EventSourceAndCounters.md",
+      "docs/Helix.md",
+      "docs/HelpWantedIssueSummaryCommentTemplate.md",
+      "docs/IssueManagementPolicies.md",
+      "docs/OnboardingNewOS.md",
+      "docs/PreparingPatchUpdates.md",
+      "docs/ProjectProperties.md",
+      "docs/README.md",
+      "docs/ReleasePlanning.md",
+      "docs/Servicing.md",
+      "docs/SharedFramework.md",
+      "docs/Submodules.md",
+      "docs/TriageProcess.md",
+      "docs/Trimming.md",
+      "docs/UpdatingMajorVersionAndTFM.md",
+      "docs/UpdatingMinifiedJsFiles.md",
+      "docs/WebTransport.md",
+      "docs/area-owners.md",
+      "docs/list-of-diagnostics.md",
+      "docs/repro.md",
+      "docs/tooling-consolidation.md",
+      "docs/vs-iis-express-aspnet-core-mvc-sandbox.jpg"
+    ],
+    "samples": [
+      "src/Antiforgery/samples/MinimalFormSample/MinimalFormSample.csproj",
+      "src/Antiforgery/samples/MinimalFormSample/Program.cs",
+      "src/Antiforgery/samples/MinimalFormSample/Properties/launchSettings.json",
+      "src/Antiforgery/samples/MinimalFormSample/appsettings.Development.json",
+      "src/Antiforgery/samples/MinimalFormSample/appsettings.json",
+      "src/Antiforgery/samples/README.md",
+      "src/Azure/samples/AzureAppServicesHostingStartupSample/AzureAppServicesHostingStartupSample.csproj",
+      "src/Azure/samples/AzureAppServicesHostingStartupSample/Properties/launchSettings.json",
+      "src/Azure/samples/AzureAppServicesHostingStartupSample/Startup.cs",
+      "src/Azure/samples/AzureAppServicesSample/AzureAppServicesSample.csproj",
+      "src/Azure/samples/AzureAppServicesSample/Properties/launchSettings.json",
+      "src/Azure/samples/AzureAppServicesSample/Startup.cs",
+      "src/Azure/samples/README.md",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/BlazorWebAppGlobal.Client.csproj",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Layout/MainLayout.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Layout/MainLayout.razor.css",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Layout/NavMenu.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Layout/NavMenu.razor.css",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Layout/NavMenu.razor.js",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Layout/ReconnectModal.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Layout/ReconnectModal.razor.css",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Layout/ReconnectModal.razor.js",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Pages/Counter.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Pages/Home.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Pages/NotFound.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Pages/Weather.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Program.cs",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/Routes.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/_Imports.razor",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/wwwroot/appsettings.Development.json",
+      "src/Components/Samples/BlazorWebAppGlobal.Client/wwwroot/appsettings.json",
+      "src/Components/Samples/BlazorWebAppGlobal/BlazorWebAppGlobal.csproj",
+      "src/Components/Samples/BlazorWebAppGlobal/Components/App.razor",
+      "src/Components/Samples/BlazorWebAppGlobal/Components/Pages/Error.razor",
+      "src/Components/Samples/BlazorWebAppGlobal/Components/_Imports.razor",
+      "src/Components/Samples/BlazorWebAppGlobal/Program.cs",
+      "src/Components/Samples/BlazorWebAppGlobal/Properties/launchSettings.json",
+      "src/Components/Samples/BlazorWebAppGlobal/appsettings.Development.json",
+      "src/Components/Samples/BlazorWebAppGlobal/appsettings.json",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/app.css",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/favicon.png",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "src/Components/Samples/BlazorWebAppGlobal/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

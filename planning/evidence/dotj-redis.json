@@ -1,0 +1,529 @@
+{
+  "id": "DJ-022",
+  "repo": "dotj-redis",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/StackExchange/StackExchange.Redis",
+  "canonical_url": "https://github.com/StackExchange/StackExchange.Redis",
+  "redirect_observed": false,
+  "inspected_revision": "84765eede5c49419ed251a9cfc491a2d58667fb9",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/README.md",
+      "sha256": "5282abb0a1de569c4238250d0722db9a62501e1e67dc69544e80a3a1dbdcf511",
+      "bytes": 1625
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/LICENSE",
+      "sha256": "f0d56d0f626cf01b8354348bdf83c2a0f20a825ba27c326951752af264be4651",
+      "bytes": 2287
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props",
+      "sha256": "e6858e57cbbbba1285bf3a8ae06682eba16d11909c2fbcd835f5ffad0f3a6e43",
+      "bytes": 4735
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Build.props",
+      "sha256": "52ac14212cdd5ed988dde4d2d56911f79dedee6ee8e9e84a1f22598f11ead290",
+      "bytes": 3443
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/global.json",
+      "sha256": "17805aa89fec57a1230a724e67f9457e5fd4f483e2d53f388dc47ac0b1752e53",
+      "bytes": 48
+    },
+    {
+      "path": ".github/.github.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/.github/.github.csproj",
+      "sha256": "4caf701258a68c6c5f6e1f2884f33096266fb9f0436e5f082b71635694a29100",
+      "bytes": 144
+    },
+    {
+      "path": "Build.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Build.csproj",
+      "sha256": "bec4ab36f5200d9ef972fb083166e9fb47246749cd9878b46eb98525b5ff6569",
+      "bytes": 294
+    },
+    {
+      "path": "tests/BasicTest/BasicTest.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/tests/BasicTest/BasicTest.csproj",
+      "sha256": "5d522e02a29cacf71cd69ff29828502458ab06a551bec8a58daefda2867bfa8b",
+      "bytes": 691
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.PerformanceCounter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Channels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.InteropServices.RuntimeInformation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Compression",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Pipelines",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Hashing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Buffers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Platform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Nerdbank.GitVersioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSubstitute",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StackExchange.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StackExchange.Redis.StrongName",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StyleCop.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.Caching",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.runner.console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Private.Uri",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Build.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\eng\\StackExchange.Redis.Build\\StackExchange.Redis.Build.csproj",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Directory.Build.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "eng\\**\\*.csproj",
+      "file": "Build.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Build.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "src\\**\\*.csproj",
+      "file": "Build.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Build.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "tests\\**\\*.csproj",
+      "file": "Build.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Build.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "toys\\**\\*.csproj",
+      "file": "Build.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "BenchmarkDotNet",
+      "file": "tests/BasicTest/BasicTest.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/tests/BasicTest/BasicTest.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Collections.Immutable",
+      "file": "tests/BasicTest/BasicTest.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/tests/BasicTest/BasicTest.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Reflection.Metadata",
+      "file": "tests/BasicTest/BasicTest.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/tests/BasicTest/BasicTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\StackExchange.Redis\\StackExchange.Redis.csproj",
+      "file": "tests/BasicTest/BasicTest.csproj",
+      "url": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/tests/BasicTest/BasicTest.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/StackExchange/StackExchange.Redis",
+      "source": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/README.md"
+    },
+    {
+      "url": "https://github.com/StackExchange/StackExchange.Redis",
+      "source": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/README.md"
+    },
+    {
+      "url": "https://github.com/StackExchange/StackExchange.Redis",
+      "source": "https://github.com/StackExchange/StackExchange.Redis/blob/84765eede5c49419ed251a9cfc491a2d58667fb9/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "Build.csproj",
+      "docs/docs.csproj",
+      "eng/StackExchange.Redis.Build/StackExchange.Redis.Build.csproj",
+      "eng/StackExchange.Redis.CodeFixes/StackExchange.Redis.CodeFixes.csproj",
+      "src/Directory.Build.props",
+      "src/RESPite.Benchmark/BenchmarkBase.cs",
+      "src/RESPite.Benchmark/BridgeBenchmark.cs",
+      "src/RESPite.Benchmark/NewCoreBenchmark.cs",
+      "src/RESPite.Benchmark/OldCoreBenchmark.cs",
+      "src/RESPite.Benchmark/OldCoreBenchmarkBase.cs",
+      "src/RESPite.Benchmark/Program.cs",
+      "src/RESPite.Benchmark/RESPite.Benchmark.csproj",
+      "src/RESPite.Benchmark/RespBenchmark.md",
+      "src/RESPite.Benchmark/readme.md",
+      "src/RESPite/AssemblyInfo.cs",
+      "src/RESPite/Buffers/CycleBuffer.cs",
+      "src/RESPite/Buffers/CycleBufferPool.cs",
+      "src/RESPite/Buffers/ICycleBufferCallback.cs",
+      "src/RESPite/Buffers/MemoryTrackedPool.cs",
+      "src/RESPite/Buffers/RefCountedBuffer.cs",
+      "src/RESPite/Internal/BlockBuffer.cs",
+      "src/RESPite/Internal/BlockBufferSerializer.cs",
+      "src/RESPite/Internal/DebugCounters.cs",
+      "src/RESPite/Internal/Raw.cs",
+      "src/RESPite/Internal/RespConstants.cs",
+      "src/RESPite/Internal/RespOperationExtensions.cs",
+      "src/RESPite/Internal/SynchronizedBlockBufferSerializer.cs",
+      "src/RESPite/Internal/ThreadLocalBlockBufferSerializer.cs",
+      "src/RESPite/Messages/RespAttributeReader.cs",
+      "src/RESPite/Messages/RespFrameScanner.cs",
+      "src/RESPite/Messages/RespPrefix.cs",
+      "src/RESPite/Messages/RespReader.AggregateEnumerator.cs",
+      "src/RESPite/Messages/RespReader.Debug.cs",
+      "src/RESPite/Messages/RespReader.ScalarEnumerator.cs",
+      "src/RESPite/Messages/RespReader.Span.cs",
+      "src/RESPite/Messages/RespReader.Utils.cs",
+      "src/RESPite/Messages/RespReader.cs",
+      "src/RESPite/Messages/RespScanState.cs",
+      "src/RESPite/PublicAPI/Debug/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/PublicAPI.Unshipped.txt",
+      "src/RESPite/PublicAPI/Release/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/net6.0/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/net6.0/PublicAPI.Unshipped.txt",
+      "src/RESPite/PublicAPI/net8.0/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/net8.0/PublicAPI.Unshipped.txt",
+      "src/RESPite/RESPite.csproj",
+      "src/RESPite/RespException.cs",
+      "src/RESPite/Shared/AsciiHash.Comparers.cs",
+      "src/RESPite/Shared/AsciiHash.Instance.cs"
+    ],
+    "api": [
+      "src/RESPite/PublicAPI/Debug/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/PublicAPI.Unshipped.txt",
+      "src/RESPite/PublicAPI/Release/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/net6.0/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/net6.0/PublicAPI.Unshipped.txt",
+      "src/RESPite/PublicAPI/net8.0/PublicAPI.Shipped.txt",
+      "src/RESPite/PublicAPI/net8.0/PublicAPI.Unshipped.txt",
+      "src/StackExchange.Redis/PublicAPI/Debug/PublicAPI.txt",
+      "src/StackExchange.Redis/PublicAPI/PublicAPI.Shipped.txt",
+      "src/StackExchange.Redis/PublicAPI/PublicAPI.Unshipped.txt",
+      "src/StackExchange.Redis/PublicAPI/Release/PublicAPI.txt",
+      "src/StackExchange.Redis/PublicAPI/net6.0/PublicAPI.Shipped.txt",
+      "src/StackExchange.Redis/PublicAPI/net6.0/PublicAPI.Unshipped.txt"
+    ],
+    "tests": [
+      "tests/BasicTest/BasicTest.csproj",
+      "tests/BasicTest/Program.cs",
+      "tests/BasicTestBaseline/BasicTestBaseline.csproj",
+      "tests/ConsoleTest/ConsoleTest.csproj",
+      "tests/ConsoleTest/Program.cs",
+      "tests/ConsoleTestBaseline/ConsoleTestBaseline.csproj",
+      "tests/Directory.Build.targets",
+      "tests/RESPite.Tests/CycleBufferTests.cs",
+      "tests/RESPite.Tests/RESPite.Tests.csproj",
+      "tests/RESPite.Tests/RespReaderTests.cs",
+      "tests/RESPite.Tests/RespScannerTests.cs",
+      "tests/RESPite.Tests/TestDuplexStream.cs",
+      "tests/RedisConfigs/.docker/Envoy/Dockerfile",
+      "tests/RedisConfigs/.docker/Envoy/envoy.yaml",
+      "tests/RedisConfigs/.docker/Redis/Dockerfile",
+      "tests/RedisConfigs/.docker/Redis/docker-entrypoint.sh",
+      "tests/RedisConfigs/.docker/Redis/supervisord.conf",
+      "tests/RedisConfigs/.docker/docker.csproj",
+      "tests/RedisConfigs/3.0.503/Redis on Windows Release Notes.docx",
+      "tests/RedisConfigs/3.0.503/Redis on Windows.docx",
+      "tests/RedisConfigs/3.0.503/Windows Service Documentation.docx",
+      "tests/RedisConfigs/3.0.503/redis-benchmark.exe",
+      "tests/RedisConfigs/3.0.503/redis-benchmark.pdb",
+      "tests/RedisConfigs/3.0.503/redis-check-aof.exe",
+      "tests/RedisConfigs/3.0.503/redis-check-aof.pdb",
+      "tests/RedisConfigs/3.0.503/redis-check-dump.exe",
+      "tests/RedisConfigs/3.0.503/redis-check-dump.pdb",
+      "tests/RedisConfigs/3.0.503/redis-cli.exe",
+      "tests/RedisConfigs/3.0.503/redis-cli.pdb",
+      "tests/RedisConfigs/3.0.503/redis-server.exe",
+      "tests/RedisConfigs/3.0.503/redis-server.pdb",
+      "tests/RedisConfigs/3.0.503/redis.windows-service.conf",
+      "tests/RedisConfigs/3.0.503/redis.windows.conf",
+      "tests/RedisConfigs/Basic/primary-6379-3.0.conf",
+      "tests/RedisConfigs/Basic/primary-6379.conf",
+      "tests/RedisConfigs/Basic/replica-6380.conf",
+      "tests/RedisConfigs/Basic/secure-6381.conf",
+      "tests/RedisConfigs/Basic/tls-ciphers-6384.conf",
+      "tests/RedisConfigs/Certs/ca.crt",
+      "tests/RedisConfigs/Certs/redis.crt",
+      "tests/RedisConfigs/Certs/redis.key",
+      "tests/RedisConfigs/Cluster/cluster-7000.conf",
+      "tests/RedisConfigs/Cluster/cluster-7001.conf",
+      "tests/RedisConfigs/Cluster/cluster-7002.conf",
+      "tests/RedisConfigs/Cluster/cluster-7003.conf",
+      "tests/RedisConfigs/Cluster/cluster-7004.conf",
+      "tests/RedisConfigs/Cluster/cluster-7005.conf",
+      "tests/RedisConfigs/Cluster/nodes-7000.conf",
+      "tests/RedisConfigs/Cluster/nodes-7001.conf",
+      "tests/RedisConfigs/Cluster/nodes-7002.conf"
+    ],
+    "docs": [
+      "docs/404.html",
+      "docs/Arrays.md",
+      "docs/AsyncTimeouts.md",
+      "docs/Authentication.md",
+      "docs/Basics.md",
+      "docs/CNAME",
+      "docs/CompareAndSwap.md",
+      "docs/Configuration.md",
+      "docs/Events.md",
+      "docs/ExecSync.md",
+      "docs/Execute.md",
+      "docs/Failover.md",
+      "docs/HImport.md",
+      "docs/HashTags.md",
+      "docs/HotKeys.md",
+      "docs/KeysScan.md",
+      "docs/KeysValues.md",
+      "docs/KeyspaceNotifications.md",
+      "docs/PipelinesMultiplexers.md",
+      "docs/Profiling.md",
+      "docs/Profiling_v1.md",
+      "docs/Profiling_v2.md",
+      "docs/PubSubOrder.md",
+      "docs/ReleaseNotes.md",
+      "docs/Resp3.md",
+      "docs/RespLogging.md",
+      "docs/Scripting.md",
+      "docs/Server.md",
+      "docs/ServerMaintenanceEvent.md",
+      "docs/Streams.md",
+      "docs/SyncOverAsync.md",
+      "docs/Testing.md",
+      "docs/ThreadTheft.md",
+      "docs/Timeouts.md",
+      "docs/Transactions.md",
+      "docs/VectorSets.md",
+      "docs/_config.yml",
+      "docs/_includes/head-custom.html",
+      "docs/assets/seredis.svg",
+      "docs/docs.csproj",
+      "docs/exp/SER001.md",
+      "docs/exp/SER002.md",
+      "docs/exp/SER003.md",
+      "docs/exp/SER004.md",
+      "docs/exp/SER005.md",
+      "docs/exp/SER006.md",
+      "docs/exp/SER007.md",
+      "docs/exp/SER008.md",
+      "docs/exp/SER009.md",
+      "docs/exp/SER010.md"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "Apache 2.0 text observed; file-level review OPEN"
+}

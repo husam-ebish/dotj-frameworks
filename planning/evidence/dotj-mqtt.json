@@ -1,0 +1,159 @@
+{
+  "id": "DJ-034",
+  "repo": "dotj-mqtt",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/MQTTnet",
+  "canonical_url": "https://github.com/dotnet/MQTTnet",
+  "redirect_observed": false,
+  "inspected_revision": "798a0e2250f40a241e0c8d2e7c9a366051be1b97",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "master",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Directory.Build.props",
+      "sha256": "6a768f29d70933cd89d5107cb6ef56cbe45e73bb101d9908c03d593f957b59e2",
+      "bytes": 1289
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/LICENSE",
+      "sha256": "dafb7de77796bf6adf2544f7b27560f41b11b5be4391b2324e5a6fb335888ecd",
+      "bytes": 1114
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/README.md",
+      "sha256": "e4846af6ae240c39fa4d7a0b714d73c3231e8cfdfea35e9f7c921ae485c47eab",
+      "bytes": 4180
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/global.json",
+      "sha256": "bf722709bd26f238d1e8659c8eb9998daaf55cdfeb9fa20121b8f91cab73de00",
+      "bytes": 70
+    },
+    {
+      "path": "MQTTnet.slnx",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/MQTTnet.slnx",
+      "sha256": "d08525c20a724516826a5205173609dad0c0ead06aa5fc961b8d0043bf265884",
+      "bytes": 1353
+    },
+    {
+      "path": "Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj",
+      "sha256": "59b4c918863aef59092c24c0fd164723225e7545ea9f27eb258b5ec3439b5138",
+      "bytes": 1325
+    },
+    {
+      "path": "Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj",
+      "sha256": "3e60ddffc47b85bc071f5614e02063fa581f820281a76da2129e7567f0d1a830",
+      "bytes": 610
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "FrameworkReference",
+      "name": "Microsoft.AspNetCore.App",
+      "file": "Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\MQTTnet.Server\\MQTTnet.Server.csproj",
+      "file": "Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\MQTTnet\\MQTTnet.csproj",
+      "file": "Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Source\\MQTTnet.AspnetCore\\MQTTnet.AspNetCore.csproj",
+      "file": "Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Source\\MQTTnet.Server\\MQTTnet.Server.csproj",
+      "file": "Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\MQTTnet\\MQTTnet.csproj",
+      "file": "Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj",
+      "url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/MQTTnet",
+      "source": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/MQTTnet",
+      "source": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/MQTTnet",
+      "source": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/MQTTnet",
+      "source": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/MQTTnet",
+      "source": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/MQTTnet",
+      "source": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/MQTTnet",
+      "source": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "Samples/MQTTnet.Samples.csproj",
+      "Source/MQTTnet.AspnetCore/MQTTnet.AspNetCore.csproj",
+      "Source/MQTTnet.AspTestApp/MQTTnet.AspTestApp.csproj",
+      "Source/MQTTnet.Benchmarks/MQTTnet.Benchmarks.csproj",
+      "Source/MQTTnet.Extensions.Rpc/MQTTnet.Extensions.Rpc.csproj",
+      "Source/MQTTnet.Extensions.Socks5/MQTTnet.Extensions.Socks5.csproj",
+      "Source/MQTTnet.Extensions.TopicTemplate/MQTTnet.Extensions.TopicTemplate.csproj",
+      "Source/MQTTnet.Server/MQTTnet.Server.csproj",
+      "Source/MQTTnet.TestApp/MQTTnet.TestApp.csproj",
+      "Source/MQTTnet.Tests.Extensions.Socks5/MQTTnet.Tests.Extensions.Socks5.csproj",
+      "Source/MQTTnet.Tests/MQTTnet.Tests.csproj",
+      "Source/MQTTnet/MQTTnet.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "Source/MQTTnet.Tests.Extensions.Socks5/MQTTnet.Tests.Extensions.Socks5.csproj",
+      "Source/MQTTnet.Tests/MQTTnet.Tests.csproj"
+    ],
+    "docs": [],
+    "samples": [
+      "Samples",
+      "Samples/MQTTnet.Samples.csproj"
+    ]
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

@@ -1,0 +1,845 @@
+{
+  "id": "DJ-018",
+  "repo": "dotj-services",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/CoreWCF/CoreWCF",
+  "canonical_url": "https://github.com/CoreWCF/CoreWCF",
+  "redirect_observed": false,
+  "inspected_revision": "6e2cce88349fe41056fe8afda0dbbdf98d54bb00",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/README.md",
+      "sha256": "31c6c4aa11735585756791ae3a7d5dd7e7da9529baa3b9abd421615ba6e4da7d",
+      "bytes": 11239
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/LICENSE",
+      "sha256": "cf0467a1c00fadb258bbc966ec700007547c0bd74c9f6416738eee5e1830fd53",
+      "bytes": 1082
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props",
+      "sha256": "9ecb1470935fbd2904ee598315e93eb08b8b8ca2c5a92cf08e48adb7206f33e2",
+      "bytes": 13602
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Build.props",
+      "sha256": "9c8ad29c40cd0a9bcf0350eb85d9f97aa619c43bdf1d74ac447b418a93276613",
+      "bytes": 8333
+    },
+    {
+      "path": "src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn3.11.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn3.11.csproj",
+      "sha256": "33776f949f28f6bb37c257df68581698b5f26f03575e81543cb6b969a53de334",
+      "bytes": 637
+    },
+    {
+      "path": "src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn4.0.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn4.0.csproj",
+      "sha256": "f490a1fec46f9666cb08f2da071100aa0027d132bd5f2acb2103bc7e3f1ad387",
+      "bytes": 637
+    },
+    {
+      "path": "src/Common/UnitTests.Common/UnitTests.Common.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/Common/UnitTests.Common/UnitTests.Common.csproj",
+      "sha256": "3a33e42e4247a9d0d1fb27615f5a0e6a5b49be204e6ec04ec0e8ba10f092d5a4",
+      "bytes": 477
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Nerdbank.GitVersioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AngleSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AngleSharp.Diffing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Confluent.Kafka",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Docker.DotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Humanizer.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "IsExternalInit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Authentication",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Authentication.Negotiate",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Authorization",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.DataProtection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.DataProtection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Http.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Http.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Hosting.Server.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Server.HttpSys",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Server.Kestrel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Server.Kestrel.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.WebSockets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.WebUtilities",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Locator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ObjectPool",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Primitives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Protocols.WsFederation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Tokens",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Tokens.Saml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSMQ.Messaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "RabbitMQ.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Swashbuckle.AspNetCore.Swagger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Buffers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.DirectoryServices",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.DirectoryServices.Protocols",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IdentityModel.Tokens.Jwt",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Pipelines",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Private.Uri",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.DispatchProxy",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.InteropServices.RuntimeInformation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.ProtectedData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Principal.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Encodings.Web",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Web.Services.Description",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.extensibility.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.collector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xunit.StaFact",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.RabbitMq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceModel.Primitives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceModel.NetTcp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceModel.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceModel.NetNamedPipe",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceModel.UnixDomainSocket",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceModel.Federation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Connections.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Connections.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Nerdbank.GitVersioning",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.v3",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.analyzers",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "coverlet.collector",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn3.11.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn3.11.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn3.11.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn3.11.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn4.0.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn4.0.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn4.0.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/CoreWCF.BuildTools.Roslyn4.0.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Runtime.InteropServices.RuntimeInformation",
+      "file": "src/Common/UnitTests.Common/UnitTests.Common.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/Common/UnitTests.Common/UnitTests.Common.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(SourceDir)CoreWCF.Primitives\\src\\CoreWCF.Primitives.csproj",
+      "file": "src/Common/UnitTests.Common/UnitTests.Common.csproj",
+      "url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/Common/UnitTests.Common/UnitTests.Common.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/CoreWCF/announcements",
+      "source": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/README.md"
+    },
+    {
+      "url": "https://github.com/CoreWCF/samples",
+      "source": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/README.md"
+    },
+    {
+      "url": "https://github.com/settings/tokens",
+      "source": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/.editorconfig",
+      "src/Common/UnitTests.Common/CustomSecurity/MyTestAuthorizationPolicy.cs",
+      "src/Common/UnitTests.Common/CustomSecurity/MyTestServiceAuthorizationManager.cs",
+      "src/Common/UnitTests.Common/CustomXunitAttributes.cs",
+      "src/Common/UnitTests.Common/Helpers/ExceptionCapturingLogger.cs",
+      "src/Common/UnitTests.Common/Helpers/ExceptionCapturingLoggerProvider.cs",
+      "src/Common/UnitTests.Common/Helpers/WebHostExtensions.cs",
+      "src/Common/UnitTests.Common/Helpers/XunitLogger.cs",
+      "src/Common/UnitTests.Common/Helpers/XunitLoggerProvider.cs",
+      "src/Common/UnitTests.Common/UnitTests.Common.csproj",
+      "src/Common/UnitTests.Common/UseCultureAttribute.cs",
+      "src/Common/src/CoreWCF/Channels/ChannelBindingMessagePropertyHelper.cs",
+      "src/Common/src/CoreWCF/Channels/ChannelBindingUtility.cs",
+      "src/Common/src/CoreWCF/Channels/DefaultAuthorizationCapabilities.cs",
+      "src/Common/src/CoreWCF/Channels/DelegatingStream.cs",
+      "src/Common/src/CoreWCF/Channels/DnsCache.cs",
+      "src/Common/src/CoreWCF/Channels/MaxMessageSizeStream.cs",
+      "src/Common/src/CoreWCF/Channels/RequestContextBase.cs",
+      "src/Common/src/CoreWCF/Channels/SecurityCapabilities.cs",
+      "src/Common/src/CoreWCF/Channels/UriPrefixTable.cs",
+      "src/Common/src/CoreWCF/Collections/Generic/MruCache.cs",
+      "src/Common/src/CoreWCF/DiagnosticUtility.cs",
+      "src/Common/src/CoreWCF/HostNameComparisonModeHelper.cs",
+      "src/Common/src/CoreWCF/IdentityModel/SecurityUniqueId.cs",
+      "src/Common/src/CoreWCF/ProtocolExceptionHelper.cs",
+      "src/Common/src/CoreWCF/Resources/Strings.resx",
+      "src/Common/src/CoreWCF/Runtime/AsyncLock.cs",
+      "src/Common/src/CoreWCF/Runtime/CallbackException.cs",
+      "src/Common/src/CoreWCF/Runtime/Collections/GenericHashtable.cs",
+      "src/Common/src/CoreWCF/Runtime/Collections/HopperCache.cs",
+      "src/Common/src/CoreWCF/Runtime/ExceptionTrace.cs",
+      "src/Common/src/CoreWCF/Runtime/FatalException.cs",
+      "src/Common/src/CoreWCF/Runtime/Fx.cs",
+      "src/Common/src/CoreWCF/Runtime/IOThreadScheduler.cs",
+      "src/Common/src/CoreWCF/Runtime/IOThreadTimer.cs",
+      "src/Common/src/CoreWCF/Runtime/RecoverableTimeoutCancellationTokenSource.cs",
+      "src/Common/src/CoreWCF/Runtime/ServiceModelSynchronizationContext.cs",
+      "src/Common/src/CoreWCF/Runtime/TaskHelpers.cs",
+      "src/Common/src/CoreWCF/Runtime/Ticks.cs",
+      "src/Common/src/CoreWCF/Runtime/TimeoutHelper.cs",
+      "src/Common/src/CoreWCF/Runtime/TraceSR.cs",
+      "src/Common/src/CoreWCF/SecurityModeHelper.cs",
+      "src/Common/src/CoreWCF/TransferModeHelper.cs",
+      "src/Common/src/DuplexChannels/CoreWCF/Channels/CommunicationObjectExtensions.cs",
+      "src/Common/src/DuplexChannels/CoreWCF/Channels/IMessageSource.cs",
+      "src/Common/src/DuplexChannels/CoreWCF/Channels/ImmutableCommunicationTimeouts.cs",
+      "src/Common/src/DuplexChannels/CoreWCF/Channels/OutputChannel.cs",
+      "src/Common/src/DuplexChannels/CoreWCF/Channels/ServiceChannelBase.cs",
+      "src/Common/src/DuplexChannels/CoreWCF/Channels/ServiceDefaults.cs",
+      "src/Common/src/DuplexChannels/CoreWCF/Channels/SynchronizedMessageSource.cs"
+    ],
+    "api": [],
+    "tests": [
+      "src/Common/tests/XunitRunnerConfig/xunit.runner.json",
+      "src/Common/tests/XunitRunnerConfigConcurrencyLimiting/xunit.runner.json",
+      "src/CoreWCF.BuildTools/tests/AuthorizationAttributeAnalyserTests.cs",
+      "src/CoreWCF.BuildTools/tests/CSharpAnalyzerVerifier.cs",
+      "src/CoreWCF.BuildTools/tests/CSharpGeneratorVerifier.cs",
+      "src/CoreWCF.BuildTools/tests/CoreWCF.BuildTools.Roslyn3.11.Tests.csproj",
+      "src/CoreWCF.BuildTools/tests/CoreWCF.BuildTools.Roslyn4.0.Tests.csproj",
+      "src/CoreWCF.BuildTools/tests/OperationInvokerGeneratorTests.cs",
+      "src/CoreWCF.BuildTools/tests/OperationParameterInjectionGeneratorTests.cs",
+      "src/CoreWCF.BuildTools/tests/PrivateServiceContractAnalyzerTests.cs",
+      "src/CoreWCF.BuildTools/tests/ReferenceAssembliesHelper.cs",
+      "src/CoreWCF.ConfigurationManager/tests/BasicHttpBindingTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/ConfigurationHolderTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/CoreWCF.ConfigurationManager.Tests.csproj",
+      "src/CoreWCF.ConfigurationManager/tests/CustomBindingTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/DependencyResolver.cs",
+      "src/CoreWCF.ConfigurationManager/tests/ISomeService.cs",
+      "src/CoreWCF.ConfigurationManager/tests/IntegrationOfDependencyInjectionTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/MachineConfigTransitiveDependencyTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/NetHttpBindingTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/NetTcpBindingTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/SectionGroupTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/ServiceHelper.cs",
+      "src/CoreWCF.ConfigurationManager/tests/ServiceSectionTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/Startup.cs",
+      "src/CoreWCF.ConfigurationManager/tests/TemporaryFileStream.cs",
+      "src/CoreWCF.ConfigurationManager/tests/TestBase.cs",
+      "src/CoreWCF.ConfigurationManager/tests/WSHttpBindingTests.cs",
+      "src/CoreWCF.ConfigurationManager/tests/WebHttpBindingTests.cs",
+      "src/CoreWCF.Http/tests/ActionMismatchTests.cs",
+      "src/CoreWCF.Http/tests/AggregateExceptionTests.cs",
+      "src/CoreWCF.Http/tests/App.config",
+      "src/CoreWCF.Http/tests/Async767311Tests.cs",
+      "src/CoreWCF.Http/tests/AsyncNetAdoptionTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/AlwaysUseAuthorizationPolicySupportTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/AuthenticationServiceInterceptor.cs",
+      "src/CoreWCF.Http/tests/Authorization/AuthorizationIntegrationTests.Service.cs",
+      "src/CoreWCF.Http/tests/Authorization/AuthorizationIntegrationTests.Startup.cs",
+      "src/CoreWCF.Http/tests/Authorization/AuthorizationIntegrationTests.WebApplicationFactory.cs",
+      "src/CoreWCF.Http/tests/Authorization/AuthorizationIntegrationTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/AuthorizationServiceInterceptor.cs",
+      "src/CoreWCF.Http/tests/Authorization/ClassBasedServiceContractAuthorizationTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/CustomBindingInsertAuthorizationCapabilitiesTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/CustomBindingWrappingInheritedFromHostTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/DefaultPolicyTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/FakeJwtBearerAuthenticationHandler.cs",
+      "src/CoreWCF.Http/tests/Authorization/FakeJwtBearerAuthenticationHandlerOptions.cs",
+      "src/CoreWCF.Http/tests/Authorization/FallbackPolicyTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/InterfaceOnlyTests.cs",
+      "src/CoreWCF.Http/tests/Authorization/MultiplePoliciesOnClassAndMethodTests.cs"
+    ],
+    "docs": [
+      "Documentation/DesignDocs/corewcf_queue.png",
+      "Documentation/DesignDocs/corewcfqueue-design.md",
+      "Documentation/DesignDocs/generic_queue_class_diagram.png",
+      "Documentation/Microsoft-Support.md",
+      "Documentation/Testing.md",
+      "Documentation/Walkthrough.md",
+      "Documentation/branding/original-psd/corewcf-logo.psd",
+      "Documentation/branding/readme.md",
+      "Documentation/branding/svg_logo_badge.svg",
+      "Documentation/branding/svg_logo_text.svg",
+      "Documentation/branding/svg_logo_with_text.svg",
+      "Documentation/branding/web_92dpi_avatar_1024_transparentbackground.ico",
+      "Documentation/branding/web_92dpi_avatar_1024_transparentbackground.png",
+      "Documentation/branding/web_92dpi_avatar_1024_whitebackground.png",
+      "Documentation/branding/web_92dpi_avatar_1900_flatcolours_transparentbackground.png",
+      "Documentation/branding/web_92dpi_avatar_1900x645_flatcolours_transparentbackground.png",
+      "Documentation/branding/web_92dpi_avatar_256_transparentbackground.png",
+      "Documentation/branding/web_92dpi_avatar_512_transparentbackground.png",
+      "Documentation/branding/web_92dpi_avatar_withtext_1024_transparentbackground.ico",
+      "Documentation/branding/web_92dpi_avatar_withtext_1024_transparentbackground.png",
+      "Documentation/branding/web_92dpi_avatar_withtext_256_transparentbackground.png",
+      "Documentation/branding/web_92dpi_avatar_withtext_512_transparentbackground.png",
+      "Documentation/branding/web_92dpi_banner_transparentbackground.png",
+      "Documentation/branding/web_92dpi_banner_whitebackground.png",
+      "Documentation/branding/web_92dpi_text_colour_transparentbackground.png",
+      "Documentation/branding/web_92dpi_text_transparentbackground.png",
+      "Documentation/branding/web_92dpi_xlarge_transparentbackground.png",
+      "Documentation/images/add-service-ref.png",
+      "Documentation/images/corewcf-project-template.png",
+      "Documentation/images/empty-web-project.png",
+      "Documentation/images/nuget.png",
+      "Documentation/release-guide.md",
+      "Documentation/roadmap.md"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

@@ -1,0 +1,205 @@
+{
+  "id": "DJ-050",
+  "repo": "dotj-xtest",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/xunit/xunit",
+  "canonical_url": "https://github.com/xunit/xunit",
+  "redirect_observed": false,
+  "inspected_revision": "e91cdbe7557649b1179fbc47b01e8d3a615d1256",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/LICENSE",
+      "sha256": "58662904756b51beb58c8828c89fe83957100e864ef916867a9602cfbcd02581",
+      "bytes": 2038
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/README.md",
+      "sha256": "fd60cc212cc2ca8ac5de1df4edd80ec9b18b3557aad0e72759b426c377e56f9e",
+      "bytes": 5397
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/global.json",
+      "sha256": "9740bf6f00b68e3aa860f6b5e22a0c7d4944081d943ead40c1c33f76f75cef5c",
+      "bytes": 139
+    },
+    {
+      "path": "xunit.slnx",
+      "url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/xunit.slnx",
+      "sha256": "4f666632912f227fa6ad13a88a8bf117ac73751391edaa78c0ef7ae1ac1805fe",
+      "bytes": 7401
+    },
+    {
+      "path": "src/xunit.v3.assert/xunit.v3.assert.csproj",
+      "url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/src/xunit.v3.assert/xunit.v3.assert.csproj",
+      "sha256": "6b6dfc21e1f1fd0e482949e224924d649b621d484995fc202e5de8c01fe8be0d",
+      "bytes": 585
+    },
+    {
+      "path": "src/xunit.v3.assert.tests/xunit.v3.assert.tests.csproj",
+      "url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/src/xunit.v3.assert.tests/xunit.v3.assert.tests.csproj",
+      "sha256": "e23caa45294c9d6eccf43d7b10f4fa5b0e53f704caf4c530a132a6e0e44f5baa",
+      "bytes": 468
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "System.Collections.Immutable",
+      "file": "src/xunit.v3.assert/xunit.v3.assert.csproj",
+      "url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/src/xunit.v3.assert/xunit.v3.assert.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Memory",
+      "file": "src/xunit.v3.assert/xunit.v3.assert.csproj",
+      "url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/src/xunit.v3.assert/xunit.v3.assert.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/microsoft/vstest",
+      "source": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/README.md"
+    },
+    {
+      "url": "https://github.com/xunit/xunit",
+      "source": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/README.md"
+    },
+    {
+      "url": "https://github.com/xunit/.github",
+      "source": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/README.md"
+    },
+    {
+      "url": "https://github.com/xunit/assert.xunit",
+      "source": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/README.md"
+    },
+    {
+      "url": "https://github.com/sponsors/xunit",
+      "source": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/build",
+      "src/common.tests",
+      "src/common",
+      "src/xunit.v1.tests",
+      "src/xunit.v2.tests",
+      "src/xunit.v3.acceptance.aot.tests",
+      "src/xunit.v3.assert.aot.tests",
+      "src/xunit.v3.assert.aot",
+      "src/xunit.v3.assert.compat",
+      "src/xunit.v3.assert.tests",
+      "src/xunit.v3.assert.x86.tests",
+      "src/xunit.v3.assert",
+      "src/xunit.v3.common.aot.tests",
+      "src/xunit.v3.common.aot",
+      "src/xunit.v3.common.tests",
+      "src/xunit.v3.common.x86.tests",
+      "src/xunit.v3.common",
+      "src/xunit.v3.core.aot.generators.tests",
+      "src/xunit.v3.core.aot.generators",
+      "src/xunit.v3.core.aot.tests",
+      "src/xunit.v3.core.aot",
+      "src/xunit.v3.core.tests",
+      "src/xunit.v3.core.x86.tests",
+      "src/xunit.v3.core",
+      "src/xunit.v3.generatorutility",
+      "src/xunit.v3.msbuildtasks",
+      "src/xunit.v3.mtp-v2.aot.tests",
+      "src/xunit.v3.mtp-v2.aot",
+      "src/xunit.v3.mtp-v2.tests",
+      "src/xunit.v3.mtp-v2.x86.tests",
+      "src/xunit.v3.mtp-v2",
+      "src/xunit.v3.runner.common.aot.generators.tests",
+      "src/xunit.v3.runner.common.aot.generators",
+      "src/xunit.v3.runner.common.aot.tests",
+      "src/xunit.v3.runner.common.aot",
+      "src/xunit.v3.runner.common.tests",
+      "src/xunit.v3.runner.common.x86.tests",
+      "src/xunit.v3.runner.common",
+      "src/xunit.v3.runner.console.aot.tests",
+      "src/xunit.v3.runner.console.aot",
+      "src/xunit.v3.runner.console.tests",
+      "src/xunit.v3.runner.console.x86.tests",
+      "src/xunit.v3.runner.console.x86",
+      "src/xunit.v3.runner.console",
+      "src/xunit.v3.runner.inproc.console.aot.tests",
+      "src/xunit.v3.runner.inproc.console.aot",
+      "src/xunit.v3.runner.inproc.console.tests",
+      "src/xunit.v3.runner.inproc.console.x86.tests",
+      "src/xunit.v3.runner.inproc.console",
+      "src/xunit.v3.runner.msbuild.tests"
+    ],
+    "api": [],
+    "tests": [
+      "src/common.tests",
+      "src/xunit.v1.tests",
+      "src/xunit.v2.tests",
+      "src/xunit.v3.acceptance.aot.tests",
+      "src/xunit.v3.assert.aot.tests",
+      "src/xunit.v3.assert.tests",
+      "src/xunit.v3.assert.x86.tests",
+      "src/xunit.v3.common.aot.tests",
+      "src/xunit.v3.common.tests",
+      "src/xunit.v3.common.x86.tests",
+      "src/xunit.v3.core.aot.generators.tests",
+      "src/xunit.v3.core.aot.tests",
+      "src/xunit.v3.core.tests",
+      "src/xunit.v3.core.x86.tests",
+      "src/xunit.v3.mtp-v2.aot.tests",
+      "src/xunit.v3.mtp-v2.tests",
+      "src/xunit.v3.mtp-v2.x86.tests",
+      "src/xunit.v3.runner.common.aot.generators.tests",
+      "src/xunit.v3.runner.common.aot.tests",
+      "src/xunit.v3.runner.common.tests",
+      "src/xunit.v3.runner.common.x86.tests",
+      "src/xunit.v3.runner.console.aot.tests",
+      "src/xunit.v3.runner.console.tests",
+      "src/xunit.v3.runner.console.x86.tests",
+      "src/xunit.v3.runner.inproc.console.aot.tests",
+      "src/xunit.v3.runner.inproc.console.tests",
+      "src/xunit.v3.runner.inproc.console.x86.tests",
+      "src/xunit.v3.runner.msbuild.tests",
+      "src/xunit.v3.runner.msbuild.x86.tests",
+      "src/xunit.v3.runner.utility.aot.tests",
+      "src/xunit.v3.runner.utility.tests",
+      "src/xunit.v3.runner.utility.x86.tests",
+      "src/xunit.v3.assert.tests/xunit.v3.assert.tests.csproj",
+      "src/xunit.v3.common.tests/xunit.v3.common.tests.csproj",
+      "src/xunit.v3.core.tests/xunit.v3.core.tests.csproj",
+      "src/xunit.v3.mtp-v2.tests/xunit.v3.mtp-v2.tests.csproj",
+      "src/xunit.v3.runner.common.tests/xunit.v3.runner.common.tests.csproj",
+      "src/xunit.v3.runner.console.tests/xunit.v3.runner.console.tests.csproj",
+      "src/xunit.v3.runner.inproc.console.tests/xunit.v3.runner.inproc.console.tests.csproj",
+      "src/xunit.v3.runner.msbuild.tests/xunit.v3.runner.msbuild.tests.csproj",
+      "src/xunit.v3.runner.utility.tests/xunit.v3.runner.utility.tests.csproj",
+      "src/xunit.v3.acceptance.aot.tests/xunit.v3.acceptance.aot.tests.csproj",
+      "src/xunit.v3.assert.aot.tests/xunit.v3.assert.aot.tests.csproj",
+      "src/xunit.v3.common.aot.tests/xunit.v3.common.aot.tests.csproj",
+      "src/xunit.v3.core.aot.generators.tests/xunit.v3.core.aot.generators.tests.csproj",
+      "src/xunit.v3.core.aot.tests/xunit.v3.core.aot.tests.csproj",
+      "src/xunit.v3.mtp-v2.aot.tests/xunit.v3.mtp-v2.aot.tests.csproj",
+      "src/xunit.v3.runner.common.aot.generators.tests/xunit.v3.runner.common.aot.generators.tests.csproj",
+      "src/xunit.v3.runner.common.aot.tests/xunit.v3.runner.common.aot.tests.csproj",
+      "src/xunit.v3.runner.console.aot.tests/xunit.v3.runner.console.aot.tests.csproj"
+    ],
+    "docs": [],
+    "samples": []
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links",
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "Apache 2.0 text observed; file-level review OPEN"
+}

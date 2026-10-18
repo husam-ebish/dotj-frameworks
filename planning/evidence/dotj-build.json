@@ -1,0 +1,692 @@
+{
+  "id": "DJ-005",
+  "repo": "dotj-build",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/msbuild",
+  "canonical_url": "https://github.com/dotnet/msbuild",
+  "redirect_observed": false,
+  "inspected_revision": "6348d0c087aeec18c323b01a2c77da089ddafea0",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/README.md",
+      "sha256": "f411134f273b013b82109471adca7e7de984b4a437ae0a80e48b5cc1087a69bd",
+      "bytes": 5313
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/LICENSE",
+      "sha256": "9aebac42398b50e652a84a7b92d70e85cd1a9c8746558a743dc6cec11b8d7d3e",
+      "bytes": 1117
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props",
+      "sha256": "485b15e7b22275c64f583e265629001c319e36375f0c3294cde3469bd0ad6828",
+      "bytes": 4560
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Build.props",
+      "sha256": "e70d0ca932bd631c39debf2a681dd786b2588820e4708161af1693507139f983",
+      "bytes": 5272
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/global.json",
+      "sha256": "b60253387072f1a30269de2fab4f44bde428aca572ae2818443647df9e22d18e",
+      "bytes": 475
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "eng/dependabot/dependabot.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/eng/dependabot/dependabot.csproj",
+      "sha256": "42aadcf15b5380872720d0a4ac7909a8daa933d63d562a08595f58b1712c8ebd",
+      "bytes": 198
+    },
+    {
+      "path": "src/Build.OM.UnitTests/Microsoft.Build.Engine.OM.UnitTests.VSTest.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build.OM.UnitTests/Microsoft.Build.Engine.OM.UnitTests.VSTest.csproj",
+      "sha256": "22a2bd004ef2cc7626eed7ccc855d6051a7909a76cb655c333c7133f116265d0",
+      "bytes": 1582
+    },
+    {
+      "path": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj",
+      "sha256": "e62a8e7b1c6609270ab4e2ba8746f5af806e73e27ca54ca6632f1540f732c8cc",
+      "bytes": 47024
+    },
+    {
+      "path": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj",
+      "sha256": "42331757e99473cd0128f45d0cad5ff99c200502856022c94053d5cd168b4ddb",
+      "bytes": 15844
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.NuGetSdkResolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Collections",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Contracts",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PooledObjects",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.XUnitV3Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IO.Redist",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Net.Compilers.Toolset",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Build.Tasks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Build.Tasks.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Frameworks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CodeDom",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.EventLog",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Nrbf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.MetadataLoadContext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Resources.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.CompilerServices.Unsafe",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.ProtectedData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Principal.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Encoding.CodePages",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Channels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Dataflow",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ValueTuple",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Telemetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Framework\\Microsoft.Build.Framework.csproj",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudio.SolutionPersistence",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Reflection.MetadataLoadContext",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.BuildXL.Processes",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NETStandard.Library",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Collections",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PooledObjects",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Memory",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Security.Principal.Windows",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Text.Json",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Collections.Immutable",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.Tasks.Dataflow",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Reflection.Metadata",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Text.Encoding.CodePages",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NuGet.Frameworks",
+      "file": "src/Build/Microsoft.Build.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Build/Microsoft.Build.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\TaskAnalyzer\\TaskAnalyzer.csproj",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Contracts",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.IO.Redist",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Runtime.CompilerServices.Unsafe",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Text.Json",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudio.Telemetry",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Collections.Immutable",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Win32.Registry",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\StringTools\\StringTools.csproj",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Windows.CsWin32",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "PolySharp",
+      "file": "src/Framework/Microsoft.Build.Framework.csproj",
+      "url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Microsoft.Build.Framework.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/msbuild",
+      "source": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/msbuild",
+      "source": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/msbuild",
+      "source": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/msbuild",
+      "source": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/common/internal/Tools.csproj",
+      "eng/dependabot/dependabot.csproj",
+      "src/.editorconfig",
+      "src/BannedSymbols.txt",
+      "src/Build.OM.UnitTests/AssemblyInfo.cs",
+      "src/Build.OM.UnitTests/Construction/ConstructionEditing_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ElementLocationPublic_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectChooseElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectExtensionsElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectFormatting_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectImportElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectImportGroupElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectItemDefinitionElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectItemDefinitionGroupElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectItemElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectItemGroupElement_tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectMetadataElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectOnErrorElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectOutputElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectPropertyElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectPropertyGroupElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectRootElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectTargetElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectTaskElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/ProjectUsingTaskElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/SolutionFile_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/UsingTaskBodyElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/UsingTaskParameterElement_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/UsingTaskParameterGroup_Tests.cs",
+      "src/Build.OM.UnitTests/Construction/WhiteSpacePreservation_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/DefinitionEditing_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/EditingElementsReferencedByOrReferences_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/ProjectCollection_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/ProjectItemDefinition_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/ProjectItem_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/ProjectMetadata_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/ProjectProperty_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/Project_Tests.cs",
+      "src/Build.OM.UnitTests/Definition/ProtectImports_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectInstance_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectItemInstance_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectMetadataInstance_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectOnErrorInstance_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectPropertyInstance_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectTargetInstance_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectTaskInstance_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectTaskOutputItemInstance_Tests.cs",
+      "src/Build.OM.UnitTests/Instance/ProjectTaskOutputPropertyInstance_Tests.cs",
+      "src/Build.OM.UnitTests/LazyFormattedEventArgs_Tests.cs",
+      "src/Build.OM.UnitTests/Microsoft.Build.Engine.OM.UnitTests.VSTest.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "src/MSBuild.EndToEnd.Tests/Microsoft.Build.EndToEnd.Tests.csproj",
+      "src/MSBuild.EndToEnd.Tests/MultithreadedExecution_Tests.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/NonSdkProjectWithDependencies/ConsoleApp/ConsoleApp.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/NonSdkProjectWithDependencies/ConsoleApp/Program.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/NonSdkProjectWithDependencies/Library1/Class1.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/NonSdkProjectWithDependencies/Library1/Library1.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/NonSdkProjectWithDependencies/Library2/Class2.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/NonSdkProjectWithDependencies/Library2/Library2.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/NonSdkSingleProject/NonSdkSingleProject.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/NonSdkSingleProject/Program.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/ConsoleApp/ConsoleApp.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/ConsoleApp/Program.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/Library1/Class1.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/Library1/Library1.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/Library2/Class2.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/Library2/Library2.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/Library3/Class3.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/Library3/Library3.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/Library4/Class4.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/Library4/Library4.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/ProjectWithDependencies/global.json",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/SingleProject/Program.cs",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/SingleProject/SingleProject.csproj",
+      "src/MSBuild.EndToEnd.Tests/TestAssets/SingleProject/global.json",
+      "src/MSBuild.EndToEnd.Tests/TestAssetsFixture.cs",
+      "src/MSBuild.EndToEnd.Tests/TestSolutionAsset.cs",
+      "src/TaskAnalyzer.Tests/MultiThreadableTaskAnalyzerTests.cs",
+      "src/TaskAnalyzer.Tests/MultiThreadableTaskCodeFixProviderTests.cs",
+      "src/TaskAnalyzer.Tests/MultiThreadableTaskDeclarationAnalyzerTests.cs",
+      "src/TaskAnalyzer.Tests/PackageContractTests.cs",
+      "src/TaskAnalyzer.Tests/PathDefaultClassifierTests.cs",
+      "src/TaskAnalyzer.Tests/PreferTypedParameterAnalyzerTests.cs",
+      "src/TaskAnalyzer.Tests/PreferTypedParameterCodeFixProviderTests.cs",
+      "src/TaskAnalyzer.Tests/RequiredTaskPropertyInitializationSuppressorTests.cs",
+      "src/TaskAnalyzer.Tests/TaskAnalyzer.Tests.csproj",
+      "src/TaskAnalyzer.Tests/TaskEnvironmentConstructorInjectionAnalyzerTests.cs",
+      "src/TaskAnalyzer.Tests/TestHelpers.cs",
+      "src/TaskAnalyzer.Tests/TransitiveCallChainAnalyzerTests.cs",
+      "src/TaskAnalyzer.Tests/UnsupportedTaskItemTypeAnalyzerTests.cs",
+      "src/TaskAnalyzer.Tests/WriteAllTextDetailedTest.cs",
+      "src/Tasks.UnitTests/TestResources/CustomCulture/Test.euy.resx",
+      "src/Tasks.UnitTests/TestResources/CustomCulture/Test.resx",
+      "src/Tasks.UnitTests/TestResources/CustomCulture/Test.yue.resx",
+      "src/Test.snk"
+    ],
+    "docs": [
+      "documentation/Build-Scenarios.md",
+      "documentation/Built-in-Properties.md",
+      "documentation/Changelog.md",
+      "documentation/Components.html",
+      "documentation/Contributions/MSBuild-overview.md",
+      "documentation/Contributions/README.md",
+      "documentation/Contributions/solution-parser.md",
+      "documentation/Deploy-MSBuild.md",
+      "documentation/High-level-overview.md",
+      "documentation/Logging-behavior.md",
+      "documentation/MSBuild-Coordinator.md",
+      "documentation/MSBuild-Server.md",
+      "documentation/MSBuild-scheduler.md",
+      "documentation/Multi-request-Target-Crosstalk.md",
+      "documentation/NETFramework-NGEN.md",
+      "documentation/Persistent-Problems.md",
+      "documentation/ProjectReference-Protocol.md",
+      "documentation/Property-tracking-capabilities.md",
+      "documentation/README.md",
+      "documentation/VS-Telemetry-Data.md",
+      "documentation/WhenGlobbingReturnsOriginalFilespec.md",
+      "documentation/aot/README.md",
+      "documentation/aot/aot-annotation-map.md",
+      "documentation/aot/aot-trim-suppressions.md",
+      "documentation/aot/aot-trimming-strategy.md",
+      "documentation/aot/buildcheck-reflection-removal.md",
+      "documentation/aot/follow-up-work.md",
+      "documentation/aot/managing-trimming-and-aot.md",
+      "documentation/aot/property-functions-reachability.md",
+      "documentation/aot/sdk-msbuild-object-model-audit.md",
+      "documentation/aot/sdk-resolution.md",
+      "documentation/aot/task-factory-aot.md",
+      "documentation/aot/task-parameter-types.md",
+      "documentation/assigning-msb-error-code.md",
+      "documentation/consuming-nuget-package.md",
+      "documentation/data-collection-systems.md",
+      "documentation/deprecated/Building-Testing-and-Debugging-on-Mono-MSBuild.md",
+      "documentation/evaluation-profiling.md",
+      "documentation/release-checklist.md",
+      "documentation/release.md",
+      "documentation/schedulableRequest_parent_relationships.png",
+      "documentation/scheduler_architecture.png",
+      "documentation/specs/BuildCheck/BuildCheck-Architecture.md",
+      "documentation/specs/BuildCheck/BuildCheck-feature-threat-model.md",
+      "documentation/specs/BuildCheck/BuildCheck.md",
+      "documentation/specs/BuildCheck/Codes.md",
+      "documentation/specs/BuildCheck/CustomBuildCheck.md",
+      "documentation/specs/BuildCheck/cross-node-remoted-data.png",
+      "documentation/specs/BuildCheck/in-node-direct-data.png",
+      "documentation/specs/archive/rar-as-service.md"
+    ],
+    "samples": [
+      "src/Samples/Dependency/Alpha.cs",
+      "src/Samples/Dependency/Dependency.csproj",
+      "src/Samples/Dependency/Properties/AssemblyInfo.cs",
+      "src/Samples/Directory.Build.props",
+      "src/Samples/Directory.Build.targets",
+      "src/Samples/MultiprocessBuild/1.csproj",
+      "src/Samples/MultiprocessBuild/2.csproj",
+      "src/Samples/MultiprocessBuild/root.proj",
+      "src/Samples/PortableTask/PortableTask.csproj",
+      "src/Samples/PortableTask/Properties/AssemblyInfo.cs",
+      "src/Samples/PortableTask/ShowItems.cs",
+      "src/Samples/PortableTask/Sleep.cs",
+      "src/Samples/PortableTask/portableTaskTest.proj",
+      "src/Samples/ProjectCachePlugin/AssemblyMockCache.cs",
+      "src/Samples/ProjectCachePlugin/ProjectCachePlugin.csproj",
+      "src/Samples/RebuildWithXmlLog.cmd",
+      "src/Samples/TaskUsageLogger/Properties/AssemblyInfo.cs",
+      "src/Samples/TaskUsageLogger/TaskUsageLogger.cs",
+      "src/Samples/TaskUsageLogger/TaskUsageLogger.csproj",
+      "src/Samples/TaskWithDependency/LogStringFromDependency.cs",
+      "src/Samples/TaskWithDependency/Properties/AssemblyInfo.cs",
+      "src/Samples/TaskWithDependency/TaskWithDependency.csproj",
+      "src/Samples/TaskWithDependency/TaskWithDependencyTest.proj",
+      "src/Samples/TestExitCodeOverride/TestExitCodeOverride.proj",
+      "src/Samples/XmlFileLogger/ILogNode.cs",
+      "src/Samples/XmlFileLogger/ItemGroupParser.cs",
+      "src/Samples/XmlFileLogger/LogProcessNode.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/Build.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/InputParameter.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/Item.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/ItemGroup.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/Message.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/OutputItem.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/OutputProperty.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/Project.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/Target.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/Task.cs",
+      "src/Samples/XmlFileLogger/ObjectModel/TaskParameter.cs",
+      "src/Samples/XmlFileLogger/Properties/AssemblyInfo.cs",
+      "src/Samples/XmlFileLogger/PropertyBag.cs",
+      "src/Samples/XmlFileLogger/UnknownTaskParameterPrefixException.cs",
+      "src/Samples/XmlFileLogger/XmlFileLogger.cs",
+      "src/Samples/XmlFileLogger/XmlFileLogger.csproj"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

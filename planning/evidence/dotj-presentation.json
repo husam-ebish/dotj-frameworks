@@ -1,0 +1,303 @@
+{
+  "id": "DJ-040",
+  "repo": "dotj-presentation",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/wpf",
+  "canonical_url": "https://github.com/dotnet/wpf",
+  "redirect_observed": false,
+  "inspected_revision": "65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/Directory.Build.props",
+      "sha256": "3a43d0988773baecd80f9e8a5c3dc4af8ab03bb013c02ed953da28d8c48e1530",
+      "bytes": 1804
+    },
+    {
+      "path": "LICENSE.TXT",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/LICENSE.TXT",
+      "sha256": "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+      "bytes": 1115
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/README.md",
+      "sha256": "7f16c6d9e996ab19c879c614f355182ccb95213dd574fb8fdeb2b70172075602",
+      "bytes": 5986
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "d23dba2fee20c6b59d8f7088ee9ed372459c952a319b7ca90f3eec370cc76eb9",
+      "bytes": 2703
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/global.json",
+      "sha256": "d49b155e2a7903c0775736eeffa4ebce9f240350e765167834d07deda5dc5710",
+      "bytes": 964
+    },
+    {
+      "path": "Microsoft.Dotnet.Wpf.sln",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/Microsoft.Dotnet.Wpf.sln",
+      "sha256": "8019ccc22a17085999e87842a371ea496e48ee1e65ffd7d462446585a83c7b0d",
+      "bytes": 144878
+    },
+    {
+      "path": "src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj",
+      "sha256": "1b99f0e8e50d95062adde4ce3756aa682b65a1e5c6c6ee687bcd01e75eaf26b8",
+      "bytes": 4918
+    },
+    {
+      "path": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "sha256": "1aa4105a817eb31da4ebf6d52e2dc2e6e62046e1ef05d5b18e6bbd3246031733",
+      "bytes": 2597
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "System.Security.Permissions",
+      "file": "src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Windows.Extensions",
+      "file": "src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(WpfSourceDir)System.Xaml\\ref\\System.Xaml-ref.csproj",
+      "file": "src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(WpfSourceDir)DirectWriteForwarder\\DirectWriteForwarder.vcxproj",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(WpfSourceDir)PresentationCore\\PresentationCore.csproj",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(WpfSourceDir)WindowsBase\\WindowsBase.csproj",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(WpfSourceDir)System.Xaml\\System.Xaml.csproj",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(WpfSourceDir)System.Windows.Primitives\\System.Windows.Primitives.csproj",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(WpfSourceDir)Extensions\\PresentationFramework-SystemDrawing\\PresentationFramework-SystemDrawing.csproj",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AwesomeAssertions",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Moq",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.stafact",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Formats.Nrbf",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "$(SystemIOPackagingPackage)",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Runtime.Serialization.Formatters",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Private.Windows.Core.TestUtilities",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "$(SystemDrawingCommonPackage)",
+      "file": "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "url": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/wpf",
+      "source": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/winforms",
+      "source": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet",
+      "source": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wpf-test",
+      "source": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime",
+      "source": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/wpf",
+      "source": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/README.md"
+    },
+    {
+      "url": "https://github.com/Microsoft/dotnet",
+      "source": "https://github.com/dotnet/wpf/blob/65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Microsoft.DotNet.Wpf",
+      "src/Microsoft.DotNet.Wpf/src/System.Xaml/System.Xaml.csproj",
+      "packaging/Microsoft.DotNet.Wpf.GitHub/Microsoft.DotNet.Wpf.GitHub.csproj",
+      "packaging/Microsoft.DotNet.Wpf.GitHub/Microsoft.DotNet.Wpf.GitHub.ArchNeutral.csproj",
+      "packaging/Microsoft.DotNet.Arcade.Wpf.Sdk/Microsoft.DotNet.Arcade.Wpf.Sdk.ArchNeutral.csproj",
+      "packaging/Microsoft.Dotnet.Wpf.ProjectTemplates/Microsoft.DotNet.Wpf.ProjectTemplates.ArchNeutral.csproj",
+      "src/Microsoft.DotNet.Wpf/src/PresentationBuildTasks/PresentationBuildTasks.csproj",
+      "packaging/Microsoft.NET.Sdk.WindowsDesktop/Microsoft.NET.Sdk.WindowsDesktop.ArchNeutral.csproj",
+      "src/Microsoft.DotNet.Wpf/src/WindowsBase/WindowsBase.csproj",
+      "src/Microsoft.DotNet.Wpf/src/PresentationCore/PresentationCore.csproj",
+      "src/Microsoft.DotNet.Wpf/src/PresentationFramework/PresentationFramework.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationClient/UIAutomationClient.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationClientSideProviders/UIAutomationClientSideProviders.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationProvider/UIAutomationProvider.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationTypes/UIAutomationTypes.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Windows.Input.Manipulations/System.Windows.Input.Manipulations.csproj",
+      "src/Microsoft.DotNet.Wpf/src/ReachFramework/ReachFramework.csproj",
+      "src/Microsoft.DotNet.Wpf/cycle-breakers/PresentationFramework/PresentationFramework-PresentationUI-api-cycle.csproj",
+      "src/Microsoft.DotNet.Wpf/cycle-breakers/PresentationFramework/PresentationFramework-ReachFramework-impl-cycle.csproj",
+      "src/Microsoft.DotNet.Wpf/cycle-breakers/PresentationFramework/PresentationFramework-System.Printing-api-cycle.csproj",
+      "src/Microsoft.DotNet.Wpf/cycle-breakers/PresentationFramework/PresentationFramework-System.Printing-impl-cycle.csproj",
+      "src/Microsoft.DotNet.Wpf/cycle-breakers/PresentationUI/PresentationUI-PresentationFramework-impl-cycle.csproj",
+      "src/Microsoft.DotNet.Wpf/cycle-breakers/ReachFramework/ReachFramework-PresentationFramework-api-cycle.csproj",
+      "src/Microsoft.DotNet.Wpf/cycle-breakers/ReachFramework/ReachFramework-System.Printing-api-cycle.csproj",
+      "src/Microsoft.DotNet.Wpf/cycle-breakers/System.Printing/System.Printing-PresentationFramework-api-cycle.csproj",
+      "src/Microsoft.DotNet.Wpf/src/PresentationCore/ref/PresentationCore-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/PresentationFramework/ref/PresentationFramework-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/ReachFramework/ref/ReachFramework-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Printing/ref/System.Printing-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Windows.Input.Manipulations/ref/System.Windows.Input.Manipulations-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Xaml/ref/System.Xaml-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationClient/ref/UIAutomationClient-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationClientSideProviders/ref/UIAutomationClientSideProviders-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationProvider/ref/UIAutomationProvider-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationTypes/ref/UIAutomationTypes-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/WindowsBase/ref/WindowsBase-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Extensions/PresentationFramework-SystemCore/PresentationFramework-SystemCore.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Extensions/PresentationFramework-SystemData/PresentationFramework-SystemData.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Extensions/PresentationFramework-SystemDrawing/PresentationFramework-SystemDrawing.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Extensions/PresentationFramework-SystemXml/PresentationFramework-SystemXml.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Extensions/PresentationFramework-SystemXmlLinq/PresentationFramework-SystemXmlLinq.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Aero/PresentationFramework.Aero.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Aero2/PresentationFramework.Aero2.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.AeroLite/PresentationFramework.AeroLite.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Classic/PresentationFramework.Classic.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Luna/PresentationFramework.Luna.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Royale/PresentationFramework.Royale.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Aero/ref/PresentationFramework.Aero-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Aero2/ref/PresentationFramework.Aero2-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.AeroLite/ref/PresentationFramework.AeroLite-ref.csproj"
+    ],
+    "api": [
+      "src/Microsoft.DotNet.Wpf/src/PresentationCore/ref/PresentationCore-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/PresentationFramework/ref/PresentationFramework-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/ReachFramework/ref/ReachFramework-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Printing/ref/System.Printing-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Windows.Input.Manipulations/ref/System.Windows.Input.Manipulations-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Xaml/ref/System.Xaml-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationClient/ref/UIAutomationClient-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationClientSideProviders/ref/UIAutomationClientSideProviders-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationProvider/ref/UIAutomationProvider-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/UIAutomation/UIAutomationTypes/ref/UIAutomationTypes-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/WindowsBase/ref/WindowsBase-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Aero/ref/PresentationFramework.Aero-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Aero2/ref/PresentationFramework.Aero2-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.AeroLite/ref/PresentationFramework.AeroLite-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Windows.Controls.Ribbon/ref/System.Windows.Controls.Ribbon-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Windows.Presentation/ref/System.Windows.Presentation-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Classic/ref/PresentationFramework.Classic-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Luna/ref/PresentationFramework.Luna-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Royale/ref/PresentationFramework.Royale-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/WindowsFormsIntegration/ref/WindowsFormsIntegration-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/PresentationUI/ref/PresentationUI-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/Themes/PresentationFramework.Fluent/ref/PresentationFramework.Fluent-ref.csproj",
+      "src/Microsoft.DotNet.Wpf/src/System.Windows.Primitives/ref/System.Windows.Primitives-ref.csproj"
+    ],
+    "tests": [
+      "test.cmd",
+      "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationCore.Tests/PresentationCore.Tests.csproj",
+      "src/Microsoft.DotNet.Wpf/tests/UnitTests/System.Xaml.Tests/System.Xaml.Tests.csproj",
+      "src/Microsoft.DotNet.Wpf/tests/UnitTests/WindowsBase.Tests/WindowsBase.Tests.csproj",
+      "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationFramework.Fluent.Tests/PresentationFramework.Fluent.Tests.csproj",
+      "src/Microsoft.DotNet.Wpf/tests/UnitTests/System.Printing.Tests/System.Printing.Tests.csproj",
+      "src/Microsoft.DotNet.Wpf/tests/UnitTests/PresentationFramework.Tests/PresentationFramework.Tests.csproj"
+    ],
+    "docs": [
+      "Documentation"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

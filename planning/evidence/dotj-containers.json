@@ -1,0 +1,558 @@
+{
+  "id": "DJ-011",
+  "repo": "dotj-containers",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/dotnet-docker",
+  "canonical_url": "https://github.com/dotnet/dotnet-docker",
+  "redirect_observed": false,
+  "inspected_revision": "a5ada4c290f2dc087c6926beeeaffcd07912abe7",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.aspire-dashboard.md",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md",
+      "sha256": "d4652067809456e57d10562c13c3d9b076e78973ea0aa95013f670ac4d8d7abb",
+      "bytes": 5101
+    },
+    {
+      "path": "README.aspnet.md",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md",
+      "sha256": "3a8b337f1c9fb9ce833718855b2cf675c7631b9a76d7d593156ecf476b3f461d",
+      "bytes": 54519
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/LICENSE",
+      "sha256": "715c0e735e3f43b9f9397c5403ed352b913527cf16d820c14e2dceefd8331b44",
+      "bytes": 1082
+    },
+    {
+      "path": "eng/shared/Microsoft.DotNet.Docker.Shared.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/shared/Microsoft.DotNet.Docker.Shared.csproj",
+      "sha256": "9c3136431b15239386e4d41b62abfb58a5f95caa402eaed1107cd114e41f6feb",
+      "bytes": 582
+    },
+    {
+      "path": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj",
+      "sha256": "77e0d534dd1aed2e6c40807930ed7b9b6262c770990d49929c3bdba6c6104069",
+      "bytes": 1520
+    },
+    {
+      "path": "samples/MultiProjectApp/Tests/Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/samples/MultiProjectApp/Tests/Tests.csproj",
+      "sha256": "0c648441b15df1b4562da7bcd02115a0ca74101f4d35eb9f43613e25c3b93aba",
+      "bytes": 708
+    },
+    {
+      "path": "Microsoft.DotNet.Docker.slnx",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/Microsoft.DotNet.Docker.slnx",
+      "sha256": "d9cbc4a5d7f61be979fe49d9aa5c01bc89d46c7933db68e68937911da05b7638",
+      "bytes": 470
+    },
+    {
+      "path": "tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj",
+      "sha256": "ec241e70376bc14aa65dded2b3c5b4bcca4eadaa47538e37558b107561d14eff",
+      "bytes": 1539
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "NuGet.Versioning",
+      "file": "eng/shared/Microsoft.DotNet.Docker.Shared.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/shared/Microsoft.DotNet.Docker.Shared.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../shared/Microsoft.DotNet.Docker.Shared.csproj",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Azure.Identity",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Azure.Storage.Blobs",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "LibGit2Sharp",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.DarcLib",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.GitAutomation",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.TeamFoundationServer.Client",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Octokit",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine",
+      "file": "eng/update-dependencies/update-dependencies.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/eng/update-dependencies/update-dependencies.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "samples/MultiProjectApp/Tests/Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/samples/MultiProjectApp/Tests/Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit",
+      "file": "samples/MultiProjectApp/Tests/Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/samples/MultiProjectApp/Tests/Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.visualstudio",
+      "file": "samples/MultiProjectApp/Tests/Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/samples/MultiProjectApp/Tests/Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "coverlet.collector",
+      "file": "samples/MultiProjectApp/Tests/Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/samples/MultiProjectApp/Tests/Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\LibFoo\\LibFoo.csproj",
+      "file": "samples/MultiProjectApp/Tests/Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/samples/MultiProjectApp/Tests/Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\LibBar\\LibBar.csproj",
+      "file": "samples/MultiProjectApp/Tests/Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/samples/MultiProjectApp/Tests/Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../../eng/update-dependencies/update-dependencies.csproj",
+      "file": "tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Moq",
+      "file": "tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Shouldly",
+      "file": "tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.v3",
+      "file": "tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.visualstudio",
+      "file": "tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj",
+      "url": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/tests/UpdateDependencies.Tests/UpdateDependencies.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire-samples",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspire-dashboard.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/microsoft/dotnet-framework-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/microsoft/dotnet-framework-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/core",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    },
+    {
+      "url": "https://github.com/dotnet/dotnet-docker",
+      "source": "https://github.com/dotnet/dotnet-docker/blob/a5ada4c290f2dc087c6926beeeaffcd07912abe7/README.aspnet.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/shared/Microsoft.DotNet.Docker.Shared.csproj",
+      "eng/update-dependencies/update-dependencies.csproj",
+      "samples/AspNetCoreNativeAot/AspNetCoreNativeAot.csproj",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/AspNetCoreRazorApp.csproj",
+      "samples/ConsoleApp/ConsoleApp.csproj",
+      "samples/ConsoleAppSelfContained/ConsoleAppSelfContained.csproj",
+      "samples/ConsoleAppWithGlobalization/ConsoleAppWithGlobalization.csproj",
+      "samples/MultiProjectApp/LibBar/LibBar.csproj",
+      "samples/MultiProjectApp/LibFoo/LibFoo.csproj",
+      "samples/MultiProjectApp/MultiProjectApp/MultiProjectApp.csproj",
+      "samples/MultiProjectApp/Tests/Tests.csproj",
+      "src/AGENTS.md",
+      "src/aspire-dashboard/amd64/Dockerfile",
+      "src/aspire-dashboard/arm64v8/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-composite-extra/amd64/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-composite-extra/arm32v7/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-composite-extra/arm64v8/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-composite/amd64/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-composite/arm32v7/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-composite/arm64v8/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-extra/amd64/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-extra/arm32v7/Dockerfile",
+      "src/aspnet/10.0/alpine3.24-extra/arm64v8/Dockerfile",
+      "src/aspnet/10.0/alpine3.24/amd64/Dockerfile",
+      "src/aspnet/10.0/alpine3.24/arm32v7/Dockerfile",
+      "src/aspnet/10.0/alpine3.24/arm64v8/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0-distroless-composite-extra/amd64/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0-distroless-composite-extra/arm64v8/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0-distroless-composite/amd64/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0-distroless-composite/arm64v8/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0-distroless-extra/amd64/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0-distroless-extra/arm64v8/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0-distroless/amd64/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0-distroless/arm64v8/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0/amd64/Dockerfile",
+      "src/aspnet/10.0/azurelinux3.0/arm64v8/Dockerfile",
+      "src/aspnet/10.0/nanoserver-ltsc2022/amd64/Dockerfile",
+      "src/aspnet/10.0/nanoserver-ltsc2025/amd64/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-composite-extra/amd64/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-composite-extra/arm32v7/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-composite-extra/arm64v8/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-composite/amd64/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-composite/arm32v7/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-composite/arm64v8/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-extra/amd64/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-extra/arm32v7/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled-extra/arm64v8/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled/amd64/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled/arm32v7/Dockerfile",
+      "src/aspnet/10.0/noble-chiseled/arm64v8/Dockerfile"
+    ],
+    "api": [],
+    "tests": [
+      "samples/MultiProjectApp/Tests/StringLibraryTests.cs",
+      "samples/MultiProjectApp/Tests/StringUtilsTests.cs",
+      "samples/MultiProjectApp/Tests/Tests.csproj",
+      "tests/Microsoft.DotNet.Docker.Tests/Arch.cs",
+      "tests/Microsoft.DotNet.Docker.Tests/AspireDashboardImageTests.cs",
+      "tests/Microsoft.DotNet.Docker.Tests/AspireDashboardManifestTests.cs",
+      "tests/Microsoft.DotNet.Docker.Tests/AspnetImageTests.cs",
+      "tests/Microsoft.DotNet.Docker.Tests/AssemblyInfo.cs",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspire-dashboard-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspire-dashboard-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-composite-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-composite-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-composite-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-composite-extra-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-composite-extra-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-composite-extra-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-extra-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-extra-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.22-extra-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-composite-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-composite-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-composite-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-composite-extra-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-composite-extra-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-composite-extra-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-extra-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-extra-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-alpine3.24-extra-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-distroless-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-distroless-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-distroless-composite-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-distroless-composite-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-distroless-composite-extra-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-distroless-composite-extra-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-distroless-extra-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-azurelinux3.0-distroless-extra-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-nanoserver-ltsc2022-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-nanoserver-ltsc2025-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-noble-amd64-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-noble-arm32v7-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-noble-arm64v8-Dockerfile.approved.txt",
+      "tests/Microsoft.DotNet.Docker.Tests/Baselines/GeneratedArtifactTests/VerifyInternalDockerfilesOutput/aspnet-10.0-noble-chiseled-amd64-Dockerfile.approved.txt"
+    ],
+    "docs": [
+      "documentation/azurelinux.md",
+      "documentation/distroless.md",
+      "documentation/guiding-principles.md",
+      "documentation/image-artifact-details-alpine-package-details.png",
+      "documentation/image-artifact-details-alpine-package-search.png",
+      "documentation/image-artifact-details.md",
+      "documentation/image-signatures.md",
+      "documentation/image-variants.md",
+      "documentation/sample-image-size-report.md",
+      "documentation/scenarios/README.md",
+      "documentation/scenarios/installing-dotnet.md",
+      "documentation/scenarios/nuget-credentials.md",
+      "documentation/scenarios/using-system-drawing-common.md",
+      "documentation/scripts/Dockerfile.distroless-wrapper",
+      "documentation/scripts/check-latest-base.ps1",
+      "documentation/scripts/check-package-install.ps1",
+      "documentation/scripts/resolve-image-digest.ps1",
+      "documentation/supported-platforms.md",
+      "documentation/supported-tags.md",
+      "documentation/ubuntu-chiseled.md",
+      "documentation/vulnerability-reporting.md"
+    ],
+    "samples": [
+      "samples/AspNetCoreNativeAot/.dockerignore",
+      "samples/AspNetCoreNativeAot/AspNetCoreNativeAot.csproj",
+      "samples/AspNetCoreNativeAot/AspNetCoreNativeAot.slnx",
+      "samples/AspNetCoreNativeAot/Dockerfile",
+      "samples/AspNetCoreNativeAot/Dockerfile.alpine",
+      "samples/AspNetCoreNativeAot/Dockerfile.alpine-icu",
+      "samples/AspNetCoreNativeAot/Dockerfile.azurelinux-distroless",
+      "samples/AspNetCoreNativeAot/Dockerfile.azurelinux-distroless-icu",
+      "samples/AspNetCoreNativeAot/Dockerfile.icu",
+      "samples/AspNetCoreNativeAot/Dockerfile.ubuntu-cross-arm64-x64",
+      "samples/AspNetCoreNativeAot/Dockerfile.ubuntu-cross-x64-arm64",
+      "samples/AspNetCoreNativeAot/NuGet.config",
+      "samples/AspNetCoreNativeAot/Program.cs",
+      "samples/AspNetCoreNativeAot/Properties/launchSettings.json",
+      "samples/AspNetCoreNativeAot/README.md",
+      "samples/AspNetCoreNativeAot/ReleaseJson.cs",
+      "samples/AspNetCoreNativeAot/ReleaseValues.cs",
+      "samples/AspNetCoreNativeAot/ReportGenerator.cs",
+      "samples/AspNetCoreNativeAot/ReportJson.cs",
+      "samples/AspNetCoreNativeAot/appsettings.Development.json",
+      "samples/AspNetCoreNativeAot/appsettings.json",
+      "samples/AspNetCoreRazorApp/.dockerignore",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp.slnx",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/AspNetCoreRazorApp.csproj",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/EnvironmentInfo.cs",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Operation.cs",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Error.cshtml",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Error.cshtml.cs",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Index.cshtml",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Index.cshtml.cs",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Privacy.cshtml",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Privacy.cshtml.cs",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Shared/_Layout.cshtml",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Shared/_Layout.cshtml.css",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/Shared/_ValidationScriptsPartial.cshtml",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/_ViewImports.cshtml",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Pages/_ViewStart.cshtml",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Program.cs",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/Properties/launchSettings.json",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/appsettings.Development.json",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/appsettings.json",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/css/site.css",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/favicon.ico",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/js/site.js",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/lib/bootstrap/LICENSE",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "samples/AspNetCoreRazorApp/AspNetCoreRazorApp/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

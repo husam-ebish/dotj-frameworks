@@ -1,0 +1,1072 @@
+{
+  "id": "DJ-016",
+  "repo": "dotj-auth",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/openiddict/openiddict-core",
+  "canonical_url": "https://github.com/openiddict/openiddict-core",
+  "redirect_observed": false,
+  "inspected_revision": "ab23a1625279b8b656912202c2b81a63d3438ca6",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "dev",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md",
+      "sha256": "c8f0acfbc5311f14eca030c68d38c7a1f8a457d6b20f2d4f27bebe844439f888",
+      "bytes": 14509
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/LICENSE.md",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+      "bytes": 11358
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props",
+      "sha256": "62d3ad09bac52f9adb371bd69e5b94bdf7b680be4d954c5452f752ed2c2efa4c",
+      "bytes": 17549
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Build.props",
+      "sha256": "da4cc923d87e6692b6c08366dea47008f5332784198cad6112d749745f08cc11",
+      "bytes": 10730
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/global.json",
+      "sha256": "86d1381513c9016b070d221c75c0aea39a683ba06482f8c5bf10d3ad43c16b78",
+      "bytes": 330
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj",
+      "sha256": "efbd7ec07b8a3be07d7eb79c55848ee9ebb5c74aaaaae529adbf6cfffc6f56da",
+      "bytes": 1274
+    },
+    {
+      "path": "test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj",
+      "sha256": "9adb0e9bc1ac181b89b6a4364226f396ed8170b2eea14c3b4b777a57d7f10147",
+      "bytes": 701
+    },
+    {
+      "path": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "sha256": "1ac0dbf39e122832419cf33e9b131a202b5ec26e5b70460be81570e469680b74",
+      "bytes": 1718
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "EntityFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BouncyCastle.Cryptography",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.DataProtection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Cryptography",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Polly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Primitives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.WebEncoders",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.JsonWebTokens",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Protocols",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Tokens",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Security",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Windows.SDK.Contracts",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.Bson",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.Driver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSBuild.Microsoft.VisualStudio.Web.targets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Build.Tasks.Pack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpCompress",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Snappier",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Buffers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AngleSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MartinCostello.Logging.XUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Linq.Async",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xunit.SkippableFact",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Antlr",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Mvc5",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Owin",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.WebApi2.Owin",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapplo.Microsoft.Extensions.Hosting.AppServices",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapplo.Microsoft.Extensions.Hosting.WinForms",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapplo.Microsoft.Extensions.Hosting.Wpf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.Identity.EntityFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.Identity.Owin",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.Mvc",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.Web.Optimization",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.Owin",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeDom.Providers.DotNetCompilerPlatform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Net.Compilers.Toolset",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Host.SystemWeb",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Security.Cookies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Security.OAuth",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Web.Infrastructure",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SourceGear.sqlite3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SQLite.CodeFirst",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SQLite.EF6",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WebGrease",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "EntityFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.DataProtection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Relational",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Polly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Resilience",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.JsonWebTokens",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Protocols",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.Tokens",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Primitives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.Bson",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.Driver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpCompress",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Snappier",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xamarin.AndroidX.Browser",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AngleSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MartinCostello.Logging.XUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.TestHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xunit.SkippableFact",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapplo.Microsoft.Extensions.Hosting.AppServices",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapplo.Microsoft.Extensions.Hosting.WinForms",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapplo.Microsoft.Extensions.Hosting.Wpf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Identity.EntityFrameworkCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Sqlite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Maui.Controls",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Maui.Controls.Compatibility",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Scriban",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Interactive",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Scriban",
+      "file": "gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Interactive",
+      "file": "gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\OpenIddict.Abstractions\\OpenIddict.Abstractions.csproj",
+      "file": "test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Moq",
+      "file": "test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\OpenIddict.EntityFramework\\OpenIddict.EntityFramework.csproj",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\OpenIddict.Owin\\OpenIddict.Owin.csproj",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Antlr",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Autofac.Extensions.DependencyInjection",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Autofac.Mvc5",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Autofac.Owin",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNet.Mvc",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNet.Web.Optimization",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Owin.Host.SystemWeb",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Owin.Security.Cookies",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Web.Infrastructure",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MSBuild.Microsoft.VisualStudio.Web.targets",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NuGet.Build.Tasks.Pack",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "WebGrease",
+      "file": "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "url": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/openiddict/openiddict-samples",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/openiddict/openiddict-samples",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/aspnet-contrib/AspNet.Security.OAuth.Providers",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/ganhammar/OpenIddict.AmazonDynamoDB",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/thomasduft/openiddict-ui",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/OrchardCMS/OrchardCore",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/panoukos41/couchdb-openiddict",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/Nfactor26/pixel-identity",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/SharpGrip/OpenIddict.Api",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    },
+    {
+      "url": "https://github.com/sponsors/kevinchalet",
+      "source": "https://github.com/openiddict/openiddict-core/blob/ab23a1625279b8b656912202c2b81a63d3438ca6/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/common/internal/Tools.csproj",
+      "gen/OpenIddict.Client.WebIntegration.Generators/OpenIddict.Client.WebIntegration.Generators.csproj",
+      "sandbox/OpenIddict.Sandbox.AspNet.Client/OpenIddict.Sandbox.AspNet.Client.csproj",
+      "sandbox/OpenIddict.Sandbox.AspNet.Server/OpenIddict.Sandbox.AspNet.Server.csproj",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Client/OpenIddict.Sandbox.AspNetCore.Client.csproj",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/OpenIddict.Sandbox.AspNetCore.Server.csproj",
+      "sandbox/OpenIddict.Sandbox.Console.Client/OpenIddict.Sandbox.Console.Client.csproj",
+      "sandbox/OpenIddict.Sandbox.Maui.Client/OpenIddict.Sandbox.Maui.Client.csproj",
+      "sandbox/OpenIddict.Sandbox.WinForms.Client/OpenIddict.Sandbox.WinForms.Client.csproj",
+      "sandbox/OpenIddict.Sandbox.Wpf.Client/OpenIddict.Sandbox.Wpf.Client.csproj",
+      "shared/OpenIddict.Extensions/OpenIddict.Extensions.csproj",
+      "src/OpenIddict.Abstractions/Caches/IOpenIddictApplicationCache.cs",
+      "src/OpenIddict.Abstractions/Caches/IOpenIddictAuthorizationCache.cs",
+      "src/OpenIddict.Abstractions/Caches/IOpenIddictResourceCache.cs",
+      "src/OpenIddict.Abstractions/Caches/IOpenIddictScopeCache.cs",
+      "src/OpenIddict.Abstractions/Caches/IOpenIddictSessionCache.cs",
+      "src/OpenIddict.Abstractions/Caches/IOpenIddictTokenCache.cs",
+      "src/OpenIddict.Abstractions/Descriptors/OpenIddictApplicationDescriptor.cs",
+      "src/OpenIddict.Abstractions/Descriptors/OpenIddictAuthorizationDescriptor.cs",
+      "src/OpenIddict.Abstractions/Descriptors/OpenIddictResourceDescriptor.cs",
+      "src/OpenIddict.Abstractions/Descriptors/OpenIddictScopeDescriptor.cs",
+      "src/OpenIddict.Abstractions/Descriptors/OpenIddictSessionDescriptor.cs",
+      "src/OpenIddict.Abstractions/Descriptors/OpenIddictTokenDescriptor.cs",
+      "src/OpenIddict.Abstractions/Managers/IOpenIddictApplicationManager.cs",
+      "src/OpenIddict.Abstractions/Managers/IOpenIddictAuthorizationManager.cs",
+      "src/OpenIddict.Abstractions/Managers/IOpenIddictResourceManager.cs",
+      "src/OpenIddict.Abstractions/Managers/IOpenIddictScopeManager.cs",
+      "src/OpenIddict.Abstractions/Managers/IOpenIddictSessionManager.cs",
+      "src/OpenIddict.Abstractions/Managers/IOpenIddictTokenManager.cs",
+      "src/OpenIddict.Abstractions/OpenIddict.Abstractions.csproj",
+      "src/OpenIddict.Abstractions/OpenIddictBuilder.cs",
+      "src/OpenIddict.Abstractions/OpenIddictConstants.cs",
+      "src/OpenIddict.Abstractions/OpenIddictExceptions.cs",
+      "src/OpenIddict.Abstractions/OpenIddictExtensions.cs",
+      "src/OpenIddict.Abstractions/OpenIddictResources.resx",
+      "src/OpenIddict.Abstractions/Primitives/OpenIddictConfiguration.cs",
+      "src/OpenIddict.Abstractions/Primitives/OpenIddictConverter.cs",
+      "src/OpenIddict.Abstractions/Primitives/OpenIddictExtensions.cs",
+      "src/OpenIddict.Abstractions/Primitives/OpenIddictMessage.cs",
+      "src/OpenIddict.Abstractions/Primitives/OpenIddictParameter.cs",
+      "src/OpenIddict.Abstractions/Primitives/OpenIddictRequest.cs",
+      "src/OpenIddict.Abstractions/Primitives/OpenIddictResponse.cs",
+      "src/OpenIddict.Abstractions/Primitives/OpenIddictSerializer.cs",
+      "src/OpenIddict.Abstractions/Stores/IOpenIddictApplicationStore.cs",
+      "src/OpenIddict.Abstractions/Stores/IOpenIddictAuthorizationStore.cs",
+      "src/OpenIddict.Abstractions/Stores/IOpenIddictResourceStore.cs",
+      "src/OpenIddict.Abstractions/Stores/IOpenIddictScopeStore.cs",
+      "src/OpenIddict.Abstractions/Stores/IOpenIddictSessionStore.cs",
+      "src/OpenIddict.Abstractions/Stores/IOpenIddictTokenStore.cs",
+      "src/OpenIddict.AspNetCore/OpenIddict.AspNetCore.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/phantom.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/server.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/affix.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/alert.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/button.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/carousel.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/collapse.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/dropdown.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/modal.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/phantom.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/popover.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/scrollspy.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/tab.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/tooltip.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/unit/transition.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/vendor/jquery.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/vendor/qunit.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/js/tests/vendor/qunit.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/events.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/firebug/errorIcon.png",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/firebug/firebug.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/firebug/firebug.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/firebug/firebug.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/firebug/firebugx.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/firebug/infoIcon.png",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/firebug/warningIcon.png",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/jquery.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/large.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/messages.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/methods.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/qunit/qunit.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/qunit/qunit.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/rules.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/selects/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/tabs.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/jquery-validation/test/test.js",
+      "test/OpenIddict.Abstractions.Tests/Descriptors/OpenIddictApplicationDescriptorTests.cs",
+      "test/OpenIddict.Abstractions.Tests/OpenIddict.Abstractions.Tests.csproj",
+      "test/OpenIddict.Abstractions.Tests/OpenIddictBuilderTests.cs",
+      "test/OpenIddict.Abstractions.Tests/OpenIddictExtensionsTests.cs",
+      "test/OpenIddict.Abstractions.Tests/Primitives/OpenIddictConverterTests.cs",
+      "test/OpenIddict.Abstractions.Tests/Primitives/OpenIddictExtensionsTests.cs",
+      "test/OpenIddict.Abstractions.Tests/Primitives/OpenIddictMessageTests.cs",
+      "test/OpenIddict.Abstractions.Tests/Primitives/OpenIddictParameterTests.cs",
+      "test/OpenIddict.Abstractions.Tests/Primitives/OpenIddictRequestTests.cs",
+      "test/OpenIddict.Abstractions.Tests/Primitives/OpenIddictResponseTests.cs",
+      "test/OpenIddict.Client.AspNetCore.IntegrationTests/OpenIddict.Client.AspNetCore.IntegrationTests.csproj",
+      "test/OpenIddict.Client.AspNetCore.Tests/OpenIddict.Client.AspNetCore.Tests.csproj"
+    ],
+    "docs": [],
+    "samples": [
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/carousel/carousel.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/carousel/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/grid/grid.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/grid/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/jumbotron-narrow/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/jumbotron-narrow/jumbotron-narrow.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/jumbotron/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/jumbotron/jumbotron.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/justified-nav/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/justified-nav/justified-nav.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/navbar-fixed-top/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/navbar-fixed-top/navbar-fixed-top.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/navbar-static-top/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/navbar-static-top/navbar-static-top.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/navbar/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/navbar/navbar.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/non-responsive/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/non-responsive/non-responsive.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/offcanvas/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/offcanvas/offcanvas.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/offcanvas/offcanvas.js",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/carousel.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/grid.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/jumbotron-narrow.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/jumbotron.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/justified-nav.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/navbar-fixed.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/navbar-static.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/navbar.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/non-responsive.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/offcanvas.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/sign-in.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/starter-template.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/sticky-footer-navbar.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/sticky-footer.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/screenshots/theme.jpg",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/signin/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/signin/signin.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/starter-template/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/starter-template/starter-template.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/sticky-footer-navbar/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/sticky-footer-navbar/sticky-footer-navbar.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/sticky-footer/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/sticky-footer/sticky-footer.css",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/theme/index.html",
+      "sandbox/OpenIddict.Sandbox.AspNetCore.Server/wwwroot/lib/bootstrap/examples/theme/theme.css"
+    ]
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links"
+  ],
+  "access_errors": [],
+  "license_observation": "Apache 2.0 text observed; file-level review OPEN"
+}

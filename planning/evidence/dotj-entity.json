@@ -1,0 +1,511 @@
+{
+  "id": "DJ-019",
+  "repo": "dotj-entity",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/efcore",
+  "canonical_url": "https://github.com/dotnet/efcore",
+  "redirect_observed": false,
+  "inspected_revision": "2e8882748cc45b317a98a6f27f0680948221ae3b",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/README.md",
+      "sha256": "9cace68fad25b2b896eceea88eb5a6fe8946976ab7c179b16a4083196f6a1156",
+      "bytes": 7050
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/LICENSE.txt",
+      "sha256": "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+      "bytes": 1115
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props",
+      "sha256": "73444977cdb96c4da66e16b3741806b4e32003a6b20e3d77d682fc77f34777fe",
+      "bytes": 3635
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Build.props",
+      "sha256": "72afa249ca4b801bc12046180ae1a6551877af1f43caacc961700dfe822a7901",
+      "bytes": 3549
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/global.json",
+      "sha256": "2d897b47420f89b3fb1371959dd6adb7a4d407be55a501203cd588c8528bc844",
+      "bytes": 772
+    },
+    {
+      "path": "eng/Tools/ApiChief/ApiChief.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/Tools/ApiChief/ApiChief.csproj",
+      "sha256": "5f57f34a5acfe1ff345793f40e45830c0b45427a717f8c59f1ab1bfb136fe659",
+      "bytes": 615
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "sha256": "35568ddae3e88c6cd679a09f4b1774aacb9b0abbde7f1de601fe6b7e74683730",
+      "bytes": 2906
+    },
+    {
+      "path": "src/EFCore.Abstractions/EFCore.Abstractions.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/src/EFCore.Abstractions/EFCore.Abstractions.csproj",
+      "sha256": "002391cfa88868098a82f9358c1ca7a7cbd99cc547dfc0c337a51cf2836b66cf",
+      "bytes": 1669
+    },
+    {
+      "path": "src/EFCore.Analyzers/EFCore.Analyzers.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/src/EFCore.Analyzers/EFCore.Analyzers.csproj",
+      "sha256": "97918c7c012774c2bbfcf99713c3da646ea0332d93482e9c2a6cd9b99f26a364",
+      "bytes": 2407
+    },
+    {
+      "path": "src/EFCore/EFCore.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/src/EFCore/EFCore.csproj",
+      "sha256": "bdcd30487079df15244de5b46d33838628dae2ceb118ce1b63e5aeeaaaee6334",
+      "bytes": 5755
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.HostFactoryResolver.Sources",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DotNetAnalyzers.DocumentationAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Tasks.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Templating",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Cosmos",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SqlServer.Types",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Castle.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Humanizer.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Mono.TextTemplating",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NetTopologySuite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NetTopologySuite.IO.SpatiaLite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NetTopologySuite.IO.SqlServerBytes",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "mod_spatialite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SQLitePCLRaw.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SQLitePCLRaw.bundle_e_sqlite3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SQLite3MC.PCLRaw.bundle",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine",
+      "file": "eng/Tools/ApiChief/ApiChief.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/Tools/ApiChief/ApiChief.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "ICSharpCode.Decompiler",
+      "file": "eng/Tools/ApiChief/ApiChief.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/Tools/ApiChief/ApiChief.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\EFCore.Analyzers\\EFCore.Analyzers.csproj",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\EFCore.Relational\\EFCore.Relational.csproj",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\EFCore.Tests\\EFCore.Tests.csproj",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Analyzer.Testing",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
+      "file": "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "src/EFCore.Analyzers/EFCore.Analyzers.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/src/EFCore.Analyzers/EFCore.Analyzers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "src/EFCore/EFCore.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/src/EFCore/EFCore.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "src/EFCore/EFCore.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/src/EFCore/EFCore.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\EFCore.Abstractions\\EFCore.Abstractions.csproj",
+      "file": "src/EFCore/EFCore.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/src/EFCore/EFCore.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\EFCore.Analyzers\\EFCore.Analyzers.csproj",
+      "file": "src/EFCore/EFCore.csproj",
+      "url": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/src/EFCore/EFCore.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/efcore",
+      "source": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/efcore",
+      "source": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/efcore",
+      "source": "https://github.com/dotnet/efcore/blob/2e8882748cc45b317a98a6f27f0680948221ae3b/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "benchmark/EFCore.Benchmarks/EFCore.Benchmarks.csproj",
+      "benchmark/EFCore.SqlServer.Benchmarks/EFCore.SqlServer.Benchmarks.csproj",
+      "benchmark/EFCore.Sqlite.Benchmarks/EFCore.Sqlite.Benchmarks.csproj",
+      "eng/Tools/ApiChief/ApiChief.csproj",
+      "eng/common/internal/Tools.csproj",
+      "src/.editorconfig",
+      "src/Directory.Build.props",
+      "src/EFCore.Abstractions/BackingFieldAttribute.cs",
+      "src/EFCore.Abstractions/ChangeTracking/Internal/ObservableBackedBindingList.cs",
+      "src/EFCore.Abstractions/ChangeTracking/Internal/SortableBindingList.cs",
+      "src/EFCore.Abstractions/ChangeTracking/ObservableCollectionListSource.cs",
+      "src/EFCore.Abstractions/CommentAttribute.cs",
+      "src/EFCore.Abstractions/DbFunctionAttribute.cs",
+      "src/EFCore.Abstractions/DeleteBehavior.cs",
+      "src/EFCore.Abstractions/DeleteBehaviorAttribute.cs",
+      "src/EFCore.Abstractions/EFCore.Abstractions.baseline.json",
+      "src/EFCore.Abstractions/EFCore.Abstractions.csproj",
+      "src/EFCore.Abstractions/EntityTypeConfigurationAttribute.cs",
+      "src/EFCore.Abstractions/IndexAttribute.cs",
+      "src/EFCore.Abstractions/Infrastructure/ILazyLoader.cs",
+      "src/EFCore.Abstractions/Infrastructure/LazyLoaderExtensions.cs",
+      "src/EFCore.Abstractions/KeylessAttribute.cs",
+      "src/EFCore.Abstractions/ObservableCollectionExtensions.cs",
+      "src/EFCore.Abstractions/OwnedAttribute.cs",
+      "src/EFCore.Abstractions/PrecisionAttribute.cs",
+      "src/EFCore.Abstractions/PrimaryKeyAttribute.cs",
+      "src/EFCore.Abstractions/Properties/AbstractionsStrings.Designer.cs",
+      "src/EFCore.Abstractions/Properties/AbstractionsStrings.Designer.tt",
+      "src/EFCore.Abstractions/Properties/AbstractionsStrings.resx",
+      "src/EFCore.Abstractions/Query/NotParameterizedAttribute.cs",
+      "src/EFCore.Abstractions/README.md",
+      "src/EFCore.Abstractions/UnicodeAttribute.cs",
+      "src/EFCore.Analyzers/AnalyzerReleases.Shipped.md",
+      "src/EFCore.Analyzers/AnalyzerReleases.Unshipped.md",
+      "src/EFCore.Analyzers/CompilationExtensions.cs",
+      "src/EFCore.Analyzers/EFCore.Analyzers.csproj",
+      "src/EFCore.Analyzers/InternalUsageDiagnosticAnalyzer.cs",
+      "src/EFCore.Analyzers/InterpolatedStringUsageInRawQueriesCodeFixProvider.cs",
+      "src/EFCore.Analyzers/Properties/AnalyzerStrings.Designer.cs",
+      "src/EFCore.Analyzers/Properties/AnalyzerStrings.resx",
+      "src/EFCore.Analyzers/README.md",
+      "src/EFCore.Analyzers/StringsUsageInRawQueriesDiagnosticAnalyzer.cs",
+      "src/EFCore.Analyzers/ToAsyncEnumerableOnQueryableCodeFixProvider.cs",
+      "src/EFCore.Analyzers/ToAsyncEnumerableOnQueryableDiagnosticAnalyzer.cs",
+      "src/EFCore.Analyzers/UninitializedDbSetDiagnosticSuppressor.cs",
+      "src/EFCore.Cosmos/ChangeTracking/Internal/NullableEqualityComparer.cs",
+      "src/EFCore.Cosmos/ChangeTracking/Internal/NullableStringDictionaryComparer.cs",
+      "src/EFCore.Cosmos/ChangeTracking/Internal/StringDictionaryComparer.cs",
+      "src/EFCore.Cosmos/Design/Internal/CosmosCSharpRuntimeAnnotationCodeGenerator.cs",
+      "src/EFCore.Cosmos/Design/Internal/CosmosDesignTimeServices.cs"
+    ],
+    "api": [],
+    "tests": [
+      "test.cmd",
+      "test.sh",
+      "test/.editorconfig",
+      "test/Directory.Build.props",
+      "test/Directory.Build.targets",
+      "test/Directory.Packages.props",
+      "test/EFCore.Analyzers.Tests/EFCore.Analyzers.Tests.csproj",
+      "test/EFCore.Analyzers.Tests/InternalUsageDiagnosticAnalyzerTests.cs",
+      "test/EFCore.Analyzers.Tests/StringConcatenationInRawQueriesAnalyzerTests.cs",
+      "test/EFCore.Analyzers.Tests/StringInterpolationInRawQueriesAnalyzerTests.cs",
+      "test/EFCore.Analyzers.Tests/TestUtilities/CSharpAnalyzerVerifier.cs",
+      "test/EFCore.Analyzers.Tests/TestUtilities/CSharpCodeFixVerifier.cs",
+      "test/EFCore.Analyzers.Tests/TestUtilities/NugetConfigFinder.cs",
+      "test/EFCore.Analyzers.Tests/ToAsyncEnumerableOnQueryableAnalyzerTests.cs",
+      "test/EFCore.Analyzers.Tests/UninitializedDbSetDiagnosticSuppressorTests.cs",
+      "test/EFCore.ApiBaseline.Tests/ApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCore.ApiBaseline.Tests.csproj",
+      "test/EFCore.ApiBaseline.Tests/EFCoreAbstractionsApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreCosmosApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreDesignApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreInMemoryApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreProxiesApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreRelationalApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreSqlServerAbstractionsApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreSqlServerApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreSqlServerHierarchyIdApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreSqlServerNTSApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreSqliteCoreApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/EFCoreSqliteNTSApiBaselineTest.cs",
+      "test/EFCore.ApiBaseline.Tests/MicrosoftDataSqliteCoreApiBaselineTest.cs",
+      "test/EFCore.AspNet.InMemory.FunctionalTests/AppServiceProviderFactoryTest.cs",
+      "test/EFCore.AspNet.InMemory.FunctionalTests/AspNetIdentityCustomTypesDefaultInMemoryTest.cs",
+      "test/EFCore.AspNet.InMemory.FunctionalTests/AspNetIdentityCustomTypesIntKeyInMemoryTest.cs",
+      "test/EFCore.AspNet.InMemory.FunctionalTests/AspNetIdentityDefaultInMemoryTest.cs",
+      "test/EFCore.AspNet.InMemory.FunctionalTests/AspNetIdentityIntKeyInMemoryTest.cs",
+      "test/EFCore.AspNet.InMemory.FunctionalTests/EFCore.AspNet.InMemory.FunctionalTests.csproj",
+      "test/EFCore.AspNet.InMemory.FunctionalTests/GrpcInMemoryTest.cs",
+      "test/EFCore.AspNet.Specification.Tests/AspNetIdentityCustomTypesDefaultTestBase.cs",
+      "test/EFCore.AspNet.Specification.Tests/AspNetIdentityCustomTypesIntKeyTestBase.cs",
+      "test/EFCore.AspNet.Specification.Tests/AspNetIdentityDefaultTestBase.cs",
+      "test/EFCore.AspNet.Specification.Tests/AspNetIdentityIntKeyTestBase.cs",
+      "test/EFCore.AspNet.Specification.Tests/AspNetIdentityTestBase.cs",
+      "test/EFCore.AspNet.Specification.Tests/EFCore.AspNet.Specification.Tests.csproj",
+      "test/EFCore.AspNet.Specification.Tests/GrpcTestBase.cs",
+      "test/EFCore.AspNet.Specification.Tests/ProtoTest.proto",
+      "test/EFCore.AspNet.Specification.Tests/README.md",
+      "test/EFCore.AspNet.Specification.Tests/TestUtilities/EntityTypeMapping.cs",
+      "test/EFCore.AspNet.Specification.Tests/TestUtilities/FakeLogger.cs",
+      "test/EFCore.AspNet.SqlServer.FunctionalTests/AspNetIdentityCustomTypesDefaultSqlServerTest.cs"
+    ],
+    "docs": [
+      "docs/DailyBuilds.md",
+      "docs/getting-and-building-the-code.md",
+      "docs/rate_limiting.png",
+      "docs/security.md",
+      "docs/threat_model.md"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

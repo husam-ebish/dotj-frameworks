@@ -1,0 +1,1348 @@
+{
+  "id": "DJ-061",
+  "repo": "dotj-semantic",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/microsoft/semantic-kernel",
+  "canonical_url": "https://github.com/microsoft/semantic-kernel",
+  "redirect_observed": false,
+  "inspected_revision": "7a92cd4e7c2712370b8d85b687a474b2e858cdcc",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/LICENSE",
+      "sha256": "c2cfccb812fe482101a8f04597dfc5a9991a6b2748266c47ac91b6a5aae15383",
+      "bytes": 1141
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/README.md",
+      "sha256": "166fb81995eeeaf31b56883db3fae0617cc7dea0d7b4baf48a9ba6293c3bcd64",
+      "bytes": 14460
+    },
+    {
+      "path": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props",
+      "sha256": "761f94650f21a045ae10c34540ac0d16401be85038383dc1803eac6217faf279",
+      "bytes": 17855
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Azure.AI.OpenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Azure.Search.Documents",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.AppHost",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Azure.CognitiveServices",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.NodeJs",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.Aspire.Hosting.Dapr",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.Aspire.Hosting.NodeJS.Extensions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Azure.Search",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePack",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.BedrockAgent",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.BedrockAgentRuntime",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.BedrockRuntime",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.Core",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWS.Bedrock.MEAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.Extensions.NETCore.Setup",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.SecurityToken",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.Agents.Persistent",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.ContentSafety",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.OpenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.Projects",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Monitor.OpenTelemetry.Exporter",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Community.OData.Linq",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapr.Actors",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapr.Actors.AspNetCore",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapr.AspNetCore",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "EntityFramework",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FastBertTokenizer",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Apis.Auth",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Apis.CustomSearchAPI.v1",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.GenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Protobuf",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.AspNetCore",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.AspNetCore.Server",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.AspNetCore.Server.Reflection",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.AspNetCore.Web",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Net.Client",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Tools",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Handlebars.Net.Helpers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Handlebars.Net",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "HtmlAgilityPack",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "JmesPath.Net",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "JsonSchema.Net",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "JsonSchema.Net.Generation",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Markdig",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Agents.AI.Abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Agents.AI.Foundry",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Agents.AI.OpenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Agents.AI.Workflows",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Agents.CopilotStudio.Client",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.OData",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.OpenApi",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.SignalR.Client",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.Http",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.SDK",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Kusto.Data",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.WebJobs.Extensions.OpenApi",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.WebJobs.Extensions.Storage",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Memory",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Numerics",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Identity.Client",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Identity.Client.Extensions.Msal",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.JsonWebTokens",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Kiota.Abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Kiota.Authentication.Azure",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Kiota.Http.HttpClientLibrary",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Kiota.Serialization.Json",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.OnnxRuntime",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.OnnxRuntime.Gpu",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.Tokenizers.Data.Cl100kBase",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SemanticKernel.Abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SemanticKernel.Connectors.OpenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SemanticKernel.Core",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SemanticKernel.Planners.OpenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Threading",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ModelContextProtocol",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest.TestFramework",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OData2Linq",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OllamaSharp",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Api",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Api.ProviderBuilderExtensions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.Console",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.AspNetCore",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Runtime",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PdfPig",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Prompty.Core",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PuppeteerSharp",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IdentityModel.Tokens.Jwt",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Packaging",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Linq.AsyncEnumerable",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory.Data",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Numerics.Tensors",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ValueTuple",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "A2A",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "A2A.AspNetCore",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.Tokenizers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI.Abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI.AzureAIInference",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI.OpenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.FileExtensions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.UserSecrets",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.Testing",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Resilience",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ServiceDiscovery",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options.DataAnnotations",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.TimeProvider",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Physical",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Embedded",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.VectorData.Abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FluentAssertions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.RegularExpressions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Channels",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Dataflow",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.abstractions",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xretry",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.collector",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Docker.DotNet",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Net.ClientFactory",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Humanizer",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DocumentFormat.OpenXml",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DuckDB.NET.Data.Full",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DuckDB.NET.Data",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Graph",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Graph.Core",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.OpenApi",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.OpenApi.Readers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.OpenApi.ApiManifest",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Plugins.Manifest",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "protobuf-net",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "protobuf-net.Reflection",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "YamlDotNet",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Fluid.Core",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Milvus.Client",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.Milvus",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.MongoDB",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.VectorData.AzureAISearch",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.VectorData.AzureDocumentDB",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.VectorData.AzureCosmosDB",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.VectorData.InMemory",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.VectorData.PgVector",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.VectorData.Qdrant",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.VectorData.Redis",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.VectorData.Weaviate",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Net.Compilers.Toolset",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.NetAnalyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.NetAnalyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Threading.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudio.Threading.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Moq.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Roslynator.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Roslynator.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Roslynator.CodeAnalysis.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Roslynator.CodeAnalysis.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Roslynator.Formatting.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Roslynator.Formatting.Analyzers",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.OnnxRuntimeGenAI",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.OnnxRuntimeGenAI.Cuda",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.OnnxRuntimeGenAI.DirectML",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console.Cli",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console.Json",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NAudio",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WebRtcVadSharp",
+      "file": "dotnet/Directory.Packages.props",
+      "url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/Directory.Packages.props"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/microsoft/agent-framework",
+      "source": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "source": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/semantic-kernel-java",
+      "source": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "source": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "source": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/semantic-kernel",
+      "source": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "dotnet/docs",
+      "dotnet/notebooks",
+      "dotnet/nuget",
+      "dotnet/samples",
+      "dotnet/src",
+      "dotnet/test",
+      "dotnet/Directory.Build.props",
+      "dotnet/Directory.Build.targets",
+      "dotnet/Directory.Packages.props",
+      "dotnet/MEVD.slnx",
+      "dotnet/README.md",
+      "dotnet/SK-dotnet.slnx",
+      "dotnet/SK-dotnet.slnx.DotSettings",
+      "dotnet/SK-dotnet.v3.ncrunchsolution",
+      "dotnet/SK-release.slnf",
+      "dotnet/build.cmd",
+      "dotnet/build.sh",
+      "dotnet/code-coverage.ps1",
+      "dotnet/format.ps1",
+      "dotnet/global.json",
+      "dotnet/docs/EXPERIMENTS.md",
+      "dotnet/docs/MODELS.md",
+      "dotnet/docs/OPENAI-CONNECTOR-MIGRATION.md",
+      "dotnet/docs/TELEMETRY.md"
+    ],
+    "api": [],
+    "tests": [
+      "dotnet/test"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": [
+      "dotnet/samples"
+    ]
+  },
+  "gaps": [
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

@@ -1,0 +1,760 @@
+{
+  "id": "DJ-043",
+  "repo": "dotj-avalonia",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/AvaloniaUI/Avalonia",
+  "canonical_url": "https://github.com/AvaloniaUI/Avalonia",
+  "redirect_observed": false,
+  "inspected_revision": "66b7273b9a2b5ba8416feb4376b9cdc3078b8573",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Build.props",
+      "sha256": "e36c8d8c88d440576ffbac9d3b6d593e42b89f2c60848472914b18c5c823e95f",
+      "bytes": 1729
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props",
+      "sha256": "65244f8c1ce56dbb26afe2e57eda4fa90d92508b28f85d22b5976a88a80a2c99",
+      "bytes": 5768
+    },
+    {
+      "path": "NOTICE.md",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/NOTICE.md",
+      "sha256": "dd6f80852d16320c865a2e403ffd1a8b07a0e34c5b37122c0bc2343639ff68e6",
+      "bytes": 16954
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/global.json",
+      "sha256": "29c42f325e6a723e4c9462b42fde2e0adda611ed191275be2f1c113e48c8fdcc",
+      "bytes": 207
+    },
+    {
+      "path": "readme.md",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md",
+      "sha256": "2a66ef8cce6cb3a588dfdedd1150f2a7ea7fb31d4956b48c6f309bb72b364efb",
+      "bytes": 7079
+    },
+    {
+      "path": "Avalonia.slnx",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Avalonia.slnx",
+      "sha256": "e909f99d7a793f8729335c98ac0658c113c6fbe9757b4d268ba5b8fe5159f3db",
+      "bytes": 11795
+    },
+    {
+      "path": "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "sha256": "7c367c38e8aada4b4c746a09ce69c62b53a08bf72f82f6928b3a15e070b47a91",
+      "bytes": 1381
+    },
+    {
+      "path": "samples/IntegrationTestApp/IntegrationTestApp.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/samples/IntegrationTestApp/IntegrationTestApp.csproj",
+      "sha256": "45a845d4c4639653cd88b16a09bc73fe1f67af4278b6f0f0c2aa9af568a079de",
+      "bytes": 1479
+    },
+    {
+      "path": "licence.md",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/licence.md",
+      "sha256": "213814d306090074d234d760239ff0f67eb9b8d20eefb4d5631bb39dbe0b769b",
+      "bytes": 1096
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Appium.WebDriver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Avalonia.Angle.Windows.Natives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Avalonia.BuildServices",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AvaloniaUI.DiagnosticsSupport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommunityToolkit.Mvvm",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dotnet.Bundle",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "GtkSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "HarfBuzzSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "HarfBuzzSharp.NativeAssets.Linux",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "HarfBuzzSharp.NativeAssets.WebAssembly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MicroCom.CodeGenerator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MicroCom.CodeGenerator.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MicroCom.CodeGenerator.Roslyn",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MicroCom.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Reactive.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.TrxReport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Windows.CsWin32",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Windows.SDK.BuildTools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WindowsAppSDK",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Mono.Cecil",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MonoMac.NetStandard",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Nito.AsyncEx.Context",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Protocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Nuke.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Numerge",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit3TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NWayland",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NWayland.Server",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Quamotion.RemoteViewing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpCompress",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Silk.NET.Direct3D.Compilers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Silk.NET.Direct3D11",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Silk.NET.Vulkan",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Silk.NET.Vulkan.Extensions.EXT",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Silk.NET.Vulkan.Extensions.KHR",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SkiaSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SkiaSharp.NativeAssets.Linux",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SkiaSharp.NativeAssets.WebAssembly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.Annotations",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Numerics.Vectors",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reactive",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Emit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.CompilerServices.Unsafe",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.RegularExpressions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Tmds.DBus.Protocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "unofficial.mesa.softwarerenderer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Tmds.DBus.Generator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xamarin.AndroidX.AppCompat",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xamarin.AndroidX.Core.SplashScreen",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xamarin.AndroidX.DocumentFile",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xamarin.AndroidX.Window",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xunit.StaFact",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.extensibility.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.mtp-v2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/Directory.Packages.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\packages\\Avalonia\\Avalonia.csproj",
+      "file": "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Avalonia.Android.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.AppCompat",
+      "file": "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Avalonia.Android.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.Window",
+      "file": "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Avalonia.Android.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.DocumentFile",
+      "file": "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Avalonia.Android.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Avalonia.Base\\Avalonia.Base.csproj",
+      "file": "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Avalonia.Android.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\HarfBuzz\\Avalonia.HarfBuzz\\Avalonia.HarfBuzz.csproj",
+      "file": "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Avalonia.Android.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Skia\\Avalonia.Skia\\Avalonia.Skia.csproj",
+      "file": "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Avalonia.Android.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Dotnet.Bundle",
+      "file": "samples/IntegrationTestApp/IntegrationTestApp.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/samples/IntegrationTestApp/IntegrationTestApp.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MonoMac.NetStandard",
+      "file": "samples/IntegrationTestApp/IntegrationTestApp.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/samples/IntegrationTestApp/IntegrationTestApp.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Avalonia.Themes.Fluent\\Avalonia.Themes.Fluent.csproj",
+      "file": "samples/IntegrationTestApp/IntegrationTestApp.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/samples/IntegrationTestApp/IntegrationTestApp.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Avalonia.Fonts.Inter\\Avalonia.Fonts.Inter.csproj",
+      "file": "samples/IntegrationTestApp/IntegrationTestApp.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/samples/IntegrationTestApp/IntegrationTestApp.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\MiniMvvm\\MiniMvvm.csproj",
+      "file": "samples/IntegrationTestApp/IntegrationTestApp.csproj",
+      "url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/samples/IntegrationTestApp/IntegrationTestApp.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/user-attachments/assets",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/sponsors/AvaloniaUI",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/user-attachments/assets",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/user-attachments/assets",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/user-attachments/assets",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/user-attachments/assets",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/ForNeVeR/AvaloniaRider",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/AvaloniaUI/Avalonia",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/AvaloniaUI/Avalonia.Samples",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    },
+    {
+      "url": "https://github.com/user-attachments/assets",
+      "source": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/readme.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Android/Avalonia.Android",
+      "src/Avalonia.Base",
+      "src/Avalonia.Build.Tasks",
+      "src/Avalonia.Controls.ColorPicker",
+      "src/Avalonia.Controls",
+      "src/Avalonia.DesignerSupport",
+      "src/Avalonia.Desktop",
+      "src/Avalonia.Dialogs",
+      "src/Avalonia.Fonts.Inter",
+      "src/Avalonia.FreeDesktop.AtSpi",
+      "src/Avalonia.FreeDesktop",
+      "src/Avalonia.Metal",
+      "src/Avalonia.MicroCom",
+      "src/Avalonia.Native",
+      "src/Avalonia.OpenGL",
+      "src/Avalonia.Remote.Protocol",
+      "src/Avalonia.Themes.Fluent",
+      "src/Avalonia.Themes.Simple",
+      "src/Avalonia.Vulkan",
+      "src/Avalonia.Wayland",
+      "src/Avalonia.X11",
+      "src/Browser/Avalonia.Browser",
+      "src/HarfBuzz/Avalonia.HarfBuzz",
+      "src/Headless",
+      "src/Linux/Avalonia.LinuxFramebuffer",
+      "src/Markup",
+      "src/Shared",
+      "src/Skia/Avalonia.Skia",
+      "src/Windows",
+      "src/iOS/Avalonia.iOS",
+      "src/tools",
+      "src/Directory.Build.props",
+      "src/Android",
+      "src/Browser",
+      "src/HarfBuzz",
+      "src/Linux",
+      "src/Skia",
+      "src/iOS",
+      "src/Headless/Avalonia.Headless.NUnit",
+      "src/Headless/Avalonia.Headless.Vnc",
+      "src/Headless/Avalonia.Headless.XUnit",
+      "src/Headless/Avalonia.Headless",
+      "src/Android/Avalonia.Android/Avalonia.Android.csproj",
+      "src/Browser/Avalonia.Browser/Avalonia.Browser.csproj",
+      "src/HarfBuzz/Avalonia.HarfBuzz/Avalonia.HarfBuzz.csproj",
+      "src/Headless/Avalonia.Headless.NUnit/Avalonia.Headless.NUnit.csproj",
+      "src/Headless/Avalonia.Headless.Vnc/Avalonia.Headless.Vnc.csproj",
+      "src/Headless/Avalonia.Headless.XUnit/Avalonia.Headless.XUnit.csproj",
+      "src/Headless/Avalonia.Headless/Avalonia.Headless.csproj",
+      "src/iOS/Avalonia.iOS/Avalonia.iOS.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "tests",
+      "tests/Avalonia.Analyzers.Tests/Avalonia.Analyzers.Tests.csproj",
+      "tests/Avalonia.Base.UnitTests/Avalonia.Base.UnitTests.csproj",
+      "tests/Avalonia.Benchmarks/Avalonia.Benchmarks.csproj",
+      "tests/Avalonia.Build.Tasks.UnitTest/Avalonia.Build.Tasks.UnitTest.csproj",
+      "tests/Avalonia.Controls.UnitTests/Avalonia.Controls.UnitTests.csproj",
+      "tests/Avalonia.DesignerSupport.TestApp/Avalonia.DesignerSupport.TestApp.csproj",
+      "tests/Avalonia.DesignerSupport.Tests/Avalonia.DesignerSupport.Tests.csproj",
+      "tests/Avalonia.Generators.Tests/Avalonia.Generators.Tests.csproj",
+      "tests/Avalonia.Headless.NUnit.PerAssembly.UnitTests/Avalonia.Headless.NUnit.PerAssembly.UnitTests.csproj",
+      "tests/Avalonia.Headless.NUnit.PerTest.UnitTests/Avalonia.Headless.NUnit.PerTest.UnitTests.csproj",
+      "tests/Avalonia.Headless.XUnit.PerAssembly.UnitTests/Avalonia.Headless.XUnit.PerAssembly.UnitTests.csproj",
+      "tests/Avalonia.Headless.XUnit.PerTest.UnitTests/Avalonia.Headless.XUnit.PerTest.UnitTests.csproj",
+      "tests/Avalonia.IntegrationTests.Appium/Avalonia.IntegrationTests.Appium.csproj",
+      "tests/Avalonia.IntegrationTests.Win32/Avalonia.IntegrationTests.Win32.csproj",
+      "tests/Avalonia.LeakTests/Avalonia.LeakTests.csproj",
+      "tests/Avalonia.Markup.UnitTests/Avalonia.Markup.UnitTests.csproj",
+      "tests/Avalonia.Markup.Xaml.UnitTests/Avalonia.Markup.Xaml.UnitTests.csproj",
+      "tests/Avalonia.RenderTests.WpfCompare/Avalonia.RenderTests.WpfCompare.csproj",
+      "tests/Avalonia.Skia.RenderTests/Avalonia.Skia.RenderTests.csproj",
+      "tests/Avalonia.Skia.UnitTests/Avalonia.Skia.UnitTests.csproj",
+      "tests/Avalonia.Themes.UnitTests/Avalonia.Themes.UnitTests.csproj",
+      "tests/Avalonia.UnitTests/Avalonia.UnitTests.csproj",
+      "tests/Avalonia.Wayland.UnitTests/Avalonia.Wayland.UnitTests.csproj",
+      "tests/TestFiles/BuildTasks/PInvoke/PInvoke.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": [
+      "samples",
+      "samples/AppWithoutLifetime/AppWithoutLifetime.csproj",
+      "samples/BindingDemo/BindingDemo.csproj",
+      "samples/ControlCatalog.Android/ControlCatalog.Android.csproj",
+      "samples/ControlCatalog.Browser/ControlCatalog.Browser.csproj",
+      "samples/ControlCatalog.Desktop/ControlCatalog.Desktop.csproj",
+      "samples/ControlCatalog.iOS/ControlCatalog.iOS.csproj",
+      "samples/ControlCatalog.MacCatalyst/ControlCatalog.MacCatalyst.csproj",
+      "samples/ControlCatalog.tvOS/ControlCatalog.tvOS.csproj",
+      "samples/ControlCatalog/ControlCatalog.csproj",
+      "samples/ControlGallery.WinUI/ControlGallery.WinUI.csproj",
+      "samples/Generators.Sandbox/Generators.Sandbox.csproj",
+      "samples/GpuInterop/GpuInterop.csproj",
+      "samples/IntegrationTestApp/IntegrationTestApp.csproj",
+      "samples/MiniMvvm/MiniMvvm.csproj",
+      "samples/PlatformSanityChecks/PlatformSanityChecks.csproj",
+      "samples/RenderDemo/RenderDemo.csproj",
+      "samples/SafeAreaDemo.Android/SafeAreaDemo.Android.csproj",
+      "samples/SafeAreaDemo.Desktop/SafeAreaDemo.Desktop.csproj",
+      "samples/SafeAreaDemo.iOS/SafeAreaDemo.iOS.csproj",
+      "samples/SafeAreaDemo/SafeAreaDemo.csproj",
+      "samples/SampleControls/ControlSamples.csproj",
+      "samples/Sandbox/Sandbox.csproj",
+      "samples/SingleProjectSandbox/SingleProjectSandbox.csproj",
+      "samples/TextTestApp/TextTestApp.csproj",
+      "samples/VirtualizationDemo/VirtualizationDemo.csproj",
+      "samples/WinUIEmbedSample/WinUIEmbedSample.csproj",
+      "samples/XEmbedSample/XEmbedSample.csproj",
+      "samples/interop/WindowsInteropTest/WindowsInteropTest.csproj",
+      "samples/UnloadableAssemblyLoadContext/UnloadableAssemblyLoadContext/UnloadableAssemblyLoadContext.csproj",
+      "samples/UnloadableAssemblyLoadContext/UnloadableAssemblyLoadContextPlug/UnloadableAssemblyLoadContextPlug.csproj"
+    ]
+  },
+  "gaps": [
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

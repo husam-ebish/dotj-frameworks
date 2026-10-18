@@ -1,0 +1,780 @@
+{
+  "id": "DJ-030",
+  "repo": "dotj-scheduler",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/quartznet/quartznet",
+  "canonical_url": "https://github.com/quartznet/quartznet",
+  "redirect_observed": false,
+  "inspected_revision": "a94922ad3b1c2efa6d2613916fa2f386aede6681",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props",
+      "sha256": "e7b1d728f53562e1b325190dc6e18e7dfbdf1d7f985e51ca63b0ba9c3ec331cb",
+      "bytes": 8358
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props",
+      "sha256": "728213dae6e91bfe3bcb93fdec2393180a5b529cde0153d15ec53ff5b7343caa",
+      "bytes": 20129
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/README.md",
+      "sha256": "4fdd786c29f20fe8346da807a1dedb7f89b814c1d4a118637b13a675cc5d07ea",
+      "bytes": 2773
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/global.json",
+      "sha256": "9740bf6f00b68e3aa860f6b5e22a0c7d4944081d943ead40c1c33f76f75cef5c",
+      "bytes": 139
+    },
+    {
+      "path": "license.txt",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/license.txt",
+      "sha256": "00e9a450180b721349dc5519f3ed9e98e4f1d38e5d212ca9f9fcb1ec1103b0bf",
+      "bytes": 11341
+    },
+    {
+      "path": "src/Quartz/Quartz.csproj",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Quartz.csproj",
+      "sha256": "db2336a132e604fb399683e08e197ff4f701d18c003c269819ee194e621901f5",
+      "bytes": 9293
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "NUnit",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NUnit.Analyzers",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NUnit3TestAdapter",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "coverlet.MTP",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Testing.Extensions.CrashDump",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Testing.Extensions.HangDump",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Testing.Extensions.TrxReport",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Build.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.AppHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.PostgreSQL",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Npgsql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "bunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.MTP",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FakeItEasy",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FirebirdSql.Data.FirebirdClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FSharp.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Marten",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MELT",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.BannedApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SQLite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.CrashDump",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.HangDump",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.TrxReport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MySqlConnector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NCrontab",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NLog.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSwag.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit3TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Oracle.ManagedDataAccess.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PolySharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PublicApiGenerator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Sinks.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SQLite.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.FirebirdSql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.MsSql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.MySql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.Oracle",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.PostgreSql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Verify.NUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WolverineFx",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WolverineFx.Postgresql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WolverineFx.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WolverineFx.RuntimeCompilation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.SignalR.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StackExchange.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "TimeZoneConverter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Weasel.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Weasel.Firebird",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Weasel.MySql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Weasel.Oracle",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Weasel.Postgresql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Weasel.Sqlite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Weasel.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hangfire.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hangfire.InMemory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hangfire.PostgreSql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Sqlite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "TickerQ",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "TickerQ.EntityFrameworkCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/Directory.Packages.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../Quartz.Analyzers/Quartz.Analyzers.csproj",
+      "file": "src/Quartz/Quartz.csproj",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Quartz.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "src/Quartz/Quartz.csproj",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Quartz.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "file": "src/Quartz/Quartz.csproj",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Quartz.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "src/Quartz/Quartz.csproj",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Quartz.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "src/Quartz/Quartz.csproj",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Quartz.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "file": "src/Quartz/Quartz.csproj",
+      "url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Quartz.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/quartznet/quartznet",
+      "source": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/README.md"
+    },
+    {
+      "url": "https://github.com/quartznet/quartznet",
+      "source": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/README.md"
+    },
+    {
+      "url": "https://github.com/quartznet/quartznet",
+      "source": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/README.md"
+    },
+    {
+      "url": "https://github.com/quartznet/quartznet",
+      "source": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/README.md"
+    },
+    {
+      "url": "https://github.com/quartznet/quartznet",
+      "source": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/README.md"
+    },
+    {
+      "url": "https://github.com/quartznet/quartznet",
+      "source": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Quartz.Analyzers.Tests",
+      "src/Quartz.Analyzers",
+      "src/Quartz.AspNetCore",
+      "src/Quartz.Aspire",
+      "src/Quartz.Benchmark.Competitors",
+      "src/Quartz.Benchmark",
+      "src/Quartz.Dashboard.Agent",
+      "src/Quartz.Dashboard",
+      "src/Quartz.Documentation.Samples",
+      "src/Quartz.Examples.AspNetCore",
+      "src/Quartz.Examples.Aspire.AppHost",
+      "src/Quartz.Examples.Aspire.Worker",
+      "src/Quartz.Examples.FSharp",
+      "src/Quartz.Examples.HttpClient",
+      "src/Quartz.Examples.Wolverine",
+      "src/Quartz.Examples.Worker",
+      "src/Quartz.Examples",
+      "src/Quartz.Extensions.DependencyInjection",
+      "src/Quartz.Extensions.Hosting",
+      "src/Quartz.Extensions.Redis",
+      "src/Quartz.HttpClient",
+      "src/Quartz.Jobs",
+      "src/Quartz.Plugins.TimeZoneConverter",
+      "src/Quartz.Plugins",
+      "src/Quartz.Serialization.Json",
+      "src/Quartz.Serialization.Newtonsoft",
+      "src/Quartz.Serialization.SystemTextJson",
+      "src/Quartz.Tests.AspNetCore.Host",
+      "src/Quartz.Tests.AspNetCore",
+      "src/Quartz.Tests.Integration.MixedVersionNode",
+      "src/Quartz.Tests.Integration.Seeder",
+      "src/Quartz.Tests.Integration",
+      "src/Quartz.Tests.Interceptors",
+      "src/Quartz.Tests.Unit",
+      "src/Quartz.Trimming.Canary.Wire",
+      "src/Quartz.Trimming.Canary",
+      "src/Quartz.Weasel.Firebird",
+      "src/Quartz.Weasel.MySQL",
+      "src/Quartz.Weasel.Oracle",
+      "src/Quartz.Weasel.PostgreSQL",
+      "src/Quartz.Weasel.SQLite",
+      "src/Quartz.Weasel.SqlServer",
+      "src/Quartz.Weasel",
+      "src/Quartz",
+      "src/QuartzShimPackage.props",
+      "src/quartz-logo-small.png",
+      "src/Quartz/Configuration",
+      "src/Quartz/Core",
+      "src/Quartz/Diagnostics",
+      "src/Quartz/Extensibility"
+    ],
+    "api": [],
+    "tests": [
+      "src/Quartz.Analyzers.Tests",
+      "src/Quartz.Tests.AspNetCore.Host",
+      "src/Quartz.Tests.AspNetCore",
+      "src/Quartz.Tests.Integration.MixedVersionNode",
+      "src/Quartz.Tests.Integration.Seeder",
+      "src/Quartz.Tests.Integration",
+      "src/Quartz.Tests.Interceptors",
+      "src/Quartz.Tests.Unit"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "Apache 2.0 text observed; file-level review OPEN"
+}

@@ -1,0 +1,463 @@
+{
+  "id": "DJ-021",
+  "repo": "dotj-postgresql",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/npgsql/npgsql",
+  "canonical_url": "https://github.com/npgsql/npgsql",
+  "redirect_observed": false,
+  "inspected_revision": "1083526ef25018bd65772f18f313240fd36037bb",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/README.md",
+      "sha256": "7eb9f51cca27ef7938298d68a9a8907ae28bbcadbe45188426da2a338fa976ab",
+      "bytes": 2614
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/LICENSE",
+      "sha256": "3c0c71ba8971ad9a06b1b0f9626fca6d9ca3def83ace0c88b15981eb976728fc",
+      "bytes": 903
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props",
+      "sha256": "a6d234d25d2ea502542dcd08af932689f49f058d2e950c1e30d368f7873fc6eb",
+      "bytes": 2403
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Build.props",
+      "sha256": "e9761a768502fda89987c49f75da7bcef61b6cfbb8deaadbd3dd0515467addc6",
+      "bytes": 1236
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/global.json",
+      "sha256": "2b4694ef162cc6c7d62bc2bdd70f90357d08da3faee109c8e546c8826383e3fc",
+      "bytes": 109
+    },
+    {
+      "path": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "sha256": "eab337506807b8bf6404f59562a318060dbce55af448e0cc24ac8eb23b099587",
+      "bytes": 905
+    },
+    {
+      "path": "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "sha256": "9aeae1ee5a6f873478072a462871edc994d4e5d36447269a26b00c48a18260a8",
+      "bytes": 847
+    },
+    {
+      "path": "test/MStatDumper/MStatDumper.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/MStatDumper/MStatDumper.csproj",
+      "sha256": "914a3173371ce24453b151be009cf3c4f2fbf10b1bf1da9b42f82c4cc9ff5678",
+      "bytes": 270
+    },
+    {
+      "path": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj",
+      "sha256": "a0891c752188c61f1f73893eec6878478ab5d47af28ca5458190f936f1ba6437",
+      "bytes": 1846
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.API",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NetTopologySuite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NetTopologySuite.IO.PostGIS",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NodaTime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "GeoJSON.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Scriban.Signed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit3TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AdoNet.Specification.Tests",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.InMemory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet.Diagnostics.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Mono.Cecil",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "GeoJSON.Net",
+      "file": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../Npgsql/Npgsql.csproj",
+      "file": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../Npgsql.SourceGenerators/Npgsql.SourceGenerators.csproj",
+      "file": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/Npgsql.Json.NET.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/Npgsql.Json.NET.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Npgsql\\Npgsql.csproj",
+      "file": "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/Npgsql.Json.NET.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Mono.Cecil",
+      "file": "test/MStatDumper/MStatDumper.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/MStatDumper/MStatDumper.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../Npgsql.SourceGenerators/Npgsql.SourceGenerators.csproj",
+      "file": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/npgsql/npgsql",
+      "source": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/README.md"
+    },
+    {
+      "url": "https://github.com/npgsql/npgsql",
+      "source": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/README.md"
+    },
+    {
+      "url": "https://github.com/npgsql/efcore.pg",
+      "source": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/.editorconfig",
+      "src/Directory.Build.props",
+      "src/Npgsql.GeoJSON/CrsMap.WellKnown.cs",
+      "src/Npgsql.GeoJSON/CrsMap.cs",
+      "src/Npgsql.GeoJSON/CrsMapExtensions.cs",
+      "src/Npgsql.GeoJSON/GeoJSONOptions.cs",
+      "src/Npgsql.GeoJSON/Internal/BoundingBoxBuilder.cs",
+      "src/Npgsql.GeoJSON/Internal/CrsMapBuilder.cs",
+      "src/Npgsql.GeoJSON/Internal/GeoJSONConverter.cs",
+      "src/Npgsql.GeoJSON/Internal/GeoJSONTypeInfoResolverFactory.cs",
+      "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "src/Npgsql.GeoJSON/NpgsqlGeoJSONExtensions.cs",
+      "src/Npgsql.GeoJSON/Properties/AssemblyInfo.cs",
+      "src/Npgsql.GeoJSON/PublicAPI.Shipped.txt",
+      "src/Npgsql.GeoJSON/PublicAPI.Unshipped.txt",
+      "src/Npgsql.Json.NET/Internal/JsonNetJsonConverter.cs",
+      "src/Npgsql.Json.NET/Internal/JsonNetPocoTypeInfoResolverFactory.cs",
+      "src/Npgsql.Json.NET/Internal/JsonNetTypeInfoResolverFactory.cs",
+      "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "src/Npgsql.Json.NET/NpgsqlJsonNetExtensions.cs",
+      "src/Npgsql.Json.NET/Properties/AssemblyInfo.cs",
+      "src/Npgsql.Json.NET/PublicAPI.Shipped.txt",
+      "src/Npgsql.Json.NET/PublicAPI.Unshipped.txt",
+      "src/Npgsql.NetTopologySuite/Internal/NetTopologySuiteConverter.cs",
+      "src/Npgsql.NetTopologySuite/Internal/NetTopologySuiteTypeInfoResolverFactory.cs",
+      "src/Npgsql.NetTopologySuite/Npgsql.NetTopologySuite.csproj",
+      "src/Npgsql.NetTopologySuite/NpgsqlNetTopologySuiteExtensions.cs",
+      "src/Npgsql.NetTopologySuite/Properties/AssemblyInfo.cs",
+      "src/Npgsql.NetTopologySuite/PublicAPI.Shipped.txt",
+      "src/Npgsql.NetTopologySuite/PublicAPI.Unshipped.txt",
+      "src/Npgsql.NetTopologySuite/README.md",
+      "src/Npgsql.NodaTime/Internal/DateIntervalConverter.cs",
+      "src/Npgsql.NodaTime/Internal/DurationConverter.cs",
+      "src/Npgsql.NodaTime/Internal/IntervalConverter.cs",
+      "src/Npgsql.NodaTime/Internal/LegacyConverters.cs",
+      "src/Npgsql.NodaTime/Internal/LocalDateConverter.cs",
+      "src/Npgsql.NodaTime/Internal/LocalTimeConverter.cs",
+      "src/Npgsql.NodaTime/Internal/NodaTimeTypeInfoResolverFactory.Multirange.cs",
+      "src/Npgsql.NodaTime/Internal/NodaTimeTypeInfoResolverFactory.Range.cs",
+      "src/Npgsql.NodaTime/Internal/NodaTimeTypeInfoResolverFactory.cs",
+      "src/Npgsql.NodaTime/Internal/NodaTimeUtils.cs",
+      "src/Npgsql.NodaTime/Internal/OffsetTimeConverter.cs",
+      "src/Npgsql.NodaTime/Internal/PeriodConverter.cs",
+      "src/Npgsql.NodaTime/Internal/TimestampConverters.cs",
+      "src/Npgsql.NodaTime/Npgsql.NodaTime.csproj",
+      "src/Npgsql.NodaTime/NpgsqlNodaTimeExtensions.cs",
+      "src/Npgsql.NodaTime/Properties/AssemblyInfo.cs",
+      "src/Npgsql.NodaTime/Properties/NpgsqlNodaTimeStrings.Designer.cs",
+      "src/Npgsql.NodaTime/Properties/NpgsqlNodaTimeStrings.resx",
+      "src/Npgsql.NodaTime/PublicAPI.Shipped.txt"
+    ],
+    "api": [
+      "src/Npgsql.GeoJSON/PublicAPI.Shipped.txt",
+      "src/Npgsql.GeoJSON/PublicAPI.Unshipped.txt",
+      "src/Npgsql.Json.NET/PublicAPI.Shipped.txt",
+      "src/Npgsql.Json.NET/PublicAPI.Unshipped.txt",
+      "src/Npgsql.NetTopologySuite/PublicAPI.Shipped.txt",
+      "src/Npgsql.NetTopologySuite/PublicAPI.Unshipped.txt",
+      "src/Npgsql.NodaTime/PublicAPI.Shipped.txt",
+      "src/Npgsql.NodaTime/PublicAPI.Unshipped.txt",
+      "src/Npgsql/PublicAPI.Shipped.txt",
+      "src/Npgsql/PublicAPI.Unshipped.txt"
+    ],
+    "tests": [
+      "test/Directory.Build.props",
+      "test/MStatDumper/MStatDumper.csproj",
+      "test/MStatDumper/Program.cs",
+      "test/Npgsql.Benchmarks/.gitignore",
+      "test/Npgsql.Benchmarks/App.config",
+      "test/Npgsql.Benchmarks/BenchmarkEnvironment.cs",
+      "test/Npgsql.Benchmarks/CommandExecuteBenchmarks.cs",
+      "test/Npgsql.Benchmarks/Commit.cs",
+      "test/Npgsql.Benchmarks/ConnectionCreationBenchmarks.cs",
+      "test/Npgsql.Benchmarks/ConnectionOpenCloseBenchmarks.cs",
+      "test/Npgsql.Benchmarks/CopyExport.cs",
+      "test/Npgsql.Benchmarks/CopyImport.cs",
+      "test/Npgsql.Benchmarks/GetFieldValue.cs",
+      "test/Npgsql.Benchmarks/Insert.cs",
+      "test/Npgsql.Benchmarks/Npgsql.Benchmarks.csproj",
+      "test/Npgsql.Benchmarks/ParameterCollection.cs",
+      "test/Npgsql.Benchmarks/PerElementColumn.cs",
+      "test/Npgsql.Benchmarks/Prepare.cs",
+      "test/Npgsql.Benchmarks/Program.cs",
+      "test/Npgsql.Benchmarks/ReadArray.cs",
+      "test/Npgsql.Benchmarks/ReadColumns.cs",
+      "test/Npgsql.Benchmarks/ReadRows.cs",
+      "test/Npgsql.Benchmarks/ResolveHandler.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/Composite.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/Numeric.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/Text.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/TypeHandlerBenchmarks.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/Uuid.cs",
+      "test/Npgsql.Benchmarks/UnixDomainSocket.cs",
+      "test/Npgsql.Benchmarks/WriteParameter.cs",
+      "test/Npgsql.Benchmarks/WriteVaryingNumberOfParameters.cs",
+      "test/Npgsql.NativeAotTests/Npgsql.NativeAotTests.csproj",
+      "test/Npgsql.NativeAotTests/Program.cs",
+      "test/Npgsql.Specification.Tests/Npgsql.Specification.Tests.csproj",
+      "test/Npgsql.Specification.Tests/NpgsqlCommandTests.cs",
+      "test/Npgsql.Specification.Tests/NpgsqlConnectionTests.cs",
+      "test/Npgsql.Specification.Tests/NpgsqlDataReaderTests.cs",
+      "test/Npgsql.Specification.Tests/NpgsqlDbFactoryFixture.cs",
+      "test/Npgsql.Specification.Tests/NpgsqlSelectValueFixture.cs",
+      "test/Npgsql.Specification.Tests/Utility.cs",
+      "test/Npgsql.Tests/App.config",
+      "test/Npgsql.Tests/AsyncTests.cs",
+      "test/Npgsql.Tests/AuthenticationTests.cs",
+      "test/Npgsql.Tests/AutoPrepareTests.cs",
+      "test/Npgsql.Tests/BatchTests.cs",
+      "test/Npgsql.Tests/BugTests.cs",
+      "test/Npgsql.Tests/CommandBuilderTests.cs",
+      "test/Npgsql.Tests/CommandParameterTests.cs",
+      "test/Npgsql.Tests/CommandTests.cs",
+      "test/Npgsql.Tests/ConnectionStringBuilderTests.cs"
+    ],
+    "docs": [],
+    "samples": []
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links",
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "PostgreSQL-style text observed; file-level review OPEN"
+}

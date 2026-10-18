@@ -1,0 +1,866 @@
+{
+  "id": "DJ-062",
+  "repo": "dotj-packages",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/NuGet/NuGet.Client",
+  "canonical_url": "https://github.com/NuGet/NuGet.Client",
+  "redirect_observed": false,
+  "inspected_revision": "4c4510d29a64fcbcba6360e29c3a1e8288a87f9f",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "dev",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Build.props",
+      "sha256": "1c01cd450c7a29d6a28936fa2318df938107994e315d055f7ddf01708cfe8db4",
+      "bytes": 1321
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props",
+      "sha256": "0d22288b0c5907a43234fbeaf2a3c39e3394ef09de99d65ce3522f6717884dd2",
+      "bytes": 15264
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/LICENSE.txt",
+      "sha256": "f1e3c903178e459ebd0c25d2dc65ebf11163c0a0d3ae46690943dffd5813040e",
+      "bytes": 594
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/README.md",
+      "sha256": "337e8a4fc47eb931de92e6f28f37a29bb62423404c2944460e5babe0b335f682",
+      "bytes": 1776
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/global.json",
+      "sha256": "81973f4c6f0f6ad7aa8e2b8c281123a3d7969ee764110e3ac0de4fc8a6a27dab",
+      "bytes": 212
+    },
+    {
+      "path": "NuGet.sln",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/NuGet.sln",
+      "sha256": "71174c10aa5c7c50947a6873526ab5e0ee7ebabf942e50b4a13c311f08ef950d",
+      "bytes": 129393
+    },
+    {
+      "path": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "sha256": "87a013cf4c9c586cccbececa7f00ad633f3f904aae73f93c4058cae22a156f84",
+      "bytes": 25778
+    },
+    {
+      "path": "test/NuGet.Core.Tests/NuGet.Configuration.Test/NuGet.Configuration.Test.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/test/NuGet.Core.Tests/NuGet.Configuration.Test/NuGet.Configuration.Test.csproj",
+      "sha256": "d0f2a9f2600eb7862f6810ea77121430ff03b082a6b45115a76797b98a302c86",
+      "bytes": 442
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ILRepack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Lucene.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Artifacts",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Locator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DataAI.NuGetRecommender.Contracts",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Feed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Maestro.Tasks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.XliffTasks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.SignTool",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Internal.VisualStudio.Shell.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.PowerShell.3.ReferenceAssemblies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TeamFoundationServer.ExtendedClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Test.Apex.VisualStudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TestPlatform.Portable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.ComponentModelHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Copilot",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.LanguageServices",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Markdown.Platform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.ProjectSystem",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.ProjectSystem.Managed.VS",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.ProjectSystem.VS",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Extensibility.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Extensibility.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.SDK",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Sdk.TestFramework.Xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Setup.Configuration.Interop",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Shell.Styles",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.TemplateWizardInterface",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VSSDK.BuildTools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Web.Xdt",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest.TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest.TestFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Client.EndToEnd.TestData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGetValidator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpZipLib",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.Composition",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.ProtectedData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Dataflow",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "VsWebSite.Interop",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xunit.StaFact",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IdentityModel.JsonWebTokens",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IdentityModel.Tokens.Jwt",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ServiceHub.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Shell.15.0",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/Directory.Packages.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\Microsoft.Build.NuGetSdkResolver\\Microsoft.Build.NuGetSdkResolver.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Build.Tasks\\NuGet.Build.Tasks.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Build.Tasks.Console\\NuGet.Build.Tasks.Console.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Common\\NuGet.Common.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Configuration\\NuGet.Configuration.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.DependencyResolver.Core\\NuGet.DependencyResolver.Core.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Frameworks\\NuGet.Frameworks.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.LibraryModel\\NuGet.LibraryModel.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.PackageManagement\\NuGet.PackageManagement.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Packaging\\NuGet.Packaging.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.ProjectModel\\NuGet.ProjectModel.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Protocol\\NuGet.Protocol.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Resolver\\NuGet.Resolver.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Versioning\\NuGet.Versioning.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.Tools\\NuGet.Tools.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.Indexing\\NuGet.Indexing.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Commands\\NuGet.Commands.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\NuGet.Core\\NuGet.Credentials\\NuGet.Credentials.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.SolutionRestoreManager\\NuGet.SolutionRestoreManager.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.VisualStudio.Contracts\\NuGet.VisualStudio.Contracts.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.VisualStudio.Implementation\\NuGet.VisualStudio.Implementation.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.PackageManagement.PowerShellCmdlets\\NuGet.PackageManagement.PowerShellCmdlets.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.PackageManagement.UI\\NuGet.PackageManagement.UI.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.PackageManagement.VisualStudio\\NuGet.PackageManagement.VisualStudio.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.VisualStudio.Internal.Contracts\\NuGet.VisualStudio.Internal.Contracts.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.VisualStudio.Interop\\NuGet.VisualStudio.Interop.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.VisualStudio.Common\\NuGet.VisualStudio.Common.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.VisualStudio\\NuGet.VisualStudio.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGet.Console\\NuGet.Console.csproj",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudio.Extensibility.Sdk",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudio.Extensibility.Build",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Lucene.Net",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "SharpZipLib",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Web.Xdt",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VSSDK.BuildTools",
+      "file": "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\src\\NuGet.Core\\NuGet.Configuration\\NuGet.Configuration.csproj",
+      "file": "test/NuGet.Core.Tests/NuGet.Configuration.Test/NuGet.Configuration.Test.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/test/NuGet.Core.Tests/NuGet.Configuration.Test/NuGet.Configuration.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\TestUtilities\\Test.Utility\\Test.Utility.csproj",
+      "file": "test/NuGet.Core.Tests/NuGet.Configuration.Test/NuGet.Configuration.Test.csproj",
+      "url": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/test/NuGet.Core.Tests/NuGet.Configuration.Test/NuGet.Configuration.Test.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/NuGet/NuGet.Client",
+      "source": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/README.md"
+    },
+    {
+      "url": "https://github.com/nuget/Home",
+      "source": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/README.md"
+    },
+    {
+      "url": "https://github.com/nuget/home",
+      "source": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/README.md"
+    },
+    {
+      "url": "https://github.com/nuget/home",
+      "source": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/README.md"
+    },
+    {
+      "url": "https://github.com/nuget/home",
+      "source": "https://github.com/NuGet/NuGet.Client/blob/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/NuGet.Clients",
+      "src/NuGet.Core",
+      "src/NuGet.Clients/NuGet.VisualStudio.Client/NuGet.VisualStudio.Client.csproj",
+      "src/NuGet.Core/NuGet.CommandLine.XPlat/NuGet.CommandLine.XPlat.csproj",
+      "src/NuGet.Core/NuGet.Build.Tasks/NuGet.Build.Tasks.csproj",
+      "src/NuGet.Core/NuGet.Versioning/NuGet.Versioning.csproj",
+      "src/NuGet.Core/NuGet.Packaging/NuGet.Packaging.csproj",
+      "src/NuGet.Core/NuGet.Common/NuGet.Common.csproj",
+      "src/NuGet.Core/NuGet.Frameworks/NuGet.Frameworks.csproj",
+      "src/NuGet.Core/NuGet.ProjectModel/NuGet.ProjectModel.csproj",
+      "src/NuGet.Core/NuGet.Configuration/NuGet.Configuration.csproj",
+      "src/NuGet.Core/NuGet.LibraryModel/NuGet.LibraryModel.csproj",
+      "src/NuGet.Core/NuGet.DependencyResolver.Core/NuGet.DependencyResolver.Core.csproj",
+      "src/NuGet.Core/NuGet.Protocol/NuGet.Protocol.csproj",
+      "src/NuGet.Core/NuGet.Resolver/NuGet.Resolver.csproj",
+      "test/NuGet.Core.Tests/NuGet.Configuration.Test/NuGet.Configuration.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Frameworks.Test/NuGet.Frameworks.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Packaging.Test/NuGet.Packaging.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Protocol.Tests/NuGet.Protocol.Tests.csproj",
+      "test/NuGet.Core.Tests/NuGet.Resolver.Test/NuGet.Resolver.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Versioning.Test/NuGet.Versioning.Test.csproj",
+      "src/NuGet.Core/NuGet.Commands/NuGet.Commands.csproj",
+      "test/NuGet.Core.Tests/NuGet.DependencyResolver.Core.Tests/NuGet.DependencyResolver.Core.Tests.csproj",
+      "test/NuGet.Core.Tests/NuGet.Commands.Test/NuGet.Commands.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.ProjectModel.Test/NuGet.ProjectModel.Test.csproj",
+      "src/NuGet.Core/NuGet.PackageManagement/NuGet.PackageManagement.csproj",
+      "test/NuGet.Core.Tests/NuGet.PackageManagement.Test/NuGet.PackageManagement.Test.csproj",
+      "test/TestUtilities/Test.Utility/Test.Utility.csproj",
+      "src/NuGet.Clients/NuGet.Indexing/NuGet.Indexing.csproj",
+      "test/NuGet.Core.Tests/NuGet.Common.Test/NuGet.Common.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.LibraryModel.Tests/NuGet.LibraryModel.Tests.csproj",
+      "test/NuGet.Core.FuncTests/NuGet.Commands.FuncTest/NuGet.Commands.FuncTest.csproj",
+      "test/NuGet.Core.FuncTests/NuGet.Protocol.FuncTest/NuGet.Protocol.FuncTest.csproj",
+      "test/NuGet.Clients.Tests/NuGet.Indexing.Test/NuGet.Indexing.Test.csproj",
+      "test/NuGet.Core.FuncTests/NuGet.XPlat.FuncTest/NuGet.XPlat.FuncTest.csproj",
+      "test/NuGet.Core.Tests/NuGet.Build.Tasks.Pack.Test/NuGet.Build.Tasks.Pack.Test.csproj",
+      "src/NuGet.Core/NuGet.Build.Tasks.Pack/NuGet.Build.Tasks.Pack.csproj",
+      "test/NuGet.Core.FuncTests/Dotnet.Integration.Test/Dotnet.Integration.Test.csproj",
+      "src/NuGet.Clients/NuGet.CommandLine/NuGet.CommandLine.csproj",
+      "src/NuGet.Core/NuGet.Credentials/NuGet.Credentials.csproj",
+      "src/NuGet.Clients/NuGet.VisualStudio/NuGet.VisualStudio.csproj",
+      "src/NuGet.Clients/NuGet.VisualStudio.Implementation/NuGet.VisualStudio.Implementation.csproj",
+      "src/NuGet.Clients/NuGet.PackageManagement.PowerShellCmdlets/NuGet.PackageManagement.PowerShellCmdlets.csproj",
+      "src/NuGet.Clients/NuGet.PackageManagement.UI/NuGet.PackageManagement.UI.csproj",
+      "src/NuGet.Clients/NuGet.SolutionRestoreManager/NuGet.SolutionRestoreManager.csproj",
+      "src/NuGet.Clients/NuGet.Tools/NuGet.Tools.csproj",
+      "src/NuGet.Clients/NuGet.PackageManagement.VisualStudio/NuGet.PackageManagement.VisualStudio.csproj",
+      "test/TestExtensions/SampleCommandLineExtensions/SampleCommandLineExtensions.csproj",
+      "src/NuGet.Clients/NuGet.VisualStudio.Common/NuGet.VisualStudio.Common.csproj",
+      "src/NuGet.Clients/NuGet.VisualStudio.Interop/NuGet.VisualStudio.Interop.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "test",
+      "test/NuGet.Core.Tests/NuGet.Configuration.Test/NuGet.Configuration.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Frameworks.Test/NuGet.Frameworks.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Packaging.Test/NuGet.Packaging.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Protocol.Tests/NuGet.Protocol.Tests.csproj",
+      "test/NuGet.Core.Tests/NuGet.Resolver.Test/NuGet.Resolver.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Versioning.Test/NuGet.Versioning.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.DependencyResolver.Core.Tests/NuGet.DependencyResolver.Core.Tests.csproj",
+      "test/NuGet.Core.Tests/NuGet.Commands.Test/NuGet.Commands.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.ProjectModel.Test/NuGet.ProjectModel.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.PackageManagement.Test/NuGet.PackageManagement.Test.csproj",
+      "test/TestUtilities/Test.Utility/Test.Utility.csproj",
+      "test/NuGet.Core.Tests/NuGet.Common.Test/NuGet.Common.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.LibraryModel.Tests/NuGet.LibraryModel.Tests.csproj",
+      "test/NuGet.Core.FuncTests/NuGet.Commands.FuncTest/NuGet.Commands.FuncTest.csproj",
+      "test/NuGet.Core.FuncTests/NuGet.Protocol.FuncTest/NuGet.Protocol.FuncTest.csproj",
+      "test/NuGet.Clients.Tests/NuGet.Indexing.Test/NuGet.Indexing.Test.csproj",
+      "test/NuGet.Core.FuncTests/NuGet.XPlat.FuncTest/NuGet.XPlat.FuncTest.csproj",
+      "test/NuGet.Core.Tests/NuGet.Build.Tasks.Pack.Test/NuGet.Build.Tasks.Pack.Test.csproj",
+      "test/NuGet.Core.FuncTests/Dotnet.Integration.Test/Dotnet.Integration.Test.csproj",
+      "test/TestExtensions/SampleCommandLineExtensions/SampleCommandLineExtensions.csproj",
+      "test/NuGet.Clients.FuncTests/NuGet.CommandLine.FuncTest/NuGet.CommandLine.FuncTest.csproj",
+      "test/NuGet.Clients.Tests/NuGet.CommandLine.Test/NuGet.CommandLine.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Credentials.Test/NuGet.Credentials.Test.csproj",
+      "test/NuGet.Clients.Tests/NuGet.PackageManagement.UI.Test/NuGet.PackageManagement.UI.Test.csproj",
+      "test/NuGet.Clients.Tests/NuGet.PackageManagement.VisualStudio.Test/NuGet.PackageManagement.VisualStudio.Test.csproj",
+      "test/NuGet.Clients.Tests/NuGet.SolutionRestoreManager.Test/NuGet.SolutionRestoreManager.Test.csproj",
+      "test/NuGet.Clients.Tests/NuGet.VisualStudio.Implementation.Test/NuGet.VisualStudio.Implementation.Test.csproj",
+      "test/TestExtensions/TestablePluginCredentialProvider/TestableCredentialProvider.csproj",
+      "test/TestExtensions/API.Test/API.Test.csproj",
+      "test/TestExtensions/TestablePlugin/TestablePlugin.csproj",
+      "test/NuGet.Core.Tests/NuGet.Build.Tasks.Test/NuGet.Build.Tasks.Test.csproj",
+      "test/NuGet.Clients.Tests/NuGetConsole.Host.PowerShell.Test/NuGetConsole.Host.PowerShell.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.CommandLine.Xplat.Tests/NuGet.CommandLine.Xplat.Tests.csproj",
+      "test/NuGet.Core.FuncTests/NuGet.Packaging.FuncTest/NuGet.Packaging.FuncTest.csproj",
+      "test/NuGet.Core.Tests/NuGet.Shared.Tests/NuGet.Shared.Tests.csproj",
+      "test/NuGet.Clients.FuncTests/NuGet.MSSigning.Extensions.FuncTest/NuGet.MSSigning.Extensions.FuncTest.csproj",
+      "test/NuGet.Clients.Tests/NuGet.MSSigning.Extensions.Test/NuGet.MSSigning.Extensions.Test.csproj",
+      "test/NuGet.Core.Tests/Microsoft.Build.NuGetSdkResolver.Test/Microsoft.Build.NuGetSdkResolver.Test.csproj",
+      "test/NuGet.Clients.Tests/NuGet.VisualStudio.Common.Test/NuGet.VisualStudio.Common.Test.csproj",
+      "test/NuGet.Core.FuncTests/Msbuild.Integration.Test/Msbuild.Integration.Test.csproj",
+      "test/NuGet.Core.Tests/NuGet.Build.Tasks.Console.Test/NuGet.Build.Tasks.Console.Test.csproj",
+      "test/NuGet.Clients.Tests/NuGet.VisualStudio.Internal.Contracts.Test/NuGet.VisualStudio.Internal.Contracts.Test.csproj",
+      "test/NuGet.Clients.Tests/NuGet.Tools.Test/NuGet.Tools.Test.csproj",
+      "test/NuGet.Core.FuncTests/NuGet.Signing.CrossFramework.Test/NuGet.Signing.CrossFramework.Test.csproj",
+      "test/NuGet.Tests.Apex/NuGet.Console.TestContract/NuGet.Console.TestContract.csproj",
+      "test/NuGet.Tests.Apex/NuGet.PackageManagement.UI.TestContract/NuGet.PackageManagement.UI.TestContract.csproj",
+      "test/NuGet.Tests.Apex/NuGet.OptProf/NuGet.OptProf.csproj",
+      "test/NuGet.Tests.Apex/NuGet.Tests.Apex/NuGet.Tests.Apex.csproj",
+      "test/NuGet.Clients.Tests/NuGet.VisualStudio.Test/NuGet.VisualStudio.Test.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "Apache 2.0 text observed; file-level review OPEN"
+}

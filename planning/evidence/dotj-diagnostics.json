@@ -1,0 +1,388 @@
+{
+  "id": "DJ-007",
+  "repo": "dotj-diagnostics",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/diagnostics",
+  "canonical_url": "https://github.com/dotnet/diagnostics",
+  "redirect_observed": false,
+  "inspected_revision": "1d95e75015fa3ccd063a59ed3d0bfe26040a6637",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/README.md",
+      "sha256": "f9dbbaf902b7d32df9dfe3ff6a6a7604d42fdedd18f7e9cbad6354222f0853db",
+      "bytes": 12808
+    },
+    {
+      "path": "LICENSE.TXT",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/LICENSE.TXT",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "bytes": 1116
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "8fd258379044804c3df612e2cd7ef045a0595329c59af259cc232cdd61d7c379",
+      "bytes": 96171
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/Directory.Build.props",
+      "sha256": "030befe8649a15862cbfddd24b01bd102da743681988124531a63c7046e9b90b",
+      "bytes": 5469
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/global.json",
+      "sha256": "bc394d5101ee93bc7bdfdef7983f25d889258ef794c1159b60a1e36f671f68fe",
+      "bytes": 428
+    },
+    {
+      "path": "documentation/tutorial/src/triggerdump/triggerdump.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/documentation/tutorial/src/triggerdump/triggerdump.csproj",
+      "sha256": "4beefcf42c0c6d279ad4aa320acd916e1f834522ed6efcbd723a61ee01c4a2e0",
+      "bytes": 727
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "eng/testassets/pack.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/eng/testassets/pack.csproj",
+      "sha256": "f9e252de800636bf27c87781ec5583b0b096b93fa0a104ab30f23eccdc64c53d",
+      "bytes": 642
+    },
+    {
+      "path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "sha256": "79f561114c35c8a2d2a260de27a5c751dacfb63daebe44e1bef69927a5efa369",
+      "bytes": 2004
+    },
+    {
+      "path": "src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj",
+      "sha256": "7ba7e3715b1a06a951712e9f0d9c48d9d06d251e0add5c47c8197d02e52ec0ad",
+      "bytes": 1204
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Diagnostics.NETCore.Client",
+      "file": "documentation/tutorial/src/triggerdump/triggerdump.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/documentation/tutorial/src/triggerdump/triggerdump.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Diagnostics.Tracing.TraceEvent",
+      "file": "documentation/tutorial/src/triggerdump/triggerdump.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/documentation/tutorial/src/triggerdump/triggerdump.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Diagnostics.Runtime",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Reflection.Metadata",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Memory",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Runtime.Loader",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Private.Uri",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Text.Json",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(MSBuildThisFileDirectory)..\\Microsoft.Diagnostics.DebugServices\\Microsoft.Diagnostics.DebugServices.csproj",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(MSBuildThisFileDirectory)..\\Microsoft.SymbolStore\\Microsoft.SymbolStore.csproj",
+      "file": "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.RemoteExecutor",
+      "file": "src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.v3.assert",
+      "file": "src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.v3.extensibility.core",
+      "file": "src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(MSBuildThisFileDirectory)..\\Microsoft.Diagnostics.DebugServices.Implementation\\Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "file": "src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(MSBuildThisFileDirectory)..\\Microsoft.Diagnostics.DebugServices\\Microsoft.Diagnostics.DebugServices.csproj",
+      "file": "src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj",
+      "url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.TestHelpers/Microsoft.Diagnostics.TestHelpers.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/diagnostics",
+      "source": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime",
+      "source": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime",
+      "source": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "documentation/tutorial/src/triggerdump/triggerdump.csproj",
+      "eng/common/internal/Tools.csproj",
+      "eng/release/DiagnosticsReleaseTool/DiagnosticsReleaseTool.csproj",
+      "eng/testassets/pack.csproj",
+      "eng/testassets/rebuild/pack.csproj",
+      "src/CMakeLists.txt",
+      "src/Directory.Build.props",
+      "src/Directory.Build.targets",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/AssemblyResolver.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/CaptureConsoleService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/CommandService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ContextService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/CrashInfoService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/DataReader.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/DiagnosticLoggingService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/DumpTargetFactory.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ElfModule.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/FileLoggingConsoleService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/HostSymbolProvider.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ImageMappingMemoryService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/LinkedListNode.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/MachOModule.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/MemoryCache.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/MemoryServiceFromDataReader.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/MetadataMappingMemoryService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/Microsoft.Diagnostics.DebugServices.Implementation.csproj",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ModuleFromAddress.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ModuleService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ModuleServiceFromDataReader.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/PEModule.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/Runtime.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/RuntimeProvider.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/RuntimeService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ServiceEvent.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ServiceManager.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/SpecialDiagInfo.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/StringExtensions.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/SymbolFile.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/SymbolService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/Target.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/TargetFromDataReader.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/Thread.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ThreadService.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/ThreadServiceFromDataReader.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/Tracer.cs",
+      "src/Microsoft.Diagnostics.DebugServices.Implementation/Utilities.cs",
+      "src/Microsoft.Diagnostics.DebugServices/CDacLoadPolicy.cs",
+      "src/Microsoft.Diagnostics.DebugServices/CharToLineConverter.cs"
+    ],
+    "api": [],
+    "tests": [
+      "Test.cmd",
+      "src/tests/CMakeLists.txt",
+      "src/tests/Common/MockConsole.cs",
+      "src/tests/CommonTestRunner/CommonTestRunner.csproj",
+      "src/tests/CommonTestRunner/ConfigFiles/Helix/Debugger.Tests.Config.txt",
+      "src/tests/CommonTestRunner/ConfigFiles/Unix/Debugger.Tests.Config.txt",
+      "src/tests/CommonTestRunner/ConfigFiles/Windows/Debugger.Tests.Config.txt",
+      "src/tests/CommonTestRunner/Debuggees/Directory.Build.props",
+      "src/tests/CommonTestRunner/Debuggees/EventPipeTracee/CustomMetrics.cs",
+      "src/tests/CommonTestRunner/Debuggees/EventPipeTracee/DuplicateNameMetrics.cs",
+      "src/tests/CommonTestRunner/Debuggees/EventPipeTracee/EventPipeTracee.csproj",
+      "src/tests/CommonTestRunner/Debuggees/EventPipeTracee/Program.cs",
+      "src/tests/CommonTestRunner/Debuggees/ExitCodeTracee/ExitCodeTracee.csproj",
+      "src/tests/CommonTestRunner/Debuggees/ExitCodeTracee/Program.cs",
+      "src/tests/CommonTestRunner/Debuggees/StackTracee/Program.cs",
+      "src/tests/CommonTestRunner/Debuggees/StackTracee/StackTracee.csproj",
+      "src/tests/CommonTestRunner/Debuggees/Tracee/Program.cs",
+      "src/tests/CommonTestRunner/Debuggees/Tracee/Tracee.csproj",
+      "src/tests/CommonTestRunner/DiagnosticPortsHelper.cs",
+      "src/tests/CommonTestRunner/HelixPayload.targets",
+      "src/tests/CommonTestRunner/TestRunner.cs",
+      "src/tests/CommonTestRunner/TestRunnerUtilities.cs",
+      "src/tests/DacCompareNativeTypes/DacCompareNativeTypes.csproj",
+      "src/tests/DacCompareNativeTypes/DwarfParse.cs",
+      "src/tests/DacCompareNativeTypes/Member.cs",
+      "src/tests/DacCompareNativeTypes/PdbParser.cs",
+      "src/tests/DacCompareNativeTypes/Program.cs",
+      "src/tests/DacCompareNativeTypes/Readme.md",
+      "src/tests/DacCompareNativeTypes/Type.cs",
+      "src/tests/DacCompareNativeTypes/Whitespace.cs",
+      "src/tests/DbgShim.UnitTests/ConfigFiles/Unix/Debugger.Tests.Config.txt",
+      "src/tests/DbgShim.UnitTests/ConfigFiles/Windows/Debugger.Tests.Config.txt",
+      "src/tests/DbgShim.UnitTests/DbgShim.UnitTests.csproj",
+      "src/tests/DbgShim.UnitTests/DbgShimAPI.cs",
+      "src/tests/DbgShim.UnitTests/DbgShimTests.cs",
+      "src/tests/DbgShim.UnitTests/DebuggeeInfo.cs",
+      "src/tests/DbgShim.UnitTests/Debuggees/Directory.Build.props",
+      "src/tests/DbgShim.UnitTests/Debuggees/SimpleDebuggee/SimpleDebuggee.cs",
+      "src/tests/DbgShim.UnitTests/Debuggees/SimpleDebuggee/SimpleDebuggee.csproj",
+      "src/tests/DbgShim.UnitTests/Debuggees/SimpleDebuggee/runtimeconfig.template.json",
+      "src/tests/DbgShim.UnitTests/HelixPayload.targets",
+      "src/tests/DbgShim.UnitTests/ICorDebug.cs",
+      "src/tests/DbgShim.UnitTests/ICorDebugController.cs",
+      "src/tests/DbgShim.UnitTests/LibraryProviderWrapper.cs",
+      "src/tests/DbgShim.UnitTests/ManagedCallbackWrapper.cs",
+      "src/tests/Debuggees.proj",
+      "src/tests/DesktopClrHost/CMakeLists.txt",
+      "src/tests/DesktopClrHost/DesktopClrHost.cpp",
+      "src/tests/Directory.Build.props",
+      "src/tests/Directory.Build.targets"
+    ],
+    "docs": [
+      "documentation/EventPipeFormat.md",
+      "documentation/FAQ.md",
+      "documentation/building/android.md",
+      "documentation/building/freebsd-instructions.md",
+      "documentation/building/linux-instructions.md",
+      "documentation/building/netbsd-instructions.md",
+      "documentation/building/official-build-instructions.md",
+      "documentation/building/osx-instructions.md",
+      "documentation/building/ubuntu18.04/build-install-curl.sh",
+      "documentation/building/windows-instructions.md",
+      "documentation/clrma.md",
+      "documentation/debugging-coredump.md",
+      "documentation/design-docs/EventCounters.jpg",
+      "documentation/design-docs/diagnostics-client-library.md",
+      "documentation/design-docs/dotnet-dump-extensibility.md",
+      "documentation/design-docs/dotnet-tools.md",
+      "documentation/design-docs/eventcounters.md",
+      "documentation/design-docs/ipc-protocol-genericflow.svg",
+      "documentation/design-docs/ipc-protocol.md",
+      "documentation/diagnostics-client-library-instructions.md",
+      "documentation/diagnostics-planing.md",
+      "documentation/diagnostics-planing.working.md",
+      "documentation/dotnet-counters-instructions.md",
+      "documentation/dotnet-dump-instructions.md",
+      "documentation/dotnet-gcdump-instructions.md",
+      "documentation/dotnet-trace-instructions.md",
+      "documentation/installing-sos-instructions.md",
+      "documentation/installing-sos-windows-instructions.md",
+      "documentation/lldb/buildinglldb.md",
+      "documentation/lldb/centos7/build-install-lldb.sh",
+      "documentation/lldb/fedora24/build-install-lldb.sh",
+      "documentation/lldb/freebsd-instructions.md",
+      "documentation/lldb/linux-instructions.md",
+      "documentation/lldb/netbsd-instructions.md",
+      "documentation/lldb/opensuse/build-install-lldb.sh",
+      "documentation/lldb/osx-instructions.md",
+      "documentation/privatebuildtesting.md",
+      "documentation/single-file-tools.md",
+      "documentation/sos.md",
+      "documentation/sos_printexception_walkthrough.md",
+      "documentation/symbols/Myget_symbol_server_extensions.md",
+      "documentation/symbols/Package_Based_Symbol_Server.md",
+      "documentation/symbols/README.md",
+      "documentation/symbols/SSQP_CLR_Private_Key_Conventions.md",
+      "documentation/symbols/SSQP_Key_Conventions.md",
+      "documentation/symbols/Simple_Symbol_Query_Protocol.md",
+      "documentation/tutorial/README.md",
+      "documentation/tutorial/app_is_leaking_memory_eventual_crash.md",
+      "documentation/tutorial/app_running_slow_highcpu.md",
+      "documentation/tutorial/diagscenario.cs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

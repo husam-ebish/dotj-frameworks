@@ -1,0 +1,395 @@
+{
+  "id": "DJ-042",
+  "repo": "dotj-multiui",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/maui",
+  "canonical_url": "https://github.com/dotnet/maui",
+  "redirect_observed": false,
+  "inspected_revision": "3a7d72870b9c2ed006de7268a6257ae039cb7f99",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/Directory.Build.props",
+      "sha256": "98136f8eea62c63bd89e31b2a3534b8d597f5e35ab94e259795b88cd276f9b99",
+      "bytes": 26183
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/LICENSE.txt",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "bytes": 1116
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/README.md",
+      "sha256": "892e385d18504881293cbb3067e57babcd43158fd3f7b88c8114f5141fa859ac",
+      "bytes": 3556
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "c0a274fea4b590fb153ad42e87fdec524b7c2926357075c99ce9eea277ae7147",
+      "bytes": 28508
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/global.json",
+      "sha256": "1853399ede2cdee91e47dcc522f396aaee85bef38f089d81b3d01fc1773ea7b1",
+      "bytes": 356
+    },
+    {
+      "path": "Microsoft.Maui-dev.sln",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/Microsoft.Maui-dev.sln",
+      "sha256": "a46a8a0eefaf1857442567bc215081f8b15b615680401dc8189e556e3f9b18f4",
+      "bytes": 64566
+    },
+    {
+      "path": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj",
+      "sha256": "29f334f80723156a82773285aedf79df4a7501890574612ca545bccb3fb31106",
+      "bytes": 8286
+    },
+    {
+      "path": "src/TestUtils/src/TestUtils/TestUtils.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/TestUtils/src/TestUtils/TestUtils.csproj",
+      "sha256": "3804a3e3b03f8f3dcfeabfee7530ff030c3fec3816baa7622c769249ab76adf9",
+      "bytes": 628
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Net.Compilers.Toolset",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MemoryAnalyzers",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Graphics\\src\\Graphics\\Graphics.csproj",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Numerics.Vectors",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Text.Json",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.WindowsAppSDK",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Web.WebView2",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Windows.SDK.BuildTools",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Graphics.Win2D",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Graphics\\src\\Graphics.Win2D\\Graphics.Win2D.csproj",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.Android.Glide",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.Lifecycle.LiveData",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.Google.Android.Material",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.SwipeRefreshLayout",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.Navigation.UI",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.Navigation.Fragment",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.Navigation.Runtime",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Xamarin.AndroidX.Navigation.Common",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Tizen.UIExtensions.NUI",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Graphics\\src\\Graphics.Skia\\Graphics.Skia.csproj",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Essentials\\src\\Essentials.csproj",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Graphics\\src\\Graphics\\Graphics.csproj",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.TypeScript.MSBuild",
+      "file": "src/Core/src/Core.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit",
+      "file": "src/TestUtils/src/TestUtils/TestUtils.csproj",
+      "url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/TestUtils/src/TestUtils/TestUtils.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/maui-samples",
+      "source": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/maui-samples",
+      "source": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/README.md"
+    },
+    {
+      "url": "https://github.com/CommunityToolkit/Maui",
+      "source": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/README.md"
+    },
+    {
+      "url": "https://github.com/CommunityToolkit/dotnet",
+      "source": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/maui",
+      "source": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/maui",
+      "source": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/maui",
+      "source": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/BlazorWebView",
+      "src/Compatibility",
+      "src/Controls",
+      "src/Core",
+      "src/DotNet",
+      "src/Essentials",
+      "src/Graphics",
+      "src/ProfiledAot",
+      "src/Provisioning",
+      "src/SingleProject/Resizetizer",
+      "src/Templates",
+      "src/TestUtils",
+      "src/Workload",
+      "src/AppleBindings.targets",
+      "src/Maui.InTree.props",
+      "src/Maui.InTree.targets",
+      "src/Microsoft.Maui.TestUtils.DeviceTests.Runners.props",
+      "src/Microsoft.Maui.TestUtils.DeviceTests.Runners.targets",
+      "src/MultiTargeting.targets",
+      "src/PublicAPI.targets",
+      "src/SingleProject",
+      "src/BlazorWebView/samples",
+      "src/BlazorWebView/src",
+      "src/BlazorWebView/tests",
+      "src/Core/src/Core.csproj",
+      "src/Controls/src/Core/Controls.Core.csproj",
+      "src/Controls/samples/Controls.Sample/Maui.Controls.Sample.csproj",
+      "src/Controls/src/Build.Tasks/Controls.Build.Tasks.csproj",
+      "src/Essentials/src/Essentials.csproj",
+      "src/SingleProject/Resizetizer/src/Resizetizer.csproj",
+      "src/Controls/src/Xaml/Controls.Xaml.csproj",
+      "src/Templates/src/Microsoft.Maui.Templates.csproj",
+      "src/TestUtils/src/TestUtils/TestUtils.csproj",
+      "src/Core/tests/UnitTests/Core.UnitTests.csproj",
+      "src/BlazorWebView/src/Maui/Microsoft.AspNetCore.Components.WebView.Maui.csproj",
+      "src/Controls/src/Core.Design/Controls.Core.Design.csproj",
+      "src/Controls/src/Xaml.Design/Controls.Xaml.Design.csproj",
+      "src/BlazorWebView/samples/MauiRazorClassLibrarySample/MauiRazorClassLibrarySample.csproj",
+      "src/Controls/src/SourceGen/Controls.SourceGen.csproj",
+      "src/SingleProject/Resizetizer/test/UnitTests/Resizetizer.UnitTests.csproj",
+      "src/BlazorWebView/samples/WebViewAppShared/WebViewAppShared.csproj",
+      "src/Workload/Microsoft.Maui.Sdk/Microsoft.Maui.Sdk.csproj",
+      "src/Workload/Microsoft.NET.Sdk.Maui.Manifest/Microsoft.NET.Sdk.Maui.Manifest.csproj",
+      "src/TestUtils/src/DeviceTests.Runners/TestUtils.DeviceTests.Runners.csproj",
+      "src/TestUtils/src/DeviceTests.Runners.SourceGen/TestUtils.DeviceTests.Runners.SourceGen.csproj",
+      "src/TestUtils/samples/DeviceTests.Sample/TestUtils.DeviceTests.Sample.csproj",
+      "src/Core/tests/Benchmarks/Core.Benchmarks.csproj",
+      "src/Core/tests/DeviceTests/Core.DeviceTests.csproj",
+      "src/Essentials/test/DeviceTests/Essentials.DeviceTests.csproj",
+      "src/Essentials/test/UnitTests/Essentials.UnitTests.csproj"
+    ],
+    "api": [
+      "src/PublicAPI.targets"
+    ],
+    "tests": [
+      "src/BlazorWebView/tests",
+      "src/Core/tests/UnitTests/Core.UnitTests.csproj",
+      "src/SingleProject/Resizetizer/test/UnitTests/Resizetizer.UnitTests.csproj",
+      "src/Core/tests/Benchmarks/Core.Benchmarks.csproj",
+      "src/Core/tests/DeviceTests/Core.DeviceTests.csproj",
+      "src/Essentials/test/DeviceTests/Essentials.DeviceTests.csproj",
+      "src/Essentials/test/UnitTests/Essentials.UnitTests.csproj",
+      "src/Controls/tests/Core.UnitTests/Controls.Core.UnitTests.csproj",
+      "src/Controls/tests/Xaml.UnitTests/Controls.Xaml.UnitTests.csproj",
+      "src/Controls/tests/CustomAttributes/Controls.CustomAttributes.csproj",
+      "src/Controls/tests/DeviceTests/Controls.DeviceTests.csproj",
+      "src/BlazorWebView/tests/DeviceTests/MauiBlazorWebView.DeviceTests.csproj",
+      "src/BlazorWebView/tests/MauiBlazorWebView.UnitTests/MauiBlazorWebView.UnitTests.csproj",
+      "src/Core/tests/Benchmarks.Droid/Benchmarks.Droid.csproj",
+      "src/Graphics/tests/Graphics.Tests/Graphics.Tests.csproj",
+      "src/Graphics/tests/Graphics.Benchmarks/Graphics.Benchmarks.csproj",
+      "src/Controls/tests/Core.Design.UnitTests/Controls.Core.Design.UnitTests.csproj",
+      "src/Core/tests/DeviceTests.Shared/Core.DeviceTests.Shared.csproj",
+      "src/Graphics/tests/DeviceTests/Graphics.DeviceTests.csproj",
+      "src/Controls/tests/Xaml.UnitTests.ExternalAssembly/Controls.Xaml.UnitTests.ExternalAssembly.csproj",
+      "src/Controls/tests/Xaml.UnitTests.InternalsVisibleAssembly/Controls.Xaml.UnitTests.InternalsVisibleAssembly.csproj",
+      "src/Controls/tests/Xaml.UnitTests.InternalsHiddenAssembly/Controls.Xaml.UnitTests.InternalsHiddenAssembly.csproj",
+      "src/Controls/tests/TestCases.HostApp/Controls.TestCases.HostApp.csproj",
+      "src/Controls/tests/SourceGen.UnitTests/SourceGen.UnitTests.csproj",
+      "src/Controls/tests/TestCases.Shared.Tests/Controls.TestCases.Shared.Tests.csproj",
+      "src/Controls/tests/TestCases.Android.Tests/Controls.TestCases.Android.Tests.csproj",
+      "src/Controls/tests/TestCases.iOS.Tests/Controls.TestCases.iOS.Tests.csproj",
+      "src/Controls/tests/TestCases.Mac.Tests/Controls.TestCases.Mac.Tests.csproj",
+      "src/Controls/tests/TestCases.WinUI.Tests/Controls.TestCases.WinUI.Tests.csproj",
+      "src/Controls/tests/BindingSourceGen.UnitTests/Controls.BindingSourceGen.UnitTests.csproj",
+      "src/Controls/tests/ManualTests/Controls.ManualTests.csproj",
+      "src/TestUtils/tests/UITest.Analyzers.Tests/UITest.Analyzers.Tests.csproj",
+      "src/Controls/tests/Maui25871Library/Maui25871Library.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": [
+      "src/BlazorWebView/samples",
+      "src/Controls/samples/Controls.Sample/Maui.Controls.Sample.csproj",
+      "src/BlazorWebView/samples/MauiRazorClassLibrarySample/MauiRazorClassLibrarySample.csproj",
+      "src/BlazorWebView/samples/WebViewAppShared/WebViewAppShared.csproj",
+      "src/TestUtils/samples/DeviceTests.Sample/TestUtils.DeviceTests.Sample.csproj",
+      "src/Controls/samples/Controls.Sample.Profiling/Maui.Controls.Sample.Profiling.csproj",
+      "src/Essentials/samples/Samples/Essentials.Sample.csproj",
+      "src/Essentials/samples/Sample.Server.WebAuthenticator/Essentials.Sample.Server.WebAuthenticator.csproj",
+      "src/BlazorWebView/samples/BlazorWinFormsApp/BlazorWinFormsApp.csproj",
+      "src/BlazorWebView/samples/BlazorWpfApp/BlazorWpfApp.csproj",
+      "src/Controls/samples/Controls.Sample.Sandbox/Maui.Controls.Sample.Sandbox.csproj",
+      "src/Graphics/samples/GraphicsTester.Android/GraphicsTester.Android.csproj",
+      "src/Graphics/samples/GraphicsTester.iOS/GraphicsTester.iOS.csproj",
+      "src/Graphics/samples/GraphicsTester.Mac/GraphicsTester.Mac.csproj",
+      "src/Graphics/samples/GraphicsTester.MacCatalyst/GraphicsTester.MacCatalyst.csproj",
+      "src/Graphics/samples/GraphicsTester.Portable/GraphicsTester.Portable.csproj",
+      "src/Graphics/samples/GraphicsTester.Skia.Console/GraphicsTester.Skia.Console.csproj",
+      "src/Graphics/samples/GraphicsTester.Skia.Mac/GraphicsTester.Skia.Mac.csproj",
+      "src/Graphics/samples/GraphicsTester.Skia.Windows/GraphicsTester.Skia.Windows.csproj",
+      "src/Graphics/samples/GraphicsTester.WinUI.Desktop/GraphicsTester.WinUI.Desktop.csproj",
+      "src/Graphics/samples/GraphicsTester.Skia.Gtk/GraphicsTester.Skia.Gtk.csproj",
+      "src/Controls/samples/Controls.Sample.Embedding/Maui.Controls.Sample.Embedding.csproj"
+    ]
+  },
+  "gaps": [
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

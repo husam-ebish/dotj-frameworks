@@ -1,0 +1,1114 @@
+{
+  "id": "DJ-063",
+  "repo": "dotj-registry",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/NuGet/NuGetGallery",
+  "canonical_url": "https://github.com/NuGet/NuGetGallery",
+  "redirect_observed": false,
+  "inspected_revision": "d6b9e689606e174e05c064a3531320200d4033c7",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props",
+      "sha256": "e60ba0b373ed662e005177be15e68d660d8567ec2a2022a252b339952776755a",
+      "bytes": 12890
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/LICENSE.txt",
+      "sha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+      "bytes": 11356
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/README.md",
+      "sha256": "e2c28a7ccedf6197a04b1430ecc41cf341ba9431512a4f067fd32c10ab239102",
+      "bytes": 9416
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/global.json",
+      "sha256": "adc4f77bbf263f3574a7792b5bd45e6883dff807be9596abac803eb7c4813f4c",
+      "bytes": 108
+    },
+    {
+      "path": "src/AccountDeleter/AccountDeleter.csproj",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/AccountDeleter/AccountDeleter.csproj",
+      "sha256": "1181e0681c46f5e9c9a17e864a5c76aad3aaf5ffdec7b98657dc9ca8bd449f28",
+      "bytes": 505
+    },
+    {
+      "path": "COPYRIGHT.txt",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/COPYRIGHT.txt",
+      "sha256": "4954fd32ab22242134ebb6b745c05af92087652643c08b03ea65d3f64799abf1",
+      "bytes": 582
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Azure.Search",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Azure.Storage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Mvc5.Owin",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Mvc5",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Owin",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.WebApi2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Data.Tables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.ServiceBus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Search.Documents",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Security.KeyVault.Keys",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Security.KeyVault.Secrets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Blobs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Queues",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CommonMark.NET",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CsvHelper",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "d3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapper.StrongName",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "dotNetRDF",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "EntityFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FluentAssertions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FluentLinkChecker",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "HtmlSanitizer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Knapcode.MiniZip",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "LibGit2Sharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Lucene.Net.Contrib",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Lucene.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Markdig.Signed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MicroBuild.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights.DependencyCollector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights.TraceListener",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights.Web",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.DynamicData.EFProvider",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.Identity.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.Mvc",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.Razor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.Web.Optimization",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.MessageHandlers.Compression.StrongName",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.OData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.WebHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebHelpers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebPages.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebPages.WebData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebPages",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Cryptography.Internal",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Cryptography.KeyDerivation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Kusto.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Storage.DataMovement",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Compression",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.NetAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeDom.Providers.DotNetCompilerPlatform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.Services.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.Services",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.CommandLineUtils",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.FileExtensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Polly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Primitives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Identity.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Identity.Web",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Internal.NuGet.Testing.SignedPackages",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Playwright.Xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Host.SystemWeb",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Security.Cookies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Security.MicrosoftAccount",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Security.OpenIdConnect",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.Security",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Rest.ClientRuntime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Security.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TestPlatform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Setup.Configuration.Interop",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Web.Infrastructure",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Web.Xdt",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WindowsAzure.ConfigurationManager",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Modernizr",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moment.js",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MvcTreeView",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Commands",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Frameworks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.PackageManagement",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Packaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Protocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Resolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.AnglicanGeek.MarkdownMailer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.DynamicData.EFCodeFirstProvider",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.elmah.sqlserver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.elmah",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.json-ld.net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.Octokit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.QueryInterceptor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.WebActivator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.WebBackgrounder.EntityFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.StrongName.WebBackgrounder",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Versioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Octokit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Owin",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "RouteMagic",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Enrichers.Environment",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Enrichers.Process",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Sinks.ApplicationInsights",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Sinks.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Serilog.Sinks.File",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SerilogTraceListener",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpZipLib",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Strathweb.CacheOutput.WebApi2.StrongName",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.Annotations",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.EventBasedAsync",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.Debug",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Drawing.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IdentityModel.Tokens.Jwt",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Linq.Expressions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.X509Certificates",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ServiceModel.Syndication",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Encodings.Web",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ValueTuple",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "UAParser",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WebActivatorEx",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WebGrease",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WindowsAzure.Caching",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WindowsAzure.Storage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/Directory.Packages.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NuGetGallery.Services\\NuGetGallery.Services.csproj",
+      "file": "src/AccountDeleter/AccountDeleter.csproj",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/AccountDeleter/AccountDeleter.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Validation.Common.Job\\Validation.Common.Job.csproj",
+      "file": "src/AccountDeleter/AccountDeleter.csproj",
+      "url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/AccountDeleter/AccountDeleter.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/nuget/home",
+      "source": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/README.md"
+    },
+    {
+      "url": "https://github.com/NuGet/NuGetGallery.git",
+      "source": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/README.md"
+    },
+    {
+      "url": "https://github.com/NuGet/NuGetGallery",
+      "source": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/README.md"
+    },
+    {
+      "url": "https://github.com/NuGet/NuGetGallery",
+      "source": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/AccountDeleter",
+      "src/ArchivePackages",
+      "src/Bootstrap",
+      "src/Catalog",
+      "src/Common",
+      "src/CopyAzureContainer",
+      "src/DatabaseMigrationTools",
+      "src/Gallery.CredentialExpiration",
+      "src/Gallery.Maintenance",
+      "src/GalleryTools",
+      "src/GitHubVulnerabilities2Db",
+      "src/GitHubVulnerabilities2v3",
+      "src/Microsoft.PackageManagement.Search.Web",
+      "src/Ng",
+      "src/NuGet.Jobs.Auxiliary2AzureSearch",
+      "src/NuGet.Jobs.Catalog2AzureSearch",
+      "src/NuGet.Jobs.Catalog2Registration",
+      "src/NuGet.Jobs.Common",
+      "src/NuGet.Jobs.Db2AzureSearch",
+      "src/NuGet.Jobs.GitHubIndexer",
+      "src/NuGet.Protocol.Catalog",
+      "src/NuGet.Services.AzureSearch",
+      "src/NuGet.Services.Build",
+      "src/NuGet.Services.CatalogValidation",
+      "src/NuGet.Services.Configuration",
+      "src/NuGet.Services.Contracts",
+      "src/NuGet.Services.Cursor",
+      "src/NuGet.Services.DatabaseMigration",
+      "src/NuGet.Services.Entities",
+      "src/NuGet.Services.FeatureFlags",
+      "src/NuGet.Services.GitHub",
+      "src/NuGet.Services.Incidents",
+      "src/NuGet.Services.KeyVault",
+      "src/NuGet.Services.Licenses",
+      "src/NuGet.Services.Logging",
+      "src/NuGet.Services.Messaging.Email",
+      "src/NuGet.Services.Messaging",
+      "src/NuGet.Services.Metadata.Catalog.Monitoring",
+      "src/NuGet.Services.Owin",
+      "src/NuGet.Services.Revalidate",
+      "src/NuGet.Services.SearchService.Core",
+      "src/NuGet.Services.ServiceBus",
+      "src/NuGet.Services.Sql",
+      "src/NuGet.Services.Status.Table",
+      "src/NuGet.Services.Status",
+      "src/NuGet.Services.Storage",
+      "src/NuGet.Services.Testing.Entities",
+      "src/NuGet.Services.V3",
+      "src/NuGet.Services.Validation.Issues",
+      "src/NuGet.Services.Validation.Orchestrator"
+    ],
+    "api": [],
+    "tests": [
+      "tests",
+      "test.ps1"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "Apache 2.0 text observed; file-level review OPEN"
+}

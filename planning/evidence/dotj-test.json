@@ -1,0 +1,236 @@
+{
+  "id": "DJ-051",
+  "repo": "dotj-test",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/nunit/nunit",
+  "canonical_url": "https://github.com/nunit/nunit",
+  "redirect_observed": false,
+  "inspected_revision": "55d908f8cc4402f8d53955d20aefcee9f55a59ec",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/LICENSE.txt",
+      "sha256": "921d503dbf57e3f92331858fb610a99880dc69bde51cd842e9752606589f216a",
+      "bytes": 1138
+    },
+    {
+      "path": "NOTICES.md",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/NOTICES.md",
+      "sha256": "9517ca3f55934efb9694ec40711cedf4863b9b8f5bc3ddd6fe346aa8f96860e8",
+      "bytes": 501
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md",
+      "sha256": "38103d1416b050048f11c8952bf3ae4ef7a101f0cb6954303a10742103fd8274",
+      "bytes": 6661
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/THIRD_PARTY_NOTICES.md",
+      "sha256": "e862b5f9f47b6e3967c93825522411608105e783e448937c8d348c284d137ad9",
+      "bytes": 1744
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES_DEV.md",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/THIRD_PARTY_NOTICES_DEV.md",
+      "sha256": "1f9a60c4dbe55b469ccea8b61ca0830460b4cf353e559d2946150b5e6fc67572",
+      "bytes": 3944
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/global.json",
+      "sha256": "545664287b53ae4999f566f22b8b8ed6456cdcf8e9ad2adfdade4311b7d954ac",
+      "bytes": 111
+    },
+    {
+      "path": "nunit.slnx",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/nunit.slnx",
+      "sha256": "b5fb77672ea4d73fec748206b232ef07bf4df7851b0f86189bc7e8a52f5ba025",
+      "bytes": 3164
+    },
+    {
+      "path": "CakeScripts/CakeScripts.csproj",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts/CakeScripts.csproj",
+      "sha256": "2c82dae7a6492e5dc0d99b6b5a5d1c89a4702b892f71757981e46302949d6115",
+      "bytes": 207
+    },
+    {
+      "path": "CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "sha256": "c9ed797940dc375cd7227b8ebca641cf0acd4cfdee6b99d83ead372ba63db795",
+      "bytes": 846
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts.Tests/CakeScripts.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NUnit3TestAdapter",
+      "file": "CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts.Tests/CakeScripts.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "coverlet.collector",
+      "file": "CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts.Tests/CakeScripts.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\CakeScripts\\CakeScripts.csproj",
+      "file": "CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts.Tests/CakeScripts.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\src\\NUnitFramework\\framework\\nunit.framework.csproj",
+      "file": "CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts.Tests/CakeScripts.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/nunit/nunit",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit3-vs-adapter",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit.analyzers",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit-console",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit-vs-templates",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/test-templates",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit-vs-testgenerator",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit-vs-adapter",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit-v2-framework-driver",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit-v2-result-writer",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/vs-project-loader",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    },
+    {
+      "url": "https://github.com/nunit/nunit-project-loader",
+      "source": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/NUnitFramework",
+      "src/nunit.snk",
+      "src/NUnitFramework/framework",
+      "src/NUnitFramework/mock-assembly",
+      "src/NUnitFramework/nunit.framework.legacy.tests",
+      "src/NUnitFramework/nunit.framework.legacy",
+      "src/NUnitFramework/nunitlite-runner",
+      "src/NUnitFramework/nunitlite.tests",
+      "src/NUnitFramework/nunitlite",
+      "src/NUnitFramework/slow-tests",
+      "src/NUnitFramework/testdata.fsharp",
+      "src/NUnitFramework/testdata",
+      "src/NUnitFramework/tests",
+      "src/NUnitFramework/windows-tests",
+      "src/NUnitFramework/Directory.Build.props",
+      "src/NUnitFramework/Directory.Build.targets",
+      "src/NUnitFramework/Directory.Packages.props",
+      "src/NUnitFramework/Fakes.cs",
+      "src/NUnitFramework/SchemaTestUtils.cs",
+      "src/NUnitFramework/StyleCop.Analyzers.globalconfig",
+      "src/NUnitFramework/TestBuilder.cs",
+      "src/NUnitFramework/TestFile.cs",
+      "src/NUnitFramework/TestSuiteExtensions.cs",
+      "src/NUnitFramework/tests.editorconfig",
+      "CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "CakeScripts/CakeScripts.csproj",
+      "src/NUnitFramework/framework/nunit.framework.csproj",
+      "src/NUnitFramework/mock-assembly/mock-assembly.csproj",
+      "src/NUnitFramework/nunit.framework.legacy.tests/nunit.framework.legacy.tests.csproj",
+      "src/NUnitFramework/nunit.framework.legacy/nunit.framework.legacy.csproj",
+      "src/NUnitFramework/nunitlite-runner/nunitlite-runner.csproj",
+      "src/NUnitFramework/nunitlite.tests/nunitlite.tests.csproj",
+      "src/NUnitFramework/nunitlite/nunitlite.csproj",
+      "src/NUnitFramework/slow-tests/slow-nunit-tests.csproj",
+      "src/NUnitFramework/testdata.fsharp/nunit.testdata.fsharp.fsproj",
+      "src/NUnitFramework/testdata/nunit.testdata.csproj",
+      "src/NUnitFramework/tests/nunit.framework.tests.csproj",
+      "src/NUnitFramework/windows-tests/windows-tests.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "CakeScripts.Tests",
+      "src/NUnitFramework/nunit.framework.legacy.tests",
+      "src/NUnitFramework/nunitlite.tests",
+      "src/NUnitFramework/tests",
+      "src/NUnitFramework/tests.editorconfig",
+      "CakeScripts.Tests/CakeScripts.Tests.csproj",
+      "src/NUnitFramework/nunit.framework.legacy.tests/nunit.framework.legacy.tests.csproj",
+      "src/NUnitFramework/nunitlite.tests/nunitlite.tests.csproj",
+      "src/NUnitFramework/tests/nunit.framework.tests.csproj"
+    ],
+    "docs": [],
+    "samples": []
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links",
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

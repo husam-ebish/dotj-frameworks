@@ -1,0 +1,674 @@
+{
+  "id": "DJ-041",
+  "repo": "dotj-forms",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/winforms",
+  "canonical_url": "https://github.com/dotnet/winforms",
+  "redirect_observed": false,
+  "inspected_revision": "c4891de0851184dcbe95d16ca543969fe2540245",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Build.props",
+      "sha256": "ec38e786dc268fac57d3ef882366214b9536a7b7551066ad66311faf42b6735c",
+      "bytes": 4598
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props",
+      "sha256": "db369e91c1490957da4c44ea53280379eb775d9b6e14d77837f45ee89c7089b9",
+      "bytes": 7508
+    },
+    {
+      "path": "LICENSE.TXT",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/LICENSE.TXT",
+      "sha256": "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+      "bytes": 1115
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/README.md",
+      "sha256": "fc85e92d0152677975e522f16d7d4c7b281155f0a5eb0849a79ecd3d8885f579",
+      "bytes": 8988
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "5a412b38efae0b162dc0893b319023f4cd14a8985a0f9f9ae01ac052b37a36eb",
+      "bytes": 1966
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/global.json",
+      "sha256": "d6a286d23549b8f73be2e29c19d3e6cf1fb69a9afb22467ae1c1291ea2d31e43",
+      "bytes": 951
+    },
+    {
+      "path": "Winforms.sln",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Winforms.sln",
+      "sha256": "16ef5fb8eb8eb64ed74e431fcd4093860529d6c9b17cfe18ac784d722c786e83",
+      "bytes": 95793
+    },
+    {
+      "path": "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "sha256": "05e531ebf865b634a7add67222904bc38c6268c3f94aa865601d57dc200f68e9",
+      "bytes": 3700
+    },
+    {
+      "path": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "sha256": "77d3c6b95df86b361a388b214856be46dafbda5fe4871c1ab4badc336006d1f1",
+      "bytes": 6951
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Win32.SystemEvents",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Windows.CsWin32",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CodeDom",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.TypeConverter.TestData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Drawing.Common.TestData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Nrbf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Hashing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Management",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Resources.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.CompilerServices.Unsafe",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.Serialization.Formatters",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Windows.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Windows.Extensions.TestData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Windows.Forms.DataVisualization",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Templating",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.GenFacades",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.RemoteExecutor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.XUnitV3Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.Threading",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Verify.XunitV3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.assert",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.stafact",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.msbuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Codecov",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ReportGenerator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CSharpIsNullAnalyzer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DotNetAnalyzers.DocumentationAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Analyzer.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeRefactoring.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.Analyzer.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.CodeFix.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.CodeRefactoring.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.SourceGenerators.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.NetAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.VisualBasic.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Packaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StyleCop.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TargetingPack.NETFramework.v4.7.2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.WindowsDesktop.App.Ref",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "PolySharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.Annotations",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/Directory.Packages.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\System.Windows.Forms.PrivateSourceGenerators\\src\\System.Windows.Forms.PrivateSourceGenerators.csproj",
+      "file": "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/System.Windows.Forms.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Accessibility\\src\\Accessibility.ilproj",
+      "file": "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/System.Windows.Forms.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\System.Private.Windows.Core\\src\\System.Private.Windows.Core.csproj",
+      "file": "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/System.Windows.Forms.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\System.Windows.Forms.Primitives\\src\\System.Windows.Forms.Primitives.csproj",
+      "file": "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/System.Windows.Forms.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/System.Windows.Forms.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Resources.Extensions",
+      "file": "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/System.Windows.Forms.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Windows.Extensions",
+      "file": "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/System.Windows.Forms.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\BuildAssist\\BuildAssist.msbuildproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\System.Design\\src\\System.Design.Facade.csproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\System.Drawing.Common\\src\\System.Drawing.Common.csproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\System.Drawing.Design\\src\\System.Drawing.Design.Facade.csproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\System.Windows.Forms.Design\\src\\System.Windows.Forms.Design.csproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\System.Windows.Forms\\System.Windows.Forms.csproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\System.Windows.Forms.IntegrationTests.Common\\System.Windows.Forms.IntegrationTests.Common.csproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Data.SqlClient",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Management",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Windows.Forms.DataVisualization",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\System.Windows.Forms.Analyzers\\src\\System.Windows.Forms.Analyzers.csproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\System.Windows.Forms.Analyzers.CSharp\\src\\System.Windows.Forms.Analyzers.CSharp.csproj",
+      "file": "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/winforms",
+      "source": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/core",
+      "source": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/winforms",
+      "source": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/README.md"
+    },
+    {
+      "url": "https://github.com/Microsoft/dotnet",
+      "source": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime",
+      "source": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Accessibility",
+      "src/BuildAssist",
+      "src/Common",
+      "src/Microsoft.Private.Windows.Polyfills",
+      "src/Microsoft.VisualBasic.Forms",
+      "src/Microsoft.VisualBasic",
+      "src/System.Design",
+      "src/System.Drawing.Common",
+      "src/System.Drawing.Design",
+      "src/System.Drawing",
+      "src/System.Private.Windows.Core",
+      "src/System.Private.Windows.GdiPlus",
+      "src/System.Windows.Forms.Analyzers.CSharp",
+      "src/System.Windows.Forms.Analyzers.CodeFixes.CSharp",
+      "src/System.Windows.Forms.Analyzers.CodeFixes.VisualBasic",
+      "src/System.Windows.Forms.Analyzers.VisualBasic",
+      "src/System.Windows.Forms.Analyzers",
+      "src/System.Windows.Forms.Design.Editors",
+      "src/System.Windows.Forms.Design",
+      "src/System.Windows.Forms.Primitives",
+      "src/System.Windows.Forms.PrivateSourceGenerators",
+      "src/System.Windows.Forms",
+      "src/test",
+      "src/Accessibility/src",
+      "src/Accessibility/ver",
+      "src/Accessibility/readme.md",
+      "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "src/System.Windows.Forms/System.Windows.Forms.csproj",
+      "src/test/unit/System.Windows.Forms/System.Windows.Forms.Tests.csproj",
+      "src/System.Windows.Forms.Design/tests/UnitTests/System.Windows.Forms.Design.Tests.csproj",
+      "src/System.Windows.Forms.Design/src/System.Windows.Forms.Design.csproj",
+      "src/System.Drawing.Design/src/System.Drawing.Design.Facade.csproj",
+      "src/System.Design/src/System.Design.Facade.csproj",
+      "pkg/Microsoft.Private.Winforms/Microsoft.Private.Winforms.csproj",
+      "pkg/Microsoft.Dotnet.WinForms.ProjectTemplates/Microsoft.Dotnet.Winforms.ProjectTemplates.csproj",
+      "pkg/Microsoft.Private.Windows.Core/Microsoft.Private.Windows.Core.Package.csproj",
+      "src/System.Drawing/src/System.Drawing.Facade.csproj",
+      "src/Accessibility/ver/Accessibility-version.csproj",
+      "src/test/integration/System.Windows.Forms.IntegrationTests.Common/System.Windows.Forms.IntegrationTests.Common.csproj",
+      "src/Microsoft.VisualBasic.Forms/src/Microsoft.VisualBasic.Forms.vbproj",
+      "src/Microsoft.VisualBasic/tests/UnitTests/Microsoft.VisualBasic.Tests.csproj",
+      "src/Microsoft.VisualBasic/src/Microsoft.VisualBasic.Facade.csproj",
+      "src/Microsoft.VisualBasic/tests/IntegrationTests/Microsoft.VisualBasic.IntegrationTests/Microsoft.VisualBasic.IntegrationTests.csproj",
+      "src/Microsoft.VisualBasic/tests/IntegrationTests/VisualBasicRuntimeTest/VisualBasicRuntimeTest.csproj",
+      "src/System.Windows.Forms.Primitives/src/System.Windows.Forms.Primitives.csproj",
+      "src/System.Windows.Forms.Primitives/tests/UnitTests/System.Windows.Forms.Primitives.Tests.csproj",
+      "src/System.Windows.Forms.Design.Editors/src/System.Windows.Forms.Design.Editors.Facade3x.csproj",
+      "src/System.Windows.Forms.Primitives/tests/TestUtilities/System.Windows.Forms.Primitives.TestUtilities.csproj",
+      "src/test/util/System.Windows.Forms/System.Windows.Forms.TestUtilities.csproj",
+      "src/System.Windows.Forms.PrivateSourceGenerators/src/System.Windows.Forms.PrivateSourceGenerators.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "src/test",
+      "src/test/integration/WinformsControlsTest/WinformsControlsTest.csproj",
+      "src/test/unit/System.Windows.Forms/System.Windows.Forms.Tests.csproj",
+      "src/System.Windows.Forms.Design/tests/UnitTests/System.Windows.Forms.Design.Tests.csproj",
+      "src/test/integration/System.Windows.Forms.IntegrationTests.Common/System.Windows.Forms.IntegrationTests.Common.csproj",
+      "src/Microsoft.VisualBasic/tests/UnitTests/Microsoft.VisualBasic.Tests.csproj",
+      "src/Microsoft.VisualBasic/tests/IntegrationTests/Microsoft.VisualBasic.IntegrationTests/Microsoft.VisualBasic.IntegrationTests.csproj",
+      "src/Microsoft.VisualBasic/tests/IntegrationTests/VisualBasicRuntimeTest/VisualBasicRuntimeTest.csproj",
+      "src/System.Windows.Forms.Primitives/tests/UnitTests/System.Windows.Forms.Primitives.Tests.csproj",
+      "src/System.Windows.Forms.Primitives/tests/TestUtilities/System.Windows.Forms.Primitives.TestUtilities.csproj",
+      "src/test/util/System.Windows.Forms/System.Windows.Forms.TestUtilities.csproj",
+      "src/System.Windows.Forms.PrivateSourceGenerators/tests/UnitTests/System.Windows.Forms.PrivateSourceGenerators.Tests.csproj",
+      "src/System.Windows.Forms.Primitives/tests/TestUtilities.Tests/System.Windows.Forms.Primitives.TestUtilities.Tests.csproj",
+      "src/test/integration/DesignSurface/DemoConsole/DemoConsole.csproj",
+      "src/Microsoft.VisualBasic.Forms/tests/UnitTests/Microsoft.VisualBasic.Forms.Tests.vbproj",
+      "src/Common/tests/TestUtilities/System.Private.Windows.Core.TestUtilities.csproj",
+      "src/System.Windows.Forms.Analyzers/tests/UnitTests/System.Windows.Forms.Analyzers.Tests.csproj",
+      "src/System.Windows.Forms.Analyzers.CSharp/tests/UnitTests/System.Windows.Forms.Analyzers.CSharp.Tests.csproj",
+      "src/test/integration/UIIntegrationTests/System.Windows.Forms.UI.IntegrationTests.csproj",
+      "src/test/unit/accessibility/TestPassApp/TestPassApp.csproj",
+      "src/test/unit/.NET Framework/AxHosts/AxHosts.csproj",
+      "src/System.Drawing.Common/tests/System.Drawing.Common.Tests.csproj",
+      "src/test/integration/ScratchProject/ScratchProject.csproj",
+      "src/test/integration/TrimTest/TrimTest.csproj",
+      "src/test/integration/ScratchProjectWithInternals/ScratchProjectWithInternals.csproj",
+      "src/test/unit/System.Windows.Forms/ComDisabled/ComDisabled.Tests.csproj",
+      "src/test/integration/TrimTestBinaryDeserialization/TrimTestBinaryDeserialization.csproj",
+      "src/System.Private.Windows.Core/tests/BinaryFormatTests/BinaryFormatTests.csproj",
+      "src/System.Windows.Forms.Analyzers.VisualBasic/tests/UnitTests/System.Windows.Forms.Analyzers.VisualBasic.Tests/System.Windows.Forms.Analyzers.VisualBasic.Tests.vbproj",
+      "src/System.Private.Windows.Core/tests/System.Private.Windows.Core.Tests/System.Private.Windows.Core.Tests.csproj",
+      "src/test/unit/.NET Framework/UnsupportedTypes/UnsupportedTypes.csproj",
+      "src/test/unit/Microsoft.Private.Windows.Polyfills/Microsoft.Private.Windows.Polyfills.Tests.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

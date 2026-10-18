@@ -1,0 +1,256 @@
+{
+  "id": "DJ-057",
+  "repo": "dotj-excel",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/ClosedXML/ClosedXML",
+  "canonical_url": "https://github.com/ClosedXML/ClosedXML",
+  "redirect_observed": false,
+  "inspected_revision": "09f2f21a60e821ce7fb18ca3576b272e5dd6d921",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "develop",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/Directory.Build.props",
+      "sha256": "fd6d5c97eaa795af39183083a6e86e55fd0f4c21b65cded30fa88c04eb6b3561",
+      "bytes": 2771
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/LICENSE",
+      "sha256": "3071658fba9a054edce74e756314ba926fe3ffe5c6622f209d21a0c8f1d2a99e",
+      "bytes": 1066
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md",
+      "sha256": "043bd9d731590e8c3dce0a48530f12c3bc39f100931a3e9696d250ef0de86f15",
+      "bytes": 6436
+    },
+    {
+      "path": "ClosedXML.slnx",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.slnx",
+      "sha256": "0c72c9ef815f9fef820d301bb49dc614cbb3a7e9103f220956cc8f456aecf288",
+      "bytes": 613
+    },
+    {
+      "path": "ClosedXML.IO.CodeGen/ClosedXML.IO.CodeGen.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.IO.CodeGen/ClosedXML.IO.CodeGen.csproj",
+      "sha256": "eece643fa852b8e8e517dbcf1b5c3c01aa174c1d6f5004d280ee5d9ff9e339af",
+      "bytes": 588
+    },
+    {
+      "path": "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "sha256": "3b6b0745f7cd268ee405334cce6882bd0a524627cf00e929b48f6b0e894ad794",
+      "bytes": 1621
+    },
+    {
+      "path": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj",
+      "sha256": "db2c1bf7c74f8f0ae15249aabb8fb760ecc274c60e8f7b6c67edef894cdc138e",
+      "bytes": 2447
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "PolySharp",
+      "file": "ClosedXML.IO.CodeGen/ClosedXML.IO.CodeGen.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.IO.CodeGen/ClosedXML.IO.CodeGen.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ClosedXML.IO\\ClosedXML.IO.csproj",
+      "file": "ClosedXML.IO.CodeGen/ClosedXML.IO.CodeGen.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.IO.CodeGen/ClosedXML.IO.CodeGen.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CSharp",
+      "file": "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.Tests/ClosedXML.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.Tests/ClosedXML.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NUnit",
+      "file": "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.Tests/ClosedXML.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NUnit3TestAdapter",
+      "file": "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.Tests/ClosedXML.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Data.SqlClient",
+      "file": "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.Tests/ClosedXML.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ClosedXML\\ClosedXML.csproj",
+      "file": "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.Tests/ClosedXML.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ClosedXML.Examples\\ClosedXML.Examples.csproj",
+      "file": "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML.Tests/ClosedXML.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "DocumentFormat.OpenXml",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "ExcelNumberFormat",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Polyfill",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "RBush.Signed",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "SixLabors.Fonts",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "ClosedXML.Parser",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Buffers",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Memory",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ClosedXML.IO\\ClosedXML.IO.csproj",
+      "file": "ClosedXML/ClosedXML.csproj",
+      "url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/ClosedXML.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/OfficeDev/Open-XML-SDK",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/closedxml/closedxml",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML.Report",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML.Extensions.AspNet",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML.Extensions.Mvc",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    },
+    {
+      "url": "https://github.com/ClosedXML/ClosedXML.Extensions.WebApi",
+      "source": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "ClosedXML.Examples/ClosedXML.Examples.csproj",
+      "ClosedXML.IO.CodeGen/ClosedXML.IO.CodeGen.csproj",
+      "ClosedXML.IO/ClosedXML.IO.csproj",
+      "ClosedXML.Sandbox/ClosedXML.Sandbox.csproj",
+      "ClosedXML.Tests/ClosedXML.Tests.csproj",
+      "ClosedXML/ClosedXML.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "ClosedXML.Tests",
+      "ClosedXML.Tests/ClosedXML.Tests.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

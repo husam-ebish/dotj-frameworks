@@ -1,0 +1,583 @@
+{
+  "id": "DJ-009",
+  "repo": "dotj-scaffold",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/Scaffolding",
+  "canonical_url": "https://github.com/dotnet/Scaffolding",
+  "redirect_observed": false,
+  "inspected_revision": "107111c945bcf1264c035457a0744318b6bae3d9",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/README.md",
+      "sha256": "c1d2a0c300448d25a09cfe447351925ef4acf2c9b0de55db92c7ea7d51690d38",
+      "bytes": 2287
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/LICENSE",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "bytes": 1116
+    },
+    {
+      "path": "NOTICE.txt",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/NOTICE.txt",
+      "sha256": "558e3198f24c898d4c81adc8dd5019c021c26c2ab714585743030d8e2b55b577",
+      "bytes": 263803
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props",
+      "sha256": "6d671dc6c8f6551181c31af7956277484145d24ce5dbfc8073eaf344dfd39d55",
+      "bytes": 5543
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Build.props",
+      "sha256": "46220da85bebb43bd652a0c003fac8c9d69ca9e4fe054a37a164b4280bfcaa08",
+      "bytes": 2628
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/global.json",
+      "sha256": "8c814096fca157aaa50c64d2fc00ec96e915d31c57385fe684369167f7a00455",
+      "bytes": 321
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "sha256": "1d4e910a01059981c7234e3f29c6f5912cd8aa946df0112d0a8ec392f179e010",
+      "bytes": 2010
+    },
+    {
+      "path": "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/Microsoft.DotNet.MSIdentity.Tests.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/Microsoft.DotNet.MSIdentity.Tests.csproj",
+      "sha256": "02fcc6469da3548ba5541ec80fcc817dc6756fccedec2238a3d16d9cc4c181a1",
+      "bytes": 749
+    },
+    {
+      "path": "src/MSIdentityScaffolding/dotnet-msidentity/dotnet-msidentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/dotnet-msidentity/dotnet-msidentity.csproj",
+      "sha256": "7a1c3068713a5f485650887efefe822189432559819d90d6af0108a0a4e78926",
+      "bytes": 3633
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Humanizer.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Locator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Tasks.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Razor.Language",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Razor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Design",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.CommandLineUtils.Sources",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Embedded",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Physical",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Graph",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Identity.Client.Extensions.Msal",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Mono.TextTemplating",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Packaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.ProjectModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console.Flow",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console.Cli",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.ProtectedData",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.skippablefact",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Azure.Identity",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Configuration.CommandLine",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Graph",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Identity.Client.Extensions.Msal",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Security.Cryptography.ProtectedData",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\Shared\\Microsoft.DotNet.Scaffolding.Shared\\Microsoft.DotNet.Scaffolding.Shared.csproj",
+      "file": "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\MSIdentityScaffolding\\Microsoft.DotNet.MSIdentity\\Microsoft.DotNet.MSIdentity.csproj",
+      "file": "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/Microsoft.DotNet.MSIdentity.Tests.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/Microsoft.DotNet.MSIdentity.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\MSIdentityScaffolding\\dotnet-msidentity\\dotnet-msidentity.csproj",
+      "file": "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/Microsoft.DotNet.MSIdentity.Tests.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/Microsoft.DotNet.MSIdentity.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine",
+      "file": "src/MSIdentityScaffolding/dotnet-msidentity/dotnet-msidentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/dotnet-msidentity/dotnet-msidentity.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(RepoRoot)src\\MSIdentityScaffolding\\Microsoft.DotNet.MSIdentity\\Microsoft.DotNet.MSIdentity.csproj",
+      "file": "src/MSIdentityScaffolding/dotnet-msidentity/dotnet-msidentity.csproj",
+      "url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/dotnet-msidentity/dotnet-msidentity.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/AzureAD/microsoft-identity-web",
+      "source": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/efcore",
+      "source": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/common/internal/Tools.csproj",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/AuthenticationParameters/ApiPermission.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/AuthenticationParameters/ApplicationParameters.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/AuthenticationParameters/AzureAdProperties.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/AuthenticationParameters/PlatformType.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/Blazor/Server/CallWebApi.razor.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/Blazor/Server/LoginDisplay.razor.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/Blazor/Server/ShowProfile.razor.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/Blazor/wasm/Authentication.razor.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/Blazor/wasm/GraphClientExtensions.cs.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/Blazor/wasm/LoginDisplay.razor.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/Blazor/wasm/RedirectToLogin.razor.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/Blazor/wasm/UserProfile.razor.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeFiles/WebApp/_LoginPartial.cshtml.txt",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/README.md",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/cm_dotnet_blazorserver.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/cm_dotnet_blazorwasm.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/cm_dotnet_blazorwasm_client.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/cm_dotnet_blazorwasm_hosted.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/cm_dotnet_minimal_api.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/cm_dotnet_webapi.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/cm_dotnet_webapp.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeModifierConfigs/cm_dotnet_webapp_mvc.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeReader.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/CodeWriter.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/ProjectAuthenticationSettings.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/CodeReaderWriter/ProjectModifier.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/DeveloperCredentials/AzureManagementAuthenticationProvider.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/DeveloperCredentials/DeveloperCredentialsReader.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/DeveloperCredentials/IAzureManagementAuthenticationProvider.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/DeveloperCredentials/IDeveloperCredentialsOptions.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/DeveloperCredentials/MsalTokenCredential.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/Microsoft.DotNet.MSIdentity.csproj",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/MicrosoftIdentityPlatform/AppSettingsModifier.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/MicrosoftIdentityPlatform/MicrosoftIdentityPlatformApplicationManager.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/MicrosoftIdentityPlatform/ResourceAndScope.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/MicrosoftIdentityPlatform/TenantInformation.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/MicrosoftIdentityPlatform/TokenCredentialAuthenticationProvider.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescription/ConfigurationProperties.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescription/DependencyGraphService.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescription/IDependencyGraphService.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescription/MatchesForProjectType.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescription/ProjectDescription.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescription/ProjectDescriptionReader.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescription/PropertyMapping.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescription/Replacement.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescriptions/ProjectTypes.cs",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescriptions/dotnet_blazor_server.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescriptions/dotnet_blazorwasm.json",
+      "src/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity/ProjectDescriptions/dotnet_blazorwasm_client.json"
+    ],
+    "api": [],
+    "tests": [
+      "src/dotnet-scaffolding/dotnet-scaffold/AspNet/Templates/net10.0/CodeModificationConfigs/test.json",
+      "src/dotnet-scaffolding/dotnet-scaffold/AspNet/Templates/net11.0/CodeModificationConfigs/test.json",
+      "test/Directory.Build.props",
+      "test/Directory.Build.targets",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/CleanUp.cs",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/E2ETests.cs",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/Microsoft.DotNet.MSIdentity.Tests.csproj",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/ProjectDescriptionReaderTests.cs",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/TestConstants.cs",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.Tests/TestUtilities.cs",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.UnitTests.Tests/AppProvisioningToolTests.cs",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.UnitTests.Tests/Microsoft.DotNet.MSIdentity.UnitTests.Tests.csproj",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.UnitTests.Tests/MicrosoftIdentityPlatformApplicationManagerTests.cs",
+      "test/MSIdentityScaffolding/Microsoft.DotNet.MSIdentity.UnitTests.Tests/MsAADToolTests.cs",
+      "test/Scaffolding/E2E_Test/AreaScaffolderTests.cs",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/BlogsController.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/BlogsDerivedDbContext.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/CarViews/Create.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/CarViews/Delete.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/CarViews/Details.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/CarViews/Edit.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/CarViews/Index.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/CarsController.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/CarsControllerWithDAL.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/CarsWithViewController.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/EmptyController.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/EmptyController_withrelativepath.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/ProductViews/Create.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/ProductViews/Delete.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/ProductViews/Details.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/ProductViews/Edit.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/ProductViews/Index.cshtml",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/ProductsController.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/CarCreate.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/CarCreateCs.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/CarCreateCsWithDAL.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/Create.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/CreateCs.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/Delete.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/DeleteCs.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/Details.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/DetailsCs.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/Edit.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/EditCs.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/Index.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/Crud/IndexCs.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/EmptyPage.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/RazorPages/EmptyPageCs.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/ReadMe/Readme.txt",
+      "test/Scaffolding/E2E_Test/Compiler/Resources/ReadWriteController.txt"
+    ],
+    "docs": [
+      "docs/ENTRA_ID_SCAFFOLDER_DOCUMENTATION.md",
+      "docs/Getting-Started.md",
+      "docs/KNOWN_FLAKY_TESTS.md"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

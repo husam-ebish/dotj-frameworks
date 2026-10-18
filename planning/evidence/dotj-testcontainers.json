@@ -1,0 +1,841 @@
+{
+  "id": "DJ-056",
+  "repo": "dotj-testcontainers",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/testcontainers/testcontainers-dotnet",
+  "canonical_url": "https://github.com/testcontainers/testcontainers-dotnet",
+  "redirect_observed": false,
+  "inspected_revision": "84f485caeded1cf8f8f983ddd2c0163c47e258fa",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "develop",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Build.props",
+      "sha256": "e9d6eaaa52b6ae1adf2de20d41ef3a4d6bbae2236a8b722d6054020e142c0a55",
+      "bytes": 2875
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props",
+      "sha256": "ada3a8002af1e4f8b5dd93ad6eb530cd7f578c11688329166dcddd51a9df20f0",
+      "bytes": 7067
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/LICENSE",
+      "sha256": "defe81b29379cd310c24132e904947a6e9083a41a51e2ae79e43c63393dced3d",
+      "bytes": 1107
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/README.md",
+      "sha256": "12e65c757f16f972677b5d7fafefbc5501413b9e6fffd0688615ac95a9366275",
+      "bytes": 2136
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/global.json",
+      "sha256": "6e0590c24e13f9792d37fa5ae42438f3e8775bc5a69d5926887c48aa8cab639a",
+      "bytes": 79
+    },
+    {
+      "path": "Testcontainers.slnx",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Testcontainers.slnx",
+      "sha256": "b2cb7c97f7ce129fc87ac53985ea5215e6ac57cae28e36cbc133836ab3b7e006",
+      "bytes": 13583
+    },
+    {
+      "path": "build/Build.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/build/Build.csproj",
+      "sha256": "1dc9b4487db225e3bfee38495768e31fbc03add8001092f8e80216214d17ce70",
+      "bytes": 571
+    },
+    {
+      "path": "src/Testcontainers.ActiveMq/Testcontainers.ActiveMq.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers.ActiveMq/Testcontainers.ActiveMq.csproj",
+      "sha256": "452694d940fe7ce4ef1e5a3bd711d69e6d851425d55fa8380bdb929f6284f1bd",
+      "bytes": 475
+    },
+    {
+      "path": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj",
+      "sha256": "ea296146d9b8a21208dc45633ce5f0a130af18d0c6349f5fbdeb4c12444a79b7",
+      "bytes": 1039
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "BouncyCastle.Cryptography",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Docker.DotNet.Enhanced.X509",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Docker.DotNet.Enhanced",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpZipLib",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SSH.NET",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Cake.Frosting.Git",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Cake.Frosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Cake.Sonar",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.collector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapper",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ReflectionMagic",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.extensibility.execution",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.extensibility.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Apache.NMS.ActiveMQ",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ArangoDBNetStandard",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.CloudWatchLogs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.DynamoDBv2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.S3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.SimpleNotificationService",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.SQS",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Data.Tables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.EventHubs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.ServiceBus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Security.KeyVault.Certificates",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Security.KeyVault.Secrets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Blobs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Queues",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CassandraCSharpDriver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ClickHouse.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Confluent.Kafka",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Confluent.SchemaRegistry.Serdes.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Confluent.SchemaRegistry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Consul",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CouchbaseNetClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DotPulsar",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Elastic.Clients.Elasticsearch",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "EventStore.Client.Grpc.Streams",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FirebirdSql.Data.FirebirdClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Cloud.BigQuery.V2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Cloud.Bigtable.Admin.V2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Cloud.Firestore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Cloud.PubSub.V1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Cloud.Storage.V1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "InfluxDB.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "JanusGraph.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Keycloak.Net.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "KubernetesClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "KurrentDB.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MailKitLite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Cosmos",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Kusto.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Playwright",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Milvus.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.Driver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MQTTnet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MyCouch",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MySqlConnector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NATS.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Neo4j.Driver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "net-questdb-client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Net.IBM.Data.Db2-lnx",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Net.IBM.Data.Db2-osx",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Net.IBM.Data.Db2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OllamaSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenSearch.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Oracle.ManagedDataAccess.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Qdrant.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "RabbitMQ.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "RavenDB.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Selenium.WebDriver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Seq.Api",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Seq.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StackExchange.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Temporalio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ToxiproxyNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Cake.Frosting.Git",
+      "file": "build/Build.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/build/Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Cake.Frosting",
+      "file": "build/Build.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/build/Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Cake.Sonar",
+      "file": "build/Build.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/build/Build.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "JetBrains.Annotations",
+      "file": "src/Testcontainers.ActiveMq/Testcontainers.ActiveMq.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers.ActiveMq/Testcontainers.ActiveMq.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../Testcontainers/Testcontainers.csproj",
+      "file": "src/Testcontainers.ActiveMq/Testcontainers.ActiveMq.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers.ActiveMq/Testcontainers.ActiveMq.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "JetBrains.Annotations",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Docker.DotNet.Enhanced.X509",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Docker.DotNet.Enhanced",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "SharpZipLib",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "SSH.NET",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "BouncyCastle.Cryptography",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "src/Testcontainers/Testcontainers.csproj",
+      "url": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/src/Testcontainers/Testcontainers.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/codespaces/badge.svg",
+      "source": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/README.md"
+    },
+    {
+      "url": "https://github.com/codespaces/new",
+      "source": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/README.md"
+    },
+    {
+      "url": "https://github.com/testcontainers/testcontainers-dotnet",
+      "source": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/README.md"
+    },
+    {
+      "url": "https://github.com/testcontainers/testcontainers-dotnet",
+      "source": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/README.md"
+    },
+    {
+      "url": "https://github.com/testcontainers/testcontainers-dotnet",
+      "source": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/README.md"
+    },
+    {
+      "url": "https://github.com/testcontainers/testcontainers-dotnet",
+      "source": "https://github.com/testcontainers/testcontainers-dotnet/blob/84f485caeded1cf8f8f983ddd2c0163c47e258fa/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Templates",
+      "src/Testcontainers.ActiveMq",
+      "src/Testcontainers.ArangoDb",
+      "src/Testcontainers.AspireDashboard",
+      "src/Testcontainers.Azurite",
+      "src/Testcontainers.BigQuery",
+      "src/Testcontainers.Bigtable",
+      "src/Testcontainers.Cassandra",
+      "src/Testcontainers.ClickHouse",
+      "src/Testcontainers.CockroachDb",
+      "src/Testcontainers.Consul",
+      "src/Testcontainers.CosmosDb",
+      "src/Testcontainers.CouchDb",
+      "src/Testcontainers.Couchbase",
+      "src/Testcontainers.Db2",
+      "src/Testcontainers.DynamoDb",
+      "src/Testcontainers.Elasticsearch",
+      "src/Testcontainers.EventHubs",
+      "src/Testcontainers.FakeGcsServer",
+      "src/Testcontainers.FirebirdSql",
+      "src/Testcontainers.Firestore",
+      "src/Testcontainers.Floci",
+      "src/Testcontainers.GCloud",
+      "src/Testcontainers.Grafana",
+      "src/Testcontainers.InfluxDb",
+      "src/Testcontainers.JanusGraph",
+      "src/Testcontainers.K3s",
+      "src/Testcontainers.Kafka",
+      "src/Testcontainers.Keycloak",
+      "src/Testcontainers.KurrentDb",
+      "src/Testcontainers.Kusto",
+      "src/Testcontainers.LocalStack",
+      "src/Testcontainers.LowkeyVault",
+      "src/Testcontainers.Mailpit",
+      "src/Testcontainers.MariaDb",
+      "src/Testcontainers.Milvus",
+      "src/Testcontainers.MongoDb",
+      "src/Testcontainers.Mosquitto",
+      "src/Testcontainers.MsSql",
+      "src/Testcontainers.MySql",
+      "src/Testcontainers.Nats",
+      "src/Testcontainers.Neo4j",
+      "src/Testcontainers.Ollama",
+      "src/Testcontainers.OpenSearch",
+      "src/Testcontainers.Oracle",
+      "src/Testcontainers.Papercut",
+      "src/Testcontainers.Playwright",
+      "src/Testcontainers.PostgreSql",
+      "src/Testcontainers.PubSub",
+      "src/Testcontainers.Pulsar"
+    ],
+    "api": [],
+    "tests": [
+      "tests",
+      "tests/Testcontainers.ActiveMq.Tests/Testcontainers.ActiveMq.Tests.csproj",
+      "tests/Testcontainers.ArangoDb.Tests/Testcontainers.ArangoDb.Tests.csproj",
+      "tests/Testcontainers.AspireDashboard.Tests/Testcontainers.AspireDashboard.Tests.csproj",
+      "tests/Testcontainers.Azurite.Tests/Testcontainers.Azurite.Tests.csproj",
+      "tests/Testcontainers.BigQuery.Tests/Testcontainers.BigQuery.Tests.csproj",
+      "tests/Testcontainers.Bigtable.Tests/Testcontainers.Bigtable.Tests.csproj",
+      "tests/Testcontainers.Cassandra.Tests/Testcontainers.Cassandra.Tests.csproj",
+      "tests/Testcontainers.ClickHouse.Tests/Testcontainers.ClickHouse.Tests.csproj",
+      "tests/Testcontainers.CockroachDb.Tests/Testcontainers.CockroachDb.Tests.csproj",
+      "tests/Testcontainers.Commons/Testcontainers.Commons.csproj",
+      "tests/Testcontainers.Consul.Tests/Testcontainers.Consul.Tests.csproj",
+      "tests/Testcontainers.CosmosDb.Tests/Testcontainers.CosmosDb.Tests.csproj",
+      "tests/Testcontainers.Couchbase.Tests/Testcontainers.Couchbase.Tests.csproj",
+      "tests/Testcontainers.CouchDb.Tests/Testcontainers.CouchDb.Tests.csproj",
+      "tests/Testcontainers.Databases.Tests/Testcontainers.Databases.Tests.csproj",
+      "tests/Testcontainers.Db2.Tests/Testcontainers.Db2.Tests.csproj",
+      "tests/Testcontainers.DynamoDb.Tests/Testcontainers.DynamoDb.Tests.csproj",
+      "tests/Testcontainers.Elasticsearch.Tests/Testcontainers.Elasticsearch.Tests.csproj",
+      "tests/Testcontainers.EventHubs.Tests/Testcontainers.EventHubs.Tests.csproj",
+      "tests/Testcontainers.FakeGcsServer.Tests/Testcontainers.FakeGcsServer.Tests.csproj",
+      "tests/Testcontainers.FirebirdSql.Tests/Testcontainers.FirebirdSql.Tests.csproj",
+      "tests/Testcontainers.Firestore.Tests/Testcontainers.Firestore.Tests.csproj",
+      "tests/Testcontainers.Floci.Tests/Testcontainers.Floci.Tests.csproj",
+      "tests/Testcontainers.Grafana.Tests/Testcontainers.Grafana.Tests.csproj",
+      "tests/Testcontainers.InfluxDb.Tests/Testcontainers.InfluxDb.Tests.csproj",
+      "tests/Testcontainers.JanusGraph.Tests/Testcontainers.JanusGraph.Tests.csproj",
+      "tests/Testcontainers.K3s.Tests/Testcontainers.K3s.Tests.csproj",
+      "tests/Testcontainers.Kafka.Tests/Testcontainers.Kafka.Tests.csproj",
+      "tests/Testcontainers.Keycloak.Tests/Testcontainers.Keycloak.Tests.csproj",
+      "tests/Testcontainers.KurrentDb.Tests/Testcontainers.KurrentDb.Tests.csproj",
+      "tests/Testcontainers.Kusto.Tests/Testcontainers.Kusto.Tests.csproj",
+      "tests/Testcontainers.LocalStack.Tests/Testcontainers.LocalStack.Tests.csproj",
+      "tests/Testcontainers.LowkeyVault.Tests/Testcontainers.LowkeyVault.Tests.csproj",
+      "tests/Testcontainers.Mailpit.Tests/Testcontainers.Mailpit.Tests.csproj",
+      "tests/Testcontainers.MariaDb.Tests/Testcontainers.MariaDb.Tests.csproj",
+      "tests/Testcontainers.Milvus.Tests/Testcontainers.Milvus.Tests.csproj",
+      "tests/Testcontainers.MongoDb.Tests/Testcontainers.MongoDb.Tests.csproj",
+      "tests/Testcontainers.Mosquitto.Tests/Testcontainers.Mosquitto.Tests.csproj",
+      "tests/Testcontainers.MsSql.Tests/Testcontainers.MsSql.Tests.csproj",
+      "tests/Testcontainers.MySql.Tests/Testcontainers.MySql.Tests.csproj",
+      "tests/Testcontainers.Nats.Tests/Testcontainers.Nats.Tests.csproj",
+      "tests/Testcontainers.Neo4j.Tests/Testcontainers.Neo4j.Tests.csproj",
+      "tests/Testcontainers.Ollama.Tests/Testcontainers.Ollama.Tests.csproj",
+      "tests/Testcontainers.OpenSearch.Tests/Testcontainers.OpenSearch.Tests.csproj",
+      "tests/Testcontainers.Oracle.Tests/Testcontainers.Oracle.Tests.csproj",
+      "tests/Testcontainers.Oracle11.Tests/Testcontainers.Oracle11.Tests.csproj",
+      "tests/Testcontainers.Oracle18.Tests/Testcontainers.Oracle18.Tests.csproj",
+      "tests/Testcontainers.Oracle21.Tests/Testcontainers.Oracle21.Tests.csproj",
+      "tests/Testcontainers.Oracle23.Tests/Testcontainers.Oracle23.Tests.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": [
+      "examples"
+    ]
+  },
+  "gaps": [
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

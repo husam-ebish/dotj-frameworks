@@ -1,0 +1,640 @@
+{
+  "id": "DJ-003",
+  "repo": "dotj-code",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/roslyn",
+  "canonical_url": "https://github.com/dotnet/roslyn",
+  "redirect_observed": false,
+  "inspected_revision": "3645b6aa36ad41775a73e57a620787a3d38327a0",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md",
+      "sha256": "5a23ccf53ac5346fa97511e192f90d979dafd0e9f414c2cc23710493808f8f99",
+      "bytes": 10980
+    },
+    {
+      "path": "License.txt",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/License.txt",
+      "sha256": "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+      "bytes": 1115
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/THIRD-PARTY-NOTICES.txt",
+      "sha256": "9879407362c623ca2af5d0460a556d25a2fa1afbaa6530707963fc7166102d4d",
+      "bytes": 524150
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/Directory.Packages.props",
+      "sha256": "f97a2adf30618247ac2d18789686b8eefcc21b8a32e7fc003e4c1970b1637442",
+      "bytes": 267
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/Directory.Build.props",
+      "sha256": "3528f28dc7ac49d159852ea40c2d85b2756a871478a6e3bc3e706c61c0c85d67",
+      "bytes": 342
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/global.json",
+      "sha256": "45545464260b0cce80ea7361fd469efaad769652014a7e18a7637b9d91bf3513",
+      "bytes": 568
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "src/CodeStyle/CSharp/Analyzers/Microsoft.CodeAnalysis.CSharp.CodeStyle.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Analyzers/Microsoft.CodeAnalysis.CSharp.CodeStyle.csproj",
+      "sha256": "95e3fb0acaa650cfe007e81e4e914c8d78e4ecb6c8ba00be44a845a7c0bba556",
+      "bytes": 1701
+    },
+    {
+      "path": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "sha256": "757f95aa7cc38dbe6514e2b957b37ef66d0cd3d4c7bdcaf2af93b7094b3d32e3",
+      "bytes": 4937
+    },
+    {
+      "path": "src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj",
+      "sha256": "77131e1f45d59e6bd8d1b0276d58a7d7d0e3897d6c462411aa99cb63bb809159",
+      "bytes": 5375
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Compilers\\CSharp\\Portable\\Microsoft.CodeAnalysis.CSharp.csproj",
+      "file": "src/CodeStyle/CSharp/Analyzers/Microsoft.CodeAnalysis.CSharp.CodeStyle.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Analyzers/Microsoft.CodeAnalysis.CSharp.CodeStyle.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Core\\Analyzers\\Microsoft.CodeAnalysis.CodeStyle.csproj",
+      "file": "src/CodeStyle/CSharp/Analyzers/Microsoft.CodeAnalysis.CSharp.CodeStyle.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Analyzers/Microsoft.CodeAnalysis.CSharp.CodeStyle.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Basic.Reference.Assemblies.Net60",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Basic.Reference.Assemblies.Net80",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Basic.Reference.Assemblies.Net90",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Compilers\\Core\\Portable\\Microsoft.CodeAnalysis.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Compilers\\CSharp\\Portable\\Microsoft.CodeAnalysis.CSharp.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Compilers\\VisualBasic\\Portable\\Microsoft.CodeAnalysis.VisualBasic.vbproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\RoslynSdk\\Microsoft.CodeAnalysis.Testing\\Microsoft.CodeAnalysis.CSharp.CodeFix.Testing\\Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Workspaces\\Core\\Portable\\Microsoft.CodeAnalysis.Workspaces.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Workspaces\\CSharp\\Portable\\Microsoft.CodeAnalysis.CSharp.Workspaces.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Workspaces\\VisualBasic\\Portable\\Microsoft.CodeAnalysis.VisualBasic.Workspaces.vbproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Core\\Analyzers\\Microsoft.CodeAnalysis.CodeStyle.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Core\\CodeFixes\\Microsoft.CodeAnalysis.CodeStyle.Fixes.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Core\\Tests\\UnitTestUtilities\\Microsoft.CodeAnalysis.CodeStyle.UnitTestUtilities.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Core\\Tests\\LegacyTestFramework\\Microsoft.CodeAnalysis.CodeStyle.LegacyTestFramework.UnitTestUtilities.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Analyzers\\Microsoft.CodeAnalysis.CSharp.CodeStyle.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\CodeFixes\\Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Compilers\\Test\\Core\\Microsoft.CodeAnalysis.Test.Utilities.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Compilers\\Test\\Resources\\Core\\Microsoft.CodeAnalysis.Compiler.Test.Resources.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Compilers\\Test\\Utilities\\CSharp\\Microsoft.CodeAnalysis.CSharp.Test.Utilities.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Features\\Core\\Portable\\Microsoft.CodeAnalysis.Features.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Features\\CSharp\\Portable\\Microsoft.CodeAnalysis.CSharp.Features.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\LanguageServer\\Protocol\\Microsoft.CodeAnalysis.LanguageServer.Protocol.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Features\\TestUtilities\\Microsoft.CodeAnalysis.Features.Test.Utilities.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Features\\VisualBasic\\Portable\\Microsoft.CodeAnalysis.VisualBasic.Features.vbproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Interactive\\Host\\Microsoft.CodeAnalysis.InteractiveHost.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Scripting\\Core\\Microsoft.CodeAnalysis.Scripting.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Scripting\\CSharp\\Microsoft.CodeAnalysis.CSharp.Scripting.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Test\\PdbUtilities\\Roslyn.Test.PdbUtilities.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Workspaces\\CoreTestUtilities\\Microsoft.CodeAnalysis.Workspaces.Test.Utilities.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Workspaces\\Remote\\Core\\Microsoft.CodeAnalysis.Remote.Workspaces.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Workspaces\\Remote\\ServiceHub\\Microsoft.CodeAnalysis.Remote.ServiceHub.csproj",
+      "file": "src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/Tests/Microsoft.CodeAnalysis.CSharp.CodeStyle.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\..\\Workspaces\\CSharp\\Portable\\Microsoft.CodeAnalysis.CSharp.Workspaces.csproj",
+      "file": "src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Core\\Analyzers\\Microsoft.CodeAnalysis.CodeStyle.csproj",
+      "file": "src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Core\\CodeFixes\\Microsoft.CodeAnalysis.CodeStyle.Fixes.csproj",
+      "file": "src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Analyzers\\Microsoft.CodeAnalysis.CSharp.CodeStyle.csproj",
+      "file": "src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj",
+      "url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/CodeStyle/CSharp/CodeFixes/Microsoft.CodeAnalysis.CSharp.CodeStyle.Fixes.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/csharplang",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/vblang",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/csharplang",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/roslyn",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/roslyn",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/roslyn",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/roslyn",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/roslyn",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/roslyn",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/roslyn",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime",
+      "source": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/common/internal/Tools.csproj",
+      "src/Analyzers/CSharp/Analyzers/AddAccessibilityModifiers/CSharpAddAccessibilityModifiers.cs",
+      "src/Analyzers/CSharp/Analyzers/AddAccessibilityModifiers/CSharpAddAccessibilityModifiersDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/AddBraces/CSharpAddBracesDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/AddRequiredParentheses/CSharpAddRequiredExpressionParenthesesDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/AddRequiredParentheses/CSharpAddRequiredPatternParenthesesDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/CSharpAnalyzers.projitems",
+      "src/Analyzers/CSharp/Analyzers/CSharpAnalyzers.shproj",
+      "src/Analyzers/CSharp/Analyzers/CSharpAnalyzersResources.resx",
+      "src/Analyzers/CSharp/Analyzers/CodeStyle/CSharpAnalyzerOptionsProvider.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertNamespace/ConvertNamespaceAnalysis.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertNamespace/ConvertToBlockScopedNamespaceDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertNamespace/ConvertToFileScopedNamespaceDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertProgram/ConvertProgramAnalysis_ProgramMain.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertProgram/ConvertProgramAnalysis_TopLevelStatements.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertProgram/ConvertToProgramMainDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertProgram/ConvertToTopLevelStatementsDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertSwitchStatementToExpression/ConvertSwitchStatementToExpressionConstants.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertSwitchStatementToExpression/ConvertSwitchStatementToExpressionDiagnosticAnalyzer.Analyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertSwitchStatementToExpression/ConvertSwitchStatementToExpressionDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertSwitchStatementToExpression/ConvertSwitchStatementToExpressionHelpers.cs",
+      "src/Analyzers/CSharp/Analyzers/ConvertTypeofToNameof/CSharpConvertTypeOfToNameOfDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/FileHeaders/CSharpFileHeaderDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/FileHeaders/CSharpFileHeaderHelper.cs",
+      "src/Analyzers/CSharp/Analyzers/ForEachCast/CSharpForEachCastDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/Formatting/CSharpFormattingAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/HiddenExplicitCast/CSharpHiddenExplicitCastDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/InlineDeclaration/CSharpInlineDeclarationDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/InvokeDelegateWithConditionalAccess/InvokeDelegateWithConditionalAccessAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/MakeAnonymousFunctionStatic/MakeAnonymousFunctionStaticDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/MakeFieldReadonly/CSharpMakeFieldReadonlyDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/MakeLocalFunctionStatic/MakeLocalFunctionStaticDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/MakeLocalFunctionStatic/MakeLocalFunctionStaticHelper.cs",
+      "src/Analyzers/CSharp/Analyzers/MakeStructFieldsWritable/CSharpMakeStructFieldsWritableDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/MakeStructMemberReadOnly/CSharpMakeStructMemberReadOnlyAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/MakeStructReadOnly/CSharpMakeStructReadOnlyDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/MatchFolderAndNamespace/CSharpMatchFolderAndNamespaceDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/MisplacedUsingDirectives/MisplacedUsingDirectivesDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/NamingStyle/CSharpNamingStyleDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/NewLines/ArrowExpressionClausePlacement/ArrowExpressionClausePlacementDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/NewLines/ConditionalExpressionPlacement/ConditionalExpressionPlacementDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/NewLines/ConsecutiveBracePlacement/ConsecutiveBracePlacementDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/NewLines/ConsecutiveStatementPlacement/CSharpConsecutiveStatementPlacementDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/NewLines/ConstructorInitializerPlacement/ConstructorInitializerPlacementDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/NewLines/EmbeddedStatementPlacement/EmbeddedStatementPlacementDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/NewLines/MultipleBlankLines/CSharpMultipleBlankLinesDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/OrderModifiers/CSharpOrderModifiersDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/OrderModifiers/CSharpOrderModifiersHelper.cs",
+      "src/Analyzers/CSharp/Analyzers/PopulateSwitch/CSharpPopulateSwitchExpressionDiagnosticAnalyzer.cs",
+      "src/Analyzers/CSharp/Analyzers/PopulateSwitch/CSharpPopulateSwitchStatementDiagnosticAnalyzer.cs"
+    ],
+    "api": [
+      "src/CodeStyle/CSharp/Analyzers/PublicAPI.Shipped.txt",
+      "src/CodeStyle/CSharp/Analyzers/PublicAPI.Unshipped.txt",
+      "src/CodeStyle/CSharp/CodeFixes/PublicAPI.Shipped.txt",
+      "src/CodeStyle/CSharp/CodeFixes/PublicAPI.Unshipped.txt",
+      "src/CodeStyle/Core/Analyzers/PublicAPI.Shipped.txt",
+      "src/CodeStyle/Core/Analyzers/PublicAPI.Unshipped.txt",
+      "src/CodeStyle/Core/CodeFixes/PublicAPI.Shipped.txt",
+      "src/CodeStyle/Core/CodeFixes/PublicAPI.Unshipped.txt",
+      "src/CodeStyle/VisualBasic/Analyzers/PublicAPI.Shipped.txt",
+      "src/CodeStyle/VisualBasic/Analyzers/PublicAPI.Unshipped.txt",
+      "src/CodeStyle/VisualBasic/CodeFixes/PublicAPI.Shipped.txt",
+      "src/CodeStyle/VisualBasic/CodeFixes/PublicAPI.Unshipped.txt",
+      "src/Compilers/CSharp/Portable/PublicAPI.Shipped.txt",
+      "src/Compilers/CSharp/Portable/PublicAPI.Unshipped.txt",
+      "src/Compilers/CSharp/Test/Symbol/Symbols/Source/NullablePublicAPITests.cs",
+      "src/Compilers/Core/Portable/PublicAPI.Shipped.txt",
+      "src/Compilers/Core/Portable/PublicAPI.Unshipped.txt",
+      "src/Compilers/VisualBasic/Portable/PublicAPI.Shipped.txt",
+      "src/Compilers/VisualBasic/Portable/PublicAPI.Unshipped.txt",
+      "src/EditorFeatures/CSharp/PublicAPI.Shipped.txt",
+      "src/EditorFeatures/CSharp/PublicAPI.Unshipped.txt",
+      "src/EditorFeatures/Core/PublicAPI.Shipped.txt",
+      "src/EditorFeatures/Core/PublicAPI.Unshipped.txt",
+      "src/EditorFeatures/ExternalAccess/Core/PublicAPI.Shipped.txt",
+      "src/EditorFeatures/ExternalAccess/Core/PublicAPI.Unshipped.txt",
+      "src/EditorFeatures/Text/PublicAPI.Shipped.txt",
+      "src/EditorFeatures/Text/PublicAPI.Unshipped.txt",
+      "src/EditorFeatures/VisualBasic/PublicAPI.Shipped.txt",
+      "src/EditorFeatures/VisualBasic/PublicAPI.Unshipped.txt",
+      "src/Features/CSharp/Portable/PublicAPI.Shipped.txt",
+      "src/Features/CSharp/Portable/PublicAPI.Unshipped.txt",
+      "src/Features/Core/Portable/PublicAPI.Shipped.txt",
+      "src/Features/Core/Portable/PublicAPI.Unshipped.txt",
+      "src/Features/ExternalAccess/AspNetCore/PublicAPI.Shipped.txt",
+      "src/Features/ExternalAccess/AspNetCore/PublicAPI.Unshipped.txt",
+      "src/Features/ExternalAccess/Core/PublicAPI.Shipped.txt",
+      "src/Features/ExternalAccess/Core/PublicAPI.Unshipped.txt",
+      "src/Features/ExternalAccess/Extensions/PublicAPI.Shipped.txt",
+      "src/Features/ExternalAccess/Extensions/PublicAPI.Unshipped.txt",
+      "src/Features/ExternalAccess/HotReload/PublicAPI.Shipped.txt",
+      "src/Features/ExternalAccess/HotReload/PublicAPI.Unshipped.txt",
+      "src/Features/VisualBasic/Portable/PublicAPI.Shipped.txt",
+      "src/Features/VisualBasic/Portable/PublicAPI.Unshipped.txt",
+      "src/Interactive/Host/PublicAPI.Shipped.txt",
+      "src/Interactive/Host/PublicAPI.Unshipped.txt",
+      "src/LanguageServer/ExternalAccess/CompilerDeveloperSDK/PublicAPI.Shipped.txt",
+      "src/LanguageServer/ExternalAccess/CompilerDeveloperSDK/PublicAPI.Unshipped.txt",
+      "src/LanguageServer/ExternalAccess/Core/PublicAPI.Shipped.txt",
+      "src/LanguageServer/ExternalAccess/Core/PublicAPI.Unshipped.txt",
+      "src/LanguageServer/Protocol/PublicAPI.Shipped.txt"
+    ],
+    "tests": [
+      "Test.cmd",
+      "src/Analyzers/CSharp/Tests/AbstractBuiltInCodeStyleDiagnosticAnalyzer/AbstractBuiltInCodeStyleDiagnosticAnalyzerTests.cs",
+      "src/Analyzers/CSharp/Tests/AddAccessibilityModifiers/AddOrRemoveAccessibilityModifiersFixAllTests.cs",
+      "src/Analyzers/CSharp/Tests/AddAccessibilityModifiers/AddOrRemoveAccessibilityModifiersTests.cs",
+      "src/Analyzers/CSharp/Tests/AddAnonymousTypeMemberName/AddAnonymousTypeMemberNameTests.cs",
+      "src/Analyzers/CSharp/Tests/AddBraces/AddBracesFixAllTests.cs",
+      "src/Analyzers/CSharp/Tests/AddBraces/AddBracesTests.cs",
+      "src/Analyzers/CSharp/Tests/AddExplicitCast/AddExplicitCastTests.cs",
+      "src/Analyzers/CSharp/Tests/AddExplicitCast/AddExplicitCastTests_FixAllTests.cs",
+      "src/Analyzers/CSharp/Tests/AddInheritdoc/AddInheritdocTests.cs",
+      "src/Analyzers/CSharp/Tests/AddObsoleteAttribute/AddObsoleteAttributeTests.cs",
+      "src/Analyzers/CSharp/Tests/AddParameter/AddParameterTests.cs",
+      "src/Analyzers/CSharp/Tests/AddRequiredParentheses/AddRequiredExpressionParenthesesTests.cs",
+      "src/Analyzers/CSharp/Tests/AddRequiredParentheses/AddRequiredPatternParenthesesTests.cs",
+      "src/Analyzers/CSharp/Tests/AliasAmbiguousType/AliasAmbiguousTypeTests.cs",
+      "src/Analyzers/CSharp/Tests/AssignOutParameters/AssignOutParametersAboveReturnTests.cs",
+      "src/Analyzers/CSharp/Tests/AssignOutParameters/AssignOutParametersAtStartTests.cs",
+      "src/Analyzers/CSharp/Tests/CSharpAnalyzers.UnitTests.projitems",
+      "src/Analyzers/CSharp/Tests/CSharpAnalyzers.UnitTests.shproj",
+      "src/Analyzers/CSharp/Tests/ConditionalExpressionInStringInterpolation/CSharpAddParenthesesAroundConditionalExpressionInInterpolatedStringCodeFixProviderTests.cs",
+      "src/Analyzers/CSharp/Tests/ConflictMarkerResolution/ConflictMarkerResolutionTests.cs",
+      "src/Analyzers/CSharp/Tests/ConvertNamespace/ConvertToBlockScopedNamespaceAnalyzerTests.cs",
+      "src/Analyzers/CSharp/Tests/ConvertNamespace/ConvertToFileScopedNamespaceAnalyzerTests.cs",
+      "src/Analyzers/CSharp/Tests/ConvertSwitchStatementToExpression/ConvertSwitchStatementToExpressionFixAllTests.cs",
+      "src/Analyzers/CSharp/Tests/ConvertSwitchStatementToExpression/ConvertSwitchStatementToExpressionTests.cs",
+      "src/Analyzers/CSharp/Tests/ConvertToAsync/ConvertToAsyncTests.cs",
+      "src/Analyzers/CSharp/Tests/ConvertToRecord/ConvertToRecordCodeFixTests.cs",
+      "src/Analyzers/CSharp/Tests/ConvertTypeOfToNameOf/ConvertTypeOfToNameOfFixAllTests.cs",
+      "src/Analyzers/CSharp/Tests/ConvertTypeOfToNameOf/ConvertTypeOfToNameOfTests.cs",
+      "src/Analyzers/CSharp/Tests/DisambiguateSameVariable/DisambiguateSameVariableTests.cs",
+      "src/Analyzers/CSharp/Tests/DocumentationComments/AddDocCommentNodesCodeFixProviderTests.cs",
+      "src/Analyzers/CSharp/Tests/DocumentationComments/RemoveDocCommentNodeCodeFixProviderTests.cs",
+      "src/Analyzers/CSharp/Tests/FileHeaders/FileHeaderTests.cs",
+      "src/Analyzers/CSharp/Tests/FixIncorrectConstraint/FixIncorrectConstraintTests.cs",
+      "src/Analyzers/CSharp/Tests/FixReturnType/FixReturnTypeTests.cs",
+      "src/Analyzers/CSharp/Tests/ForEachCast/ForEachCastTests.cs",
+      "src/Analyzers/CSharp/Tests/Formatting/FormattingAnalyzerTests.cs",
+      "src/Analyzers/CSharp/Tests/GenerateConstructor/GenerateConstructorTests.cs",
+      "src/Analyzers/CSharp/Tests/GenerateConstructor/GenerateConstructorTests_Razor.cs",
+      "src/Analyzers/CSharp/Tests/GenerateDefaultConstructors/GenerateDefaultConstructorsTests.cs",
+      "src/Analyzers/CSharp/Tests/GenerateEnumMember/GenerateEnumMemberTests.cs",
+      "src/Analyzers/CSharp/Tests/GenerateMethod/GenerateConversionTests.cs",
+      "src/Analyzers/CSharp/Tests/GenerateMethod/GenerateDeconstructMethodTests.cs",
+      "src/Analyzers/CSharp/Tests/GenerateMethod/GenerateMethodTests.cs",
+      "src/Analyzers/CSharp/Tests/GenerateMethod/GenerateMethodTests_Razor.cs",
+      "src/Analyzers/CSharp/Tests/HiddenExplicitCast/HiddenExplicitCastTests.cs",
+      "src/Analyzers/CSharp/Tests/HideBase/HideBaseTests.cs",
+      "src/Analyzers/CSharp/Tests/ImplementAbstractClass/ImplementAbstractClassTests.cs",
+      "src/Analyzers/CSharp/Tests/ImplementAbstractClass/ImplementAbstractClassTests_FixAllTests.cs",
+      "src/Analyzers/CSharp/Tests/ImplementAbstractClass/ImplementAbstractClassTests_Razor.cs"
+    ],
+    "docs": [
+      "docs/Adding Optional Parameters in Public API.md",
+      "docs/Breaking API Changes.md",
+      "docs/Glossary - C# Language Server Ecosystem.md",
+      "docs/Language Feature Status.md",
+      "docs/Layering.md",
+      "docs/README.md",
+      "docs/TestAccessor Pattern.md",
+      "docs/analyzers/Analyzer Actions Semantics.md",
+      "docs/analyzers/Analyzer Samples.md",
+      "docs/analyzers/DiagnosticSuppressorDesign.md",
+      "docs/analyzers/FixAllProvider.md",
+      "docs/analyzers/Localizing Analyzers.md",
+      "docs/analyzers/Report Analyzer Format.md",
+      "docs/analyzers/Using Additional Files.md",
+      "docs/area-owners.md",
+      "docs/compilers/API Notes/10-29-19.md",
+      "docs/compilers/API Notes/4-15-20.md",
+      "docs/compilers/API Notes/6-11-20.md",
+      "docs/compilers/API Notes/8-19-20.md",
+      "docs/compilers/API Notes/9-30-19.md",
+      "docs/compilers/Boolean Representation.md",
+      "docs/compilers/CSharp/COM Interop.md",
+      "docs/compilers/CSharp/CodeGen Differences.md",
+      "docs/compilers/CSharp/CommandLine.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - DotNet 10.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - DotNet 11.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - DotNet 12.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - DotNet 5.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - DotNet 6.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - DotNet 7.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - DotNet 8.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - DotNet 9.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - VS2015.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - VS2017.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - VS2019.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - post DotNet 5.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - post VS2017.md",
+      "docs/compilers/CSharp/Compiler Breaking Changes - post VS2019.md",
+      "docs/compilers/CSharp/Definite Assignment And Dynamic.md",
+      "docs/compilers/CSharp/Definite Assignment And Partials.md",
+      "docs/compilers/CSharp/Definite Assignment.md",
+      "docs/compilers/CSharp/Deviations from Standard.md",
+      "docs/compilers/CSharp/Expression Breakpoints.md",
+      "docs/compilers/CSharp/Indexed Property Access.md",
+      "docs/compilers/CSharp/Internal Access.md",
+      "docs/compilers/CSharp/Multiple Inheritance Lookup Ambuguity.md",
+      "docs/compilers/CSharp/Nullability Public API Design Notes.md",
+      "docs/compilers/CSharp/Overload Resolution.md",
+      "docs/compilers/CSharp/Runtime Async Design.md",
+      "docs/compilers/CSharp/Source-Metadata Conflict.md"
+    ],
+    "samples": [
+      "src/RoslynSdk/Samples/.editorconfig",
+      "src/RoslynSdk/Samples/CSharp/APISamples/APISamples.CSharp.UnitTests.csproj",
+      "src/RoslynSdk/Samples/CSharp/APISamples/Compilations.cs",
+      "src/RoslynSdk/Samples/CSharp/APISamples/FAQ.cs",
+      "src/RoslynSdk/Samples/CSharp/APISamples/Parsing.cs",
+      "src/RoslynSdk/Samples/CSharp/APISamples/SymbolsAndSemantics.cs",
+      "src/RoslynSdk/Samples/CSharp/APISamples/SyntaxTrees.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/AdditionalFileAnalyzers/SimpleAdditionalFileAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/AdditionalFileAnalyzers/XmlAdditionalFileAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/Analyzers.CSharp.csproj",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/DiagnosticCategories.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/DiagnosticIds.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatefulAnalyzers/CodeBlockStartedAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatefulAnalyzers/CompilationStartedAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatefulAnalyzers/CompilationStartedAnalyzerWithCompilationWideAnalysis.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatelessAnalyzers/CodeBlockAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatelessAnalyzers/CompilationAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatelessAnalyzers/IOperationAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatelessAnalyzers/SemanticModelAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatelessAnalyzers/SymbolAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatelessAnalyzers/SyntaxNodeAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/StatelessAnalyzers/SyntaxTreeAnalyzer.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/tools/install.ps1",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Implementation/tools/uninstall.ps1",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Analyzers.CSharp.UnitTests.csproj",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/CodeBlockAnalyzerUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/CodeBlockStartedAnalyzerUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/CompilationAnalyzerUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/CompilationStartedAnalyzerUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/CompilationStartedAnalyzerWithCompilationWideAnalysisUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/SemanticModelAnalyzerUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/SymbolAnalyzerUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/SyntaxNodeAnalyzerUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Test/Tests/SyntaxTreeAnalyzerUnitTests.cs",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Vsix/Analyzers.CSharp.Vsix.csproj",
+      "src/RoslynSdk/Samples/CSharp/Analyzers/Analyzers.Vsix/source.extension.vsixmanifest",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/CSharpToVisualBasicConverter.csproj",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Cleanup/CurlyCleanup.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Cleanup/MissingCurlyCleanup.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Cleanup/NewLineCleanup.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Cleanup/WhiteSpaceCleanup.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Converting/Converter.NodeVisitor.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Converting/Converter.StatementVisitor.ForStatement.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Converting/Converter.StatementVisitor.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Converting/Converter.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Utilities/CSharpExtensions.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Utilities/EnumerableExtensions.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Lib/Utilities/StringExtensions.cs",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Test/CSharpToVisualBasicConverter.UnitTests.csproj",
+      "src/RoslynSdk/Samples/CSharp/CSharpToVisualBasicConverter/CSharpToVisualBasicConverter.Test/CSharpToVisualBasicConverterTests.cs"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

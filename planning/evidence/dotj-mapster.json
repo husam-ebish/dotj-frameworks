@@ -1,0 +1,280 @@
+{
+  "id": "DJ-024",
+  "repo": "dotj-mapster",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/MapsterMapper/Mapster",
+  "canonical_url": "https://github.com/MapsterMapper/Mapster",
+  "redirect_observed": false,
+  "inspected_revision": "cbc1e5f04e6e003744b04f83d4705670a85e459b",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "master",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/README.md",
+      "sha256": "a2ec326864f73c670584bdb68566e04e9969a42fea8deacd68b08ecb73e63902",
+      "bytes": 10731
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/LICENSE",
+      "sha256": "b108b79a69bbb4f2f1b3bfa7210d9e1bf159d7f75f0c4cca0a31f9fbb9bb97a1",
+      "bytes": 1106
+    },
+    {
+      "path": "src/ExpressionDebugger.Console/ExpressionDebugger.Console.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger.Console/ExpressionDebugger.Console.csproj",
+      "sha256": "c14d54f06cf3ad9a8af005e8143dfd294b18036cfef031df79b41a59728b0eef",
+      "bytes": 402
+    },
+    {
+      "path": "src/ExpressionDebugger/ExpressionDebugger.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger/ExpressionDebugger.csproj",
+      "sha256": "685a3329a32c099661cf12beecafe42f598229ca17797c3ae6f4fcac231917f6",
+      "bytes": 1310
+    },
+    {
+      "path": "src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj",
+      "sha256": "23a0a5aa79ff10fae478391f09abffb659238c859f8f8ce10038054bce1678c3",
+      "bytes": 680
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ExpressionDebugger\\ExpressionDebugger.csproj",
+      "file": "src/ExpressionDebugger.Console/ExpressionDebugger.Console.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger.Console/ExpressionDebugger.Console.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/ExpressionDebugger/ExpressionDebugger.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger/ExpressionDebugger.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ExpressionTranslator\\ExpressionTranslator.csproj",
+      "file": "src/ExpressionDebugger/ExpressionDebugger.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger/ExpressionDebugger.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MSTest.TestAdapter",
+      "file": "src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MSTest.TestFramework",
+      "file": "src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ExpressionDebugger\\ExpressionDebugger.csproj",
+      "file": "src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj",
+      "url": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/MapsterMapper/Mapster",
+      "source": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/README.md"
+    },
+    {
+      "url": "https://github.com/MapsterMapper/Mapster",
+      "source": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/README.md"
+    },
+    {
+      "url": "https://github.com/MapsterMapper/Mapster",
+      "source": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/README.md"
+    },
+    {
+      "url": "https://github.com/MapsterMapper/Mapster",
+      "source": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/README.md"
+    },
+    {
+      "url": "https://github.com/rivenfx/Mapster-docs",
+      "source": "https://github.com/MapsterMapper/Mapster/blob/cbc1e5f04e6e003744b04f83d4705670a85e459b/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/.editorconfig",
+      "src/Benchmark.Development/Benchmark.Development.csproj",
+      "src/Benchmark.Development/Benchmark.Development.snk",
+      "src/Benchmark.Development/Benchmarks/Config.cs",
+      "src/Benchmark.Development/Benchmarks/TestAll.cs",
+      "src/Benchmark.Development/Benchmarks/TestComplexTypes.cs",
+      "src/Benchmark.Development/Benchmarks/TestSimpleTypes.cs",
+      "src/Benchmark.Development/Classes/Customer.cs",
+      "src/Benchmark.Development/Classes/Foo.cs",
+      "src/Benchmark.Development/Directory.Build.props",
+      "src/Benchmark.Development/MapsterVersion.cs",
+      "src/Benchmark.Development/Program.cs",
+      "src/Benchmark.Development/TestAdaptHelper.cs",
+      "src/Benchmark/Benchmark.csproj",
+      "src/Benchmark/Benchmarks/Config.cs",
+      "src/Benchmark/Benchmarks/MappingBenchmarkBase.cs",
+      "src/Benchmark/Benchmarks/PerMapColumn.cs",
+      "src/Benchmark/Benchmarks/ScenarioColumn.cs",
+      "src/Benchmark/Benchmarks/TestComplexTypes.cs",
+      "src/Benchmark/Benchmarks/TestFlatTypes.cs",
+      "src/Benchmark/Benchmarks/TestRecursiveTypes.cs",
+      "src/Benchmark/Benchmarks/TestTotalAllTypes.cs",
+      "src/Benchmark/Classes/Customer.cs",
+      "src/Benchmark/Classes/Foo.cs",
+      "src/Benchmark/Classes/Person.cs",
+      "src/Benchmark/Comparisons/FacetModels.cs",
+      "src/Benchmark/Comparisons/MapperlyModels.cs",
+      "src/Benchmark/CustomerMapper.g.cs",
+      "src/Benchmark/CustomerMapper.tt",
+      "src/Benchmark/FooMapper.g.cs",
+      "src/Benchmark/FooMapper.tt",
+      "src/Benchmark/PersonMapper.g.cs",
+      "src/Benchmark/PersonMapper.tt",
+      "src/Benchmark/Program.cs",
+      "src/Benchmark/TestAdaptHelper.cs",
+      "src/Directory.Build.props",
+      "src/ExpressionDebugger.Console/ExpressionDebugger.Console.csproj",
+      "src/ExpressionDebugger.Console/Program.cs",
+      "src/ExpressionDebugger.Tests/DebugInfoInjectorTest.cs",
+      "src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj",
+      "src/ExpressionDebugger.sln",
+      "src/ExpressionDebugger/ExpressionCompilationOptions.cs",
+      "src/ExpressionDebugger/ExpressionCompiler.cs",
+      "src/ExpressionDebugger/ExpressionDebugger.csproj",
+      "src/ExpressionDebugger/ExpressionDebugger.snk",
+      "src/ExpressionDebugger/ExpressionDebuggerExtensions.cs",
+      "src/ExpressionTranslator/ExpressionDefinitions.cs",
+      "src/ExpressionTranslator/ExpressionTranslator.cs",
+      "src/ExpressionTranslator/ExpressionTranslator.csproj",
+      "src/ExpressionTranslator/ExpressionTranslator.snk"
+    ],
+    "api": [
+      "docs/api/.gitignore",
+      "docs/api/Reference.md",
+      "docs/api/index.md"
+    ],
+    "tests": [
+      "src/ExpressionDebugger.Tests/DebugInfoInjectorTest.cs",
+      "src/ExpressionDebugger.Tests/ExpressionDebugger.Tests.csproj",
+      "src/Mapster.Async.Tests/AsyncTest.cs",
+      "src/Mapster.Async.Tests/Mapster.Async.Tests.csproj",
+      "src/Mapster.DependencyInjection.Tests/InjectionTest.cs",
+      "src/Mapster.DependencyInjection.Tests/Mapster.DependencyInjection.Tests.csproj",
+      "src/Mapster.EFCore.Tests/DbInitializer.cs",
+      "src/Mapster.EFCore.Tests/EFCoreTest.cs",
+      "src/Mapster.EFCore.Tests/Mapster.EFCore.Tests.csproj",
+      "src/Mapster.EFCore.Tests/Models/Course.cs",
+      "src/Mapster.EFCore.Tests/Models/Enrollment.cs",
+      "src/Mapster.EFCore.Tests/Models/SchoolContext.cs",
+      "src/Mapster.EFCore.Tests/Models/Student.cs",
+      "src/Mapster.Immutable.Tests/ImmutableTest.cs",
+      "src/Mapster.Immutable.Tests/Mapster.Immutable.Tests.csproj",
+      "src/Mapster.JsonNet.Tests/JsonMappingTest.cs",
+      "src/Mapster.JsonNet.Tests/Mapster.JsonNet.Tests.csproj",
+      "src/Mapster.Tests/Classes/Address.cs",
+      "src/Mapster.Tests/Classes/Customer.cs",
+      "src/Mapster.Tests/Classes/Product.cs",
+      "src/Mapster.Tests/Classes/TypeTestClass.cs",
+      "src/Mapster.Tests/Diagnostics/DebugInfoInjectorEx.cs",
+      "src/Mapster.Tests/Diagnostics/GlobalReference.cs",
+      "src/Mapster.Tests/Diagnostics/TypeAdapterConfigExtensions.cs",
+      "src/Mapster.Tests/DynamicTypeGeneratorTests.cs",
+      "src/Mapster.Tests/Mapster.Tests.csproj",
+      "src/Mapster.Tests/Mapster.Tests.snk",
+      "src/Mapster.Tests/Polyfills/CompileWithDebugInfo.net48.cs",
+      "src/Mapster.Tests/Polyfills/RequiredMemberAttributes.net48.cs",
+      "src/Mapster.Tests/Polyfills/TypeGetConstructorOverload.net48.cs",
+      "src/Mapster.Tests/Properties/AssemblyInfo.cs",
+      "src/Mapster.Tests/WhenAddCtorNullablePropagation.cs",
+      "src/Mapster.Tests/WhenAddingCustomMappings.cs",
+      "src/Mapster.Tests/WhenCloningConfig.cs",
+      "src/Mapster.Tests/WhenCompilingConfig.cs",
+      "src/Mapster.Tests/WhenConfiguringMapping.cs",
+      "src/Mapster.Tests/WhenConvertingFromObjects.cs",
+      "src/Mapster.Tests/WhenCreatingConfigInstance.cs",
+      "src/Mapster.Tests/WhenCtorNullableParamMapping.cs",
+      "src/Mapster.Tests/WhenExplicitMappingRequired.cs",
+      "src/Mapster.Tests/WhenFlattening.cs",
+      "src/Mapster.Tests/WhenForkingConfig.cs",
+      "src/Mapster.Tests/WhenHandlingUnmappedMembers.cs",
+      "src/Mapster.Tests/WhenIgnoreMapping.cs",
+      "src/Mapster.Tests/WhenIgnoreWithAttribute.cs",
+      "src/Mapster.Tests/WhenIgnoringConditionally.cs",
+      "src/Mapster.Tests/WhenIgnoringNonMapped.cs",
+      "src/Mapster.Tests/WhenIncludeDerivedClasses.cs",
+      "src/Mapster.Tests/WhenMappingArrays.cs",
+      "src/Mapster.Tests/WhenMappingCollections.cs"
+    ],
+    "docs": [
+      "docs/.gitignore",
+      "docs/.nojekyll",
+      "docs/Build-Docs.ps1",
+      "docs/Clean-ApiDocs.ps1",
+      "docs/Clean-and-Build-Docs.ps1",
+      "docs/api/.gitignore",
+      "docs/api/Reference.md",
+      "docs/api/index.md",
+      "docs/articles/.assets/step-into-debugging.png",
+      "docs/articles/_Sidebar.md",
+      "docs/articles/benchmarks.md",
+      "docs/articles/configuration/Config-for-nested-mapping.md",
+      "docs/articles/configuration/Config-inheritance.md",
+      "docs/articles/configuration/Config-instance.md",
+      "docs/articles/configuration/Config-location.md",
+      "docs/articles/configuration/Config-validation-and-compilation.md",
+      "docs/articles/configuration/Configuration.md",
+      "docs/articles/configuration/toc.yml",
+      "docs/articles/mapping/Basic-usages.md",
+      "docs/articles/mapping/Mappers.md",
+      "docs/articles/mapping/Mapping-Configuration-With-IMapFrom-Interface.md",
+      "docs/articles/mapping/data-types/Collections.md",
+      "docs/articles/mapping/data-types/Mappable-Objects.md",
+      "docs/articles/mapping/data-types/Primitive-types.md",
+      "docs/articles/mapping/data-types/Record-types.md",
+      "docs/articles/mapping/data-types/toc.yml",
+      "docs/articles/mapping/toc.yml",
+      "docs/articles/packages/Async.md",
+      "docs/articles/packages/Dependency-Injection.md",
+      "docs/articles/packages/EF-6-and-EF-Core.md",
+      "docs/articles/packages/ExpressionDebugging.md",
+      "docs/articles/packages/FastExpressionCompiler.md",
+      "docs/articles/packages/Immutable.md",
+      "docs/articles/packages/Json.net.md",
+      "docs/articles/packages/toc.yml",
+      "docs/articles/settings/Before-after-mapping.md",
+      "docs/articles/settings/Constructor-mapping.md",
+      "docs/articles/settings/Custom-conversion-logic.md",
+      "docs/articles/settings/Object-references.md",
+      "docs/articles/settings/Setting-values.md",
+      "docs/articles/settings/Shallow-merge.md",
+      "docs/articles/settings/custom/Custom-mapping.md",
+      "docs/articles/settings/custom/Ignoring-members.md",
+      "docs/articles/settings/custom/Mapping-non-public-members.md",
+      "docs/articles/settings/custom/Mapping-readonly-prop.md",
+      "docs/articles/settings/custom/Naming-convention.md",
+      "docs/articles/settings/custom/Rule-based-member-mapping.md",
+      "docs/articles/settings/custom/Setting-by-attributes.md",
+      "docs/articles/settings/custom/Two-ways.md",
+      "docs/articles/settings/custom/toc.yml"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

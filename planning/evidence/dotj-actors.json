@@ -1,0 +1,1160 @@
+{
+  "id": "DJ-015",
+  "repo": "dotj-actors",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/orleans",
+  "canonical_url": "https://github.com/dotnet/orleans",
+  "redirect_observed": false,
+  "inspected_revision": "9f8310cb6e5bbe35cd3bbb0752052993578eb083",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/README.md",
+      "sha256": "0e94c27809cab30ae833945d7573956726a4fe55b16b1dbbfc16a715e39d0a82",
+      "bytes": 17183
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/LICENSE",
+      "sha256": "6a9c18d22cc5263838badb414514e38dbd61b829e6dfef3331262919b7966b9d",
+      "bytes": 1078
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props",
+      "sha256": "e63d733b941c771bd36381cd5bc7be677e45a4a3d8138547029fe4fb9f17ba98",
+      "bytes": 14210
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Build.props",
+      "sha256": "cd3f6347f5c9c0748479d8f348e8174f9bb625b6f27a86e34f83515d926e2759",
+      "bytes": 5454
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/global.json",
+      "sha256": "1dd2048af9bbb73b4ec02a6e5d1e04c73b8d34011be14ecea97a9591578b7f81",
+      "bytes": 133
+    },
+    {
+      "path": "docs/site/src/content/docs/dashboard/snippets/secure-dashboard/SecureDashboard.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/dashboard/snippets/secure-dashboard/SecureDashboard.csproj",
+      "sha256": "4fdacd83078fdd7c7f315ea93bba6b0459f5a6025e94ace1b6ccfcc331f51d15",
+      "bytes": 431
+    },
+    {
+      "path": "docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj",
+      "sha256": "cdf5fdf3cedfb50e769df6ecbdaefba49fe31e39498910d345293c57ae729269",
+      "bytes": 745
+    },
+    {
+      "path": "docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj",
+      "sha256": "56c6d35bab5569ed935def9c4bf8d35f6a8e14c1238119cb4a9a8d10cf1cf44b",
+      "bytes": 981
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Azure.Data.Tables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Azure.Storage.Blobs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Azure.Storage.Queues",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.AppHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Orleans",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.StackExchange.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Autofac.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.DynamoDBv2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.Kinesis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.S3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.SQS",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Data.Tables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.EventHubs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Security.KeyVault.Secrets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Blobs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Queues",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet.Diagnostics.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CassandraCSharpDriver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Consul",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "CsCheck",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FSharp.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Cloud.Firestore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Cloud.PubSub.V1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Cloud.Storage.V1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Protobuf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Tools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hyperion",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "KubernetesClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.StringTools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Accordant",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Cosmos",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.BannedApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Crank.EventSources",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.Sqlite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.GenAPI.Task",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.PlatformAbstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.AzureKeyVault",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Resilience",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Debug",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ObjectPool",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ServiceDiscovery",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SourceLink.AzureRepos.Git",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.CrashDump",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.HangDump",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.TrxReport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Platform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Platform.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MySql.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NATS.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NodaTime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSubstitute.Analyzers.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSubstitute",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "protobuf-net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SSH.NET",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SpanJson",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SQLitePCLRaw.bundle_e_sqlite3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StackExchange.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StructureMap.Microsoft.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CodeDom",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.PerformanceCounter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Drawing.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Hashing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Pipelines",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reactive",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Testcontainers.Consul",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Utf8Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Verify.XunitV3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.assert",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.core.mtp-v2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.extensibility.core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.mtp-v2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ZeroFormatter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ZooKeeperNetEx",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Azure.EventHubs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Azure.Storage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Aspire.Hosting.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Orleans.Dashboard",
+      "file": "docs/site/src/content/docs/dashboard/snippets/secure-dashboard/SecureDashboard.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/dashboard/snippets/secure-dashboard/SecureDashboard.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Orleans.Server",
+      "file": "docs/site/src/content/docs/dashboard/snippets/secure-dashboard/SecureDashboard.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/dashboard/snippets/secure-dashboard/SecureDashboard.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Azure.Identity",
+      "file": "docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Orleans.Clustering.AzureStorage",
+      "file": "docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Orleans.Server",
+      "file": "docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ServiceFabric.Services",
+      "file": "docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Orleans.TestingHost",
+      "file": "docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MSTest.TestAdapter",
+      "file": "docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MSTest.TestFramework",
+      "file": "docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj",
+      "url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/orleans",
+      "source": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/orleans",
+      "source": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/orleans",
+      "source": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "docs/site/src/content/docs/dashboard/snippets/secure-dashboard/SecureDashboard.csproj",
+      "docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/ServiceFabricSilo.csproj",
+      "docs/site/src/content/docs/grains/grain-persistence/snippets/persistence/persistence.csproj",
+      "docs/site/src/content/docs/grains/grain-versioning/snippets/versioning/versioning.csproj",
+      "docs/site/src/content/docs/grains/journaling/snippets/journaling/Journaling.csproj",
+      "docs/site/src/content/docs/grains/journaling/snippets/redis-journaling/RedisJournaling.csproj",
+      "docs/site/src/content/docs/grains/snippets/async-enumerable-results/async-enumerable-results.csproj",
+      "docs/site/src/content/docs/grains/snippets/interceptors/interceptors.csproj",
+      "docs/site/src/content/docs/grains/snippets/placement/placement.csproj",
+      "docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting.MSTest/Sample.OrleansTesting.MSTest.csproj",
+      "docs/site/src/content/docs/grains/snippets/testing/orleans-testing/Sample.OrleansTesting/Sample.OrleansTesting.csproj",
+      "docs/site/src/content/docs/grains/snippets/timers/Timers.csproj",
+      "docs/site/src/content/docs/grains/snippets/transactions/Abstractions/Abstractions.csproj",
+      "docs/site/src/content/docs/grains/snippets/transactions/Client/Client.csproj",
+      "docs/site/src/content/docs/grains/snippets/transactions/Grains/Grains.csproj",
+      "docs/site/src/content/docs/grains/snippets/transactions/Server/Server.csproj",
+      "docs/site/src/content/docs/host/configuration-guide/snippets/serialization/serialization.csproj",
+      "docs/site/src/content/docs/host/configuration-guide/snippets/serializer-contexts/SerializerContexts.csproj",
+      "docs/site/src/content/docs/host/monitoring/snippets/observability/Observability.csproj",
+      "docs/site/src/content/docs/host/snippets/Client.csproj",
+      "docs/site/src/content/docs/host/snippets/aspire/AppHost/AppHost.csproj",
+      "docs/site/src/content/docs/host/snippets/aspire/Client/Client.csproj",
+      "docs/site/src/content/docs/host/snippets/aspire/ServiceDefaults/ServiceDefaults.csproj",
+      "docs/site/src/content/docs/host/snippets/aspire/SharedContracts/SharedContracts.csproj",
+      "docs/site/src/content/docs/host/snippets/aspire/Silo/Silo.csproj",
+      "docs/site/src/content/docs/host/snippets/connection-middleware/ConnectionMiddleware.csproj",
+      "docs/site/src/content/docs/host/snippets/google-firestore/Firestore.csproj",
+      "docs/site/src/content/docs/host/snippets/hosting/Hosting.csproj",
+      "docs/site/src/content/docs/host/snippets/transport-layer-security/csharp/ClientExample/ClientExample.csproj",
+      "docs/site/src/content/docs/host/snippets/transport-layer-security/csharp/SiloExample/SiloExample.csproj",
+      "docs/site/src/content/docs/migration/snippets/Orleans10MigrationSnippets.csproj",
+      "docs/site/src/content/docs/quickstarts/snippets/deploy-scale-orleans-on-azure/azure-storage/AzureStorage.csproj",
+      "docs/site/src/content/docs/quickstarts/snippets/deploy-scale-orleans-on-azure/cosmos/Cosmos.csproj",
+      "docs/site/src/content/docs/quickstarts/snippets/hello-world/Client/Client.csproj",
+      "docs/site/src/content/docs/quickstarts/snippets/hello-world/GrainInterfaces/GrainInterfaces.csproj",
+      "docs/site/src/content/docs/quickstarts/snippets/hello-world/Grains/Grains.csproj",
+      "docs/site/src/content/docs/quickstarts/snippets/hello-world/Silo/Silo.csproj",
+      "docs/site/src/content/docs/quickstarts/snippets/url-shortener/orleansurlshortener/orleansurlshortener.csproj",
+      "docs/site/src/content/docs/snippets/compiled/CompiledDocumentationSnippets.csproj",
+      "docs/site/src/content/docs/streaming/snippets/broadcastchannel/BroadcastChannel.Client/BroadcastChannel.Client.csproj",
+      "docs/site/src/content/docs/streaming/snippets/broadcastchannel/BroadcastChannel.GrainInterfaces/BroadcastChannel.GrainInterfaces.csproj",
+      "docs/site/src/content/docs/streaming/snippets/broadcastchannel/BroadcastChannel.Silo/BroadcastChannel.Silo.csproj",
+      "docs/site/src/content/docs/streaming/snippets/streaming/streaming.csproj",
+      "docs/site/src/content/docs/streaming/snippets/subscription-start-positions/subscription-start-positions.csproj",
+      "docs/site/src/content/docs/tutorials-and-samples/snippets/custom-grain-storage/GrainStorage.csproj",
+      "docs/site/src/content/docs/tutorials-and-samples/snippets/hello-world/HelloWorld.csproj",
+      "docs/tools/PackageJsonGenerator.Tests/PackageJsonGenerator.Tests.csproj",
+      "docs/tools/PackageJsonGenerator/PackageJsonGenerator.csproj",
+      "playground/ActivationRebalancing/ActivationRebalancing.AppHost/ActivationRebalancing.AppHost.csproj",
+      "playground/ActivationRebalancing/ActivationRebalancing.Cluster/ActivationRebalancing.Cluster.csproj"
+    ],
+    "api": [
+      "docs/site/src/components/api/ApiBreadcrumbs.astro",
+      "docs/site/src/components/api/ApiDocContent.astro",
+      "docs/site/src/components/api/ApiLinks.astro",
+      "docs/site/src/components/api/ApiMemberCard.astro",
+      "docs/site/src/components/api/ApiTypeSignature.astro",
+      "docs/site/src/lib/api/collection.ts",
+      "docs/site/src/lib/api/markdown.ts",
+      "docs/site/src/lib/api/packages.ts",
+      "docs/site/src/lib/api/routes.ts",
+      "docs/site/src/lib/api/sidebar.ts",
+      "docs/site/src/lib/api/types.ts",
+      "docs/site/src/pages/docs/api/csharp.md.ts",
+      "docs/site/src/pages/docs/api/csharp/[package].md.ts",
+      "docs/site/src/pages/docs/api/csharp/[package]/[type].md.ts",
+      "docs/site/src/pages/docs/api/csharp/[package]/[type]/[memberKind].astro",
+      "docs/site/src/pages/docs/api/csharp/[package]/[type]/[memberKind].md.ts",
+      "docs/site/src/pages/docs/api/csharp/[package]/[type]/[memberKind]/[member].astro",
+      "docs/site/src/pages/docs/api/csharp/[package]/[type]/[memberKind]/[member].md.ts",
+      "docs/site/src/pages/docs/api/csharp/[package]/[type]/index.astro",
+      "docs/site/src/pages/docs/api/csharp/[package]/index.astro",
+      "docs/site/src/pages/docs/api/csharp/index.astro",
+      "src/api/AWS/Orleans.Clustering.DynamoDB/Orleans.Clustering.DynamoDB.cs",
+      "src/api/AWS/Orleans.Journaling.S3/Orleans.Journaling.S3.cs",
+      "src/api/AWS/Orleans.Persistence.DynamoDB/Orleans.Persistence.DynamoDB.cs",
+      "src/api/AWS/Orleans.Reminders.DynamoDB/Orleans.Reminders.DynamoDB.cs",
+      "src/api/AWS/Orleans.Streaming.Kinesis/Orleans.Streaming.Kinesis.cs",
+      "src/api/AWS/Orleans.Streaming.SQS/Orleans.Streaming.SQS.cs",
+      "src/api/AWS/Orleans.Transactions.DynamoDB/Orleans.Transactions.DynamoDB.cs",
+      "src/api/AdoNet/Orleans.Clustering.AdoNet/Orleans.Clustering.AdoNet.cs",
+      "src/api/AdoNet/Orleans.GrainDirectory.AdoNet/Orleans.GrainDirectory.AdoNet.cs",
+      "src/api/AdoNet/Orleans.Persistence.AdoNet/Orleans.Persistence.AdoNet.cs",
+      "src/api/AdoNet/Orleans.Reminders.AdoNet/Orleans.Reminders.AdoNet.cs",
+      "src/api/AdoNet/Orleans.Streaming.AdoNet/Orleans.Streaming.AdoNet.cs",
+      "src/api/Azure/Orleans.Clustering.AzureStorage/Orleans.Clustering.AzureStorage.cs",
+      "src/api/Azure/Orleans.Clustering.Cosmos/Orleans.Clustering.Cosmos.cs",
+      "src/api/Azure/Orleans.DurableJobs.AzureStorage/Orleans.DurableJobs.AzureStorage.cs",
+      "src/api/Azure/Orleans.GrainDirectory.AzureStorage/Orleans.GrainDirectory.AzureStorage.cs",
+      "src/api/Azure/Orleans.Journaling.AzureStorage/Orleans.Journaling.AzureStorage.cs",
+      "src/api/Azure/Orleans.Persistence.AzureStorage/Orleans.Persistence.AzureStorage.cs",
+      "src/api/Azure/Orleans.Persistence.Cosmos/Orleans.Persistence.Cosmos.cs",
+      "src/api/Azure/Orleans.Reminders.AzureStorage/Orleans.Reminders.AzureStorage.cs",
+      "src/api/Azure/Orleans.Reminders.Cosmos/Orleans.Reminders.Cosmos.cs",
+      "src/api/Azure/Orleans.Streaming.AzureStorage/Orleans.Streaming.AzureStorage.cs",
+      "src/api/Azure/Orleans.Streaming.EventHubs/Orleans.Streaming.EventHubs.cs",
+      "src/api/Azure/Orleans.Transactions.AzureStorage/Orleans.Transactions.AzureStorage.cs",
+      "src/api/Cassandra/Orleans.Clustering.Cassandra/Orleans.Clustering.Cassandra.cs",
+      "src/api/Dashboard/Orleans.Dashboard.Abstractions/Orleans.Dashboard.Abstractions.cs",
+      "src/api/Dashboard/Orleans.Dashboard/Orleans.Dashboard.cs",
+      "src/api/Google/Orleans.Clustering.Firestore/Orleans.Clustering.Firestore.cs",
+      "src/api/Google/Orleans.GrainDirectory.Firestore/Orleans.GrainDirectory.Firestore.cs"
+    ],
+    "tests": [
+      "Test.cmd",
+      "docs/site/tests/api-markdown.test.ts",
+      "docs/site/tests/api-routes.test.ts",
+      "docs/site/tests/build-settings.test.mjs",
+      "docs/site/tests/clean-markdown-output.test.mjs",
+      "docs/site/tests/compatibility-paths.test.mjs",
+      "docs/site/tests/corpus-links.test.mjs",
+      "docs/site/tests/docfx.test.mjs",
+      "docs/site/tests/fixtures/package-api.json",
+      "docs/site/tests/gallery.test.mjs",
+      "docs/site/tests/link-audit.test.mjs",
+      "docs/site/tests/project-policy.test.mjs",
+      "docs/site/tests/redirects.test.mjs",
+      "docs/site/tests/remark-mermaid.test.mjs",
+      "docs/site/tests/snippet-policy.test.mjs",
+      "docs/site/tests/source-quality.test.mjs",
+      "docs/tools/PackageJsonGenerator.Tests/GlobalUsings.cs",
+      "docs/tools/PackageJsonGenerator.Tests/PackageJsonGenerator.Tests.csproj",
+      "docs/tools/PackageJsonGenerator.Tests/PackageJsonGeneratorHelperTests.cs",
+      "docs/tools/PackageJsonGenerator.Tests/PackageJsonGeneratorTests.cs",
+      "test/AGENTS.md",
+      "test/Benchmarks.AdoNet/Benchmarks.AdoNet.csproj",
+      "test/Benchmarks.AdoNet/Program.cs",
+      "test/Benchmarks.AdoNet/Properties/Usings.cs",
+      "test/Benchmarks.AdoNet/Streaming/MessageDequeueingBenchmark.cs",
+      "test/Benchmarks.AdoNet/Streaming/MessageQueueingBenchmark.cs",
+      "test/Benchmarks/App.config",
+      "test/Benchmarks/Benchmarks.csproj",
+      "test/Benchmarks/Dashboard/DashboardGrainBenchmark.cs",
+      "test/Benchmarks/Dashboard/Helper.cs",
+      "test/Benchmarks/Dashboard/ManualTests.cs",
+      "test/Benchmarks/Dashboard/TestTraces.cs",
+      "test/Benchmarks/GrainStorage/AzureBlobReadStateStreamingBenchmark.cs",
+      "test/Benchmarks/GrainStorage/AzureBlobWriteStateStreamingBenchmark.cs",
+      "test/Benchmarks/GrainStorage/BenchmarkState.cs",
+      "test/Benchmarks/GrainStorage/GrainStorageBenchmark.cs",
+      "test/Benchmarks/GrainStorage/StorageSerializerKind.cs",
+      "test/Benchmarks/GrainStorage/SystemTextJsonGrainStorageSerializer.cs",
+      "test/Benchmarks/Journaling/Azure/AzureJournalBenchmarkConfigurationTests.cs",
+      "test/Benchmarks/Journaling/Azure/AzureJournalBenchmarkValidator.cs",
+      "test/Benchmarks/Journaling/Azure/AzureJournalBenchmarks.cs",
+      "test/Benchmarks/Journaling/Azure/AzureJournalOptions.cs",
+      "test/Benchmarks/Journaling/Azure/AzureJournalReport.cs",
+      "test/Benchmarks/Journaling/Azure/AzureJournalRunner.cs",
+      "test/Benchmarks/Journaling/Azure/AzureJournalRunnerTests.cs",
+      "test/Benchmarks/Journaling/Azure/AzureJournalScenario.cs",
+      "test/Benchmarks/Journaling/Azure/BenchmarkBuildInfo.cs",
+      "test/Benchmarks/Journaling/Azure/OwnedBenchmarkResource.cs",
+      "test/Benchmarks/Journaling/Azure/ProviderMetrics.cs",
+      "test/Benchmarks/Journaling/Azure/README.md"
+    ],
+    "docs": [
+      "docs/AGENTS.md",
+      "docs/Docs.slnx",
+      "docs/index.md",
+      "docs/project-policy.json",
+      "docs/scripts/Generate-ApiData.ps1",
+      "docs/site/.gitignore",
+      "docs/site/.npmrc",
+      "docs/site/README.md",
+      "docs/site/astro.config.mjs",
+      "docs/site/package-lock.json",
+      "docs/site/package.json",
+      "docs/site/public/favicon.svg",
+      "docs/site/scripts/audit-links.mjs",
+      "docs/site/scripts/audit-output.mjs",
+      "docs/site/scripts/audit-projects.mjs",
+      "docs/site/scripts/audit-sources.mjs",
+      "docs/site/scripts/generate-legacy-redirects.mjs",
+      "docs/site/scripts/lib/build-settings.mjs",
+      "docs/site/scripts/lib/compatibility-paths.mjs",
+      "docs/site/scripts/lib/docfx.mjs",
+      "docs/site/scripts/lib/gallery.mjs",
+      "docs/site/scripts/lib/include-closure.mjs",
+      "docs/site/scripts/lib/legacy-routes.mjs",
+      "docs/site/scripts/lib/link-audit.mjs",
+      "docs/site/scripts/lib/markdown-ranges.mjs",
+      "docs/site/scripts/lib/project-policy.mjs",
+      "docs/site/scripts/lib/source-quality.mjs",
+      "docs/site/scripts/prepare-docs.mjs",
+      "docs/site/scripts/resolve-rendered-markdown.mjs",
+      "docs/site/src/assets/orleans-logo.png",
+      "docs/site/src/assets/orleans-logo.svg",
+      "docs/site/src/components/MarkdownContent.astro",
+      "docs/site/src/components/SampleCard.astro",
+      "docs/site/src/components/SampleGallery.astro",
+      "docs/site/src/components/api/ApiBreadcrumbs.astro",
+      "docs/site/src/components/api/ApiDocContent.astro",
+      "docs/site/src/components/api/ApiLinks.astro",
+      "docs/site/src/components/api/ApiMemberCard.astro",
+      "docs/site/src/components/api/ApiTypeSignature.astro",
+      "docs/site/src/content.config.ts",
+      "docs/site/src/content/docs/.gitignore",
+      "docs/site/src/content/docs/Directory.Build.props",
+      "docs/site/src/content/docs/Directory.Packages.props",
+      "docs/site/src/content/docs/NuGet.Config",
+      "docs/site/src/content/docs/benefits.md",
+      "docs/site/src/content/docs/dashboard/index.md",
+      "docs/site/src/content/docs/dashboard/snippets/secure-dashboard/Program.cs",
+      "docs/site/src/content/docs/dashboard/snippets/secure-dashboard/SecureDashboard.csproj",
+      "docs/site/src/content/docs/deployment/azure-app-service.md",
+      "docs/site/src/content/docs/deployment/azure-kubernetes-service.md"
+    ],
+    "samples": [
+      "playground/ActivationRebalancing/ActivationRebalancing.AppHost/ActivationRebalancing.AppHost.csproj",
+      "playground/ActivationRebalancing/ActivationRebalancing.AppHost/Program.cs",
+      "playground/ActivationRebalancing/ActivationRebalancing.AppHost/Properties/launchSettings.json",
+      "playground/ActivationRebalancing/ActivationRebalancing.AppHost/appsettings.Development.json",
+      "playground/ActivationRebalancing/ActivationRebalancing.AppHost/appsettings.json",
+      "playground/ActivationRebalancing/ActivationRebalancing.Cluster/ActivationRebalancing.Cluster.csproj",
+      "playground/ActivationRebalancing/ActivationRebalancing.Cluster/Program.cs",
+      "playground/ActivationRebalancing/ActivationRebalancing.Frontend/ActivationRebalancing.Frontend.csproj",
+      "playground/ActivationRebalancing/ActivationRebalancing.Frontend/Controllers/StatsController.cs",
+      "playground/ActivationRebalancing/ActivationRebalancing.Frontend/Program.cs",
+      "playground/ActivationRebalancing/ActivationRebalancing.Frontend/Properties/launchSettings.json",
+      "playground/ActivationRebalancing/ActivationRebalancing.Frontend/appsettings.Development.json",
+      "playground/ActivationRebalancing/ActivationRebalancing.Frontend/appsettings.json",
+      "playground/ActivationRebalancing/ActivationRebalancing.Frontend/wwwroot/index.html",
+      "playground/ActivationRebalancing/ActivationRebalancing.Frontend/wwwroot/worker.js",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.AppHost/ActivationRepartitioning.AppHost.csproj",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.AppHost/Program.cs",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.AppHost/Properties/launchSettings.json",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.AppHost/appsettings.Development.json",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.AppHost/appsettings.json",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/ActivationRepartitioning.Frontend.csproj",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/Data/ClusterDiagnosticsService.cs",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/Program.cs",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/Properties/launchSettings.json",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/appsettings.Development.json",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/appsettings.json",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/bootstrap/bootstrap.min.css",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/bootstrap/bootstrap.min.css.map",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/FONT-LICENSE",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/ICON-LICENSE",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/README.md",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/font/css/open-iconic-bootstrap.min.css",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/font/fonts/open-iconic.eot",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/font/fonts/open-iconic.otf",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/font/fonts/open-iconic.svg",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/font/fonts/open-iconic.ttf",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/open-iconic/font/fonts/open-iconic.woff",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/css/site.css",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/favicon.png",
+      "playground/ActivationRepartitioning/ActivationRepartitioning.Frontend/wwwroot/index.html",
+      "playground/ActivationSheddingToy/ActivationSheddingToy.csproj",
+      "playground/ActivationSheddingToy/ActivationSheddingToyHostedService.cs",
+      "playground/ActivationSheddingToy/Program.cs",
+      "playground/ChaoticCluster/ChaoticCluster.AppHost/ChaoticCluster.AppHost.csproj",
+      "playground/ChaoticCluster/ChaoticCluster.AppHost/Program.cs",
+      "playground/ChaoticCluster/ChaoticCluster.AppHost/Properties/launchSettings.json",
+      "playground/ChaoticCluster/ChaoticCluster.AppHost/appsettings.Development.json",
+      "playground/ChaoticCluster/ChaoticCluster.AppHost/appsettings.json",
+      "playground/ChaoticCluster/ChaoticCluster.ServiceDefaults/ChaoticCluster.ServiceDefaults.csproj",
+      "playground/ChaoticCluster/ChaoticCluster.ServiceDefaults/Extensions.cs"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

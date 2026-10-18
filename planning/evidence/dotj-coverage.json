@@ -1,0 +1,583 @@
+{
+  "id": "DJ-054",
+  "repo": "dotj-coverage",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/coverlet-coverage/coverlet",
+  "canonical_url": "https://github.com/coverlet-coverage/coverlet",
+  "redirect_observed": false,
+  "inspected_revision": "b5ba9197f032e22627836d899aa3956a50cd5017",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "master",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Build.props",
+      "sha256": "b6aaeef38d2cdb61428315d5679b38d107c1e2d8af2199592fbad1d4964b5583",
+      "bytes": 3653
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props",
+      "sha256": "a6edfbf98920831fc73c4c29e2c7e1a14373653552d45b1f7a1a26c91c80e067",
+      "bytes": 7488
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/LICENSE",
+      "sha256": "5411d507bc9242b6acad10772a8f5a3ae217f494c419a206a3b6d849c6ccc1c0",
+      "bytes": 1085
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md",
+      "sha256": "4a5765ade1e21ed358fa63fa082ce49cdf564a0e8a0c437a824df9cd2dac1ff0",
+      "bytes": 16105
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.txt",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/THIRD-PARTY-NOTICES.txt",
+      "sha256": "17ace2f0bc2bdf6692db688a5e8f48b4d5a665ad35c9e2a6b8ea74d1e5797ac4",
+      "bytes": 1464
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/global.json",
+      "sha256": "2f226c8bf9dfef766c1e0e7802f96e5556ca29e493a9c3ceedc53de0f34044df",
+      "bytes": 141
+    },
+    {
+      "path": "coverlet.slnx",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/coverlet.slnx",
+      "sha256": "b8f544eacbfc72e23aabc7b1720680472392f32b051afa6db44b72422a848ea5",
+      "bytes": 4272
+    },
+    {
+      "path": "src/coverlet.console/coverlet.console.csproj",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/src/coverlet.console/coverlet.console.csproj",
+      "sha256": "ac61e7a34d0590fd650864bc39f737ec93a367e3de2287a0e297cbed2dc88562",
+      "bytes": 2177
+    },
+    {
+      "path": "test/coverlet.benchmark.subject/coverlet.benchmark.subject.csproj",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/test/coverlet.benchmark.subject/coverlet.benchmark.subject.csproj",
+      "sha256": "e581409fb29c0c06d014fa316ec483957393018103d1efe0cc704ccaa9bb58de",
+      "bytes": 671
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet.TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet.Diagnostics.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.DiagnosticsHub.BenchmarkDotNetDiagnosers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudio.DiagnosticsHub.BenchmarkDotNetDiagnosers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DotNetConfig",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Locator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.BannedApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Sbom.Targets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TestPlatform.ObjectModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Platform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.TrxReport.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.HangDump",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.CrashDump",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Platform.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.TrxReport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.AzureDevOpsReport",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest.TestFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Frameworks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Packaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Versioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Mono.Cecil",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ReportGenerator.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ReportGenerator.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "LinqKit.Microsoft.EntityFrameworkCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.mtp-v2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.runner.msbuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Buffers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.EventLog",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Pipelines",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Linq.Async",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.CompilerServices.Unsafe",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.AccessControl",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Encoding.CodePages",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.RegularExpressions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.CommandLine",
+      "file": "src/coverlet.console/coverlet.console.csproj",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/src/coverlet.console/coverlet.console.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "src/coverlet.console/coverlet.console.csproj",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/src/coverlet.console/coverlet.console.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Sbom.Targets",
+      "file": "src/coverlet.console/coverlet.console.csproj",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/src/coverlet.console/coverlet.console.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "$(MSBuildThisFileDirectory)..\\coverlet.core\\coverlet.core.csproj",
+      "file": "src/coverlet.console/coverlet.console.csproj",
+      "url": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/src/coverlet.console/coverlet.console.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/coverlet-coverage/coverlet",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/coverlet-coverage/coverlet",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/coverlet-coverage/coverlet",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/coverlet-coverage/coverlet",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/coverlet-coverage/coverlet",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/Microsoft/vstest-docs",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/coverlet-coverage/coverlet",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/coverlet-coverage/coverlet",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/Romanx/Cake.Coverlet",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    },
+    {
+      "url": "https://github.com/ademanuele/VSMac-CodeCoverage",
+      "source": "https://github.com/coverlet-coverage/coverlet/blob/b5ba9197f032e22627836d899aa3956a50cd5017/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/coverlet.MTP",
+      "src/coverlet.console",
+      "src/coverlet.core",
+      "src/coverlet.template",
+      "src/legacy",
+      "src/legacy/coverlet.collector",
+      "src/legacy/coverlet.msbuild.tasks",
+      "src/legacy/global-legacy.json",
+      "src/coverlet.console/coverlet.console.csproj",
+      "src/coverlet.core/coverlet.core.csproj",
+      "src/coverlet.template/coverlet.template.csproj",
+      "src/coverlet.MTP/coverlet.MTP.csproj",
+      "src/legacy/coverlet.collector/coverlet.collector.csproj",
+      "src/legacy/coverlet.msbuild.tasks/coverlet.msbuild.tasks.csproj",
+      "test/coverlet.benchmark.subject/coverlet.benchmark.subject.csproj",
+      "test/coverlet.collector.tests/coverlet.collector.tests.csproj",
+      "test/coverlet.core.benchmark.tests/coverlet.core.benchmark.tests.csproj",
+      "test/coverlet.core.coverage.tests/coverlet.core.coverage.tests.csproj",
+      "test/coverlet.core.tests.samples.netstandard/coverlet.core.tests.samples.netstandard.csproj",
+      "test/coverlet.core.tests/coverlet.core.tests.csproj",
+      "test/coverlet.integration.determisticbuild/coverlet.integration.determisticbuild.csproj",
+      "test/coverlet.integration.tests/coverlet.integration.tests.csproj",
+      "test/coverlet.integration.template/coverlet.integration.template.csproj",
+      "test/coverlet.msbuild.tasks.tests/coverlet.msbuild.tasks.tests.csproj",
+      "test/coverlet.MTP.tests/coverlet.MTP.tests.csproj",
+      "test/coverlet.MTP.validation.tests/coverlet.MTP.validation.tests.csproj",
+      "test/coverlet.tests.projectsample.aspmvcrazor.tests/coverlet.tests.projectsample.aspmvcrazor.tests.csproj",
+      "test/coverlet.tests.projectsample.aspmvcrazor/coverlet.tests.projectsample.aspmvcrazor.csproj",
+      "test/coverlet.tests.projectsample.aspnet8.tests/coverlet.tests.projectsample.aspnet8.tests.csproj",
+      "test/coverlet.tests.projectsample.aspnet8/coverlet.tests.projectsample.aspnet8.csproj",
+      "test/coverlet.tests.projectsample.empty/coverlet.tests.projectsample.empty.csproj",
+      "test/coverlet.tests.projectsample.excludedbyattribute/coverlet.tests.projectsample.excludedbyattribute.csproj",
+      "test/coverlet.tests.projectsample.netframework/coverlet.tests.projectsample.netframework.csproj",
+      "test/coverlet.tests.projectsample.wpf8.selfcontained/coverlet.tests.projectsample.wpf8.selfcontained.csproj",
+      "test/coverlet.tests.projectsample.wpf8/coverlet.tests.projectsample.wpf8.csproj",
+      "test/coverlet.tests.utils/coverlet.tests.utils.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "test",
+      "test/coverlet.benchmark.subject/coverlet.benchmark.subject.csproj",
+      "test/coverlet.collector.tests/coverlet.collector.tests.csproj",
+      "test/coverlet.core.benchmark.tests/coverlet.core.benchmark.tests.csproj",
+      "test/coverlet.core.coverage.tests/coverlet.core.coverage.tests.csproj",
+      "test/coverlet.core.tests.samples.netstandard/coverlet.core.tests.samples.netstandard.csproj",
+      "test/coverlet.core.tests/coverlet.core.tests.csproj",
+      "test/coverlet.integration.determisticbuild/coverlet.integration.determisticbuild.csproj",
+      "test/coverlet.integration.tests/coverlet.integration.tests.csproj",
+      "test/coverlet.integration.template/coverlet.integration.template.csproj",
+      "test/coverlet.msbuild.tasks.tests/coverlet.msbuild.tasks.tests.csproj",
+      "test/coverlet.MTP.tests/coverlet.MTP.tests.csproj",
+      "test/coverlet.MTP.validation.tests/coverlet.MTP.validation.tests.csproj",
+      "test/coverlet.tests.projectsample.aspmvcrazor.tests/coverlet.tests.projectsample.aspmvcrazor.tests.csproj",
+      "test/coverlet.tests.projectsample.aspmvcrazor/coverlet.tests.projectsample.aspmvcrazor.csproj",
+      "test/coverlet.tests.projectsample.aspnet8.tests/coverlet.tests.projectsample.aspnet8.tests.csproj",
+      "test/coverlet.tests.projectsample.aspnet8/coverlet.tests.projectsample.aspnet8.csproj",
+      "test/coverlet.tests.projectsample.empty/coverlet.tests.projectsample.empty.csproj",
+      "test/coverlet.tests.projectsample.excludedbyattribute/coverlet.tests.projectsample.excludedbyattribute.csproj",
+      "test/coverlet.tests.projectsample.fsharp/coverlet.tests.projectsample.fsharp.fsproj",
+      "test/coverlet.tests.projectsample.netframework/coverlet.tests.projectsample.netframework.csproj",
+      "test/coverlet.tests.projectsample.vbmynamespace/coverlet.tests.projectsample.vbmynamespace.vbproj",
+      "test/coverlet.tests.projectsample.wpf8.selfcontained/coverlet.tests.projectsample.wpf8.selfcontained.csproj",
+      "test/coverlet.tests.projectsample.wpf8/coverlet.tests.projectsample.wpf8.csproj",
+      "test/coverlet.tests.utils/coverlet.tests.utils.csproj"
+    ],
+    "docs": [
+      "Documentation"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

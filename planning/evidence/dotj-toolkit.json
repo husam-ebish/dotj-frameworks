@@ -1,0 +1,194 @@
+{
+  "id": "DJ-045",
+  "repo": "dotj-toolkit",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/CommunityToolkit/dotnet",
+  "canonical_url": "https://github.com/CommunityToolkit/dotnet",
+  "redirect_observed": false,
+  "inspected_revision": "b135626dd54d33b8f05f2ff31591592c004aa848",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/Directory.Build.props",
+      "sha256": "de11b912aa3be626c2aa9aa1427996fb750780e6631d792d5d6c147e9a60a394",
+      "bytes": 1878
+    },
+    {
+      "path": "License.md",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/License.md",
+      "sha256": "1e1101b893f295b4526da2c167e4234610f1078e2fe43a0e814c1a883656877b",
+      "bytes": 1145
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/README.md",
+      "sha256": "03ba097b2c8dfae65f1b56829f851556d7ff076b270dbffcf0c0dfbb4ca74a9d",
+      "bytes": 6283
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/global.json",
+      "sha256": "e57b61242190defaf03cb8f7c86d958c6824f1ccb5960199488542491f8a7f23",
+      "bytes": 110
+    },
+    {
+      "path": "dotnet.slnx",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/dotnet.slnx",
+      "sha256": "d2de65fa7864b56a15a1c77ee3a689f7694cf25888e63b61034e7ec0e7fa3a07",
+      "bytes": 4890
+    },
+    {
+      "path": "src/CommunityToolkit.Common/CommunityToolkit.Common.csproj",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/src/CommunityToolkit.Common/CommunityToolkit.Common.csproj",
+      "sha256": "6b4a8f25064e0858b8f6e1f350e1ece2f3d43bce18dd9444a39005647923e8f9",
+      "bytes": 1060
+    },
+    {
+      "path": "tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+      "sha256": "d8fa3a99847837477d99b9011c2faeef725d01d196bb7b0a1e4e72ad1326ab87",
+      "bytes": 531
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Nerdbank.GitVersioning",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "DotNet.ReproducibleBuilds",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MSTest.TestAdapter",
+      "file": "tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MSTest.TestFramework",
+      "file": "tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\CommunityToolkit.Common\\CommunityToolkit.Common.csproj",
+      "file": "tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+      "url": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/CommunityToolkit/WindowsCommunityToolkit",
+      "source": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/README.md"
+    },
+    {
+      "url": "https://github.com/CommunityToolkit/dotnet",
+      "source": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/README.md"
+    },
+    {
+      "url": "https://github.com/CommunityToolkit/dotnet",
+      "source": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/README.md"
+    },
+    {
+      "url": "https://github.com/CommunityToolkit/dotnet",
+      "source": "https://github.com/CommunityToolkit/dotnet/blob/b135626dd54d33b8f05f2ff31591592c004aa848/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/CommunityToolkit.Common",
+      "src/CommunityToolkit.Diagnostics",
+      "src/CommunityToolkit.HighPerformance",
+      "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn4001",
+      "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn4120",
+      "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn5000",
+      "src/CommunityToolkit.Mvvm.CodeFixers",
+      "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001",
+      "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031",
+      "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120",
+      "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000",
+      "src/CommunityToolkit.Mvvm.SourceGenerators",
+      "src/CommunityToolkit.Mvvm",
+      "src/Directory.Build.props",
+      "src/Directory.Build.targets",
+      "tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+      "tests/CommunityToolkit.Diagnostics.UnitTests/CommunityToolkit.Diagnostics.UnitTests.csproj",
+      "tests/CommunityToolkit.HighPerformance.UnitTests/CommunityToolkit.HighPerformance.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4001/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4001.csproj",
+      "tests/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4031/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4031.csproj",
+      "tests/CommunityToolkit.Mvvm.Internals.UnitTests/CommunityToolkit.Mvvm.Internals.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.Roslyn4001.UnitTests/CommunityToolkit.Mvvm.Roslyn4001.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.Roslyn4031.UnitTests/CommunityToolkit.Mvvm.Roslyn4031.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.Roslyn4120.UnitTests/CommunityToolkit.Mvvm.Roslyn4120.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.Roslyn5000.UnitTests/CommunityToolkit.Mvvm.Roslyn5000.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.DisableINotifyPropertyChanging.UnitTests/CommunityToolkit.Mvvm.DisableINotifyPropertyChanging.UnitTests.csproj",
+      "src/CommunityToolkit.Common/CommunityToolkit.Common.csproj",
+      "src/CommunityToolkit.Diagnostics/CommunityToolkit.Diagnostics.csproj",
+      "src/CommunityToolkit.HighPerformance/CommunityToolkit.HighPerformance.csproj",
+      "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn4001/CommunityToolkit.Mvvm.CodeFixers.Roslyn4001.csproj",
+      "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn4120/CommunityToolkit.Mvvm.CodeFixers.Roslyn4120.csproj",
+      "src/CommunityToolkit.Mvvm.CodeFixers.Roslyn5000/CommunityToolkit.Mvvm.CodeFixers.Roslyn5000.csproj",
+      "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001.csproj",
+      "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031.csproj",
+      "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120.csproj",
+      "src/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000.csproj",
+      "src/CommunityToolkit.Mvvm/CommunityToolkit.Mvvm.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "tests",
+      "tests/CommunityToolkit.Common.UnitTests/CommunityToolkit.Common.UnitTests.csproj",
+      "tests/CommunityToolkit.Diagnostics.UnitTests/CommunityToolkit.Diagnostics.UnitTests.csproj",
+      "tests/CommunityToolkit.HighPerformance.UnitTests/CommunityToolkit.HighPerformance.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4001/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4001.csproj",
+      "tests/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4031/CommunityToolkit.Mvvm.ExternalAssembly.Roslyn4031.csproj",
+      "tests/CommunityToolkit.Mvvm.Internals.UnitTests/CommunityToolkit.Mvvm.Internals.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.Roslyn4001.UnitTests/CommunityToolkit.Mvvm.Roslyn4001.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.Roslyn4031.UnitTests/CommunityToolkit.Mvvm.Roslyn4031.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.Roslyn4120.UnitTests/CommunityToolkit.Mvvm.Roslyn4120.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.Roslyn5000.UnitTests/CommunityToolkit.Mvvm.Roslyn5000.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4001.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4031.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn4120.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000.UnitTests/CommunityToolkit.Mvvm.SourceGenerators.Roslyn5000.UnitTests.csproj",
+      "tests/CommunityToolkit.Mvvm.DisableINotifyPropertyChanging.UnitTests/CommunityToolkit.Mvvm.DisableINotifyPropertyChanging.UnitTests.csproj"
+    ],
+    "docs": [],
+    "samples": []
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links",
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

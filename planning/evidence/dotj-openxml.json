@@ -1,0 +1,424 @@
+{
+  "id": "DJ-058",
+  "repo": "dotj-openxml",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/Open-XML-SDK",
+  "canonical_url": "https://github.com/dotnet/Open-XML-SDK",
+  "redirect_observed": false,
+  "inspected_revision": "431ab05cf160248cc3885a4a766026d4f8243792",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Build.props",
+      "sha256": "dbe7c8e2867e3271422f86192922348434a1db2daf603f5bc3f212e3db1c55ca",
+      "bytes": 4693
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props",
+      "sha256": "f87fc44a8bb7ce2efc328e8647c809956c4dfa4c41969c9ae85eb95a59522c0f",
+      "bytes": 2758
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/LICENSE",
+      "sha256": "ed03ba352313a4ba7019d5bed4bd3218ac17f3e44442a3bb1aaff54dcca9a2bc",
+      "bytes": 1119
+    },
+    {
+      "path": "NOTICE",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/NOTICE",
+      "sha256": "b58ffb033b77dce71dc84018c86c33cc81bcb39336c75c057492e65cfe9e1c34",
+      "bytes": 1306
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md",
+      "sha256": "c6c3bd7d75e4a1b70ee180cf6810c1a1d668ce21cd8461dbebedfdeb6848176d",
+      "bytes": 9326
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/global.json",
+      "sha256": "c210b143bd0cf09995ed44d4a6a83ff21e00f35225155f88dbdeb6f30b93c270",
+      "bytes": 135
+    },
+    {
+      "path": "Open-XML-SDK.slnx",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Open-XML-SDK.slnx",
+      "sha256": "aef08df005ce7cb5fc93140e1048169927c013772cbc756554993cc60a678a3a",
+      "bytes": 3232
+    },
+    {
+      "path": "gen/DocumentFormat.OpenXml.Generator.Models/DocumentFormat.OpenXml.Generator.Models.csproj",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/gen/DocumentFormat.OpenXml.Generator.Models/DocumentFormat.OpenXml.Generator.Models.csproj",
+      "sha256": "7faa4ee8f2bfc49cf327b34de60c46a1303655027bdfc38b222f6c82fa1ecf04",
+      "bytes": 1065
+    },
+    {
+      "path": "test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj",
+      "sha256": "3543f0a9d58f35d9fec984b122e963dc0dc67f93b55b21d9346bc5e225586b52",
+      "bytes": 811
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet.Diagnostics.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.collector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.BuildTools.GenAPI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.SourceGenerators.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.CodeCoverage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSubstitute",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Common",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Packaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Protocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Resolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ObjectLayoutInspector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StyleCop.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Svg",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CodeDom",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Algorithms",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Xml.ReaderWriter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ValueTuple",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.mtp-v2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Packaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Packaging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Text.Json",
+      "file": "gen/DocumentFormat.OpenXml.Generator.Models/DocumentFormat.OpenXml.Generator.Models.csproj",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/gen/DocumentFormat.OpenXml.Generator.Models/DocumentFormat.OpenXml.Generator.Models.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Collections.Immutable",
+      "file": "gen/DocumentFormat.OpenXml.Generator.Models/DocumentFormat.OpenXml.Generator.Models.csproj",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/gen/DocumentFormat.OpenXml.Generator.Models/DocumentFormat.OpenXml.Generator.Models.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "BenchmarkDotNet",
+      "file": "test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "BenchmarkDotNet.Diagnostics.Windows",
+      "file": "test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\DocumentFormat.OpenXml\\DocumentFormat.OpenXml.csproj",
+      "file": "test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\DocumentFormat.OpenXml.Tests.Assets\\DocumentFormat.OpenXml.Tests.Assets.csproj",
+      "file": "test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj",
+      "url": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/OfficeDev/Open-XML-SDK",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/runtime",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/OfficeDev/Open-XML-SDK",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/EricWhiteDev/Open-Xml-PowerTools",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/closedxml/closedxml",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/EvotecIT/OfficeIMO",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/DraviaVemal/OpenXML-Office",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/rmboggs/Serialize.OpenXml.CodeGen",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/onizet/html2openxml",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/rmboggs/DocxToSource",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/yuenm18/ooxml-viewer-vscode",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/ShapeCrawler/ShapeCrawler",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    },
+    {
+      "url": "https://github.com/mikeebowen/ooxml-validator-vscode",
+      "source": "https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/DocumentFormat.OpenXml.Features",
+      "src/DocumentFormat.OpenXml.Framework",
+      "src/DocumentFormat.OpenXml.Linq",
+      "src/DocumentFormat.OpenXml",
+      "src/common",
+      "src/Directory.Build.props",
+      "src/Directory.Build.targets",
+      "src/PEVerify.targets",
+      "src/common/System",
+      "src/common/FrameworkShims.targets",
+      "gen/DocumentFormat.OpenXml.Generator.Models/DocumentFormat.OpenXml.Generator.Models.csproj",
+      "gen/DocumentFormat.OpenXml.Generator/DocumentFormat.OpenXml.Generator.csproj",
+      "samples/DocumentTaskExample/DocumentTaskSample.csproj",
+      "samples/IsolatedStorageExceptionWorkaround/IsolatedStorageExceptionWorkaround.csproj",
+      "samples/Linq/SvgExample/SvgExampleLinq.csproj",
+      "samples/NamedSheetView/AddNamedSheetView.csproj",
+      "samples/RichData/RichData.csproj",
+      "samples/SunburstChartExample/SunburstChartExample.csproj",
+      "samples/SVGExample/SVGExample.csproj",
+      "samples/ThreadedCommentExample/ThreadedCommentExample.csproj",
+      "samples/AnimatedModel3DExample/AddAnimatedModel3D.csproj",
+      "src/DocumentFormat.OpenXml.Features/DocumentFormat.OpenXml.Features.csproj",
+      "src/DocumentFormat.OpenXml.Framework/DocumentFormat.OpenXml.Framework.csproj",
+      "src/DocumentFormat.OpenXml.Linq/DocumentFormat.OpenXml.Linq.csproj",
+      "src/DocumentFormat.OpenXml/DocumentFormat.OpenXml.csproj",
+      "test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj",
+      "test/DocumentFormat.OpenXml.Framework.Features.Tests/DocumentFormat.OpenXml.Framework.Features.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Framework.Tests/DocumentFormat.OpenXml.Framework.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Generator.Models.Tests/DocumentFormat.OpenXml.Generator.Models.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Linq.Tests/DocumentFormat.OpenXml.Linq.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Packaging.Tests/DocumentFormat.OpenXml.Packaging.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Tests.Assets/DocumentFormat.OpenXml.Tests.Assets.csproj",
+      "test/DocumentFormat.OpenXml.Tests/DocumentFormat.OpenXml.Tests.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "test",
+      "test/DocumentFormat.OpenXml.Benchmarks/DocumentFormat.OpenXml.Benchmarks.csproj",
+      "test/DocumentFormat.OpenXml.Framework.Features.Tests/DocumentFormat.OpenXml.Framework.Features.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Framework.Tests/DocumentFormat.OpenXml.Framework.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Generator.Models.Tests/DocumentFormat.OpenXml.Generator.Models.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Linq.Tests/DocumentFormat.OpenXml.Linq.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Packaging.Tests/DocumentFormat.OpenXml.Packaging.Tests.csproj",
+      "test/DocumentFormat.OpenXml.Tests.Assets/DocumentFormat.OpenXml.Tests.Assets.csproj",
+      "test/DocumentFormat.OpenXml.Tests/DocumentFormat.OpenXml.Tests.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": [
+      "samples",
+      "samples/DocumentTaskExample/DocumentTaskSample.csproj",
+      "samples/IsolatedStorageExceptionWorkaround/IsolatedStorageExceptionWorkaround.csproj",
+      "samples/Linq/SvgExample/SvgExampleLinq.csproj",
+      "samples/NamedSheetView/AddNamedSheetView.csproj",
+      "samples/RichData/RichData.csproj",
+      "samples/SunburstChartExample/SunburstChartExample.csproj",
+      "samples/SVGExample/SVGExample.csproj",
+      "samples/ThreadedCommentExample/ThreadedCommentExample.csproj",
+      "samples/AnimatedModel3DExample/AddAnimatedModel3D.csproj"
+    ]
+  },
+  "gaps": [
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

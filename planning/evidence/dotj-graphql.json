@@ -1,0 +1,277 @@
+{
+  "id": "DJ-039",
+  "repo": "dotj-graphql",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/graphql-dotnet/graphql-dotnet",
+  "canonical_url": "https://github.com/graphql-dotnet/graphql-dotnet",
+  "redirect_observed": false,
+  "inspected_revision": "af0b3e77b874cc73167d70910103ac708f14ed28",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "master",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/Directory.Build.props",
+      "sha256": "10b965eb6b114770a33dc4d1912ef4d844066aa8684553d4b0b9ca31608e083a",
+      "bytes": 2554
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/LICENSE.md",
+      "sha256": "59454b5c3ca79c9f82159bbe20ae2537b367869cf39d372858c8caea0b60acb3",
+      "bytes": 1147
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md",
+      "sha256": "b02ecde28b8fc2b1e5e8908865edf8b2cb78f9ed7d2db991eac3f3c310124f78",
+      "bytes": 19799
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/global.json",
+      "sha256": "64f27e6a38f1e9c222b6b40d103c60597ef112d08f1f5e6e1a535da845ef53dd",
+      "bytes": 111
+    },
+    {
+      "path": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj",
+      "sha256": "c7a4632996d47a77a712bc570f94477f00521bd18c6b6ffb955dc34c297a0dca",
+      "bytes": 1752
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "PolySharp",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Roslynator.Analyzers",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Roslynator.Formatting.Analyzers",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/Directory.Build.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "GraphQL-Parser",
+      "file": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CSharp",
+      "file": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Nullability.Source",
+      "file": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ComponentModel.Annotations",
+      "file": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Memory",
+      "file": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Runtime.CompilerServices.Unsafe",
+      "file": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\GraphQL.Analyzers.Package\\GraphQL.Analyzers.Package.csproj",
+      "file": "src/GraphQL/GraphQL.csproj",
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/GraphQL.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql/graphql-spec",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/orgs/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/sourcelink",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/aspnet/Announcements",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/server",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/examples",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-client",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/Shane32/AppTemplate",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/imolorhe/altair",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql/graphiql",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/APIs-guru/graphql-voyager",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/examples",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/features/actions",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/orgs/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    },
+    {
+      "url": "https://github.com/graphql-dotnet/graphql-dotnet",
+      "source": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/GraphQL.Analyzers.CodeFixes",
+      "src/GraphQL.Analyzers.Package",
+      "src/GraphQL.Analyzers.Tests",
+      "src/GraphQL.Analyzers",
+      "src/GraphQL.ApiTests",
+      "src/GraphQL.Benchmarks.Merge",
+      "src/GraphQL.Benchmarks",
+      "src/GraphQL.DataLoader.Tests",
+      "src/GraphQL.DataLoader",
+      "src/GraphQL.Dummy",
+      "src/GraphQL.MemoryCache",
+      "src/GraphQL.MicrosoftDI.Tests",
+      "src/GraphQL.MicrosoftDI",
+      "src/GraphQL.NewtonsoftJson",
+      "src/GraphQL.StarWars.TypeFirst",
+      "src/GraphQL.StarWars",
+      "src/GraphQL.SystemTextJson",
+      "src/GraphQL.Tests",
+      "src/GraphQL",
+      "src/GraphQL/Attributes",
+      "src/GraphQL/Builders",
+      "src/GraphQL/CodeAnalysis",
+      "src/GraphQL/Conversion",
+      "src/GraphQL/DI",
+      "src/GraphQL/DataLoader",
+      "src/GraphQL/Execution",
+      "src/GraphQL/Extensions",
+      "src/GraphQL/Federation",
+      "src/GraphQL/Instrumentation",
+      "src/GraphQL/Introspection",
+      "src/GraphQL/PersistedDocuments",
+      "src/GraphQL/Reflection",
+      "src/GraphQL/ResolveFieldContext",
+      "src/GraphQL/Resolvers",
+      "src/GraphQL/Shim",
+      "src/GraphQL/Telemetry",
+      "src/GraphQL/Transport",
+      "src/GraphQL/Types",
+      "src/GraphQL/Utilities",
+      "src/GraphQL/Validation",
+      "src/GraphQL/BoolBox.cs",
+      "src/GraphQL/ConstrainedArray.cs",
+      "src/GraphQL/ExperimentalFeatures.cs",
+      "src/GraphQL/GlobalSwitches.cs",
+      "src/GraphQL/GraphQL.csproj",
+      "src/GraphQL/GraphQLValuesCache.cs",
+      "src/GraphQL/IConfigureAutoSchema.cs",
+      "src/GraphQL/LightweightCache.cs",
+      "src/GraphQL/MissingRequestServicesException.cs",
+      "src/GraphQL/VariableName.cs"
+    ],
+    "api": [],
+    "tests": [
+      "Tests.props",
+      "src/GraphQL.Analyzers.Tests",
+      "src/GraphQL.DataLoader.Tests",
+      "src/GraphQL.MicrosoftDI.Tests",
+      "src/GraphQL.Tests"
+    ],
+    "docs": [],
+    "samples": [
+      "samples"
+    ]
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

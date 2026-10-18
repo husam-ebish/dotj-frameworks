@@ -1,0 +1,864 @@
+{
+  "id": "DJ-060",
+  "repo": "dotj-ml",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/machinelearning",
+  "canonical_url": "https://github.com/dotnet/machinelearning",
+  "redirect_observed": false,
+  "inspected_revision": "655f469b0d54bccf94dc251b8db457b57d56d084",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Build.props",
+      "sha256": "b5a9130ac6113dc4ce91024c12c9207fc9cb947fe482edbdebe2133b918b724d",
+      "bytes": 3575
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props",
+      "sha256": "7c7b25459a5fa6803bbfc80f6b8154bec59759256558940f9e2b1bd5c9a906cd",
+      "bytes": 9501
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/LICENSE",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "bytes": 1116
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/README.md",
+      "sha256": "ff09162037f6f94df4da87df307f9068f090ba05e3bd45065c546e2ef94a814a",
+      "bytes": 6393
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "9fcdd8c0c76a7b3bdca3b8ab31fc6a46d80de1fec718bd692cce9d4242c4141a",
+      "bytes": 9845
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/global.json",
+      "sha256": "d76619e79f8ba8a28ebbd19bf15e5450f6a34544ecd93b940b6fb5e56e0b5eae",
+      "bytes": 514
+    },
+    {
+      "path": "Microsoft.ML.sln",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Microsoft.ML.sln",
+      "sha256": "5bb7271a9e508f70707228e4836a5460d489cd3d22bc41a7b8c562d3f0de78f1",
+      "bytes": 80977
+    },
+    {
+      "path": "src/Microsoft.ML.Core/Microsoft.ML.Core.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/src/Microsoft.ML.Core/Microsoft.ML.Core.csproj",
+      "sha256": "a8c0db7ec1035615a8fa99cd461eb0d1c4b3063de68c2b06add6cecb5b99e430",
+      "bytes": 472
+    },
+    {
+      "path": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "sha256": "02c1c24b94e5c8b5af0c4aa73e3560bccc684a300219c8a4f81eed0d0e09c5ee",
+      "bytes": 3087
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Apache.Arrow",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Protobuf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "LightGBM",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.HashCode",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Interactive",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Interactive.Formatting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ObjectPool",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.OnnxRuntime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.OnnxRuntime.Managed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MlNetMklDeps",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Packaging.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Resolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Parquet.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Plotly.NET.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SciSharp.TensorFlow.Redist",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SciSharp.TensorFlow.Redist-Linux-GPU",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SciSharp.TensorFlow.Redist-Windows-GPU",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpZipLib",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SkiaSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SkiaSharp.NativeAssets.Linux.NoDependencies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Buffers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CodeDom",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Collections.Immutable",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Composition",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Configuration.ConfigurationManager",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.FileSystem.AccessControl",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Pipelines",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Numerics.Tensors",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Emit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Emit.Lightweight",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.CompilerServices.Unsafe",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Principal.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Encodings.Web",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Channels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "TensorFlow.NET",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "TorchSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "libtorch-cpu-linux-x64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "libtorch-cpu-osx-x64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "libtorch-cpu-win-x64",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FSharp.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ApprovalTests",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AwesomeAssertions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet.Diagnostics.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.collector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.msbuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeFix.Testing.XUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.PlatformAbstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.RemoteExecutor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.XUnitExtensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.Onnx.TestModels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.TensorFlow.TestModels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.TestDatabases",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.TestModels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ML.TestTokenizers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest.TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MSTest.TestFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SQLite.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SQLite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "runtime.native.System.Data.SqlClient.sni",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Xunit.Combinatorial",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Codecov",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Drop.App",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Templating",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ReportGenerator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MathNet.Numerics.Signed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "TorchSharp-cuda-windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/Directory.Packages.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Microsoft.ML.DataView\\Microsoft.ML.DataView.csproj",
+      "file": "src/Microsoft.ML.Core/Microsoft.ML.Core.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/src/Microsoft.ML.Core/Microsoft.ML.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Collections.Immutable",
+      "file": "src/Microsoft.ML.Core/Microsoft.ML.Core.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/src/Microsoft.ML.Core/Microsoft.ML.Core.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.EntryPoints\\Microsoft.ML.EntryPoints.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.LightGbm\\Microsoft.ML.LightGbm.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.Mkl.Components\\Microsoft.ML.Mkl.Components.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.OneDal\\Microsoft.ML.OneDal.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.Core\\Microsoft.ML.Core.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.Data\\Microsoft.ML.Data.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.Ensemble\\Microsoft.ML.Ensemble.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.ImageAnalytics\\Microsoft.ML.ImageAnalytics.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.KMeansClustering\\Microsoft.ML.KMeansClustering.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.OnnxConverter\\Microsoft.ML.OnnxConverter.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.Parquet\\Microsoft.ML.Parquet.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.PCA\\Microsoft.ML.PCA.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.StandardTrainers\\Microsoft.ML.StandardTrainers.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.TensorFlow\\Microsoft.ML.TensorFlow.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.TimeSeries\\Microsoft.ML.TimeSeries.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Microsoft.ML.Transforms\\Microsoft.ML.Transforms.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Microsoft.ML.TestFramework\\Microsoft.ML.TestFramework.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Microsoft.ML.Tests\\Microsoft.ML.Tests.csproj",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ML.TestModels",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "SciSharp.TensorFlow.Redist",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ML.TensorFlow.TestModels",
+      "file": "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "url": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/machinelearning-samples",
+      "source": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/machinelearning-samples",
+      "source": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/README.md"
+    },
+    {
+      "url": "https://github.com/fsprojects/Paket",
+      "source": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/machinelearning-samples",
+      "source": "https://github.com/dotnet/machinelearning/blob/655f469b0d54bccf94dc251b8db457b57d56d084/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Common/tests",
+      "src/Microsoft.Data.Analysis.Interactive",
+      "src/Microsoft.Data.Analysis",
+      "src/Microsoft.Extensions.ML",
+      "src/Microsoft.ML.AutoML.Interactive",
+      "src/Microsoft.ML.AutoML",
+      "src/Microsoft.ML.CodeGenerator",
+      "src/Microsoft.ML.Console",
+      "src/Microsoft.ML.Core",
+      "src/Microsoft.ML.CpuMath",
+      "src/Microsoft.ML.Data",
+      "src/Microsoft.ML.DataView",
+      "src/Microsoft.ML.DnnAnalyzer/Microsoft.ML.DnnAnalyzer",
+      "src/Microsoft.ML.DnnImageFeaturizer.AlexNet",
+      "src/Microsoft.ML.DnnImageFeaturizer.ModelRedist",
+      "src/Microsoft.ML.DnnImageFeaturizer.ResNet101",
+      "src/Microsoft.ML.DnnImageFeaturizer.ResNet18",
+      "src/Microsoft.ML.DnnImageFeaturizer.ResNet50",
+      "src/Microsoft.ML.Ensemble",
+      "src/Microsoft.ML.EntryPoints",
+      "src/Microsoft.ML.Experimental",
+      "src/Microsoft.ML.Fairlearn",
+      "src/Microsoft.ML.FastTree",
+      "src/Microsoft.ML.ImageAnalytics",
+      "src/Microsoft.ML.KMeansClustering",
+      "src/Microsoft.ML.LightGbm",
+      "src/Microsoft.ML.Maml",
+      "src/Microsoft.ML.Mkl.Components",
+      "src/Microsoft.ML.Mkl.Redist",
+      "src/Microsoft.ML.OneDal",
+      "src/Microsoft.ML.OnnxConverter",
+      "src/Microsoft.ML.OnnxTransformer",
+      "src/Microsoft.ML.PCA",
+      "src/Microsoft.ML.Parquet",
+      "src/Microsoft.ML.Recommender",
+      "src/Microsoft.ML.ResultProcessor",
+      "src/Microsoft.ML.SamplesUtils",
+      "src/Microsoft.ML.SearchSpace",
+      "src/Microsoft.ML.StandardTrainers",
+      "src/Microsoft.ML.Sweeper",
+      "src/Microsoft.ML.TensorFlow",
+      "src/Microsoft.ML.TimeSeries",
+      "src/Microsoft.ML.Tokenizers.Data.Cl100kBase",
+      "src/Microsoft.ML.Tokenizers.Data.Gpt2",
+      "src/Microsoft.ML.Tokenizers.Data.O200kBase",
+      "src/Microsoft.ML.Tokenizers.Data.P50kBase",
+      "src/Microsoft.ML.Tokenizers.Data.R50kBase",
+      "src/Microsoft.ML.Tokenizers",
+      "src/Microsoft.ML.TorchSharp",
+      "src/Microsoft.ML.Transforms"
+    ],
+    "api": [],
+    "tests": [
+      "test",
+      "src/Common/tests",
+      "src/Common/tests/RetryHelper.cs",
+      "test/Microsoft.ML.Core.Tests/Microsoft.ML.Core.Tests.csproj",
+      "test/Microsoft.ML.Tests/Microsoft.ML.Tests.csproj",
+      "test/Microsoft.ML.TestFramework/Microsoft.ML.TestFramework.csproj",
+      "test/Microsoft.ML.Predictor.Tests/Microsoft.ML.Predictor.Tests.csproj",
+      "test/Microsoft.ML.IntegrationTests/Microsoft.ML.IntegrationTests.csproj",
+      "test/Microsoft.ML.PerformanceTests/Microsoft.ML.PerformanceTests.csproj",
+      "test/Microsoft.ML.Sweeper.Tests/Microsoft.ML.Sweeper.Tests.csproj",
+      "test/Microsoft.ML.CodeAnalyzer.Tests/Microsoft.ML.CodeAnalyzer.Tests.csproj",
+      "test/Microsoft.ML.CpuMath.PerformanceTests/Microsoft.ML.CpuMath.PerformanceTests.csproj",
+      "test/Microsoft.ML.CpuMath.UnitTests/Microsoft.ML.CpuMath.UnitTests.csproj",
+      "test/Microsoft.ML.OnnxTransformerTest/Microsoft.ML.OnnxTransformerTest.csproj",
+      "test/Microsoft.ML.Benchmarks.Tests/Microsoft.ML.Benchmarks.Tests.csproj",
+      "test/Microsoft.ML.TimeSeries.Tests/Microsoft.ML.TimeSeries.Tests.csproj",
+      "test/Microsoft.Extensions.ML.Tests/Microsoft.Extensions.ML.Tests.csproj",
+      "test/Microsoft.ML.AutoML.Tests/Microsoft.ML.AutoML.Tests.csproj",
+      "test/Microsoft.ML.CodeGenerator.Tests/Microsoft.ML.CodeGenerator.Tests.csproj",
+      "test/Microsoft.ML.TestFrameworkCommon/Microsoft.ML.TestFrameworkCommon.csproj",
+      "test/Microsoft.ML.NightlyBuild.Tests/Microsoft.ML.NightlyBuild.Tests.csproj",
+      "test/Microsoft.ML.NugetPackageVersionUpdater/Microsoft.ML.NugetPackageVersionUpdater.csproj",
+      "test/Microsoft.Data.Analysis.Tests/Microsoft.Data.Analysis.Tests.csproj",
+      "test/Microsoft.Data.Analysis.Interactive.Tests/Microsoft.Data.Analysis.Interactive.Tests.csproj",
+      "test/Microsoft.ML.SearchSpace.Tests/Microsoft.ML.SearchSpace.Tests.csproj",
+      "test/Microsoft.ML.Fairlearn.Tests/Microsoft.ML.Fairlearn.Tests.csproj",
+      "test/Microsoft.ML.Tokenizers.Tests/Microsoft.ML.Tokenizers.Tests.csproj",
+      "test/Microsoft.ML.FSharp.Tests/Microsoft.ML.FSharp.Tests.fsproj",
+      "test/Microsoft.Data.Analysis.PerformanceTests/Microsoft.Data.Analysis.PerformanceTests.csproj",
+      "test/Microsoft.ML.TorchSharp.Tests/Microsoft.ML.TorchSharp.Tests.csproj",
+      "test/Microsoft.ML.TensorFlow.Tests/Microsoft.ML.TensorFlow.Tests.csproj",
+      "test/Microsoft.ML.Tokenizers.Data.Tests/Microsoft.ML.Tokenizers.Data.Tests.csproj"
+    ],
+    "docs": [
+      "docs",
+      "docs/samples/Microsoft.ML.Samples/Microsoft.ML.Samples.csproj",
+      "docs/samples/Microsoft.ML.Samples.OneDal/Microsoft.ML.Samples.OneDal.csproj",
+      "docs/samples/Microsoft.ML.AutoML.Samples/Microsoft.ML.AutoML.Samples.csproj",
+      "docs/samples/Microsoft.ML.Samples.GPU/Microsoft.ML.Samples.GPU.csproj"
+    ],
+    "samples": [
+      "docs/samples/Microsoft.ML.Samples/Microsoft.ML.Samples.csproj",
+      "docs/samples/Microsoft.ML.Samples.OneDal/Microsoft.ML.Samples.OneDal.csproj",
+      "docs/samples/Microsoft.ML.AutoML.Samples/Microsoft.ML.AutoML.Samples.csproj",
+      "docs/samples/Microsoft.ML.Samples.GPU/Microsoft.ML.Samples.GPU.csproj"
+    ]
+  },
+  "gaps": [
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

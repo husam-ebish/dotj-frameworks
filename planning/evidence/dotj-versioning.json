@@ -1,0 +1,193 @@
+{
+  "id": "DJ-035",
+  "repo": "dotj-versioning",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/aspnet-api-versioning",
+  "canonical_url": "https://github.com/dotnet/aspnet-api-versioning",
+  "redirect_observed": false,
+  "inspected_revision": "1a22bb4281c03d44f387169eefa46765a6219118",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/LICENSE.txt",
+      "sha256": "4f7fe63543054042ecd1e2fba0f3756dc6e78b836c26462121a90517eec91681",
+      "bytes": 1104
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/README.md",
+      "sha256": "b4f1dec883d0e90740af39080dadc364bd75412bb059f2bdd60ab91f6ad511ba",
+      "bytes": 12543
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/global.json",
+      "sha256": "43089e732ef2b90fee8424794605a1b48c1b5b83f29408290feb4105f0e61812",
+      "bytes": 64
+    },
+    {
+      "path": "asp.slnx",
+      "url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/asp.slnx",
+      "sha256": "63ea1481af08b1fd68da0f5d9dcabccc3b5b98b4e3994ba608fc3ad438ba9e6c",
+      "bytes": 10611
+    },
+    {
+      "path": "src/Abstractions/src/Asp.Versioning.Abstractions/Asp.Versioning.Abstractions.csproj",
+      "url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/src/Abstractions/src/Asp.Versioning.Abstractions/Asp.Versioning.Abstractions.csproj",
+      "sha256": "411c485dc27795b017da90a08592ebb901cad0b7fa7d5e2837f7968b292a423f",
+      "bytes": 3192
+    },
+    {
+      "path": "src/Abstractions/test/Asp.Versioning.Abstractions.Tests/Asp.Versioning.Abstractions.Tests.csproj",
+      "url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/src/Abstractions/test/Asp.Versioning.Abstractions.Tests/Asp.Versioning.Abstractions.Tests.csproj",
+      "sha256": "a996e22c7decb1ecc5ce8ca86c22d66d8b2b4ca0bebe56bec7ff188c6572e967",
+      "bytes": 704
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Primitives",
+      "file": "src/Abstractions/src/Asp.Versioning.Abstractions/Asp.Versioning.Abstractions.csproj",
+      "url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/src/Abstractions/src/Asp.Versioning.Abstractions/Asp.Versioning.Abstractions.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Asp.Versioning.Abstractions\\Asp.Versioning.Abstractions.csproj",
+      "file": "src/Abstractions/test/Asp.Versioning.Abstractions.Tests/Asp.Versioning.Abstractions.Tests.csproj",
+      "url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/src/Abstractions/test/Asp.Versioning.Abstractions.Tests/Asp.Versioning.Abstractions.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/aspnet-api-versioning",
+      "source": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/README.md"
+    },
+    {
+      "url": "https://github.com/Microsoft/api-guidelines",
+      "source": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/README.md"
+    },
+    {
+      "url": "https://github.com/Microsoft/api-guidelines",
+      "source": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/README.md"
+    },
+    {
+      "url": "https://github.com/Microsoft/api-guidelines",
+      "source": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/Abstractions",
+      "src/Analyzers",
+      "src/AspNet",
+      "src/AspNetCore",
+      "src/Client",
+      "src/Common",
+      "src/Directory.Build.props",
+      "src/Directory.Build.targets",
+      "src/Abstractions/src/Asp.Versioning.Abstractions",
+      "src/Abstractions/test/Asp.Versioning.Abstractions.Tests",
+      "src/Abstractions/src",
+      "src/Abstractions/test",
+      "examples/AspNet/OData/AdvancedODataWebApiExample/AdvancedODataWebApiExample.csproj",
+      "examples/AspNet/OData/BasicODataWebApiExample/BasicODataWebApiExample.csproj",
+      "examples/AspNet/OData/ConventionsODataWebApiExample/ConventionsODataWebApiExample.csproj",
+      "examples/AspNet/OData/OpenApiODataWebApiExample/OpenApiODataWebApiExample.csproj",
+      "examples/AspNet/OData/SomeOpenApiODataWebApiExample/SomeOpenApiODataWebApiExample.csproj",
+      "examples/AspNet/WebApi/BasicWebApiExample/BasicWebApiExample.csproj",
+      "examples/AspNet/WebApi/ByNamespaceWebApiExample/ByNamespaceWebApiExample.csproj",
+      "examples/AspNet/WebApi/ConventionsWebApiExample/ConventionsWebApiExample.csproj",
+      "examples/AspNet/WebApi/OpenApiWebApiExample/OpenApiWebApiExample.csproj",
+      "examples/AspNetCore/OData/ODataAdvancedExample/ODataAdvancedExample.csproj",
+      "examples/AspNetCore/OData/ODataBasicExample/ODataBasicExample.csproj",
+      "examples/AspNetCore/OData/ODataConventionsExample/ODataConventionsExample.csproj",
+      "examples/AspNetCore/OData/ODataOpenApiExample/ODataOpenApiExample.csproj",
+      "examples/AspNetCore/OData/SomeODataOpenApiExample/SomeODataOpenApiExample.csproj",
+      "examples/AspNetCore/WebApi/BasicExample/BasicExample.csproj",
+      "examples/AspNetCore/WebApi/ByNamespaceExample/ByNamespaceExample.csproj",
+      "examples/AspNetCore/WebApi/ConventionsExample/ConventionsExample.csproj",
+      "examples/AspNetCore/WebApi/GrpcOpenApiExample/GrpcOpenApiExample.csproj",
+      "examples/AspNetCore/WebApi/MinimalApiExample/MinimalApiExample.csproj",
+      "examples/AspNetCore/WebApi/MinimalOpenApiExample/MinimalOpenApiExample.csproj",
+      "examples/AspNetCore/WebApi/OpenApiExample/OpenApiExample.csproj",
+      "src/Abstractions/src/Asp.Versioning.Abstractions/Asp.Versioning.Abstractions.csproj",
+      "src/Abstractions/test/Asp.Versioning.Abstractions.Tests/Asp.Versioning.Abstractions.Tests.csproj",
+      "src/Analyzers/src/Asp.Versioning.Analyzers/Asp.Versioning.Analyzers.csproj",
+      "src/Analyzers/src/Asp.Versioning.Api.Analyzers/Asp.Versioning.Api.Analyzers.csproj",
+      "src/Analyzers/test/Asp.Versioning.Analyzers.Tests/Asp.Versioning.Analyzers.Tests.csproj",
+      "src/Analyzers/test/Asp.Versioning.Api.Analyzers.Tests/Asp.Versioning.Api.Analyzers.Tests.csproj",
+      "src/AspNet/OData/src/Asp.Versioning.WebApi.OData.ApiExplorer/Asp.Versioning.WebApi.OData.ApiExplorer.csproj",
+      "src/AspNet/OData/src/Asp.Versioning.WebApi.OData/Asp.Versioning.WebApi.OData.csproj",
+      "src/AspNet/WebApi/src/Asp.Versioning.WebApi.ApiExplorer/Asp.Versioning.WebApi.ApiExplorer.csproj",
+      "src/AspNet/WebApi/src/Asp.Versioning.WebApi/Asp.Versioning.WebApi.csproj",
+      "src/AspNet/Acceptance/Asp.Versioning.WebApi.Acceptance.Tests/Asp.Versioning.WebApi.Acceptance.Tests.csproj",
+      "src/AspNet/OData/test/Asp.Versioning.WebApi.OData.ApiExplorer.Tests/Asp.Versioning.WebApi.OData.ApiExplorer.Tests.csproj",
+      "src/AspNet/OData/test/Asp.Versioning.WebApi.OData.Tests/Asp.Versioning.WebApi.OData.Tests.csproj",
+      "src/AspNet/WebApi/test/Asp.Versioning.WebApi.ApiExplorer.Tests/Asp.Versioning.WebApi.ApiExplorer.Tests.csproj",
+      "src/AspNet/WebApi/test/Asp.Versioning.WebApi.Tests/Asp.Versioning.WebApi.Tests.csproj",
+      "src/AspNetCore/OData/src/Asp.Versioning.OData.ApiExplorer/Asp.Versioning.OData.ApiExplorer.csproj",
+      "src/AspNetCore/OData/src/Asp.Versioning.OData/Asp.Versioning.OData.csproj"
+    ],
+    "api": [],
+    "tests": [
+      "src/Abstractions/test/Asp.Versioning.Abstractions.Tests",
+      "src/Abstractions/test",
+      "src/Abstractions/test/Asp.Versioning.Abstractions.Tests/Asp.Versioning.Abstractions.Tests.csproj",
+      "src/Analyzers/test/Asp.Versioning.Analyzers.Tests/Asp.Versioning.Analyzers.Tests.csproj",
+      "src/Analyzers/test/Asp.Versioning.Api.Analyzers.Tests/Asp.Versioning.Api.Analyzers.Tests.csproj",
+      "src/AspNet/Acceptance/Asp.Versioning.WebApi.Acceptance.Tests/Asp.Versioning.WebApi.Acceptance.Tests.csproj",
+      "src/AspNet/OData/test/Asp.Versioning.WebApi.OData.ApiExplorer.Tests/Asp.Versioning.WebApi.OData.ApiExplorer.Tests.csproj",
+      "src/AspNet/OData/test/Asp.Versioning.WebApi.OData.Tests/Asp.Versioning.WebApi.OData.Tests.csproj",
+      "src/AspNet/WebApi/test/Asp.Versioning.WebApi.ApiExplorer.Tests/Asp.Versioning.WebApi.ApiExplorer.Tests.csproj",
+      "src/AspNet/WebApi/test/Asp.Versioning.WebApi.Tests/Asp.Versioning.WebApi.Tests.csproj",
+      "src/AspNetCore/Acceptance/Asp.Versioning.Mvc.Acceptance.Tests/Asp.Versioning.Mvc.Acceptance.Tests.csproj",
+      "src/AspNetCore/OData/test/Asp.Versioning.OData.ApiExplorer.Tests/Asp.Versioning.OData.ApiExplorer.Tests.csproj",
+      "src/AspNetCore/OData/test/Asp.Versioning.OData.Tests/Asp.Versioning.OData.Tests.csproj",
+      "src/AspNetCore/WebApi/test/Asp.Versioning.Grpc.ApiExplorer.Tests/Asp.Versioning.Grpc.ApiExplorer.Tests.csproj",
+      "src/AspNetCore/WebApi/test/Asp.Versioning.Http.Tests/Asp.Versioning.Http.Tests.csproj",
+      "src/AspNetCore/WebApi/test/Asp.Versioning.Mvc.ApiExplorer.Tests/Asp.Versioning.Mvc.ApiExplorer.Tests.csproj",
+      "src/AspNetCore/WebApi/test/Asp.Versioning.Mvc.Tests/Asp.Versioning.Mvc.Tests.csproj",
+      "src/AspNetCore/WebApi/test/Asp.Versioning.OpenApi.Tests/Asp.Versioning.OpenApi.Tests.csproj",
+      "src/Client/test/Asp.Versioning.Http.Client.Tests/Asp.Versioning.Http.Client.Tests.csproj"
+    ],
+    "docs": [
+      "docs"
+    ],
+    "samples": [
+      "examples",
+      "examples/AspNet/OData/AdvancedODataWebApiExample/AdvancedODataWebApiExample.csproj",
+      "examples/AspNet/OData/BasicODataWebApiExample/BasicODataWebApiExample.csproj",
+      "examples/AspNet/OData/ConventionsODataWebApiExample/ConventionsODataWebApiExample.csproj",
+      "examples/AspNet/OData/OpenApiODataWebApiExample/OpenApiODataWebApiExample.csproj",
+      "examples/AspNet/OData/SomeOpenApiODataWebApiExample/SomeOpenApiODataWebApiExample.csproj",
+      "examples/AspNet/WebApi/BasicWebApiExample/BasicWebApiExample.csproj",
+      "examples/AspNet/WebApi/ByNamespaceWebApiExample/ByNamespaceWebApiExample.csproj",
+      "examples/AspNet/WebApi/ConventionsWebApiExample/ConventionsWebApiExample.csproj",
+      "examples/AspNet/WebApi/OpenApiWebApiExample/OpenApiWebApiExample.csproj",
+      "examples/AspNetCore/OData/ODataAdvancedExample/ODataAdvancedExample.csproj",
+      "examples/AspNetCore/OData/ODataBasicExample/ODataBasicExample.csproj",
+      "examples/AspNetCore/OData/ODataConventionsExample/ODataConventionsExample.csproj",
+      "examples/AspNetCore/OData/ODataOpenApiExample/ODataOpenApiExample.csproj",
+      "examples/AspNetCore/OData/SomeODataOpenApiExample/SomeODataOpenApiExample.csproj",
+      "examples/AspNetCore/WebApi/BasicExample/BasicExample.csproj",
+      "examples/AspNetCore/WebApi/ByNamespaceExample/ByNamespaceExample.csproj",
+      "examples/AspNetCore/WebApi/ConventionsExample/ConventionsExample.csproj",
+      "examples/AspNetCore/WebApi/GrpcOpenApiExample/GrpcOpenApiExample.csproj",
+      "examples/AspNetCore/WebApi/MinimalApiExample/MinimalApiExample.csproj",
+      "examples/AspNetCore/WebApi/MinimalOpenApiExample/MinimalOpenApiExample.csproj",
+      "examples/AspNetCore/WebApi/OpenApiExample/OpenApiExample.csproj"
+    ]
+  },
+  "gaps": [
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "<urlopen error timed out>"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

@@ -1,0 +1,394 @@
+{
+  "id": "DJ-025",
+  "repo": "dotj-container",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/autofac/Autofac",
+  "canonical_url": "https://github.com/autofac/Autofac",
+  "redirect_observed": false,
+  "inspected_revision": "ae9e1e1129b9c22e7ab111381308dcb02f80a8d2",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "develop",
+  "status": "Partial reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md",
+      "sha256": "59a3256916d23ea0912557ab31ab75de2e28455d341d4d20ccbebea649c06b7f",
+      "bytes": 6805
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/LICENSE",
+      "sha256": "e593a0848661e316777015f9b11f35497f713786917a96ae9f8477bcf0489a59",
+      "bytes": 1081
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/Directory.Build.props",
+      "sha256": "05789372e5db506cd95710069316b08794a1db3fc44b1a2b513646e89b052206",
+      "bytes": 199
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/global.json",
+      "sha256": "6372b4d8b9596701da0c859b8348eefbe79cef397531d99194054bacf5b3f304",
+      "bytes": 81
+    },
+    {
+      "path": "codegen/Autofac.CodeGen/Autofac.CodeGen.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/codegen/Autofac.CodeGen/Autofac.CodeGen.csproj",
+      "sha256": "4abc48a9e3b1002e429abeeffe9c4a7f69179246b4e068f4ba2bf5013dd9793c",
+      "bytes": 1262
+    },
+    {
+      "path": "src/Autofac/Autofac.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/src/Autofac/Autofac.csproj",
+      "sha256": "eeb799073c44418c6e5964446331de9a846b6ed74eb342163f6a975f198fd5a5",
+      "bytes": 14935
+    },
+    {
+      "path": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "sha256": "7fd817e5f8918e658062627cfc9af1ed1b77abb9230d05ef7ceea51c3af9da3c",
+      "bytes": 2688
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "codegen/Autofac.CodeGen/Autofac.CodeGen.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/codegen/Autofac.CodeGen/Autofac.CodeGen.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "StyleCop.Analyzers",
+      "file": "codegen/Autofac.CodeGen/Autofac.CodeGen.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/codegen/Autofac.CodeGen/Autofac.CodeGen.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "../../codegen/Autofac.CodeGen/Autofac.CodeGen.csproj",
+      "file": "src/Autofac/Autofac.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/src/Autofac/Autofac.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "src/Autofac/Autofac.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/src/Autofac/Autofac.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "SonarAnalyzer.CSharp",
+      "file": "src/Autofac/Autofac.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/src/Autofac/Autofac.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "StyleCop.Analyzers",
+      "file": "src/Autofac/Autofac.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/src/Autofac/Autofac.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "src/Autofac/Autofac.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/src/Autofac/Autofac.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "src/Autofac/Autofac.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/src/Autofac/Autofac.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Autofac\\Autofac.csproj",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Autofac.Test.Scenarios.ScannedAssembly\\Autofac.Test.Scenarios.ScannedAssembly.csproj",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Autofac.Test.Scenarios.LoadContext\\Autofac.Test.Scenarios.LoadContext.csproj",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "coverlet.collector",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "SonarAnalyzer.CSharp",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "StyleCop.Analyzers",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.runner.visualstudio",
+      "file": "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "url": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/test/Autofac.Specification.Test/Autofac.Specification.Test.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/autofac/Autofac",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/.github",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.AspNetCore.Multitenant",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Configuration",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Diagnostics.DotGraph",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Extensions.DependencyInjection",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Extras.AggregateService",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Extras.AttributeMetadata",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Extras.CommonServiceLocator",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Extras.DynamicProxy",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Extras.FakeItEasy",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Extras.Moq",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Mef",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Multitenant",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Multitenant.Wcf",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Mvc",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Mvc.Owin",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Owin",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Pooling",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.ServiceFabric",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.SignalR",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Wcf",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.Web",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.WebApi",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/Autofac.WebApi.Owin",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    },
+    {
+      "url": "https://github.com/autofac/.github",
+      "source": "https://github.com/autofac/Autofac/blob/ae9e1e1129b9c22e7ab111381308dcb02f80a8d2/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "bench/Autofac.BenchmarkProfiling/Autofac.BenchmarkProfiling.csproj",
+      "bench/Autofac.Benchmarks/Autofac.Benchmarks.csproj",
+      "codegen/Autofac.CodeGen/Autofac.CodeGen.csproj",
+      "src/Autofac/Autofac.csproj",
+      "src/Autofac/Builder/BuildCallbackManager.cs",
+      "src/Autofac/Builder/BuildCallbackService.cs",
+      "src/Autofac/Builder/BuildCallbackServiceResources.resx",
+      "src/Autofac/Builder/ConcreteReflectionActivatorData.cs",
+      "src/Autofac/Builder/ContainerBuildOptions.cs",
+      "src/Autofac/Builder/DeferredCallback.cs",
+      "src/Autofac/Builder/DynamicRegistrationStyle.cs",
+      "src/Autofac/Builder/IConcreteActivatorData.cs",
+      "src/Autofac/Builder/IHideObjectMembers.cs",
+      "src/Autofac/Builder/IRegistrationBuilder.cs",
+      "src/Autofac/Builder/MetadataConfiguration.cs",
+      "src/Autofac/Builder/MetadataKeys.cs",
+      "src/Autofac/Builder/ReflectionActivatorData.cs",
+      "src/Autofac/Builder/RegistrationBuilder.cs",
+      "src/Autofac/Builder/RegistrationBuilderResources.resx",
+      "src/Autofac/Builder/RegistrationBuilder{TLimit,TActivatorData,TRegistrationStyle}.cs",
+      "src/Autofac/Builder/RegistrationData.cs",
+      "src/Autofac/Builder/RegistrationExtensions.cs",
+      "src/Autofac/Builder/RegistrationOrderExtensions.cs",
+      "src/Autofac/Builder/SimpleActivatorData.cs",
+      "src/Autofac/Builder/SingleRegistrationStyle.cs",
+      "src/Autofac/Builder/StartableManager.cs",
+      "src/Autofac/ContainerBuilder.cs",
+      "src/Autofac/ContainerBuilderResources.resx",
+      "src/Autofac/ContainerExtensions.cs",
+      "src/Autofac/Core/ActivatedEventArgs.cs",
+      "src/Autofac/Core/ActivatingEventArgs.cs",
+      "src/Autofac/Core/Activators/DefaultPropertySelector.cs",
+      "src/Autofac/Core/Activators/Delegate/DelegateActivator.cs",
+      "src/Autofac/Core/Activators/Delegate/DelegateActivatorResources.resx",
+      "src/Autofac/Core/Activators/DelegatePropertySelector.cs",
+      "src/Autofac/Core/Activators/IPropertySelector.cs",
+      "src/Autofac/Core/Activators/InstanceActivator.cs",
+      "src/Autofac/Core/Activators/InstanceActivatorResources.resx",
+      "src/Autofac/Core/Activators/ProvidedInstance/ProvidedInstanceActivator.cs",
+      "src/Autofac/Core/Activators/ProvidedInstance/ProvidedInstanceActivatorResources.resx",
+      "src/Autofac/Core/Activators/Reflection/AutowiringParameter.cs",
+      "src/Autofac/Core/Activators/Reflection/AutowiringPropertyInjector.cs",
+      "src/Autofac/Core/Activators/Reflection/BoundConstructor.cs",
+      "src/Autofac/Core/Activators/Reflection/BoundConstructorResources.resx",
+      "src/Autofac/Core/Activators/Reflection/ConstructorBinder.cs",
+      "src/Autofac/Core/Activators/Reflection/DefaultConstructorFinder.cs",
+      "src/Autofac/Core/Activators/Reflection/DefaultValueParameter.cs",
+      "src/Autofac/Core/Activators/Reflection/IConstructorFinder.cs",
+      "src/Autofac/Core/Activators/Reflection/IConstructorSelector.cs",
+      "src/Autofac/Core/Activators/Reflection/IConstructorSelectorWithEarlyBinding.cs"
+    ],
+    "api": [],
+    "tests": [
+      "build/Test.ruleset",
+      "test/Autofac.Specification.Test/Autofac.Specification.Test.csproj",
+      "test/Autofac.Specification.Test/ContainerBuilderTests.cs",
+      "test/Autofac.Specification.Test/Diagnostics/DefaultDiagnosticTracerTests.cs",
+      "test/Autofac.Specification.Test/Diagnostics/DiagnosticTracerBaseTests.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/A.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/BC.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/D.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/DependsByCtor.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/DependsByProp.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/IA.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/IB.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/IC.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependency/ID.cs",
+      "test/Autofac.Specification.Test/Features/CircularDependencyTests.cs",
+      "test/Autofac.Specification.Test/Features/CompositeTests.cs",
+      "test/Autofac.Specification.Test/Features/DecoratorTests.cs",
+      "test/Autofac.Specification.Test/Features/IndexTests.cs",
+      "test/Autofac.Specification.Test/Features/KeyedServiceTests.cs",
+      "test/Autofac.Specification.Test/Features/MetadataTests.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/CtorWithValueParameter.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/HasMixedVisibilityProperties.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/HasProtectedSetterWithDefaultValue.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/HasPublicSetter.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/HasPublicSetterDerived.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/HasPublicSetterWithDefaultValue.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/HasStaticSetter.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/HasWriteOnlyProperty.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/InjectAttribute.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjection/InjectAttributePropertySelector.cs",
+      "test/Autofac.Specification.Test/Features/PropertyInjectionTests.cs",
+      "test/Autofac.Specification.Test/Features/RequiredPropertyTests.cs",
+      "test/Autofac.Specification.Test/Features/StartableTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/AsyncDisposeProvidedInstanceTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/DisposalTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/ExternallyOwnedTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/InstancePerDependencyTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/InstancePerLifetimeScopeTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/InstancePerMatchingLifetimeScopeTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/InstancePerOwnedTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/LifetimeEventTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/NestedScopeTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/ProvidedInstanceTests.cs",
+      "test/Autofac.Specification.Test/Lifetime/SingleInstanceTests.cs",
+      "test/Autofac.Specification.Test/LoadContextScopeTests.cs",
+      "test/Autofac.Specification.Test/ParameterFilterTests.cs",
+      "test/Autofac.Specification.Test/Registration/Adapters/AnotherCommand.cs",
+      "test/Autofac.Specification.Test/Registration/Adapters/Command.cs",
+      "test/Autofac.Specification.Test/Registration/Adapters/IToolbarButton.cs",
+      "test/Autofac.Specification.Test/Registration/Adapters/ToolbarButton.cs"
+    ],
+    "docs": [],
+    "samples": []
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links",
+    "Examples/samples location not established; check README and related repositories"
+  ],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

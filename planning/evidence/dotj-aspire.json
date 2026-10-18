@@ -1,0 +1,1832 @@
+{
+  "id": "DJ-013",
+  "repo": "dotj-aspire",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/microsoft/aspire",
+  "canonical_url": "https://github.com/microsoft/aspire",
+  "redirect_observed": false,
+  "inspected_revision": "118781118dddea1f7a524ab3d244fa4cee3c62cf",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md",
+      "sha256": "c156cdd6fdd9d72cec2c5ddfe7141e237ab4637667b9943edbc4cebbfef10b76",
+      "bytes": 4704
+    },
+    {
+      "path": "LICENSE.TXT",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/LICENSE.TXT",
+      "sha256": "ae48df11a335dc1a615f4f938b69cba73bcf4485c4f97af49b38efb0f216353b",
+      "bytes": 1115
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "c1cecfcdbd79084d4f29bc9d71f127ee26fd2c550ec2fb378d1162899982d9c7",
+      "bytes": 17159
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props",
+      "sha256": "f2a5197127639b2bbee4a5cf32163395f785156903a4f13bf71533453ad9a145",
+      "bytes": 29728
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Build.props",
+      "sha256": "685fdb9d4a6329ab83fbe0fdff912b930e19e62a1f7fd5c2cd7265abc62c63e2",
+      "bytes": 4758
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/global.json",
+      "sha256": "419c82826affdedeb0ec04b563230ea5ba8dcf073199ae8108f5a78490d1973b",
+      "bytes": 1075
+    },
+    {
+      "path": "eng/clipack/Aspire.Cli.linux-arm64.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/eng/clipack/Aspire.Cli.linux-arm64.csproj",
+      "sha256": "dfcc813f8e5159fa9a0c6db086a0e0461cb93294fa40c9d574ef09a4380d4bba",
+      "bytes": 534
+    },
+    {
+      "path": "eng/clipack/Aspire.Cli.linux-musl-x64.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/eng/clipack/Aspire.Cli.linux-musl-x64.csproj",
+      "sha256": "3976f985706a9b5e3e2bc455ae842eb7fddf82a0641750e91431681bc8497320",
+      "bytes": 503
+    },
+    {
+      "path": "playground/TestShop/ApiGateway/ApiGateway.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/TestShop/ApiGateway/ApiGateway.csproj",
+      "sha256": "04855ae1d1231c2229cfe86b2715aa18e90acc07dda0e01457bf085d72db9db6",
+      "bytes": 585
+    },
+    {
+      "path": "playground/AksDemo/AksDemo.ApiService/AksDemo.ApiService.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/AksDemo/AksDemo.ApiService/AksDemo.ApiService.csproj",
+      "sha256": "29003ee7f5947d5934a6b1d61d5d2a32a45278fbc3c41e7dc6422ac2c0c2ab8d",
+      "bytes": 361
+    },
+    {
+      "path": "playground/AksDemo/AksDemo.AppHost/AksDemo.AppHost.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/AksDemo/AksDemo.AppHost/AksDemo.AppHost.csproj",
+      "sha256": "47669cf1ad4bfec3a84d5633e885fa5d64bf491c9a0b0523fd18115ec53fbfba",
+      "bytes": 787
+    },
+    {
+      "path": "Aspire.slnx",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Aspire.slnx",
+      "sha256": "c1d18e2e26ba720471e1628a9f60f46fe4c2cef9c4a05e5f0eda3a9644854b2b",
+      "bytes": 49388
+    },
+    {
+      "path": "src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "sha256": "d70ed79f49607c4cd7941884e5e4f23ff7fb2340fbb4742ae5cb6e799a423514",
+      "bytes": 2156
+    },
+    {
+      "path": "playground/Testing/Testing.Tests/Testing.Tests.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/Testing/Testing.Tests/Testing.Tests.csproj",
+      "sha256": "602791456946c6bce2834e0aed96dabf56833a69d10c91e411842465a2f4c68f",
+      "bytes": 616
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.AgentServer.AgentFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.Inference",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.OpenAI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.Projects",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.Projects.Agents",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.AI.Extensions.OpenAI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Data.Tables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Extensions.AspNetCore.Configuration.Secrets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.EventHubs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.EventHubs.Processor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.ServiceBus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Search.Documents",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.WebPubSub",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Security.KeyVault.Secrets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Security.KeyVault.Certificates",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Security.KeyVault.Keys",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Blobs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Files.DataLake",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Files.Shares",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Queues",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Cosmos",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Kusto.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Kusto.Ingest",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.SignalR",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.SignalR.Management",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.StackExchangeRedis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Azure",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.AzureAppConfiguration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.AppConfiguration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.AppContainers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.AppService",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.ApplicationInsights",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.Cdn",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.ContainerRegistry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.ContainerService",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.CognitiveServices",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.CosmosDB",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.EventHubs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.KeyVault",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.Kusto",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.Network",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.OperationalInsights",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.PostgreSql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.PrivateDns",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.RedisEnterprise",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.Search",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.ServiceBus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.SignalR",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.Sql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.Storage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Provisioning.WebPubSub",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.ResourceManager.Authorization",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.ResourceManager.KeyVault",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.ResourceManager.Resources.Deployments",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.ApplicationStatus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Azure.Data.Tables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Azure.KeyVault.Secrets",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Azure.Messaging.EventHubs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Azure.Storage.Blobs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Azure.Storage.Queues",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.AzureServiceBus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.CosmosDb",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Kafka",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.MongoDb",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.MySql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.NpgSql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Oracle",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Rabbitmq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AspNetCore.HealthChecks.Uris",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Utilities.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.IO.Redist",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Framework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Build.Locator",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Commands",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.ProjectModel",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Protocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Resolver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Confluent.Kafka",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapper",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapper.AOT",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Deque.AxeCore.Playwright",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "DnsClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Protobuf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Net.ClientFactory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Grpc.Tools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hex1b",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hex1b.McpServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hex1b.Tool",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Humanizer.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "KubernetesClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Markdig",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AI.Foundry.Local",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Agents.AI.OpenAI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient.Extensions.Azure",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.Sqlite.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.FluentUI.AspNetCore.Components",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.FluentUI.AspNetCore.Components.Icons",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Milvus.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "ModelContextProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.Driver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.Driver.Core.Extensions.DiagnosticSources",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MySqlConnector.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MySqlConnector.Logging.Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NATS.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NCrontab.Signed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenAI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Oracle.ManagedDataAccess.OpenTelemetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Pomelo.EntityFrameworkCore.MySql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Qdrant.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "RabbitMQ.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SQLitePCLRaw.bundle_e_sqlite3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Spectre.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StackExchange.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.IO.Hashing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Yarp.ReverseProxy",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "YamlDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StreamJsonRpc",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Semver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Sigstore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Tuf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DevTunnels.Connections",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Monitor.OpenTelemetry.Exporter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql.OpenTelemetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.InMemory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.GrpcNetClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.Runtime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Instrumentation.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MicroBuild.Plugins.SwixBuild.Dotnet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Workspaces.MSBuild",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Signed.Wix",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.Build.Tasks.Archives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.DotNet.GenAPI.Task",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TemplateEngine.Edge",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.TemplateEngine.Orchestrator.RunnableProjects",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.CommandLine",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.assert",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Orleans.Clustering.AzureStorage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Orleans.Persistence.AzureStorage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Orleans.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Orleans.Server",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Orleans.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.AppConfiguration.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.Http.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.Storage.Blobs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.Storage.Queues",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.ServiceBus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.EventHubs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.CosmosDb",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.OpenTelemetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights.WorkerService",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.DurableTask",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Functions.Worker.Extensions.DurableTask.AzureManaged",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Identity.Web",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI.OpenAI",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.AI.AzureAIInference",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.AutoActivation",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Resilience",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ServiceDiscovery",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.ServiceDiscovery.Yarp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration.EnvironmentVariables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileSystemGlobbing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Primitives",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Formats.Asn1",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Pkcs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.Cryptography",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Cosmos",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Design",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Tools",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.EntityFrameworkCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Oracle.EntityFrameworkCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Authentication.Certificate",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Authentication.JwtBearer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Authentication.OpenIdConnect",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.OpenApi",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.OutputCaching.StackExchangeRedis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.TestHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.StackExchangeRedis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks.EntityFrameworkCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Features",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Embedded",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.SignalR.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Credentials",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NuGet.Versioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.ServiceDiscovery.Yarp",
+      "file": "playground/TestShop/ApiGateway/ApiGateway.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/TestShop/ApiGateway/ApiGateway.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\TestShop.ServiceDefaults\\TestShop.ServiceDefaults.csproj",
+      "file": "playground/TestShop/ApiGateway/ApiGateway.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/TestShop/ApiGateway/ApiGateway.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\Playground.ServiceDefaults\\Playground.ServiceDefaults.csproj",
+      "file": "playground/AksDemo/AksDemo.ApiService/AksDemo.ApiService.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/AksDemo/AksDemo.ApiService/AksDemo.ApiService.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\AksDemo.ApiService\\AksDemo.ApiService.csproj",
+      "file": "playground/AksDemo/AksDemo.AppHost/AksDemo.AppHost.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/AksDemo/AksDemo.AppHost/AksDemo.AppHost.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Azure.AI.Extensions.OpenAI",
+      "file": "src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Azure",
+      "file": "src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Configuration.Binder",
+      "file": "src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "file": "src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Aspire.OpenAI\\Aspire.OpenAI.csproj",
+      "file": "src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/src/Components/Aspire.Azure.AI.Extensions.OpenAI/Aspire.Azure.AI.Extensions.OpenAI.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "xunit.v3.assert",
+      "file": "playground/Testing/Testing.Tests/Testing.Tests.csproj",
+      "url": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/playground/Testing/Testing.Tests/Testing.Tests.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/aspire-samples",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/dcp",
+      "source": "https://github.com/microsoft/aspire/blob/118781118dddea1f7a524ab3d244fa4cee3c62cf/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "benchmarks/Aspire.Cli.Benchmarks/Aspire.Cli.Benchmarks.csproj",
+      "benchmarks/Aspire.Dashboard.Benchmarks/Aspire.Dashboard.Benchmarks.csproj",
+      "eng/clipack/Aspire.Cli.linux-arm64.csproj",
+      "eng/clipack/Aspire.Cli.linux-musl-x64.csproj",
+      "eng/clipack/Aspire.Cli.linux-x64.csproj",
+      "eng/clipack/Aspire.Cli.osx-arm64.csproj",
+      "eng/clipack/Aspire.Cli.osx-x64.csproj",
+      "eng/clipack/Aspire.Cli.win-arm64.csproj",
+      "eng/clipack/Aspire.Cli.win-x64.csproj",
+      "eng/common/internal/Tools.csproj",
+      "eng/dashboardpack/Aspire.Dashboard.Sdk.linux-arm64.csproj",
+      "eng/dashboardpack/Aspire.Dashboard.Sdk.linux-musl-x64.csproj",
+      "eng/dashboardpack/Aspire.Dashboard.Sdk.linux-x64.csproj",
+      "eng/dashboardpack/Aspire.Dashboard.Sdk.osx-arm64.csproj",
+      "eng/dashboardpack/Aspire.Dashboard.Sdk.osx-x64.csproj",
+      "eng/dashboardpack/Aspire.Dashboard.Sdk.win-arm64.csproj",
+      "eng/dashboardpack/Aspire.Dashboard.Sdk.win-x64.csproj",
+      "eng/dcppack/Aspire.Hosting.Orchestration.linux-arm64.csproj",
+      "eng/dcppack/Aspire.Hosting.Orchestration.linux-musl-x64.csproj",
+      "eng/dcppack/Aspire.Hosting.Orchestration.linux-x64.csproj",
+      "eng/dcppack/Aspire.Hosting.Orchestration.osx-arm64.csproj",
+      "eng/dcppack/Aspire.Hosting.Orchestration.osx-x64.csproj",
+      "eng/dcppack/Aspire.Hosting.Orchestration.win-arm64.csproj",
+      "eng/dcppack/Aspire.Hosting.Orchestration.win-x64.csproj",
+      "playground/AksDemo/AksDemo.ApiService/AksDemo.ApiService.csproj",
+      "playground/AksDemo/AksDemo.AppHost/AksDemo.AppHost.csproj",
+      "playground/AspireEventHub/EventHubs.AppHost/EventHubs.AppHost.csproj",
+      "playground/AspireEventHub/EventHubsApi/EventHubsApi.csproj",
+      "playground/AspireEventHub/EventHubsConsumer/EventHubsConsumer.csproj",
+      "playground/AspireWithJavaScript/AspireJavaScript.AppHost/AspireJavaScript.AppHost.csproj",
+      "playground/AspireWithJavaScript/AspireJavaScript.MinimalApi/AspireJavaScript.MinimalApi.csproj",
+      "playground/AspireWithJavaScript/AspireJavaScript.ServiceDefaults/AspireJavaScript.ServiceDefaults.csproj",
+      "playground/AspireWithMaui/AspireWithMaui.AppHost/AspireWithMaui.AppHost.csproj",
+      "playground/AspireWithMaui/AspireWithMaui.MauiClient/AspireWithMaui.MauiClient.csproj",
+      "playground/AspireWithMaui/AspireWithMaui.MauiServiceDefaults/AspireWithMaui.MauiServiceDefaults.csproj",
+      "playground/AspireWithMaui/AspireWithMaui.ServiceDefaults/AspireWithMaui.ServiceDefaults.csproj",
+      "playground/AspireWithMaui/AspireWithMaui.WeatherApi/AspireWithMaui.WeatherApi.csproj",
+      "playground/AspireWithNode/AspireWithNode.AppHost/AspireWithNode.AppHost.csproj",
+      "playground/AspireWithNode/AspireWithNode.AspNetCoreApi/AspireWithNode.AspNetCoreApi.csproj",
+      "playground/AspireWithNode/AspireWithNode.ServiceDefaults/AspireWithNode.ServiceDefaults.csproj",
+      "playground/AzureAppConfiguration/AzureAppConfiguration.AppHost/AzureAppConfiguration.AppHost.csproj",
+      "playground/AzureAppConfiguration/AzureAppConfiguration.Web/AzureAppConfiguration.Web.csproj",
+      "playground/AzureAppService/AzureAppService.ApiService/AzureAppService.ApiService.csproj",
+      "playground/AzureAppService/AzureAppService.AppHost/AzureAppService.AppHost.csproj",
+      "playground/AzureContainerApps/AzureContainerApps.ApiService/AzureContainerApps.ApiService.csproj",
+      "playground/AzureContainerApps/AzureContainerApps.AppHost/AzureContainerApps.AppHost.csproj",
+      "playground/AzureDataLakeEndToEnd/AzureDataLakeEndToEnd.AppHost/AzureDataLakeEndToEnd.AppHost.csproj",
+      "playground/AzureDataLakeEndToEnd/AzureDataLakeEndToEnd.WebApi/AzureDataLakeEndToEnd.WebApi.csproj",
+      "playground/AzureFunctionsEndToEnd/AzureFunctionsEndToEnd.ApiService/AzureFunctionsEndToEnd.ApiService.csproj",
+      "playground/AzureFunctionsEndToEnd/AzureFunctionsEndToEnd.AppHost/AzureFunctionsEndToEnd.AppHost.csproj"
+    ],
+    "api": [
+      "playground/FileBasedApps/api/api.cs",
+      "playground/FileBasedApps/api/api.run.json",
+      "playground/FileBasedApps/api/api.settings.json",
+      "playground/GoDebugging/api/go.mod",
+      "playground/GoDebugging/api/main.go",
+      "playground/JavaAppHost/api/package-lock.json",
+      "playground/JavaAppHost/api/package.json",
+      "playground/JavaAppHost/api/src/index.ts",
+      "playground/JavaAppHost/api/src/instrumentation.ts",
+      "playground/JavaAppHost/api/tsconfig.json",
+      "playground/NuxtApp/api/package.json",
+      "playground/NuxtApp/api/server.mjs",
+      "playground/NuxtApp/web/server/api/health.get.ts",
+      "playground/NuxtApp/web/server/api/message.get.ts",
+      "playground/publishers/Publishers.AppHost/infra/api/api.bicep",
+      "src/Aspire.Cli/Templating/Templates/go-starter/api/go.mod",
+      "src/Aspire.Cli/Templating/Templates/go-starter/api/main.go",
+      "src/Aspire.Cli/Templating/Templates/go-starter/api/telemetry.go",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/build.gradle",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/gradle/wrapper/gradle-wrapper.jar",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/gradle/wrapper/gradle-wrapper.properties",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/gradlew",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/gradlew.bat",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/settings.gradle",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/src/main/java/com/example/api/ApiApplication.java",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/src/main/java/com/example/api/WeatherForecastController.java",
+      "src/Aspire.Cli/Templating/Templates/java-starter/api/src/main/resources/application.properties",
+      "src/Aspire.Cli/Templating/Templates/ts-starter/api/package.json",
+      "src/Aspire.Cli/Templating/Templates/ts-starter/api/src/index.ts",
+      "src/Aspire.Cli/Templating/Templates/ts-starter/api/src/instrumentation.ts",
+      "src/Aspire.Cli/Templating/Templates/ts-starter/api/tsconfig.json",
+      "src/Aspire.Hosting.AppHost/api/Aspire.Hosting.AppHost.cs",
+      "src/Aspire.Hosting.Azure.AppConfiguration/api/Aspire.Hosting.Azure.AppConfiguration.ats.txt",
+      "src/Aspire.Hosting.Azure.AppConfiguration/api/Aspire.Hosting.Azure.AppConfiguration.cs",
+      "src/Aspire.Hosting.Azure.AppContainers/api/Aspire.Hosting.Azure.AppContainers.ats.txt",
+      "src/Aspire.Hosting.Azure.AppContainers/api/Aspire.Hosting.Azure.AppContainers.cs",
+      "src/Aspire.Hosting.Azure.AppService/api/Aspire.Hosting.Azure.AppService.ats.txt",
+      "src/Aspire.Hosting.Azure.AppService/api/Aspire.Hosting.Azure.AppService.cs",
+      "src/Aspire.Hosting.Azure.ApplicationInsights/api/Aspire.Hosting.Azure.ApplicationInsights.ats.txt",
+      "src/Aspire.Hosting.Azure.ApplicationInsights/api/Aspire.Hosting.Azure.ApplicationInsights.cs",
+      "src/Aspire.Hosting.Azure.CognitiveServices/api/Aspire.Hosting.Azure.CognitiveServices.ats.txt",
+      "src/Aspire.Hosting.Azure.CognitiveServices/api/Aspire.Hosting.Azure.CognitiveServices.cs",
+      "src/Aspire.Hosting.Azure.ContainerRegistry/api/Aspire.Hosting.Azure.ContainerRegistry.ats.txt",
+      "src/Aspire.Hosting.Azure.ContainerRegistry/api/Aspire.Hosting.Azure.ContainerRegistry.cs",
+      "src/Aspire.Hosting.Azure.CosmosDB/api/Aspire.Hosting.Azure.CosmosDB.ats.txt",
+      "src/Aspire.Hosting.Azure.CosmosDB/api/Aspire.Hosting.Azure.CosmosDB.cs",
+      "src/Aspire.Hosting.Azure.EventHubs/api/Aspire.Hosting.Azure.EventHubs.ats.txt",
+      "src/Aspire.Hosting.Azure.EventHubs/api/Aspire.Hosting.Azure.EventHubs.cs",
+      "src/Aspire.Hosting.Azure.FrontDoor/api/Aspire.Hosting.Azure.FrontDoor.ats.txt",
+      "src/Aspire.Hosting.Azure.FrontDoor/api/Aspire.Hosting.Azure.FrontDoor.cs"
+    ],
+    "tests": [
+      "extension/src/test/AspireExtensionContext.test.ts",
+      "extension/src/test/adapterTracker.test.ts",
+      "extension/src/test/appHostCliRunner.test.ts",
+      "extension/src/test/appHostDataRepository.test.ts",
+      "extension/src/test/appHostDiscovery.test.ts",
+      "extension/src/test/appHostFilePresenceWatcher.test.ts",
+      "extension/src/test/appHostIdentity.test.ts",
+      "extension/src/test/appHostLanguage.test.ts",
+      "extension/src/test/appHostLaunchService.test.ts",
+      "extension/src/test/appHostLifecycleTools.test.ts",
+      "extension/src/test/appHostLogOutput.test.ts",
+      "extension/src/test/appHostLogOutputCapability.test.ts",
+      "extension/src/test/appHostStopper.test.ts",
+      "extension/src/test/appHostTargetVersion.test.ts",
+      "extension/src/test/appHostTreeView.test.ts",
+      "extension/src/test/appHostsViewTelemetry.test.ts",
+      "extension/src/test/aspireCodeLensProvider.test.ts",
+      "extension/src/test/aspireDcpServer.test.ts",
+      "extension/src/test/aspireDebugConfigurationProvider.test.ts",
+      "extension/src/test/aspireDebugSession.test.ts",
+      "extension/src/test/aspireEditorCommandProvider.test.ts",
+      "extension/src/test/aspireGutterDecorationProvider.test.ts",
+      "extension/src/test/aspirePackageRestoreProvider.test.ts",
+      "extension/src/test/aspireTerminalProvider.test.ts",
+      "extension/src/test/azureFunctionsDebugger.test.ts",
+      "extension/src/test/azureFunctionsNodeDebugger.test.ts",
+      "extension/src/test/blazorWasmDebuggerSetup.test.ts",
+      "extension/src/test/browserDebugger.test.ts",
+      "extension/src/test/bunDebugger.test.ts",
+      "extension/src/test/cli.test.ts",
+      "extension/src/test/cliCompatibility.test.ts",
+      "extension/src/test/cliPath.test.ts",
+      "extension/src/test/cliPathEnvironment.test.ts",
+      "extension/src/test/cliPathRejectionNotifier.test.ts",
+      "extension/src/test/cliPathVariables.test.ts",
+      "extension/src/test/cliSpawn.test.ts",
+      "extension/src/test/codeLens.test.ts",
+      "extension/src/test/common.ts",
+      "extension/src/test/configInfoProvider.test.ts",
+      "extension/src/test/configureLaunchJson.test.ts",
+      "extension/src/test/createWithAspire.test.ts",
+      "extension/src/test/dashboardLaunchBehaviorResolution.test.ts",
+      "extension/src/test/dashboardTelemetryPassthrough.test.ts",
+      "extension/src/test/dashboardTelemetryRoutes.test.ts",
+      "extension/src/test/dcpTypes.test.ts",
+      "extension/src/test/debuggerInstallHints.test.ts",
+      "extension/src/test/denoDebugger.test.ts",
+      "extension/src/test/dotnetDebugger.test.ts",
+      "extension/src/test/e2eAddWorkspaceFolderGuard.test.ts",
+      "extension/src/test/e2eBridgeProductionGate.test.ts"
+    ],
+    "docs": [
+      "docs/area-owners.md",
+      "docs/azure.md",
+      "docs/ci/TestingOnCI.md",
+      "docs/ci/analyze-ci-failure.md",
+      "docs/ci/auto-rerun-outerloop-failures.md",
+      "docs/ci/auto-rerun-transient-ci-failures.md",
+      "docs/ci/azdo-public-pipeline.md",
+      "docs/ci/ci-failure-issues.md",
+      "docs/ci/ci-pipeline-optimizations.md",
+      "docs/ci/ci-skip-entirely-patterns.md",
+      "docs/ci/cli-e2e-images.md",
+      "docs/ci/cli-native-symbols.md",
+      "docs/ci/monitor-scheduled-workflows.md",
+      "docs/ci/mtp-args-pipeline.md",
+      "docs/ci/native-cli-packaging.md",
+      "docs/ci/organization-funded-copilot-reviews.md",
+      "docs/ci/pipeline-failure-issues.md",
+      "docs/ci/specialized-test-failure-issues.md",
+      "docs/ci/template-component-governance.md",
+      "docs/ci/test-trigger-map.md",
+      "docs/ci/test-trigger-selector-design.md",
+      "docs/ci/typescript-api-compat.md",
+      "docs/cli-staging-validation.md",
+      "docs/contributing.md",
+      "docs/dogfooding-pull-requests.md",
+      "docs/extension-signing.md",
+      "docs/getting-perf-traces.md",
+      "docs/list-of-diagnostics.md",
+      "docs/machine-requirements.md",
+      "docs/migrate-from-apphost-sdk.md",
+      "docs/open-telemetry-architecture.md",
+      "docs/outerloop-tests.md",
+      "docs/plans/project-v2-csharpprogram-watch.md",
+      "docs/quarantined-tests.md",
+      "docs/release-process.md",
+      "docs/specs/IDE-execution.md",
+      "docs/specs/aks-support.md",
+      "docs/specs/api-docs-commands.md",
+      "docs/specs/appmodel.md",
+      "docs/specs/aspire-product-telemetry.md",
+      "docs/specs/azure-provisioning-reconciliation.md",
+      "docs/specs/bundle.md",
+      "docs/specs/cli-backchannel.md",
+      "docs/specs/cli-identity-sidecar.md",
+      "docs/specs/cli-mcp.md",
+      "docs/specs/cli-output-formats.md",
+      "docs/specs/connection-properties.md",
+      "docs/specs/dashboard-http-api.md",
+      "docs/specs/dashboard-persistence.md",
+      "docs/specs/install-routes.md"
+    ],
+    "samples": [
+      "playground/.editorconfig",
+      "playground/AksDemo/AksDemo.ApiService/AksDemo.ApiService.csproj",
+      "playground/AksDemo/AksDemo.ApiService/Program.cs",
+      "playground/AksDemo/AksDemo.ApiService/Properties/launchSettings.json",
+      "playground/AksDemo/AksDemo.ApiService/appsettings.json",
+      "playground/AksDemo/AksDemo.AppHost/AksDemo.AppHost.csproj",
+      "playground/AksDemo/AksDemo.AppHost/AppHost.cs",
+      "playground/AksDemo/AksDemo.AppHost/Properties/launchSettings.json",
+      "playground/AksDemo/AksDemo.AppHost/appsettings.json",
+      "playground/AksDemo/aspire.config.json",
+      "playground/AspireEventHub/.vscode/launch.json",
+      "playground/AspireEventHub/EventHubs.AppHost/AppHost.cs",
+      "playground/AspireEventHub/EventHubs.AppHost/EventHubs.AppHost.csproj",
+      "playground/AspireEventHub/EventHubs.AppHost/Properties/launchSettings.json",
+      "playground/AspireEventHub/EventHubs.AppHost/appsettings.Development.json",
+      "playground/AspireEventHub/EventHubs.AppHost/appsettings.json",
+      "playground/AspireEventHub/EventHubs.AppHost/aspire-manifest.json",
+      "playground/AspireEventHub/EventHubs.AppHost/ehstorage-roles.module.bicep",
+      "playground/AspireEventHub/EventHubs.AppHost/ehstorage.module.bicep",
+      "playground/AspireEventHub/EventHubs.AppHost/eventhubns-roles.module.bicep",
+      "playground/AspireEventHub/EventHubs.AppHost/eventhubns.module.bicep",
+      "playground/AspireEventHub/EventHubsApi/EventHubsApi.csproj",
+      "playground/AspireEventHub/EventHubsApi/Program.cs",
+      "playground/AspireEventHub/EventHubsApi/Properties/launchSettings.json",
+      "playground/AspireEventHub/EventHubsApi/appsettings.Development.json",
+      "playground/AspireEventHub/EventHubsApi/appsettings.json",
+      "playground/AspireEventHub/EventHubsApi/requests.http",
+      "playground/AspireEventHub/EventHubsConsumer/Consumer.cs",
+      "playground/AspireEventHub/EventHubsConsumer/EventHubsConsumer.csproj",
+      "playground/AspireEventHub/EventHubsConsumer/Processor.cs",
+      "playground/AspireEventHub/EventHubsConsumer/Program.cs",
+      "playground/AspireEventHub/EventHubsConsumer/Properties/launchSettings.json",
+      "playground/AspireEventHub/EventHubsConsumer/appsettings.Development.json",
+      "playground/AspireEventHub/EventHubsConsumer/appsettings.json",
+      "playground/AspireEventHub/aspire.config.json",
+      "playground/AspireWithBun/BunFrontend/bun.lock",
+      "playground/AspireWithBun/BunFrontend/package.json",
+      "playground/AspireWithBun/BunFrontend/server.ts",
+      "playground/AspireWithBun/README.md",
+      "playground/AspireWithBun/apphost.mts",
+      "playground/AspireWithBun/aspire.config.json",
+      "playground/AspireWithBun/package-lock.json",
+      "playground/AspireWithBun/package.json",
+      "playground/AspireWithBun/tsconfig.json",
+      "playground/AspireWithDeno/DenoFrontend/deno.json",
+      "playground/AspireWithDeno/DenoFrontend/main.ts",
+      "playground/AspireWithDeno/README.md",
+      "playground/AspireWithDeno/apphost.mts",
+      "playground/AspireWithDeno/aspire.config.json",
+      "playground/AspireWithDeno/package.json"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

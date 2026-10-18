@@ -1,0 +1,585 @@
+{
+  "id": "DJ-037",
+  "repo": "dotj-openapi",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/RicoSuter/NSwag",
+  "canonical_url": "https://github.com/RicoSuter/NSwag",
+  "redirect_observed": false,
+  "inspected_revision": "63daf8fcc3a25151b62eb4b326a1e8ea048a0d41",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "master",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Build.props",
+      "sha256": "206eb31a322473d664efa9c82060a09771c7fc3559146b949fb5b20f038db724",
+      "bytes": 2614
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props",
+      "sha256": "a71a23da4f4b2edcec6561078282becda6f4c7458c89b5af763c3bfd4e844bc0",
+      "bytes": 3539
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/LICENSE.md",
+      "sha256": "d890a1f19f16d93cbe16fba3df7054692046eca2140dd73d620b8d664fe66e3d",
+      "bytes": 1077
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md",
+      "sha256": "ad49d233d76dae7cbae94d5c28857183bba23de96558c9a26032dbe3e93d0cf4",
+      "bytes": 17193
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/global.json",
+      "sha256": "caee99a98f898565a05c1724bc6a95bc6975f2091a942be70fb16441bb3cb491",
+      "bytes": 78
+    },
+    {
+      "path": "src/NSwagStudio/NSwagStudio.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwagStudio/NSwagStudio.csproj",
+      "sha256": "9d297368793fa11c3ce649f119f172a7a2f456f9ed101f3d7b3312cebf3b4ac4",
+      "bytes": 1877
+    },
+    {
+      "path": "src/NSwag.Core/NSwag.Core.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwag.Core/NSwag.Core.csproj",
+      "sha256": "ead3ab34c82c81fb276fcbbef0beeea240dd5e4b71315c6e0c37b1e338aff3c9",
+      "bytes": 2737
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "AvalonEdit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Expression.Interaction",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNet.WebApi.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.ApiExplorer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Formatters.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.StaticFiles",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.FileProviders.Embedded",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Owin.StaticFiles",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Moq",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MyToolkit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MyToolkit.Extended",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Namotion.Reflection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NJsonSchema",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NJsonSchema.CodeGeneration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NJsonSchema.CodeGeneration.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NJsonSchema.CodeGeneration.TypeScript",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NJsonSchema.NewtonsoftJson",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NJsonSchema.Yaml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Runtime.Loader",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Verify.XunitV3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WixToolset.Util.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "WixToolset.UI.wixext",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.TestHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.Server.Kestrel.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.OpenApi",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.TestHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.OpenApi",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.TestHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.OpenApi",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.TestHost",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/Directory.Packages.props"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NSwag.Commands\\NSwag.Commands.csproj",
+      "file": "src/NSwagStudio/NSwagStudio.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwagStudio/NSwagStudio.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\NSwag.Generation.WebApi\\NSwag.Generation.WebApi.csproj",
+      "file": "src/NSwagStudio/NSwagStudio.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwagStudio/NSwagStudio.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AvalonEdit",
+      "file": "src/NSwagStudio/NSwagStudio.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwagStudio/NSwagStudio.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Expression.Interaction",
+      "file": "src/NSwagStudio/NSwagStudio.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwagStudio/NSwagStudio.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MyToolkit",
+      "file": "src/NSwagStudio/NSwagStudio.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwagStudio/NSwagStudio.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "MyToolkit.Extended",
+      "file": "src/NSwagStudio/NSwagStudio.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwagStudio/NSwagStudio.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "NJsonSchema",
+      "file": "src/NSwag.Core/NSwag.Core.csproj",
+      "url": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/src/NSwag.Core/NSwag.Core.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/RicoSuter/Namotion.Reflection",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/nswag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/OAI/OpenAPI-Specification",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/NJsonSchema/NJsonSchema",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/NJsonSchema/NJsonSchema",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/swagger-api/swagger-ui",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/Rebilly/ReDoc",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/swagger-api/swagger-ui",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/Jusas/NSwag.AzureFunctionsV2",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/sponsors/RicoSuter",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    },
+    {
+      "url": "https://github.com/RicoSuter/NSwag",
+      "source": "https://github.com/RicoSuter/NSwag/blob/63daf8fcc3a25151b62eb4b326a1e8ea048a0d41/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/NSwag.Annotations",
+      "src/NSwag.ApiDescription.Client",
+      "src/NSwag.AspNet.Owin",
+      "src/NSwag.AspNet.WebApi",
+      "src/NSwag.AspNetCore.Launcher.x86",
+      "src/NSwag.AspNetCore.Launcher",
+      "src/NSwag.AspNetCore",
+      "src/NSwag.CodeGeneration.CSharp.Tests",
+      "src/NSwag.CodeGeneration.CSharp",
+      "src/NSwag.CodeGeneration.Tests",
+      "src/NSwag.CodeGeneration.TypeScript.Tests",
+      "src/NSwag.CodeGeneration.TypeScript",
+      "src/NSwag.CodeGeneration",
+      "src/NSwag.Commands",
+      "src/NSwag.Console.x86",
+      "src/NSwag.Console",
+      "src/NSwag.ConsoleCore.Tests",
+      "src/NSwag.ConsoleCore",
+      "src/NSwag.Core.Tests",
+      "src/NSwag.Core.Yaml.Tests",
+      "src/NSwag.Core.Yaml",
+      "src/NSwag.Core",
+      "src/NSwag.Generation.AspNetCore.Tests.Web",
+      "src/NSwag.Generation.AspNetCore.Tests",
+      "src/NSwag.Generation.AspNetCore",
+      "src/NSwag.Generation.Tests",
+      "src/NSwag.Generation.WebApi.Tests",
+      "src/NSwag.Generation.WebApi",
+      "src/NSwag.Generation",
+      "src/NSwag.MSBuild",
+      "src/NSwag.Npm",
+      "src/NSwag.Sample.Common",
+      "src/NSwag.Sample.NET100",
+      "src/NSwag.Sample.NET100Minimal",
+      "src/NSwag.Sample.NET80",
+      "src/NSwag.Sample.NET80Minimal",
+      "src/NSwag.Sample.NET90",
+      "src/NSwag.Sample.NET90Minimal",
+      "src/NSwag.VersionMissmatchTest",
+      "src/NSwagStudio.Chocolatey",
+      "src/NSwagStudio.Installer",
+      "src/NSwagStudio",
+      "src/libs",
+      "src/NSwag.NoInstaller.slnf",
+      "src/NSwag.sln",
+      "src/NSwag.snk",
+      "src/NuGet.Config",
+      "src/UpgradeLog.htm",
+      "src/switcher.json",
+      "src/NSwagStudio/Controls"
+    ],
+    "api": [],
+    "tests": [
+      "src/NSwag.CodeGeneration.CSharp.Tests",
+      "src/NSwag.CodeGeneration.Tests",
+      "src/NSwag.CodeGeneration.TypeScript.Tests",
+      "src/NSwag.ConsoleCore.Tests",
+      "src/NSwag.Core.Tests",
+      "src/NSwag.Core.Yaml.Tests",
+      "src/NSwag.Generation.AspNetCore.Tests.Web",
+      "src/NSwag.Generation.AspNetCore.Tests",
+      "src/NSwag.Generation.Tests",
+      "src/NSwag.Generation.WebApi.Tests"
+    ],
+    "docs": [
+      "docs/tutorials/GenerateProxyClientWithCLI",
+      "docs"
+    ],
+    "samples": []
+  },
+  "gaps": [
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  ],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}

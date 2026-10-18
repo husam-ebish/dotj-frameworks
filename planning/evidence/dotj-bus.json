@@ -1,0 +1,922 @@
+{
+  "id": "DJ-066",
+  "repo": "dotj-bus",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/MassTransit/MassTransit",
+  "canonical_url": "https://github.com/MassTransit/MassTransit",
+  "redirect_observed": false,
+  "inspected_revision": "d9f61f764c802785cc9a4be92547d8f5b63018d4",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "develop",
+  "status": "Partial reconnaissance",
+  "tree_truncated": null,
+  "inspected_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Build.props",
+      "sha256": "04b4343f1568b6cf7421b32b486c691df7b9cf1f072a20df0d8bd59cc2553bbe",
+      "bytes": 966
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props",
+      "sha256": "c8e3e23cb665b3a0cfbec0e41a7fdb799308be8894fb3e232d2e07c30629c56c",
+      "bytes": 14119
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/LICENSE",
+      "sha256": "f634e0b04b32e05da1915e2d58e89c63e9f358dcd65cc5218a6152ec0e3d65a1",
+      "bytes": 10313
+    },
+    {
+      "path": "NOTICE",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/NOTICE",
+      "sha256": "b6e25f8722cd8a6206f7f84c9975722951c422fa2ca4f381a729b228a5f793f8",
+      "bytes": 352
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/README.md",
+      "sha256": "093403afbcd4c182148279e8a736d7c39956c094e675910c35b231e1dc167d81",
+      "bytes": 9859
+    },
+    {
+      "path": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj",
+      "sha256": "0410f20e27feca2754ef694a652ebca893e08d69df03d8afc5999b8ecfca52f1",
+      "bytes": 2075
+    },
+    {
+      "path": "COPYRIGHT",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/COPYRIGHT",
+      "sha256": "e2e23693e58dbef3384ed10bcd2944b73c53be0a21eb2b9ec727d1ec658ec643",
+      "bytes": 560
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "Apache.NMS.ActiveMQ",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Apache.NMS.AMQP",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.DynamoDBv2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.SimpleNotificationService",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.S3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "AWSSDK.SQS",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Data.Tables",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.EventHubs.Processor",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Messaging.ServiceBus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Azure.Storage.Blobs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Confluent.Kafka",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Confluent.SchemaRegistry.Serdes.Avro",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "coverlet.collector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Dapper",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "dapper.contrib",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "EntityFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Google.Protobuf",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hangfire.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hangfire.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Hangfire.MemoryStorage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Iesi.Collections",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Ionic.Zlib.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Marten",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MathNet.Numerics",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MediatR",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MessagePack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.ApplicationInsights.AspNetCore",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.SignalR.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.AspNetCore.SignalR.Protocols.MessagePack",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.Cosmos",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.WebJobs.Extensions.EventHubs",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Azure.WebJobs.Extensions.ServiceBus",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Design",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Design",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Relational",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.Relational",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Diagnostics.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MongoDB.Driver",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json.Bson",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NHibernate",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Npgsql.EntityFrameworkCore.PostgreSQL",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NUnit3TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Quartz",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Quartz.Extensions.Hosting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "QuikGraph",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "QuikGraph.Graphviz",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "RabbitMQ.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SharpZipLib",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StackExchange.Redis",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Data.SQLite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Emit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Emit.Lightweight",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Text.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Channels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Channels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Channels",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ValueTuple",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Memory",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Net.Http",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Reflection.Emit.Lightweight",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Reflection.Emit",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Memory",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Diagnostics.HealthChecks",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Hosting.Abstractions",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Options",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Text.Json",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.Channels",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\MassTransit.Abstractions\\MassTransit.Abstractions.csproj",
+      "file": "src/MassTransit/MassTransit.csproj",
+      "url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/MassTransit.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/MassTransit/MassTransit",
+      "source": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/README.md"
+    },
+    {
+      "url": "https://github.com/MassTransit/MassTransit",
+      "source": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/README.md"
+    },
+    {
+      "url": "https://github.com/MassTransit/MassTransit",
+      "source": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/README.md"
+    },
+    {
+      "url": "https://github.com/MassTransit/MassTransit",
+      "source": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/README.md"
+    },
+    {
+      "url": "https://github.com/MassTransit/MassTransit",
+      "source": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/README.md"
+    },
+    {
+      "url": "https://github.com/MassTransit/MassTransit.git",
+      "source": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "src/MassTransit.Abstractions",
+      "src/MassTransit.Analyzers",
+      "src/MassTransit.Interop.NServiceBus",
+      "src/MassTransit.MessagePack",
+      "src/MassTransit.Newtonsoft",
+      "src/MassTransit.SignalR",
+      "src/MassTransit.StateMachineVisualizer",
+      "src/MassTransit.TestFramework",
+      "src/MassTransit",
+      "src/Persistence",
+      "src/Scheduling",
+      "src/Transports",
+      "src/Directory.Build.props",
+      "src/NuGet.README.md",
+      "src/mt-logo-small.png",
+      "src/MassTransit/Agents",
+      "src/MassTransit/Audit",
+      "src/MassTransit/Caching",
+      "src/MassTransit/Clients",
+      "src/MassTransit/Configuration",
+      "src/MassTransit/Consumers",
+      "src/MassTransit/Contexts",
+      "src/MassTransit/Courier",
+      "src/MassTransit/DependencyInjection",
+      "src/MassTransit/Events",
+      "src/MassTransit/Exceptions",
+      "src/MassTransit/Futures",
+      "src/MassTransit/InMemoryTransport",
+      "src/MassTransit/Initializers",
+      "src/MassTransit/Internals",
+      "src/MassTransit/Introspection",
+      "src/MassTransit/JobService",
+      "src/MassTransit/LegacyObsolete",
+      "src/MassTransit/Licensing",
+      "src/MassTransit/Logging",
+      "src/MassTransit/Mediator",
+      "src/MassTransit/MessageData",
+      "src/MassTransit/Metadata",
+      "src/MassTransit/Middleware",
+      "src/MassTransit/Monitoring",
+      "src/MassTransit/RetryPolicies",
+      "src/MassTransit/SagaStateMachine",
+      "src/MassTransit/Sagas",
+      "src/MassTransit/Scheduling",
+      "src/MassTransit/Serialization",
+      "src/MassTransit/SqlTransport",
+      "src/MassTransit/Testing",
+      "src/MassTransit/Topology",
+      "src/MassTransit/Transactions",
+      "src/MassTransit/Transformation"
+    ],
+    "api": [],
+    "tests": [
+      "tests"
+    ],
+    "docs": [],
+    "samples": []
+  },
+  "gaps": [
+    "Dedicated documentation tree not established; follow README documentation links",
+    "Examples/samples location not established; check README and related repositories",
+    "Root/subtree listing only; recursive source inventory unavailable after API rate limit"
+  ],
+  "access_errors": [
+    "HTTP Error 403: rate limit exceeded"
+  ],
+  "license_observation": "Apache 2.0 text observed; file-level review OPEN"
+}

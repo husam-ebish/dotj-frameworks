@@ -1,0 +1,661 @@
+{
+  "id": "DJ-027",
+  "repo": "dotj-resilience",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/App-vNext/Polly",
+  "canonical_url": "https://github.com/App-vNext/Polly",
+  "redirect_observed": false,
+  "inspected_revision": "3f3adad9d5af85658fc3585018f02a2d8c2173e8",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md",
+      "sha256": "b8683774ca2a36be66b39fd44cb7b6e6071edcd45973a0195c2b24cafcda8ad1",
+      "bytes": 25281
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/LICENSE",
+      "sha256": "1a99e4b057fa759e4c45c45d4e2f6c3051b460723067143c70fe3ba5621d2b63",
+      "bytes": 1501
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props",
+      "sha256": "660da0bf11cd17dde185343ba24cff3bbae4352ac614b3e3eaebb901b030b5fe",
+      "bytes": 4711
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Build.props",
+      "sha256": "d2bdaa3b7a061bb4352c236c028ae1ce59d5b7b7993360db2ba460f976f40a62",
+      "bytes": 482
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/global.json",
+      "sha256": "62a349405ace1430e7dfa4a3ca3c3a102e71f0735865f87a8e73f99328b319ae",
+      "bytes": 183
+    },
+    {
+      "path": "src/Polly.Core/Polly.Core.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Polly.Core.csproj",
+      "sha256": "41287027f011ca3db727f6a693ca8567320389813b5d3effd1e9fbc4a07e2e43",
+      "bytes": 2595
+    },
+    {
+      "path": "src/Polly.Extensions/Polly.Extensions.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Extensions/Polly.Extensions.csproj",
+      "sha256": "10e37ec816eade04acdb7423b21e29b6bb00f15074ca77dafed914d508df16ab",
+      "bytes": 2051
+    },
+    {
+      "path": "src/Polly.Testing/Polly.Testing.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Testing/Polly.Testing.csproj",
+      "sha256": "16aa2cda18f204023f3d982e1f47ba53e6454cad902944b21e98b9841cf432e7",
+      "bytes": 809
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Cake.FileHelpers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Flurl.Http.Signed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FsCheck.Xunit.v3",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "FSharp.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "IcedTasks",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.BannedApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Caching.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Configuration",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Http.Resilience",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options.ConfigurationExtensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.TimeProvider.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Extensions.CodeCoverage",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Testing.Platform",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "MinVer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "NSubstitute",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.Contrib.WaitAndRetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.Core",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.RateLimiting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Polly.Testing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Refit.HttpClientFactory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "RestSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Shouldly",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "SonarAnalyzer.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "StyleCop.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ComponentModel.Annotations",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Memory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.ValueTuple",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.assert",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "xunit.v3.mtp-v2",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.TimeProvider",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Options",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageVersion",
+      "name": "System.Threading.RateLimiting",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/Directory.Packages.props"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "src/Polly.Core/Polly.Core.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Polly.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.TimeProvider",
+      "file": "src/Polly.Core/Polly.Core.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Polly.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "src/Polly.Core/Polly.Core.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Polly.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ValueTuple",
+      "file": "src/Polly.Core/Polly.Core.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Polly.Core.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.ComponentModel.Annotations",
+      "file": "src/Polly.Core/Polly.Core.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Polly.Core.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Polly.Core\\Polly.Core.csproj",
+      "file": "src/Polly.Extensions/Polly.Extensions.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Extensions/Polly.Extensions.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Options",
+      "file": "src/Polly.Extensions/Polly.Extensions.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Extensions/Polly.Extensions.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "src/Polly.Extensions/Polly.Extensions.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Extensions/Polly.Extensions.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "System.Diagnostics.DiagnosticSource",
+      "file": "src/Polly.Extensions/Polly.Extensions.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Extensions/Polly.Extensions.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\Polly.Core\\Polly.Core.csproj",
+      "file": "src/Polly.Testing/Polly.Testing.csproj",
+      "url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Testing/Polly.Testing.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/sponsors/App-vNext",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/swag",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/App-vNext/Polly",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/App-vNext/Polly",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/App-vNext/Polly",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/App-vNext/Polly",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/Polly-Contrib/Simmy",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/App-vNext/Polly-Samples",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/eShop",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/aws/dotnet-foss",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/microsoft/foss-fund",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    },
+    {
+      "url": "https://github.com/sponsors/App-vNext",
+      "source": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "bench/Polly.Benchmarks/Polly.Benchmarks.csproj",
+      "bench/Polly.Core.Benchmarks/Polly.Core.Benchmarks.csproj",
+      "samples/Chaos/Chaos.csproj",
+      "samples/DependencyInjection/DependencyInjection.csproj",
+      "samples/Extensibility/Extensibility.csproj",
+      "samples/GenericPipelines/GenericPipelines.csproj",
+      "samples/Intro/Intro.csproj",
+      "samples/Retries/Retries.csproj",
+      "src/LegacySupport/CallerArgumentExpressionAttribute.cs",
+      "src/LegacySupport/DynamicDependencyAttribute.cs",
+      "src/LegacySupport/DynamicallyAccessedMemberTypes.cs",
+      "src/LegacySupport/DynamicallyAccessedMembersAttribute.cs",
+      "src/LegacySupport/IsExternalInit.cs",
+      "src/LegacySupport/NullableAttributes.cs",
+      "src/LegacySupport/RequiresUnreferencedCodeAttribute.cs",
+      "src/LegacySupport/UnconditionalSuppressMessageAttribute.cs",
+      "src/Polly.Core/.PublicAPI/PublicAPI.Shipped.txt",
+      "src/Polly.Core/.PublicAPI/PublicAPI.Unshipped.txt",
+      "src/Polly.Core/CircuitBreaker/BreakDurationGeneratorArguments.cs",
+      "src/Polly.Core/CircuitBreaker/BrokenCircuitException.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitBreakerConstants.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitBreakerManualControl.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitBreakerPredicateArguments.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitBreakerResiliencePipelineBuilderExtensions.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitBreakerResilienceStrategy.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitBreakerStateProvider.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitBreakerStrategyOptions.TResult.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitBreakerStrategyOptions.cs",
+      "src/Polly.Core/CircuitBreaker/CircuitState.cs",
+      "src/Polly.Core/CircuitBreaker/Controller/AdvancedCircuitBehavior.cs",
+      "src/Polly.Core/CircuitBreaker/Controller/CircuitBehavior.cs",
+      "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+      "src/Polly.Core/CircuitBreaker/Controller/ScheduledTaskExecutor.cs",
+      "src/Polly.Core/CircuitBreaker/Health/HealthInfo.cs",
+      "src/Polly.Core/CircuitBreaker/Health/HealthMetrics.cs",
+      "src/Polly.Core/CircuitBreaker/Health/RollingHealthMetrics.cs",
+      "src/Polly.Core/CircuitBreaker/Health/SingleHealthMetrics.cs",
+      "src/Polly.Core/CircuitBreaker/IsolatedCircuitException.cs",
+      "src/Polly.Core/CircuitBreaker/OnCircuitClosedArguments.cs",
+      "src/Polly.Core/CircuitBreaker/OnCircuitHalfOpenedArguments.cs",
+      "src/Polly.Core/CircuitBreaker/OnCircuitOpenedArguments.cs",
+      "src/Polly.Core/CompatibilitySuppressions.xml",
+      "src/Polly.Core/DelayBackoffType.cs",
+      "src/Polly.Core/ExecutionRejectedException.cs",
+      "src/Polly.Core/Fallback/FallbackActionArguments.cs",
+      "src/Polly.Core/Fallback/FallbackConstants.cs",
+      "src/Polly.Core/Fallback/FallbackHandler.cs",
+      "src/Polly.Core/Fallback/FallbackPredicateArguments.cs",
+      "src/Polly.Core/Fallback/FallbackResiliencePipelineBuilderExtensions.cs",
+      "src/Polly.Core/Fallback/FallbackResilienceStrategy.cs"
+    ],
+    "api": [
+      "docs/api/.gitignore",
+      "docs/api/index.md",
+      "src/Polly.Core/.PublicAPI/PublicAPI.Shipped.txt",
+      "src/Polly.Core/.PublicAPI/PublicAPI.Unshipped.txt",
+      "src/Polly.Extensions/.PublicAPI/PublicAPI.Shipped.txt",
+      "src/Polly.Extensions/.PublicAPI/PublicAPI.Unshipped.txt",
+      "src/Polly.RateLimiting/.PublicAPI/PublicAPI.Shipped.txt",
+      "src/Polly.RateLimiting/.PublicAPI/PublicAPI.Unshipped.txt",
+      "src/Polly.Testing/.PublicAPI/PublicAPI.Shipped.txt",
+      "src/Polly.Testing/.PublicAPI/PublicAPI.Unshipped.txt",
+      "src/Polly/.PublicAPI/PublicAPI.Shipped.txt",
+      "src/Polly/.PublicAPI/PublicAPI.Unshipped.txt"
+    ],
+    "tests": [
+      "test/.editorconfig",
+      "test/Polly.AotTest/Polly.AotTest.csproj",
+      "test/Polly.AotTest/Program.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/BreakDurationGeneratorArgumentsTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/BrokenCircuitExceptionTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/CircuitBreakerManualControlTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/CircuitBreakerOptionsTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/CircuitBreakerPredicateArgumentsTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/CircuitBreakerResiliencePipelineBuilderTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/CircuitBreakerResilienceStrategyTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/CircuitBreakerStateProviderTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/Controller/AdvancedCircuitBehaviorTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/Controller/CircuitStateControllerTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/Controller/ScheduledTaskExecutorTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/Health/HealthMetricsTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/Health/RollingHealthMetricsTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/Health/SingleHealthMetricsTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/IsolatedCircuitExceptionTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/OnCircuitClosedArgumentsTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/OnCircuitHalfOpenedArgumentsTests.cs",
+      "test/Polly.Core.Tests/CircuitBreaker/OnCircuitOpenedArgumentsTests.cs",
+      "test/Polly.Core.Tests/ExecutionRejectedExceptionTests.cs",
+      "test/Polly.Core.Tests/Fallback/FallbackHandlerTests.cs",
+      "test/Polly.Core.Tests/Fallback/FallbackHelper.cs",
+      "test/Polly.Core.Tests/Fallback/FallbackResiliencePipelineBuilderExtensionsTests.cs",
+      "test/Polly.Core.Tests/Fallback/FallbackResilienceStrategyTests.cs",
+      "test/Polly.Core.Tests/Fallback/FallbackStrategyOptionsTests.cs",
+      "test/Polly.Core.Tests/GenericResiliencePipelineBuilderTests.cs",
+      "test/Polly.Core.Tests/Hedging/Controller/HedgingControllerTests.cs",
+      "test/Polly.Core.Tests/Hedging/Controller/HedgingExecutionContextTests.cs",
+      "test/Polly.Core.Tests/Hedging/Controller/TaskExecutionTests.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingActionGeneratorArgumentsTests.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingActions.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingDelayGeneratorArgumentsTests.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingHelper.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingPredicateArgumentsTests.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingResiliencePipelineBuilderExtensionsTests.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingResilienceStrategyTests.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingStrategyOptionsTests.cs",
+      "test/Polly.Core.Tests/Hedging/HedgingTimeProvider.cs",
+      "test/Polly.Core.Tests/Hedging/OnHedgingArgumentsTests.cs",
+      "test/Polly.Core.Tests/Hedging/PrimaryStringTasks.cs",
+      "test/Polly.Core.Tests/Helpers/DisposableResult.cs",
+      "test/Polly.Core.Tests/Issues/IssuesTests .OnRetryContext_2597.cs",
+      "test/Polly.Core.Tests/Issues/IssuesTests.CancellationTokenPropagation_3086.cs",
+      "test/Polly.Core.Tests/Issues/IssuesTests.CircuitBreakerStateRegistry_1828.cs",
+      "test/Polly.Core.Tests/Issues/IssuesTests.CircuitBreakerStateSharing_959.cs",
+      "test/Polly.Core.Tests/Issues/IssuesTests.FlowingContext_849.cs",
+      "test/Polly.Core.Tests/Issues/IssuesTests.HandleMultipleResults_898.cs",
+      "test/Polly.Core.Tests/Issues/IssuesTests.InfiniteRetry_2163.cs"
+    ],
+    "docs": [
+      "docs/.gitignore",
+      "docs/advanced/dependency-injection.md",
+      "docs/advanced/performance.md",
+      "docs/advanced/resilience-context.md",
+      "docs/advanced/telemetry.md",
+      "docs/advanced/testing.md",
+      "docs/advanced/toc.yml",
+      "docs/advanced/use-with-fsharp-and-visual-basic.md",
+      "docs/api/.gitignore",
+      "docs/api/index.md",
+      "docs/chaos/behavior.md",
+      "docs/chaos/fault.md",
+      "docs/chaos/index.md",
+      "docs/chaos/latency.md",
+      "docs/chaos/outcome.md",
+      "docs/chaos/toc.yml",
+      "docs/community/cheat-sheets.md",
+      "docs/community/git-workflow.md",
+      "docs/community/http-client-integrations.md",
+      "docs/community/libraries-and-contributions.md",
+      "docs/community/polly-contrib.md",
+      "docs/community/resources.md",
+      "docs/community/toc.yml",
+      "docs/docfx.json",
+      "docs/extensibility/index.md",
+      "docs/extensibility/proactive-strategy.md",
+      "docs/extensibility/reactive-strategy.md",
+      "docs/extensibility/toc.yml",
+      "docs/general.md",
+      "docs/getting-started.md",
+      "docs/icon.png",
+      "docs/index.md",
+      "docs/media/cheat-sheet-behavior.pdf",
+      "docs/media/cheat-sheet-behavior.pptx",
+      "docs/media/cheat-sheet-circuit-breaker.pdf",
+      "docs/media/cheat-sheet-circuit-breaker.pptx",
+      "docs/media/cheat-sheet-fallback.pdf",
+      "docs/media/cheat-sheet-fallback.pptx",
+      "docs/media/cheat-sheet-fault.pdf",
+      "docs/media/cheat-sheet-fault.pptx",
+      "docs/media/cheat-sheet-hedging.pdf",
+      "docs/media/cheat-sheet-hedging.pptx",
+      "docs/media/cheat-sheet-latency.pdf",
+      "docs/media/cheat-sheet-latency.pptx",
+      "docs/media/cheat-sheet-outcome.pdf",
+      "docs/media/cheat-sheet-outcome.pptx",
+      "docs/media/cheat-sheet-rate-limiter.pdf",
+      "docs/media/cheat-sheet-rate-limiter.pptx",
+      "docs/media/cheat-sheet-retry.pdf",
+      "docs/media/cheat-sheet-retry.pptx"
+    ],
+    "samples": [
+      "samples/.vscode/settings.json",
+      "samples/Chaos/Chaos.csproj",
+      "samples/Chaos/ChaosManager.cs",
+      "samples/Chaos/IChaosManager.cs",
+      "samples/Chaos/Program.cs",
+      "samples/Chaos/Properties/launchSettings.json",
+      "samples/Chaos/README.md",
+      "samples/Chaos/TodoModel.cs",
+      "samples/Chaos/TodosClient.cs",
+      "samples/Chaos/appsettings.Development.json",
+      "samples/Chaos/appsettings.json",
+      "samples/DependencyInjection/DependencyInjection.csproj",
+      "samples/DependencyInjection/Program.cs",
+      "samples/Directory.Build.props",
+      "samples/Directory.Build.targets",
+      "samples/Extensibility/Extensibility.csproj",
+      "samples/Extensibility/Proactive/OnThresholdExceededArguments.cs",
+      "samples/Extensibility/Proactive/TimingResilienceStrategy.cs",
+      "samples/Extensibility/Proactive/TimingResilienceStrategyBuilderExtensions.cs",
+      "samples/Extensibility/Proactive/TimingStrategyOptions.cs",
+      "samples/Extensibility/Program.cs",
+      "samples/Extensibility/Reactive/OnReportResultArguments.cs",
+      "samples/Extensibility/Reactive/ResultReportingPredicateArguments.cs",
+      "samples/Extensibility/Reactive/ResultReportingResilienceStrategy.cs",
+      "samples/Extensibility/Reactive/ResultReportingResilienceStrategyBuilderExtensions.cs",
+      "samples/Extensibility/Reactive/ResultReportingStrategyOptions.cs",
+      "samples/GenericPipelines/GenericPipelines.csproj",
+      "samples/GenericPipelines/Program.cs",
+      "samples/Intro.FSharp/Intro.FSharp.fsproj",
+      "samples/Intro.FSharp/Program.fs",
+      "samples/Intro.VisualBasic/Intro.VisualBasic.vbproj",
+      "samples/Intro.VisualBasic/Program.vb",
+      "samples/Intro/Intro.csproj",
+      "samples/Intro/Program.cs",
+      "samples/README.md",
+      "samples/Retries/ExecuteHelper.cs",
+      "samples/Retries/Program.cs",
+      "samples/Retries/Retries.csproj",
+      "samples/Samples.slnx"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "BSD-style text observed; exact variant/file review OPEN"
+}

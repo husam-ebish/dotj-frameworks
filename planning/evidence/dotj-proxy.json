@@ -1,0 +1,377 @@
+{
+  "id": "DJ-014",
+  "repo": "dotj-proxy",
+  "inspection_date": "2026-10-18",
+  "requested_url": "https://github.com/dotnet/yarp",
+  "canonical_url": "https://github.com/dotnet/yarp",
+  "redirect_observed": false,
+  "inspected_revision": "2aa3d83550a9b7a719e347ef6a0363e5ea9505a9",
+  "revision_role": "reconnaissance pin; implementation release baseline not selected",
+  "default_branch": "main",
+  "status": "Scoped reconnaissance",
+  "tree_truncated": false,
+  "inspected_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/README.md",
+      "sha256": "4121f3b09ecdacd7f0b48f37911ee8a67500e6f313f66d55da7d84077858b0a0",
+      "bytes": 4792
+    },
+    {
+      "path": "LICENSE.txt",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/LICENSE.txt",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "bytes": 1116
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "a6fe38afcab73cab81b2a475f5c57756264a0c48292cb792e26a9a849dbce3ed",
+      "bytes": 1243
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/Directory.Build.props",
+      "sha256": "b8c078081104acc5910e448b84e087b90235aba3349a9320ba1b3afed081bd5f",
+      "bytes": 1029
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/global.json",
+      "sha256": "2a6403746ee7302ba3c805995f9819e1d8706e3e9ef81645439375f20ded477a",
+      "bytes": 467
+    },
+    {
+      "path": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/eng/common/internal/Tools.csproj",
+      "sha256": "8a98f29854cdf5f8a4f7af8d3e7bc04183ad5d8b35b858e282d2a5b505e13b9e",
+      "bytes": 1579
+    },
+    {
+      "path": "eng/yarpapppack/yarpapppack-linux-arm64.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/eng/yarpapppack/yarpapppack-linux-arm64.csproj",
+      "sha256": "f33a7327d9fd8a1a095236a2910f510c5a993dba28ef3a4517e043e143a53209",
+      "bytes": 201
+    },
+    {
+      "path": "test/Application.Tests/Yarp.Application.Tests.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/test/Application.Tests/Yarp.Application.Tests.csproj",
+      "sha256": "c65911d915f8b5994d1f2f5fe37427ff0627844a93af61b1734ed74b047b57d2",
+      "bytes": 740
+    },
+    {
+      "path": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj",
+      "sha256": "a75739d5c5d5b82c0005001a0ee97cf58ee821f742536be60c9cb1ec109870c5",
+      "bytes": 1800
+    },
+    {
+      "path": "src/Kubernetes.Controller/Yarp.Kubernetes.Controller.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Kubernetes.Controller/Yarp.Kubernetes.Controller.csproj",
+      "sha256": "3c13efc29b76974e21b6c65eb074a31f5659e648e4fdbf1ba31ca03cabca4380",
+      "bytes": 804
+    }
+  ],
+  "declared_references": [
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.ManifestTool.CrossPlatform",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Core",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.VisualStudioEng.MicroBuild.Plugins.SwixBuild",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.DotNet.IBCMerge",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Drop.App",
+      "file": "eng/common/internal/Tools.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/eng/common/internal/Tools.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\..\\src\\Application\\Yarp.Application.csproj",
+      "file": "test/Application.Tests/Yarp.Application.Tests.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/test/Application.Tests/Yarp.Application.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.AspNetCore.Mvc.Testing",
+      "file": "test/Application.Tests/Yarp.Application.Tests.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/test/Application.Tests/Yarp.Application.Tests.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Yarp.ReverseProxy",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.ServiceDiscovery",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.ServiceDiscovery.Yarp",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Exporter.OpenTelemetryProtocol",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Extensions.Hosting",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Instrumentation.AspNetCore",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Instrumentation.Http",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "OpenTelemetry.Instrumentation.Runtime",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "AspNetCore.HealthChecks.ApplicationStatus",
+      "file": "src/Application/Yarp.Application.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Yarp.Application.csproj"
+    },
+    {
+      "kind": "ProjectReference",
+      "name": "..\\ReverseProxy\\Yarp.ReverseProxy.csproj",
+      "file": "src/Kubernetes.Controller/Yarp.Kubernetes.Controller.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Kubernetes.Controller/Yarp.Kubernetes.Controller.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "KubernetesClient",
+      "file": "src/Kubernetes.Controller/Yarp.Kubernetes.Controller.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Kubernetes.Controller/Yarp.Kubernetes.Controller.csproj"
+    },
+    {
+      "kind": "PackageReference",
+      "name": "YamlDotNet",
+      "file": "src/Kubernetes.Controller/Yarp.Kubernetes.Controller.csproj",
+      "url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Kubernetes.Controller/Yarp.Kubernetes.Controller.csproj"
+    }
+  ],
+  "readme_github_references": [
+    {
+      "url": "https://github.com/dotnet/yarp",
+      "source": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/README.md"
+    },
+    {
+      "url": "https://github.com/dotnet/yarp",
+      "source": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/README.md"
+    }
+  ],
+  "locations": {
+    "source": [
+      "eng/common/internal/Tools.csproj",
+      "eng/yarpapppack/yarpapppack-linux-arm64.csproj",
+      "eng/yarpapppack/yarpapppack-linux-x64.csproj",
+      "samples/BasicYarpSample/BasicYarpSample.csproj",
+      "samples/KubernetesIngress.Sample/Combined/Yarp.Kubernetes.IngressController.csproj",
+      "samples/KubernetesIngress.Sample/Ingress/Yarp.Kubernetes.Ingress.csproj",
+      "samples/KubernetesIngress.Sample/Monitor/Yarp.Kubernetes.Monitor.csproj",
+      "samples/KubernetesIngress.Sample/backend/backend.csproj",
+      "samples/Prometheus/HttpLoadApp/HttpLoadApp.csproj",
+      "samples/Prometheus/ReverseProxy.Metrics-Prometheus.Sample/ReverseProxy.Metrics.Prometheus.Sample.csproj",
+      "samples/ReverseProxy.Auth.Sample/ReverseProxy.Auth.Sample.csproj",
+      "samples/ReverseProxy.Code.Sample/ReverseProxy.Code.Sample.csproj",
+      "samples/ReverseProxy.Config.Sample/ReverseProxy.Config.Sample.csproj",
+      "samples/ReverseProxy.ConfigFilter.Sample/ReverseProxy.ConfigFilter.Sample.csproj",
+      "samples/ReverseProxy.Direct.Sample/ReverseProxy.Direct.Sample.csproj",
+      "samples/ReverseProxy.HttpSysDelegation.Sample/ReverseProxy/ReverseProxy.HttpSysDelegation.Sample.csproj",
+      "samples/ReverseProxy.HttpSysDelegation.Sample/SampleHttpSysServer/SampleHttpSysServer.csproj",
+      "samples/ReverseProxy.LetsEncrypt.Sample/ReverseProxy.LetsEncrypt.Sample.csproj",
+      "samples/ReverseProxy.Metrics.Sample/ReverseProxy.Metrics.Sample.csproj",
+      "samples/ReverseProxy.Transforms.Sample/ReverseProxy.Transforms.Sample.csproj",
+      "samples/SampleServer/SampleServer.csproj",
+      "src/Application/Configuration/NavigationFallbackOptions.cs",
+      "src/Application/Configuration/StaticFilesOptions.cs",
+      "src/Application/Configuration/TelemetryOptions.cs",
+      "src/Application/Configuration/TestConfiguration.cs",
+      "src/Application/Configuration/YarpAppConfig.cs",
+      "src/Application/Configuration/YarpAppConfigBinder.cs",
+      "src/Application/Extensions.cs",
+      "src/Application/Features/LoggingFeature.cs",
+      "src/Application/Features/NavigationFallbackFeature.cs",
+      "src/Application/Features/ReverseProxyFeature.cs",
+      "src/Application/Features/StaticFilesFeature.cs",
+      "src/Application/Program.cs",
+      "src/Application/README.md",
+      "src/Application/Yarp.Application.csproj",
+      "src/Application/yarp-config.schema.json",
+      "src/Common/Package.targets",
+      "src/Directory.Build.props",
+      "src/Kubernetes.Controller/Caching/Endpoints.cs",
+      "src/Kubernetes.Controller/Caching/ICache.cs",
+      "src/Kubernetes.Controller/Caching/IngressCache.cs",
+      "src/Kubernetes.Controller/Caching/IngressClassData.cs",
+      "src/Kubernetes.Controller/Caching/IngressData.cs",
+      "src/Kubernetes.Controller/Caching/NamespaceCache.cs",
+      "src/Kubernetes.Controller/Caching/ServiceData.cs",
+      "src/Kubernetes.Controller/Certificates/CertificateHelper.cs",
+      "src/Kubernetes.Controller/Certificates/ICertificateHelper.cs",
+      "src/Kubernetes.Controller/Certificates/IServerCertificateSelector.cs",
+      "src/Kubernetes.Controller/Certificates/ServerCertificateSelector.cs",
+      "src/Kubernetes.Controller/Client/GroupApiVersionKind.cs"
+    ],
+    "api": [],
+    "tests": [
+      "test.cmd",
+      "test.sh",
+      "test/Application.Tests/SpaFallbackTests.cs",
+      "test/Application.Tests/Yarp.Application.Tests.csproj",
+      "test/Application.Tests/YarpAppConfigBinderTests.cs",
+      "test/Application.Tests/wwwroot/index.html",
+      "test/Application.Tests/wwwroot/style.css",
+      "test/Directory.Build.props",
+      "test/Kubernetes.Tests/Certificates/CertificateHelperTests.cs",
+      "test/Kubernetes.Tests/Certificates/cert.der",
+      "test/Kubernetes.Tests/Certificates/cert.pem",
+      "test/Kubernetes.Tests/Certificates/key.der",
+      "test/Kubernetes.Tests/Certificates/key.pem",
+      "test/Kubernetes.Tests/Client/ResourceInformerTests.cs",
+      "test/Kubernetes.Tests/Client/SyncResourceInformer.cs",
+      "test/Kubernetes.Tests/Client/V1DeploymentResourceInformer.cs",
+      "test/Kubernetes.Tests/Client/V1PodResourceInformer.cs",
+      "test/Kubernetes.Tests/Hosting/BackgroundHostedServiceTests.cs",
+      "test/Kubernetes.Tests/Hosting/Fakes/FakeBackgroundHostedService.cs",
+      "test/Kubernetes.Tests/Hosting/Fakes/FakeServer.cs",
+      "test/Kubernetes.Tests/Hosting/Fakes/TestLatch.cs",
+      "test/Kubernetes.Tests/Hosting/Fakes/TestLatches.cs",
+      "test/Kubernetes.Tests/IngressCacheTests.cs",
+      "test/Kubernetes.Tests/IngressControllerTests.cs",
+      "test/Kubernetes.Tests/IngressConversionTests.cs",
+      "test/Kubernetes.Tests/KubeResourceGenerator.cs",
+      "test/Kubernetes.Tests/Management/KubernetesCoreExtensionsTests.cs",
+      "test/Kubernetes.Tests/NamespacedNameTests.cs",
+      "test/Kubernetes.Tests/Queues/WorkQueueTests.cs",
+      "test/Kubernetes.Tests/Rate/LimitTests.cs",
+      "test/Kubernetes.Tests/Rate/LimiterTests.cs",
+      "test/Kubernetes.Tests/Rate/ReservationTests.cs",
+      "test/Kubernetes.Tests/ReconcilerTests.cs",
+      "test/Kubernetes.Tests/TestCluster/Controllers/ResourceApiController.cs",
+      "test/Kubernetes.Tests/TestCluster/Controllers/ResourceApiGroupController.cs",
+      "test/Kubernetes.Tests/TestCluster/ITestCluster.cs",
+      "test/Kubernetes.Tests/TestCluster/ITestClusterHost.cs",
+      "test/Kubernetes.Tests/TestCluster/Models/ListParameters.cs",
+      "test/Kubernetes.Tests/TestCluster/Models/ListResult.cs",
+      "test/Kubernetes.Tests/TestCluster/Models/ResourceObject.cs",
+      "test/Kubernetes.Tests/TestCluster/TestCluster.cs",
+      "test/Kubernetes.Tests/TestCluster/TestClusterHost.cs",
+      "test/Kubernetes.Tests/TestCluster/TestClusterHostBuilder.cs",
+      "test/Kubernetes.Tests/TestCluster/TestClusterOptions.cs",
+      "test/Kubernetes.Tests/TestCluster/TestClusterStartup.cs",
+      "test/Kubernetes.Tests/Utils/ResourceSerializers.cs",
+      "test/Kubernetes.Tests/Utils/TestLogger.cs",
+      "test/Kubernetes.Tests/Yarp.Kubernetes.Tests.csproj",
+      "test/Kubernetes.Tests/testassets/annotations/clusters.json",
+      "test/Kubernetes.Tests/testassets/annotations/ingress.yaml"
+    ],
+    "docs": [
+      "docs/DailyBuilds.md",
+      "docs/README.md",
+      "docs/designs/README.md",
+      "docs/designs/config.md",
+      "docs/designs/route-extensibility.md",
+      "docs/designs/yarp-tunneling.md",
+      "docs/operations/BackportingToPreview.md",
+      "docs/operations/Branching.md",
+      "docs/operations/DependencyFlow.md",
+      "docs/operations/README.md",
+      "docs/operations/Release.md",
+      "docs/roadmap.md"
+    ],
+    "samples": [
+      "samples/BasicYarpSample/BasicYarpSample.csproj",
+      "samples/BasicYarpSample/Program.cs",
+      "samples/BasicYarpSample/Properties/launchSettings.json",
+      "samples/BasicYarpSample/README.md",
+      "samples/BasicYarpSample/appsettings.json",
+      "samples/Directory.Build.props",
+      "samples/KubernetesIngress.Sample/Combined/Dockerfile",
+      "samples/KubernetesIngress.Sample/Combined/Program.cs",
+      "samples/KubernetesIngress.Sample/Combined/Properties/launchSettings.json",
+      "samples/KubernetesIngress.Sample/Combined/README.md",
+      "samples/KubernetesIngress.Sample/Combined/Yarp.Kubernetes.IngressController.csproj",
+      "samples/KubernetesIngress.Sample/Combined/appsettings.Development.json",
+      "samples/KubernetesIngress.Sample/Combined/appsettings.json",
+      "samples/KubernetesIngress.Sample/Combined/ingress-controller.yaml",
+      "samples/KubernetesIngress.Sample/Ingress/Dockerfile",
+      "samples/KubernetesIngress.Sample/Ingress/Program.cs",
+      "samples/KubernetesIngress.Sample/Ingress/Properties/launchSettings.json",
+      "samples/KubernetesIngress.Sample/Ingress/README.md",
+      "samples/KubernetesIngress.Sample/Ingress/Yarp.Kubernetes.Ingress.csproj",
+      "samples/KubernetesIngress.Sample/Ingress/appsettings.Development.json",
+      "samples/KubernetesIngress.Sample/Ingress/appsettings.json",
+      "samples/KubernetesIngress.Sample/Ingress/ingress.yaml",
+      "samples/KubernetesIngress.Sample/Monitor/Dockerfile",
+      "samples/KubernetesIngress.Sample/Monitor/Program.cs",
+      "samples/KubernetesIngress.Sample/Monitor/Properties/launchSettings.json",
+      "samples/KubernetesIngress.Sample/Monitor/README.md",
+      "samples/KubernetesIngress.Sample/Monitor/Yarp.Kubernetes.Monitor.csproj",
+      "samples/KubernetesIngress.Sample/Monitor/appsettings.Development.json",
+      "samples/KubernetesIngress.Sample/Monitor/appsettings.json",
+      "samples/KubernetesIngress.Sample/Monitor/ingress-monitor.yaml",
+      "samples/KubernetesIngress.Sample/README.md",
+      "samples/KubernetesIngress.Sample/backend/Dockerfile",
+      "samples/KubernetesIngress.Sample/backend/Program.cs",
+      "samples/KubernetesIngress.Sample/backend/Properties/launchSettings.json",
+      "samples/KubernetesIngress.Sample/backend/README.md",
+      "samples/KubernetesIngress.Sample/backend/appsettings.Development.json",
+      "samples/KubernetesIngress.Sample/backend/appsettings.json",
+      "samples/KubernetesIngress.Sample/backend/backend.csproj",
+      "samples/KubernetesIngress.Sample/backend/backend.yaml",
+      "samples/KubernetesIngress.Sample/backend/ingress-sample.yaml",
+      "samples/Prometheus/HttpLoadApp/HttpLoadApp.csproj",
+      "samples/Prometheus/HttpLoadApp/Program.cs",
+      "samples/Prometheus/README.md",
+      "samples/Prometheus/ReverseProxy.Metrics-Prometheus.Sample/Program.cs",
+      "samples/Prometheus/ReverseProxy.Metrics-Prometheus.Sample/PrometheusDnsMetrics.cs",
+      "samples/Prometheus/ReverseProxy.Metrics-Prometheus.Sample/PrometheusForwarderMetrics.cs",
+      "samples/Prometheus/ReverseProxy.Metrics-Prometheus.Sample/PrometheusKestrelMetrics.cs",
+      "samples/Prometheus/ReverseProxy.Metrics-Prometheus.Sample/PrometheusOutboundHttpMetrics.cs",
+      "samples/Prometheus/ReverseProxy.Metrics-Prometheus.Sample/PrometheusServiceExtensions.cs",
+      "samples/Prometheus/ReverseProxy.Metrics-Prometheus.Sample/PrometheusSocketMetrics.cs"
+    ]
+  },
+  "gaps": [],
+  "access_errors": [],
+  "license_observation": "MIT text observed; file-level review OPEN"
+}
