@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "scope": "dotj-core E01 pinned v10.0.12 ILLink.Tasks build-path diagnosis",
+  "status": "ILLINK_BUILD_PASS_WITH_ISOLATED_NUGET_PACKAGE_ROOT; CORELIB_ADVANCED_TO_RUNTIME_TASK_HOST_ERROR",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "selectedSdk": "10.0.401",
+  "causeEvidence": {
+    "project": "src/tools/illink/src/ILLink.Tasks/ILLink.Tasks.csproj",
+    "targetFile": "eng/PackageDownloadAndReference.targets",
+    "downloadAndReferenceItems": ["Microsoft.Build.Framework/17.11.48/ref/net8.0", "Microsoft.Build.Utilities.Core/17.11.48/ref/net8.0"],
+    "evaluatedNuGetPackageRootBeforeCorrection": "C:/Users/husam/.nuget/packages/",
+    "actualIsolatedRestoreRoot": "C:/Users/husam/AppData/Local/Temp/dotj-batch-007-core-eval/packages/",
+    "defaultRootReferenceFilesExist": false,
+    "isolatedRootReferenceFilesExist": true,
+    "referenceFiles": [
+      { "relativePath": "microsoft.build.framework/17.11.48/ref/net8.0/Microsoft.Build.Framework.dll", "bytes": 183560, "sha256": "0b366a28584b31b6c72f24c31f267066e6da477d76e8a58b58467659bc9b3b2a" },
+      { "relativePath": "microsoft.build.utilities.core/17.11.48/ref/net8.0/Microsoft.Build.Utilities.Core.dll", "bytes": 106248, "sha256": "ec690afedb4696d468363f0f5c54c5a94bf88d10e05912fae51e741323e82087" }
+    ]
+  },
+  "correctedILLinkBuild": {
+    "command": "dotnet build src/tools/illink/src/ILLink.Tasks/ILLink.Tasks.csproj --no-restore -f net10.0 -p:NuGetPackageRoot=<isolated-restore-root> --verbosity minimal",
+    "exitCode": 0,
+    "warnings": 0,
+    "errors": 0,
+    "output": "artifacts/bin/ILLink.Tasks/Debug/net/ILLink.Tasks.dll"
+  },
+  "correctedCoreLibBuild": {
+    "command": "dotnet build src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj --no-restore -p:NuGetPackageRoot=<isolated-restore-root> -p:EmitCompilerGeneratedFiles=true --verbosity minimal",
+    "exitCode": 1,
+    "warnings": 0,
+    "errors": 1,
+    "newFailure": "SDK version (blank) is below the minimum required version of 10; .NET Runtime Task Host requires SDK 10.0.100-rc1 or later",
+    "actualGeneratedSourceFilesVerified": 0
+  },
+  "rawEvidence": {
+    "corelib-corrected-build.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "corelib-corrected-build.stdout.raw": { "bytes": 5476, "sha256": "b47bd627603ada434652ef077bdc482e1905fafb35e98c7c9a872655f2a45f4a" },
+    "illink-corrected-build.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "illink-corrected-build.stdout.raw": { "bytes": 2150, "sha256": "a22f53f67aaa4dfe66df961d87cb247b452f425b8d1c394035629f97d60c6759" },
+    "illink-evaluation.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "illink-evaluation.stdout.raw": { "bytes": 6326, "sha256": "df947af722858d3f1fca9dea3c377cb222055bc1f2983f4f2bbbf29a3248ed11" },
+    "illink-tasks.csproj.raw": { "bytes": 6234, "sha256": "f771be85e205a675648d365f8f6ef616f481279f710bd7cc49edf484ea91c58a" },
+    "package-download-and-reference.targets.raw": { "bytes": 1583, "sha256": "6bddcea3dc04d2438ad70411662c2254cb5341d458b4e247aa40c9dda31e775e" }
+  },
+  "limitations": [
+    "The corrected invocation is an environment property change in a temporary pinned checkout; no upstream source was edited.",
+    "The corrected CoreLib build still fails in the Runtime Task Host; no full upstream source build or actual generated-source capture is established.",
+    "The installed SDK is 10.0.401 selected by major roll-forward, not the upstream requested 10.0.110.",
+    "Rights applicability, E02/E03/N01 and .j implementation remain open."
+  ]
+}

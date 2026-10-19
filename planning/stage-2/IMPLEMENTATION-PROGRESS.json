@@ -25,7 +25,8 @@
     "Batch-008",
     "Batch-009",
     "Batch-010",
-    "Batch-011"
+    "Batch-011",
+    "Batch-012"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -218,7 +219,7 @@
         "N01": "NOT STARTED",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-011",
+      "lastUpdatedBatch": "Batch-012",
       "blocked": false,
       "unclassifiedTaskIds": [
         "DJ-001-WP-01-T1",
@@ -9829,12 +9830,12 @@
   ],
   "measurementNote": "Null percentages mean Not yet measurable. The 1356 named tasks mix implementation and preparation. E01-E03 and Q01 are separate gates; N01 tasks are recorded as prerequisites. No preparation earns implementation credit.",
   "nextProposedBatch": {
-    "id": "Batch-012",
+    "id": "Batch-013",
     "framework": "dotj-core",
     "planTaskIds": [
       "E01"
     ],
-    "outcome": "Diagnose the pinned CoreLib build failure in ILLink.Tasks and identify the missing MSBuild task reference or required upstream build invocation; only then attempt actual generated-output capture.",
+    "outcome": "Trace the Runtime Task Host SDK-version detection failure in the corrected CoreLib build and test a bounded invocation fix before actual generated-output capture.",
     "requiresContinue": true
   }
 }

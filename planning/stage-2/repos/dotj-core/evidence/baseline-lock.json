@@ -12,7 +12,7 @@
     "tagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
     "tagVerificationCommand": "git ls-remote https://github.com/dotnet/runtime.git refs/tags/v10.0.12",
     "releaseMetadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
-    "qualification": "v10.0.12 source archive, CoreLib subtree and official win-x64 runtime artifact verified; pinned .NET oracle bootstrap executed. Selected source headers and direct generator package artifact/license/notice reviewed. A netstandard2.0 generator profile has 20 resolved packages. A fresh NuGet.org-only Roslyn probe reproduced the Azure-feed hash difference; NuGet documents separate signature-excluding content and complete-file hashes. The 20 resolved package nuspecs and 32 notice-like files are inventoried; applicability and transitive rights remain open. A complete pinned source extraction restored and compiled the generator project with SDK 10.0.401. The downstream CoreLib build failed in ILLink.Tasks; generated source bytes and mapped E03 fixtures remain open.",
+    "qualification": "v10.0.12 source archive, CoreLib subtree and official win-x64 runtime artifact verified; pinned .NET oracle bootstrap executed. Selected source headers and direct generator package artifact/license/notice reviewed. A netstandard2.0 generator profile has 20 resolved packages. A fresh NuGet.org-only Roslyn probe reproduced the Azure-feed hash difference; NuGet documents separate signature-excluding content and complete-file hashes. The 20 resolved package nuspecs and 32 notice-like files are inventoried; applicability and transitive rights remain open. A complete pinned source extraction restored and compiled the generator project with SDK 10.0.401. The ILLink.Tasks build failure was resolved by pointing NuGetPackageRoot to the isolated restored package folder; the downstream CoreLib build then failed at Runtime Task Host SDK-version detection. Generated source bytes and mapped E03 fixtures remain open.",
     "sourceArchiveEvidence": "source-archive-v10.0.12.json",
     "licenseEvidence": [
       "release-v10.0.12/LICENSE.TXT",
@@ -25,7 +25,8 @@
     "generatorNugetHashProbeEvidence": "nuget-hash-probe-v4.14.0/manifest.json",
     "generatorPackageRightsInventoryEvidence": "generator-package-rights-v10.0.12/manifest.json",
     "generatorFullSourceStaticRestoreEvidence": "full-source-static-restore-v10.0.12/manifest.json",
-    "generatorBuildEvidence": "generator-build-v10.0.12/manifest.json"
+    "generatorBuildEvidence": "generator-build-v10.0.12/manifest.json",
+    "illinkPackageRootEvidence": "illink-package-root-v10.0.12/manifest.json"
   },
   "localOracleCandidate": {
     "os": "Windows 10.0.26200 win-x64",
@@ -66,7 +67,7 @@
   },
   "remainingE01": [
     "Map v10.0.12 third-party notice applicability to selected source, generated outputs and future distribution; resolve transitive dependency rights. Static-graph restore succeeds without a redundant global TargetFramework property in the tested SDK, but no generator compilation or full upstream build is established. NuGet's signature-excluding content hash and complete-file hash differ by design in the observed signed Roslyn package.",
-    "Resolve actual generated output bytes and conditional build inputs for the selected CoreLib contracts. The generator DLL compiled, but the downstream CoreLib build failed in ILLink.Tasks before verified generator execution.",
+    "Resolve actual generated output bytes and conditional build inputs for the selected CoreLib contracts. The generator and ILLink.Tasks build with the isolated NuGetPackageRoot, but the downstream CoreLib build failed at Runtime Task Host SDK-version detection before verified generator execution.",
     "Record any required full-runtime source/build provenance outside the verified CoreLib scope before extending the compatibility profile."
   ],
   "compatibilityImpact": "The 9b1b0e9 analysis samples are navigation evidence only until diffed against v10.0.12; no E02, E03 or N01 result is claimed."
