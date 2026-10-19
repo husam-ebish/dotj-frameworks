@@ -18,7 +18,7 @@ Source method rows below are lexical candidates from retrieved files. They are n
 | DJ-002-F01-02 | WP-01 | project ambiguity produces a useful diagnostic | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-002-F01-03 | WP-01 | commands preserve spaces/Unicode in paths | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-002-F01-04 | WP-01 | machine output never mixes progress text with JSON results | Designed; map actual upstream case or specify independent oracle in E03 |
-| DJ-002-F02-01 | WP-02 | Missing exact toolchain cannot silently roll forward | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-002-F02-01 | WP-02 | SDK selection follows the qualified global.json policy; disable requires an exact SDK and no policy permits an unrequested silent substitution | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-002-F02-02 | WP-02 | failed workload install leaves the previous workload usable | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-002-F02-03 | WP-02 | architecture mismatches fail before execution | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-002-F03-01 | WP-03 | Offline build succeeds with complete cache and fails with named missing artifacts otherwise | Designed; map actual upstream case or specify independent oracle in E03 |
@@ -54,3 +54,17 @@ Every public feature has mapped cases or an explicit independent-oracle rational
 | DJ-002-NF03 | Unrepresentable signatures or semantics are reported as blocked/unsupported with source identity and evidence; no renamed API, JDK substitute type or changed behavior is falsely marked exact compatibility. |
 
 These additional cases enforce the owner naming decision across public signatures, generated APIs and paired examples. They are designed requirements, not executed results.
+
+## Detailed SDK integration requirement
+
+[DOTNET-SDK-EXPERIENCE-001](../../10-SDK-AND-DISTRIBUTION-PLAN.md) supplements this repository's existing feature work. The detailed [integration tasks and acceptance cases](../../sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md) are mandatory, all NOT STARTED as implementation. Their task IDs also appear in the global machine-readable backlogs.
+
+- `SDK-I01`: Reference baseline and exact compatibility contracts; five named tasks and five designed cases in the integration plan.
+- `SDK-I06`: End-to-end CLI orchestration and real test runners; five named tasks and five designed cases in the integration plan.
+- `SDK-I07`: SDK bundles, global.json and installation transactions; five named tasks and five designed cases in the integration plan.
+- `SDK-I08`: Publish profiles and deployable runtime outputs; five named tasks and five designed cases in the integration plan.
+- `SDK-I09`: Tool, workload and IDE integration; five named tasks and five designed cases in the integration plan.
+- `SDK-I11`: Portable CI, signing and release distribution; five named tasks and five designed cases in the integration plan.
+- `SDK-I12`: All-product SDK qualification and agent handoff; five named tasks and five designed cases in the integration plan.
+
+These are integration packages, not a replacement for source-derived E01-E03/N01 mapping. The detailed specifications take precedence over earlier generic SDK/distribution proposals; blocked platform/language/rights features remain blocked.

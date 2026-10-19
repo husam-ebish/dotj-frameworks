@@ -2,13 +2,13 @@
 
 **Owner requirement:** exact upstream .NET public names, casing and concepts across all 66 repositories. Read [the mandatory naming policy](08-DOTNET-API-COMPATIBILITY-POLICY.md). N01 adds a source-to-Java public API mapping and concept-preservation gate; Java implementation details must not become a replacement learning path.
 
-Dated 2026-10-19. **66 repositories; 344 feature work packages; 1,296 named implementation tasks; 1,251 designed acceptance cases.** Each repository also has evidence gates E01-E03, exact-API gate N01 and integrated qualification Q01. These counts describe written planning, not completed implementation or executed tests.
+Dated 2026-10-19. **66 repositories; 356 feature and integration work packages; 1,356 named implementation tasks; 1,311 designed acceptance cases.** Each repository also has evidence gates E01-E03, exact-API gate N01 and integrated qualification Q01. These counts describe written planning, not completed implementation or executed tests.
 
 This package completes the authored Stage-2 work breakdown for the full inventory. It supersedes the earlier core-only increment as the current planning handoff. It retains the deeper core source research and makes every other repository's plan available now.
 
 ## Read in this order
 
-1. [Implementation starting guide](07-IMPLEMENTATION-START.md).
+1. Read [the SDK/distribution requirement](10-SDK-AND-DISTRIBUTION-PLAN.md), then the [implementation starting guide](07-IMPLEMENTATION-START.md).
 2. [Execution roadmap](01-EXECUTION-ROADMAP.md).
 3. [All 66 repository plans](00-REPOSITORY-INDEX.md), then a selected repository's WORK-PACKAGES and TEST-PORT-MAP.
 
@@ -24,6 +24,7 @@ This package completes the authored Stage-2 work breakdown for the full inventor
 | [07-IMPLEMENTATION-START.md](07-IMPLEMENTATION-START.md) | Concrete starting procedure and first milestone |
 | [08-DOTNET-API-COMPATIBILITY-POLICY.md](08-DOTNET-API-COMPATIBILITY-POLICY.md) | Mandatory exact .NET public names and concepts |
 | [09-NAMING-REVISION.md](09-NAMING-REVISION.md) | Changes made after the owner naming instruction |
+| [10-SDK-AND-DISTRIBUTION-PLAN.md](10-SDK-AND-DISTRIBUTION-PLAN.md) | Mandatory detailed SDK, package, installation, hosting and agent execution specification |
 | [STATUS.md](STATUS.md) | Separate written-plan, audit, implementation and release status |
 | [VALIDATION.md](VALIDATION.md) | Package verification results |
 

@@ -6,8 +6,8 @@
 |---|---|
 | Inventory coverage | 66 of 66 targets included |
 | Stage-1 main plans | Previously delivered; historical inputs |
-| Stage-2 written plan coverage | 66 of 66; 344 feature packages; 1296 named tasks |
-| Designed acceptance cases | 1251 |
+| Stage-2 written plan coverage | 66 of 66; 356 feature and integration packages; 1356 named tasks |
+| Designed acceptance cases | 1311 |
 | New pinned source/API/test samples | 311 |
 | Source tree scope | 65 recorded recursive listings; core recursive listing partial with separate complete 218-directory library root |
 | Semantic/API/test analysis | Sampled; exhaustive build-aware closure OPEN per slice |
@@ -23,3 +23,7 @@
 “Written” means the requested plan documents and work breakdown exist for every target. It does not mean the source has been fully audited, all signatures are frozen, all dependency rights are resolved or native feasibility is proven. Those gates have named tasks and acceptance outputs. A source tree listing is not a semantic audit and a designed fixture is not a passing test.
 
 The earlier core-only README/STATUS handoff is superseded by this consolidated status. Deeper core research is retained only as supporting evidence. No remaining repository is labeled “not planned.”
+
+## SDK and distribution revision
+
+Detailed specifications are written for command parity, project/build contracts, installation/version selection, packages/feeds, publication/hosting, templates/tools/workloads and agent execution. Twelve integration packages add 60 named tasks and 60 designed cases. All 66 repositories have a distribution contribution requirement. SDK implementation, executable oracle qualification, exact patch selection, custom Java package-profile qualification and deployment remain NOT STARTED or OPEN as explicitly recorded.

@@ -10,7 +10,7 @@
 4. Java conformance: the same fixture passes for an implemented Java capability under approved normalization.
 5. Release qualification: the declared dependency/platform/security/provenance matrix passes.
 
-This package provides levels 1-2 in sampled scope and designs the later work. It does not claim levels 3-5 for unimplemented .j code. The 1,251 designed acceptance IDs are requirements, not passing tests. Source method candidates are explicitly labeled lexical candidates until discovered by the real runner.
+This package provides levels 1-2 in sampled scope and designs the later work. It does not claim levels 3-5 for unimplemented .j code. The 1,311 designed acceptance IDs are requirements, not passing tests. Source method candidates are explicitly labeled lexical candidates until discovered by the real runner.
 
 ## Fixture schema and comparison
 
@@ -43,3 +43,7 @@ Map every supported public feature to upstream tests or an independently justifi
 ## Exact-name and familiar-workflow gate
 
 For each supported public slice, compare source and generated Java symbols case-sensitively. Fail on unintended namespace/type/method/parameter/enum renaming and missing I/Async prefixes/suffixes. Compile paired examples against the declared Java representation. Check that Task/ValueTask, IDisposable, DI, LINQ, MVC, ORM and other concepts keep their original roles and semantics. A name-only match does not override failing behavioral tests. Generic erasure, properties/events, expression capture and other language differences require explicit mapping or an honest unsupported status.
+
+## SDK distribution acceptance
+
+Run the [60 SDK integration cases](sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md) as their dependencies become available. Preserve raw .NET oracle and .j outputs, including exit status, filesystem/network changes and normalization rules. Add clean-machine installation, offline restore, real test-runner failure, self-contained runtime startup, feed transactions and portable Azure/GitHub CI qualification. These are future tests, not checks executed by this document update.

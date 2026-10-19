@@ -77,3 +77,7 @@ Take one existing Roslyn usage scenario in the first capability family, record i
 ## Public API direction under the owner requirement
 
 Retain original compiler/workspace/syntax/semantic concept and symbol names for corresponding supported functionality. Java-source frontends and C#/VB tooling are distinct tracks. C#-like syntax on a JVM is explicit compiler/transpiler research, not a promise that ordinary javac accepts C#.
+
+## Required SDK integration
+
+Supply this product's qualified adapters/assets to [the SDK and distribution plan](../../10-SDK-AND-DISTRIBUTION-PLAN.md), using the [named integration tasks](../../sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md). Exact .NET API and command names/concepts remain mandatory. Core enables the independent bootstrap; compiler/build/test tools provide real execution adapters; containers and platform frameworks qualify their own runtime/publish capabilities before the SDK advertises them.

@@ -10630,5 +10630,545 @@
     "status": "not-started",
     "policy": "DOTNET-API-EXACT-001",
     "required_naming_policy": "DOTNET-API-EXACT-001"
+  },
+  {
+    "id": "SDK-I01-T1",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "task": "Lock the concrete .NET 10 SDK artifact, matching source revision, OS images and invocation environment; reconcile the older analysis pins without overwriting them.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I01-T2",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "task": "Extract every CLI token, option, alias, default and source test identity into a versioned command contract ledger; mark unimplemented commands explicitly.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I01-T3",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "task": "Map SDK project/configuration names and framework public identities to the N01 ledger; separate source-verified identities from internal helper vocabulary.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I01-T4",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "task": "Qualify the proposed project extension, target moniker, package envelope, cache roots and mixed-product coexistence rules; record any remaining language/runtime conflicts.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I01-T5",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "task": "Capture raw reference results for positive and negative command fixtures, define an auditable normalization allowlist and publish the baseline lock with hashes.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I02-T1",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "task": "Pin an eligible JDK vendor/build and minimal core slice; record archive hashes, platform prerequisites and redistribution evidence for each proposed platform.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I02-T2",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "task": "Create the JDK-only seed build using javac/jar and owned foundation code, without an installed dotj SDK, Maven, Gradle or replacement framework.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I02-T3",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "task": "Build a minimal launcher that discovers its own root, selects the qualified toolchain and reports actual product versions and architecture.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I02-T4",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "task": "Implement internal process execution with argument arrays, cancellation, environment scoping and diagnostic redaction; keep helper APIs internal.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I02-T5",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "task": "Build the first SDK from the seed, rebuild it using the resulting SDK and retain reproducibility evidence and bootstrap recovery instructions.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I03-T1",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "task": "Implement the qualified XML property/item/import/condition evaluation slice with source-derived ordering and exact public names; diagnose unsupported tasks at their import origin.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I03-T2",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "task": "Define Dotj.Sdk defaults, Java compilation/resource targets, target/configuration output paths and explicit unsupported-property diagnostics.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I03-T3",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "task": "Implement ProjectReference graph evaluation and qualified solution read/edit support while preserving unrelated entries and detecting dependency/import cycles.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I03-T4",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "task": "Implement incremental input identity, output ownership, parallel build isolation and Clean/Rebuild behavior for the selected profiles.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I03-T5",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "task": "Add property/item/target evaluation and project mutation differential fixtures, including central versions, conditional references, alternate paths and mixed solution contents.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I04-T1",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "task": "Port the required template discovery/schema/parameter behavior with exact template short names and source-qualified option spellings.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I04-T2",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "task": "Create minimal console, classlib, solution, globaljson and nugetconfig templates using only qualified APIs and explicit Java-profile artifact representations.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I04-T3",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "task": "Implement template installation/version tracking and output transformations with archive/path validation and transactional owned-file writes.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I04-T4",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "task": "Implement dry-run, overwrite and post-action behavior using the locked reference contracts and documented unattended execution rules.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I04-T5",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "task": "Create paired C#/.j sample projects and run each advertised template through create, restore, build and its appropriate run/test path.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I05-T1",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "task": "Freeze the versioned nupkg/nuspec plus explicit Java manifest/payload profile; qualify custom package types, source-derived package IDs and target compatibility rules.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I05-T2",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "task": "Implement NuGet-compatible version/dependency resolution, conditional PackageReference and central package versions with exact public API naming and oracle fixtures.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I05-T3",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "task": "Implement local feeds and qualified V3 discovery/content acquisition, source mapping, credential scoping and Java-runtime-kind rejection of incompatible packages.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I05-T4",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "task": "Implement lock/assets representations, isolated immutable caches, content verification, atomic extraction and concurrent/offline restore behavior.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I05-T5",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "task": "Implement package/reference CLI edits, pack manifests and qualified push/signature operations with explicit capability errors for unimplemented formats.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I06-T1",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "task": "Connect command parsing to actual project/build/package/template services with reference-qualified implicit restore/build and configuration selection.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I06-T2",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "task": "Implement run and exec with Java payload validation, argument delimiter forwarding, exit propagation and owned process cleanup.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I06-T3",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "task": "Integrate a real qualified dotj-xtest or dotj-test adapter and explicitly pin the reference VSTest or Microsoft.Testing.Platform mode.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I06-T4",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "task": "Implement command diagnostics, help, failure categories and any qualified machine output schemas; reject unsupported commands without false success.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I06-T5",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "task": "Run the multi-project example from creation through package addition, locked restore, build, run and tests, retaining both reference and Java-profile results.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I07-T1",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "task": "Assemble full SDK, existing-JDK SDK and runtime bundle layouts with explicit component versions, reference/runtime packs, notices and integrity manifests.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I07-T2",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "task": "Implement global.json discovery and every supported SDK version/preview/roll-forward policy from the locked reference with product-specific installed versions.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I07-T3",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "task": "Implement staged per-user installation, architecture selection, checksums/publisher verification, atomic activation and version ownership records.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I07-T4",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "task": "Add system-install integration, PATH/shim handling, repair/uninstall and shared-pack retention per qualified operating system.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I07-T5",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "task": "Create an offline closure bundle and install it on clean target environments with network disabled; retain startup and console build evidence.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I08-T1",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "task": "Implement source-qualified publish configuration/runtime/self-contained options and the versioned Java dependency/runtime metadata mapping.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I08-T2",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "task": "Build framework-dependent outputs and runtime selection/startup contracts with clear missing-runtime and incompatibility diagnostics.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I08-T3",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "task": "Build self-contained output using a qualified runtime image and declared native/resource closure; separate platform-specific artifacts.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I08-T4",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "task": "Integrate container/workload publication only after each backend passes its own feasibility and ownership gates; reject unsupported single-file/AOT requests explicitly.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I08-T5",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "task": "Run clean-machine deployment fixtures covering entry point, arguments, exit status, signals, runtime absence, missing assets and output integrity.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I09-T1",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "task": "Implement qualified local/global/tool-path tool management with exact CLI options, familiar manifest discovery and explicit Java package runtime validation.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I09-T2",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "task": "Implement tool shims and execution isolation with version tracking, argument/exit forwarding and owned-file uninstall behavior.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I09-T3",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "task": "Implement workload manifest/pack closure, SDK band selection and transactional install/update/repair/uninstall with shared-pack ownership.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I09-T4",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "task": "Integrate qualified platform/test/web templates and developer tools without making optional workloads mandatory for console development.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I09-T5",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "task": "Provide thin IDE service contracts using the same SDK resolution/build/test logic, with honest Java language/debugger capabilities and a qualified integration matrix.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I10-T1",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "task": "Implement/qualify the selected V3 service index, registration/content/search and publish/delete resource contracts using actual request/response fixtures.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I10-T2",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "task": "Implement atomic immutable package storage and metadata indexing, duplicate identity checks, authorization and scoped publisher ownership.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I10-T3",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "task": "Provide local-to-private-to-public deployment profiles and stable download/release metadata, with explicit provider capabilities and no hard-coded invented endpoints.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I10-T4",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "task": "Define backups, isolated recovery, quotas, retention, monitoring and secret-redacted audit records; choose recovery objectives during deployment qualification.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I10-T5",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "task": "Run restore/push/search/authentication/recovery tests against both the qualified reference profile and the owned feed using real Java-profile packages.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I11-T1",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "task": "Provide repository-owned build/release entry points used by thin Azure Pipelines now and qualified GitHub Actions later, with pinned toolchains and explicit cache keys.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I11-T2",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "task": "Build the supported OS/architecture matrix and generate version/provenance/compatibility manifests, SBOMs, notices and immutable artifact hashes.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I11-T3",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "task": "Integrate eligible signing and staging verification, separating build, package push, release promotion and actual deployment authorization.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I11-T4",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "task": "Document source/CI migration, feed/download continuity, secret re-provisioning and rollback; prove a fixed commit builds equivalently on both providers.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I11-T5",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "task": "Stage a preview release with install/restore/run smoke evidence and retention/recovery instructions; keep public promotion disabled until authorized.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I12-T1",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "task": "Create distribution contribution records for all 66 repos covering exact API identities, package/version/type, targets, dependencies, notices and SDK compatibility.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I12-T2",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "task": "Map every product to core/reference/runtime packs, optional packages, templates/tools or workloads without forcing all products into the base SDK.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I12-T3",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "task": "Run the final command/API/behavior/package/install/publish matrix and retain explicit blocked/deferred capability ownership and evidence.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I12-T4",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "task": "Produce executable paired C#/.j onboarding examples and a concise syntax/runtime differences table; verify no substitute Java framework vocabulary leaked into the public workflow.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
+  },
+  {
+    "id": "SDK-I12-T5",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "task": "Publish the implementation handoff report, achieved compatibility profile, open gates and next eligible slices; archive all acceptance evidence with the release candidate.",
+    "status": "not-started",
+    "required_naming_policy": "DOTNET-API-EXACT-001",
+    "required_sdk_policy": "DOTNET-SDK-EXPERIENCE-001"
   }
 ]

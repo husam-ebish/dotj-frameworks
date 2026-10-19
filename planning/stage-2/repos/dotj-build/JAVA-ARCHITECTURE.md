@@ -73,3 +73,12 @@ Proposed .j dependencies: core. Optional adapters depend inward on contracts; pr
 ## Migration walkthrough
 
 Take one existing MSBuild usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `ProjectModel` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Conditional imports and property expansion are deterministic; import cycles report chains; glob behavior is tested for Windows/Linux case differences; evaluator never executes tasks. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+
+## Detailed SDK integration requirement
+
+[DOTNET-SDK-EXPERIENCE-001](../../10-SDK-AND-DISTRIBUTION-PLAN.md) supplements this repository's existing feature work. The detailed [integration tasks and acceptance cases](../../sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md) are mandatory, all NOT STARTED as implementation. Their task IDs also appear in the global machine-readable backlogs.
+
+- `SDK-I02`: Independent JDK bootstrap and minimal launcher; five named tasks and five designed cases in the integration plan.
+- `SDK-I03`: SDK-style project evaluation and solutions; five named tasks and five designed cases in the integration plan.
+
+These are integration packages, not a replacement for source-derived E01-E03/N01 mapping. The detailed specifications take precedence over earlier generic SDK/distribution proposals; blocked platform/language/rights features remain blocked.

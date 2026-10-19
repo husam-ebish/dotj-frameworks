@@ -18,6 +18,6 @@ API spelling compatibility, behavioral compatibility, protocol/file-format inter
 
 ## Unresolved boundaries retained
 
-Decide Maven-compatible publication versus own feed while retaining NuGet protocol track. Auth credential providers may be external source dependencies.
+Use the detailed NuGet-style Java package/feed profile; Maven interoperability is optional and cannot become the required developer workflow. Auth credential providers may be external source dependencies.
 
 Full source-to-feature coverage and semantic overload mapping are E02 outputs. This matrix covers the planned capability families; it is not a false claim that every upstream public member has already been semantically audited.

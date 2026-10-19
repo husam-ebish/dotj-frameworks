@@ -129,3 +129,7 @@ Qualify native/mobile/browser UI products after backend feasibility; integrate b
 ## Integration and completion policy
 
 Each feature PR includes its contract, implementation after authorization, fixture mapping, actual results, dependency/notice changes and migration example. Merge gates apply to the changed capability rather than demanding the entire ecosystem be complete. A repository becomes implementation-complete only when every retained feature is implemented or explicitly dispositioned with a documented decision. Release readiness additionally requires tested platform support, provenance/security review and reproducible artifact evidence.
+
+## SDK integration sequencing
+
+The product waves above describe whole-product dependencies. The [SDK integration milestones](sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md) bring forward a minimal console/library/local-feed slice after its narrow core/build/package/template prerequisites. SDK-I01 contract qualification can start with foundation research; a working public registry is not a prerequisite for local SDK development. Keep the existing first core slice. Do not wait for all 66 products before proving the minimal workflow.

@@ -6,7 +6,7 @@
 |---|---|
 | Stage-1 plan | Previously written; retained as historical input |
 | Stage-2 written plan | WRITTEN: architecture, capability breakdown, tasks, acceptance, tests and blockers |
-| Capability work packages | 5 |
+| Capability and integration work packages | 12: 5 existing + 7 SDK integration |
 | Pinned source evidence | Retrieved tree and sampled source/API/test files |
 | Exhaustive semantic upstream analysis | OPEN: E02/E03 closure remains required |
 | Eligible release and licensing | OPEN: E01; see repository-specific evidence |
@@ -23,3 +23,17 @@ Commit the planning package and use E01-E03 plus WP-01 to begin the first select
 ## Exact-name requirement
 
 Owner decision: fixed for all public API/concept surfaces. N01 semantic name mapping and language-gap closure: OPEN per slice. Exact-name implementation/conformance: NOT STARTED. This policy update does not pretend all upstream declarations have already been mapped or compiled.
+
+## Detailed SDK integration requirement
+
+[DOTNET-SDK-EXPERIENCE-001](../../10-SDK-AND-DISTRIBUTION-PLAN.md) supplements this repository's existing feature work. The detailed [integration tasks and acceptance cases](../../sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md) are mandatory, all NOT STARTED as implementation. Their task IDs also appear in the global machine-readable backlogs.
+
+- `SDK-I01`: Reference baseline and exact compatibility contracts; five named tasks and five designed cases in the integration plan.
+- `SDK-I06`: End-to-end CLI orchestration and real test runners; five named tasks and five designed cases in the integration plan.
+- `SDK-I07`: SDK bundles, global.json and installation transactions; five named tasks and five designed cases in the integration plan.
+- `SDK-I08`: Publish profiles and deployable runtime outputs; five named tasks and five designed cases in the integration plan.
+- `SDK-I09`: Tool, workload and IDE integration; five named tasks and five designed cases in the integration plan.
+- `SDK-I11`: Portable CI, signing and release distribution; five named tasks and five designed cases in the integration plan.
+- `SDK-I12`: All-product SDK qualification and agent handoff; five named tasks and five designed cases in the integration plan.
+
+These are integration packages, not a replacement for source-derived E01-E03/N01 mapping. The detailed specifications take precedence over earlier generic SDK/distribution proposals; blocked platform/language/rights features remain blocked.

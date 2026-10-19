@@ -25,3 +25,7 @@ Feature work packages: **9**. Proposed integration wave: **1**, with evidence/fe
 [All 66 repositories](../../00-REPOSITORY-INDEX.md) | [Shared contracts](../../02-SHARED-CONTRACTS.md)
 
 [API-COMPATIBILITY.md](API-COMPATIBILITY.md) is mandatory before freezing any public contract. It adds four named N01 tasks and three naming/concept acceptance cases.
+
+## SDK and distribution integration
+
+Apply [DOTNET-SDK-EXPERIENCE-001](../../10-SDK-AND-DISTRIBUTION-PLAN.md). Before this product is released, record its source-derived API/package identity, Java target/runtime matrix, dependencies, notices, SDK version range and contribution as packages, packs, templates, tools or workloads. Preserve exact .NET names and concepts; do not introduce a replacement Java framework workflow. Use the [agent execution plan](../../sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md) and [representation ledger](../../sdk/08-REFERENCE-AND-DECISION-LEDGER.md).

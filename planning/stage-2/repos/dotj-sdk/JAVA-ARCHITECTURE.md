@@ -38,7 +38,7 @@ Internal analysis vocabulary (not permission to rename the public API): `Toolcha
 
 Resolve exact installed compiler/runtime versions from locked manifests. Validate workload platform/architecture prerequisites and package checksums. Define side-by-side installation and rollback ownership.
 
-Required observable invariant: Missing exact toolchain cannot silently roll forward; failed workload install leaves the previous workload usable; architecture mismatches fail before execution.
+Required observable invariant: SDK selection follows the qualified global.json policy; disable requires an exact SDK and no policy permits an unrequested silent substitution; failed workload install leaves the previous workload usable; architecture mismatches fail before execution.
 
 ### WP-03: Restore build and test orchestration
 
@@ -73,3 +73,17 @@ Proposed .j dependencies: build,templates,packages. Optional adapters depend inw
 ## Migration walkthrough
 
 Take one existing .NET SDK usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `SdkCommand` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Unknown options fail deterministically; project ambiguity produces a useful diagnostic; commands preserve spaces/Unicode in paths; machine output never mixes progress text with JSON results. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+
+## Detailed SDK integration requirement
+
+[DOTNET-SDK-EXPERIENCE-001](../../10-SDK-AND-DISTRIBUTION-PLAN.md) supplements this repository's existing feature work. The detailed [integration tasks and acceptance cases](../../sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md) are mandatory, all NOT STARTED as implementation. Their task IDs also appear in the global machine-readable backlogs.
+
+- `SDK-I01`: Reference baseline and exact compatibility contracts; five named tasks and five designed cases in the integration plan.
+- `SDK-I06`: End-to-end CLI orchestration and real test runners; five named tasks and five designed cases in the integration plan.
+- `SDK-I07`: SDK bundles, global.json and installation transactions; five named tasks and five designed cases in the integration plan.
+- `SDK-I08`: Publish profiles and deployable runtime outputs; five named tasks and five designed cases in the integration plan.
+- `SDK-I09`: Tool, workload and IDE integration; five named tasks and five designed cases in the integration plan.
+- `SDK-I11`: Portable CI, signing and release distribution; five named tasks and five designed cases in the integration plan.
+- `SDK-I12`: All-product SDK qualification and agent handoff; five named tasks and five designed cases in the integration plan.
+
+These are integration packages, not a replacement for source-derived E01-E03/N01 mapping. The detailed specifications take precedence over earlier generic SDK/distribution proposals; blocked platform/language/rights features remain blocked.

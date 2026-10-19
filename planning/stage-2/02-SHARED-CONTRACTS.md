@@ -36,3 +36,7 @@ See [core foundation contracts](repos/dotj-core/foundation-research/JAVA-ARCHITE
 ## Bootstrap without circular dependencies
 
 Use installed javac/jar, local artifact folders and plain Java subprocess fixtures before dotj-build, dotj-sdk, dotj-packages, dotj-registry and the test runners are available. Core tests can initially be checked by a tiny independent harness; neither test framework can be its only correctness oracle. Code generation starts through installed compiler APIs; SDK orchestration is downstream. An optional adapter depends on both contract owners without forcing the base artifact to import it.
+
+## SDK and distribution contracts
+
+[DOTNET-SDK-EXPERIENCE-001](10-SDK-AND-DISTRIBUTION-PLAN.md) defines the mandatory .NET-style CLI/project/package workflow. Internal Java compilation and artifact formats must not introduce replacement public API vocabulary. The native project/package representations are explicit qualification proposals, not evidence of CLR binary or C# syntax compatibility.

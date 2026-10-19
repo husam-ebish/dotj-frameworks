@@ -2,7 +2,9 @@
 
 **Updated owner requirement:** all 66 plans now require exact upstream .NET public names, casing and concepts. See [the mandatory policy](planning/stage-2/08-DOTNET-API-COMPATIBILITY-POLICY.md). This version supersedes the earlier Java-style naming proposals. Merge/replace the included Stage-2 files in your repository; do not modify immutable source evidence.
 
-The complete written package covers all 66 repositories with 344 feature work packages, 1,296 named tasks and 1,251 designed acceptance cases.
+The complete written package covers all 66 repositories with 356 feature and integration work packages, 1,356 named tasks and 1,311 designed acceptance cases.
+
+**New in this revision:** detailed SDK installation, exact .NET command/workflow contracts, packages/feeds, hosting, publishing, templates/tools/workloads and AI execution instructions. Start with [10-SDK-AND-DISTRIBUTION-PLAN.md](planning/stage-2/10-SDK-AND-DISTRIBUTION-PLAN.md). The existing 66 plans and immutable evidence are retained.
 
 Open [planning/stage-2/README.md](planning/stage-2/README.md), then [07-IMPLEMENTATION-START.md](planning/stage-2/07-IMPLEMENTATION-START.md).
 
@@ -16,7 +18,7 @@ git status --short
 git diff --stat
 git add -- planning/stage-2
 git diff --cached --stat
-git commit -m "docs: add stage 2 plans for all 66 dotj repositories"
+git commit -m "docs: specify dotnet-style SDK and distribution plan"
 ```
 
 Add a link to `planning/stage-2/README.md` from your existing planning README when convenient. The archive contains no application source implementation. Rights, full source audit and native feasibility gates are explicitly marked; complete written plans do not certify every repository ready for implementation or release.

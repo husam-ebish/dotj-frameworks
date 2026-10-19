@@ -4,18 +4,18 @@
 
 All rows have the eleven required detailed documents, a navigation README and machine-readable evidence. Written planning coverage is complete across the retained capability families. Exhaustive API/test/dependency audits, eligible release qualification and implementation remain separate statuses.
 
-| ID | Target | Upstream | Feature packages | Wave | Source evidence |
+| ID | Target | Upstream | Feature + integration packages | Wave | Source evidence |
 |---|---|---|---|---|---|
 | DJ-001 | [dotj-core](repos/dotj-core/README.md) | [.NET runtime and base libraries](https://github.com/dotnet/runtime/tree/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819) | 9 | 1 | partial listing; sampled semantics |
-| DJ-002 | [dotj-sdk](repos/dotj-sdk/README.md) | [.NET SDK](https://github.com/dotnet/sdk/tree/c70b3856e7948678daa3950ec5517759754bf47c) | 5 | 5 | recursive complete; sampled semantics |
+| DJ-002 | [dotj-sdk](repos/dotj-sdk/README.md) | [.NET SDK](https://github.com/dotnet/sdk/tree/c70b3856e7948678daa3950ec5517759754bf47c) | 12 | 5 | recursive complete; sampled semantics |
 | DJ-003 | [dotj-code](repos/dotj-code/README.md) | [Roslyn](https://github.com/dotnet/roslyn/tree/3645b6aa36ad41775a73e57a620787a3d38327a0) | 5 | 1 | recursive complete; sampled semantics |
 | DJ-004 | [dotj-razor](repos/dotj-razor/README.md) | [Razor](https://github.com/dotnet/roslyn/tree/3645b6aa36ad41775a73e57a620787a3d38327a0) | 5 | 4 | recursive complete; sampled semantics |
-| DJ-005 | [dotj-build](repos/dotj-build/README.md) | [MSBuild](https://github.com/dotnet/msbuild/tree/6348d0c087aeec18c323b01a2c77da089ddafea0) | 5 | 1 | recursive complete; sampled semantics |
+| DJ-005 | [dotj-build](repos/dotj-build/README.md) | [MSBuild](https://github.com/dotnet/msbuild/tree/6348d0c087aeec18c323b01a2c77da089ddafea0) | 7 | 1 | recursive complete; sampled semantics |
 | DJ-006 | [dotj-extensions](repos/dotj-extensions/README.md) | [.NET Extensions](https://github.com/dotnet/extensions/tree/42a0f358b14bb27bc324939d858dd04309f30477) | 5 | 2 | recursive complete; sampled semantics |
 | DJ-007 | [dotj-diagnostics](repos/dotj-diagnostics/README.md) | [.NET diagnostics](https://github.com/dotnet/diagnostics/tree/1d95e75015fa3ccd063a59ed3d0bfe26040a6637) | 5 | 5 | recursive complete; sampled semantics |
 | DJ-008 | [dotj-interactive](repos/dotj-interactive/README.md) | [.NET Interactive](https://github.com/dotnet/interactive/tree/098a01b9183103186805a186a7dee3a3a70b2997) | 5 | 5 | recursive complete; sampled semantics |
 | DJ-009 | [dotj-scaffold](repos/dotj-scaffold/README.md) | [.NET scaffolding](https://github.com/dotnet/Scaffolding/tree/107111c945bcf1264c035457a0744318b6bae3d9) | 5 | 5 | recursive complete; sampled semantics |
-| DJ-010 | [dotj-templates](repos/dotj-templates/README.md) | [.NET template engine](https://github.com/dotnet/sdk/tree/c70b3856e7948678daa3950ec5517759754bf47c) | 5 | 1 | recursive complete; sampled semantics |
+| DJ-010 | [dotj-templates](repos/dotj-templates/README.md) | [.NET template engine](https://github.com/dotnet/sdk/tree/c70b3856e7948678daa3950ec5517759754bf47c) | 6 | 1 | recursive complete; sampled semantics |
 | DJ-011 | [dotj-containers](repos/dotj-containers/README.md) | [.NET container images](https://github.com/dotnet/dotnet-docker/tree/a5ada4c290f2dc087c6926beeeaffcd07912abe7) | 5 | 5 | recursive complete; sampled semantics |
 | DJ-012 | [dotj-web](repos/dotj-web/README.md) | [ASP.NET Core](https://github.com/dotnet/aspnetcore/tree/c09e2b89bd8cf25e819230a94e9061023f508afe) | 8 | 4 | recursive complete; sampled semantics |
 | DJ-013 | [dotj-aspire](repos/dotj-aspire/README.md) | [Aspire](https://github.com/microsoft/aspire/tree/118781118dddea1f7a524ab3d244fa4cee3c62cf) | 5 | 5 | recursive complete; sampled semantics |
@@ -67,8 +67,10 @@ All rows have the eleven required detailed documents, a navigation README and ma
 | DJ-059 | [dotj-markdown](repos/dotj-markdown/README.md) | [Markdig](https://github.com/xoofx/markdig/tree/ccb9d8593f7a0aac232342a6705e8afc8c4f374d) | 5 | 2 | recursive complete; sampled semantics |
 | DJ-060 | [dotj-ml](repos/dotj-ml/README.md) | [ML.NET](https://github.com/dotnet/machinelearning/tree/655f469b0d54bccf94dc251b8db457b57d56d084) | 5 | 5 | recursive complete; sampled semantics |
 | DJ-061 | [dotj-semantic](repos/dotj-semantic/README.md) | [Semantic Kernel](https://github.com/microsoft/semantic-kernel/tree/7a92cd4e7c2712370b8d85b687a474b2e858cdcc) | 5 | 5 | recursive complete; sampled semantics |
-| DJ-062 | [dotj-packages](repos/dotj-packages/README.md) | [NuGet client](https://github.com/NuGet/NuGet.Client/tree/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f) | 5 | 2 | recursive complete; sampled semantics |
-| DJ-063 | [dotj-registry](repos/dotj-registry/README.md) | [NuGet Gallery](https://github.com/NuGet/NuGetGallery/tree/d6b9e689606e174e05c064a3531320200d4033c7) | 5 | 5 | recursive complete; sampled semantics |
+| DJ-062 | [dotj-packages](repos/dotj-packages/README.md) | [NuGet client](https://github.com/NuGet/NuGet.Client/tree/4c4510d29a64fcbcba6360e29c3a1e8288a87f9f) | 6 | 2 | recursive complete; sampled semantics |
+| DJ-063 | [dotj-registry](repos/dotj-registry/README.md) | [NuGet Gallery](https://github.com/NuGet/NuGetGallery/tree/d6b9e689606e174e05c064a3531320200d4033c7) | 6 | 5 | recursive complete; sampled semantics |
 | DJ-064 | [dotj-automap](repos/dotj-automap/README.md) | [AutoMapper](https://github.com/LuckyPennySoftware/AutoMapper/tree/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1) | 5 | 3 | recursive complete; sampled semantics |
 | DJ-065 | [dotj-mediator](repos/dotj-mediator/README.md) | [MediatR](https://github.com/LuckyPennySoftware/MediatR/tree/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5) | 5 | 3 | recursive complete; sampled semantics |
 | DJ-066 | [dotj-bus](repos/dotj-bus/README.md) | [MassTransit](https://github.com/MassTransit/MassTransit/tree/d9f61f764c802785cc9a4be92547d8f5b63018d4) | 5 | 4 | recursive complete; sampled semantics |
+
+Counts include the 12 additional SDK integration packages assigned to their accountable repositories. The original 344 feature packages remain intact. See [SDK agent execution](sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md).

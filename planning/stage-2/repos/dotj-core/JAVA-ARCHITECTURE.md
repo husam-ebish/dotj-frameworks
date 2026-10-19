@@ -121,3 +121,7 @@ Public anchors include CancellationToken, CancellationTokenSource, CancellationT
 ## Foundation facade work required by exact public vocabulary
 
 WP-01 must provide the selected original public identity/exception/context/disposal concepts while keeping runtime type tokens and ownership helpers internal. WP-02 must include the required Task, Task<TResult>, ValueTask, ValueTask<TResult> and TaskCompletionSource state/continuation/failure/cancellation semantics, in addition to CancellationTokenSource/registration behavior. Resolve Java generic-arity/erasure collisions explicitly before freezing those declarations; do not pretend Task and Task<TResult> can simply be copied into two same-named Java classes. These are compatibility implementation work, not aliases to CompletionStage with unverified behavior. Consumers wait for the actual public facade subset they use.
+
+## Required SDK integration
+
+Supply this product's qualified adapters/assets to [the SDK and distribution plan](../../10-SDK-AND-DISTRIBUTION-PLAN.md), using the [named integration tasks](../../sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md). Exact .NET API and command names/concepts remain mandatory. Core enables the independent bootstrap; compiler/build/test tools provide real execution adapters; containers and platform frameworks qualify their own runtime/publish capabilities before the SDK advertises them.

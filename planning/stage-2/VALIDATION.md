@@ -6,9 +6,9 @@ Validated on 2026-10-19. These are document/evidence integrity checks, not tests
 |---|---|
 | Exact repository set | All 66 targets present |
 | Required repository documents | 792 files: eleven detailed documents plus README per target |
-| Repository-specific feature work packages | 344 |
-| Unique named implementation tasks | 1,296 |
-| Unique designed acceptance cases | 1,251 |
+| Feature and integration work packages | 356 (344 existing + 12 SDK integration) |
+| Unique named implementation tasks | 1,356 |
+| Unique designed acceptance cases | 1,311 |
 | Newly retrieved source/API/test samples | 311 hashes verified against local evidence |
 | Core library directory retention | All 218 immediate directories recorded |
 | Internal planning-document links | Checked for local target existence |
@@ -25,8 +25,21 @@ API declaration and test-method counts are lexical samples, not compiler-derived
 - Mandatory DOTNET-API-EXACT-001 linked from all 66 architecture and compatibility plans.
 - All 66 API-COMPATIBILITY documents and naming ledgers present.
 - N01 contract mapping required before each public feature slice.
-- 264 naming/concept tasks added; total named tasks: 1,296.
-- 198 naming/concept cases added; total designed cases: 1,251.
+- 264 naming/concept tasks from the earlier revision retained; the SDK revision adds 60 more tasks for 1,356 total.
+- 198 naming/concept cases from the earlier revision retained; the SDK revision adds 60 more cases for 1,311 total.
 - Original upstream evidence and notice bytes compared against the previous archive and unchanged.
 - Authored internal links and proposed base dependency DAG rechecked successfully.
 - Public symbol mapping remains a future semantic gate; no compilation or implemented compatibility is claimed.
+
+## SDK and distribution revision validation
+
+- Nine detailed SDK/distribution specification documents, including the master handoff.
+- Twelve integration packages, 60 unique named tasks and 60 designed acceptance cases added.
+- All 66 repositories linked to the SDK requirement and represented in the distribution contribution ledger.
+- Global task counts, repository owners and detailed integration backlog agree.
+- SDK integration dependency graph checked and acyclic.
+- All previous manifest-listed files retained; 158 primary inventory/notice files byte-identical to the earlier package.
+- Internal document links, exact naming policy links and 311 sampled source hashes checked successfully.
+- Full archive extraction and per-file manifest checks are performed before delivery; these are package integrity checks, not executed .j implementation tests.
+
+The exact SDK patch, compiled public API map, Java package-profile qualification and all future implementation acceptance results remain explicit gates.

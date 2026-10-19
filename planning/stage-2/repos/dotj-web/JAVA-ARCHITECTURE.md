@@ -104,3 +104,7 @@ Take one existing ASP.NET Core usage scenario in the first capability family, re
 ## Public API direction under the owner requirement
 
 Preserve actual ASP.NET Core public identities such as HttpContext, RequestDelegate, IApplicationBuilder, ControllerBase and original middleware/endpoint methods where present in the selected profile. Keep MVC, Razor Pages, Blazor, Identity, SignalR and hosting concepts intact. Internal RenderBatch/transport models do not authorize renaming source public APIs.
+
+## Required SDK integration
+
+Supply this product's qualified adapters/assets to [the SDK and distribution plan](../../10-SDK-AND-DISTRIBUTION-PLAN.md), using the [named integration tasks](../../sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md). Exact .NET API and command names/concepts remain mandatory. Core enables the independent bootstrap; compiler/build/test tools provide real execution adapters; containers and platform frameworks qualify their own runtime/publish capabilities before the SDK advertises them.

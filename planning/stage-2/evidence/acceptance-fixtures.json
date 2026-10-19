@@ -304,7 +304,7 @@
     "id": "DJ-002-F02-01",
     "repo": "dotj-sdk",
     "wp": "WP-02",
-    "expected": "Missing exact toolchain cannot silently roll forward",
+    "expected": "SDK selection follows the qualified global.json policy; disable requires an exact SDK and no policy permits an unrequested silent substitution",
     "status": "designed-not-executed"
   },
   {
@@ -8754,6 +8754,426 @@
     "repo": "dotj-bus",
     "wp": "N01",
     "expected": "Unrepresentable signatures or semantics are reported as blocked/unsupported with source identity and evidence; no renamed API, JDK substitute type or changed behavior is falsely marked exact compatibility.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I01-F01",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "expected": "A command contract points to a concrete reference SDK/source and reproducible raw oracle result; no latest-only identity is accepted.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I01-F02",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "expected": "Noun-first and retained legacy package/reference forms have separately tested parsing and equivalent reference edits where upstream supports both.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I01-F03",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "expected": "Unsupported options fail without project/cache/install mutations; help and version commands work without a feed.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I01-F04",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "expected": "A generic-arity, illegal-identifier or runtime gap remains blocked instead of passing after a silent public rename.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I01-F05",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I01",
+    "expected": "Changing the reference patch invalidates affected contract evidence and produces a reviewed compatibility diff.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I02-F01",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "expected": "A clean environment with only the locked JDK and source can build the seed and first SDK without a circular dependency.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I02-F02",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "expected": "Paths containing spaces and Unicode reach javac and child applications unchanged on each advertised OS.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I02-F03",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "expected": "Missing or incompatible JDK fails before producing a success marker or incomplete installation.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I02-F04",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "expected": "Cancellation terminates owned children and leaves reusable previous outputs intact.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I02-F05",
+    "repo": "dotj-build",
+    "wp": "SDK-I02",
+    "expected": "The seed-built and SDK-rebuilt outputs satisfy the declared reproducibility comparison with all nondeterministic inputs explained.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I03-F01",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "expected": "Equivalent conditional project inputs select the same conceptual references and target order as the locked reference fixture.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I03-F02",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "expected": "Directory.Build props/targets and command-line property overrides follow the qualified precedence with no hidden second evaluator.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I03-F03",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "expected": "Editing a solution preserves unrelated projects/comments and reports unsupported project types explicitly.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I03-F04",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "expected": "A compiler, package, generated-source or target change invalidates the affected cache, while a no-change build reuses verified outputs.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I03-F05",
+    "repo": "dotj-build",
+    "wp": "SDK-I03",
+    "expected": "Clean and cancellation cannot delete source files or another configuration/project output tree.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I04-F01",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "expected": "Console and classlib templates create compilable projects with exact framework API names and no Maven/Gradle requirement.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I04-F02",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "expected": "Dry-run leaves the filesystem unchanged while identifying intended outputs and conflicts.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I04-F03",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "expected": "A template archive or transform attempting to escape its output root is rejected before writes.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I04-F04",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "expected": "A requested C# language option cannot silently generate Java and claim equivalent language support.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I04-F05",
+    "repo": "dotj-templates",
+    "wp": "SDK-I04",
+    "expected": "Repeated installation/uninstallation preserves user files and removes only template-owned state.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I05-F01",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "expected": "A local Java-profile package restores and builds; a same-ID CLR-only package is rejected before compilation.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I05-F02",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "expected": "Locked restore reproduces the graph and content hashes; changed dependency metadata or payload bytes fail without silently rewriting the lock.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I05-F03",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "expected": "Package source mapping prevents unintended source selection, including an inherited public CLR feed.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I05-F04",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "expected": "Interrupted or concurrent downloads never expose partial cache entries; corrupt/path-traversal packages are rejected.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I05-F05",
+    "repo": "dotj-packages",
+    "wp": "SDK-I05",
+    "expected": "A complete local package closure restores offline, while a missing transitive package produces a named deterministic failure.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I06-F01",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "expected": "New, restore, build and run complete a working two-project application with source-verified framework APIs.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I06-F02",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "expected": "No-restore/no-build behavior matches the selected command contract and cannot silently fetch or compile missing inputs.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I06-F03",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "expected": "A real failing test causes the expected nonzero result and report; a crashed runner cannot be counted as passing.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I06-F04",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "expected": "Application arguments and exit status survive launcher forwarding, including spaces and Unicode.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I06-F05",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I06",
+    "expected": "A reference/JVM differential check rejects an altered default, missing warning or wrong exit code instead of normalizing it away.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I07-F01",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "expected": "Side-by-side SDKs select the expected version for each qualified global.json case without altering DOTNET_ROOT or unrelated JAVA_HOME.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I07-F02",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "expected": "A missing exact SDK with roll-forward disabled fails locally and does not silently download a replacement.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I07-F03",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "expected": "Interrupted/corrupt installation leaves the previous version runnable and no staged version advertised as installed.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I07-F04",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "expected": "Uninstalling one SDK preserves another SDK and packs still referenced by it.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I07-F05",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I07",
+    "expected": "An offline full bundle installs, creates, restores locally, builds and runs its declared sample without network access.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I08-F01",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "expected": "Framework-dependent output runs with an eligible runtime and clearly fails when that runtime is absent or incompatible.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I08-F02",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "expected": "Self-contained output runs on the qualified clean OS/architecture without a preinstalled JDK or dotj SDK.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I08-F03",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "expected": "Local publish creates complete local outputs and performs no unrequested remote deployment or upload.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I08-F04",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "expected": "A missing native asset or incompatible runtime identifier fails before publication is declared successful.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I08-F05",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I08",
+    "expected": "A JAR, jlink image or restart loop cannot satisfy a NativeAOT, single-file or hot-reload parity test without its actual required behavior.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I09-F01",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "expected": "Local tool restore/run follows the checked-in manifest and cannot overwrite an unrelated CLR/global tool installation.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I09-F02",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "expected": "A tool command collision fails or follows the locked reference behavior without silently hijacking another executable.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I09-F03",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "expected": "Failed workload update preserves the previous usable workload, and shared packs survive removal while still referenced.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I09-F04",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "expected": "An incompatible platform or missing required external tool is reported before a workload is marked installed.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I09-F05",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I09",
+    "expected": "IDE and terminal builds select the same SDK, project configuration and dependencies for the same fixture.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I10-F01",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "expected": "The client discovers resource URLs from the service index and restores the Java-profile package using the qualified protocol.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I10-F02",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "expected": "Same-ID/version publication with different bytes is rejected and cannot make a partially uploaded artifact visible.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I10-F03",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "expected": "Expired credentials, throttling and service failure produce bounded retry/error behavior with no secrets in logs.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I10-F04",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "expected": "Restoring a backup yields metadata whose content hashes and downloadable artifacts all agree.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I10-F05",
+    "repo": "dotj-registry",
+    "wp": "SDK-I10",
+    "expected": "Package downloads already published remain recoverable when search or nonessential portal components are unavailable.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I11-F01",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "expected": "Equivalent source/toolchain inputs run through provider-independent build steps and satisfy the declared artifact reproducibility check.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I11-F02",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "expected": "Artifacts lacking a required notice, signature, manifest or platform acceptance result cannot be promoted.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I11-F03",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "expected": "A Git import alone is never reported as migrating pipeline secrets, work items or branch protections.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I11-F04",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "expected": "Changing source host does not silently break existing immutable package/download references.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I11-F05",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I11",
+    "expected": "Failed promotion leaves the previous channel usable and does not overwrite a previously released package version.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I12-F01",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "expected": "All 66 products have a distribution disposition and owner, including products not yet implemented.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I12-F02",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "expected": "Every advertised public API preserves its source-verified name/case and every claimed command behavior has named passing evidence.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I12-F03",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "expected": "A new developer completes the qualified create/add/build/test/publish path without Maven, Gradle or a new framework vocabulary.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I12-F04",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "expected": "Unimplemented mobile/browser/AOT or language gaps remain visible and cannot be hidden behind a blanket exact-parity claim.",
+    "status": "designed-not-executed"
+  },
+  {
+    "id": "SDK-I12-F05",
+    "repo": "dotj-sdk",
+    "wp": "SDK-I12",
+    "expected": "The final report distinguishes written requirements, executed tests, implemented capabilities and release authorization status.",
     "status": "designed-not-executed"
   }
 ]

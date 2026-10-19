@@ -30,3 +30,7 @@ Use [core WORK-PACKAGES](repos/dotj-core/WORK-PACKAGES.md), [architecture](repos
 > Begin the first dotj-core foundation implementation slice using planning/stage-2. Complete E01-E03 and N01 for WP-01/WP-02, preserve the exact .NET public names and concepts, then implement only the eligible contracts and cancellation/resource behavior. Use the pinned evidence, keep unresolved rights/platform gates visible, preserve all other repositories' scope, and report the exact tests and compatibility profile achieved.
 
 This is a handoff you can use when requesting implementation. This planning package itself has not created application source or changed your Windows/Azure DevOps repository.
+
+## Additional required SDK handoff
+
+Read [10-SDK-AND-DISTRIBUTION-PLAN.md](10-SDK-AND-DISTRIBUTION-PLAN.md) and its eight detailed specifications. Complete SDK-I01 contract evidence alongside the relevant foundation research; then build the JDK-only bootstrap and minimal console/library/local-feed workflow in the specified dependency order. The existing core-first implementation slice remains the starting code work. All SDK tasks and designed cases are already written in the [agent execution plan](sdk/07-AGENT-EXECUTION-AND-ACCEPTANCE.md); no additional whole-plan request is needed.
