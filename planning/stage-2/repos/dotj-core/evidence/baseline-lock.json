@@ -12,7 +12,7 @@
     "tagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
     "tagVerificationCommand": "git ls-remote https://github.com/dotnet/runtime.git refs/tags/v10.0.12",
     "releaseMetadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
-    "qualification": "v10.0.12 source archive verified; CoreLib subtree matches embedded dotnet/dotnet commit; official win-x64 runtime ZIP and installed runtime files match. Generated outputs, rights and behavior oracle open.",
+    "qualification": "v10.0.12 source archive, CoreLib subtree and official win-x64 runtime artifact verified; pinned .NET oracle bootstrap executed. Dependency rights, generated inputs and mapped E03 fixtures open.",
     "sourceArchiveEvidence": "source-archive-v10.0.12.json",
     "licenseEvidence": [
       "release-v10.0.12/LICENSE.TXT",
@@ -26,7 +26,7 @@
     "sdkCommitFromDotnetInfo": "e34a38d2ae",
     "runtimeVersion": "10.0.12",
     "runtimeCommitFromDotnetInfo": "95017c711e",
-    "environment": "machine-installed binaries; no global.json in repository",
+    "environment": "machine-installed binaries; oracle project pins SDK 10.0.401 via tools/oracle/dotj-core/global.json",
     "binaryHashesSha256": {
       "C:/Program Files/dotnet/dotnet.exe": "21a46f1e5235cf4e844b9de5429f0e198b9c97a41f0503a66442f1d639ca3ee6",
       "C:/Program Files/dotnet/sdk/10.0.401/dotnet.dll": "616dbda77bc20692d615e2a679f31ffff04f693e8d6b3e24779cf8838adb6a85",
@@ -38,7 +38,9 @@
     ],
     "behaviorOracleRun": false,
     "officialRuntimeArtifactVerified": true,
-    "installedRuntimeFilesMatchedOfficialArtifact": 189
+    "installedRuntimeFilesMatchedOfficialArtifact": 189,
+    "oracleBootstrapRun": true,
+    "oracleBootstrapEvidence": "oracle-bootstrap-v10.0.12/manifest.json"
   },
   "localJavaToolchain": {
     "distribution": "Microsoft OpenJDK",
@@ -58,7 +60,6 @@
   "remainingE01": [
     "Review v10.0.12 third-party notice applicability and transitive dependency rights for the foundation slice.",
     "Resolve generated output identities and conditional build inputs for the selected CoreLib contracts.",
-    "Create and execute a pinned .NET behavior oracle with raw output and exact invocation flags.",
     "Record any required full-runtime source/build provenance outside the verified CoreLib scope before extending the compatibility profile."
   ],
   "compatibilityImpact": "The 9b1b0e9 analysis samples are navigation evidence only until diffed against v10.0.12; no E02, E03 or N01 result is claimed."

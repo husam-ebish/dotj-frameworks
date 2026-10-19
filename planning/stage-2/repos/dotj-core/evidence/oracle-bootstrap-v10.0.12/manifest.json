@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "status": "BOOTSTRAP_PASS_NOT_E03_CONFORMANCE",
+  "scope": "dotj-core portable foundation E01 oracle bootstrap",
+  "sourceProfile": {
+    "dotnetRuntimeTag": "v10.0.12",
+    "dotnetRuntimeTagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "installedRuntimeCommit": "95017c711e6afc1085133d440e42b4bd78155701",
+    "runtimeArtifactEvidence": "../runtime-artifact-v10.0.12-win-x64.json"
+  },
+  "project": {
+    "workingDirectory": "tools/oracle/dotj-core",
+    "sourceSha256": {
+      "Program.cs": "499200f917d99fad02021003231a3e6ed8ec34885ca18bc4ca0b2c0d0b000692",
+      "OracleBootstrap.csproj": "fd83ab289c11397e682024f1f6e3de4addfad2eca11b5ddba1b4286138fd84e9",
+      "global.json": "9969064a379ad96f0fd9358b4133bf2652018a32c60d44f37a0638168381a90d",
+      "NuGet.Config": "5256a7e3e07d2c5c94f7a1e6c45f39aab011c659c5e2d53e452dea525ce04575"
+    },
+    "sdkVersion": "10.0.401",
+    "externalPackageCount": 0,
+    "restoreCommand": [
+      "dotnet",
+      "restore",
+      "OracleBootstrap.csproj",
+      "--configfile",
+      "NuGet.Config",
+      "--verbosity",
+      "minimal"
+    ],
+    "restoreExitCode": 0,
+    "buildCommand": [
+      "dotnet",
+      "build",
+      "OracleBootstrap.csproj",
+      "--configuration",
+      "Release",
+      "--no-restore",
+      "--verbosity",
+      "minimal"
+    ],
+    "buildExitCode": 0,
+    "buildWarnings": 0,
+    "buildErrors": 0,
+    "compiledDllSha256": "7bdfbc9457fcd2d423896969ffc019e3715dd1c052a2832ad2cca9aaaa153b6e",
+    "generatedRuntimeConfigSha256": "64f6e92559a3ff326652a277bceee9745d0fe35cde800954bec2d5e16aae7fdd",
+    "generatedRuntimeConfig": {
+      "framework": {
+        "name": "Microsoft.NETCore.App",
+        "version": "10.0.12"
+      },
+      "rollForward": "Disable"
+    }
+  },
+  "run": {
+    "command": [
+      "C:/Program Files/dotnet/dotnet.exe",
+      "--roll-forward",
+      "Disable",
+      "bin/Release/net10.0/OracleBootstrap.dll"
+    ],
+    "workingDirectory": "tools/oracle/dotj-core",
+    "environmentOverrides": {
+      "DOTNET_ROLL_FORWARD": "Disable"
+    },
+    "exitCode": 0,
+    "stdoutFile": "stdout.raw",
+    "stdoutBytes": 267,
+    "stdoutSha256": "55272a4eee3a7364721f096bd622bacd39da12ba8fed865fb591440dd6d96526",
+    "stderrFile": "stderr.raw",
+    "stderrBytes": 0,
+    "stderrSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "observations": {
+      "runtimeVersion": "10.0.12",
+      "runtimeCommit": "95017c711e6afc1085133d440e42b4bd78155701",
+      "IDisposable": "System.IDisposable",
+      "IAsyncDisposable": "System.IAsyncDisposable",
+      "lateRegistrationSynchronous": true,
+      "exceptionTokenMatches": true
+    }
+  },
+  "limitations": [
+    "This is an owned bootstrap probe, not a mapped upstream test or E03 conformance fixture.",
+    "Only two cancellation observations and two type identities were checked; no .j implementation was exercised.",
+    "Windows x64, installed SDK/runtime, and the verified source CoreLib scope only.",
+    "Dependency rights, generated source inputs, and remaining E01/E02/E03/N01 gates are open."
+  ]
+}
