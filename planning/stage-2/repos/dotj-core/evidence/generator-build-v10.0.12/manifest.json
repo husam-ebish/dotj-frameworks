@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "scope": "dotj-core E01 pinned v10.0.12 generator build and output-identity boundary",
+  "status": "GENERATOR_ASSEMBLY_BUILD_PASS; DOWNSTREAM_CORELIB_BUILD_FAIL; ACTUAL_GENERATED_SOURCES_UNVERIFIED",
+  "source": {
+    "runtimeCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "archiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+    "generatorProject": "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj",
+    "selectedSdk": "10.0.401 via upstream global.json major roll-forward"
+  },
+  "generatorBuild": {
+    "command": "dotnet build src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj --no-restore --verbosity minimal",
+    "exitCode": 0,
+    "warnings": 0,
+    "errors": 0,
+    "generatorExecutionClaim": false,
+    "artifacts": [
+      { "name": "System.Private.CoreLib.Generators.deps.json", "bytes": 11442, "sha256": "66560ed846a5c569c6def182593bbb7389551f5c0e3713c2a74cdf2558824e14" },
+      { "name": "System.Private.CoreLib.Generators.dll", "bytes": 55296, "sha256": "4c6de8a078561d2e76eb40f99b50f4ae3fda6f7ad933d12d4800d7b37d8a230a" },
+      { "name": "System.Private.CoreLib.Generators.pdb", "bytes": 26232, "sha256": "b47cbb7a47fd31156b6f51c85f59b7a7a56af4a47d313125971ebac2d51101e3" }
+    ]
+  },
+  "declaredOutputPatterns": [
+    {
+      "generator": "Generators.ProductVersionInfoGenerator",
+      "kind": "IIncrementalGenerator",
+      "hintName": "ProductVersionInfo.g.cs",
+      "source": "src/libraries/System.Private.CoreLib/gen/ProductVersionInfoGenerator.cs:35",
+      "trigger": "InformationalVersion compiler-visible property",
+      "status": "source-declared pattern; downstream emission unverified"
+    },
+    {
+      "generator": "Generators.EventSourceGenerator",
+      "kind": "IIncrementalGenerator",
+      "hintName": "{ClassName}.g.cs",
+      "source": "src/libraries/System.Private.CoreLib/gen/EventSourceGenerator.Emitter.cs:27",
+      "trigger": "EventSourceAutoGenerate attribute on classes",
+      "observedCandidateClassNames": ["ArrayPoolEventSource", "RuntimeEventSource", "FrameworkEventSource", "NativeRuntimeEventSource", "TplEventSource"],
+      "status": "source-declared pattern; downstream inclusion and emission unverified"
+    },
+    {
+      "generator": "Generators.NativeRuntimeEventSourceGenerator",
+      "kind": "IIncrementalGenerator",
+      "hintName": "NativeRuntimeEventSource.g.cs",
+      "source": "src/libraries/System.Private.CoreLib/gen/NativeRuntimeEventSourceGenerator.cs:56,390-398",
+      "trigger": "Additional .man file with Microsoft-Windows-DotNETRuntime provider; CoreLib adds ClrEtwAll.man when FeaturePerfTracing=true",
+      "status": "source-declared pattern; downstream emission unverified"
+    }
+  ],
+  "analyzerWithoutSourceOutput": {
+    "type": "IntrinsicsInSystemPrivateCoreLib.IntrinsicsInSystemPrivateCoreLibAnalyzer",
+    "source": "src/libraries/System.Private.CoreLib/gen/IntrinsicsInSystemPrivateCoreLibAnalyzer.cs",
+    "kind": "DiagnosticAnalyzer"
+  },
+  "downstreamCoreLibAttempt": {
+    "project": "src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj",
+    "preRestoreBuildExitCode": 1,
+    "preRestoreError": "NETSDK1004 missing project.assets.json",
+    "restoreExitCode": 0,
+    "afterRestoreBuildCommand": "dotnet build <CoreLib.csproj> --no-restore -p:EmitCompilerGeneratedFiles=true --verbosity minimal",
+    "afterRestoreBuildExitCode": 1,
+    "afterRestoreWarnings": 2,
+    "afterRestoreErrors": 60,
+    "representativeError": "CS0246 missing MSBuild task types in ILLink.Tasks, including ITaskItem and RequiredAttribute",
+    "actualGeneratorOutputFilesFoundInCoreLibObj": 0,
+    "actualGeneratorOutputFilesFoundInGeneratorObj": 0
+  },
+  "rawEvidence": {
+    "corelib-after-restore-build.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "corelib-after-restore-build.stdout.raw": { "bytes": 128612, "sha256": "fba828b6de8f9596a423a6d09aff612a6fc0899218c0fb356644554692ab7a8f" },
+    "corelib-pre-restore-build.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "corelib-pre-restore-build.stdout.raw": { "bytes": 2444, "sha256": "de5d4332f4988acbc9fd21e122f0132d521798142ff4ea6b11c4ff41498a0d47" },
+    "corelib-restore.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "corelib-restore.stdout.raw": { "bytes": 4466, "sha256": "3d6a75aacf27d21ec208c1784af1ccaaa7e76f4fbb6be940a885853e9d890000" },
+    "generator.deps.raw": { "bytes": 11442, "sha256": "66560ed846a5c569c6def182593bbb7389551f5c0e3713c2a74cdf2558824e14" },
+    "generator-build.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "generator-build.stdout.raw": { "bytes": 684, "sha256": "25b5c217e35c5a8878cea1912dddd7345453cf997fa6b020ec3c96fa423cbd97" }
+  },
+  "limitations": [
+    "The generator DLL build does not execute source generators against CoreLib.",
+    "The CoreLib build stopped in ILLink.Tasks after restore; no actual generated source content, bytes or downstream behavior is qualified.",
+    "Candidate EventSource class names come from source annotations; conditional CoreLib compile inclusion was not fully evaluated.",
+    "No full upstream runtime build, E03 behavior fixtures, transitive rights clearance or .j product build was performed."
+  ]
+}
