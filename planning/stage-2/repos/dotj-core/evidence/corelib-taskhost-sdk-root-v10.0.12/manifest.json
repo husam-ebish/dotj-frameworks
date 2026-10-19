@@ -1,0 +1,39 @@
+﻿{
+    "schemaVersion":  1,
+    "recordedDate":  "2026-10-19",
+    "scope":  "dotj-core E01 pinned v10.0.12 CoreLib task-host SDK path",
+    "status":  "CORELIB_BUILD_PASS_WITH_EXPLICIT_SDK_ROOT",
+    "sourceCommit":  "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "selectedSdk":  "10.0.401",
+    "cause":  "NetCoreSdkRoot evaluated empty; RuntimeIdentifierGraphPath pointed to repository platform RID graph rather than installed SDK; NETCoreSdkVersion alone retained the task-host error",
+    "correction":  "NuGetPackageRoot set to isolated restored packages with trailing slash; NetCoreSdkRoot set to C:/Program Files/dotnet/sdk/10.0.401 without trailing slash",
+    "correctedBuild":  {
+                           "outputSha256":  "682bfa991c6241852f225d3edb54ab0f5bdb56b77e1430773877ed3b003bb176",
+                           "errors":  0,
+                           "exitCode":  0,
+                           "warnings":  0,
+                           "command":  "dotnet build src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj --no-restore -p:NuGetPackageRoot=\u003cisolated-root\u003e/ -p:NetCoreSdkRoot=C:/Program Files/dotnet/sdk/10.0.401 -p:EmitCompilerGeneratedFiles=true --verbosity minimal",
+                           "outputBytes":  6374400,
+                           "output":  "artifacts/bin/coreclr/windows.x64.Debug/IL/System.Private.CoreLib.dll",
+                           "elapsed":  "00:01:42.11"
+                       },
+    "rawEvidence":  {
+                        "global-version-attempt.stdout.raw":  {
+                                                                  "bytes":  5476,
+                                                                  "sha256":  "df4bef356a8d2745d973f51a3144b11298b6f24313bf5a1e2f0b44041346672c"
+                                                              },
+                        "taskhost-properties.raw":  {
+                                                        "bytes":  392,
+                                                        "sha256":  "7e7ba9451a8986c2b3f06c002aa748f1c34ec65c93a7124cf68e99645931860b"
+                                                    },
+                        "corrected-corelib-build.stdout.raw":  {
+                                                                   "bytes":  4528,
+                                                                   "sha256":  "601b637a44b512f651c34da62b20bdb46fb2753d4b49d38ffc948c1d89658870"
+                                                               }
+                    },
+    "limitations":  [
+                        "The tested invocation explicitly overrides an environment-dependent SDK root; it is not the unmodified upstream build path.",
+                        "The SDK is 10.0.401, selected by major roll-forward from requested 10.0.110.",
+                        "CoreLib build success does not establish full runtime build, generated-source capture, behavior parity, or rights clearance."
+                    ]
+}
