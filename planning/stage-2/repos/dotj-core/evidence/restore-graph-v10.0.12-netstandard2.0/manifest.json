@@ -1,0 +1,192 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "status": "BOUNDED_EVALUATION_AND_NONSTATIC_RESTORE_PASS; STATIC_RESTORE_FAIL; HASH_METADATA_MISMATCH_OPEN",
+  "scope": "dotj-core E01 System.Private.CoreLib.Generators netstandard2.0 package graph",
+  "source": {
+    "runtimeCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "archiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+    "archiveReverified": true,
+    "extraction": "temporary subset: root files, eng files, generator directory and src/libraries props/targets",
+    "globalJsonRequestedSdk": "10.0.110 with rollForward major",
+    "selectedInstalledSdk": "10.0.401",
+    "nugetConfigSha256": "2c6fc32d90a0a314e8d3936e0d250f418a26ad44a00db1956be67dd38e88da0a"
+  },
+  "evaluation": {
+    "command": [
+      "dotnet",
+      "msbuild",
+      "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj",
+      "-getProperty:TargetFramework,MicrosoftCodeAnalysisVersion_LatestVS",
+      "-getItem:PackageReference",
+      "-p:TargetFramework=netstandard2.0",
+      "-verbosity:quiet"
+    ],
+    "workingDirectory": "temporary pinned source subset",
+    "exitCode": 0,
+    "targetFramework": "netstandard2.0",
+    "effectivePropertyValueInThisProfile": "4.14.0",
+    "packageReferenceCount": 9,
+    "packageReferences": [
+      {
+        "id": "Microsoft.Net.Compilers.Toolset",
+        "version": "5.0.0-2.26411.108",
+        "implicit": true,
+        "definedBy": "C:\\Users\\husam\\.nuget\\packages\\microsoft.dotnet.arcade.sdk\\10.0.0-beta.26411.108\\tools\\Compiler.props"
+      },
+      {
+        "id": "NETStandard.Library",
+        "version": "2.0.3",
+        "implicit": true,
+        "definedBy": "C:\\Program Files\\dotnet\\sdk\\10.0.401\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.NET.Sdk.DefaultItems.props"
+      },
+      {
+        "id": "Microsoft.CodeAnalysis.CSharp",
+        "version": "4.14.0",
+        "implicit": false,
+        "definedBy": "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj"
+      },
+      {
+        "id": "Microsoft.DotNet.CodeAnalysis",
+        "version": "10.0.0-beta.26411.108",
+        "implicit": true,
+        "definedBy": "eng/Analyzers.targets"
+      },
+      {
+        "id": "Microsoft.CodeAnalysis.NetAnalyzers",
+        "version": "10.0.112",
+        "implicit": false,
+        "definedBy": "eng/Analyzers.targets"
+      },
+      {
+        "id": "Microsoft.CodeAnalysis.CSharp.CodeStyle",
+        "version": "4.14.0",
+        "implicit": false,
+        "definedBy": "eng/Analyzers.targets"
+      },
+      {
+        "id": "Microsoft.CodeAnalysis.Analyzers",
+        "version": "5.0.0-2.26411.108",
+        "implicit": false,
+        "definedBy": "eng/Analyzers.targets"
+      },
+      {
+        "id": "StyleCop.Analyzers",
+        "version": "1.2.0-beta.556",
+        "implicit": false,
+        "definedBy": "eng/Analyzers.targets"
+      },
+      {
+        "id": "Microsoft.DotNet.Build.Tasks.TargetFramework",
+        "version": "10.0.0-beta.26411.108",
+        "implicit": true,
+        "definedBy": "src/libraries/Directory.Build.targets"
+      }
+    ]
+  },
+  "restore": {
+    "baseCommand": [
+      "dotnet",
+      "restore",
+      "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj",
+      "--configfile",
+      "NuGet.Config",
+      "--packages",
+      "<temporary-source-root>/packages",
+      "-p:TargetFramework=netstandard2.0",
+      "--verbosity",
+      "minimal"
+    ],
+    "staticGraphAttempt": {
+      "exitCode": 1,
+      "failure": "NuGet.Build.Tasks.Console.MSBuildStaticGraphRestore null-reference error in this temporary subset"
+    },
+    "nonstaticAttempt": {
+      "extraArgument": "-p:RestoreUseStaticGraphEvaluation=false",
+      "exitCode": 0,
+      "firstRunRestoredProject": true,
+      "retainedLogFromRepeat": "exit 0; projects up-to-date for restore"
+    },
+    "assetsTarget": "netstandard2.0",
+    "directPackageReferenceCount": 9,
+    "resolvedPackageCount": 20,
+    "resolvedPackages": [
+      "Microsoft.CodeAnalysis.Analyzers/5.0.0-2.26411.108",
+      "Microsoft.CodeAnalysis.Common/4.14.0",
+      "Microsoft.CodeAnalysis.CSharp.CodeStyle/4.14.0",
+      "Microsoft.CodeAnalysis.CSharp/4.14.0",
+      "Microsoft.CodeAnalysis.NetAnalyzers/10.0.112",
+      "Microsoft.DotNet.Build.Tasks.TargetFramework/10.0.0-beta.26411.108",
+      "Microsoft.DotNet.CodeAnalysis/10.0.0-beta.26411.108",
+      "Microsoft.Net.Compilers.Toolset/5.0.0-2.26411.108",
+      "Microsoft.NETCore.Platforms/1.1.0",
+      "NETStandard.Library/2.0.3",
+      "StyleCop.Analyzers.Unstable/1.2.0.556",
+      "StyleCop.Analyzers/1.2.0-beta.556",
+      "System.Buffers/4.5.1",
+      "System.Collections.Immutable/9.0.0",
+      "System.Memory/4.5.5",
+      "System.Numerics.Vectors/4.5.0",
+      "System.Reflection.Metadata/9.0.0",
+      "System.Runtime.CompilerServices.Unsafe/6.0.0",
+      "System.Text.Encoding.CodePages/7.0.0",
+      "System.Threading.Tasks.Extensions/4.5.4"
+    ]
+  },
+  "roslynPackageHashObservation": {
+    "packageIdVersion": "Microsoft.CodeAnalysis.CSharp/4.14.0",
+    "assetsAndCacheMetadataSha512Base64": "568a6wcTivauIhbeWcCwfWwIn7UV7MeHEBvFB2uzGIpM2OhJ4eM/FZ8KS0yhPoNxnSpjGzz7x7CIjTxhslojQA==",
+    "cacheMetadataSource": "https://pkgs.dev.azure.com/dnceng/public/_packaging/dotnet-public/nuget/v3/index.json",
+    "localNupkgAndOfficialCatalogSha512Base64": "kqS2NihVvNQHxzLePtyYiiJmFzoYO9Wm46O9DhfUgIIf5NwTbvSy66kV9EM+qAHmGpi7zQy4w8JU6DFnPlAyTA==",
+    "localNupkgSha256": "e4cce3dd791860b9300d6875eebd4d11749b5f0c166103e23a6912325828d496",
+    "hashesDiffer": true,
+    "disposition": "OPEN; actual cached nupkg bytes and internal files matched Batch-006 official artifact, but Azure-feed metadata and assets hash differ from those bytes"
+  },
+  "rawEvidence": {
+    "evaluation.stderr.raw": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "evaluation.stdout.raw": {
+      "bytes": 9886,
+      "sha256": "d1a7cf0173bc4d244a5861d7849133bd7c54a9dc381fe2311dc231862efe2a24"
+    },
+    "nonstatic.stderr.raw": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "nonstatic.stdout.raw": {
+      "bytes": 84,
+      "sha256": "2301657740bf5f8a76a0c9bcb52eae5f9ee462f5cccbc2c79023f44b4b2011c8"
+    },
+    "project.assets.raw": {
+      "bytes": 85199,
+      "sha256": "8a850a823325fff666c8afb31f570c56639b8166c562914d5243f77fbcbbc154"
+    },
+    "roslyn-cache-metadata.raw": {
+      "bytes": 232,
+      "sha256": "2012963cf8776677b093ded8138d63fc8e379eceb4376b539dcf6c7b24a6d622"
+    },
+    "roslyn-nupkg-sha512.raw": {
+      "bytes": 88,
+      "sha256": "f2becb62922b6dfa9cae438e242aba05236fd6b361e09f60dd346ba98cac616b"
+    },
+    "static.stderr.raw": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "static.stdout.raw": {
+      "bytes": 2401,
+      "sha256": "d036043576685fc7076ce10bd4e5c4146cdcb1ced08e301c0da37138bffafb84"
+    }
+  },
+  "limitations": [
+    "Only a temporary subset of the pinned source archive was extracted; this does not establish a full upstream reproducible build.",
+    "The repository static-graph restore failed; the successful restore explicitly disabled static graph evaluation.",
+    "SDK 10.0.401 was selected by global.json rollForward major; the requested 10.0.110 SDK was not installed.",
+    "Arcade SDK imports used machine NuGet cache; package restore output used a separate temporary package folder and the pinned repository NuGet.Config.",
+    "The 20 resolved package identities are a graph inventory, not transitive license or notice clearance.",
+    "The Roslyn package hash metadata mismatch remains unexplained; do not use the assets hash as proof of the cached package bytes.",
+    "No .j source, product artifact or release was changed."
+  ]
+}
