@@ -1,0 +1,132 @@
+﻿{
+    "schemaVersion":  1,
+    "recordedDate":  "2026-10-20",
+    "scope":  "dotj-core E01 pinned v10.0.12 generated LibraryImports Debug/Release conditional attribution",
+    "status":  "FIVE_DIFF_HUNKS_MAPPED_TO_PINNED_SOURCE_CONDITIONS",
+    "sourceCommit":  "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "comparisonEvidence":  "../corelib-release-generated-v10.0.12/manifest.json",
+    "propertyEvaluation":  {
+                               "debugDefines":  [
+                                                    "DEBUG",
+                                                    "FEATURE_JAVAMARSHAL"
+                                                ],
+                               "debug":  "debug-properties.raw",
+                               "debugFeatureJavaMarshal":  "true",
+                               "releaseFeatureJavaMarshal":  "",
+                               "release":  "release-properties.raw",
+                               "releaseDefinesNeither":  true
+                           },
+    "diff":  {
+                 "absentInRelease":  6,
+                 "addedLines":  4,
+                 "changedInteropBodies":  2,
+                 "affectedGeneratedMethods":  8,
+                 "hunks":  5,
+                 "removedLines":  114
+             },
+    "attribution":  [
+                        {
+                            "source":  [
+                                           "GCHandle.CoreCLR.cs:43-63",
+                                           "clr.featuredefines.props:9-11",
+                                           "clr.featuredefines.props:35"
+                                       ],
+                            "diffHunk":  "-2270",
+                            "condition":  "FEATURE_JAVAMARSHAL is defined for Debug and absent for Release",
+                            "members":  [
+                                            "GCHandle.InternalGetBridgeWait"
+                                        ]
+                        },
+                        {
+                            "source":  [
+                                           "Marshal.CoreCLR.cs:993-996",
+                                           "System.Private.CoreLib.csproj:82-88"
+                                       ],
+                            "diffHunk":  "-2674",
+                            "condition":  "DEBUG is defined for Debug and absent for Release",
+                            "members":  [
+                                            "Marshal.GetIsInCooperativeGCModeFunctionPointer"
+                                        ]
+                        },
+                        {
+                            "source":  [
+                                           "System.Private.CoreLib.csproj:226",
+                                           "clr.featuredefines.props:9-11",
+                                           "JavaMarshal.CoreCLR.cs:56-69"
+                                       ],
+                            "diffHunk":  "-2763",
+                            "condition":  "JavaMarshal.CoreCLR.cs is compiled only when FeatureJavaMarshal is true",
+                            "members":  [
+                                            "JavaMarshal.InitializeInternal",
+                                            "JavaMarshal.CreateReferenceTrackingHandleInternal",
+                                            "JavaMarshal.FinishCrossReferenceProcessing",
+                                            "JavaMarshal.GetContextInternal"
+                                        ]
+                        },
+                        {
+                            "source":  [
+                                           "Interop.Globalization.cs:14-18",
+                                           "Interop.Globalization.cs:68-69"
+                                       ],
+                            "diffHunk":  "-5366",
+                            "condition":  "SetLastErrorForDebug is true with DEBUG and false otherwise",
+                            "members":  [
+                                            "Interop.Kernel32.FindNLSStringEx"
+                                        ]
+                        },
+                        {
+                            "source":  [
+                                           "Interop.Globalization.cs:14-18",
+                                           "Interop.Globalization.cs:101-102"
+                                       ],
+                            "diffHunk":  "-5419",
+                            "condition":  "SetLastErrorForDebug is true with DEBUG and false otherwise",
+                            "members":  [
+                                            "Interop.Kernel32.FindStringOrdinal"
+                                        ]
+                        }
+                    ],
+    "sourceInventory":  [
+                            {
+                                "sourcePath":  "src/coreclr/clr.featuredefines.props",
+                                "capturedFile":  "clr.featuredefines.props.raw",
+                                "bytes":  3245,
+                                "sha256":  "194cc47d3c3151ddd9a23fdf94ced9a3319d637f81459f49c38e5f650bc33174"
+                            },
+                            {
+                                "sourcePath":  "src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj",
+                                "capturedFile":  "System.Private.CoreLib.csproj.raw",
+                                "bytes":  21340,
+                                "sha256":  "3cbb9c5281f0082d76beb24935066fb1a9678e9ab95f7fbbd210d9802e0a6f24"
+                            },
+                            {
+                                "sourcePath":  "src/coreclr/System.Private.CoreLib/src/System/Runtime/InteropServices/GCHandle.CoreCLR.cs",
+                                "capturedFile":  "GCHandle.CoreCLR.cs.raw",
+                                "bytes":  3140,
+                                "sha256":  "36bb08aec31901f6780501221f974bc53074a649607717b188f4c981555fec98"
+                            },
+                            {
+                                "sourcePath":  "src/coreclr/System.Private.CoreLib/src/System/Runtime/InteropServices/Marshal.CoreCLR.cs",
+                                "capturedFile":  "Marshal.CoreCLR.cs.raw",
+                                "bytes":  42657,
+                                "sha256":  "cc044a9f384136942444ef9b4a508b41869acc6d0096acf80126e33089b014a2"
+                            },
+                            {
+                                "sourcePath":  "src/coreclr/System.Private.CoreLib/src/System/Runtime/InteropServices/Java/JavaMarshal.CoreCLR.cs",
+                                "capturedFile":  "JavaMarshal.CoreCLR.cs.raw",
+                                "bytes":  2939,
+                                "sha256":  "90662e8f5f5733b248b0c5436fe609ff6acee01fe7faffeae4e4ca44ee762cd7"
+                            },
+                            {
+                                "sourcePath":  "src/libraries/Common/src/Interop/Windows/Kernel32/Interop.Globalization.cs",
+                                "capturedFile":  "Interop.Globalization.cs.raw",
+                                "bytes":  8122,
+                                "sha256":  "69b329d326f9477dd6f779aea1042ee82cdd09671458cb2f0532c0fbda752607"
+                            }
+                        ],
+    "limitations":  [
+                        "This maps generated import differences to source conditions and evaluated properties; it is not a semantic public API inventory or behavior oracle.",
+                        "Release configuration still emits InformationalVersion 10.0.12-dev and is not the official release artifact build.",
+                        "Rights/notice applicability for generated output and transitive dependencies remains open."
+                    ]
+}
