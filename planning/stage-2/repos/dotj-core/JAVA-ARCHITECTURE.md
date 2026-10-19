@@ -1,95 +1,113 @@
-# Java architecture: core foundation contract draft
+# DJ-001 .j Core: Java architecture and contracts
 
-Status: **PROPOSED, INCOMPLETE**. These are planning contracts, not implemented APIs. Decisions are in [ADRS](ADRS.md); source evidence and tests are linked in the compatibility and test maps.
+Reproduce base-library contracts on the JVM while retaining the JDK VM, GC, threads and standard collections.
 
-## Artifact boundaries
+Product type: JVM library; runtime feasibility boundary. Proposed Java package root: `org.dotj.core`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
 
-All artifacts below live in the future dotj-core repository. Proposed packages use `org.dotj.core.*`; namespace ownership remains unverified. Each artifact is independently compilable over JDK APIs plus its declared lower-level .j artifacts. There is no mandatory aggregate core dependency.
+## Module responsibilities
 
-| Artifact suffix | Responsibility | Proposed dependencies |
+| Proposed module | Contracts | Responsibility |
 |---|---|---|
-| contracts | Errors, explicit context carrier, resource ownership vocabulary | JDK |
-| cancellation | Tokens, sources, registrations, timers and cancellation outcomes | contracts |
-| async | Async close and explicitly owned executor/stream adapters | contracts, cancellation |
-| primitives | Change tokens and selected compatible value adapters | cancellation, async |
-| di-abstractions | Service keys, type tokens, provider and scope interfaces | contracts, async |
-| di | Runtime-origin default DI engine | di-abstractions |
-| configuration-abstractions | Presence-aware values, sections, provider SPI | primitives |
-| configuration | Provider ordering, root and change-token lifecycle | configuration-abstractions |
-| logging-abstractions | Level, event ID, state/formatter and scope contracts | contracts |
-| logging | Provider fan-out and runtime-origin logger implementation | logging-abstractions; DI integration separate |
-| options | Named configuration/validation/cache contracts | primitives; DI/configuration integrations separate |
-| hosting-abstractions | Host and service lifecycle contracts | cancellation, async |
-| hosting | Host composition and shutdown coordinator | hosting-abstractions, di, configuration, options, logging |
-| numerics-compat | Decimal and unsigned semantic adapters | JDK; contracts where needed |
-| time-compat | Date/time representations and deterministic clock boundaries | JDK; contracts where needed |
-| system-json | System.Text.Json behavior profile, later analysis | contracts and selected core value adapters |
-| configuration-json | JSON configuration provider | configuration, system-json |
+| dotj-core-01 | TypeToken<T>, Outcome<T>, AsyncCloseable, explicit ContextSnapshot | Foundation types and ownership |
+| dotj-core-02 | CancellationToken, CancellationSource, Registration, Deadline | Cancellation and asynchronous operations |
+| dotj-core-03 | ServiceKey<T>, ServiceDescriptor, Scope, ConfigValue, ConfigurationRoot | Default DI and configuration |
+| dotj-core-04 | OptionsFactory<T>, OptionsMonitor<T>, Logger, HostedService, Host | Options logging and hosting |
+| dotj-core-05 | DotjDecimal, DotjDateTime, EncodingProfile, CultureProfile | Numeric text and time compatibility |
+| dotj-core-06 | Sequence<T>, QueryExpression, ExpressionVisitor, CollectionAdapters | Collections LINQ and expression services |
+| dotj-core-07 | OwnedStream, Pipe, HttpMessage, SocketChannelAdapter, DataRecord | I/O networking and data contracts |
+| dotj-core-08 | SystemJsonProfile, XmlModel, CryptoProvider, MetadataReader, ReflectionAdapter | Formats serialization security and reflection |
+| dotj-core-09 | PlatformCapability, NativeBinding, RuntimeCapabilityMatrix | Native runtime and complete BCL disposition |
 
-This is the first artifact partition, not a complete mapping of all 218 directories. Other BCL, network, crypto, serialization, interop and runtime groups remain retained in the inventory and require separate detailed analysis.
+## Data, ownership, threading and errors
 
-## Contract C-001: cancellation and registration
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
-Propose the following Java signatures as the design vocabulary. Types and overloads require API review; no source file is created here.
+Define decimal, unsigned numeric, culture, DateTime, encoding, exception and disposal semantics; Java erasure and memory-model differences preclude CLR binary compatibility.
 
-| Proposed operation | Behavior contract |
-|---|---|
-| `CancellationToken.isCancellationRequested(): boolean` | Observable cooperative cancellation state; never implies remote rollback |
-| `CancellationToken.throwIfCancellationRequested(): void` | Throws a typed cancellation exception carrying token identity |
-| `CancellationToken.register(Runnable): CancellationRegistration` | Captures the explicit .j context; already-canceled token invokes synchronously and propagates callback failure |
-| `CancellationToken.registerUncaptured(Runnable): CancellationRegistration` | Does not capture .j context; distinct from the capturing overload |
-| `CancellationSource.cancel(boolean throwOnFirstException): void` | Marks cancellation before callbacks; LIFO callback dispatch for the declared sequential-registration case; failure policy must match the chosen source profile |
-| `CancellationSource.cancelAsync(): CompletionStage<Void>` | State becomes requested during the call; returned stage represents completion of callback processing, not cancellation of all downstream work |
-| `CancellationRegistration.unregister(): boolean` | Removes a not-yet-running callback if possible; does not wait for an executing callback |
-| `CancellationRegistration.close(): void` | Waits for executing callback completion where required, except self-disposal must not deadlock |
-| `CancellationRegistration.closeAsync(): CompletionStage<Void>` | Async completion fence for callback deregistration/completion |
+## Feature contracts and invariants
 
-Cancellation source lifetime, linking, timer replacement, reset, equality and disposed-source behavior need their full edge-case matrix before this contract is frozen. Distinguish token identity from source disposal; don't clear token identity merely because the source closes. Do not map `CompletableFuture.cancel` or thread interruption directly to this contract. Document any propagation adapter explicitly.
+### WP-01: Foundation types and ownership
 
-.NET ExecutionContext/SynchronizationContext cannot be captured wholesale on Java. The proposed .j context is an explicit immutable key/value carrier with bounded captured values. Caller-selected dispatchers are an optional adapter, not implicit thread-local cloning. This is an adaptation requiring paired fixtures; .NET ambient context parity is not claimed.
+Contract vocabulary: `TypeToken<T>`, `Outcome<T>`, `AsyncCloseable`, `explicit ContextSnapshot`.
 
-## Contract C-002: resource ownership and asynchronous close
+Specify nullability, type identity and exception-cause mapping. Define borrowed versus owned resource lifetimes and close failure ordering. Define context capture and executor transfer without copying arbitrary thread locals.
 
-Propose `AsyncCloseable.closeAsync(): CompletionStage<Void>` alongside JDK AutoCloseable. A borrowed stream/provider/executor remains caller-owned. Scope-owned factory-created objects are released by the owning scope. Externally supplied singleton instances remain caller-owned unless an explicit ownership overload is added and labeled as a Java extension.
+Required observable invariant: Equal parameterized types share identity; different generic arguments do not; supplied resources are never closed implicitly; context values do not leak between requests.
 
-A synchronous scope close uses synchronous close when an object supports both forms. Async scope close prefers async close and awaits each owned resource in reverse capture order. An async-only object reached by synchronous close yields a defined error; do not block implicitly on its stage. Current source behavior deduplicates shared object instances and continues disposal after failures, aggregating errors. Preserve that profile only for the chosen reference revision; verify against the selected released baseline.
+### WP-02: Cancellation and asynchronous operations
 
-Use reference identity for ownership deduplication. Equality overrides must not cause two different resources to be treated as one. Closing a resource is not evidence that in-flight remote operations rolled back. Exception ordering and single-versus-multiple-failure representation belong in the compatibility contract.
+Contract vocabulary: `CancellationToken`, `CancellationSource`, `Registration`, `Deadline`.
 
-## Contract C-003: service identity, lifetimes and resolution
+Specify register/cancel/link/timer/reset state transitions and linearization points. Separate unregister, blocking close, async close and future cancellation. Define callback order, failure aggregation and explicit context dispatch.
 
-Use an explicit `TypeToken<T>` and `ServiceKey<T>` composed of service type plus optional keyed-service value. Define separate paths for an unkeyed service and a keyed service with a null key if source behavior requires that distinction. Do not use raw `Class<T>` as a substitute for all closed generic service identities.
+Required observable invariant: Late registration runs synchronously; sequential callbacks use the declared LIFO profile; self-close cannot deadlock; cancelAsync completion waits for callbacks; token identity survives source disposal as specified.
 
-Propose `get(ServiceKey<T>)`, `getRequired(ServiceKey<T>)`, `getAll(ServiceKey<T>)` and explicit `createScope()`. Resolution order, constructor selection, open generics, keyed registrations, singleton/scoped/transient caching and validation-on-build are individual compatibility features. The current default DI source is owned here; Autofac features remain dotj-container scope.
+### WP-03: Default DI and configuration
 
-Build freezes the registration sequence into an immutable resolution model. Call-site generation can initially use reflection/MethodHandles; CLR IL emission is not translated literally. Factories run outside broad global locks. Exactly-one published singleton and disposal races need an explicit linearization design and stress tests before selecting a cache algorithm. Captive dependencies are diagnosed according to the declared validation mode, not silently repaired.
+Contract vocabulary: `ServiceKey<T>`, `ServiceDescriptor`, `Scope`, `ConfigValue`, `ConfigurationRoot`.
 
-## Contract C-004: configuration presence, ordering and reload
+Map keyed/open-generic resolution, constructor selection and lifetime caches. Specify present-null configuration, last-provider lookup and write-to-all semantics. Define scope deduplication, reverse cleanup and reload-generation behavior.
 
-Propose `ConfigValue(present, value)` where value can be null when present. Java Optional alone is insufficient to represent missing versus present-null. Section objects preserve path/key independently of a scalar value, and children can exist when the section value is null.
+Required observable invariant: Concurrent singleton resolves return one published identity; aliases close once; supplied singleton stays caller-owned; empty-provider writes fail; failed reload does not acquire an invented atomic guarantee.
 
-Root lookup searches providers from last to first and stops at the first present result. Root set forwards to all configured providers and fails when no source exists. Sources/children retain their specified ordering and key-comparison semantics. .NET ordinal case-insensitive semantics need explicit Unicode fixtures; `toLowerCase()` under the current Java locale is not an acceptable substitute.
+### WP-04: Options logging and hosting
 
-Reload loads providers and rotates the root change token as observed. Stage 1's blanket immutable-snapshot suggestion must not be called exact upstream behavior: the inspected root reload does not establish an atomic transaction across all providers. An optional transactional snapshot API may be a Java extension, clearly separated from the compatibility profile.
+Contract vocabulary: `OptionsFactory<T>`, `OptionsMonitor<T>`, `Logger`, `HostedService`, `Host`.
 
-A change token is one notification generation. Re-subscribing observers obtains new tokens. Closing a subscription suppresses future re-registration according to source tests, including close during callback and producer failure. Callback exception and async completion propagation are part of the API, not implementation details.
+Specify configure/postconfigure/validate order and named cache lifetimes. Define structured state/formatter scopes independent from concrete loggers. Specify startup, background failure, stop deadlines and OS-lifetime adapters.
 
-## Contract C-005: logging and context
+Required observable invariant: Invalid options never publish as valid; monitor close removes subscriptions; disabled log handling follows declared formatter behavior; partial host startup releases completed services in defined order.
 
-Keep logging interfaces independent from concrete loggers, DI and configuration. Represent level, event ID, state and formatter separately. Upstream-compatible logging does not imply Serilog message-template destructuring; that behavior remains dotj-structured-log. Scopes are closeable and use the explicit context model across executor boundaries. Formatter invocation, disabled logging allocation, exception attachment and scope nesting still need implementation-source/test analysis; reference declarations alone do not establish them.
+### WP-05: Numeric text and time compatibility
 
-## Contract C-006: options and lifecycle
+Contract vocabulary: `DotjDecimal`, `DotjDateTime`, `EncodingProfile`, `CultureProfile`.
 
-Named options require explicit default-name normalization, ordered configuration, post-configuration and validation. Cache semantics distinguish value, snapshot and monitor interfaces. Failure must not publish an invalid value. The inspected snapshot contains asynchronous validation and startup-specific cache behavior; those features are retained but require release-baseline selection and additional class-level analysis before Java signatures are finalized.
+Specify range, scale, signed representation, overflow and rounding vectors. Map UTF encoders, fallback behavior, normalization and culture comparisons. Separate wall-clock calendar operations from monotonic deadlines.
 
-Host/service interfaces use CompletionStage and explicit cancellation. The hosting implementation, startup ordering, rollback after failed startup, shutdown timeout and OS service adapters remain pending analysis. Do not claim the draft supports systemd or Windows services merely because interfaces compile on a JVM.
+Required observable invariant: Decimal bit-preserving paths retain scale/sign; invalid byte sequences follow explicit modes; Turkish casing and DST ambiguity are fixture-covered; Instant conversion cannot discard unspecified Kind silently.
 
-## Contract C-007: numeric/time adapters
+### WP-06: Collections LINQ and expression services
 
-A Java BigDecimal wrapper needs .NET decimal range/scale, rounding, overflow and bit-representation decisions. Numeric equality is not representation identity: don't normalize away scale or signed zero where the declared API exposes them. Keep 96-bit coefficient and scale/sign behavior as an explicit investigation track.
+Contract vocabulary: `Sequence<T>`, `QueryExpression`, `ExpressionVisitor`, `CollectionAdapters`.
 
-DateTime adaptation must retain ticks, Kind and local/unspecified distinctions when required; normalizing every value to Instant loses information. DateTimeOffset, TimeSpan, calendars, parsing cultures and time-zone ambiguity remain separate unsampled scope. Time limits use monotonic deadlines; calendar timestamps use an explicit wall clock. Neither direction asserts CLR/JVM identity.
+Partition standard JDK reuse from .NET-observable ordering/equality adapters. Specify lazy enumeration, exception timing and parallel-query cancellation. Design explicit expression IR for consumers without introspecting arbitrary Java lambdas.
 
-## Bootstrap and security boundaries
+Required observable invariant: Enumerator disposal and deferred exceptions match profiles; grouping/null/equality differences are explicit; query IR round trips preserve node types and constants; provider translation has no silent client execution.
 
-Use javac/jar and a plain-Java independent test runner only after implementation authorization. No framework dependency is needed for these contracts. A .NET oracle runs separately at a pinned compatible toolchain. Do not evaluate arbitrary code from configuration or instantiate arbitrary classes from untrusted type names. Scope recursion, callback storms and reflection access require bounded diagnostics. Preserve JPMS boundaries and avoid default unrestricted `setAccessible` behavior.
+### WP-07: I/O networking and data contracts
+
+Contract vocabulary: `OwnedStream`, `Pipe`, `HttpMessage`, `SocketChannelAdapter`, `DataRecord`.
+
+Map files, archives, pipelines, channels and connection lifecycles. Separate .NET HTTP/mail/socket profiles from web/server and MailKit products. Specify JDBC/data abstractions and local transaction enlistment boundaries.
+
+Required observable invariant: Partial reads/writes and half-closes retain data; bounded buffers enforce backpressure; file handles close on failure; network cancellation does not imply rollback; unsupported distributed enlistment fails explicitly.
+
+### WP-08: Formats serialization security and reflection
+
+Contract vocabulary: `SystemJsonProfile`, `XmlModel`, `CryptoProvider`, `MetadataReader`, `ReflectionAdapter`.
+
+Inventory runtime JSON, XML, CBOR, ASN.1, packaging and serializer profiles. Use JDK crypto primitives while defining algorithm/encoding/key contracts. Separate reflection metadata and dynamic generation from CLR loading/IL execution.
+
+Required observable invariant: System.Text.Json tests cannot be satisfied merely by Newtonsoft behavior; unsafe type activation is disabled; signature bytes and canonicalization use vectors; CLR assembly execution is never claimed from metadata parsing.
+
+### WP-09: Native runtime and complete BCL disposition
+
+Contract vocabulary: `PlatformCapability`, `NativeBinding`, `RuntimeCapabilityMatrix`.
+
+Assign every library directory and source branch to a retained workstream. Specify COM, Windows auth, intrinsics, AOT, browser and VM feasibility experiments. Define explicit fail-fast capability discovery and platform artifact packaging.
+
+Required observable invariant: All 218 known library directories have ownership and test routes; unsupported backend calls report capability gaps; no custom VM is assumed; a backend remains blocked until a reproducible execution experiment succeeds.
+
+## Bootstrap and dependency boundaries
+
+java.base, java.nio, java.time, java.util.concurrent, JCA; no replacement JVM or custom crypto.
+
+Proposed .j dependencies: No product dependency in the base foundation. Optional adapters depend inward on contracts; product implementations do not become core dependencies. The first deliverable is a versioned contract and fixture set for WP-01. Later native/UI/cloud adapters activate only after their feasibility and rights gates pass.
+
+## Migration walkthrough
+
+Take one existing .NET runtime and base libraries usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `TypeToken<T>` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Equal parameterized types share identity; different generic arguments do not; supplied resources are never closed implicitly; context values do not leak between requests. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+
+## Deeper foundation contracts
+
+[Cancellation, DI, configuration, options and lifecycle source analysis](foundation-research/JAVA-ARCHITECTURE.md) retains the earlier exact contract work. Read it alongside this whole-core work breakdown; neither sample claims complete BCL parity.

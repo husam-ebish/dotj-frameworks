@@ -1,21 +1,21 @@
-# Planning-update validation
+# Planning package validation
 
-Validated 2026-10-19. These are document/evidence checks, not implementation test results.
+Validated on 2026-10-19. These are document/evidence integrity checks, not tests of a .j implementation.
 
 | Check | Result |
 |---|---|
-| Requested detailed-plan document types | All 9 types present, plus ADRs; content explicitly incomplete |
-| Ecosystem status entries | All 66 retained; only dotj-core Stage 2 in progress |
-| Complete immediate library listing | 218 entries from untruncated libraries tree |
-| Retrieved source evidence | 47 files; all local content hashes match manifest |
-| Reference API extraction | 8 files; 1,061 lexical candidates, not semantic API count |
-| Curated test mappings | 32 actual upstream method names verified in retrieved files |
-| First implementation work packages | 12 drafted; no implementation authorization |
-| Local links | Verified within this additive update |
-| Stage-1 changes | None included |
-| Application source/build artifacts | None included |
-| Azure/Windows changes | None performed |
+| Exact repository set | All 66 targets present |
+| Required repository documents | 726 files: ten detailed documents plus README per target |
+| Repository-specific feature work packages | 344 |
+| Unique named implementation tasks | 1,032 |
+| Unique designed acceptance cases | 1,053 |
+| Newly retrieved source/API/test samples | 311 hashes verified against local evidence |
+| Core library directory retention | All 218 immediate directories recorded |
+| Internal planning-document links | Checked for local target existence |
+| Proposed base dependency graph | Acyclic; optional adapters separated |
+| Java or C# application source in package | None |
+| Executed compatibility tests | None; future fixtures only |
 
-API declaration candidates retain source URLs and line references. Upstream root license and notices accompany the extracted material in the evidence folder. The full upstream implementation source is not shipped.
+Original upstream notice/license files are preserved as evidence. Relative hyperlinks within those verbatim upstream files refer to the upstream source tree, not necessarily to a local file in this planning archive; use the immutable source link in DEPENDENCIES-AND-LICENSES. They are excluded from local planning-link checks. This exception does not apply to authored plan documents.
 
-Stage 2 remains INCOMPLETE: release baseline/toolchains, full recursive semantic inventory, dependency closure, licensing eligibility, unsampled behaviors and native/runtime feasibility remain open. No .NET oracle or Java target test was run. The original repository must be inspected before automatic integration.
+API declaration and test-method counts are lexical samples, not compiler-derived semantic counts. Source path listings and byte hashes do not establish complete behavioral analysis, release eligibility or license clearance. The written work breakdown is complete across all target capability families; E01-E03 retain unresolved audit and eligibility work explicitly.

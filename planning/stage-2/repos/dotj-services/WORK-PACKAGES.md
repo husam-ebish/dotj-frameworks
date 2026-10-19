@@ -1,0 +1,123 @@
+# DJ-018 .j Services: work packages
+
+This is the complete authored work breakdown for the retained capability families. All packages are **NOT STARTED** as implementation. Evidence gates are work, not hidden assumptions. Deliver one vertical feature slice at a time after its prerequisites; whole-product completion is not required to begin independent eligible slices.
+
+## E01: qualify source, release and rights
+
+Owner role: repository maintainer with licensing reviewer where required. Inputs: PINNED-UPSTREAM and DEPENDENCIES-AND-LICENSES. Tasks: choose the reference release/profile; verify immutable archive and submodules; resolve source reuse and notice obligations; lock the C# oracle and Java binary/toolchain. Outputs: baseline-lock.json, eligibility record and exact reproduction command. Acceptance: no moving refs; all required inputs have hashes; a runnable reference baseline or explicitly justified alternative oracle exists; rights-blocked work remains blocked.
+
+## E02: close semantic inventory and dependencies
+
+Owner role: API/build maintainer. Prerequisite: E01 analysis identity; eligibility required before restricted reuse. Tasks: evaluate all conditional project references and generated inputs; extract public API symbols with signatures and target conditions; map every source module/member to a feature package; classify missing upstream sources/native/assets. Outputs: semantic inventory, resolved dependency graph, source-to-feature ledger and API contract diffs. Acceptance: every listed module and discovered generated family has a disposition; unresolved behavior is tracked rather than omitted; base artifact dependency graph is acyclic.
+
+## E03: establish executable fixtures and contract acceptance
+
+Owner role: compatibility/test maintainer. Prerequisites: E01 and the relevant E02 slice. Tasks: discover true upstream test IDs; map source tests to the designed fixture IDs; run and retain reference outputs; review state transitions, error/cleanup rules and Java adaptations. Outputs: versioned fixture corpus, oracle result manifest and reviewed contract for the first slice. Acceptance: fixtures reproduce under locked inputs; no synthetic ID is presented as an upstream test; deviations and untested cases are explicit.
+
+## Feature package order
+
+Numbers give the proposed review/integration sequence. Independent contract research can proceed in parallel; this is not an invented delivery calendar. Each package requires E01-E03 for its own slice and only the actual predecessor contracts it consumes. Use stubs strictly for contract tests, never as proof of compatibility.
+
+### WP-01: Dispatch and operation selection
+
+**Objective:** deliver the behavior represented by DispatchTable, OperationInvoker, ServiceInstance.
+
+**Prerequisites:** E01; relevant E02/E03 closure; shared core/toolchain contract baseline. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-018-WP-01-T1`: Bind service metadata to endpoints and action selectors.
+1. `DJ-018-WP-01-T2`: Define instance lifetime concurrency and operation context.
+1. `DJ-018-WP-01-T3`: Separate application exceptions from protocol faults.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Ambiguous operations fail at host startup; per-call instances are disposed once; unhandled exceptions do not disclose stack traces by default.
+
+**Validation:** run this package’s `DJ-018-F01-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-02: Host and transport bindings
+
+**Objective:** deliver the behavior represented by ServiceHost, ListenerBinding, RequestChannel.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-01 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-018-WP-02-T1`: Use web and neutral service-client wire contracts.
+1. `DJ-018-WP-02-T2`: Specify listener admission drain and channel abort.
+1. `DJ-018-WP-02-T3`: Maintain per-binding quotas and capabilities.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Stopping a host rejects new work and bounds draining; binding limits are enforced before deserialization; client codecs do not depend on server dispatch.
+
+**Validation:** run this package’s `DJ-018-F02-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-03: Behaviors middleware and metadata
+
+**Objective:** deliver the behavior represented by ServiceBehavior, MessageInspector, MetadataExporter.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-02 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-018-WP-03-T1`: Define behavior ordering and safe request/response inspection.
+1. `DJ-018-WP-03-T2`: Generate WSDL/XSD from accepted service contracts.
+1. `DJ-018-WP-03-T3`: Preserve endpoint policy and namespace identities.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Exported metadata reimports into reference clients; inspector failures have defined cleanup; behavior order is deterministic.
+
+**Validation:** run this package’s `DJ-018-F03-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-04: Authentication authorization and transactions
+
+**Objective:** deliver the behavior represented by CallerIdentity, AuthorizationDecision, TransactionContext.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-03 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-018-WP-04-T1`: Map portable authorization and credential profiles.
+1. `DJ-018-WP-04-T2`: Isolate impersonation and distributed transaction feasibility.
+1. `DJ-018-WP-04-T3`: Define local transaction propagation and fault behavior.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Unauthorized operations never invoke service code; unavailable impersonation fails explicitly; timeouts do not claim a committed transaction was rolled back.
+
+**Validation:** run this package’s `DJ-018-F04-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-05: Server interoperability and hosting acceptance
+
+**Objective:** deliver the behavior represented by ServiceCompatibilityProfile, DotnetClientFixture, LoadScenario.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-04 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-018-WP-05-T1`: Exercise pinned .NET clients across supported bindings.
+1. `DJ-018-WP-05-T2`: Test concurrent instances message failures and host restarts.
+1. `DJ-018-WP-05-T3`: Document deployment credentials certificates and native prerequisites.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Every supported binding has bidirectional fault/streaming evidence; resource use remains bounded; unsupported WS-* profiles remain enumerated.
+
+**Validation:** run this package’s `DJ-018-F05-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+## Q01: integrated qualification and release handoff
+
+Prerequisites: all advertised feature packages and their dependency gates. Tasks: run compatibility matrix and clean builds; validate notices/SBOM and platform artifacts; review security-sensitive paths and performance evidence; verify examples/migration guides and versioning; produce exact supported/deferred/blocked capability list. Outputs: release evidence manifest, compatibility profile and release checklist. Acceptance: no unsupported feature is advertised; all claimed fixtures pass on the declared matrix; every shipped input has provenance/rights evidence; reproducible build differences are explained. Publication is a later action, not performed by this plan.

@@ -1,27 +1,36 @@
-# Pinned upstream
+# DJ-001 .j Core: pinned upstream
 
 | Field | Value |
 |---|---|
-| Project | DJ-001 / dotj-core |
-| Canonical source | https://github.com/dotnet/runtime |
-| Analysis revision | 9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819 |
-| First inspection | 2026-10-18 |
-| Stage-2 inspection | 2026-10-19 |
-| Selection reason | Preserve continuity with Stage 1 and avoid analyzing a moving branch |
-| Revision role | Immutable analysis baseline; not an approved release compatibility target |
-| Released .NET family | OPEN; no GA release-family mapping established |
-| Source access | Read-only GitHub API tree listings and raw files pinned to the revision |
-| Source checkout | No full checkout or executable upstream build performed |
-| Source reuse/license gate | Root MIT text observed; file/dependency review remains open |
+| Requested source | https://github.com/dotnet/runtime |
+| Effective canonical source | https://github.com/dotnet/runtime |
+| Immutable analysis revision | `9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819` |
+| Immutable tree | [9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819](https://github.com/dotnet/runtime/tree/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819) |
+| Retrieval date | 2026-10-19 |
+| Recorded tree scope | partial listing |
+| Listed blob paths | 48370 |
+| New sampled source/API/test files | 7 |
+| Eligible release family | OPEN: select a release/tag or explicitly qualify this analysis pin |
+| Oracle executable | OPEN: pin compiler/runtime/build flags and license eligibility; none run here |
 
-The inspected [global.json](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/global.json) declares SDK `11.0.100-rc.1.26420.103`, allows prereleases and specifies major roll-forward. This demonstrates a prerelease development-tool requirement in the snapshot, not a verified release compatibility baseline. Do not carry major roll-forward into a reproducible oracle lock without a decision.
 
-The root, src and libraries tree listings were retrieved separately. `src/libraries` returned an untruncated immediate-child listing. This resolves the top-level directory census gap, not all recursive source gaps. See the [inventory](MODULE-AND-API-INVENTORY.md) and [evidence](evidence/source-manifest.json).
+The inspected global.json requests a .NET 11 release-candidate SDK. This is a development analysis pin, not an established GA compatibility baseline. The complete immediate src/libraries listing has 218 directories; the overall recursive source listing is partial.
 
-## Required release-baseline decision
+## Reproduction and baseline gate
 
-Before claiming readiness for implementation, choose either a specific verified stable .NET release/tag and repeat/diff the relevant analysis, or explicitly accept this prerelease snapshot as the behavioral reference. Keep features found only in this snapshot visible when comparing against an older release. Do not silently remove asynchronous options validation or other newer behavior because a different baseline is selected.
+Fetch an immutable archive or checkout at the hash above, verify its identity, retain license/notice files, and record submodule commits and generated-input hashes. Restore/build only within a controlled reference environment after evaluating repository build scripts and dependency rights. Resolve the selected release against this pin; a new pin invalidates affected API/test/dependency mappings and must be recorded as a reviewable diff. Do not equate a GitHub default branch or a successful download with a supported release.
 
-Pin the matching .NET oracle SDK/runtime and its actual binaries/checksums. Separate SDK needed to build the source from target framework/runtime used for behavioral probes. No SDK was installed and no source-provided bootstrap script was executed.
+## New evidence manifest
 
-The Java 25 direction remains provisional. The Stage-1 JDK tag/binary verification gap remains OPEN; this update does not convert it into an approved production toolchain.
+| File | SHA-256 |
+|---|---|
+| [src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs) | `dae7e40cc45eb2f9328ab6a949d83700e9b1128870f66bcf86c8c3e66bc7dc8b` |
+| [src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs) | `159e325c51ddb12aec576a37d1b23c6a9973c9df9eaaec741ada0a19648a8191` |
+| [src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs) | `7e2c220000026da888b3cb3d1b773273f49ee4709f70f8b29cde590cf7dda598` |
+| [src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs) | `11a6b87e539c7aeac80f2b0a298115884e03002c00da6c592d2ea758abed2494` |
+| [src/tasks/Common/Utils.cs](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs) | `31d8eb82f660c2189d80bf7b14bf3a5ffbac1289ae64aa50497983d1c49c20a7` |
+| [src/mono/wasm/Wasm.Build.Tests/IcuTests.cs](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/mono/wasm/Wasm.Build.Tests/IcuTests.cs) | `139f98280a3fbbedec894a51862050076e967fe9fb8521abab4085ee813fafd2` |
+| [src/libraries/System.Linq/tests/AllTests.cs](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Linq/tests/AllTests.cs) | `b82d5362e9a4c6cfda2e4357f6b0877e1e6215db7ef42ef803147c3875f2ce96` |
+
+
+The [machine-readable inventory](evidence/inventory.json) includes all listed paths and sampled-file hashes. Retrieval errors: none in this pass.

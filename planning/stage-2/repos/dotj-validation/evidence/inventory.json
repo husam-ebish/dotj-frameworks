@@ -1,0 +1,1329 @@
+{
+  "identity": {
+    "id": "DJ-026",
+    "name": "FluentValidation",
+    "url": "https://github.com/FluentValidation/FluentValidation",
+    "repo": "dotj-validation",
+    "category": "Application libraries, jobs and communication"
+  },
+  "source": {
+    "id": "DJ-026",
+    "repo": "dotj-validation",
+    "requested_upstream": "https://github.com/FluentValidation/FluentValidation",
+    "notice_revision": "299ef377bde844af7d28b7aa21786a6853f930e3",
+    "effective_upstream": "https://github.com/FluentValidation/FluentValidation",
+    "effective_revision": "299ef377bde844af7d28b7aa21786a6853f930e3",
+    "source_prefix": "",
+    "inspection_date": "2026-10-19",
+    "tree_scope": "recursive complete",
+    "paths": [
+      ".editorconfig",
+      ".gitattributes",
+      ".github/CODE_OF_CONDUCT.md",
+      ".github/CONTRIBUTING.md",
+      ".github/FUNDING.yml",
+      ".github/ISSUE_TEMPLATE/config.yml",
+      ".github/README.md",
+      ".github/workflows/ci.yml",
+      ".github/workflows/lock.yml",
+      ".gitignore",
+      ".readthedocs.yaml",
+      "Build.cmd",
+      "Changelog.txt",
+      "FluentValidation.sln",
+      "FluentValidation.sln.DotSettings",
+      "License.txt",
+      "after.FluentValidation.sln.targets",
+      "build.ps1",
+      "build.sh",
+      "docs/Makefile",
+      "docs/advanced.md",
+      "docs/aspnet.md",
+      "docs/async.md",
+      "docs/blazor.md",
+      "docs/built-in-validators.md",
+      "docs/cascade.md",
+      "docs/collections.md",
+      "docs/conditions.md",
+      "docs/conf.py",
+      "docs/configuring.md",
+      "docs/custom-state.md",
+      "docs/custom-validators.md",
+      "docs/dependentrules.md",
+      "docs/di.md",
+      "docs/error-codes.md",
+      "docs/including-rules.md",
+      "docs/index.rst",
+      "docs/inheritance.md",
+      "docs/installation.md",
+      "docs/localization.md",
+      "docs/make.bat",
+      "docs/mvc5.md",
+      "docs/requirements.txt",
+      "docs/requirements_rtd.txt",
+      "docs/rulesets.md",
+      "docs/severity.md",
+      "docs/specific-properties.md",
+      "docs/start.md",
+      "docs/testing.md",
+      "docs/transform.md",
+      "docs/upgrading-to-10.md",
+      "docs/upgrading-to-11.md",
+      "docs/upgrading-to-12.md",
+      "docs/upgrading-to-8.md",
+      "docs/upgrading-to-9.md",
+      "docs/webapi.md",
+      "fv-small.png",
+      "global.json",
+      "logo/fluent-validation-icon.png",
+      "logo/fluent-validation-logo.png",
+      "logo/fluent-validation-logo.svg",
+      "logo/fluent-validation-logo.vsdx",
+      "nuget.config",
+      "src/CommonAssemblyInfo.cs",
+      "src/Directory.Build.props",
+      "src/FluentValidation-Release.snk",
+      "src/FluentValidation.DependencyInjectionExtensions/FluentValidation.DependencyInjectionExtensions.csproj",
+      "src/FluentValidation.DependencyInjectionExtensions/README.md",
+      "src/FluentValidation.DependencyInjectionExtensions/ServiceCollectionExtensions.cs",
+      "src/FluentValidation.DependencyInjectionExtensions/ServiceProviderValidatorFactory.cs",
+      "src/FluentValidation.Tests.Benchmarks/AccessorCacheBenchmark.cs",
+      "src/FluentValidation.Tests.Benchmarks/DataSet.cs",
+      "src/FluentValidation.Tests.Benchmarks/EngineOnlyBenchmark.cs",
+      "src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj",
+      "src/FluentValidation.Tests.Benchmarks/InitializationBenchmark.cs",
+      "src/FluentValidation.Tests.Benchmarks/Models.cs",
+      "src/FluentValidation.Tests.Benchmarks/Program.cs",
+      "src/FluentValidation.Tests.Benchmarks/ValidationBenchmark.cs",
+      "src/FluentValidation.Tests/AbstractValidatorTester.cs",
+      "src/FluentValidation.Tests/AccessorCacheTests.cs",
+      "src/FluentValidation.Tests/AssemblyScannerTester.cs",
+      "src/FluentValidation.Tests/CascadingFailuresTester.cs",
+      "src/FluentValidation.Tests/ChainedValidationTester.cs",
+      "src/FluentValidation.Tests/ChainingValidatorsTester.cs",
+      "src/FluentValidation.Tests/ChildRulesTests.cs",
+      "src/FluentValidation.Tests/CollectionValidatorWithParentTests.cs",
+      "src/FluentValidation.Tests/ComplexValidationTester.cs",
+      "src/FluentValidation.Tests/ConditionTests.cs",
+      "src/FluentValidation.Tests/CreditCardValidatorTests.cs",
+      "src/FluentValidation.Tests/CultureScope.cs",
+      "src/FluentValidation.Tests/CustomMessageFormatTester.cs",
+      "src/FluentValidation.Tests/CustomValidatorTester.cs",
+      "src/FluentValidation.Tests/DefaultValidatorExtensionTester.cs",
+      "src/FluentValidation.Tests/DependencyInjectionExtensions/ServiceCollectionExtensionsTests.cs",
+      "src/FluentValidation.Tests/EmailValidatorTests.cs",
+      "src/FluentValidation.Tests/EmptyTester.cs",
+      "src/FluentValidation.Tests/EnumValidatorTests.cs",
+      "src/FluentValidation.Tests/EqualValidatorTests.cs",
+      "src/FluentValidation.Tests/ExactLengthValidatorTester.cs",
+      "src/FluentValidation.Tests/ExclusiveBetweenValidatorTests.cs",
+      "src/FluentValidation.Tests/ExtensionTester.cs",
+      "src/FluentValidation.Tests/FluentValidation.Tests.csproj",
+      "src/FluentValidation.Tests/ForEachRuleTests.cs",
+      "src/FluentValidation.Tests/GreaterThanOrEqualToValidatorTester.cs",
+      "src/FluentValidation.Tests/GreaterThanValidatorTester.cs",
+      "src/FluentValidation.Tests/InclusiveBetweenValidatorTests.cs",
+      "src/FluentValidation.Tests/InheritanceValidatorTest.cs",
+      "src/FluentValidation.Tests/InlineValidatorTester.cs",
+      "src/FluentValidation.Tests/JsonSerializationTests.cs",
+      "src/FluentValidation.Tests/LanguageManagerTests.cs",
+      "src/FluentValidation.Tests/LengthValidatorTests.cs",
+      "src/FluentValidation.Tests/LessThanOrEqualToValidatorTester.cs",
+      "src/FluentValidation.Tests/LessThanValidatorTester.cs",
+      "src/FluentValidation.Tests/LocalisedMessagesTester.cs",
+      "src/FluentValidation.Tests/LocalisedNameTester.cs",
+      "src/FluentValidation.Tests/MessageFormatterTests.cs",
+      "src/FluentValidation.Tests/ModelLevelValidatorTests.cs",
+      "src/FluentValidation.Tests/NameResolutionPluggabilityTester.cs",
+      "src/FluentValidation.Tests/NotEmptyTester.cs",
+      "src/FluentValidation.Tests/NotEqualValidatorTests.cs",
+      "src/FluentValidation.Tests/NotNullTester.cs",
+      "src/FluentValidation.Tests/NullTester.cs",
+      "src/FluentValidation.Tests/OnFailureHookTester.cs",
+      "src/FluentValidation.Tests/Person.cs",
+      "src/FluentValidation.Tests/PrecisionScaleValidatorTests.cs",
+      "src/FluentValidation.Tests/PredicateValidatorTester.cs",
+      "src/FluentValidation.Tests/PropertyChainTests.cs",
+      "src/FluentValidation.Tests/RegularExpressionValidatorTests.cs",
+      "src/FluentValidation.Tests/RuleBuilderTests.cs",
+      "src/FluentValidation.Tests/RuleDependencyTests.cs",
+      "src/FluentValidation.Tests/RulesetTests.cs",
+      "src/FluentValidation.Tests/SharedConditionTests.cs",
+      "src/FluentValidation.Tests/StreetNumberComparer.cs",
+      "src/FluentValidation.Tests/StringEnumValidatorTests.cs",
+      "src/FluentValidation.Tests/SyncAsyncParityTests.cs",
+      "src/FluentValidation.Tests/TestExtensions.cs",
+      "src/FluentValidation.Tests/TestMessages.Designer.cs",
+      "src/FluentValidation.Tests/TestMessages.fr.resx",
+      "src/FluentValidation.Tests/TestMessages.resx",
+      "src/FluentValidation.Tests/TestValidator.cs",
+      "src/FluentValidation.Tests/TestValidatorWithPreValidate.cs",
+      "src/FluentValidation.Tests/TrackingCollectionTests.cs",
+      "src/FluentValidation.Tests/UserSeverityTester.cs",
+      "src/FluentValidation.Tests/UserStateTester.cs",
+      "src/FluentValidation.Tests/ValidateAndThrowTester.cs",
+      "src/FluentValidation.Tests/ValidationResultTests.cs",
+      "src/FluentValidation.Tests/ValidatorDescriptorTester.cs",
+      "src/FluentValidation.Tests/ValidatorSelectorTests.cs",
+      "src/FluentValidation.Tests/ValidatorTesterTester.cs",
+      "src/FluentValidation.Tests/packages.config",
+      "src/FluentValidation.Tests/xunit.runner.json",
+      "src/FluentValidation/AbstractValidator.cs",
+      "src/FluentValidation/AssemblyInfo.FluentValidation.cs",
+      "src/FluentValidation/AssemblyScanner.cs",
+      "src/FluentValidation/AsyncValidatorInvokedSynchronouslyException.cs",
+      "src/FluentValidation/CompatibilitySuppressions.xml",
+      "src/FluentValidation/DefaultValidatorExtensions.cs",
+      "src/FluentValidation/DefaultValidatorExtensions_Validate.cs",
+      "src/FluentValidation/DefaultValidatorOptions.cs",
+      "src/FluentValidation/Enums.cs",
+      "src/FluentValidation/FluentValidation.csproj",
+      "src/FluentValidation/FluentValidation.csproj.DotSettings",
+      "src/FluentValidation/ICollectionRule.cs",
+      "src/FluentValidation/IValidationContext.cs",
+      "src/FluentValidation/IValidationRule.cs",
+      "src/FluentValidation/IValidationRuleInternal.cs",
+      "src/FluentValidation/IValidator.cs",
+      "src/FluentValidation/IValidatorDescriptor.cs",
+      "src/FluentValidation/IValidatorFactory.cs",
+      "src/FluentValidation/InlineValidator.cs",
+      "src/FluentValidation/Internal/AccessorCache.cs",
+      "src/FluentValidation/Internal/ChildRulesContainer.cs",
+      "src/FluentValidation/Internal/CollectionPropertyRule.cs",
+      "src/FluentValidation/Internal/CompositeValidatorSelector.cs",
+      "src/FluentValidation/Internal/ConditionBuilder.cs",
+      "src/FluentValidation/Internal/DefaultValidatorSelector.cs",
+      "src/FluentValidation/Internal/Extensions.cs",
+      "src/FluentValidation/Internal/ExtensionsInternal.cs",
+      "src/FluentValidation/Internal/IRuleComponent.cs",
+      "src/FluentValidation/Internal/IValidatorSelector.cs",
+      "src/FluentValidation/Internal/IncludeRule.cs",
+      "src/FluentValidation/Internal/MemberNameValidatorSelector.cs",
+      "src/FluentValidation/Internal/MessageBuilderContext.cs",
+      "src/FluentValidation/Internal/MessageFormatter.cs",
+      "src/FluentValidation/Internal/PropertyChain.cs",
+      "src/FluentValidation/Internal/PropertyRule.cs",
+      "src/FluentValidation/Internal/RuleBase.cs",
+      "src/FluentValidation/Internal/RuleBuilder.cs",
+      "src/FluentValidation/Internal/RuleComponent.cs",
+      "src/FluentValidation/Internal/RuleComponentForNullableStruct.cs",
+      "src/FluentValidation/Internal/RulesetValidatorSelector.cs",
+      "src/FluentValidation/Internal/TrackingCollection.cs",
+      "src/FluentValidation/Internal/ValidationStrategy.cs",
+      "src/FluentValidation/README.md",
+      "src/FluentValidation/Resources/ILanguageManager.cs",
+      "src/FluentValidation/Resources/LanguageManager.cs",
+      "src/FluentValidation/Resources/Languages/AlbanianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/ArabicLanguage.cs",
+      "src/FluentValidation/Resources/Languages/AzerbaijaneseLanguage.cs",
+      "src/FluentValidation/Resources/Languages/BelarusianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/BengaliLanguage.cs",
+      "src/FluentValidation/Resources/Languages/BosnianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/BulgarianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/CatalanLanguage.cs",
+      "src/FluentValidation/Resources/Languages/ChineseSimplifiedLanguage.cs",
+      "src/FluentValidation/Resources/Languages/ChineseTraditionalLanguage.cs",
+      "src/FluentValidation/Resources/Languages/CroatianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/CzechLanguage.cs",
+      "src/FluentValidation/Resources/Languages/DanishLanguage.cs",
+      "src/FluentValidation/Resources/Languages/DutchLanguage.cs",
+      "src/FluentValidation/Resources/Languages/EnglishLanguage.cs",
+      "src/FluentValidation/Resources/Languages/EstonianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/FinnishLanguage.cs",
+      "src/FluentValidation/Resources/Languages/FrenchLanguage.cs",
+      "src/FluentValidation/Resources/Languages/GeorgianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/GermanLanguage.cs",
+      "src/FluentValidation/Resources/Languages/GreekLanguage.cs",
+      "src/FluentValidation/Resources/Languages/HebrewLanguage.cs",
+      "src/FluentValidation/Resources/Languages/HindiLanguage.cs",
+      "src/FluentValidation/Resources/Languages/HungarianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/IcelandicLanguage.cs",
+      "src/FluentValidation/Resources/Languages/IndonesianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/ItalianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/JapaneseLanguage.cs",
+      "src/FluentValidation/Resources/Languages/KazakhLanguage.cs",
+      "src/FluentValidation/Resources/Languages/KhmerLanguage.cs",
+      "src/FluentValidation/Resources/Languages/KoreanLanguage.cs",
+      "src/FluentValidation/Resources/Languages/LatvianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/LithuanianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/MacedonianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/NorwegianBokmalLanguage.cs",
+      "src/FluentValidation/Resources/Languages/NorwegianNynorskLanguage.cs",
+      "src/FluentValidation/Resources/Languages/PersianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/PolishLanguage.cs",
+      "src/FluentValidation/Resources/Languages/PortugueseBrazilLanguage.cs",
+      "src/FluentValidation/Resources/Languages/PortugueseLanguage.cs",
+      "src/FluentValidation/Resources/Languages/RomanianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/RomanshLanguage.cs",
+      "src/FluentValidation/Resources/Languages/RussianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/SerbianCyrillicLanguage.cs",
+      "src/FluentValidation/Resources/Languages/SerbianLatinLanguage.cs",
+      "src/FluentValidation/Resources/Languages/SlovakLanguage.cs",
+      "src/FluentValidation/Resources/Languages/SlovenianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/SpanishLanguage.cs",
+      "src/FluentValidation/Resources/Languages/SwedishLanguage.cs",
+      "src/FluentValidation/Resources/Languages/TajikLanguage.cs",
+      "src/FluentValidation/Resources/Languages/TamilLanguage.cs",
+      "src/FluentValidation/Resources/Languages/TeluguLanguage.cs",
+      "src/FluentValidation/Resources/Languages/ThaiLanguage.cs",
+      "src/FluentValidation/Resources/Languages/TurkishLanguage.cs",
+      "src/FluentValidation/Resources/Languages/UkrainianLanguage.cs",
+      "src/FluentValidation/Resources/Languages/UzbekCyrillicLanguage.cs",
+      "src/FluentValidation/Resources/Languages/UzbekLatinLanguage.cs",
+      "src/FluentValidation/Resources/Languages/VietnameseLanguage.cs",
+      "src/FluentValidation/Resources/Languages/WelshLanguage.cs",
+      "src/FluentValidation/Results/ValidationFailure.cs",
+      "src/FluentValidation/Results/ValidationResult.cs",
+      "src/FluentValidation/Syntax.cs",
+      "src/FluentValidation/TestHelper/ITestValidationContinuation.cs",
+      "src/FluentValidation/TestHelper/TestValidationResult.cs",
+      "src/FluentValidation/TestHelper/ValidationTestException.cs",
+      "src/FluentValidation/TestHelper/ValidatorTestExtensions.cs",
+      "src/FluentValidation/ValidationException.cs",
+      "src/FluentValidation/ValidatorDescriptor.cs",
+      "src/FluentValidation/ValidatorFactoryBase.cs",
+      "src/FluentValidation/ValidatorOptions.cs",
+      "src/FluentValidation/Validators/AbstractComparisonValidator.cs",
+      "src/FluentValidation/Validators/AsyncPredicateValidator.cs",
+      "src/FluentValidation/Validators/AsyncPropertyValidator.cs",
+      "src/FluentValidation/Validators/ChildValidatorAdaptor.cs",
+      "src/FluentValidation/Validators/ComparableComparer.cs",
+      "src/FluentValidation/Validators/CreditCardValidator.cs",
+      "src/FluentValidation/Validators/EmailValidator.cs",
+      "src/FluentValidation/Validators/EmptyValidator.cs",
+      "src/FluentValidation/Validators/EnumValidator.cs",
+      "src/FluentValidation/Validators/EqualValidator.cs",
+      "src/FluentValidation/Validators/ExclusiveBetweenValidator.cs",
+      "src/FluentValidation/Validators/GreaterThanOrEqualValidator.cs",
+      "src/FluentValidation/Validators/GreaterThanValidator.cs",
+      "src/FluentValidation/Validators/IPropertyValidator.cs",
+      "src/FluentValidation/Validators/InclusiveBetweenValidator.cs",
+      "src/FluentValidation/Validators/LengthValidator.cs",
+      "src/FluentValidation/Validators/LessThanOrEqualValidator.cs",
+      "src/FluentValidation/Validators/LessThanValidator.cs",
+      "src/FluentValidation/Validators/NoopPropertyValidator.cs",
+      "src/FluentValidation/Validators/NotEmptyValidator.cs",
+      "src/FluentValidation/Validators/NotEqualValidator.cs",
+      "src/FluentValidation/Validators/NotNullValidator.cs",
+      "src/FluentValidation/Validators/NullValidator.cs",
+      "src/FluentValidation/Validators/PolymorphicValidator.cs",
+      "src/FluentValidation/Validators/PrecisionScaleValidator.cs",
+      "src/FluentValidation/Validators/PredicateValidator.cs",
+      "src/FluentValidation/Validators/PropertyValidator.cs",
+      "src/FluentValidation/Validators/RangeValidator.cs",
+      "src/FluentValidation/Validators/RegularExpressionValidator.cs",
+      "src/FluentValidation/Validators/StringEnumValidator.cs"
+    ],
+    "new_files": [
+      {
+        "path": "src/FluentValidation/Enums.cs",
+        "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Enums.cs",
+        "sha256": "6cfb6a03a9cfddaefef9bdee588a0670ff0173718b4f1abd22bdd558c22dfdde",
+        "bytes": 2202
+      },
+      {
+        "path": "src/FluentValidation/Syntax.cs",
+        "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Syntax.cs",
+        "sha256": "9b1fabd20d63b5dfc5e375b3264da5677be31e59609fe1420c2d6ffed1a1d71e",
+        "bytes": 4616
+      },
+      {
+        "path": "src/FluentValidation.Tests/RulesetTests.cs",
+        "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs",
+        "sha256": "8a6f6da7109c1e0507eeedc68f03be85a769c84ad94ded24499646610e859626",
+        "bytes": 12763
+      },
+      {
+        "path": "src/FluentValidation.Tests/ConditionTests.cs",
+        "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs",
+        "sha256": "7bdc3bd99cd1fbd4325b932c831e6d92e04736d63877fd694933b84de30b24f7",
+        "bytes": 11614
+      }
+    ],
+    "errors": []
+  },
+  "sampled_files": [
+    {
+      "path": "License.txt",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/License.txt",
+      "sha256": "6d1d968fb225eca367cb7f0b8831ab012a35d92b547e945e17ef8e7b05c3e5cc",
+      "bytes": 10349
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/global.json",
+      "sha256": "f2d3e7dab9d275dd18e2f5bd32314439207cb5e520090cc3b939ddc579e53c2b",
+      "bytes": 118
+    },
+    {
+      "path": "src/FluentValidation.DependencyInjectionExtensions/FluentValidation.DependencyInjectionExtensions.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.DependencyInjectionExtensions/FluentValidation.DependencyInjectionExtensions.csproj",
+      "sha256": "c117500a9f797f105f080491b39fbf4c2917dd0facccf00d0c291f8407e8ce2b",
+      "bytes": 1418
+    },
+    {
+      "path": "src/FluentValidation/FluentValidation.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/FluentValidation.csproj",
+      "sha256": "27c963929b79ff580e62e2c3872cb35d11d323b407ec65c5587eda5b4c6c1bf9",
+      "bytes": 1412
+    },
+    {
+      "path": "src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj",
+      "sha256": "b8b9bb48857045f7833fba80c7bd7a4019d40c383f26dc2066ed6fc68ae1c284",
+      "bytes": 485
+    },
+    {
+      "path": "src/FluentValidation/Enums.cs",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Enums.cs",
+      "sha256": "2cf48f1be6316631572ff3be17b767256c40103b0d2a1ef61c68473191ca7ffd",
+      "bytes": 2132
+    },
+    {
+      "path": "src/FluentValidation/Syntax.cs",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Syntax.cs",
+      "sha256": "26919f06be72e00570bc003c5404ed0c83cd065985b4e729b50f00265bc48bad",
+      "bytes": 4489
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs",
+      "sha256": "9766c337f07111305d37daf2f4921006284f2e21beb6e269477310bed32f89db",
+      "bytes": 12365
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs",
+      "sha256": "56c5557dff9b24db5b39d54731db30d7f705cba635396466f0d5f22ec4fe2b34",
+      "bytes": 11257
+    }
+  ],
+  "project_paths": [
+    "src/FluentValidation.DependencyInjectionExtensions/FluentValidation.DependencyInjectionExtensions.csproj",
+    "src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj",
+    "src/FluentValidation.Tests/FluentValidation.Tests.csproj",
+    "src/FluentValidation/FluentValidation.csproj"
+  ],
+  "public_api_definition_paths": [],
+  "test_candidate_paths": [
+    "src/FluentValidation.Tests.Benchmarks/AccessorCacheBenchmark.cs",
+    "src/FluentValidation.Tests.Benchmarks/DataSet.cs",
+    "src/FluentValidation.Tests.Benchmarks/EngineOnlyBenchmark.cs",
+    "src/FluentValidation.Tests.Benchmarks/InitializationBenchmark.cs",
+    "src/FluentValidation.Tests.Benchmarks/Models.cs",
+    "src/FluentValidation.Tests.Benchmarks/Program.cs",
+    "src/FluentValidation.Tests.Benchmarks/ValidationBenchmark.cs",
+    "src/FluentValidation.Tests/AbstractValidatorTester.cs",
+    "src/FluentValidation.Tests/AccessorCacheTests.cs",
+    "src/FluentValidation.Tests/AssemblyScannerTester.cs",
+    "src/FluentValidation.Tests/CascadingFailuresTester.cs",
+    "src/FluentValidation.Tests/ChainedValidationTester.cs",
+    "src/FluentValidation.Tests/ChainingValidatorsTester.cs",
+    "src/FluentValidation.Tests/ChildRulesTests.cs",
+    "src/FluentValidation.Tests/CollectionValidatorWithParentTests.cs",
+    "src/FluentValidation.Tests/ComplexValidationTester.cs",
+    "src/FluentValidation.Tests/ConditionTests.cs",
+    "src/FluentValidation.Tests/CreditCardValidatorTests.cs",
+    "src/FluentValidation.Tests/CultureScope.cs",
+    "src/FluentValidation.Tests/CustomMessageFormatTester.cs",
+    "src/FluentValidation.Tests/CustomValidatorTester.cs",
+    "src/FluentValidation.Tests/DefaultValidatorExtensionTester.cs",
+    "src/FluentValidation.Tests/DependencyInjectionExtensions/ServiceCollectionExtensionsTests.cs",
+    "src/FluentValidation.Tests/EmailValidatorTests.cs",
+    "src/FluentValidation.Tests/EmptyTester.cs",
+    "src/FluentValidation.Tests/EnumValidatorTests.cs",
+    "src/FluentValidation.Tests/EqualValidatorTests.cs",
+    "src/FluentValidation.Tests/ExactLengthValidatorTester.cs",
+    "src/FluentValidation.Tests/ExclusiveBetweenValidatorTests.cs",
+    "src/FluentValidation.Tests/ExtensionTester.cs",
+    "src/FluentValidation.Tests/ForEachRuleTests.cs",
+    "src/FluentValidation.Tests/GreaterThanOrEqualToValidatorTester.cs",
+    "src/FluentValidation.Tests/GreaterThanValidatorTester.cs",
+    "src/FluentValidation.Tests/InclusiveBetweenValidatorTests.cs",
+    "src/FluentValidation.Tests/InheritanceValidatorTest.cs",
+    "src/FluentValidation.Tests/InlineValidatorTester.cs",
+    "src/FluentValidation.Tests/JsonSerializationTests.cs",
+    "src/FluentValidation.Tests/LanguageManagerTests.cs",
+    "src/FluentValidation.Tests/LengthValidatorTests.cs",
+    "src/FluentValidation.Tests/LessThanOrEqualToValidatorTester.cs",
+    "src/FluentValidation.Tests/LessThanValidatorTester.cs",
+    "src/FluentValidation.Tests/LocalisedMessagesTester.cs",
+    "src/FluentValidation.Tests/LocalisedNameTester.cs",
+    "src/FluentValidation.Tests/MessageFormatterTests.cs",
+    "src/FluentValidation.Tests/ModelLevelValidatorTests.cs",
+    "src/FluentValidation.Tests/NameResolutionPluggabilityTester.cs",
+    "src/FluentValidation.Tests/NotEmptyTester.cs",
+    "src/FluentValidation.Tests/NotEqualValidatorTests.cs",
+    "src/FluentValidation.Tests/NotNullTester.cs",
+    "src/FluentValidation.Tests/NullTester.cs",
+    "src/FluentValidation.Tests/OnFailureHookTester.cs",
+    "src/FluentValidation.Tests/Person.cs",
+    "src/FluentValidation.Tests/PrecisionScaleValidatorTests.cs",
+    "src/FluentValidation.Tests/PredicateValidatorTester.cs",
+    "src/FluentValidation.Tests/PropertyChainTests.cs",
+    "src/FluentValidation.Tests/RegularExpressionValidatorTests.cs",
+    "src/FluentValidation.Tests/RuleBuilderTests.cs",
+    "src/FluentValidation.Tests/RuleDependencyTests.cs",
+    "src/FluentValidation.Tests/RulesetTests.cs",
+    "src/FluentValidation.Tests/SharedConditionTests.cs",
+    "src/FluentValidation.Tests/StreetNumberComparer.cs",
+    "src/FluentValidation.Tests/StringEnumValidatorTests.cs",
+    "src/FluentValidation.Tests/SyncAsyncParityTests.cs",
+    "src/FluentValidation.Tests/TestExtensions.cs",
+    "src/FluentValidation.Tests/TestMessages.Designer.cs",
+    "src/FluentValidation.Tests/TestValidator.cs",
+    "src/FluentValidation.Tests/TestValidatorWithPreValidate.cs",
+    "src/FluentValidation.Tests/TrackingCollectionTests.cs",
+    "src/FluentValidation.Tests/UserSeverityTester.cs",
+    "src/FluentValidation.Tests/UserStateTester.cs",
+    "src/FluentValidation.Tests/ValidateAndThrowTester.cs",
+    "src/FluentValidation.Tests/ValidationResultTests.cs",
+    "src/FluentValidation.Tests/ValidatorDescriptorTester.cs",
+    "src/FluentValidation.Tests/ValidatorSelectorTests.cs",
+    "src/FluentValidation.Tests/ValidatorTesterTester.cs",
+    "src/FluentValidation.Tests/xunit.runner.json",
+    "src/FluentValidation/TestHelper/ITestValidationContinuation.cs",
+    "src/FluentValidation/TestHelper/TestValidationResult.cs",
+    "src/FluentValidation/TestHelper/ValidationTestException.cs",
+    "src/FluentValidation/TestHelper/ValidatorTestExtensions.cs"
+  ],
+  "documentation_sample_paths": [
+    ".github/README.md",
+    "docs/Makefile",
+    "docs/advanced.md",
+    "docs/aspnet.md",
+    "docs/async.md",
+    "docs/blazor.md",
+    "docs/built-in-validators.md",
+    "docs/cascade.md",
+    "docs/collections.md",
+    "docs/conditions.md",
+    "docs/conf.py",
+    "docs/configuring.md",
+    "docs/custom-state.md",
+    "docs/custom-validators.md",
+    "docs/dependentrules.md",
+    "docs/di.md",
+    "docs/error-codes.md",
+    "docs/including-rules.md",
+    "docs/index.rst",
+    "docs/inheritance.md",
+    "docs/installation.md",
+    "docs/localization.md",
+    "docs/make.bat",
+    "docs/mvc5.md",
+    "docs/requirements.txt",
+    "docs/requirements_rtd.txt",
+    "docs/rulesets.md",
+    "docs/severity.md",
+    "docs/specific-properties.md",
+    "docs/start.md",
+    "docs/testing.md",
+    "docs/transform.md",
+    "docs/upgrading-to-10.md",
+    "docs/upgrading-to-11.md",
+    "docs/upgrading-to-12.md",
+    "docs/upgrading-to-8.md",
+    "docs/upgrading-to-9.md",
+    "docs/webapi.md",
+    "src/FluentValidation.DependencyInjectionExtensions/README.md",
+    "src/FluentValidation/README.md"
+  ],
+  "api_declaration_candidates": [
+    {
+      "path": "src/FluentValidation/Enums.cs",
+      "line": 26,
+      "declaration": "public enum CascadeMode {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Enums.cs#L26"
+    },
+    {
+      "path": "src/FluentValidation/Enums.cs",
+      "line": 43,
+      "declaration": "public enum ApplyConditionTo {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Enums.cs#L43"
+    },
+    {
+      "path": "src/FluentValidation/Enums.cs",
+      "line": 57,
+      "declaration": "public enum Severity {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Enums.cs#L57"
+    },
+    {
+      "path": "src/FluentValidation/Syntax.cs",
+      "line": 29,
+      "declaration": "public interface IRuleBuilderInitial<T, out TProperty> : IRuleBuilder<T, TProperty> {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Syntax.cs#L29"
+    },
+    {
+      "path": "src/FluentValidation/Syntax.cs",
+      "line": 37,
+      "declaration": "public interface IRuleBuilder<T, out TProperty> {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Syntax.cs#L37"
+    },
+    {
+      "path": "src/FluentValidation/Syntax.cs",
+      "line": 82,
+      "declaration": "public interface IRuleBuilderOptions<T, out TProperty> : IRuleBuilder<T, TProperty> {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Syntax.cs#L82"
+    },
+    {
+      "path": "src/FluentValidation/Syntax.cs",
+      "line": 94,
+      "declaration": "public interface IRuleBuilderOptionsConditions<T, out TProperty> : IRuleBuilder<T, TProperty> {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Syntax.cs#L94"
+    },
+    {
+      "path": "src/FluentValidation/Syntax.cs",
+      "line": 106,
+      "declaration": "public interface IRuleBuilderInitialCollection<T, TElement> : IRuleBuilder<T, TElement> {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Syntax.cs#L106"
+    },
+    {
+      "path": "src/FluentValidation/Syntax.cs",
+      "line": 113,
+      "declaration": "public interface IConditionBuilder {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/Syntax.cs#L113"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 28,
+      "declaration": "public class RulesetTests {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L28"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 32,
+      "declaration": "public void Executes_rules_in_specified_ruleset() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L32"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 41,
+      "declaration": "public void Executes_rules_not_specified_in_ruleset() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L41"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 50,
+      "declaration": "public void Ruleset_cascades_to_child_validator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L50"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 73,
+      "declaration": "public void Ruleset_cascades_to_child_collection_validator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L73"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 97,
+      "declaration": "public void Executes_multiple_rulesets() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L97"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 111,
+      "declaration": "public void Executes_all_rules() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L111"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 120,
+      "declaration": "public void Executes_rules_in_default_ruleset_and_specific_ruleset() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L120"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 133,
+      "declaration": "public void WithMessage_works_inside_rulesets() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L133"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 141,
+      "declaration": "public void Ruleset_selection_should_not_cascade_downwards_when_set_on_property() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L141"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 149,
+      "declaration": "public void Ruleset_selection_should_cascade_downwards_with_when_setting_child_validator_using_include_statement() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L149"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 157,
+      "declaration": "public void Ruleset_selection_should_cascade_downwards_with_when_setting_child_validator_using_include_statement_with_lambda() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L157"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 166,
+      "declaration": "public void Trims_spaces() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L166"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 181,
+      "declaration": "public void Applies_multiple_rulesets_to_rule() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L181"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 205,
+      "declaration": "public void Executes_in_rule_in_ruleset_and_default() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L205"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 225,
+      "declaration": "public void Executes_in_rule_in_default_and_none() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L225"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 238,
+      "declaration": "public void Combines_rulesets_and_explicit_properties() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L238"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 257,
+      "declaration": "public async Task Combines_rulesets_and_explicit_properties_async() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L257"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 276,
+      "declaration": "public void Includes_combination_of_rulesets() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L276"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 296,
+      "declaration": "public async Task Includes_combination_of_rulesets_async() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L296"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 316,
+      "declaration": "public void Includes_all_rulesets() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L316"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 334,
+      "declaration": "public async Task Includes_all_rulesets_async() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L334"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 357,
+      "declaration": "public TestValidator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L357"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 369,
+      "declaration": "public TestValidator2()",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L369"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 380,
+      "declaration": "public class TestValidator3 : AbstractValidator<Person> {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L380"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 381,
+      "declaration": "public TestValidator3() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L381"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 387,
+      "declaration": "public class PersonContainer {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L387"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 388,
+      "declaration": "public Person Person { get; set; }",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L388"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 391,
+      "declaration": "public class TestValidator4 : AbstractValidator<PersonContainer>",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L391"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 393,
+      "declaration": "public TestValidator4()",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L393"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 27,
+      "declaration": "public class ConditionTests {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L27"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 29,
+      "declaration": "public void Validation_should_succeed_when_condition_does_not_match() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L29"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 36,
+      "declaration": "public async Task Validation_should_succeed_when_async_condition_does_not_match() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L36"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 43,
+      "declaration": "public void Validation_should_fail_when_condition_matches() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L43"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 50,
+      "declaration": "public async Task Validation_should_fail_when_async_condition_matches() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L50"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 57,
+      "declaration": "public void Validation_should_succeed_when_condition_matches() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L57"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 64,
+      "declaration": "public async Task Validation_should_succeed_when_async_condition_matches() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L64"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 71,
+      "declaration": "public void Validation_should_fail_when_condition_does_not_match() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L71"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 78,
+      "declaration": "public async Task Validation_should_fail_when_async_condition_does_not_match() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L78"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 85,
+      "declaration": "public void Condition_is_applied_to_all_validators_in_the_chain() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L85"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 95,
+      "declaration": "public async Task Async_condition_is_applied_to_all_validators_in_the_chain() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L95"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 105,
+      "declaration": "public void Async_condition_is_applied_to_all_validators_in_the_chain_when_executed_synchronously() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L105"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 115,
+      "declaration": "public async Task Sync_condition_is_applied_to_async_validators() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L115"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 128,
+      "declaration": "public void Condition_is_applied_to_single_validator_in_the_chain_when_ApplyConditionTo_set_to_CurrentValidator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L128"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 138,
+      "declaration": "public async Task Async_condition_is_applied_to_single_validator_in_the_chain_when_ApplyConditionTo_set_to_CurrentValidator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L138"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 148,
+      "declaration": "public void Async_condition_throws_when_executed_synchronosuly_with_synchronous_role() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L148"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 158,
+      "declaration": "public void Async_condition_throws_when_executed_synchronosuly_with_asynchronous_rule() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L158"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 168,
+      "declaration": "public void Async_condition_throws_when_executed_synchronosuly_with_synchronous_collection_role() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L168"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 177,
+      "declaration": "public void Async_condition_throws_when_invoked_synchronosuly_with_asynchronous_collection_rule() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L177"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 187,
+      "declaration": "public void Can_access_property_value_in_custom_condition() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L187"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 201,
+      "declaration": "public void Can_access_property_value_in_custom_condition_foreach() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L201"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 215,
+      "declaration": "public void Can_try_access_property_value_in_custom_condition() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L215"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 235,
+      "declaration": "public void Can_try_access_property_value_in_custom_condition_foreach() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L235"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 256,
+      "declaration": "public void Can_access_property_path_in_condition() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L256"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 271,
+      "declaration": "public void Can_access_nested_property_path_in_condition() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L271"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 287,
+      "declaration": "public void Can_access_collection_item_property_path_in_condition() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L287"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 304,
+      "declaration": "public void Can_access_property_path_in_child_rules_condition() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L304"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 335,
+      "declaration": "public TestConditionValidator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L335"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 341,
+      "declaration": "public TestConditionAsyncValidator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L341"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 347,
+      "declaration": "public InverseConditionValidator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L347"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 353,
+      "declaration": "public InverseConditionAsyncValidator() {",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L353"
+    }
+  ],
+  "test_method_candidates": [
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 32,
+      "method": "Executes_rules_in_specified_ruleset",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L32"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 41,
+      "method": "Executes_rules_not_specified_in_ruleset",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L41"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 50,
+      "method": "Ruleset_cascades_to_child_validator",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L50"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 73,
+      "method": "Ruleset_cascades_to_child_collection_validator",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L73"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 97,
+      "method": "Executes_multiple_rulesets",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L97"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 111,
+      "method": "Executes_all_rules",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L111"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 120,
+      "method": "Executes_rules_in_default_ruleset_and_specific_ruleset",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L120"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 133,
+      "method": "WithMessage_works_inside_rulesets",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L133"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 141,
+      "method": "Ruleset_selection_should_not_cascade_downwards_when_set_on_property",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L141"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 149,
+      "method": "Ruleset_selection_should_cascade_downwards_with_when_setting_child_validator_using_include_statement",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L149"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 157,
+      "method": "Ruleset_selection_should_cascade_downwards_with_when_setting_child_validator_using_include_statement_with_lambda",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L157"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 166,
+      "method": "Trims_spaces",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L166"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 181,
+      "method": "Applies_multiple_rulesets_to_rule",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L181"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 205,
+      "method": "Executes_in_rule_in_ruleset_and_default",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L205"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 225,
+      "method": "Executes_in_rule_in_default_and_none",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L225"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 238,
+      "method": "Combines_rulesets_and_explicit_properties",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L238"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 257,
+      "method": "Combines_rulesets_and_explicit_properties_async",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L257"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 276,
+      "method": "Includes_combination_of_rulesets",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L276"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 296,
+      "method": "Includes_combination_of_rulesets_async",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L296"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 316,
+      "method": "Includes_all_rulesets",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L316"
+    },
+    {
+      "path": "src/FluentValidation.Tests/RulesetTests.cs",
+      "line": 334,
+      "method": "Includes_all_rulesets_async",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/RulesetTests.cs#L334"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 29,
+      "method": "Validation_should_succeed_when_condition_does_not_match",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L29"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 36,
+      "method": "Validation_should_succeed_when_async_condition_does_not_match",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L36"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 43,
+      "method": "Validation_should_fail_when_condition_matches",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L43"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 50,
+      "method": "Validation_should_fail_when_async_condition_matches",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L50"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 57,
+      "method": "Validation_should_succeed_when_condition_matches",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L57"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 64,
+      "method": "Validation_should_succeed_when_async_condition_matches",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L64"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 71,
+      "method": "Validation_should_fail_when_condition_does_not_match",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L71"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 78,
+      "method": "Validation_should_fail_when_async_condition_does_not_match",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L78"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 85,
+      "method": "Condition_is_applied_to_all_validators_in_the_chain",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L85"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 95,
+      "method": "Async_condition_is_applied_to_all_validators_in_the_chain",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L95"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 105,
+      "method": "Async_condition_is_applied_to_all_validators_in_the_chain_when_executed_synchronously",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L105"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 115,
+      "method": "Sync_condition_is_applied_to_async_validators",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L115"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 128,
+      "method": "Condition_is_applied_to_single_validator_in_the_chain_when_ApplyConditionTo_set_to_CurrentValidator",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L128"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 138,
+      "method": "Async_condition_is_applied_to_single_validator_in_the_chain_when_ApplyConditionTo_set_to_CurrentValidator",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L138"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 148,
+      "method": "Async_condition_throws_when_executed_synchronosuly_with_synchronous_role",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L148"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 158,
+      "method": "Async_condition_throws_when_executed_synchronosuly_with_asynchronous_rule",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L158"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 168,
+      "method": "Async_condition_throws_when_executed_synchronosuly_with_synchronous_collection_role",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L168"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 177,
+      "method": "Async_condition_throws_when_invoked_synchronosuly_with_asynchronous_collection_rule",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L177"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 187,
+      "method": "Can_access_property_value_in_custom_condition",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L187"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 201,
+      "method": "Can_access_property_value_in_custom_condition_foreach",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L201"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 215,
+      "method": "Can_try_access_property_value_in_custom_condition",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L215"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 235,
+      "method": "Can_try_access_property_value_in_custom_condition_foreach",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L235"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 256,
+      "method": "Can_access_property_path_in_condition",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L256"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 271,
+      "method": "Can_access_nested_property_path_in_condition",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L271"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 287,
+      "method": "Can_access_collection_item_property_path_in_condition",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L287"
+    },
+    {
+      "path": "src/FluentValidation.Tests/ConditionTests.cs",
+      "line": 304,
+      "method": "Can_access_property_path_in_child_rules_condition",
+      "attribute_candidate": true,
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests/ConditionTests.cs#L304"
+    }
+  ],
+  "declared_references": [
+    {
+      "repo": "dotj-validation",
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "src/FluentValidation.DependencyInjectionExtensions/FluentValidation.DependencyInjectionExtensions.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.DependencyInjectionExtensions/FluentValidation.DependencyInjectionExtensions.csproj"
+    },
+    {
+      "repo": "dotj-validation",
+      "kind": "ProjectReference",
+      "name": "..\\FluentValidation\\FluentValidation.csproj",
+      "file": "src/FluentValidation.DependencyInjectionExtensions/FluentValidation.DependencyInjectionExtensions.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.DependencyInjectionExtensions/FluentValidation.DependencyInjectionExtensions.csproj"
+    },
+    {
+      "repo": "dotj-validation",
+      "kind": "PackageReference",
+      "name": "Zomp.SyncMethodGenerator",
+      "file": "src/FluentValidation/FluentValidation.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation/FluentValidation.csproj"
+    },
+    {
+      "repo": "dotj-validation",
+      "kind": "PackageReference",
+      "name": "BenchmarkDotNet",
+      "file": "src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj"
+    },
+    {
+      "repo": "dotj-validation",
+      "kind": "PackageReference",
+      "name": "Bogus",
+      "file": "src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj"
+    },
+    {
+      "repo": "dotj-validation",
+      "kind": "ProjectReference",
+      "name": "..\\FluentValidation\\FluentValidation.csproj",
+      "file": "src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj",
+      "url": "https://github.com/FluentValidation/FluentValidation/blob/299ef377bde844af7d28b7aa21786a6853f930e3/src/FluentValidation.Tests.Benchmarks/FluentValidation.Tests.Benchmarks.csproj"
+    }
+  ]
+}

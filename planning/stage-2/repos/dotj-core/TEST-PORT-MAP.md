@@ -1,48 +1,75 @@
-# Test-port map: selected foundation scenarios
+# DJ-001 .j Core: test-port map
 
-Every method below was found in a retrieved test file at the analysis pin. These are selected test cases, not a complete test inventory. **No test has been ported or run.** Intended Java acceptance behavior still needs review of each full upstream test body and dependencies before implementation.
+## Evidence versus designed fixtures
 
-Use separate C# and Java runners. Record input, output, side effects, exception category, callback/event order, resource ownership and declared normalization. Use barriers/latches and controlled clocks for races, not timing sleeps. Preserve source test names and license provenance.
+Source method rows below are lexical candidates from retrieved files. They are not all verified runnable tests, not a full upstream test census, and not proof of conformance. Attribute candidates identify nearby test annotations only. E03 must discover actual cases with the pinned upstream runner and assign them by behavior. Synthetic fixture IDs below are newly designed acceptance cases, never invented upstream identifiers.
 
-| Fixture ID | Feature | Actual upstream test | Intended Java acceptance |
+| Source candidate | Method | Nearby test annotation |
+|---|---|---|
+| [src/mono/wasm/Wasm.Build.Tests/IcuTests.cs:57](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/mono/wasm/Wasm.Build.Tests/IcuTests.cs#L57) | FullIcuFromRuntimePackWithInvariant | yes |
+| [src/mono/wasm/Wasm.Build.Tests/IcuTests.cs:71](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/mono/wasm/Wasm.Build.Tests/IcuTests.cs#L71) | FullIcuFromRuntimePackWithCustomIcu | yes |
+| [src/mono/wasm/Wasm.Build.Tests/IcuTests.cs:88](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/mono/wasm/Wasm.Build.Tests/IcuTests.cs#L88) | NonExistingCustomFileAssertError | yes |
+| [src/libraries/System.Linq/tests/AllTests.cs:12](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Linq/tests/AllTests.cs#L12) | SameResultsRepeatCallsIntQuery | yes |
+| [src/libraries/System.Linq/tests/AllTests.cs:23](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Linq/tests/AllTests.cs#L23) | SameResultsRepeatCallsStringQuery | yes |
+| [src/libraries/System.Linq/tests/AllTests.cs:54](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Linq/tests/AllTests.cs#L54) | All | yes |
+| [src/libraries/System.Linq/tests/AllTests.cs:63](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Linq/tests/AllTests.cs#L63) | AllRunOnce | yes |
+| [src/libraries/System.Linq/tests/AllTests.cs:72](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Linq/tests/AllTests.cs#L72) | NullSource_ThrowsArgumentNullException | yes |
+| [src/libraries/System.Linq/tests/AllTests.cs:78](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Linq/tests/AllTests.cs#L78) | NullPredicate_ThrowsArgumentNullException | yes |
+
+## Designed acceptance fixtures
+
+| Fixture ID | Package | Expected observation | Evidence status |
 |---|---|---|---|
-| CORE-TEST-001 | CF-001 | [CancellationTokenLateEnlistment](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs#L311) | Register after cancellation; callback executes before register returns; failure path is observable. |
-| CORE-TEST-002 | CF-002 | [CallbacksOrderIsLifo](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs#L502) | Register A/B/C, request cancellation, observe C/B/A under the declared sequential-registration scenario. |
-| CORE-TEST-003 | CF-002 | [Cancel_ThrowOnFirstException](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs#L576) | First thrown callback failure terminates according to the selected mode; record uninvoked callbacks. |
-| CORE-TEST-004 | CF-002 | [Cancel_DontThrowOnFirstException](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs#L618) | All eligible callbacks run; collect failures in declared dispatch order. |
-| CORE-TEST-005 | CF-004 | [DeregisterFromWithinACallbackIsSafe_BasicTest](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs#L818) | Self-deregistration completes without deadlock; no duplicate invocation. |
-| CORE-TEST-006 | CF-004 | [CancellationTokenRegistration_UnregisterWhileCallbackRunning_UnregisterDoesntWaitForCallbackToComplete](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs#L1448) | Use barriers to distinguish non-waiting unregister from completion-fenced close. |
-| CORE-TEST-007 | CF-001 | [Register_ExecutionContextFlowsIfExpected](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs#L1599) | Translate to explicit .j context capture; record the deliberate ambient-context deviation. |
-| CORE-TEST-008 | CF-003 | [CancellationTokenSource_CancelAsync_AllCallbacksInvoked](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs#L1802) | Observe requested state immediately and returned stage completion after callback processing. |
-| CORE-TEST-009 | CF-005 | [MultipleServicesAreOrdered](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderContainerTests.cs#L91) | Multi-resolution follows the upstream registration-order expectation. |
-| CORE-TEST-010 | CF-005 | [GetRequiredService_ResolvingSameSingletonInTwoThreads_SameServiceReturned](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderContainerTests.cs#L529) | Concurrent resolution publishes one singleton identity; avoid brittle sleep-based assertions. |
-| CORE-TEST-011 | CF-006 | [SingletonServiceCreatedFromInstanceIsNotDisposedWhenContainerIsDisposed](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderContainerTests.cs#L1099) | Caller-supplied singleton remains caller-owned. |
-| CORE-TEST-012 | CF-006 | [SingletonServiceCreatedFromFactoryIsDisposedWhenContainerIsDisposed](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderContainerTests.cs#L1083) | Provider-created singleton is released by provider shutdown. |
-| CORE-TEST-013 | CF-006 | [ProviderDisposeThrowsWhenOnlyDisposeAsyncImplemented](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderContainerTests.cs#L946) | Sync close reports async-only ownership error; it must not silently wait. |
-| CORE-TEST-014 | CF-006 | [ProviderDisposeAsyncPrefersDisposeAsyncOnServices](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderContainerTests.cs#L918) | Object implementing both close forms receives only the selected async close path. |
-| CORE-TEST-015 | CF-006 | [SharedSingletonResolvedAsMultipleServices_IsDisposedOnce](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderEngineScopeTests.cs#L137) | Alias resolution cannot double-close one object identity. |
-| CORE-TEST-016 | CF-006 | [SharedSingletonIsDisposedAfterDependents](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderEngineScopeTests.cs#L158) | Dependents close before the shared resource they use. |
-| CORE-TEST-017 | CF-006 | [Dispose_TwoServicesThrows_DisposesAllAndThrowsAggregateException](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderEngineScopeTests.cs#L65) | Continue disposal and expose multiple failures after cleanup. |
-| CORE-TEST-018 | CF-007 | [NewConfigurationProviderOverridesOldOneWhenKeyIsDuplicated](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Configuration/tests/ConfigurationTest.cs#L337) | Later provider wins for a duplicate key. |
-| CORE-TEST-019 | CF-007 | [SettingValueUpdatesAllConfigurationProviders](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Configuration/tests/ConfigurationTest.cs#L395) | Root write reaches every configured provider. |
-| CORE-TEST-020 | CF-007 | [SetValueThrowsExceptionNoSourceRegistered](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Configuration/tests/ConfigurationTest.cs#L590) | No-provider write yields an explicit error. |
-| CORE-TEST-021 | CF-007 | [KeyWithNullValueAndWithoutChildrenIsASectionButNotExists](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Configuration/tests/ConfigurationTest.cs#L933) | Represent section identity independently from scalar presence/existence semantics. |
-| CORE-TEST-022 | CF-008 | [DifferentReloadTokenReturnedAfterReloading](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Configuration/tests/ConfigurationTest.cs#L621) | Reload rotates the token identity; old and new generation state remains distinct. |
-| CORE-TEST-023 | CF-008 | [AsyncLocalsNotCapturedAndRestoredConfigurationReloadToken](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Configuration/tests/ConfigurationTest.cs#L692) | Do not accidentally flow unrelated ambient context through reload notification. |
-| CORE-TEST-024 | CF-009 | [DisposingDuringConsumerSuppressesReRegistration](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Primitives/tests/ChangeTokenTest.cs#L518) | Close during callback prevents a new subscription generation. |
-| CORE-TEST-025 | CF-009 | [AsyncDoesNotReregisterUntilConsumerTaskCompletes](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Primitives/tests/ChangeTokenTest.cs#L356) | Async consumer completion precedes re-registration. |
-| CORE-TEST-026 | CF-009 | [AsyncConsumerAsynchronousFaultIsNotPropagatedToProducerAndSubscriptionSurvives](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Primitives/tests/ChangeTokenTest.cs#L698) | Preserve the observed asynchronous-failure propagation distinction; add explicit error observation in Java adaptation. |
-| CORE-TEST-027 | CF-010 | [CanWatchNamedOptions](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Options/tests/Microsoft.Extensions.Options.Tests/OptionsMonitorTest.cs#L102) | Named changes affect the appropriate cached options and listeners. |
-| CORE-TEST-028 | CF-010 | [DisposingOptionsMonitorDisposesChangeTokenRegistrations](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Options/tests/Microsoft.Extensions.Options.Tests/OptionsMonitorTest.cs#L353) | Closing the monitor releases subscriptions and prevents later notifications. |
-| CORE-TEST-029 | CF-010 | [InstantiatesOnlyOneOptionsInstance](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Options/tests/Microsoft.Extensions.Options.Tests/OptionsMonitorTest.cs#L495) | Concurrent access agrees on the cached instance under the declared profile. |
-| CORE-TEST-030 | CF-011 | [StartupValidator_ValidatorImplementingBoth_DispatchesToAsync](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Options/tests/Microsoft.Extensions.Options.Tests/AsyncOptionsValidationTests.cs#L420) | Dual-capability validator follows the selected async startup path. |
-| CORE-TEST-031 | CF-011 | [FailedAsyncStartupValidation_DoesNotSeedOptions](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Options/tests/Microsoft.Extensions.Options.Tests/AsyncOptionsValidationTests.cs#L763) | Failed startup validation cannot publish a supposedly valid cache entry. |
-| CORE-TEST-032 | CF-011 | [IOptionsValue_RemainsStableAfterMonitorCacheEviction](https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Options/tests/Microsoft.Extensions.Options.Tests/AsyncOptionsValidationTests.cs#L780) | Different options interface/cache lifetimes remain distinct. |
+| DJ-001-F01-01 | WP-01 | Equal parameterized types share identity | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F01-02 | WP-01 | different generic arguments do not | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F01-03 | WP-01 | supplied resources are never closed implicitly | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F01-04 | WP-01 | context values do not leak between requests | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F02-01 | WP-02 | Late registration runs synchronously | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F02-02 | WP-02 | sequential callbacks use the declared LIFO profile | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F02-03 | WP-02 | self-close cannot deadlock | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F02-04 | WP-02 | cancelAsync completion waits for callbacks | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F02-05 | WP-02 | token identity survives source disposal as specified | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F03-01 | WP-03 | Concurrent singleton resolves return one published identity | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F03-02 | WP-03 | aliases close once | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F03-03 | WP-03 | supplied singleton stays caller-owned | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F03-04 | WP-03 | empty-provider writes fail | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F03-05 | WP-03 | failed reload does not acquire an invented atomic guarantee | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F04-01 | WP-04 | Invalid options never publish as valid | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F04-02 | WP-04 | monitor close removes subscriptions | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F04-03 | WP-04 | disabled log handling follows declared formatter behavior | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F04-04 | WP-04 | partial host startup releases completed services in defined order | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F05-01 | WP-05 | Decimal bit-preserving paths retain scale/sign | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F05-02 | WP-05 | invalid byte sequences follow explicit modes | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F05-03 | WP-05 | Turkish casing and DST ambiguity are fixture-covered | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F05-04 | WP-05 | Instant conversion cannot discard unspecified Kind silently | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F06-01 | WP-06 | Enumerator disposal and deferred exceptions match profiles | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F06-02 | WP-06 | grouping/null/equality differences are explicit | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F06-03 | WP-06 | query IR round trips preserve node types and constants | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F06-04 | WP-06 | provider translation has no silent client execution | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F07-01 | WP-07 | Partial reads/writes and half-closes retain data | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F07-02 | WP-07 | bounded buffers enforce backpressure | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F07-03 | WP-07 | file handles close on failure | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F07-04 | WP-07 | network cancellation does not imply rollback | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F07-05 | WP-07 | unsupported distributed enlistment fails explicitly | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F08-01 | WP-08 | System.Text.Json tests cannot be satisfied merely by Newtonsoft behavior | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F08-02 | WP-08 | unsafe type activation is disabled | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F08-03 | WP-08 | signature bytes and canonicalization use vectors | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F08-04 | WP-08 | CLR assembly execution is never claimed from metadata parsing | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F09-01 | WP-09 | All 218 known library directories have ownership and test routes | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F09-02 | WP-09 | unsupported backend calls report capability gaps | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F09-03 | WP-09 | no custom VM is assumed | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-001-F09-04 | WP-09 | a backend remains blocked until a reproducible execution experiment succeeds | Designed; map actual upstream case or specify independent oracle in E03 |
 
-## Additional fixtures to design
+## Differential runner design
 
-Context propagation across virtual threads/executors; cancellation registration-versus-close linearization; aggregate failure ordering; type-token equality for parameterized services; null keyed service behavior; constructor ambiguity; Unicode/culture-independent configuration keys; provider reload partial failure; logging scope/error formatter invocation; decimal bit/range/rounding vectors; DateTime Kind and DST ambiguity. These are proposed new fixtures, not invented upstream test IDs.
+Use a versioned, language-neutral fixture envelope: fixture ID; input bytes/value schema; options; seed; clock/culture/timezone; platform requirements; expected output/errors/events/resource counters; allowed normalization; source pin; oracle/toolchain identity. Encode decimal and 64-bit integers as strings when transport would lose precision. Keep binary payloads exact with checksums. Run C# oracle and future Java implementation as separate processes, compare only approved normalized observables, preserve raw outputs, and classify mismatch as regression, documented adaptation or unresolved investigation. Do not normalize away ordering, precision, security failures or resource leaks.
 
-## Oracle requirements
+## Required test dimensions
 
-Choose the release baseline and exact .NET toolchain first. Resolve original test-only packages independently of shipped Java dependencies. A portable Java test harness must not depend on the DI/configuration/cancellation implementation under test for basic assertions or lifecycle control. Startup and cancellation tests must have an outer watchdog so deadlocks produce diagnostic evidence. Do not label fixtures as passed until both runners exist and real results are retained.
+Numeric overflow and decimal rounding; Turkish casing and Unicode normalization; cancellation races; stream disposal and endianness.
+
+Add negative inputs and each cleanup/cancellation edge from the architecture. Concurrency tests use controlled scheduling/barriers and fake clocks, with stress tests supplemental. Protocol/native/UI features use real reference processes/devices in the declared matrix. Performance budgets must be measured and agreed from baseline workloads; this plan invents no benchmark numbers.
+
+## Porting completion
+
+Every public feature has mapped cases or an explicit independent-oracle rationale. Every skip has a reason and blocking capability. Run the same immutable fixture payloads across environments; store results with source/toolchain/dependency locks. None of these future Java implementation tests has been executed by this planning task.

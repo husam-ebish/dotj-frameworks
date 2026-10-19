@@ -1,0 +1,1210 @@
+{
+  "identity": {
+    "id": "DJ-065",
+    "name": "MediatR",
+    "url": "https://github.com/LuckyPennySoftware/MediatR",
+    "repo": "dotj-mediator",
+    "category": "Additional application frameworks"
+  },
+  "source": {
+    "id": "DJ-065",
+    "repo": "dotj-mediator",
+    "requested_upstream": "https://github.com/LuckyPennySoftware/MediatR",
+    "notice_revision": "916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5",
+    "effective_upstream": "https://github.com/LuckyPennySoftware/MediatR",
+    "effective_revision": "916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5",
+    "source_prefix": "",
+    "inspection_date": "2026-10-19",
+    "tree_scope": "recursive complete",
+    "paths": [
+      ".editorconfig",
+      ".gitattributes",
+      ".github/workflows/ci.yml",
+      ".github/workflows/release.yml",
+      ".github/workflows/test-report.yml",
+      ".github/workflows/triage-issues.yml",
+      ".gitignore",
+      "Build.ps1",
+      "BuildContracts.ps1",
+      "Directory.Build.props",
+      "LICENSE.md",
+      "MediatR.slnx",
+      "MediatR.snk",
+      "NuGet.Config",
+      "Push.ps1",
+      "README.md",
+      "assets/logo/flat_128x128.png",
+      "assets/logo/flat_32x32.png",
+      "assets/logo/flat_64x64.png",
+      "assets/logo/gradient_128x128.png",
+      "assets/logo/gradient_32x32.png",
+      "assets/logo/gradient_64x64.png",
+      "samples/MediatR.Examples.AspNetCore/MediatR.Examples.AspNetCore.csproj",
+      "samples/MediatR.Examples.AspNetCore/Program.cs",
+      "samples/MediatR.Examples.Autofac/MediatR.Examples.Autofac.csproj",
+      "samples/MediatR.Examples.Autofac/Program.cs",
+      "samples/MediatR.Examples.DryIoc/MediatR.Examples.DryIoc.csproj",
+      "samples/MediatR.Examples.DryIoc/Program.cs",
+      "samples/MediatR.Examples.Lamar/MediatR.Examples.Lamar.csproj",
+      "samples/MediatR.Examples.Lamar/Program.cs",
+      "samples/MediatR.Examples.LightInject/MediatR.Examples.LightInject.csproj",
+      "samples/MediatR.Examples.LightInject/Program.cs",
+      "samples/MediatR.Examples.PublishStrategies/AsyncPingedHandler.cs",
+      "samples/MediatR.Examples.PublishStrategies/CustomMediator.cs",
+      "samples/MediatR.Examples.PublishStrategies/MediatR.Examples.PublishStrategies.csproj",
+      "samples/MediatR.Examples.PublishStrategies/Program.cs",
+      "samples/MediatR.Examples.PublishStrategies/PublishStrategy.cs",
+      "samples/MediatR.Examples.PublishStrategies/Publisher.cs",
+      "samples/MediatR.Examples.PublishStrategies/SyncPingedHandler.cs",
+      "samples/MediatR.Examples.SimpleInjector/MediatR.Examples.SimpleInjector.csproj",
+      "samples/MediatR.Examples.SimpleInjector/Program.cs",
+      "samples/MediatR.Examples.Stashbox/MediatR.Examples.Stashbox.csproj",
+      "samples/MediatR.Examples.Stashbox/Program.cs",
+      "samples/MediatR.Examples.Windsor/ContravariantFilter.cs",
+      "samples/MediatR.Examples.Windsor/MediatR.Examples.Windsor.csproj",
+      "samples/MediatR.Examples.Windsor/Program.cs",
+      "samples/MediatR.Examples/ConstrainedRequestPostProcessor.cs",
+      "samples/MediatR.Examples/ExceptionHandler/Exceptions.cs",
+      "samples/MediatR.Examples/ExceptionHandler/ExceptionsHandlers.cs",
+      "samples/MediatR.Examples/ExceptionHandler/ExceptionsHandlersOverrides.cs",
+      "samples/MediatR.Examples/ExceptionHandler/Handlers.cs",
+      "samples/MediatR.Examples/ExceptionHandler/LogExceptionAction.cs",
+      "samples/MediatR.Examples/ExceptionHandler/Requests.cs",
+      "samples/MediatR.Examples/ExceptionHandler/RequestsOverrides.cs",
+      "samples/MediatR.Examples/GenericHandler.cs",
+      "samples/MediatR.Examples/GenericPipelineBehavior.cs",
+      "samples/MediatR.Examples/GenericRequestPostProcessor.cs",
+      "samples/MediatR.Examples/GenericRequestPreProcessor.cs",
+      "samples/MediatR.Examples/Jing.cs",
+      "samples/MediatR.Examples/JingHandler.cs",
+      "samples/MediatR.Examples/MediatR.Examples.csproj",
+      "samples/MediatR.Examples/Ping.cs",
+      "samples/MediatR.Examples/PingHandler.cs",
+      "samples/MediatR.Examples/Pinged.cs",
+      "samples/MediatR.Examples/PingedHandler.cs",
+      "samples/MediatR.Examples/Pong.cs",
+      "samples/MediatR.Examples/Ponged.cs",
+      "samples/MediatR.Examples/Runner.cs",
+      "samples/MediatR.Examples/Streams/GenericStreamPipelineBehavior.cs",
+      "samples/MediatR.Examples/Streams/Sing.cs",
+      "samples/MediatR.Examples/Streams/SingHandler.cs",
+      "samples/MediatR.Examples/Streams/Song.cs",
+      "src/MediatR.Contracts/INotification.cs",
+      "src/MediatR.Contracts/IRequest.cs",
+      "src/MediatR.Contracts/IStreamRequest.cs",
+      "src/MediatR.Contracts/MediatR.Contracts.csproj",
+      "src/MediatR.Contracts/Unit.cs",
+      "src/MediatR/Entities/OpenBehavior.cs",
+      "src/MediatR/IMediator.cs",
+      "src/MediatR/INotificationHandler.cs",
+      "src/MediatR/INotificationPublisher.cs",
+      "src/MediatR/IPipelineBehavior.cs",
+      "src/MediatR/IPublisher.cs",
+      "src/MediatR/IRequestHandler.cs",
+      "src/MediatR/ISender.cs",
+      "src/MediatR/IStreamPipelineBehavior.cs",
+      "src/MediatR/IStreamRequestHandler.cs",
+      "src/MediatR/Internal/HandlersOrderer.cs",
+      "src/MediatR/Internal/ObjectDetails.cs",
+      "src/MediatR/Licensing/BuildInfo.cs",
+      "src/MediatR/Licensing/Edition.cs",
+      "src/MediatR/Licensing/License.cs",
+      "src/MediatR/Licensing/LicenseAccessor.cs",
+      "src/MediatR/Licensing/LicenseValidator.cs",
+      "src/MediatR/Licensing/ProductType.cs",
+      "src/MediatR/MediatR.csproj",
+      "src/MediatR/Mediator.cs",
+      "src/MediatR/MicrosoftExtensionsDI/MediatRServiceCollectionExtensions.cs",
+      "src/MediatR/MicrosoftExtensionsDI/MediatrServiceConfiguration.cs",
+      "src/MediatR/MicrosoftExtensionsDI/RequestExceptionActionProcessorStrategy.cs",
+      "src/MediatR/NotificationHandlerExecutor.cs",
+      "src/MediatR/NotificationPublishers/ForeachAwaitPublisher.cs",
+      "src/MediatR/NotificationPublishers/TaskWhenAllPublisher.cs",
+      "src/MediatR/Pipeline/IRequestExceptionAction.cs",
+      "src/MediatR/Pipeline/IRequestExceptionHandler.cs",
+      "src/MediatR/Pipeline/IRequestPostProcessor.cs",
+      "src/MediatR/Pipeline/IRequestPreProcessor.cs",
+      "src/MediatR/Pipeline/RequestExceptionActionProcessorBehavior.cs",
+      "src/MediatR/Pipeline/RequestExceptionHandlerState.cs",
+      "src/MediatR/Pipeline/RequestExceptionProcessorBehavior.cs",
+      "src/MediatR/Pipeline/RequestPostProcessorBehavior.cs",
+      "src/MediatR/Pipeline/RequestPreProcessorBehavior.cs",
+      "src/MediatR/Registration/ServiceRegistrar.cs",
+      "src/MediatR/TypeForwardings.cs",
+      "src/MediatR/Wrappers/NotificationHandlerWrapper.cs",
+      "src/MediatR/Wrappers/RequestHandlerWrapper.cs",
+      "src/MediatR/Wrappers/StreamRequestHandlerWrapper.cs",
+      "src/MediatR/license.txt",
+      "test/MediatR.Benchmarks/Benchmarks.cs",
+      "test/MediatR.Benchmarks/DotTraceDiagnoser.cs",
+      "test/MediatR.Benchmarks/GenericPipelineBehavior.cs",
+      "test/MediatR.Benchmarks/GenericRequestPostProcessor.cs",
+      "test/MediatR.Benchmarks/GenericRequestPreProcessor.cs",
+      "test/MediatR.Benchmarks/MediatR.Benchmarks.csproj",
+      "test/MediatR.Benchmarks/Ping.cs",
+      "test/MediatR.Benchmarks/Pinged.cs",
+      "test/MediatR.Benchmarks/Program.cs",
+      "test/MediatR.DependencyInjectionTests/Abstractions/BaseAssemblyResolutionTests.cs",
+      "test/MediatR.DependencyInjectionTests/Abstractions/BaseServiceProviderFixture.cs",
+      "test/MediatR.DependencyInjectionTests/AutoFacDependencyInjectionTests.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/Notifications/Ding.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/Requests/InternalPing.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/Requests/InternalVoidPing.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/Requests/PrivatePing.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/Requests/PrivateVoidPing.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/Requests/PublicPing.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/Requests/PublicVoidPing.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/Responses/Pong.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/StreamRequests/InternalZing.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/StreamRequests/PrivateZing.cs",
+      "test/MediatR.DependencyInjectionTests/Contracts/StreamRequests/PublicZing.cs",
+      "test/MediatR.DependencyInjectionTests/DryIocDependencyInjectionTests.cs",
+      "test/MediatR.DependencyInjectionTests/LamarDependencyInjectionTests.cs",
+      "test/MediatR.DependencyInjectionTests/LightInjectDependencyInjectionTests.cs",
+      "test/MediatR.DependencyInjectionTests/MediatR.DependencyInjectionTests.csproj",
+      "test/MediatR.DependencyInjectionTests/MicrosoftDependencyInjectionTests.cs",
+      "test/MediatR.DependencyInjectionTests/Providers/AutoFacServiceProviderFixture.cs",
+      "test/MediatR.DependencyInjectionTests/Providers/DryIocServiceProviderFixture.cs",
+      "test/MediatR.DependencyInjectionTests/Providers/LamarServiceProviderFixture.cs",
+      "test/MediatR.DependencyInjectionTests/Providers/LightInjectServiceProviderFixture.cs",
+      "test/MediatR.DependencyInjectionTests/Providers/MicrosoftServiceProviderFixture.cs",
+      "test/MediatR.DependencyInjectionTests/Providers/StashBoxServiceProviderFixture.cs",
+      "test/MediatR.DependencyInjectionTests/StashBoxDependencyInjectionTests.cs",
+      "test/MediatR.DependencyInjectionTests/Usings.cs",
+      "test/MediatR.Tests/CreateStreamTests.cs",
+      "test/MediatR.Tests/ExceptionTests.cs",
+      "test/MediatR.Tests/GenericRequestHandlerTests.cs",
+      "test/MediatR.Tests/GenericTypeConstraintsTests.cs",
+      "test/MediatR.Tests/GlobalUsings.cs",
+      "test/MediatR.Tests/Licensing/LicenseAccessorTests.cs",
+      "test/MediatR.Tests/Licensing/LicenseKeyEnvironmentVariableTests.cs",
+      "test/MediatR.Tests/Licensing/LicenseValidationBackgroundTests.cs",
+      "test/MediatR.Tests/Licensing/LicenseValidatorTests.cs",
+      "test/MediatR.Tests/MediatR.Tests.csproj",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/AssemblyResolutionTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/BaseGenericRequestHandlerTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/CustomMediatorTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/DerivingRequestsTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/DuplicateAssemblyResolutionTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/Handlers.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/Issue1118Tests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/NotificationPublisherTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/PipeLineMultiCallToConstructorTest.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/PipelineTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/StreamPipelineTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/TypeEvaluatorTests.cs",
+      "test/MediatR.Tests/MicrosoftExtensionsDI/TypeResolutionTests.cs",
+      "test/MediatR.Tests/NotificationHandlerTests.cs",
+      "test/MediatR.Tests/NotificationPublisherTests.cs",
+      "test/MediatR.Tests/Pipeline/RequestExceptionActionTests.cs",
+      "test/MediatR.Tests/Pipeline/RequestExceptionHandlerTests.cs",
+      "test/MediatR.Tests/Pipeline/RequestPostProcessorTests.cs",
+      "test/MediatR.Tests/Pipeline/RequestPreProcessorTests.cs",
+      "test/MediatR.Tests/Pipeline/Streams/StreamPipelineBehaviorTests.cs",
+      "test/MediatR.Tests/PipelineTests.cs",
+      "test/MediatR.Tests/PublishTests.cs",
+      "test/MediatR.Tests/SendTests.cs",
+      "test/MediatR.Tests/SendVoidInterfaceTests.cs",
+      "test/MediatR.Tests/ServiceFactoryTests.cs",
+      "test/MediatR.Tests/StreamPipelineTests.cs",
+      "test/MediatR.Tests/TestContainer.cs",
+      "test/MediatR.Tests/UnitTests.cs"
+    ],
+    "new_files": [
+      {
+        "path": "src/MediatR/ISender.cs",
+        "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/ISender.cs",
+        "sha256": "8aca45508683a6169b0ab9e8bd960b7cda60070d638cacfa0a31173c8c278c45",
+        "bytes": 2394
+      },
+      {
+        "path": "src/MediatR/Mediator.cs",
+        "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs",
+        "sha256": "03a97f21da5073d5d3cc3866cf2163c4ca66abe52076723264de4ad422c4dfcf",
+        "bytes": 9750
+      },
+      {
+        "path": "test/MediatR.Tests/SendTests.cs",
+        "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs",
+        "sha256": "66503b2788b424bd153162d4b6d4bef0b16dd5a2100be074a4350da5ab6e3b22",
+        "bytes": 11831
+      },
+      {
+        "path": "test/MediatR.Tests/UnitTests.cs",
+        "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs",
+        "sha256": "c74aac6a7c81f8461054aad05da93708dd8f29752ac3fdc95485ca15e135d66d",
+        "bytes": 2118
+      }
+    ],
+    "errors": []
+  },
+  "sampled_files": [
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/Directory.Build.props",
+      "sha256": "a4c471a7848bc2a5ea40f6ede2286d627b5bd249f8ed71bca411f990d91bd3c4",
+      "bytes": 516
+    },
+    {
+      "path": "LICENSE.md",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/LICENSE.md",
+      "sha256": "1ea27c7931fc1af3e35de99b491d7654a6f760ae786904652accd37297e0d029",
+      "bytes": 746
+    },
+    {
+      "path": "README.md",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/README.md",
+      "sha256": "8c3fd818875bc8d108899f362206b83762ef48263eafd3e7868b832c2bdc28a7",
+      "bytes": 4793
+    },
+    {
+      "path": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj",
+      "sha256": "1385083970d09a08dc38990b69f496cbf18a20d4a53cff6b72c5ddfb33469eec",
+      "bytes": 3969
+    },
+    {
+      "path": "src/MediatR/ISender.cs",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/ISender.cs",
+      "sha256": "8aca45508683a6169b0ab9e8bd960b7cda60070d638cacfa0a31173c8c278c45",
+      "bytes": 2394
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs",
+      "sha256": "4a575b8c8a70d2be35d02b97e9def7b05f66c103ad117216aef8daadf79f4d50",
+      "bytes": 9542
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs",
+      "sha256": "638d634a9cdfe5ac314e8241249720c6aa7cffa84a93748ac6f0c1e807c59eee",
+      "bytes": 11458
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs",
+      "sha256": "c74aac6a7c81f8461054aad05da93708dd8f29752ac3fdc95485ca15e135d66d",
+      "bytes": 2118
+    }
+  ],
+  "project_paths": [
+    "samples/MediatR.Examples.AspNetCore/MediatR.Examples.AspNetCore.csproj",
+    "samples/MediatR.Examples.Autofac/MediatR.Examples.Autofac.csproj",
+    "samples/MediatR.Examples.DryIoc/MediatR.Examples.DryIoc.csproj",
+    "samples/MediatR.Examples.Lamar/MediatR.Examples.Lamar.csproj",
+    "samples/MediatR.Examples.LightInject/MediatR.Examples.LightInject.csproj",
+    "samples/MediatR.Examples.PublishStrategies/MediatR.Examples.PublishStrategies.csproj",
+    "samples/MediatR.Examples.SimpleInjector/MediatR.Examples.SimpleInjector.csproj",
+    "samples/MediatR.Examples.Stashbox/MediatR.Examples.Stashbox.csproj",
+    "samples/MediatR.Examples.Windsor/MediatR.Examples.Windsor.csproj",
+    "samples/MediatR.Examples/MediatR.Examples.csproj",
+    "src/MediatR.Contracts/MediatR.Contracts.csproj",
+    "src/MediatR/MediatR.csproj",
+    "test/MediatR.Benchmarks/MediatR.Benchmarks.csproj",
+    "test/MediatR.DependencyInjectionTests/MediatR.DependencyInjectionTests.csproj",
+    "test/MediatR.Tests/MediatR.Tests.csproj"
+  ],
+  "public_api_definition_paths": [],
+  "test_candidate_paths": [
+    "test/MediatR.Benchmarks/Benchmarks.cs",
+    "test/MediatR.Benchmarks/DotTraceDiagnoser.cs",
+    "test/MediatR.Benchmarks/GenericPipelineBehavior.cs",
+    "test/MediatR.Benchmarks/GenericRequestPostProcessor.cs",
+    "test/MediatR.Benchmarks/GenericRequestPreProcessor.cs",
+    "test/MediatR.Benchmarks/Ping.cs",
+    "test/MediatR.Benchmarks/Pinged.cs",
+    "test/MediatR.Benchmarks/Program.cs",
+    "test/MediatR.DependencyInjectionTests/Abstractions/BaseAssemblyResolutionTests.cs",
+    "test/MediatR.DependencyInjectionTests/Abstractions/BaseServiceProviderFixture.cs",
+    "test/MediatR.DependencyInjectionTests/AutoFacDependencyInjectionTests.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/Notifications/Ding.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/Requests/InternalPing.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/Requests/InternalVoidPing.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/Requests/PrivatePing.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/Requests/PrivateVoidPing.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/Requests/PublicPing.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/Requests/PublicVoidPing.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/Responses/Pong.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/StreamRequests/InternalZing.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/StreamRequests/PrivateZing.cs",
+    "test/MediatR.DependencyInjectionTests/Contracts/StreamRequests/PublicZing.cs",
+    "test/MediatR.DependencyInjectionTests/DryIocDependencyInjectionTests.cs",
+    "test/MediatR.DependencyInjectionTests/LamarDependencyInjectionTests.cs",
+    "test/MediatR.DependencyInjectionTests/LightInjectDependencyInjectionTests.cs",
+    "test/MediatR.DependencyInjectionTests/MicrosoftDependencyInjectionTests.cs",
+    "test/MediatR.DependencyInjectionTests/Providers/AutoFacServiceProviderFixture.cs",
+    "test/MediatR.DependencyInjectionTests/Providers/DryIocServiceProviderFixture.cs",
+    "test/MediatR.DependencyInjectionTests/Providers/LamarServiceProviderFixture.cs",
+    "test/MediatR.DependencyInjectionTests/Providers/LightInjectServiceProviderFixture.cs",
+    "test/MediatR.DependencyInjectionTests/Providers/MicrosoftServiceProviderFixture.cs",
+    "test/MediatR.DependencyInjectionTests/Providers/StashBoxServiceProviderFixture.cs",
+    "test/MediatR.DependencyInjectionTests/StashBoxDependencyInjectionTests.cs",
+    "test/MediatR.DependencyInjectionTests/Usings.cs",
+    "test/MediatR.Tests/CreateStreamTests.cs",
+    "test/MediatR.Tests/ExceptionTests.cs",
+    "test/MediatR.Tests/GenericRequestHandlerTests.cs",
+    "test/MediatR.Tests/GenericTypeConstraintsTests.cs",
+    "test/MediatR.Tests/GlobalUsings.cs",
+    "test/MediatR.Tests/Licensing/LicenseAccessorTests.cs",
+    "test/MediatR.Tests/Licensing/LicenseKeyEnvironmentVariableTests.cs",
+    "test/MediatR.Tests/Licensing/LicenseValidationBackgroundTests.cs",
+    "test/MediatR.Tests/Licensing/LicenseValidatorTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/AssemblyResolutionTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/BaseGenericRequestHandlerTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/CustomMediatorTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/DerivingRequestsTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/DuplicateAssemblyResolutionTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/Handlers.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/Issue1118Tests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/NotificationPublisherTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/PipeLineMultiCallToConstructorTest.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/PipelineTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/StreamPipelineTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/TypeEvaluatorTests.cs",
+    "test/MediatR.Tests/MicrosoftExtensionsDI/TypeResolutionTests.cs",
+    "test/MediatR.Tests/NotificationHandlerTests.cs",
+    "test/MediatR.Tests/NotificationPublisherTests.cs",
+    "test/MediatR.Tests/Pipeline/RequestExceptionActionTests.cs",
+    "test/MediatR.Tests/Pipeline/RequestExceptionHandlerTests.cs",
+    "test/MediatR.Tests/Pipeline/RequestPostProcessorTests.cs",
+    "test/MediatR.Tests/Pipeline/RequestPreProcessorTests.cs",
+    "test/MediatR.Tests/Pipeline/Streams/StreamPipelineBehaviorTests.cs",
+    "test/MediatR.Tests/PipelineTests.cs",
+    "test/MediatR.Tests/PublishTests.cs",
+    "test/MediatR.Tests/SendTests.cs",
+    "test/MediatR.Tests/SendVoidInterfaceTests.cs",
+    "test/MediatR.Tests/ServiceFactoryTests.cs",
+    "test/MediatR.Tests/StreamPipelineTests.cs",
+    "test/MediatR.Tests/TestContainer.cs",
+    "test/MediatR.Tests/UnitTests.cs"
+  ],
+  "documentation_sample_paths": [
+    "README.md",
+    "samples/MediatR.Examples.AspNetCore/MediatR.Examples.AspNetCore.csproj",
+    "samples/MediatR.Examples.AspNetCore/Program.cs",
+    "samples/MediatR.Examples.Autofac/MediatR.Examples.Autofac.csproj",
+    "samples/MediatR.Examples.Autofac/Program.cs",
+    "samples/MediatR.Examples.DryIoc/MediatR.Examples.DryIoc.csproj",
+    "samples/MediatR.Examples.DryIoc/Program.cs",
+    "samples/MediatR.Examples.Lamar/MediatR.Examples.Lamar.csproj",
+    "samples/MediatR.Examples.Lamar/Program.cs",
+    "samples/MediatR.Examples.LightInject/MediatR.Examples.LightInject.csproj",
+    "samples/MediatR.Examples.LightInject/Program.cs",
+    "samples/MediatR.Examples.PublishStrategies/AsyncPingedHandler.cs",
+    "samples/MediatR.Examples.PublishStrategies/CustomMediator.cs",
+    "samples/MediatR.Examples.PublishStrategies/MediatR.Examples.PublishStrategies.csproj",
+    "samples/MediatR.Examples.PublishStrategies/Program.cs",
+    "samples/MediatR.Examples.PublishStrategies/PublishStrategy.cs",
+    "samples/MediatR.Examples.PublishStrategies/Publisher.cs",
+    "samples/MediatR.Examples.PublishStrategies/SyncPingedHandler.cs",
+    "samples/MediatR.Examples.SimpleInjector/MediatR.Examples.SimpleInjector.csproj",
+    "samples/MediatR.Examples.SimpleInjector/Program.cs",
+    "samples/MediatR.Examples.Stashbox/MediatR.Examples.Stashbox.csproj",
+    "samples/MediatR.Examples.Stashbox/Program.cs",
+    "samples/MediatR.Examples.Windsor/ContravariantFilter.cs",
+    "samples/MediatR.Examples.Windsor/MediatR.Examples.Windsor.csproj",
+    "samples/MediatR.Examples.Windsor/Program.cs",
+    "samples/MediatR.Examples/ConstrainedRequestPostProcessor.cs",
+    "samples/MediatR.Examples/ExceptionHandler/Exceptions.cs",
+    "samples/MediatR.Examples/ExceptionHandler/ExceptionsHandlers.cs",
+    "samples/MediatR.Examples/ExceptionHandler/ExceptionsHandlersOverrides.cs",
+    "samples/MediatR.Examples/ExceptionHandler/Handlers.cs",
+    "samples/MediatR.Examples/ExceptionHandler/LogExceptionAction.cs",
+    "samples/MediatR.Examples/ExceptionHandler/Requests.cs",
+    "samples/MediatR.Examples/ExceptionHandler/RequestsOverrides.cs",
+    "samples/MediatR.Examples/GenericHandler.cs",
+    "samples/MediatR.Examples/GenericPipelineBehavior.cs",
+    "samples/MediatR.Examples/GenericRequestPostProcessor.cs",
+    "samples/MediatR.Examples/GenericRequestPreProcessor.cs",
+    "samples/MediatR.Examples/Jing.cs",
+    "samples/MediatR.Examples/JingHandler.cs",
+    "samples/MediatR.Examples/MediatR.Examples.csproj",
+    "samples/MediatR.Examples/Ping.cs",
+    "samples/MediatR.Examples/PingHandler.cs",
+    "samples/MediatR.Examples/Pinged.cs",
+    "samples/MediatR.Examples/PingedHandler.cs",
+    "samples/MediatR.Examples/Pong.cs",
+    "samples/MediatR.Examples/Ponged.cs",
+    "samples/MediatR.Examples/Runner.cs",
+    "samples/MediatR.Examples/Streams/GenericStreamPipelineBehavior.cs",
+    "samples/MediatR.Examples/Streams/Sing.cs",
+    "samples/MediatR.Examples/Streams/SingHandler.cs",
+    "samples/MediatR.Examples/Streams/Song.cs"
+  ],
+  "api_declaration_candidates": [
+    {
+      "path": "src/MediatR/ISender.cs",
+      "line": 10,
+      "declaration": "public interface ISender",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/ISender.cs#L10"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 17,
+      "declaration": "public class Mediator : IMediator",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L17"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 29,
+      "declaration": "public Mediator(IServiceProvider serviceProvider)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L29"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 37,
+      "declaration": "public Mediator(IServiceProvider serviceProvider, INotificationPublisher publisher)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L37"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 48,
+      "declaration": "public static string? LicenseKey { get; set; }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L48"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 50,
+      "declaration": "public Task<TResponse> Send<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L50"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 67,
+      "declaration": "public Task Send<TRequest>(TRequest request, CancellationToken cancellationToken = default)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L67"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 85,
+      "declaration": "public Task<object?> Send(object request, CancellationToken cancellationToken = default)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L85"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 121,
+      "declaration": "public Task Publish<TNotification>(TNotification notification, CancellationToken cancellationToken = default)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L121"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 132,
+      "declaration": "public Task Publish(object notification, CancellationToken cancellationToken = default) =>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L132"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 147,
+      "declaration": "protected virtual Task PublishCore(IEnumerable<NotificationHandlerExecutor> handlerExecutors, INotification notification, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L147"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 163,
+      "declaration": "public IAsyncEnumerable<TResponse> CreateStream<TResponse>(IStreamRequest<TResponse> request, CancellationToken cancellationToken = default)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L163"
+    },
+    {
+      "path": "src/MediatR/Mediator.cs",
+      "line": 183,
+      "declaration": "public IAsyncEnumerable<object?> CreateStream(object request, CancellationToken cancellationToken = default)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L183"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 12,
+      "declaration": "public class SendTests",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L12"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 18,
+      "declaration": "public SendTests()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L18"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 34,
+      "declaration": "public class Ping : IRequest<Pong>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L34"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 36,
+      "declaration": "public string? Message { get; set; }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L36"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 39,
+      "declaration": "public class VoidPing : IRequest",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L39"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 43,
+      "declaration": "public class Pong",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L43"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 45,
+      "declaration": "public string? Message { get; set; }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L45"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 48,
+      "declaration": "public class PingHandler : IRequestHandler<Ping, Pong>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L48"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 50,
+      "declaration": "public Task<Pong> Handle(Ping request, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L50"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 56,
+      "declaration": "public class Dependency",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L56"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 58,
+      "declaration": "public bool Called { get; set; }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L58"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 59,
+      "declaration": "public bool CalledSpecific { get; set; }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L59"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 62,
+      "declaration": "public class VoidPingHandler : IRequestHandler<VoidPing>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L62"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 66,
+      "declaration": "public VoidPingHandler(Dependency dependency) => _dependency = dependency;",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L66"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 68,
+      "declaration": "public Task Handle(VoidPing request, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L68"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 76,
+      "declaration": "public class GenericPing<T> : IRequest<T>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L76"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 79,
+      "declaration": "public T? Pong { get; set; }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L79"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 82,
+      "declaration": "public class GenericPingHandler<T> : IRequestHandler<GenericPing<T>, T>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L82"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 87,
+      "declaration": "public GenericPingHandler(Dependency dependency) => _dependency = dependency;",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L87"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 89,
+      "declaration": "public Task<T> Handle(GenericPing<T> request, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L89"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 97,
+      "declaration": "public class VoidGenericPing<T> : IRequest",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L97"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 101,
+      "declaration": "public class VoidGenericPingHandler<T> : IRequestHandler<VoidGenericPing<T>>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L101"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 105,
+      "declaration": "public VoidGenericPingHandler(Dependency dependency) => _dependency = dependency;",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L105"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 107,
+      "declaration": "public Task Handle(VoidGenericPing<T> request, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L107"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 115,
+      "declaration": "public class PongExtension : Pong",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L115"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 120,
+      "declaration": "public class TestClass1PingRequestHandler : IRequestHandler<VoidGenericPing<PongExtension>>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L120"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 124,
+      "declaration": "public TestClass1PingRequestHandler(Dependency dependency) => _dependency = dependency;",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L124"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 126,
+      "declaration": "public Task Handle(VoidGenericPing<PongExtension> request, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L126"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 133,
+      "declaration": "public interface ITestInterface1 { }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L133"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 134,
+      "declaration": "public interface ITestInterface2 { }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L134"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 135,
+      "declaration": "public interface ITestInterface3 { }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L135"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 137,
+      "declaration": "public class TestClass1 : ITestInterface1 { }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L137"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 138,
+      "declaration": "public class TestClass2 : ITestInterface2 { }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L138"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 139,
+      "declaration": "public class TestClass3 : ITestInterface3 { }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L139"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 141,
+      "declaration": "public class MultipleGenericTypeParameterRequest<T1, T2, T3> : IRequest<int>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L141"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 146,
+      "declaration": "public int Foo { get; set; }",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L146"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 149,
+      "declaration": "public class MultipleGenericTypeParameterRequestHandler<T1, T2, T3> : IRequestHandler<MultipleGenericTypeParameterRequest<T1, T2, T3>, int>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L149"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 156,
+      "declaration": "public MultipleGenericTypeParameterRequestHandler(Dependency dependency) => _dependency = dependency;",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L156"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 158,
+      "declaration": "public Task<int> Handle(MultipleGenericTypeParameterRequest<T1, T2, T3> request, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L158"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 165,
+      "declaration": "public class TimeoutBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L165"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 168,
+      "declaration": "public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L168"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 177,
+      "declaration": "public class TimeoutRequest : IRequest",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L177"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 181,
+      "declaration": "public class TimeoutRequest2 : IRequest<int>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L181"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 185,
+      "declaration": "public class TimeoutRequestHandler : IRequestHandler<TimeoutRequest>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L185"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 189,
+      "declaration": "public TimeoutRequestHandler(Dependency dependency) => _dependency = dependency;",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L189"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 191,
+      "declaration": "public async Task Handle(TimeoutRequest request, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L191"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 199,
+      "declaration": "public class TimeoutRequest2Handler : IRequestHandler<TimeoutRequest2, int>",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L199"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 203,
+      "declaration": "public TimeoutRequest2Handler(Dependency dependency) => _dependency = dependency;",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L203"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 205,
+      "declaration": "public async Task<int> Handle(TimeoutRequest2 request, CancellationToken cancellationToken)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L205"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 215,
+      "declaration": "public async Task Should_resolve_main_handler()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L215"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 223,
+      "declaration": "public async Task Should_resolve_main_void_handler()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L223"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 231,
+      "declaration": "public async Task Should_resolve_main_handler_via_dynamic_dispatch()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L231"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 241,
+      "declaration": "public async Task Should_resolve_main_void_handler_via_dynamic_dispatch()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L241"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 252,
+      "declaration": "public async Task Should_resolve_main_handler_by_specific_interface()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L252"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 260,
+      "declaration": "public async Task Should_resolve_main_handler_by_given_interface()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L260"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 270,
+      "declaration": "public Task Should_raise_execption_on_null_request() => Should.ThrowAsync<ArgumentNullException>(async () => await _mediator.Send(default!));",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L270"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 273,
+      "declaration": "public async Task Should_resolve_generic_handler()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L273"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 285,
+      "declaration": "public async Task Should_resolve_generic_void_handler()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L285"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 294,
+      "declaration": "public async Task Should_resolve_multiple_type_parameter_generic_handler()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L294"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 303,
+      "declaration": "public async Task Should_resolve_closed_handler_if_defined()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L303"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 327,
+      "declaration": "public async Task Should_resolve_open_handler_if_not_defined()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L327"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 350,
+      "declaration": "public async Task TimeoutBehavior_Void_Should_Cancel_Long_Running_Task_And_Throw_Exception()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L350"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 362,
+      "declaration": "public async Task TimeoutBehavior_NonVoid_Should_Cancel_Long_Running_Task_And_Throw_Exception()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L362"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 9,
+      "declaration": "public class UnitTests",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L9"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 12,
+      "declaration": "public async Task Should_be_equal_to_each_other()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L12"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 23,
+      "declaration": "public void Should_be_equitable()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L23"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 34,
+      "declaration": "public void Should_tostring()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L34"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 41,
+      "declaration": "public void Should_compareto_as_zero()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L41"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 49,
+      "declaration": "public static object[][] ValueData()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L49"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 65,
+      "declaration": "public static object[][] CompareToValueData()",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L65"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 70,
+      "declaration": "public void Should_be_equal(object value, bool isEqual)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L70"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 82,
+      "declaration": "public void Should_compareto_value_as_zero(object value)",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L82"
+    }
+  ],
+  "test_method_candidates": [
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 50,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L50"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 68,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L68"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 89,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L89"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 107,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L107"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 126,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L126"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 158,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L158"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 168,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L168"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 191,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L191"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 205,
+      "method": "Handle",
+      "attribute_candidate": false,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L205"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 215,
+      "method": "Should_resolve_main_handler",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L215"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 223,
+      "method": "Should_resolve_main_void_handler",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L223"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 231,
+      "method": "Should_resolve_main_handler_via_dynamic_dispatch",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L231"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 241,
+      "method": "Should_resolve_main_void_handler_via_dynamic_dispatch",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L241"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 252,
+      "method": "Should_resolve_main_handler_by_specific_interface",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L252"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 260,
+      "method": "Should_resolve_main_handler_by_given_interface",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L260"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 270,
+      "method": "Should_raise_execption_on_null_request",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L270"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 273,
+      "method": "Should_resolve_generic_handler",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L273"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 285,
+      "method": "Should_resolve_generic_void_handler",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L285"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 294,
+      "method": "Should_resolve_multiple_type_parameter_generic_handler",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L294"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 303,
+      "method": "Should_resolve_closed_handler_if_defined",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L303"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 327,
+      "method": "Should_resolve_open_handler_if_not_defined",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L327"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 350,
+      "method": "TimeoutBehavior_Void_Should_Cancel_Long_Running_Task_And_Throw_Exception",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L350"
+    },
+    {
+      "path": "test/MediatR.Tests/SendTests.cs",
+      "line": 362,
+      "method": "TimeoutBehavior_NonVoid_Should_Cancel_Long_Running_Task_And_Throw_Exception",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/SendTests.cs#L362"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 12,
+      "method": "Should_be_equal_to_each_other",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L12"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 23,
+      "method": "Should_be_equitable",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L23"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 34,
+      "method": "Should_tostring",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L34"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 41,
+      "method": "Should_compareto_as_zero",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L41"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 70,
+      "method": "Should_be_equal",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L70"
+    },
+    {
+      "path": "test/MediatR.Tests/UnitTests.cs",
+      "line": 82,
+      "method": "Should_compareto_value_as_zero",
+      "attribute_candidate": true,
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/test/MediatR.Tests/UnitTests.cs#L82"
+    }
+  ],
+  "declared_references": [
+    {
+      "repo": "dotj-mediator",
+      "kind": "PackageReference",
+      "name": "IsExternalInit",
+      "file": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj"
+    },
+    {
+      "repo": "dotj-mediator",
+      "kind": "PackageReference",
+      "name": "MediatR.Contracts",
+      "file": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj"
+    },
+    {
+      "repo": "dotj-mediator",
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj"
+    },
+    {
+      "repo": "dotj-mediator",
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj"
+    },
+    {
+      "repo": "dotj-mediator",
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj"
+    },
+    {
+      "repo": "dotj-mediator",
+      "kind": "PackageReference",
+      "name": "Microsoft.IdentityModel.JsonWebTokens",
+      "file": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj"
+    },
+    {
+      "repo": "dotj-mediator",
+      "kind": "PackageReference",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj"
+    },
+    {
+      "repo": "dotj-mediator",
+      "kind": "PackageReference",
+      "name": "MinVer",
+      "file": "src/MediatR/MediatR.csproj",
+      "url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/MediatR.csproj"
+    }
+  ]
+}

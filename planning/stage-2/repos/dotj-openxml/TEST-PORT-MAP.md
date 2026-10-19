@@ -1,0 +1,44 @@
+# DJ-058 .j OpenXML: test-port map
+
+## Evidence versus designed fixtures
+
+Source method rows below are lexical candidates from retrieved files. They are not all verified runnable tests, not a full upstream test census, and not proof of conformance. Attribute candidates identify nearby test annotations only. E03 must discover actual cases with the pinned upstream runner and assign them by behavior. Synthetic fixture IDs below are newly designed acceptance cases, never invented upstream identifiers.
+
+| Source candidate | Method | Nearby test annotation |
+|---|---|---|
+| [test/DocumentFormat.OpenXml.Tests/OpenXmlPartTests.cs:17](https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests/OpenXmlPartTests.cs#L17) | GetStreamWrite | yes |
+| [test/DocumentFormat.OpenXml.Tests/OpenXmlPartTests.cs:47](https://github.com/dotnet/Open-XML-SDK/blob/431ab05cf160248cc3885a4a766026d4f8243792/test/DocumentFormat.OpenXml.Tests/OpenXmlPartTests.cs#L47) | GetStreamWriteNoUpdates | yes |
+
+## Designed acceptance fixtures
+
+| Fixture ID | Package | Expected observation | Evidence status |
+|---|---|---|---|
+| DJ-058-F01-01 | WP-01 | Traversal and duplicate-part attacks fail | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F01-02 | WP-01 | relationships resolve predictably | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F01-03 | WP-01 | caller-owned streams remain open according to options | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F02-01 | WP-02 | Generated models compile | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F02-02 | WP-02 | unknown extensions survive supported round trips | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F02-03 | WP-02 | schema licensing/provenance accompanies generation inputs | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F03-01 | WP-03 | Every part family has a coverage state | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F03-02 | WP-03 | unsupported extensions remain readable/preservable where declared | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F03-03 | WP-03 | model support is not equated with rendering | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F04-01 | WP-04 | Validation reports part/path details | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F04-02 | WP-04 | alternate-content handling follows profile | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F04-03 | WP-04 | large documents can be processed without full DOM where supported | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F05-01 | WP-05 | Security limits prevent resource exhaustion | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F05-02 | WP-05 | preservation losses are reported | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-058-F05-03 | WP-05 | no Java office library replaces owned implementation | Designed; map actual upstream case or specify independent oracle in E03 |
+
+## Differential runner design
+
+Use a versioned, language-neutral fixture envelope: fixture ID; input bytes/value schema; options; seed; clock/culture/timezone; platform requirements; expected output/errors/events/resource counters; allowed normalization; source pin; oracle/toolchain identity. Encode decimal and 64-bit integers as strings when transport would lose precision. Keep binary payloads exact with checksums. Run C# oracle and future Java implementation as separate processes, compare only approved normalized observables, preserve raw outputs, and classify mismatch as regression, documented adaptation or unresolved investigation. Do not normalize away ordering, precision, security failures or resource leaks.
+
+## Required test dimensions
+
+Office document round trips; part relationships; malformed ZIP/XML; schema constraints; markup compatibility; signatures.
+
+Add negative inputs and each cleanup/cancellation edge from the architecture. Concurrency tests use controlled scheduling/barriers and fake clocks, with stress tests supplemental. Protocol/native/UI features use real reference processes/devices in the declared matrix. Performance budgets must be measured and agreed from baseline workloads; this plan invents no benchmark numbers.
+
+## Porting completion
+
+Every public feature has mapped cases or an explicit independent-oracle rationale. Every skip has a reason and blocking capability. Run the same immutable fixture payloads across environments; store results with source/toolchain/dependency locks. None of these future Java implementation tests has been executed by this planning task.

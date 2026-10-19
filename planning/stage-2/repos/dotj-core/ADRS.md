@@ -1,19 +1,20 @@
-# Architecture decision records
+# DJ-001 .j Core: architecture decisions
 
-All decisions below are **provisional planning proposals**. They are not owner approval of unresolved scope/licensing or frozen public APIs.
+Status: provisional planning decisions, reviewable without starting implementation. No additional user answer is required to complete these written plans.
 
-| ADR | Proposal | Reason | Consequence / validation needed |
+| ADR | Decision | Reason | Reopen when |
 |---|---|---|---|
-| CORE-ADR-001 | Keep the JDK JVM; adapt libraries independently | Rebuilding CLR is a separate undertaking | CoreCLR/Mono/AOT remain explicit feasibility tracks, not completed ports |
-| CORE-ADR-002 | Use independent core artifacts | Avoid a universal dependency and cyclic optional providers | Validate JPMS/artifact graph at module level |
-| CORE-ADR-003 | Keep default DI in core and Autofac port in container | Actual upstream ownership differs | Both use shared DI interfaces only where contracts align |
-| CORE-ADR-004 | Use explicit type tokens and keyed-service identities | Java erasure cannot represent all .NET service keys with Class alone | Generic variance, open generics and null-key behavior need acceptance fixtures |
-| CORE-ADR-005 | Use explicit cancellation/context contracts | Java interruption/future cancellation differ from .NET | No wholesale ExecutionContext parity; preserve observed callback semantics where declared |
-| CORE-ADR-006 | Distinguish async close from AutoCloseable | Blocking an async-only resource can deadlock or change behavior | Document sync-versus-async disposal preference and failure aggregation |
-| CORE-ADR-007 | Preserve mutable configuration compatibility profile | Observed reload/set behavior is not an atomic snapshot API | Any snapshot API is a separately labeled Java extension |
-| CORE-ADR-008 | Keep System.Text.Json and Newtonsoft.Json profiles distinct | Different upstream sources and behavior | Shared codec ownership requires later design; never silently substitute dotj-json |
-| CORE-ADR-009 | Keep source pin for analysis; defer release baseline | Snapshot declares a prerelease SDK | Select release tag or explicitly accept prerelease scope before implementation readiness |
-| CORE-ADR-010 | Separate declared dependencies from restored closure | MSBuild imports/conditions are unevaluated | Build-aware dependency extraction is a remaining work package |
-| CORE-ADR-011 | Record inventory directories before claiming API completeness | Root tree truncation previously obscured scope | All 218 directory entries retained; unsampled groups remain pending |
+| A01 | JDK 25 non-preview as the portable desktop/server language/API proposal; exact binary lock remains required | Avoid framework substitution and preview API dependency | Platform backend requires a smaller language/API subset or vendor qualification fails |
+| A02 | Own this product behavior; reuse JDK primitives and explicitly reviewed narrow platform/native dependencies | Reproduce base-library contracts on the JVM while retaining the JDK VM, GC, threads and standard collections. | A dependency cannot meet required semantics or redistribution obligations |
+| A03 | Use the contract/module split in JAVA-ARCHITECTURE | Separate portable behavior from integrations and lifecycle ownership | Which base APIs need adapters rather than direct JDK usage? Keep reflection emit, unsafe pointers, intrinsics and NativeAOT as explicit feasibility items. |
+| A04 | Preserve upstream capability families with explicit Java adaptations | Define decimal, unsigned numeric, culture, DateTime, encoding, exception and disposal semantics; Java erasure and memory-model differences preclude CLR binary compatibility. | Source audit discovers a missing family or incompatible assumption |
+| A05 | Treat sampled source pin as analysis evidence; qualify a release/oracle before source-derived implementation | Default branch and root license are insufficient release evidence | E01 selects a different immutable release or resolves rights |
+| A06 | Use owned neutral fixture format and standalone bootstrap runner | Avoid circular reliance on unfinished SDK/test/registry products | The shared runners can consume the same fixtures without semantic changes |
 
-Rejected as planning defaults: a new JVM; wrappers around existing Java frameworks; replacing default DI with Autofac semantics; using Java Optional for present-null configuration; treating all core JSON behavior as Newtonsoft behavior; inferring stable-release support from a development source snapshot.
+## Product-specific planning decisions
+
+Start with a capability census and semantic substrate; isolate Extensions abstractions; then partition portable libraries from runtime research.
+
+Scope census: compat-primitives, text-globalization, io-adapters, async-contracts, extensions-abstractions; track CLR/Mono/NativeAOT separately as unproven runtime undertakings.
+
+Each WP must append its API signatures, state transitions, serialization/storage schema where applicable and failure/cleanup examples to these decisions before its implementation begins. The names in this package are sufficient for work decomposition, not a substitute for compiler-level public API review.

@@ -1,15 +1,20 @@
-# Apply the Stage-2 planning increment
+# Full Stage-2 plan for .j Frameworks
 
-This ZIP contains **additive planning files only**. It does not contain application code or changes to the existing Stage-1 documents.
+The complete written package covers all 66 repositories with 344 feature work packages, 1,032 named tasks and 1,053 designed acceptance cases.
 
-Intended repository: `C:\source\repos\dotj Frameworks`.
+Open [planning/stage-2/README.md](planning/stage-2/README.md), then [07-IMPLEMENTATION-START.md](planning/stage-2/07-IMPLEMENTATION-START.md).
 
-Extract the ZIP into that repository so the new index is:
+Copy the included `planning/stage-2` directory into your repository at `C:\source\repos\dotj Frameworks`. Merge the directory and replace matching Stage-2 files from the earlier core increment. Your existing Stage-1 plans remain in place. Review the resulting Git diff before committing. This package was not applied to your Windows repository automatically.
 
-`C:\source\repos\dotj Frameworks\planning\stage-2\README.md`
+In PowerShell, after copying:
 
-Keep the existing `planning` folder. If `planning/stage-2` already exists or has changed, review/merge instead of overwriting it. Optionally add a link to `planning/stage-2/README.md` in the repository's root README after inspecting the existing file.
+```powershell
+Set-Location 'C:\source\repos\dotj Frameworks'
+git status --short
+git diff --stat
+git add -- planning/stage-2
+git diff --cached --stat
+git commit -m "docs: add stage 2 plans for all 66 dotj repositories"
+```
 
-No Windows checkout modification, Azure DevOps commit or push was performed in this session. The current Stage-1 files were not verified against the remote because its URL/access was unavailable. Obtain the clone URL and an authorized access route before automatic integration; do not paste access tokens or passwords into chat.
-
-Start at `planning/stage-2/README.md`. Stage 2 is in progress, and implementation remains not started.
+Add a link to `planning/stage-2/README.md` from your existing planning README when convenient. The archive contains no application source implementation. Rights, full source audit and native feasibility gates are explicitly marked; complete written plans do not certify every repository ready for implementation or release.

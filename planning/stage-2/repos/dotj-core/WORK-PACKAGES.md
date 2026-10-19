@@ -1,112 +1,203 @@
-# Work packages
+# DJ-001 .j Core: work packages
 
-Status: **DRAFT, INCOMPLETE**. Analysis work may continue under the Stage-2 authorization. Implementation work below is a future plan and requires a later implementation instruction. No time estimates are assigned.
+This is the complete authored work breakdown for the retained capability families. All packages are **NOT STARTED** as implementation. Evidence gates are work, not hidden assumptions. Deliver one vertical feature slice at a time after its prerequisites; whole-product completion is not required to begin independent eligible slices.
 
-## Remaining detailed-analysis packages
+## E01: qualify source, release and rights
 
-| ID | Work | Prerequisite | Deliverable and acceptance | Status |
-|---|---|---|---|---|
-| CORE-A01 | Select release/source and oracle toolchain baseline | Current evidence pin | Verified immutable commit/tag, explicit release family or accepted prerelease profile, SDK/runtime versions/checksums; all reference files reconciled | OPEN |
-| CORE-A02 | Complete recursive module/source census | Untruncated library root inventory | All 218 directories enumerated; imports/shared/native/generated inputs mapped; every source branch retained or explicitly classified | IN PROGRESS: immediate-child inventory complete |
-| CORE-A03 | Semantic public API and test census | A01, A02 | Build/parser-aware symbol and attributed-test inventory with conditions and extraction reproducibility; no regex candidate count labeled as complete | IN PROGRESS: 8 reference files and 12 test files sampled |
-| CORE-A04 | Resolve dependency closure and license provenance | A01, A02 | Evaluated MSBuild references for chosen TFMs, build/test/runtime/native separation, notices and source eligibility decisions | OPEN: raw declarations extracted |
-| CORE-A05 | Finish cancellation/context state model | A01; inspected token source/tests | State transitions and linearization points for register/cancel/unregister/close/async-close/link/reset/timer races; explicit context adaptation | IN PROGRESS |
-| CORE-A06 | Finish DI and scope contracts | A01, A05 | Complete keyed/open-generic/constructor/caching/validation matrix; ownership and disposal failure semantics with test IDs | IN PROGRESS |
-| CORE-A07 | Finish configuration/change/options contracts | A01, A05 | Presence/keys/provider ordering/reload failure/re-registration/options startup/cache matrix; async scope tied to release | IN PROGRESS |
-| CORE-A08 | Analyze logger/host implementation and native adapters | A01, A06, A07 | Source-backed logging/lifecycle order, failure and shutdown contract; OS adapters separate | OPEN: reference declarations sampled |
-| CORE-A09 | Map all remaining BCL and runtime groups | A02, A03 | Per-feature JDK/own-Java/adaptation/feasibility disposition, dependencies and test map; no dropped directories | OPEN |
-| CORE-A10 | Reconcile ecosystem ownership and approve contract draft | A05-A09 | Update core/extensions/json/openxml/mail/resilience ownership and artifact DAG; consumers acknowledge compatibility contracts | OPEN |
+Owner role: repository maintainer with licensing reviewer where required. Inputs: PINNED-UPSTREAM and DEPENDENCIES-AND-LICENSES. Tasks: choose the reference release/profile; verify immutable archive and submodules; resolve source reuse and notice obligations; lock the C# oracle and Java binary/toolchain. Outputs: baseline-lock.json, eligibility record and exact reproduction command. Acceptance: no moving refs; all required inputs have hashes; a runnable reference baseline or explicitly justified alternative oracle exists; rights-blocked work remains blocked.
 
-A01/A04 are readiness gates, not instructions to stop independent source analysis. A02/A09 may require many later increments. This document does not pretend the current foundation slice covers the entire runtime repository.
+## E02: close semantic inventory and dependencies
 
-## Future implementation packages: first foundation slice
+Owner role: API/build maintainer. Prerequisite: E01 analysis identity; eligibility required before restricted reuse. Tasks: evaluate all conditional project references and generated inputs; extract public API symbols with signatures and target conditions; map every source module/member to a feature package; classify missing upstream sources/native/assets. Outputs: semantic inventory, resolved dependency graph, source-to-feature ledger and API contract diffs. Acceptance: every listed module and discovered generated family has a disposition; unresolved behavior is tracked rather than omitted; base artifact dependency graph is acyclic.
 
-All rows have implementation status **NOT STARTED / NOT AUTHORIZED**. Acceptance criteria are proposed and must be frozen after the corresponding analysis packages. The fixture references are from [TEST-PORT-MAP](TEST-PORT-MAP.md).
+## E03: establish executable fixtures and contract acceptance
 
-### CORE-W01: build and independent fixture harness
+Owner role: compatibility/test maintainer. Prerequisites: E01 and the relevant E02 slice. Tasks: discover true upstream test IDs; map source tests to the designed fixture IDs; run and retain reference outputs; review state transitions, error/cleanup rules and Java adaptations. Outputs: versioned fixture corpus, oracle result manifest and reviewed contract for the first slice. Acceptance: fixtures reproduce under locked inputs; no synthetic ID is presented as an upstream test; deviations and untested cases are explicit.
 
-- Prerequisites: A01, relevant A04 decisions; later implementation authorization.
-- Modules/output: JDK-only compilation/package commands, independent assertions, paired C#/Java fixture envelope and deterministic result comparison.
-- Acceptance: builds from a clean directory with locked tool inputs; no Java framework dependencies; reports failures independently of .j DI/logging; emits tool versions, revision and environment; reference execution can be disabled without pretending it passed.
-- Validation: one controlled pass and one intentional mismatch through the comparison path; no dependence on the code under test to determine success.
+## Feature package order
 
-### CORE-W02: type identity, context and error vocabulary
+Numbers give the proposed review/integration sequence. Independent contract research can proceed in parallel; this is not an invented delivery calendar. Each package requires E01-E03 for its own slice and only the actual predecessor contracts it consumes. Use stubs strictly for contract tests, never as proof of compatibility.
 
-- Prerequisites: W01, A05/A06 contract decisions.
-- Modules/output: contracts and type-token/service-key vocabulary; explicit .j context carrier; error categories retaining causes and cancellation identity.
-- Acceptance: parameterized service types remain distinct; context captures bounded immutable values; mutable thread-local data is not silently copied; raw/null/keyed identities follow the frozen contract; exceptions preserve causes without revealing secrets.
-- Validation: type identity and context migration fixtures, including executor boundaries and equality collisions.
+### WP-01: Foundation types and ownership
 
-### CORE-W03: cancellation state and callback registration
+**Objective:** deliver the behavior represented by TypeToken<T>, Outcome<T>, AsyncCloseable, explicit ContextSnapshot.
 
-- Prerequisites: W02, completed A05 state model.
-- Modules/output: cancellation token/source/registration, cancellation outcome and explicit context dispatch.
-- Acceptance: requested state precedes callbacks; sequential callback ordering and exception modes match declared profile; late registration executes synchronously; unregister and close have different completion semantics; self-close does not deadlock; repeated operations follow disposed-state contract.
-- Validation: CORE-TEST-001 through 008, plus barrier-controlled races and outer deadlock watchdog. Linked tokens, timers and reset remain in this package scope; do not call it complete after only synchronous callbacks.
+**Prerequisites:** E01; relevant E02/E03 closure; shared core/toolchain contract baseline. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
-### CORE-W04: async ownership and resource disposal
+**Tasks:**
 
-- Prerequisites: W03, A06 disposal matrix.
-- Modules/output: async close contract and reusable disposal coordination rules.
-- Acceptance: no default blocking of async-only resources; deterministic order/failure aggregation; reference-identity deduplication; borrowed resources not disposed; async completion represents finished cleanup; cancellation does not falsely imply rollback.
-- Validation: dual sync/async resources, failing close, duplicate aliases and cancellation during cleanup; scope-specific tests repeated after W06.
+1. `DJ-001-WP-01-T1`: Specify nullability, type identity and exception-cause mapping.
+1. `DJ-001-WP-01-T2`: Define borrowed versus owned resource lifetimes and close failure ordering.
+1. `DJ-001-WP-01-T3`: Define context capture and executor transfer without copying arbitrary thread locals.
 
-### CORE-W05: DI abstractions and immutable registration model
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
 
-- Prerequisites: W02, W04, A06 keyed/generic/constructor decisions.
-- Modules/output: service descriptors, lifetimes, scopes, keyed/unkeyed identities and provider contracts.
-- Acceptance: all selected upstream public declarations have a retained/adapted/blocked mapping; registration ordering and ownership are explicit; default DI and Autofac remain separate contracts; no dependency on dotj-container.
-- Validation: declaration mapping and multi-registration/required-missing behavior; parameterized keys and constructor ambiguity fixtures.
+**Acceptance:** Equal parameterized types share identity; different generic arguments do not; supplied resources are never closed implicitly; context values do not leak between requests.
 
-### CORE-W06: default DI resolution and scope engine
+**Validation:** run this package’s `DJ-001-F01-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
-- Prerequisites: W05, complete A06.
-- Modules/output: default provider resolution, lifetime caches, validation and close coordination.
-- Acceptance: singleton identity under concurrency; correct scope ownership; supplied instances stay caller-owned; scope/root disposal reject later resolution as declared; all owned resources receive cleanup despite failures; optional optimized activation behaves like the reflection path.
-- Validation: CORE-TEST-009 through 017 and full selected DI specification suite; constructor failures, factory recursion, scope disposal races and generic constraint cases.
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
-### CORE-W07: change-token primitives
+### WP-02: Cancellation and asynchronous operations
 
-- Prerequisites: W03/W04, A07 notification model.
-- Modules/output: token generations, subscriptions and sync/async callback adapters.
-- Acceptance: new generation after notification; no re-registration after subscription close; async consumer completion precedes next registration; producer/synchronous/asynchronous error paths follow frozen semantics; no unrelated ambient context capture.
-- Validation: CORE-TEST-024 through 026 plus source producer failures and simultaneous disposal.
+**Objective:** deliver the behavior represented by CancellationToken, CancellationSource, Registration, Deadline.
 
-### CORE-W08: configuration abstractions and root behavior
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-01 only where consumed. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
-- Prerequisites: W07, A07 key/presence decisions.
-- Modules/output: provider/section/root interfaces, memory provider and configuration root.
-- Acceptance: present-null distinct from missing; last provider wins; writes reach all providers; empty-provider write fails; section existence and child ordering match declared profile; reload-token generation changes; partial reload failure semantics documented and tested.
-- Validation: CORE-TEST-018 through 023 plus Unicode keys and multi-provider failure scenarios. JSON/XML/file providers are separate adapters, not implicit completed features.
+**Tasks:**
 
-### CORE-W09: named options, validation and cache behavior
+1. `DJ-001-WP-02-T1`: Specify register/cancel/link/timer/reset state transitions and linearization points.
+1. `DJ-001-WP-02-T2`: Separate unregister, blocking close, async close and future cancellation.
+1. `DJ-001-WP-02-T3`: Define callback order, failure aggregation and explicit context dispatch.
 
-- Prerequisites: W06-W08, full A07 including release-specific async validation.
-- Modules/output: named options/value/snapshot/monitor contracts, validation and cache integration.
-- Acceptance: configure/post-configure/validate order; monitor invalidation by name; no invalid value published; subscription cleanup; interface-specific lifetime/cache behavior; async startup capability only claimed after its full test matrix passes.
-- Validation: CORE-TEST-027 through 032 and selected async startup failure/cancellation/cache-race cases. Do not replace sync validation with blocking on arbitrary stages.
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
 
-### CORE-W10: logging contracts and runtime logger adapters
+**Acceptance:** Late registration runs synchronously; sequential callbacks use the declared LIFO profile; self-close cannot deadlock; cancelAsync completion waits for callbacks; token identity survives source disposal as specified.
 
-- Prerequisites: W02 and completed A08 logging analysis.
-- Modules/output: logger interfaces, scope/context, provider fan-out and separately packaged DI/configuration integration.
-- Acceptance: no dependency from contracts on a concrete logger; formatter/level/filter/scope semantics verified; no accidental Serilog destructuring claim; no scope leaks across reused threads.
-- Validation: actual upstream logging tests still need selection. This package is blocked from implementation readiness until those are mapped.
+**Validation:** run this package’s `DJ-001-F02-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
-### CORE-W11: host composition and lifecycle
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
-- Prerequisites: W06, W08-W10 and completed A08 hosting analysis.
-- Modules/output: host/service abstractions, startup/shutdown coordination and explicit lifetime ownership.
-- Acceptance: frozen service order, failure rollback, stop timeout and cancellation semantics; resource cleanup completes or reports bounded failure; OS service integration remains separate and platform-tested.
-- Validation: select upstream host lifecycle tests, then add startup failure, stop hangs, repeated stop, JVM process signals and cleanup traces.
+### WP-03: Default DI and configuration
 
-### CORE-W12: numeric and time compatibility profiles
+**Objective:** deliver the behavior represented by ServiceKey<T>, ServiceDescriptor, Scope, ConfigValue, ConfigurationRoot.
 
-- Prerequisites: W01, completed corresponding A09 numeric/time work.
-- Modules/output: decimal/unsigned/time representation and conversion adapters for the declared API subset.
-- Acceptance: range/overflow/scale/rounding, ticks/Kind/time-zone distinctions and serialization representation are explicit; BigDecimal/Instant use does not erase observable metadata.
-- Validation: exact upstream vectors plus cross-runtime overflow, signed-zero/scale, locale parsing and DST cases. This package is not ready for coding while the arithmetic/globalization audit is incomplete.
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-02 only where consumed. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
-## Whole-core completion
+**Tasks:**
 
-W01-W12 are only the first foundation workstream. Additional packages must be created for every remaining retained group after A09. No full-core completion percentage is assigned. Whole-core readiness requires the complete module/API/test map, dependency/license decisions and closed cross-product boundaries, followed by separately authorized implementation and actual validation.
+1. `DJ-001-WP-03-T1`: Map keyed/open-generic resolution, constructor selection and lifetime caches.
+1. `DJ-001-WP-03-T2`: Specify present-null configuration, last-provider lookup and write-to-all semantics.
+1. `DJ-001-WP-03-T3`: Define scope deduplication, reverse cleanup and reload-generation behavior.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Concurrent singleton resolves return one published identity; aliases close once; supplied singleton stays caller-owned; empty-provider writes fail; failed reload does not acquire an invented atomic guarantee.
+
+**Validation:** run this package’s `DJ-001-F03-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-04: Options logging and hosting
+
+**Objective:** deliver the behavior represented by OptionsFactory<T>, OptionsMonitor<T>, Logger, HostedService, Host.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-03 only where consumed. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-001-WP-04-T1`: Specify configure/postconfigure/validate order and named cache lifetimes.
+1. `DJ-001-WP-04-T2`: Define structured state/formatter scopes independent from concrete loggers.
+1. `DJ-001-WP-04-T3`: Specify startup, background failure, stop deadlines and OS-lifetime adapters.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Invalid options never publish as valid; monitor close removes subscriptions; disabled log handling follows declared formatter behavior; partial host startup releases completed services in defined order.
+
+**Validation:** run this package’s `DJ-001-F04-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-05: Numeric text and time compatibility
+
+**Objective:** deliver the behavior represented by DotjDecimal, DotjDateTime, EncodingProfile, CultureProfile.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-04 only where consumed. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-001-WP-05-T1`: Specify range, scale, signed representation, overflow and rounding vectors.
+1. `DJ-001-WP-05-T2`: Map UTF encoders, fallback behavior, normalization and culture comparisons.
+1. `DJ-001-WP-05-T3`: Separate wall-clock calendar operations from monotonic deadlines.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Decimal bit-preserving paths retain scale/sign; invalid byte sequences follow explicit modes; Turkish casing and DST ambiguity are fixture-covered; Instant conversion cannot discard unspecified Kind silently.
+
+**Validation:** run this package’s `DJ-001-F05-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-06: Collections LINQ and expression services
+
+**Objective:** deliver the behavior represented by Sequence<T>, QueryExpression, ExpressionVisitor, CollectionAdapters.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-05 only where consumed. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-001-WP-06-T1`: Partition standard JDK reuse from .NET-observable ordering/equality adapters.
+1. `DJ-001-WP-06-T2`: Specify lazy enumeration, exception timing and parallel-query cancellation.
+1. `DJ-001-WP-06-T3`: Design explicit expression IR for consumers without introspecting arbitrary Java lambdas.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Enumerator disposal and deferred exceptions match profiles; grouping/null/equality differences are explicit; query IR round trips preserve node types and constants; provider translation has no silent client execution.
+
+**Validation:** run this package’s `DJ-001-F06-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-07: I/O networking and data contracts
+
+**Objective:** deliver the behavior represented by OwnedStream, Pipe, HttpMessage, SocketChannelAdapter, DataRecord.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-06 only where consumed. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-001-WP-07-T1`: Map files, archives, pipelines, channels and connection lifecycles.
+1. `DJ-001-WP-07-T2`: Separate .NET HTTP/mail/socket profiles from web/server and MailKit products.
+1. `DJ-001-WP-07-T3`: Specify JDBC/data abstractions and local transaction enlistment boundaries.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** Partial reads/writes and half-closes retain data; bounded buffers enforce backpressure; file handles close on failure; network cancellation does not imply rollback; unsupported distributed enlistment fails explicitly.
+
+**Validation:** run this package’s `DJ-001-F07-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-08: Formats serialization security and reflection
+
+**Objective:** deliver the behavior represented by SystemJsonProfile, XmlModel, CryptoProvider, MetadataReader, ReflectionAdapter.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-07 only where consumed. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-001-WP-08-T1`: Inventory runtime JSON, XML, CBOR, ASN.1, packaging and serializer profiles.
+1. `DJ-001-WP-08-T2`: Use JDK crypto primitives while defining algorithm/encoding/key contracts.
+1. `DJ-001-WP-08-T3`: Separate reflection metadata and dynamic generation from CLR loading/IL execution.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** System.Text.Json tests cannot be satisfied merely by Newtonsoft behavior; unsafe type activation is disabled; signature bytes and canonicalization use vectors; CLR assembly execution is never claimed from metadata parsing.
+
+**Validation:** run this package’s `DJ-001-F08-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+### WP-09: Native runtime and complete BCL disposition
+
+**Objective:** deliver the behavior represented by PlatformCapability, NativeBinding, RuntimeCapabilityMatrix.
+
+**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-08 only where consumed. Proposed product edges: No product dependency in the base foundation. Native/asset/protocol feasibility gates apply only to the affected adapter.
+
+**Tasks:**
+
+1. `DJ-001-WP-09-T1`: Assign every library directory and source branch to a retained workstream.
+1. `DJ-001-WP-09-T2`: Specify COM, Windows auth, intrinsics, AOT, browser and VM feasibility experiments.
+1. `DJ-001-WP-09-T3`: Define explicit fail-fast capability discovery and platform artifact packaging.
+
+**Outputs:** a versioned contract/ADR for this capability; proposed Java module(s) from JAVA-ARCHITECTURE; owned implementation after authorization; mapped upstream and designed acceptance fixtures; a migration example; dependency/notice updates for newly introduced inputs.
+
+**Acceptance:** All 218 known library directories have ownership and test routes; unsupported backend calls report capability gaps; no custom VM is assumed; a backend remains blocked until a reproducible execution experiment succeeds.
+
+**Validation:** run this package’s `DJ-001-F09-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+
+**Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
+
+## Q01: integrated qualification and release handoff
+
+Prerequisites: all advertised feature packages and their dependency gates. Tasks: run compatibility matrix and clean builds; validate notices/SBOM and platform artifacts; review security-sensitive paths and performance evidence; verify examples/migration guides and versioning; produce exact supported/deferred/blocked capability list. Outputs: release evidence manifest, compatibility profile and release checklist. Acceptance: no unsupported feature is advertised; all claimed fixtures pass on the declared matrix; every shipped input has provenance/rights evidence; reproducible build differences are explained. Publication is a later action, not performed by this plan.

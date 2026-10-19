@@ -1,0 +1,21 @@
+# DJ-027 .j Resilience: feature compatibility matrix
+
+Cancellation cannot safely stop arbitrary Java work. Separate timeout completion from underlying operation termination; preserve strategy ordering.
+
+| Package | Retained capability | Adaptation | Required observable behavior | Status |
+|---|---|---|---|---|
+| WP-01 | Pipeline and execution context | Proposed Java contracts: ResiliencePipeline, ExecutionContext, Outcome | Concurrent calls do not share attempt counters; context cleanup runs on every outcome; caller cancellation remains distinguishable from timeout | Planned; evidence gates open |
+| WP-02 | Retry timeout and fallback | Proposed Java contracts: RetryDecision, TimeoutBudget, FallbackResult | Deterministic fake time reproduces attempts; retry-after handling is bounded; non-replayable operations require explicit caller policy | Planned; evidence gates open |
+| WP-03 | Circuit breaker and concurrency limits | Proposed Java contracts: CircuitState, ProbeLease, PermitLease | Only allowed probes enter half-open state; cancellation returns permits once; rejected work reports strategy-specific outcomes | Planned; evidence gates open |
+| WP-04 | Hedging and result disposal | Proposed Java contracts: HedgeAttempt, WinnerSelection, ResultDisposer | No hedge occurs for ineligible requests; losing response bodies are closed; simultaneous completions yield one returned result | Planned; evidence gates open |
+| WP-05 | Telemetry adapters and deterministic tests | Proposed Java contracts: StrategyEvent, HttpResilienceAdapter, VirtualClock | Telemetry excludes payload secrets; retry fixtures are reproducible; composition order has explicit examples and acceptance outcomes | Planned; evidence gates open |
+
+## Claim rules
+
+API spelling compatibility, behavioral compatibility, protocol/file-format interoperability and deployment-platform support are separate profiles. Java contracts are proposals; they are not upstream class declarations. No CLR assembly compatibility is claimed. A feature becomes supported only after its mapped fixtures pass on the declared versions/platforms and remaining deviations are published. A feasibility failure keeps the feature visible with its evidence and alternatives.
+
+## Unresolved boundaries retained
+
+Timeout semantics and state sharing are high-risk contracts. Never default to retries for non-idempotent operations.
+
+Full source-to-feature coverage and semantic overload mapping are E02 outputs. This matrix covers the planned capability families; it is not a false claim that every upstream public member has already been semantically audited.

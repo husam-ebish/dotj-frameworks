@@ -1,0 +1,1452 @@
+{
+  "identity": {
+    "id": "DJ-020",
+    "name": "Dapper",
+    "url": "https://github.com/DapperLib/Dapper",
+    "repo": "dotj-sql",
+    "category": "Database access and serialization"
+  },
+  "source": {
+    "id": "DJ-020",
+    "repo": "dotj-sql",
+    "requested_upstream": "https://github.com/DapperLib/Dapper",
+    "notice_revision": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+    "effective_upstream": "https://github.com/DapperLib/Dapper",
+    "effective_revision": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+    "source_prefix": "",
+    "inspection_date": "2026-10-19",
+    "tree_scope": "recursive complete",
+    "paths": [
+      ".editorconfig",
+      ".gitattributes",
+      ".github/FUNDING.yml",
+      ".github/ISSUE_TEMPLATE/bug_report.md",
+      ".github/workflows/cla.yml",
+      ".github/workflows/main.yml",
+      ".github/workflows/release.yml",
+      ".gitignore",
+      "Build.csproj",
+      "Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj",
+      "Dapper.EntityFramework/Dapper.EntityFramework.csproj",
+      "Dapper.EntityFramework/DbGeographyHandler.cs",
+      "Dapper.EntityFramework/DbGeometryHandler.cs",
+      "Dapper.EntityFramework/Handlers.cs",
+      "Dapper.EntityFramework/PublicAPI.Shipped.txt",
+      "Dapper.EntityFramework/PublicAPI.Unshipped.txt",
+      "Dapper.ProviderTools/BulkCopy.cs",
+      "Dapper.ProviderTools/Dapper.ProviderTools.csproj",
+      "Dapper.ProviderTools/DbConnectionExtensions.cs",
+      "Dapper.ProviderTools/DbExceptionExtensions.cs",
+      "Dapper.ProviderTools/Internal/DynamicBulkCopy.cs",
+      "Dapper.ProviderTools/PublicAPI.Shipped.txt",
+      "Dapper.ProviderTools/PublicAPI.Unshipped.txt",
+      "Dapper.Rainbow/Dapper.Rainbow.csproj",
+      "Dapper.Rainbow/Database.Async.cs",
+      "Dapper.Rainbow/Database.cs",
+      "Dapper.Rainbow/IgnorePropertyAttribute.cs",
+      "Dapper.Rainbow/Snapshotter.cs",
+      "Dapper.Rainbow/SqlCompactDatabase.cs",
+      "Dapper.Rainbow/readme.md",
+      "Dapper.SqlBuilder/Dapper.SqlBuilder.csproj",
+      "Dapper.SqlBuilder/PublicAPI.Shipped.txt",
+      "Dapper.SqlBuilder/PublicAPI.Unshipped.txt",
+      "Dapper.SqlBuilder/Readme.md",
+      "Dapper.SqlBuilder/SqlBuilder.cs",
+      "Dapper.StrongName/Dapper.StrongName.csproj",
+      "Dapper.png",
+      "Dapper.sln.DotSettings",
+      "Dapper.sln.old",
+      "Dapper.slnx",
+      "Dapper.snk",
+      "Dapper/CommandDefinition.cs",
+      "Dapper/CommandFlags.cs",
+      "Dapper/CompiledRegex.cs",
+      "Dapper/CustomPropertyTypeMap.cs",
+      "Dapper/Dapper.csproj",
+      "Dapper/DataTableHandler.cs",
+      "Dapper/DbString.cs",
+      "Dapper/DefaultTypeMap.cs",
+      "Dapper/DynamicParameters.CachedOutputSetters.cs",
+      "Dapper/DynamicParameters.ParamInfo.cs",
+      "Dapper/DynamicParameters.cs",
+      "Dapper/ExplicitConstructorAttribute.cs",
+      "Dapper/Extensions.cs",
+      "Dapper/FeatureSupport.cs",
+      "Dapper/Global.cs",
+      "Dapper/NRT.cs",
+      "Dapper/Properties/AssemblyInfo.cs",
+      "Dapper/PublicAPI.Shipped.txt",
+      "Dapper/PublicAPI.Unshipped.txt",
+      "Dapper/PublicAPI/net461/PublicAPI.Shipped.txt",
+      "Dapper/PublicAPI/net461/PublicAPI.Unshipped.txt",
+      "Dapper/PublicAPI/net8.0/PublicAPI.Shipped.txt",
+      "Dapper/PublicAPI/net8.0/PublicAPI.Unshipped.txt",
+      "Dapper/PublicAPI/netstandard2.0/PublicAPI.Shipped.txt",
+      "Dapper/PublicAPI/netstandard2.0/PublicAPI.Unshipped.txt",
+      "Dapper/SimpleMemberMap.cs",
+      "Dapper/SqlDataRecordHandler.cs",
+      "Dapper/SqlDataRecordListTVPParameter.cs",
+      "Dapper/SqlMapper.Async.cs",
+      "Dapper/SqlMapper.CacheInfo.cs",
+      "Dapper/SqlMapper.DapperRow.Descriptor.cs",
+      "Dapper/SqlMapper.DapperRow.cs",
+      "Dapper/SqlMapper.DapperRowMetaObject.cs",
+      "Dapper/SqlMapper.DapperTable.cs",
+      "Dapper/SqlMapper.DeserializerState.cs",
+      "Dapper/SqlMapper.DontMap.cs",
+      "Dapper/SqlMapper.GridReader.Async.cs",
+      "Dapper/SqlMapper.GridReader.cs",
+      "Dapper/SqlMapper.ICustomQueryParameter.cs",
+      "Dapper/SqlMapper.IDataReader.cs",
+      "Dapper/SqlMapper.IDynamicParameters.cs",
+      "Dapper/SqlMapper.IMemberMap.cs",
+      "Dapper/SqlMapper.IParameterCallbacks.cs",
+      "Dapper/SqlMapper.IParameterLookup.cs",
+      "Dapper/SqlMapper.ITypeHandler.cs",
+      "Dapper/SqlMapper.ITypeMap.cs",
+      "Dapper/SqlMapper.Identity.cs",
+      "Dapper/SqlMapper.Link.cs",
+      "Dapper/SqlMapper.LiteralToken.cs",
+      "Dapper/SqlMapper.Settings.cs",
+      "Dapper/SqlMapper.TypeDeserializerCache.cs",
+      "Dapper/SqlMapper.TypeHandler.cs",
+      "Dapper/SqlMapper.TypeHandlerCache.cs",
+      "Dapper/SqlMapper.cs",
+      "Dapper/TableValuedParameter.cs",
+      "Dapper/TypeExtensions.cs",
+      "Dapper/UdtTypeHandler.cs",
+      "Dapper/WrappedDataReader.cs",
+      "Dapper/WrappedReader.cs",
+      "Dapper/XmlHandlers.cs",
+      "Directory.Build.props",
+      "Directory.Build.targets",
+      "Directory.Packages.props",
+      "License.txt",
+      "NonCLA.md",
+      "Readme.md",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Belgrade.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Dapper.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Dashing.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.EntityFramework.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.EntityFrameworkCore.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.HandCoded.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Linq2DB.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Linq2Sql.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Massive.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Mighty.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.NHibernate.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Norm.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.PetaPoco.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.RepoDB.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.ServiceStack.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.SqlMarshal.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.Susanoo.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.XPO.cs",
+      "benchmarks/Dapper.Tests.Performance/Benchmarks.cs",
+      "benchmarks/Dapper.Tests.Performance/Config.cs",
+      "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "benchmarks/Dapper.Tests.Performance/DapperCacheImpact.cs",
+      "benchmarks/Dapper.Tests.Performance/Dashing/DashingConfiguration.cs",
+      "benchmarks/Dapper.Tests.Performance/Dashing/Post.cs",
+      "benchmarks/Dapper.Tests.Performance/EntityFramework/EFContext.cs",
+      "benchmarks/Dapper.Tests.Performance/EntityFrameworkCore/EFCoreContext.cs",
+      "benchmarks/Dapper.Tests.Performance/Helpers/ORMColum.cs",
+      "benchmarks/Dapper.Tests.Performance/Helpers/ReturnColum.cs",
+      "benchmarks/Dapper.Tests.Performance/LegacyTests.cs",
+      "benchmarks/Dapper.Tests.Performance/Linq2DB/ConnectionStringSettings.cs",
+      "benchmarks/Dapper.Tests.Performance/Linq2DB/Linq2DBContext.cs",
+      "benchmarks/Dapper.Tests.Performance/Linq2DB/Linq2DbSettings.cs",
+      "benchmarks/Dapper.Tests.Performance/Linq2Sql/DataClasses.dbml",
+      "benchmarks/Dapper.Tests.Performance/Linq2Sql/DataClasses.dbml.layout",
+      "benchmarks/Dapper.Tests.Performance/Linq2Sql/DataClasses.designer.cs",
+      "benchmarks/Dapper.Tests.Performance/Massive/Massive.cs",
+      "benchmarks/Dapper.Tests.Performance/NHibernate/NHibernateHelper.cs",
+      "benchmarks/Dapper.Tests.Performance/NHibernate/Post.hbm.xml",
+      "benchmarks/Dapper.Tests.Performance/NHibernate/hibernate.cfg.xml",
+      "benchmarks/Dapper.Tests.Performance/PetaPoco/PetaPoco.cs",
+      "benchmarks/Dapper.Tests.Performance/Post.cs",
+      "benchmarks/Dapper.Tests.Performance/Program.cs",
+      "benchmarks/Dapper.Tests.Performance/SqlDataReaderHelper.cs",
+      "benchmarks/Dapper.Tests.Performance/XPO/Post.cs",
+      "benchmarks/Dapper.Tests.Performance/app.config",
+      "benchmarks/Directory.Build.props",
+      "build.cmd",
+      "build.ps1",
+      "docs/CNAME",
+      "docs/_config.yml",
+      "docs/_includes/head-custom.html",
+      "docs/assets/icon.png",
+      "docs/dapper-sponsor.png",
+      "docs/dapperplus.md",
+      "docs/dapperplus.png",
+      "docs/docs.csproj",
+      "docs/favicon.ico",
+      "docs/index.md",
+      "docs/readme.md",
+      "global.json",
+      "nuget.config",
+      "signatures/version1/cla.json",
+      "tests/Dapper.Tests/App.config",
+      "tests/Dapper.Tests/AsyncTests.cs",
+      "tests/Dapper.Tests/ConstructorTests.cs",
+      "tests/Dapper.Tests/Dapper.Tests.csproj",
+      "tests/Dapper.Tests/DataReaderTests.cs",
+      "tests/Dapper.Tests/DateTimeOnlyTests.cs",
+      "tests/Dapper.Tests/DecimalTests.cs",
+      "tests/Dapper.Tests/EnumTests.cs",
+      "tests/Dapper.Tests/Helpers/Attributes.cs",
+      "tests/Dapper.Tests/Helpers/Common.cs",
+      "tests/Dapper.Tests/Helpers/IsExternalInit.cs",
+      "tests/Dapper.Tests/Helpers/SqlServerTypesLoader.cs",
+      "tests/Dapper.Tests/Helpers/TransactedConnection.cs",
+      "tests/Dapper.Tests/Helpers/XunitSkippable.cs",
+      "tests/Dapper.Tests/LiteralTests.cs",
+      "tests/Dapper.Tests/MiscTests.cs",
+      "tests/Dapper.Tests/MultiMapTests.cs",
+      "tests/Dapper.Tests/NullTests.cs",
+      "tests/Dapper.Tests/ParameterTests.cs",
+      "tests/Dapper.Tests/PreferTypeHandlersForEnumsTests.cs",
+      "tests/Dapper.Tests/ProcedureTests.cs",
+      "tests/Dapper.Tests/ProviderTests.cs",
+      "tests/Dapper.Tests/Providers/DuckDBTests.cs",
+      "tests/Dapper.Tests/Providers/EntityFrameworkTests.cs",
+      "tests/Dapper.Tests/Providers/FirebirdTests.cs",
+      "tests/Dapper.Tests/Providers/Linq2SqlTests.cs",
+      "tests/Dapper.Tests/Providers/MySQLTests.cs",
+      "tests/Dapper.Tests/Providers/OLDEBTests.cs",
+      "tests/Dapper.Tests/Providers/PostgresqlTests.cs",
+      "tests/Dapper.Tests/Providers/SnowflakeTests.cs",
+      "tests/Dapper.Tests/Providers/SqliteTests.cs",
+      "tests/Dapper.Tests/QueryMultipleTests.cs",
+      "tests/Dapper.Tests/SharedTypes/Address.cs",
+      "tests/Dapper.Tests/SharedTypes/Bar1.cs",
+      "tests/Dapper.Tests/SharedTypes/Category.cs",
+      "tests/Dapper.Tests/SharedTypes/Comment.cs",
+      "tests/Dapper.Tests/SharedTypes/Dog.cs",
+      "tests/Dapper.Tests/SharedTypes/Enums.cs",
+      "tests/Dapper.Tests/SharedTypes/Foo1.cs",
+      "tests/Dapper.Tests/SharedTypes/HazNameId.cs",
+      "tests/Dapper.Tests/SharedTypes/Index.cs",
+      "tests/Dapper.Tests/SharedTypes/Person.cs",
+      "tests/Dapper.Tests/SharedTypes/Post.cs",
+      "tests/Dapper.Tests/SharedTypes/Product.cs",
+      "tests/Dapper.Tests/SharedTypes/ReviewBoard.cs",
+      "tests/Dapper.Tests/SharedTypes/ShortEnum.cs",
+      "tests/Dapper.Tests/SharedTypes/SomeType.cs",
+      "tests/Dapper.Tests/SharedTypes/User.cs",
+      "tests/Dapper.Tests/SingleRowTests.cs",
+      "tests/Dapper.Tests/SqlBuilderTests.cs",
+      "tests/Dapper.Tests/TestBase.cs",
+      "tests/Dapper.Tests/TransactionTests.cs",
+      "tests/Dapper.Tests/TupleTests.cs",
+      "tests/Dapper.Tests/TypeHandlerTests.cs",
+      "tests/Dapper.Tests/WrappedReaderTests.cs",
+      "tests/Dapper.Tests/XmlTests.cs",
+      "tests/Dapper.Tests/xunit.runner.json",
+      "tests/Directory.Build.props",
+      "tests/Directory.Build.targets",
+      "tests/docker-compose.yml",
+      "version.json"
+    ],
+    "new_files": [
+      {
+        "path": "Dapper.EntityFramework/PublicAPI.Shipped.txt",
+        "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper.EntityFramework/PublicAPI.Shipped.txt",
+        "sha256": "84418b2eeeb3e06751fbe118d2145eb6f155742798e28e79208073bbaf59d934",
+        "bytes": 1092
+      },
+      {
+        "path": "Dapper.ProviderTools/PublicAPI.Shipped.txt",
+        "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper.ProviderTools/PublicAPI.Shipped.txt",
+        "sha256": "42e06de46b8eb227b31fee0cd8f08f9406c349471a73f858230000e2ef7c167f",
+        "bytes": 2812
+      },
+      {
+        "path": "Dapper/NRT.cs",
+        "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs",
+        "sha256": "7abf7e7c131e82623f103ca63359f3ab194745ad73953c83de7e38ed68e144df",
+        "bytes": 679
+      },
+      {
+        "path": "Dapper/Global.cs",
+        "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Global.cs",
+        "sha256": "c765489073f9fc340944d178f8e950ceeb4883a4bd3daf03e24a3def0099134f",
+        "bytes": 117
+      },
+      {
+        "path": "tests/Dapper.Tests/XmlTests.cs",
+        "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs",
+        "sha256": "4daf8c9e2ab0ec8d3dac3665feed217edd14a2e47784468f7d7dfe3ac0130c42",
+        "bytes": 1337
+      },
+      {
+        "path": "tests/Dapper.Tests/EnumTests.cs",
+        "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs",
+        "sha256": "4b3a15c7ba7671d725c353d463e5bdb036c3bade2e093da64f09b8e88fa2359a",
+        "bytes": 4505
+      }
+    ],
+    "errors": []
+  },
+  "sampled_files": [
+    {
+      "path": "Readme.md",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Readme.md",
+      "sha256": "39ae4c8dd31e397e6578ed01affcae7c5c7e1425cf31880f2de3a862d28aebbb",
+      "bytes": 26848
+    },
+    {
+      "path": "License.txt",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/License.txt",
+      "sha256": "9148ebecf47ce49421b0adc69192384b0619bcdc22c67b8bb30d26882b8a7db9",
+      "bytes": 584
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props",
+      "sha256": "b121a84b665edc60f943ad90ca3a033553cf8449e0b7eceb1c0711ec4796af81",
+      "bytes": 3687
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Build.props",
+      "sha256": "2da6e04ee4e23efd8d81553b97160113af22073cc6c542516170ed1d1edaa0d4",
+      "bytes": 2386
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/global.json",
+      "sha256": "3540acfbe34f5e98114ed4e2505dfd46e7bef69fb3dd15e9889e055ef6f9f2d9",
+      "bytes": 79
+    },
+    {
+      "path": "Build.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Build.csproj",
+      "sha256": "f088e91c8912f0aaf641177cd55633dd0937265ad1244d705edaa3409fba9a18",
+      "bytes": 257
+    },
+    {
+      "path": "Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj",
+      "sha256": "913989760ca8cd11ee30f22b7d27dc0d7bff30580c395a383dca3e248e20e8a2",
+      "bytes": 1032
+    },
+    {
+      "path": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "sha256": "f33ea0b637a2c386f0fdd8ea08ea568146d9461ed4b6aeb9af418b629d12a277",
+      "bytes": 3173
+    },
+    {
+      "path": "Dapper/Dapper.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Dapper.csproj",
+      "sha256": "3f121f9bfbbedaf2ae2004fc8344e2c6490e2250d6a8efd53a1b314468a4edf7",
+      "bytes": 1740
+    },
+    {
+      "path": "Dapper.EntityFramework/PublicAPI.Shipped.txt",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper.EntityFramework/PublicAPI.Shipped.txt",
+      "sha256": "84418b2eeeb3e06751fbe118d2145eb6f155742798e28e79208073bbaf59d934",
+      "bytes": 1092
+    },
+    {
+      "path": "Dapper.ProviderTools/PublicAPI.Shipped.txt",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper.ProviderTools/PublicAPI.Shipped.txt",
+      "sha256": "42e06de46b8eb227b31fee0cd8f08f9406c349471a73f858230000e2ef7c167f",
+      "bytes": 2812
+    },
+    {
+      "path": "Dapper/NRT.cs",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs",
+      "sha256": "bb9531655554bda60b765a53a42e20140b02cf998a63ae47e379175ef0e85f3a",
+      "bytes": 659
+    },
+    {
+      "path": "Dapper/Global.cs",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Global.cs",
+      "sha256": "678231e355b7d64b4bdec4c6b07058b9e211c51313984faf7aa63e1458b1c5a8",
+      "bytes": 113
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs",
+      "sha256": "7a01d172c926c0e5c5dede3b321147b1ddfa02181bc9125516c841fccf818fe5",
+      "bytes": 1297
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs",
+      "sha256": "32d3554eb81c06c74b0d5a4f7a7ccf556fe54ee7a28cdd36230dd50242b5f704",
+      "bytes": 4371
+    }
+  ],
+  "project_paths": [
+    "Build.csproj",
+    "Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj",
+    "Dapper.EntityFramework/Dapper.EntityFramework.csproj",
+    "Dapper.ProviderTools/Dapper.ProviderTools.csproj",
+    "Dapper.Rainbow/Dapper.Rainbow.csproj",
+    "Dapper.SqlBuilder/Dapper.SqlBuilder.csproj",
+    "Dapper.StrongName/Dapper.StrongName.csproj",
+    "Dapper/Dapper.csproj",
+    "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+    "docs/docs.csproj",
+    "tests/Dapper.Tests/Dapper.Tests.csproj"
+  ],
+  "public_api_definition_paths": [
+    "Dapper.EntityFramework/PublicAPI.Shipped.txt",
+    "Dapper.EntityFramework/PublicAPI.Unshipped.txt",
+    "Dapper.ProviderTools/PublicAPI.Shipped.txt",
+    "Dapper.ProviderTools/PublicAPI.Unshipped.txt",
+    "Dapper.SqlBuilder/PublicAPI.Shipped.txt",
+    "Dapper.SqlBuilder/PublicAPI.Unshipped.txt",
+    "Dapper/PublicAPI.Shipped.txt",
+    "Dapper/PublicAPI.Unshipped.txt",
+    "Dapper/PublicAPI/net461/PublicAPI.Shipped.txt",
+    "Dapper/PublicAPI/net461/PublicAPI.Unshipped.txt",
+    "Dapper/PublicAPI/net8.0/PublicAPI.Shipped.txt",
+    "Dapper/PublicAPI/net8.0/PublicAPI.Unshipped.txt",
+    "Dapper/PublicAPI/netstandard2.0/PublicAPI.Shipped.txt",
+    "Dapper/PublicAPI/netstandard2.0/PublicAPI.Unshipped.txt"
+  ],
+  "test_candidate_paths": [
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Belgrade.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Dapper.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Dashing.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.EntityFramework.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.EntityFrameworkCore.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.HandCoded.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Linq2DB.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Linq2Sql.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Massive.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Mighty.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.NHibernate.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Norm.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.PetaPoco.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.RepoDB.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.ServiceStack.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.SqlMarshal.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.Susanoo.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.XPO.cs",
+    "benchmarks/Dapper.Tests.Performance/Benchmarks.cs",
+    "benchmarks/Dapper.Tests.Performance/Config.cs",
+    "benchmarks/Dapper.Tests.Performance/DapperCacheImpact.cs",
+    "benchmarks/Dapper.Tests.Performance/Dashing/DashingConfiguration.cs",
+    "benchmarks/Dapper.Tests.Performance/Dashing/Post.cs",
+    "benchmarks/Dapper.Tests.Performance/EntityFramework/EFContext.cs",
+    "benchmarks/Dapper.Tests.Performance/EntityFrameworkCore/EFCoreContext.cs",
+    "benchmarks/Dapper.Tests.Performance/Helpers/ORMColum.cs",
+    "benchmarks/Dapper.Tests.Performance/Helpers/ReturnColum.cs",
+    "benchmarks/Dapper.Tests.Performance/LegacyTests.cs",
+    "benchmarks/Dapper.Tests.Performance/Linq2DB/ConnectionStringSettings.cs",
+    "benchmarks/Dapper.Tests.Performance/Linq2DB/Linq2DBContext.cs",
+    "benchmarks/Dapper.Tests.Performance/Linq2DB/Linq2DbSettings.cs",
+    "benchmarks/Dapper.Tests.Performance/Linq2Sql/DataClasses.designer.cs",
+    "benchmarks/Dapper.Tests.Performance/Massive/Massive.cs",
+    "benchmarks/Dapper.Tests.Performance/NHibernate/NHibernateHelper.cs",
+    "benchmarks/Dapper.Tests.Performance/NHibernate/Post.hbm.xml",
+    "benchmarks/Dapper.Tests.Performance/NHibernate/hibernate.cfg.xml",
+    "benchmarks/Dapper.Tests.Performance/PetaPoco/PetaPoco.cs",
+    "benchmarks/Dapper.Tests.Performance/Post.cs",
+    "benchmarks/Dapper.Tests.Performance/Program.cs",
+    "benchmarks/Dapper.Tests.Performance/SqlDataReaderHelper.cs",
+    "benchmarks/Dapper.Tests.Performance/XPO/Post.cs",
+    "tests/Dapper.Tests/AsyncTests.cs",
+    "tests/Dapper.Tests/ConstructorTests.cs",
+    "tests/Dapper.Tests/DataReaderTests.cs",
+    "tests/Dapper.Tests/DateTimeOnlyTests.cs",
+    "tests/Dapper.Tests/DecimalTests.cs",
+    "tests/Dapper.Tests/EnumTests.cs",
+    "tests/Dapper.Tests/Helpers/Attributes.cs",
+    "tests/Dapper.Tests/Helpers/Common.cs",
+    "tests/Dapper.Tests/Helpers/IsExternalInit.cs",
+    "tests/Dapper.Tests/Helpers/SqlServerTypesLoader.cs",
+    "tests/Dapper.Tests/Helpers/TransactedConnection.cs",
+    "tests/Dapper.Tests/Helpers/XunitSkippable.cs",
+    "tests/Dapper.Tests/LiteralTests.cs",
+    "tests/Dapper.Tests/MiscTests.cs",
+    "tests/Dapper.Tests/MultiMapTests.cs",
+    "tests/Dapper.Tests/NullTests.cs",
+    "tests/Dapper.Tests/ParameterTests.cs",
+    "tests/Dapper.Tests/PreferTypeHandlersForEnumsTests.cs",
+    "tests/Dapper.Tests/ProcedureTests.cs",
+    "tests/Dapper.Tests/ProviderTests.cs",
+    "tests/Dapper.Tests/Providers/DuckDBTests.cs",
+    "tests/Dapper.Tests/Providers/EntityFrameworkTests.cs",
+    "tests/Dapper.Tests/Providers/FirebirdTests.cs",
+    "tests/Dapper.Tests/Providers/Linq2SqlTests.cs",
+    "tests/Dapper.Tests/Providers/MySQLTests.cs",
+    "tests/Dapper.Tests/Providers/OLDEBTests.cs",
+    "tests/Dapper.Tests/Providers/PostgresqlTests.cs",
+    "tests/Dapper.Tests/Providers/SnowflakeTests.cs",
+    "tests/Dapper.Tests/Providers/SqliteTests.cs",
+    "tests/Dapper.Tests/QueryMultipleTests.cs",
+    "tests/Dapper.Tests/SharedTypes/Address.cs",
+    "tests/Dapper.Tests/SharedTypes/Bar1.cs",
+    "tests/Dapper.Tests/SharedTypes/Category.cs",
+    "tests/Dapper.Tests/SharedTypes/Comment.cs",
+    "tests/Dapper.Tests/SharedTypes/Dog.cs",
+    "tests/Dapper.Tests/SharedTypes/Enums.cs",
+    "tests/Dapper.Tests/SharedTypes/Foo1.cs",
+    "tests/Dapper.Tests/SharedTypes/HazNameId.cs",
+    "tests/Dapper.Tests/SharedTypes/Index.cs",
+    "tests/Dapper.Tests/SharedTypes/Person.cs",
+    "tests/Dapper.Tests/SharedTypes/Post.cs",
+    "tests/Dapper.Tests/SharedTypes/Product.cs",
+    "tests/Dapper.Tests/SharedTypes/ReviewBoard.cs",
+    "tests/Dapper.Tests/SharedTypes/ShortEnum.cs",
+    "tests/Dapper.Tests/SharedTypes/SomeType.cs",
+    "tests/Dapper.Tests/SharedTypes/User.cs",
+    "tests/Dapper.Tests/SingleRowTests.cs",
+    "tests/Dapper.Tests/SqlBuilderTests.cs",
+    "tests/Dapper.Tests/TestBase.cs",
+    "tests/Dapper.Tests/TransactionTests.cs",
+    "tests/Dapper.Tests/TupleTests.cs",
+    "tests/Dapper.Tests/TypeHandlerTests.cs",
+    "tests/Dapper.Tests/WrappedReaderTests.cs",
+    "tests/Dapper.Tests/XmlTests.cs",
+    "tests/Dapper.Tests/xunit.runner.json"
+  ],
+  "documentation_sample_paths": [
+    "Dapper.Rainbow/readme.md",
+    "Dapper.SqlBuilder/Readme.md",
+    "Readme.md",
+    "docs/CNAME",
+    "docs/_config.yml",
+    "docs/_includes/head-custom.html",
+    "docs/assets/icon.png",
+    "docs/dapper-sponsor.png",
+    "docs/dapperplus.md",
+    "docs/dapperplus.png",
+    "docs/docs.csproj",
+    "docs/favicon.ico",
+    "docs/index.md",
+    "docs/readme.md"
+  ],
+  "api_declaration_candidates": [
+    {
+      "path": "Dapper/NRT.cs",
+      "line": 7,
+      "declaration": "public UnconditionalSuppressMessageAttribute(string category, string checkId) { }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs#L7"
+    },
+    {
+      "path": "Dapper/NRT.cs",
+      "line": 9,
+      "declaration": "public string? Justification { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs#L9"
+    },
+    {
+      "path": "Dapper/NRT.cs",
+      "line": 15,
+      "declaration": "public NotNullWhenAttribute(bool returnValue) => ReturnValue = returnValue;",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs#L15"
+    },
+    {
+      "path": "Dapper/NRT.cs",
+      "line": 17,
+      "declaration": "public bool ReturnValue { get; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs#L17"
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 8,
+      "declaration": "public sealed class SystemSqlClientXmlTests : XmlTests<SystemSqlClientProvider> { }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L8"
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 11,
+      "declaration": "public sealed class MicrosoftSqlClientXmlTests : XmlTests<MicrosoftSqlClientProvider> { }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L11"
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 13,
+      "declaration": "public abstract class XmlTests<TProvider> : TestBase<TProvider> where TProvider : DatabaseProvider",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L13"
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 16,
+      "declaration": "public void CommonXmlTypesSupported()",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L16"
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 33,
+      "declaration": "public class Foo",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L33"
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 35,
+      "declaration": "public XmlDocument? A { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L35"
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 36,
+      "declaration": "public XDocument? B { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L36"
+    },
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 37,
+      "declaration": "public XElement? C { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L37"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 8,
+      "declaration": "public sealed class SystemSqlClientEnumTests : EnumTests<SystemSqlClientProvider> { }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L8"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 11,
+      "declaration": "public sealed class MicrosoftSqlClientEnumTests : EnumTests<MicrosoftSqlClientProvider> { }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L11"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 13,
+      "declaration": "public abstract class EnumTests<TProvider> : TestBase<TProvider> where TProvider : DatabaseProvider",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L13"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 16,
+      "declaration": "public void TestEnumWeirdness()",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L16"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 23,
+      "declaration": "public void TestEnumStrings()",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L23"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 33,
+      "declaration": "public void TestEnumParamsWithNullable()",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L33"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 45,
+      "declaration": "public void TestEnumParamsWithoutNullable()",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L45"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 65,
+      "declaration": "public EnumParam A { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L65"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 66,
+      "declaration": "public EnumParam? B { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L66"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 67,
+      "declaration": "public EnumParam? C { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L67"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 72,
+      "declaration": "public EnumParam A { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L72"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 73,
+      "declaration": "public EnumParam? B { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L73"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 74,
+      "declaration": "public EnumParam? C { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L74"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 84,
+      "declaration": "public TestEnum? EnumEnum { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L84"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 89,
+      "declaration": "public TestEnum EnumEnum { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L89"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 93,
+      "declaration": "public void AdoNetEnumValue()",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L93"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 109,
+      "declaration": "public void DapperEnumValue_SqlServer() => Common.DapperEnumValue(connection);",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L109"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 119,
+      "declaration": "public SO27024806Class(SO27024806Enum myField)",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L119"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 124,
+      "declaration": "public SO27024806Enum MyField { get; set; }",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L124"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 128,
+      "declaration": "public void SO27024806_TestVarcharEnumMemberWithExplicitConstructor()",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L128"
+    }
+  ],
+  "test_method_candidates": [
+    {
+      "path": "tests/Dapper.Tests/XmlTests.cs",
+      "line": 16,
+      "method": "CommonXmlTypesSupported",
+      "attribute_candidate": true,
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/XmlTests.cs#L16"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 16,
+      "method": "TestEnumWeirdness",
+      "attribute_candidate": true,
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L16"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 23,
+      "method": "TestEnumStrings",
+      "attribute_candidate": true,
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L23"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 33,
+      "method": "TestEnumParamsWithNullable",
+      "attribute_candidate": true,
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L33"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 45,
+      "method": "TestEnumParamsWithoutNullable",
+      "attribute_candidate": true,
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L45"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 93,
+      "method": "AdoNetEnumValue",
+      "attribute_candidate": true,
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L93"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 109,
+      "method": "DapperEnumValue_SqlServer",
+      "attribute_candidate": true,
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L109"
+    },
+    {
+      "path": "tests/Dapper.Tests/EnumTests.cs",
+      "line": 128,
+      "method": "SO27024806_TestVarcharEnumMemberWithExplicitConstructor",
+      "attribute_candidate": true,
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/tests/Dapper.Tests/EnumTests.cs#L128"
+    }
+  ],
+  "declared_references": [
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "EntityFramework",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "FastMember",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.SqlServer.Types",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Nerdbank.GitVersioning",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Emit.Lightweight",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Azure.Identity",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Belgrade.Sql.Client",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Dashing",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Dapper.Contrib",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "DuckDB.NET.Data.Full",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "DevExpress.Xpo",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "FirebirdSql.Data.FirebirdClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Iesi.Collections",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "linq2db.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "log4net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.Sqlite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Mighty",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "MySqlConnector",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "NHibernate",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Norm.net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Npgsql",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "PetaPoco",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "RepoDb.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "ServiceStack.OrmLite.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Snowflake.Data",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "SqlMarshal",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "SubSonic",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "Susanoo.SqlServer",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Data.SQLite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Net.Http",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Private.Uri",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Reflection.Metadata",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.Text.RegularExpressions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "System.ValueTuple",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.NETFramework.ReferenceAssemblies",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Build.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Build.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Nerdbank.GitVersioning",
+      "file": "Directory.Build.props",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Directory.Build.props"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "ProjectReference",
+      "name": "benchmarks/**/*.csproj",
+      "file": "Build.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Build.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "ProjectReference",
+      "name": "Dapper*/*.csproj",
+      "file": "Build.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Build.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "ProjectReference",
+      "name": "tests/**/*.csproj",
+      "file": "Build.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Build.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "ProjectReference",
+      "name": "..\\Dapper.StrongName\\Dapper.StrongName.csproj",
+      "file": "Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "EntityFramework",
+      "file": "Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.SqlServer.Types",
+      "file": "Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper.EntityFramework.StrongName/Dapper.EntityFramework.StrongName.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "BLToolkit",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Dashing",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Belgrade.Sql.Client",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "BenchmarkDotNet",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "DevExpress.Xpo",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "EntityFramework",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "linq2db.SqlServer",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "MySqlConnector",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "NHibernate",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Iesi.Collections",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Mighty",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "PetaPoco",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "RepoDb.SqlServer",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "ServiceStack.OrmLite.SqlServer",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "SqlMarshal",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Data.SQLite",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Reflection.Metadata",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Data.SqlClient",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Security.Cryptography.Xml",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Npgsql",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Npgsql",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Text.RegularExpressions",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Private.Uri",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Net.Http",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Azure.Identity",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "ProjectReference",
+      "name": "../../Dapper.EntityFramework/Dapper.EntityFramework.csproj",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.SqlServer.Types",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Susanoo.SqlServer",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.EntityFrameworkCore.SqlServer",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Norm.net",
+      "file": "benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/benchmarks/Dapper.Tests.Performance/Dapper.Tests.Performance.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Dapper/Dapper.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Dapper.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Dapper/Dapper.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Dapper.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Dapper/Dapper.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Dapper.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "Microsoft.Bcl.AsyncInterfaces",
+      "file": "Dapper/Dapper.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Dapper.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Reflection.Emit.Lightweight",
+      "file": "Dapper/Dapper.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Dapper.csproj"
+    },
+    {
+      "repo": "dotj-sql",
+      "kind": "PackageReference",
+      "name": "System.Threading.Tasks.Extensions",
+      "file": "Dapper/Dapper.csproj",
+      "url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/Dapper.csproj"
+    }
+  ]
+}

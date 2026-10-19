@@ -1,0 +1,1266 @@
+{
+  "identity": {
+    "id": "DJ-052",
+    "name": "Moq",
+    "url": "https://github.com/devlooped/moq",
+    "repo": "dotj-mock",
+    "category": "Logging, testing and performance"
+  },
+  "source": {
+    "id": "DJ-052",
+    "repo": "dotj-mock",
+    "requested_upstream": "https://github.com/devlooped/moq",
+    "notice_revision": "bdf16e758e8022c40cef2bfd025181f845bbd2a9",
+    "effective_upstream": "https://github.com/devlooped/moq",
+    "effective_revision": "bdf16e758e8022c40cef2bfd025181f845bbd2a9",
+    "source_prefix": "",
+    "inspection_date": "2026-10-19",
+    "tree_scope": "recursive complete",
+    "paths": [
+      ".editorconfig",
+      ".gitattributes",
+      ".github/FUNDING.yml",
+      ".github/ISSUE_TEMPLATE.md",
+      ".github/copilot-instructions.md",
+      ".github/dependabot.yml",
+      ".github/dotnet.json",
+      ".github/release.yml",
+      ".github/workflows/build.yml",
+      ".github/workflows/changelog.config",
+      ".github/workflows/changelog.yml",
+      ".github/workflows/dotnet-env.yml",
+      ".github/workflows/dotnet-file.yml",
+      ".github/workflows/includes.yml",
+      ".github/workflows/publish.yml",
+      ".github/workflows/release.yml",
+      ".github/workflows/triage.yml",
+      ".gitignore",
+      ".netconfig",
+      "CONTEXT.md",
+      "Moq.slnx",
+      "_config.yml",
+      "assets/css/style.scss",
+      "docs/MoqSdk.md",
+      "docs/Overview.md",
+      "docs/Stunts-Example.md",
+      "docs/Stunts.md",
+      "docs/img/MockSdk_Debugger.png",
+      "docs/img/MockSdk_DebuggerBehaviors.png",
+      "docs/img/MockSdk_DebuggerInvocations.png",
+      "docs/img/MockSdk_DebuggerSetups.png",
+      "docs/img/MockSdk_DebuggerState.png",
+      "docs/img/Stunts_CodeFix.png",
+      "docs/img/Stunts_CodeFixMember.png",
+      "docs/img/Stunts_CustomFactoryCodeFix.png",
+      "docs/img/Stunts_Extensions.png",
+      "docs/img/Stunts_FactoryCodeFix.png",
+      "docs/img/Stunts_FactoryUpdateCodeFix.png",
+      "global.json",
+      "license.txt",
+      "osmfeula.txt",
+      "readme.md",
+      "src/Acceptance/Acceptance.sln",
+      "src/Acceptance/Directory.Build.props",
+      "src/Acceptance/Directory.Build.targets",
+      "src/Acceptance/Dynamic.Basic/Dynamic.Basic.vbproj",
+      "src/Acceptance/Dynamic.Basic/IParser.vb",
+      "src/Acceptance/Dynamic.Basic/Model.vb",
+      "src/Acceptance/Dynamic.Basic/Tests.vb",
+      "src/Acceptance/Dynamic/Dynamic.csproj",
+      "src/Acceptance/Dynamic/Tests.cs",
+      "src/Acceptance/Static/Static.csproj",
+      "src/Acceptance/Static/Tests.cs",
+      "src/Acceptance/nuget.config",
+      "src/Directory.Build.props",
+      "src/Directory.Build.targets",
+      "src/Directory.Packages.props",
+      "src/Directory.props",
+      "src/Directory.targets",
+      "src/Moq.CodeAnalysis.UnitTests/GeneratorAssemblyTests.cs",
+      "src/Moq.CodeAnalysis.UnitTests/GeneratorTester.cs",
+      "src/Moq.CodeAnalysis.UnitTests/GeneratorTesterTests.cs",
+      "src/Moq.CodeAnalysis.UnitTests/MockSetupGeneratorTests.cs",
+      "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "src/Moq.CodeAnalysis/IsExternalInit.cs",
+      "src/Moq.CodeAnalysis/MockSetupGenerator.cs",
+      "src/Moq.CodeAnalysis/MockSetupRenderer.cs",
+      "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "src/Moq.CodeFixes.UnitTests/CustomDelegateTests.cs",
+      "src/Moq.CodeFixes.UnitTests/Helpers/CodeFixTester.cs",
+      "src/Moq.CodeFixes.UnitTests/Helpers/WorkspaceServices.cs",
+      "src/Moq.CodeFixes.UnitTests/HiddenMemberTests.cs",
+      "src/Moq.CodeFixes.UnitTests/Moq.CodeFixes.UnitTests.csproj",
+      "src/Moq.CodeFixes.UnitTests/Samples.cs",
+      "src/Moq.CodeFixes.UnitTests/SimplifySetupTests.cs",
+      "src/Moq.CodeFixes.UnitTests/UnsafeSignatureTests.cs",
+      "src/Moq.CodeFixes.UnitTests/ValidateTypesTests.cs",
+      "src/Moq.CodeFixes/CustomDelegateCodeFix.cs",
+      "src/Moq.CodeFixes/CustomDelegateCompletion.cs",
+      "src/Moq.CodeFixes/HiddenMemberAnalyzer.cs",
+      "src/Moq.CodeFixes/HiddenMemberCodeFix.cs",
+      "src/Moq.CodeFixes/MockDiagnostics.cs",
+      "src/Moq.CodeFixes/MockSyntax.cs",
+      "src/Moq.CodeFixes/MockValidateTypesAnalyzer.cs",
+      "src/Moq.CodeFixes/Moq.CodeFixes.csproj",
+      "src/Moq.CodeFixes/Resources.Designer.cs",
+      "src/Moq.CodeFixes/Resources.resx",
+      "src/Moq.CodeFixes/SimplifySetupAnalyzer.cs",
+      "src/Moq.CodeFixes/SimplifySetupCodeFix.cs",
+      "src/Moq.CodeFixes/UnsafeSignatureAnalyzer.cs",
+      "src/Moq.DynamicProxy/DynamicMockFactory.cs",
+      "src/Moq.DynamicProxy/Mock.DynamicFactory.cs",
+      "src/Moq.DynamicProxy/Mock.DynamicFactory.vb",
+      "src/Moq.DynamicProxy/Moq.DynamicProxy.csproj",
+      "src/Moq.DynamicProxy/Moq.DynamicProxy.targets",
+      "src/Moq.Package/Mock.Overloads.cs",
+      "src/Moq.Package/Mock.Overloads.vb",
+      "src/Moq.Package/Mock.StaticFactory.cs",
+      "src/Moq.Package/Mock.StaticFactory.vb",
+      "src/Moq.Package/Mock.cs",
+      "src/Moq.Package/Mock.vb",
+      "src/Moq.Package/Mock`1.Overloads.cs",
+      "src/Moq.Package/Mock`1.Overloads.vb",
+      "src/Moq.Package/Mock`1.cs",
+      "src/Moq.Package/Mock`1.vb",
+      "src/Moq.Package/Moq.Package.msbuildproj",
+      "src/Moq.Package/Moq.props",
+      "src/Moq.Package/Moq.targets",
+      "src/Moq.Sdk.Tests/AnyMatcherTests.cs",
+      "src/Moq.Sdk.Tests/CallContextTests.cs",
+      "src/Moq.Sdk.Tests/ConditionalMatcherTests.cs",
+      "src/Moq.Sdk.Tests/DefaultMockRuntimeTests.cs",
+      "src/Moq.Sdk.Tests/EqualityTests.cs",
+      "src/Moq.Sdk.Tests/EventBehaviorTests.cs",
+      "src/Moq.Sdk.Tests/Fakes.cs",
+      "src/Moq.Sdk.Tests/GlobalSuppressions.cs",
+      "src/Moq.Sdk.Tests/MockBehaviorPipelineTests.cs",
+      "src/Moq.Sdk.Tests/MockBehaviorTests.cs",
+      "src/Moq.Sdk.Tests/MockNamingTests.cs",
+      "src/Moq.Sdk.Tests/MockRuntimeTests.cs",
+      "src/Moq.Sdk.Tests/MockTrackingBehaviorTests.cs",
+      "src/Moq.Sdk.Tests/Mocked.cs",
+      "src/Moq.Sdk.Tests/Moq.Sdk.Tests.csproj",
+      "src/Moq.Sdk.Tests/NotMatcherTests.cs",
+      "src/Moq.Sdk.Tests/PropertyBehaviorTests.cs",
+      "src/Moq.Sdk.Tests/SetupScopeTests.cs",
+      "src/Moq.Sdk.Tests/StrictMockBehaviorTests.cs",
+      "src/Moq.Sdk.Tests/TimesFixture.cs",
+      "src/Moq.Sdk/AnonymousMockBehavior.cs",
+      "src/Moq.Sdk/AnyMatcher.cs",
+      "src/Moq.Sdk/AnyMatcher`1.cs",
+      "src/Moq.Sdk/CallContext.cs",
+      "src/Moq.Sdk/ConditionalMatcher.cs",
+      "src/Moq.Sdk/DefaultMockRuntime.cs",
+      "src/Moq.Sdk/EventBehavior.cs",
+      "src/Moq.Sdk/EventRaiser.cs",
+      "src/Moq.Sdk/GlobalSuppressions.cs",
+      "src/Moq.Sdk/IArgumentMatcher.cs",
+      "src/Moq.Sdk/IMockBehavior.cs",
+      "src/Moq.Sdk/IMockBehaviorPipeline.cs",
+      "src/Moq.Sdk/IMockFactory.cs",
+      "src/Moq.Sdk/IMockRuntime.cs",
+      "src/Moq.Sdk/IMockSetup.cs",
+      "src/Moq.Sdk/IMocked.cs",
+      "src/Moq.Sdk/MockBehaviorPipeline.cs",
+      "src/Moq.Sdk/MockContext.cs",
+      "src/Moq.Sdk/MockContextBehavior.cs",
+      "src/Moq.Sdk/MockException.cs",
+      "src/Moq.Sdk/MockFactory.cs",
+      "src/Moq.Sdk/MockFactoryExtensions.cs",
+      "src/Moq.Sdk/MockGeneratorAttribute.cs",
+      "src/Moq.Sdk/MockNaming.cs",
+      "src/Moq.Sdk/MockRecordingBehavior.cs",
+      "src/Moq.Sdk/MockRuntime.cs",
+      "src/Moq.Sdk/MockRuntimeDecorator.cs",
+      "src/Moq.Sdk/MockSetup.Static.cs",
+      "src/Moq.Sdk/MockSetup.cs",
+      "src/Moq.Sdk/Moq.Sdk.csproj",
+      "src/Moq.Sdk/NotMatcher.cs",
+      "src/Moq.Sdk/PropertyBehavior.cs",
+      "src/Moq.Sdk/Resources.resx",
+      "src/Moq.Sdk/SetupScope.cs",
+      "src/Moq.Sdk/SetupScopeAttribute.cs",
+      "src/Moq.Sdk/StackTraceExtensions.cs",
+      "src/Moq.Sdk/StateBag.cs",
+      "src/Moq.Sdk/StaticMockFactory.cs",
+      "src/Moq.Sdk/StrictMockBehavior.cs",
+      "src/Moq.Sdk/StrictMockException.cs",
+      "src/Moq.Sdk/Times.cs",
+      "src/Moq.Sdk/TypeExtensions.cs",
+      "src/Moq.Sdk/ValueMatcher.cs",
+      "src/Moq.StaticProxy.UnitTests/.Scenarios.cs",
+      "src/Moq.StaticProxy.UnitTests/.editorconfig",
+      "src/Moq.StaticProxy.UnitTests/EditorConfigOptionsProvider.cs",
+      "src/Moq.StaticProxy.UnitTests/IRunnable.cs",
+      "src/Moq.StaticProxy.UnitTests/Misc.cs",
+      "src/Moq.StaticProxy.UnitTests/Moq.StaticProxy.UnitTests.csproj",
+      "src/Moq.StaticProxy.UnitTests/RoslynHelpers.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/DelegateNameCollision.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/MockGet.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/MockOfT.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/MultipleUses.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/NonVirtualMembers.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/Readme.txt",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/RecursiveMethods.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/RecursiveProperties.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/RecursiveSetupMethods.cs",
+      "src/Moq.StaticProxy.UnitTests/Scenarios/RecursiveSetupProperties.cs",
+      "src/Moq.StaticProxy.UnitTests/ThisAssembly.cs",
+      "src/Moq.StaticProxy/AnalyzerExtensions.cs",
+      "src/Moq.StaticProxy/CSharpMocked.cs",
+      "src/Moq.StaticProxy/MockGenerator.cs",
+      "src/Moq.StaticProxy/MockNamingConvention.cs",
+      "src/Moq.StaticProxy/Moq.StaticProxy.csproj",
+      "src/Moq.Tests/CallBaseTests.cs",
+      "src/Moq.Tests/DelegateMocksTests.cs",
+      "src/Moq.Tests/MockTests.cs",
+      "src/Moq.Tests/Moq.Tests.csproj",
+      "src/Moq.Tests/MoqTests.cs",
+      "src/Moq.Tests/RecursiveMocksTests.cs",
+      "src/Moq.Tests/RefOutTests.cs",
+      "src/Moq.Tests/SetupTests.cs",
+      "src/Moq.Tests/TypedSetupTests.cs",
+      "src/Moq.Tests/VerificationTests.cs",
+      "src/Moq.Vsix/Moq.Vsix.csproj",
+      "src/Moq.Vsix/source.extension.vsixmanifest",
+      "src/Moq.snk",
+      "src/Moq/Arg.cs",
+      "src/Moq/CallBaseBehavior.cs",
+      "src/Moq/CallBaseExtension.cs",
+      "src/Moq/CallbackBehavior.cs",
+      "src/Moq/CallbackExtension.Overloads.cs",
+      "src/Moq/CallbackExtension.cs",
+      "src/Moq/ConfigurePipelineBehavior.cs",
+      "src/Moq/Extensions.cs",
+      "src/Moq/GlobalSuppressions.cs",
+      "src/Moq/IMock.cs",
+      "src/Moq/IMock`1.cs",
+      "src/Moq/ISetup.cs",
+      "src/Moq/MockBehavior.cs",
+      "src/Moq/MockInitializer.cs",
+      "src/Moq/MockRuntimeExtensions.cs",
+      "src/Moq/MockView`1.cs",
+      "src/Moq/Moq.csproj",
+      "src/Moq/OccurrenceExtension.cs",
+      "src/Moq/OverloadResolutionPriorityAttribute.cs",
+      "src/Moq/Overloads.linq",
+      "src/Moq/Raise.cs",
+      "src/Moq/RecursiveMockBehavior.cs",
+      "src/Moq/Resources.resx",
+      "src/Moq/ReturnsBehavior.cs",
+      "src/Moq/ReturnsDelegateBehavior.cs",
+      "src/Moq/ReturnsExtension.Overloads.cs",
+      "src/Moq/ReturnsExtension.cs",
+      "src/Moq/SetupExtensions.cs",
+      "src/Moq/SetupFactory.cs",
+      "src/Moq/SetupHandle.cs",
+      "src/Moq/SetupScopeBehavior.cs",
+      "src/Moq/Syntax.cs",
+      "src/Moq/ThrowsExtension.cs",
+      "src/Moq/Verify.cs",
+      "src/Moq/VerifyException.cs",
+      "src/Moq/readme.md",
+      "src/nuget.config"
+    ],
+    "new_files": [
+      {
+        "path": "src/Moq/Arg.cs",
+        "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs",
+        "sha256": "45cdc8990247693d2c2c7842a08268b8de8eb5d7f2cc62364d760b99aeaa2ca9",
+        "bytes": 1703
+      },
+      {
+        "path": "src/Moq/IMock.cs",
+        "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/IMock.cs",
+        "sha256": "5900786c5223b60130b1bdcc59532ce10a8d801495ce2454f3ad2b2b4b3a94a2",
+        "bytes": 944
+      },
+      {
+        "path": "src/Moq.Tests/MoqTests.cs",
+        "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs",
+        "sha256": "af5ffe81dcf57ceacbb6e7562f838bfbab92bc6bf2f3d5ba725daa2c9b4bdc69",
+        "bytes": 13271
+      },
+      {
+        "path": "src/Moq.Tests/MockTests.cs",
+        "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs",
+        "sha256": "48806a9ac5928b39e681eabd5441cd541aa6cd3c8418e43cff0c174caf70b37b",
+        "bytes": 3900
+      }
+    ],
+    "errors": []
+  },
+  "sampled_files": [
+    {
+      "path": "global.json",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/global.json",
+      "sha256": "0579bd345a981e8531e1afd7b2bf1ee8bb14d9592cc4ba3f15e1651c851b7e2b",
+      "bytes": 70
+    },
+    {
+      "path": "license.txt",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/license.txt",
+      "sha256": "e3fda7a9ea6252ae97d0f7485799dea0341f0b2a25e054bf7c34437c5c08fe7f",
+      "bytes": 1096
+    },
+    {
+      "path": "readme.md",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/readme.md",
+      "sha256": "88049bfd801eb287aeaccc614a6f319a8f7bb764e6e0421092f8b5a9b075e436",
+      "bytes": 7959
+    },
+    {
+      "path": "Moq.slnx",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/Moq.slnx",
+      "sha256": "e4289d684e851067fa2684cb4b4838d9032361d5351e5bc86b73cf6f9ba81c70",
+      "bytes": 884
+    },
+    {
+      "path": "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "sha256": "32f9815672c64ebabbf7a15c00e22a8600ac45620e92dcae2f1625d0514cb28d",
+      "bytes": 734
+    },
+    {
+      "path": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "sha256": "8fac461f006b1108e0d5358fd4498fd71c54fdd13981917253201f88e6ed43c8",
+      "bytes": 1277
+    },
+    {
+      "path": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj",
+      "sha256": "88468ba6dbea7be739bea53f369c06bcbf5431c1b9929725783c8c87aaefb9af",
+      "bytes": 762
+    },
+    {
+      "path": "src/Moq/Arg.cs",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs",
+      "sha256": "45cdc8990247693d2c2c7842a08268b8de8eb5d7f2cc62364d760b99aeaa2ca9",
+      "bytes": 1703
+    },
+    {
+      "path": "src/Moq/IMock.cs",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/IMock.cs",
+      "sha256": "5900786c5223b60130b1bdcc59532ce10a8d801495ce2454f3ad2b2b4b3a94a2",
+      "bytes": 944
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs",
+      "sha256": "af5ffe81dcf57ceacbb6e7562f838bfbab92bc6bf2f3d5ba725daa2c9b4bdc69",
+      "bytes": 13271
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs",
+      "sha256": "48806a9ac5928b39e681eabd5441cd541aa6cd3c8418e43cff0c174caf70b37b",
+      "bytes": 3900
+    }
+  ],
+  "project_paths": [
+    "src/Acceptance/Dynamic/Dynamic.csproj",
+    "src/Acceptance/Static/Static.csproj",
+    "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+    "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+    "src/Moq.CodeFixes.UnitTests/Moq.CodeFixes.UnitTests.csproj",
+    "src/Moq.CodeFixes/Moq.CodeFixes.csproj",
+    "src/Moq.DynamicProxy/Moq.DynamicProxy.csproj",
+    "src/Moq.Sdk.Tests/Moq.Sdk.Tests.csproj",
+    "src/Moq.Sdk/Moq.Sdk.csproj",
+    "src/Moq.StaticProxy.UnitTests/Moq.StaticProxy.UnitTests.csproj",
+    "src/Moq.StaticProxy/Moq.StaticProxy.csproj",
+    "src/Moq.Tests/Moq.Tests.csproj",
+    "src/Moq.Vsix/Moq.Vsix.csproj",
+    "src/Moq/Moq.csproj"
+  ],
+  "public_api_definition_paths": [],
+  "test_candidate_paths": [
+    "src/Acceptance/Dynamic/Tests.cs",
+    "src/Acceptance/Static/Tests.cs",
+    "src/Moq.CodeAnalysis.UnitTests/GeneratorAssemblyTests.cs",
+    "src/Moq.CodeAnalysis.UnitTests/GeneratorTester.cs",
+    "src/Moq.CodeAnalysis.UnitTests/GeneratorTesterTests.cs",
+    "src/Moq.CodeAnalysis.UnitTests/MockSetupGeneratorTests.cs",
+    "src/Moq.CodeFixes.UnitTests/CustomDelegateTests.cs",
+    "src/Moq.CodeFixes.UnitTests/Helpers/CodeFixTester.cs",
+    "src/Moq.CodeFixes.UnitTests/Helpers/WorkspaceServices.cs",
+    "src/Moq.CodeFixes.UnitTests/HiddenMemberTests.cs",
+    "src/Moq.CodeFixes.UnitTests/Samples.cs",
+    "src/Moq.CodeFixes.UnitTests/SimplifySetupTests.cs",
+    "src/Moq.CodeFixes.UnitTests/UnsafeSignatureTests.cs",
+    "src/Moq.CodeFixes.UnitTests/ValidateTypesTests.cs",
+    "src/Moq.Sdk.Tests/AnyMatcherTests.cs",
+    "src/Moq.Sdk.Tests/CallContextTests.cs",
+    "src/Moq.Sdk.Tests/ConditionalMatcherTests.cs",
+    "src/Moq.Sdk.Tests/DefaultMockRuntimeTests.cs",
+    "src/Moq.Sdk.Tests/EqualityTests.cs",
+    "src/Moq.Sdk.Tests/EventBehaviorTests.cs",
+    "src/Moq.Sdk.Tests/Fakes.cs",
+    "src/Moq.Sdk.Tests/GlobalSuppressions.cs",
+    "src/Moq.Sdk.Tests/MockBehaviorPipelineTests.cs",
+    "src/Moq.Sdk.Tests/MockBehaviorTests.cs",
+    "src/Moq.Sdk.Tests/MockNamingTests.cs",
+    "src/Moq.Sdk.Tests/MockRuntimeTests.cs",
+    "src/Moq.Sdk.Tests/MockTrackingBehaviorTests.cs",
+    "src/Moq.Sdk.Tests/Mocked.cs",
+    "src/Moq.Sdk.Tests/NotMatcherTests.cs",
+    "src/Moq.Sdk.Tests/PropertyBehaviorTests.cs",
+    "src/Moq.Sdk.Tests/SetupScopeTests.cs",
+    "src/Moq.Sdk.Tests/StrictMockBehaviorTests.cs",
+    "src/Moq.Sdk.Tests/TimesFixture.cs",
+    "src/Moq.StaticProxy.UnitTests/.Scenarios.cs",
+    "src/Moq.StaticProxy.UnitTests/EditorConfigOptionsProvider.cs",
+    "src/Moq.StaticProxy.UnitTests/IRunnable.cs",
+    "src/Moq.StaticProxy.UnitTests/Misc.cs",
+    "src/Moq.StaticProxy.UnitTests/RoslynHelpers.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/DelegateNameCollision.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/MockGet.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/MockOfT.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/MultipleUses.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/NonVirtualMembers.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/Readme.txt",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/RecursiveMethods.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/RecursiveProperties.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/RecursiveSetupMethods.cs",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/RecursiveSetupProperties.cs",
+    "src/Moq.StaticProxy.UnitTests/ThisAssembly.cs",
+    "src/Moq.Tests/CallBaseTests.cs",
+    "src/Moq.Tests/DelegateMocksTests.cs",
+    "src/Moq.Tests/MockTests.cs",
+    "src/Moq.Tests/MoqTests.cs",
+    "src/Moq.Tests/RecursiveMocksTests.cs",
+    "src/Moq.Tests/RefOutTests.cs",
+    "src/Moq.Tests/SetupTests.cs",
+    "src/Moq.Tests/TypedSetupTests.cs",
+    "src/Moq.Tests/VerificationTests.cs"
+  ],
+  "documentation_sample_paths": [
+    "docs/MoqSdk.md",
+    "docs/Overview.md",
+    "docs/Stunts-Example.md",
+    "docs/Stunts.md",
+    "docs/img/MockSdk_Debugger.png",
+    "docs/img/MockSdk_DebuggerBehaviors.png",
+    "docs/img/MockSdk_DebuggerInvocations.png",
+    "docs/img/MockSdk_DebuggerSetups.png",
+    "docs/img/MockSdk_DebuggerState.png",
+    "docs/img/Stunts_CodeFix.png",
+    "docs/img/Stunts_CodeFixMember.png",
+    "docs/img/Stunts_CustomFactoryCodeFix.png",
+    "docs/img/Stunts_Extensions.png",
+    "docs/img/Stunts_FactoryCodeFix.png",
+    "docs/img/Stunts_FactoryUpdateCodeFix.png",
+    "readme.md",
+    "src/Moq.StaticProxy.UnitTests/Scenarios/Readme.txt",
+    "src/Moq/readme.md"
+  ],
+  "api_declaration_candidates": [
+    {
+      "path": "src/Moq/Arg.cs",
+      "line": 9,
+      "declaration": "public static class Arg",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L9"
+    },
+    {
+      "path": "src/Moq/Arg.cs",
+      "line": 15,
+      "declaration": "public static T Any<T>() => MockSetup.Push<T>(AnyMatcher<T>.Default);",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L15"
+    },
+    {
+      "path": "src/Moq/Arg.cs",
+      "line": 22,
+      "declaration": "public static T Any<T>(Func<T?, bool> condition) => MockSetup.Push<T>(new ConditionalMatcher<T>(condition));",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L22"
+    },
+    {
+      "path": "src/Moq/Arg.cs",
+      "line": 28,
+      "declaration": "public static T Not<T>(T? value) => MockSetup.Push<T>(new NotMatcher<T>(value));",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L28"
+    },
+    {
+      "path": "src/Moq/Arg.cs",
+      "line": 35,
+      "declaration": "public static class Arg<T>",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L35"
+    },
+    {
+      "path": "src/Moq/Arg.cs",
+      "line": 40,
+      "declaration": "public static T Any => MockSetup.Push<T>(AnyMatcher<T>.Default);",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L40"
+    },
+    {
+      "path": "src/Moq/Arg.cs",
+      "line": 45,
+      "declaration": "public static T Not(T? value) => MockSetup.Push<T>(new NotMatcher<T>(value));",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L45"
+    },
+    {
+      "path": "src/Moq/IMock.cs",
+      "line": 9,
+      "declaration": "public interface IMock : IFluentInterface",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/IMock.cs#L9"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 12,
+      "declaration": "public class MoqTests",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L12"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 15,
+      "declaration": "public void SetupDoesNotRecordCalls()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L15"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 25,
+      "declaration": "public void CanRaiseEvents()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L25"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 52,
+      "declaration": "public void CanRaiseEventsWithArgs()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L52"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 65,
+      "declaration": "public void CanSetupPropertyViaReturns()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L65"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 75,
+      "declaration": "public void CanSetupPropertyDirectly()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L75"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 85,
+      "declaration": "public void CanSetupPropertyTwiceViaReturns()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L85"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 96,
+      "declaration": "public void CanSetupMethodWithArgumentsViaReturns()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L96"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 106,
+      "declaration": "public void CanSetupMethodWithDifferentArgumentsViaReturns()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L106"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 123,
+      "declaration": "public void CanReturnFunction()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L123"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 132,
+      "declaration": "public interface IAsync",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L132"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 141,
+      "declaration": "public async Task CanReturnAsyncFunction()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L141"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 151,
+      "declaration": "public async Task CanReturnAsyncValueFunction()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L151"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 161,
+      "declaration": "public async Task ThrowsAsync()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L161"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 171,
+      "declaration": "public async Task ThrowsAsyncWithException()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L171"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 181,
+      "declaration": "public async Task ThrowsValueAsync()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L181"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 191,
+      "declaration": "public async Task ThrowsValueAsyncWithException()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L191"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 201,
+      "declaration": "public async Task ThrowsVoidAsync()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L201"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 211,
+      "declaration": "public async Task ThrowsVoidAsyncWithException()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L211"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 221,
+      "declaration": "public async Task ThrowsValueVoidAsync()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L221"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 231,
+      "declaration": "public async Task ThrowsValueVoidAsyncWithException()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L231"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 241,
+      "declaration": "public void CanReturnFunctionWithArgs()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L241"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 252,
+      "declaration": "public void CanReturnFunctionWithUntypedArgs()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L252"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 263,
+      "declaration": "public void CanInvokeCallback()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L263"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 277,
+      "declaration": "public void CanInvokeTwoCallbacks()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L277"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 295,
+      "declaration": "public void CanInvokeCallbackAfterReturn()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L295"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 309,
+      "declaration": "public void ThrowsWithException()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L309"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 319,
+      "declaration": "public void ThrowsWithExceptionType()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L319"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 329,
+      "declaration": "public void CanSetupPropertyViaReturnsForStrictMock()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L329"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 340,
+      "declaration": "public void CanSetupPropertyForStrictMock()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L340"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 352,
+      "declaration": "public void CanSetupVoidMethod()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L352"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 362,
+      "declaration": "public void CanAccessMockInfoFromInstance()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L362"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 374,
+      "declaration": "public void CanAssertInvocations()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L374"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 394,
+      "declaration": "public void ChangeDefaultValue()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L394"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 407,
+      "declaration": "public void ChangeBehavior()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L407"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 422,
+      "declaration": "public void ChangingBehaviorPreservesDefaultValue()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L422"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 12,
+      "declaration": "public class MockTests",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L12"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 15,
+      "declaration": "public void CreatesMockForSetup()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L15"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 26,
+      "declaration": "public void CreatesStrictMock()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L26"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 38,
+      "declaration": "public void CreatesClassMockThatCallsBase()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L38"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 49,
+      "declaration": "public void CreatesMockWithAdditionalInterfaces()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L49"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 63,
+      "declaration": "public void AsThrowsIfInterfaceIsNotImplemented()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L63"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 67,
+      "declaration": "public void GetsMockForImplementedInterface()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L67"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 77,
+      "declaration": "public void GetThrowsIfInterfaceIsNotImplemented()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L77"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 81,
+      "declaration": "public void GetThrowsIfNotMock()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L81"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 85,
+      "declaration": "public void MocksDelegates()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L85"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 96,
+      "declaration": "public void CustomizesCreatedMocks()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L96"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 105,
+      "declaration": "public void CustomizesCreatedMocksWithAdditionalInterfaces()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L105"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 109,
+      "declaration": "public void CustomConstructorsCreateMocks()",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L109"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 116,
+      "declaration": "public interface ICustomized",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L116"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 128,
+      "declaration": "public Mock(string name) : this() => this.Sdk.Name = name;",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L128"
+    }
+  ],
+  "test_method_candidates": [
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 15,
+      "method": "SetupDoesNotRecordCalls",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L15"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 25,
+      "method": "CanRaiseEvents",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L25"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 52,
+      "method": "CanRaiseEventsWithArgs",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L52"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 65,
+      "method": "CanSetupPropertyViaReturns",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L65"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 75,
+      "method": "CanSetupPropertyDirectly",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L75"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 85,
+      "method": "CanSetupPropertyTwiceViaReturns",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L85"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 96,
+      "method": "CanSetupMethodWithArgumentsViaReturns",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L96"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 106,
+      "method": "CanSetupMethodWithDifferentArgumentsViaReturns",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L106"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 123,
+      "method": "CanReturnFunction",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L123"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 141,
+      "method": "CanReturnAsyncFunction",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L141"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 151,
+      "method": "CanReturnAsyncValueFunction",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L151"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 161,
+      "method": "ThrowsAsync",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L161"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 171,
+      "method": "ThrowsAsyncWithException",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L171"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 181,
+      "method": "ThrowsValueAsync",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L181"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 191,
+      "method": "ThrowsValueAsyncWithException",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L191"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 201,
+      "method": "ThrowsVoidAsync",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L201"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 211,
+      "method": "ThrowsVoidAsyncWithException",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L211"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 221,
+      "method": "ThrowsValueVoidAsync",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L221"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 231,
+      "method": "ThrowsValueVoidAsyncWithException",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L231"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 241,
+      "method": "CanReturnFunctionWithArgs",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L241"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 252,
+      "method": "CanReturnFunctionWithUntypedArgs",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L252"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 263,
+      "method": "CanInvokeCallback",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L263"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 277,
+      "method": "CanInvokeTwoCallbacks",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L277"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 295,
+      "method": "CanInvokeCallbackAfterReturn",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L295"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 309,
+      "method": "ThrowsWithException",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L309"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 319,
+      "method": "ThrowsWithExceptionType",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L319"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 329,
+      "method": "CanSetupPropertyViaReturnsForStrictMock",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L329"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 340,
+      "method": "CanSetupPropertyForStrictMock",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L340"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 352,
+      "method": "CanSetupVoidMethod",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L352"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 362,
+      "method": "CanAccessMockInfoFromInstance",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L362"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 374,
+      "method": "CanAssertInvocations",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L374"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 394,
+      "method": "ChangeDefaultValue",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L394"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 407,
+      "method": "ChangeBehavior",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L407"
+    },
+    {
+      "path": "src/Moq.Tests/MoqTests.cs",
+      "line": 422,
+      "method": "ChangingBehaviorPreservesDefaultValue",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MoqTests.cs#L422"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 15,
+      "method": "CreatesMockForSetup",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L15"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 26,
+      "method": "CreatesStrictMock",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L26"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 38,
+      "method": "CreatesClassMockThatCallsBase",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L38"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 49,
+      "method": "CreatesMockWithAdditionalInterfaces",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L49"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 63,
+      "method": "AsThrowsIfInterfaceIsNotImplemented",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L63"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 67,
+      "method": "GetsMockForImplementedInterface",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L67"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 77,
+      "method": "GetThrowsIfInterfaceIsNotImplemented",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L77"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 81,
+      "method": "GetThrowsIfNotMock",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L81"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 85,
+      "method": "MocksDelegates",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L85"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 96,
+      "method": "CustomizesCreatedMocks",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L96"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 105,
+      "method": "CustomizesCreatedMocksWithAdditionalInterfaces",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L105"
+    },
+    {
+      "path": "src/Moq.Tests/MockTests.cs",
+      "line": 109,
+      "method": "CustomConstructorsCreateMocks",
+      "attribute_candidate": true,
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.Tests/MockTests.cs#L109"
+    }
+  ],
+  "declared_references": [
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "NuGetizer",
+      "file": "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.Common",
+      "file": "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis/Moq.CodeAnalysis.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "Microsoft.TestPlatform.ObjectModel",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "xunit",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "xunit.runner.console",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "xunit.runner.msbuild",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "xunit.runner.visualstudio",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "ProjectReference",
+      "name": "..\\Moq.CodeAnalysis\\Moq.CodeAnalysis.csproj",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "ProjectReference",
+      "name": "..\\Moq\\Moq.csproj",
+      "file": "src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq.CodeAnalysis.UnitTests/Moq.CodeAnalysis.UnitTests.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "NuGetizer",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "IFluentInterface",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "Microsoft.CSharp",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.CSharp.CodeStyle",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "ProjectReference",
+      "name": "..\\Moq.Sdk\\Moq.Sdk.csproj",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    },
+    {
+      "repo": "dotj-mock",
+      "kind": "ProjectReference",
+      "name": "..\\Moq.DynamicProxy\\Moq.DynamicProxy.csproj",
+      "file": "src/Moq/Moq.csproj",
+      "url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Moq.csproj"
+    }
+  ]
+}

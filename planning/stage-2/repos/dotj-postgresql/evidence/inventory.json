@@ -1,0 +1,2518 @@
+{
+  "identity": {
+    "id": "DJ-021",
+    "name": "Npgsql",
+    "url": "https://github.com/npgsql/npgsql",
+    "repo": "dotj-postgresql",
+    "category": "Database access and serialization"
+  },
+  "source": {
+    "id": "DJ-021",
+    "repo": "dotj-postgresql",
+    "requested_upstream": "https://github.com/npgsql/npgsql",
+    "notice_revision": "1083526ef25018bd65772f18f313240fd36037bb",
+    "effective_upstream": "https://github.com/npgsql/npgsql",
+    "effective_revision": "1083526ef25018bd65772f18f313240fd36037bb",
+    "source_prefix": "",
+    "inspection_date": "2026-10-19",
+    "tree_scope": "recursive complete",
+    "paths": [
+      ".build/ca.crt",
+      ".build/server.crt",
+      ".build/server.key",
+      ".devcontainer/db/Dockerfile",
+      ".devcontainer/db/init-db.sh",
+      ".devcontainer/devcontainer.json",
+      ".devcontainer/docker-compose.yml",
+      ".devcontainer/pgadmin4/config_local.py",
+      ".devcontainer/pgadmin4/servers.json",
+      ".editorconfig",
+      ".gitattributes",
+      ".github/CODEOWNERS",
+      ".github/ISSUE_TEMPLATE.md",
+      ".github/dependabot.yml",
+      ".github/workflows/build.yml",
+      ".github/workflows/native-aot.yml",
+      ".github/workflows/trigger-doc-build.yml",
+      ".gitignore",
+      ".vscode/extensions.json",
+      ".vscode/settings.json",
+      "Directory.Build.props",
+      "Directory.Packages.props",
+      "LICENSE",
+      "Npgsql.slnx",
+      "Npgsql.slnx.DotSettings",
+      "Npgsql.snk",
+      "NuGet.config",
+      "README.md",
+      "global.json",
+      "postgresql.png",
+      "src/.editorconfig",
+      "src/Directory.Build.props",
+      "src/Npgsql.GeoJSON/CrsMap.WellKnown.cs",
+      "src/Npgsql.GeoJSON/CrsMap.cs",
+      "src/Npgsql.GeoJSON/CrsMapExtensions.cs",
+      "src/Npgsql.GeoJSON/GeoJSONOptions.cs",
+      "src/Npgsql.GeoJSON/Internal/BoundingBoxBuilder.cs",
+      "src/Npgsql.GeoJSON/Internal/CrsMapBuilder.cs",
+      "src/Npgsql.GeoJSON/Internal/GeoJSONConverter.cs",
+      "src/Npgsql.GeoJSON/Internal/GeoJSONTypeInfoResolverFactory.cs",
+      "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "src/Npgsql.GeoJSON/NpgsqlGeoJSONExtensions.cs",
+      "src/Npgsql.GeoJSON/Properties/AssemblyInfo.cs",
+      "src/Npgsql.GeoJSON/PublicAPI.Shipped.txt",
+      "src/Npgsql.GeoJSON/PublicAPI.Unshipped.txt",
+      "src/Npgsql.Json.NET/Internal/JsonNetJsonConverter.cs",
+      "src/Npgsql.Json.NET/Internal/JsonNetPocoTypeInfoResolverFactory.cs",
+      "src/Npgsql.Json.NET/Internal/JsonNetTypeInfoResolverFactory.cs",
+      "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "src/Npgsql.Json.NET/NpgsqlJsonNetExtensions.cs",
+      "src/Npgsql.Json.NET/Properties/AssemblyInfo.cs",
+      "src/Npgsql.Json.NET/PublicAPI.Shipped.txt",
+      "src/Npgsql.Json.NET/PublicAPI.Unshipped.txt",
+      "src/Npgsql.NetTopologySuite/Internal/NetTopologySuiteConverter.cs",
+      "src/Npgsql.NetTopologySuite/Internal/NetTopologySuiteTypeInfoResolverFactory.cs",
+      "src/Npgsql.NetTopologySuite/Npgsql.NetTopologySuite.csproj",
+      "src/Npgsql.NetTopologySuite/NpgsqlNetTopologySuiteExtensions.cs",
+      "src/Npgsql.NetTopologySuite/Properties/AssemblyInfo.cs",
+      "src/Npgsql.NetTopologySuite/PublicAPI.Shipped.txt",
+      "src/Npgsql.NetTopologySuite/PublicAPI.Unshipped.txt",
+      "src/Npgsql.NetTopologySuite/README.md",
+      "src/Npgsql.NodaTime/Internal/DateIntervalConverter.cs",
+      "src/Npgsql.NodaTime/Internal/DurationConverter.cs",
+      "src/Npgsql.NodaTime/Internal/IntervalConverter.cs",
+      "src/Npgsql.NodaTime/Internal/LegacyConverters.cs",
+      "src/Npgsql.NodaTime/Internal/LocalDateConverter.cs",
+      "src/Npgsql.NodaTime/Internal/LocalTimeConverter.cs",
+      "src/Npgsql.NodaTime/Internal/NodaTimeTypeInfoResolverFactory.Multirange.cs",
+      "src/Npgsql.NodaTime/Internal/NodaTimeTypeInfoResolverFactory.Range.cs",
+      "src/Npgsql.NodaTime/Internal/NodaTimeTypeInfoResolverFactory.cs",
+      "src/Npgsql.NodaTime/Internal/NodaTimeUtils.cs",
+      "src/Npgsql.NodaTime/Internal/OffsetTimeConverter.cs",
+      "src/Npgsql.NodaTime/Internal/PeriodConverter.cs",
+      "src/Npgsql.NodaTime/Internal/TimestampConverters.cs",
+      "src/Npgsql.NodaTime/Npgsql.NodaTime.csproj",
+      "src/Npgsql.NodaTime/NpgsqlNodaTimeExtensions.cs",
+      "src/Npgsql.NodaTime/Properties/AssemblyInfo.cs",
+      "src/Npgsql.NodaTime/Properties/NpgsqlNodaTimeStrings.Designer.cs",
+      "src/Npgsql.NodaTime/Properties/NpgsqlNodaTimeStrings.resx",
+      "src/Npgsql.NodaTime/PublicAPI.Shipped.txt",
+      "src/Npgsql.NodaTime/PublicAPI.Unshipped.txt",
+      "src/Npgsql.NodaTime/README.md",
+      "src/Npgsql.OpenTelemetry/MeterProviderBuilderExtensions.cs",
+      "src/Npgsql.OpenTelemetry/Npgsql.OpenTelemetry.csproj",
+      "src/Npgsql.OpenTelemetry/Properties/AssemblyInfo.cs",
+      "src/Npgsql.OpenTelemetry/README.md",
+      "src/Npgsql.OpenTelemetry/TracerProviderBuilderExtensions.cs",
+      "src/Npgsql.SourceGenerators/AnalyzerReleases.Shipped.md",
+      "src/Npgsql.SourceGenerators/AnalyzerReleases.Unshipped.md",
+      "src/Npgsql.SourceGenerators/EmbeddedResource.cs",
+      "src/Npgsql.SourceGenerators/Npgsql.SourceGenerators.csproj",
+      "src/Npgsql.SourceGenerators/NpgsqlConnectionStringBuilder.snbtxt",
+      "src/Npgsql.SourceGenerators/NpgsqlConnectionStringBuilderSourceGenerator.cs",
+      "src/Npgsql/BackendMessages/AuthenticationMessages.cs",
+      "src/Npgsql/BackendMessages/BackendKeyDataMessage.cs",
+      "src/Npgsql/BackendMessages/BindCompleteMessage.cs",
+      "src/Npgsql/BackendMessages/CloseCompletedMessage.cs",
+      "src/Npgsql/BackendMessages/CommandCompleteMessage.cs",
+      "src/Npgsql/BackendMessages/CopyMessages.cs",
+      "src/Npgsql/BackendMessages/DataRowMessage.cs",
+      "src/Npgsql/BackendMessages/EmptyQueryMessage.cs",
+      "src/Npgsql/BackendMessages/ErrorOrNoticeMessage.cs",
+      "src/Npgsql/BackendMessages/NoDataMessage.cs",
+      "src/Npgsql/BackendMessages/ParameterDescriptionMessage.cs",
+      "src/Npgsql/BackendMessages/ParseCompleteMessage.cs",
+      "src/Npgsql/BackendMessages/PortalSuspendedMessage.cs",
+      "src/Npgsql/BackendMessages/ReadyForQueryMessage.cs",
+      "src/Npgsql/BackendMessages/RowDescriptionMessage.cs",
+      "src/Npgsql/Common.cs",
+      "src/Npgsql/DatabaseState.cs",
+      "src/Npgsql/GlobalSuppressions.cs",
+      "src/Npgsql/ICancelable.cs",
+      "src/Npgsql/Internal/AdoSerializerHelpers.cs",
+      "src/Npgsql/Internal/BufferRequirements.cs",
+      "src/Npgsql/Internal/ChainDbTypeResolver.cs",
+      "src/Npgsql/Internal/ChainTypeInfoResolver.cs",
+      "src/Npgsql/Internal/Composites/Metadata/CompositeBuilder.cs",
+      "src/Npgsql/Internal/Composites/Metadata/CompositeFieldInfo.cs",
+      "src/Npgsql/Internal/Composites/Metadata/CompositeInfo.cs",
+      "src/Npgsql/Internal/Composites/ReflectionCompositeInfoFactory.cs",
+      "src/Npgsql/Internal/Converters/ArrayConverter.cs",
+      "src/Npgsql/Internal/Converters/ArrayConverterCore.cs",
+      "src/Npgsql/Internal/Converters/AsyncHelpers.cs",
+      "src/Npgsql/Internal/Converters/BitStringConverters.cs",
+      "src/Npgsql/Internal/Converters/CastingConverter.cs",
+      "src/Npgsql/Internal/Converters/CompositeConverter.cs",
+      "src/Npgsql/Internal/Converters/EnumConverter.cs",
+      "src/Npgsql/Internal/Converters/FullTextSearch/TsQueryConverter.cs",
+      "src/Npgsql/Internal/Converters/FullTextSearch/TsVectorConverter.cs",
+      "src/Npgsql/Internal/Converters/Geometric/BoxConverter.cs",
+      "src/Npgsql/Internal/Converters/Geometric/CircleConverter.cs",
+      "src/Npgsql/Internal/Converters/Geometric/CubeConverter.cs",
+      "src/Npgsql/Internal/Converters/Geometric/LineConverter.cs",
+      "src/Npgsql/Internal/Converters/Geometric/LineSegmentConverter.cs",
+      "src/Npgsql/Internal/Converters/Geometric/PathConverter.cs",
+      "src/Npgsql/Internal/Converters/Geometric/PointConverter.cs",
+      "src/Npgsql/Internal/Converters/Geometric/PolygonConverter.cs",
+      "src/Npgsql/Internal/Converters/HstoreConverter.cs",
+      "src/Npgsql/Internal/Converters/Internal/InternalCharConverter.cs",
+      "src/Npgsql/Internal/Converters/Internal/PgLsnConverter.cs",
+      "src/Npgsql/Internal/Converters/Internal/TidConverter.cs",
+      "src/Npgsql/Internal/Converters/Internal/UInt32Converter.cs",
+      "src/Npgsql/Internal/Converters/Internal/UInt64Converter.cs",
+      "src/Npgsql/Internal/Converters/Internal/VoidConverter.cs",
+      "src/Npgsql/Internal/Converters/JsonConverter.cs",
+      "src/Npgsql/Internal/Converters/LateBindingConverter.cs",
+      "src/Npgsql/Internal/Converters/MoneyConverter.cs",
+      "src/Npgsql/Internal/Converters/MultirangeConverter.cs",
+      "src/Npgsql/Internal/Converters/Networking/IPAddressConverter.cs",
+      "src/Npgsql/Internal/Converters/Networking/IPNetworkConverter.cs",
+      "src/Npgsql/Internal/Converters/Networking/MacaddrConverter.cs",
+      "src/Npgsql/Internal/Converters/Networking/NpgsqlCidrConverter.cs",
+      "src/Npgsql/Internal/Converters/Networking/NpgsqlInetConverter.cs",
+      "src/Npgsql/Internal/Converters/NullableConverter.cs",
+      "src/Npgsql/Internal/Converters/PolymorphicArrayTypeInfoProvider.cs",
+      "src/Npgsql/Internal/Converters/Primitive/BoolConverter.cs",
+      "src/Npgsql/Internal/Converters/Primitive/ByteaConverters.cs",
+      "src/Npgsql/Internal/Converters/Primitive/DoubleConverter.cs",
+      "src/Npgsql/Internal/Converters/Primitive/GuidUuidConverter.cs",
+      "src/Npgsql/Internal/Converters/Primitive/Int2Converter.cs",
+      "src/Npgsql/Internal/Converters/Primitive/Int4Converter.cs",
+      "src/Npgsql/Internal/Converters/Primitive/Int8Converter.cs",
+      "src/Npgsql/Internal/Converters/Primitive/NumericConverters.cs",
+      "src/Npgsql/Internal/Converters/Primitive/PgMoney.cs",
+      "src/Npgsql/Internal/Converters/Primitive/PgNumeric.cs",
+      "src/Npgsql/Internal/Converters/Primitive/RealConverter.cs",
+      "src/Npgsql/Internal/Converters/Primitive/TextConverters.cs",
+      "src/Npgsql/Internal/Converters/RangeConverter.cs",
+      "src/Npgsql/Internal/Converters/RecordConverter.cs",
+      "src/Npgsql/Internal/Converters/StreamConverter.cs",
+      "src/Npgsql/Internal/Converters/Temporal/DateConverters.cs",
+      "src/Npgsql/Internal/Converters/Temporal/DateTimeConverters.cs",
+      "src/Npgsql/Internal/Converters/Temporal/DateTimeTypeInfoProvider.cs",
+      "src/Npgsql/Internal/Converters/Temporal/IntervalConverters.cs",
+      "src/Npgsql/Internal/Converters/Temporal/LegacyDateTimeConverter.cs",
+      "src/Npgsql/Internal/Converters/Temporal/PgTimestamp.cs",
+      "src/Npgsql/Internal/Converters/Temporal/TimeConverters.cs",
+      "src/Npgsql/Internal/Converters/VersionPrefixedTextConverter.cs",
+      "src/Npgsql/Internal/DataFormat.cs",
+      "src/Npgsql/Internal/DbTypeResolverFactory.cs",
+      "src/Npgsql/Internal/DynamicTypeInfoResolver.cs",
+      "src/Npgsql/Internal/IDbTypeResolver.cs",
+      "src/Npgsql/Internal/INpgsqlDatabaseInfoFactory.cs",
+      "src/Npgsql/Internal/IPgTypeInfoResolver.cs",
+      "src/Npgsql/Internal/IntegratedSecurityHandler.cs",
+      "src/Npgsql/Internal/NpgsqlConnector.Auth.cs",
+      "src/Npgsql/Internal/NpgsqlConnector.FrontendMessages.cs",
+      "src/Npgsql/Internal/NpgsqlConnector.cs",
+      "src/Npgsql/Internal/NpgsqlDatabaseInfo.cs",
+      "src/Npgsql/Internal/NpgsqlReadBuffer.Stream.cs",
+      "src/Npgsql/Internal/NpgsqlReadBuffer.cs",
+      "src/Npgsql/Internal/NpgsqlWriteBuffer.cs",
+      "src/Npgsql/Internal/PgBufferedConverter.cs",
+      "src/Npgsql/Internal/PgComposingTypeInfoProvider.cs",
+      "src/Npgsql/Internal/PgConcreteTypeInfoProvider.cs",
+      "src/Npgsql/Internal/PgConverter.cs",
+      "src/Npgsql/Internal/PgReader.cs",
+      "src/Npgsql/Internal/PgSerializerOptions.cs",
+      "src/Npgsql/Internal/PgStreamingConverter.cs",
+      "src/Npgsql/Internal/PgTypeInfo.cs",
+      "src/Npgsql/Internal/PgTypeInfoResolverChainBuilder.cs",
+      "src/Npgsql/Internal/PgTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/PgWriter.cs",
+      "src/Npgsql/Internal/Postgres/DataTypeName.cs",
+      "src/Npgsql/Internal/Postgres/DataTypeNames.cs",
+      "src/Npgsql/Internal/Postgres/Field.cs",
+      "src/Npgsql/Internal/Postgres/Oid.cs",
+      "src/Npgsql/Internal/Postgres/PgTypeId.cs",
+      "src/Npgsql/Internal/ResolverFactories/AdoTypeInfoResolverFactory.Multirange.cs",
+      "src/Npgsql/Internal/ResolverFactories/AdoTypeInfoResolverFactory.Range.cs",
+      "src/Npgsql/Internal/ResolverFactories/AdoTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/CubeTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/ExtraConversionsTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/FullTextSearchTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/GeometricTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/JsonDynamicTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/JsonTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/LTreeTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/NetworkTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/RecordTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/TupledRecordTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/UnmappedTypeInfoResolverFactory.cs",
+      "src/Npgsql/Internal/ResolverFactories/UnsupportedTypeInfoResolver.cs",
+      "src/Npgsql/Internal/Size.cs",
+      "src/Npgsql/Internal/TransportSecurityHandler.cs",
+      "src/Npgsql/Internal/TypeInfoCache.cs",
+      "src/Npgsql/Internal/TypeInfoMapping.cs",
+      "src/Npgsql/Internal/ValueMetadata.cs",
+      "src/Npgsql/KerberosUsernameProvider.cs",
+      "src/Npgsql/LogMessages.cs",
+      "src/Npgsql/MetricsReporter.cs",
+      "src/Npgsql/MultiHostDataSourceWrapper.cs",
+      "src/Npgsql/NameTranslation/INpgsqlNameTranslator.cs",
+      "src/Npgsql/NameTranslation/NpgsqlNullNameTranslator.cs",
+      "src/Npgsql/NameTranslation/NpgsqlSnakeCaseNameTranslator.cs",
+      "src/Npgsql/Npgsql.csproj",
+      "src/Npgsql/NpgsqlActivitySource.cs",
+      "src/Npgsql/NpgsqlBatch.cs",
+      "src/Npgsql/NpgsqlBatchCommand.cs",
+      "src/Npgsql/NpgsqlBatchCommandCollection.cs",
+      "src/Npgsql/NpgsqlBinaryExporter.cs",
+      "src/Npgsql/NpgsqlBinaryImporter.cs",
+      "src/Npgsql/NpgsqlCommand.cs",
+      "src/Npgsql/NpgsqlCommandBuilder.cs",
+      "src/Npgsql/NpgsqlConnection.cs",
+      "src/Npgsql/NpgsqlConnectionStringBuilder.cs",
+      "src/Npgsql/NpgsqlDataAdapter.cs",
+      "src/Npgsql/NpgsqlDataReader.cs",
+      "src/Npgsql/NpgsqlDataSource.cs",
+      "src/Npgsql/NpgsqlDataSourceBatch.cs",
+      "src/Npgsql/NpgsqlDataSourceBuilder.cs",
+      "src/Npgsql/NpgsqlDataSourceCommand.cs",
+      "src/Npgsql/NpgsqlDataSourceConfiguration.cs",
+      "src/Npgsql/NpgsqlDiagnostics.cs",
+      "src/Npgsql/NpgsqlEventId.cs",
+      "src/Npgsql/NpgsqlEventSource.cs",
+      "src/Npgsql/NpgsqlException.cs",
+      "src/Npgsql/NpgsqlFactory.cs",
+      "src/Npgsql/NpgsqlLoggingConfiguration.cs",
+      "src/Npgsql/NpgsqlMetricsOptions.cs",
+      "src/Npgsql/NpgsqlMultiHostDataSource.cs",
+      "src/Npgsql/NpgsqlNestedDataReader.cs",
+      "src/Npgsql/NpgsqlNotificationEventArgs.cs",
+      "src/Npgsql/NpgsqlOperationInProgressException.cs",
+      "src/Npgsql/NpgsqlParameter.cs",
+      "src/Npgsql/NpgsqlParameterCollection.cs",
+      "src/Npgsql/NpgsqlParameter`.cs",
+      "src/Npgsql/NpgsqlRawCopyStream.cs",
+      "src/Npgsql/NpgsqlSchema.cs",
+      "src/Npgsql/NpgsqlServiceCollectionExtensions.cs",
+      "src/Npgsql/NpgsqlSlimDataSourceBuilder.cs",
+      "src/Npgsql/NpgsqlSqlEventSource.cs",
+      "src/Npgsql/NpgsqlTracingOptionsBuilder.cs",
+      "src/Npgsql/NpgsqlTransaction.cs",
+      "src/Npgsql/NpgsqlTransactionOptions.cs",
+      "src/Npgsql/NpgsqlTypeLoadingOptions.cs",
+      "src/Npgsql/NpgsqlTypes/NpgsqlCube.cs",
+      "src/Npgsql/NpgsqlTypes/NpgsqlDbType.cs",
+      "src/Npgsql/NpgsqlTypes/NpgsqlInterval.cs",
+      "src/Npgsql/NpgsqlTypes/NpgsqlLogSequenceNumber.cs",
+      "src/Npgsql/NpgsqlTypes/NpgsqlRange.cs",
+      "src/Npgsql/NpgsqlTypes/NpgsqlTsQuery.cs",
+      "src/Npgsql/NpgsqlTypes/NpgsqlTsVector.cs",
+      "src/Npgsql/NpgsqlTypes/NpgsqlTypes.cs",
+      "src/Npgsql/NpgsqlTypes/PgNameAttribute.cs",
+      "src/Npgsql/PgPassFile.cs",
+      "src/Npgsql/PoolManager.cs",
+      "src/Npgsql/PoolingDataSource.cs",
+      "src/Npgsql/PostgresDatabaseInfo.cs",
+      "src/Npgsql/PostgresEnvironment.cs",
+      "src/Npgsql/PostgresErrorCodes.cs",
+      "src/Npgsql/PostgresException.cs",
+      "src/Npgsql/PostgresMinimalDatabaseInfo.cs",
+      "src/Npgsql/PostgresNotice.cs",
+      "src/Npgsql/PostgresTypes/PostgresArrayType.cs",
+      "src/Npgsql/PostgresTypes/PostgresBaseType.cs",
+      "src/Npgsql/PostgresTypes/PostgresCompositeType.cs",
+      "src/Npgsql/PostgresTypes/PostgresDomainType.cs",
+      "src/Npgsql/PostgresTypes/PostgresEnumType.cs",
+      "src/Npgsql/PostgresTypes/PostgresFacets.cs",
+      "src/Npgsql/PostgresTypes/PostgresMultirangeType.cs",
+      "src/Npgsql/PostgresTypes/PostgresRangeType.cs",
+      "src/Npgsql/PostgresTypes/PostgresType.cs",
+      "src/Npgsql/PostgresTypes/PostgresTypeKind.cs",
+      "src/Npgsql/PostgresTypes/PostgresUnknownType.cs",
+      "src/Npgsql/PregeneratedMessages.cs",
+      "src/Npgsql/PreparedStatement.cs",
+      "src/Npgsql/PreparedStatementManager.cs",
+      "src/Npgsql/PreparedTextReader.cs",
+      "src/Npgsql/Properties/AssemblyInfo.cs",
+      "src/Npgsql/Properties/NpgsqlStrings.Designer.cs",
+      "src/Npgsql/Properties/NpgsqlStrings.resx",
+      "src/Npgsql/PublicAPI.Shipped.txt",
+      "src/Npgsql/PublicAPI.Unshipped.txt",
+      "src/Npgsql/README.md",
+      "src/Npgsql/Replication/Internal/LogicalReplicationConnectionExtensions.cs",
+      "src/Npgsql/Replication/Internal/LogicalReplicationSlot.cs",
+      "src/Npgsql/Replication/LogicalReplicationConnection.cs",
+      "src/Npgsql/Replication/LogicalSlotSnapshotInitMode.cs",
+      "src/Npgsql/Replication/PgDateTime.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/BeginMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/BeginPrepareMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/CommitMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/CommitPreparedMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/DefaultUpdateMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/DeleteMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/FullDeleteMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/FullUpdateMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/IndexUpdateMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/InsertMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/KeyDeleteMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/LogicalDecodingMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/OriginMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/PgOutputReplicationMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/PrepareMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/PrepareMessageBase.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/PreparedTransactionControlMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/RelationMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/RelationMessageColumn.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/RollbackPreparedMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/StreamAbortMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/StreamCommitMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/StreamPrepareMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/StreamStartMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/StreamStopMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/TransactionControlMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/TransactionalMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/TruncateMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/TypeMessage.cs",
+      "src/Npgsql/Replication/PgOutput/Messages/UpdateMessage.cs",
+      "src/Npgsql/Replication/PgOutput/PgOutputAsyncEnumerable.cs",
+      "src/Npgsql/Replication/PgOutput/PgOutputConnectionExtensions.cs",
+      "src/Npgsql/Replication/PgOutput/PgOutputProtocolVersion.cs",
+      "src/Npgsql/Replication/PgOutput/PgOutputReplicationOptions.cs",
+      "src/Npgsql/Replication/PgOutput/PgOutputReplicationSlot.cs",
+      "src/Npgsql/Replication/PgOutput/PgOutputStreamingMode.cs",
+      "src/Npgsql/Replication/PgOutput/ReadonlyArrayBuffer.cs",
+      "src/Npgsql/Replication/PgOutput/ReplicationTuple.cs",
+      "src/Npgsql/Replication/PgOutput/ReplicationValue.cs",
+      "src/Npgsql/Replication/PgOutput/TupleDataKind.cs",
+      "src/Npgsql/Replication/PgOutput/TupleEnumerator.cs",
+      "src/Npgsql/Replication/PgOutput/TupleType.cs",
+      "src/Npgsql/Replication/PhysicalReplicationConnection.cs",
+      "src/Npgsql/Replication/PhysicalReplicationSlot.cs",
+      "src/Npgsql/Replication/ReplicationConnection.cs",
+      "src/Npgsql/Replication/ReplicationMessage.cs",
+      "src/Npgsql/Replication/ReplicationSlot.cs",
+      "src/Npgsql/Replication/ReplicationSlotOptions.cs",
+      "src/Npgsql/Replication/ReplicationSystemIdentification.cs",
+      "src/Npgsql/Replication/TestDecoding/TestDecodingAsyncEnumerable.cs",
+      "src/Npgsql/Replication/TestDecoding/TestDecodingConnectionExtensions.cs",
+      "src/Npgsql/Replication/TestDecoding/TestDecodingData.cs",
+      "src/Npgsql/Replication/TestDecoding/TestDecodingOptions.cs",
+      "src/Npgsql/Replication/TestDecoding/TestDecodingReplicationSlot.cs",
+      "src/Npgsql/Replication/TimelineHistoryFile.cs",
+      "src/Npgsql/Replication/XLogDataMessage.cs",
+      "src/Npgsql/Schema/DbColumnSchemaGenerator.cs",
+      "src/Npgsql/Schema/NpgsqlDbColumn.cs",
+      "src/Npgsql/SqlQueryParser.cs",
+      "src/Npgsql/TargetSessionAttributes.cs",
+      "src/Npgsql/ThrowHelper.cs",
+      "src/Npgsql/TypeMapping/GlobalTypeMapper.cs",
+      "src/Npgsql/TypeMapping/INpgsqlTypeMapper.cs",
+      "src/Npgsql/TypeMapping/UserTypeMapper.cs",
+      "src/Npgsql/UnpooledDataSource.cs",
+      "src/Npgsql/Util/GSSStream.cs",
+      "src/Npgsql/Util/IterationIndices.cs",
+      "src/Npgsql/Util/LoggingEnumerable.cs",
+      "src/Npgsql/Util/NpgsqlTimeout.cs",
+      "src/Npgsql/Util/ResettableCancellationTokenSource.cs",
+      "src/Npgsql/Util/Statics.cs",
+      "src/Npgsql/Util/StrongBox.cs",
+      "src/Npgsql/Util/SubReadStream.cs",
+      "src/Npgsql/Util/TaskSchedulerAwaitable.cs",
+      "src/Npgsql/Util/TypeExtensions.cs",
+      "src/Npgsql/Util/VersionExtensions.cs",
+      "src/Npgsql/VolatileResourceManager.cs",
+      "test/Directory.Build.props",
+      "test/MStatDumper/MStatDumper.csproj",
+      "test/MStatDumper/Program.cs",
+      "test/Npgsql.Benchmarks/.gitignore",
+      "test/Npgsql.Benchmarks/App.config",
+      "test/Npgsql.Benchmarks/BenchmarkEnvironment.cs",
+      "test/Npgsql.Benchmarks/CommandExecuteBenchmarks.cs",
+      "test/Npgsql.Benchmarks/Commit.cs",
+      "test/Npgsql.Benchmarks/ConnectionCreationBenchmarks.cs",
+      "test/Npgsql.Benchmarks/ConnectionOpenCloseBenchmarks.cs",
+      "test/Npgsql.Benchmarks/CopyExport.cs",
+      "test/Npgsql.Benchmarks/CopyImport.cs",
+      "test/Npgsql.Benchmarks/GetFieldValue.cs",
+      "test/Npgsql.Benchmarks/Insert.cs",
+      "test/Npgsql.Benchmarks/Npgsql.Benchmarks.csproj",
+      "test/Npgsql.Benchmarks/ParameterCollection.cs",
+      "test/Npgsql.Benchmarks/PerElementColumn.cs",
+      "test/Npgsql.Benchmarks/Prepare.cs",
+      "test/Npgsql.Benchmarks/Program.cs",
+      "test/Npgsql.Benchmarks/ReadArray.cs",
+      "test/Npgsql.Benchmarks/ReadColumns.cs",
+      "test/Npgsql.Benchmarks/ReadRows.cs",
+      "test/Npgsql.Benchmarks/ResolveHandler.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/Composite.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/Numeric.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/Text.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/TypeHandlerBenchmarks.cs",
+      "test/Npgsql.Benchmarks/TypeHandlers/Uuid.cs",
+      "test/Npgsql.Benchmarks/UnixDomainSocket.cs",
+      "test/Npgsql.Benchmarks/WriteParameter.cs",
+      "test/Npgsql.Benchmarks/WriteVaryingNumberOfParameters.cs",
+      "test/Npgsql.NativeAotTests/Npgsql.NativeAotTests.csproj",
+      "test/Npgsql.NativeAotTests/Program.cs",
+      "test/Npgsql.Specification.Tests/Npgsql.Specification.Tests.csproj",
+      "test/Npgsql.Specification.Tests/NpgsqlCommandTests.cs",
+      "test/Npgsql.Specification.Tests/NpgsqlConnectionTests.cs",
+      "test/Npgsql.Specification.Tests/NpgsqlDataReaderTests.cs",
+      "test/Npgsql.Specification.Tests/NpgsqlDbFactoryFixture.cs",
+      "test/Npgsql.Specification.Tests/NpgsqlSelectValueFixture.cs",
+      "test/Npgsql.Specification.Tests/Utility.cs",
+      "test/Npgsql.Tests/App.config",
+      "test/Npgsql.Tests/AsyncTests.cs",
+      "test/Npgsql.Tests/AuthenticationTests.cs",
+      "test/Npgsql.Tests/AutoPrepareTests.cs",
+      "test/Npgsql.Tests/BatchTests.cs",
+      "test/Npgsql.Tests/BugTests.cs",
+      "test/Npgsql.Tests/CommandBuilderTests.cs",
+      "test/Npgsql.Tests/CommandParameterTests.cs",
+      "test/Npgsql.Tests/CommandTests.cs",
+      "test/Npgsql.Tests/ConnectionStringBuilderTests.cs",
+      "test/Npgsql.Tests/ConnectionTests.cs",
+      "test/Npgsql.Tests/CopyTests.cs",
+      "test/Npgsql.Tests/DataAdapterTests.cs",
+      "test/Npgsql.Tests/DataSourceTests.cs",
+      "test/Npgsql.Tests/DataTypeNameTests.cs",
+      "test/Npgsql.Tests/DependencyInjectionTests.cs",
+      "test/Npgsql.Tests/DistributedTransactionTests.cs",
+      "test/Npgsql.Tests/ExceptionTests.cs",
+      "test/Npgsql.Tests/FunctionTests.cs",
+      "test/Npgsql.Tests/GlobalTypeMapperTests.cs",
+      "test/Npgsql.Tests/LoggingTests.cs",
+      "test/Npgsql.Tests/MetricTests.cs",
+      "test/Npgsql.Tests/MultipleHostsTests.cs",
+      "test/Npgsql.Tests/NestedDataReaderTests.cs",
+      "test/Npgsql.Tests/NotificationTests.cs",
+      "test/Npgsql.Tests/Npgsql.Tests.csproj",
+      "test/Npgsql.Tests/NpgsqlEventSourceTests.cs",
+      "test/Npgsql.Tests/NpgsqlParameterCollectionTests.cs",
+      "test/Npgsql.Tests/NpgsqlParameterTests.cs",
+      "test/Npgsql.Tests/PgPassEntryTests.cs",
+      "test/Npgsql.Tests/PgPassFileTests.cs",
+      "test/Npgsql.Tests/Plugins/GeoJSONTests.cs",
+      "test/Npgsql.Tests/Plugins/JsonNetTests.cs",
+      "test/Npgsql.Tests/Plugins/LegacyNodaTimeTests.cs",
+      "test/Npgsql.Tests/Plugins/NetTopologySuiteTests.cs",
+      "test/Npgsql.Tests/Plugins/NodaTimeInfinityTests.cs",
+      "test/Npgsql.Tests/Plugins/NodaTimeTests.cs",
+      "test/Npgsql.Tests/PoolManagerTests.cs",
+      "test/Npgsql.Tests/PoolTests.cs",
+      "test/Npgsql.Tests/PostgresTypeTests.cs",
+      "test/Npgsql.Tests/PrepareTests.cs",
+      "test/Npgsql.Tests/Properties/AssemblyInfo.cs",
+      "test/Npgsql.Tests/ReadBufferTests.cs",
+      "test/Npgsql.Tests/ReaderNewSchemaTests.cs",
+      "test/Npgsql.Tests/ReaderOldSchemaTests.cs",
+      "test/Npgsql.Tests/ReaderTests.cs",
+      "test/Npgsql.Tests/Replication/CommonLogicalReplicationTests.cs",
+      "test/Npgsql.Tests/Replication/CommonReplicationTests.cs",
+      "test/Npgsql.Tests/Replication/PgOutputReplicationTests.cs",
+      "test/Npgsql.Tests/Replication/PhysicalReplicationTests.cs",
+      "test/Npgsql.Tests/Replication/SafeReplicationTestBase.cs",
+      "test/Npgsql.Tests/Replication/TestDecodingReplicationTests.cs",
+      "test/Npgsql.Tests/SchemaTests.cs",
+      "test/Npgsql.Tests/SecurityTests.cs",
+      "test/Npgsql.Tests/SizeTests.cs",
+      "test/Npgsql.Tests/SnakeCaseNameTranslatorTests.cs",
+      "test/Npgsql.Tests/SqlQueryParserTests.cs",
+      "test/Npgsql.Tests/StoredProcedureTests.cs",
+      "test/Npgsql.Tests/Support/AssemblySetUp.cs",
+      "test/Npgsql.Tests/Support/ListLoggerFactory.cs",
+      "test/Npgsql.Tests/Support/PgCancellationRequest.cs",
+      "test/Npgsql.Tests/Support/PgPostmasterMock.cs",
+      "test/Npgsql.Tests/Support/PgServerMock.cs",
+      "test/Npgsql.Tests/Support/SingleThreadSynchronizationContext.cs",
+      "test/Npgsql.Tests/Support/TestBase.cs",
+      "test/Npgsql.Tests/SyncOrAsyncTestBase.cs",
+      "test/Npgsql.Tests/SystemTransactionTests.cs",
+      "test/Npgsql.Tests/TestMetrics.cs",
+      "test/Npgsql.Tests/TestUtil.cs",
+      "test/Npgsql.Tests/TracingTests.cs",
+      "test/Npgsql.Tests/TransactionTests.cs",
+      "test/Npgsql.Tests/TypeMapperTests.cs",
+      "test/Npgsql.Tests/Types/ArrayTests.cs",
+      "test/Npgsql.Tests/Types/BitStringTests.cs",
+      "test/Npgsql.Tests/Types/ByteaTests.cs",
+      "test/Npgsql.Tests/Types/CompositeHandlerTests.Read.cs",
+      "test/Npgsql.Tests/Types/CompositeHandlerTests.Write.cs",
+      "test/Npgsql.Tests/Types/CompositeHandlerTests.cs",
+      "test/Npgsql.Tests/Types/CompositeTests.cs",
+      "test/Npgsql.Tests/Types/CubeTests.cs",
+      "test/Npgsql.Tests/Types/DateTimeInfinityTests.cs",
+      "test/Npgsql.Tests/Types/DateTimeTests.cs",
+      "test/Npgsql.Tests/Types/DomainTests.cs",
+      "test/Npgsql.Tests/Types/EnumTests.cs",
+      "test/Npgsql.Tests/Types/FullTextSearchTests.cs",
+      "test/Npgsql.Tests/Types/GeometricTypeTests.cs",
+      "test/Npgsql.Tests/Types/HstoreTests.cs",
+      "test/Npgsql.Tests/Types/InternalTypeTests.cs",
+      "test/Npgsql.Tests/Types/JsonDynamicTests.cs",
+      "test/Npgsql.Tests/Types/JsonPathTests.cs",
+      "test/Npgsql.Tests/Types/JsonTests.cs",
+      "test/Npgsql.Tests/Types/LTreeTests.cs",
+      "test/Npgsql.Tests/Types/LegacyDateTimeTests.cs",
+      "test/Npgsql.Tests/Types/MiscTypeTests.cs",
+      "test/Npgsql.Tests/Types/MoneyTests.cs",
+      "test/Npgsql.Tests/Types/MultirangeTests.cs",
+      "test/Npgsql.Tests/Types/NetworkTypeTests.cs",
+      "test/Npgsql.Tests/Types/NumericTests.cs",
+      "test/Npgsql.Tests/Types/NumericTypeTests.cs",
+      "test/Npgsql.Tests/Types/RangeTests.cs",
+      "test/Npgsql.Tests/Types/RecordTests.cs",
+      "test/Npgsql.Tests/Types/TextTests.cs",
+      "test/Npgsql.Tests/TypesTests.cs",
+      "test/Npgsql.Tests/WriteBufferTests.cs",
+      "test/Npgsql.Tests/WriteStateTests.cs"
+    ],
+    "new_files": [
+      {
+        "path": "src/Npgsql.GeoJSON/PublicAPI.Shipped.txt",
+        "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/PublicAPI.Shipped.txt",
+        "sha256": "57ebb0d9e9a9c7295e3cd8857725ff72516cdfe4087b2c9c8f8f512e5c22f5c8",
+        "bytes": 1527
+      },
+      {
+        "path": "src/Npgsql.Json.NET/PublicAPI.Shipped.txt",
+        "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/PublicAPI.Shipped.txt",
+        "sha256": "7c78cd51bee7191e95a9bc7a2278ece3104853320d017642e35c51106c4cd041",
+        "bytes": 543
+      },
+      {
+        "path": "src/Npgsql/Common.cs",
+        "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Common.cs",
+        "sha256": "dc4558e07cf9368100b67df86d7b655ea021e9de9933a1a357e88fec1956d013",
+        "bytes": 2215
+      },
+      {
+        "path": "src/Npgsql/PgPassFile.cs",
+        "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/PgPassFile.cs",
+        "sha256": "2829931efda120d2717a8bdd534ccb9b255d5eed827c27bc5b5095eb2fa369eb",
+        "bytes": 7764
+      },
+      {
+        "path": "test/Npgsql.Tests/BugTests.cs",
+        "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs",
+        "sha256": "d6e5e13f7114577bd840876a45c8ccb0e63a6bbf26a16adb6ac93e146d82cb33",
+        "bytes": 54175
+      },
+      {
+        "path": "test/Npgsql.Tests/CopyTests.cs",
+        "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs",
+        "sha256": "423196bbe9799bc80cfa11f93fdad8f1dec43d6526959ab83e509bca6de8f7b0",
+        "bytes": 54383
+      }
+    ],
+    "errors": []
+  },
+  "sampled_files": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/README.md",
+      "sha256": "7eb9f51cca27ef7938298d68a9a8907ae28bbcadbe45188426da2a338fa976ab",
+      "bytes": 2614
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/LICENSE",
+      "sha256": "3c0c71ba8971ad9a06b1b0f9626fca6d9ca3def83ace0c88b15981eb976728fc",
+      "bytes": 903
+    },
+    {
+      "path": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props",
+      "sha256": "a6d234d25d2ea502542dcd08af932689f49f058d2e950c1e30d368f7873fc6eb",
+      "bytes": 2403
+    },
+    {
+      "path": "Directory.Build.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Build.props",
+      "sha256": "e9761a768502fda89987c49f75da7bcef61b6cfbb8deaadbd3dd0515467addc6",
+      "bytes": 1236
+    },
+    {
+      "path": "global.json",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/global.json",
+      "sha256": "2b4694ef162cc6c7d62bc2bdd70f90357d08da3faee109c8e546c8826383e3fc",
+      "bytes": 109
+    },
+    {
+      "path": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "sha256": "eab337506807b8bf6404f59562a318060dbce55af448e0cc24ac8eb23b099587",
+      "bytes": 905
+    },
+    {
+      "path": "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "sha256": "9aeae1ee5a6f873478072a462871edc994d4e5d36447269a26b00c48a18260a8",
+      "bytes": 847
+    },
+    {
+      "path": "test/MStatDumper/MStatDumper.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/MStatDumper/MStatDumper.csproj",
+      "sha256": "914a3173371ce24453b151be009cf3c4f2fbf10b1bf1da9b42f82c4cc9ff5678",
+      "bytes": 270
+    },
+    {
+      "path": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj",
+      "sha256": "a0891c752188c61f1f73893eec6878478ab5d47af28ca5458190f936f1ba6437",
+      "bytes": 1846
+    },
+    {
+      "path": "src/Npgsql.GeoJSON/PublicAPI.Shipped.txt",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/PublicAPI.Shipped.txt",
+      "sha256": "57ebb0d9e9a9c7295e3cd8857725ff72516cdfe4087b2c9c8f8f512e5c22f5c8",
+      "bytes": 1527
+    },
+    {
+      "path": "src/Npgsql.Json.NET/PublicAPI.Shipped.txt",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/PublicAPI.Shipped.txt",
+      "sha256": "7c78cd51bee7191e95a9bc7a2278ece3104853320d017642e35c51106c4cd041",
+      "bytes": 543
+    },
+    {
+      "path": "src/Npgsql/Common.cs",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Common.cs",
+      "sha256": "dc4558e07cf9368100b67df86d7b655ea021e9de9933a1a357e88fec1956d013",
+      "bytes": 2215
+    },
+    {
+      "path": "src/Npgsql/PgPassFile.cs",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/PgPassFile.cs",
+      "sha256": "2829931efda120d2717a8bdd534ccb9b255d5eed827c27bc5b5095eb2fa369eb",
+      "bytes": 7764
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs",
+      "sha256": "d6e5e13f7114577bd840876a45c8ccb0e63a6bbf26a16adb6ac93e146d82cb33",
+      "bytes": 54175
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs",
+      "sha256": "423196bbe9799bc80cfa11f93fdad8f1dec43d6526959ab83e509bca6de8f7b0",
+      "bytes": 54383
+    }
+  ],
+  "project_paths": [
+    "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+    "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+    "src/Npgsql.NetTopologySuite/Npgsql.NetTopologySuite.csproj",
+    "src/Npgsql.NodaTime/Npgsql.NodaTime.csproj",
+    "src/Npgsql.OpenTelemetry/Npgsql.OpenTelemetry.csproj",
+    "src/Npgsql.SourceGenerators/Npgsql.SourceGenerators.csproj",
+    "src/Npgsql/Npgsql.csproj",
+    "test/MStatDumper/MStatDumper.csproj",
+    "test/Npgsql.Benchmarks/Npgsql.Benchmarks.csproj",
+    "test/Npgsql.NativeAotTests/Npgsql.NativeAotTests.csproj",
+    "test/Npgsql.Specification.Tests/Npgsql.Specification.Tests.csproj",
+    "test/Npgsql.Tests/Npgsql.Tests.csproj"
+  ],
+  "public_api_definition_paths": [
+    "src/Npgsql.GeoJSON/PublicAPI.Shipped.txt",
+    "src/Npgsql.GeoJSON/PublicAPI.Unshipped.txt",
+    "src/Npgsql.Json.NET/PublicAPI.Shipped.txt",
+    "src/Npgsql.Json.NET/PublicAPI.Unshipped.txt",
+    "src/Npgsql.NetTopologySuite/PublicAPI.Shipped.txt",
+    "src/Npgsql.NetTopologySuite/PublicAPI.Unshipped.txt",
+    "src/Npgsql.NodaTime/PublicAPI.Shipped.txt",
+    "src/Npgsql.NodaTime/PublicAPI.Unshipped.txt",
+    "src/Npgsql/PublicAPI.Shipped.txt",
+    "src/Npgsql/PublicAPI.Unshipped.txt"
+  ],
+  "test_candidate_paths": [
+    "src/Npgsql/Replication/TestDecoding/TestDecodingAsyncEnumerable.cs",
+    "src/Npgsql/Replication/TestDecoding/TestDecodingConnectionExtensions.cs",
+    "src/Npgsql/Replication/TestDecoding/TestDecodingData.cs",
+    "src/Npgsql/Replication/TestDecoding/TestDecodingOptions.cs",
+    "src/Npgsql/Replication/TestDecoding/TestDecodingReplicationSlot.cs",
+    "test/MStatDumper/Program.cs",
+    "test/Npgsql.Benchmarks/BenchmarkEnvironment.cs",
+    "test/Npgsql.Benchmarks/CommandExecuteBenchmarks.cs",
+    "test/Npgsql.Benchmarks/Commit.cs",
+    "test/Npgsql.Benchmarks/ConnectionCreationBenchmarks.cs",
+    "test/Npgsql.Benchmarks/ConnectionOpenCloseBenchmarks.cs",
+    "test/Npgsql.Benchmarks/CopyExport.cs",
+    "test/Npgsql.Benchmarks/CopyImport.cs",
+    "test/Npgsql.Benchmarks/GetFieldValue.cs",
+    "test/Npgsql.Benchmarks/Insert.cs",
+    "test/Npgsql.Benchmarks/ParameterCollection.cs",
+    "test/Npgsql.Benchmarks/PerElementColumn.cs",
+    "test/Npgsql.Benchmarks/Prepare.cs",
+    "test/Npgsql.Benchmarks/Program.cs",
+    "test/Npgsql.Benchmarks/ReadArray.cs",
+    "test/Npgsql.Benchmarks/ReadColumns.cs",
+    "test/Npgsql.Benchmarks/ReadRows.cs",
+    "test/Npgsql.Benchmarks/ResolveHandler.cs",
+    "test/Npgsql.Benchmarks/TypeHandlers/Composite.cs",
+    "test/Npgsql.Benchmarks/TypeHandlers/Numeric.cs",
+    "test/Npgsql.Benchmarks/TypeHandlers/Text.cs",
+    "test/Npgsql.Benchmarks/TypeHandlers/TypeHandlerBenchmarks.cs",
+    "test/Npgsql.Benchmarks/TypeHandlers/Uuid.cs",
+    "test/Npgsql.Benchmarks/UnixDomainSocket.cs",
+    "test/Npgsql.Benchmarks/WriteParameter.cs",
+    "test/Npgsql.Benchmarks/WriteVaryingNumberOfParameters.cs",
+    "test/Npgsql.NativeAotTests/Program.cs",
+    "test/Npgsql.Specification.Tests/NpgsqlCommandTests.cs",
+    "test/Npgsql.Specification.Tests/NpgsqlConnectionTests.cs",
+    "test/Npgsql.Specification.Tests/NpgsqlDataReaderTests.cs",
+    "test/Npgsql.Specification.Tests/NpgsqlDbFactoryFixture.cs",
+    "test/Npgsql.Specification.Tests/NpgsqlSelectValueFixture.cs",
+    "test/Npgsql.Specification.Tests/Utility.cs",
+    "test/Npgsql.Tests/AsyncTests.cs",
+    "test/Npgsql.Tests/AuthenticationTests.cs",
+    "test/Npgsql.Tests/AutoPrepareTests.cs",
+    "test/Npgsql.Tests/BatchTests.cs",
+    "test/Npgsql.Tests/BugTests.cs",
+    "test/Npgsql.Tests/CommandBuilderTests.cs",
+    "test/Npgsql.Tests/CommandParameterTests.cs",
+    "test/Npgsql.Tests/CommandTests.cs",
+    "test/Npgsql.Tests/ConnectionStringBuilderTests.cs",
+    "test/Npgsql.Tests/ConnectionTests.cs",
+    "test/Npgsql.Tests/CopyTests.cs",
+    "test/Npgsql.Tests/DataAdapterTests.cs",
+    "test/Npgsql.Tests/DataSourceTests.cs",
+    "test/Npgsql.Tests/DataTypeNameTests.cs",
+    "test/Npgsql.Tests/DependencyInjectionTests.cs",
+    "test/Npgsql.Tests/DistributedTransactionTests.cs",
+    "test/Npgsql.Tests/ExceptionTests.cs",
+    "test/Npgsql.Tests/FunctionTests.cs",
+    "test/Npgsql.Tests/GlobalTypeMapperTests.cs",
+    "test/Npgsql.Tests/LoggingTests.cs",
+    "test/Npgsql.Tests/MetricTests.cs",
+    "test/Npgsql.Tests/MultipleHostsTests.cs",
+    "test/Npgsql.Tests/NestedDataReaderTests.cs",
+    "test/Npgsql.Tests/NotificationTests.cs",
+    "test/Npgsql.Tests/NpgsqlEventSourceTests.cs",
+    "test/Npgsql.Tests/NpgsqlParameterCollectionTests.cs",
+    "test/Npgsql.Tests/NpgsqlParameterTests.cs",
+    "test/Npgsql.Tests/PgPassEntryTests.cs",
+    "test/Npgsql.Tests/PgPassFileTests.cs",
+    "test/Npgsql.Tests/Plugins/GeoJSONTests.cs",
+    "test/Npgsql.Tests/Plugins/JsonNetTests.cs",
+    "test/Npgsql.Tests/Plugins/LegacyNodaTimeTests.cs",
+    "test/Npgsql.Tests/Plugins/NetTopologySuiteTests.cs",
+    "test/Npgsql.Tests/Plugins/NodaTimeInfinityTests.cs",
+    "test/Npgsql.Tests/Plugins/NodaTimeTests.cs",
+    "test/Npgsql.Tests/PoolManagerTests.cs",
+    "test/Npgsql.Tests/PoolTests.cs",
+    "test/Npgsql.Tests/PostgresTypeTests.cs",
+    "test/Npgsql.Tests/PrepareTests.cs",
+    "test/Npgsql.Tests/Properties/AssemblyInfo.cs",
+    "test/Npgsql.Tests/ReadBufferTests.cs",
+    "test/Npgsql.Tests/ReaderNewSchemaTests.cs",
+    "test/Npgsql.Tests/ReaderOldSchemaTests.cs",
+    "test/Npgsql.Tests/ReaderTests.cs",
+    "test/Npgsql.Tests/Replication/CommonLogicalReplicationTests.cs",
+    "test/Npgsql.Tests/Replication/CommonReplicationTests.cs",
+    "test/Npgsql.Tests/Replication/PgOutputReplicationTests.cs",
+    "test/Npgsql.Tests/Replication/PhysicalReplicationTests.cs",
+    "test/Npgsql.Tests/Replication/SafeReplicationTestBase.cs",
+    "test/Npgsql.Tests/Replication/TestDecodingReplicationTests.cs",
+    "test/Npgsql.Tests/SchemaTests.cs",
+    "test/Npgsql.Tests/SecurityTests.cs",
+    "test/Npgsql.Tests/SizeTests.cs",
+    "test/Npgsql.Tests/SnakeCaseNameTranslatorTests.cs",
+    "test/Npgsql.Tests/SqlQueryParserTests.cs",
+    "test/Npgsql.Tests/StoredProcedureTests.cs",
+    "test/Npgsql.Tests/Support/AssemblySetUp.cs",
+    "test/Npgsql.Tests/Support/ListLoggerFactory.cs",
+    "test/Npgsql.Tests/Support/PgCancellationRequest.cs",
+    "test/Npgsql.Tests/Support/PgPostmasterMock.cs",
+    "test/Npgsql.Tests/Support/PgServerMock.cs",
+    "test/Npgsql.Tests/Support/SingleThreadSynchronizationContext.cs",
+    "test/Npgsql.Tests/Support/TestBase.cs",
+    "test/Npgsql.Tests/SyncOrAsyncTestBase.cs",
+    "test/Npgsql.Tests/SystemTransactionTests.cs",
+    "test/Npgsql.Tests/TestMetrics.cs",
+    "test/Npgsql.Tests/TestUtil.cs",
+    "test/Npgsql.Tests/TracingTests.cs",
+    "test/Npgsql.Tests/TransactionTests.cs",
+    "test/Npgsql.Tests/TypeMapperTests.cs",
+    "test/Npgsql.Tests/Types/ArrayTests.cs",
+    "test/Npgsql.Tests/Types/BitStringTests.cs",
+    "test/Npgsql.Tests/Types/ByteaTests.cs",
+    "test/Npgsql.Tests/Types/CompositeHandlerTests.Read.cs",
+    "test/Npgsql.Tests/Types/CompositeHandlerTests.Write.cs",
+    "test/Npgsql.Tests/Types/CompositeHandlerTests.cs",
+    "test/Npgsql.Tests/Types/CompositeTests.cs",
+    "test/Npgsql.Tests/Types/CubeTests.cs",
+    "test/Npgsql.Tests/Types/DateTimeInfinityTests.cs",
+    "test/Npgsql.Tests/Types/DateTimeTests.cs",
+    "test/Npgsql.Tests/Types/DomainTests.cs",
+    "test/Npgsql.Tests/Types/EnumTests.cs",
+    "test/Npgsql.Tests/Types/FullTextSearchTests.cs",
+    "test/Npgsql.Tests/Types/GeometricTypeTests.cs",
+    "test/Npgsql.Tests/Types/HstoreTests.cs",
+    "test/Npgsql.Tests/Types/InternalTypeTests.cs",
+    "test/Npgsql.Tests/Types/JsonDynamicTests.cs",
+    "test/Npgsql.Tests/Types/JsonPathTests.cs",
+    "test/Npgsql.Tests/Types/JsonTests.cs",
+    "test/Npgsql.Tests/Types/LTreeTests.cs",
+    "test/Npgsql.Tests/Types/LegacyDateTimeTests.cs",
+    "test/Npgsql.Tests/Types/MiscTypeTests.cs",
+    "test/Npgsql.Tests/Types/MoneyTests.cs",
+    "test/Npgsql.Tests/Types/MultirangeTests.cs",
+    "test/Npgsql.Tests/Types/NetworkTypeTests.cs",
+    "test/Npgsql.Tests/Types/NumericTests.cs",
+    "test/Npgsql.Tests/Types/NumericTypeTests.cs",
+    "test/Npgsql.Tests/Types/RangeTests.cs",
+    "test/Npgsql.Tests/Types/RecordTests.cs",
+    "test/Npgsql.Tests/Types/TextTests.cs",
+    "test/Npgsql.Tests/TypesTests.cs",
+    "test/Npgsql.Tests/WriteBufferTests.cs",
+    "test/Npgsql.Tests/WriteStateTests.cs"
+  ],
+  "documentation_sample_paths": [
+    "README.md",
+    "src/Npgsql.NetTopologySuite/README.md",
+    "src/Npgsql.NodaTime/README.md",
+    "src/Npgsql.OpenTelemetry/README.md",
+    "src/Npgsql/README.md"
+  ],
+  "api_declaration_candidates": [
+    {
+      "path": "src/Npgsql/Common.cs",
+      "line": 65,
+      "declaration": "public enum StatementType",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Common.cs#L65"
+    },
+    {
+      "path": "src/Npgsql/PgPassFile.cs",
+      "line": 28,
+      "declaration": "public PgPassFile(string fileName)",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/PgPassFile.cs#L28"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 17,
+      "declaration": "public class BugTests : TestBase",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L17"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 24,
+      "declaration": "public void SequentialNullCheckOnNonFirstField()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L24"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 34,
+      "declaration": "public void SequentialSkipOverFirstRow()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L34"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 45,
+      "declaration": "public void SequentialConsumeWithNull()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L45"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 56,
+      "declaration": "public void Many_parameters_with_mixed_FormatCode()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L56"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 78,
+      "declaration": "public void Bug1450()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L78"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 91,
+      "declaration": "public async Task Bug1645()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L91"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 112,
+      "declaration": "public async Task Bug3600()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L112"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 133,
+      "declaration": "public async Task Bug1497()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L133"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 145,
+      "declaration": "public void Bug1558()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L145"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 157,
+      "declaration": "public void Bug1695()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L157"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 177,
+      "declaration": "public void Bug1700()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L177"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 202,
+      "declaration": "public void Bug1964()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L202"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 212,
+      "declaration": "public void Bug1986()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L212"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 229,
+      "declaration": "public async Task Bug1987()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L229"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 251,
+      "declaration": "public void Bug2003()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L251"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 264,
+      "declaration": "public async Task Bug2046()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L264"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 278,
+      "declaration": "public void Bug1761()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L278"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 315,
+      "declaration": "public void Bug2274()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L315"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 332,
+      "declaration": "public async Task Bug2278()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L332"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 355,
+      "declaration": "public Bug2278EnumType Value { get; set; }",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L355"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 367,
+      "declaration": "public async Task Bug2178()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L367"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 396,
+      "declaration": "public async Task Bug2296()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L396"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 410,
+      "declaration": "public void Standard_conforming_strings()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L410"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 429,
+      "declaration": "public void Bug1285()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L429"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1089,
+      "declaration": "public async Task Chunked_string_write_buffer_encoding_space()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1089"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1115,
+      "declaration": "public async Task Chunked_char_array_write_buffer_encoding_space()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1115"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1141,
+      "declaration": "public async Task NRE_in_BeginTextExport()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1141"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1154,
+      "declaration": "public enum TestEnum",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1154"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1165,
+      "declaration": "public TestEnum Test { get; set; }",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1165"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1166,
+      "declaration": "public int X { get; set; }",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1166"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1167,
+      "declaration": "public string SomeText { get; set; } = \"\";",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1167"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1171,
+      "declaration": "public async Task CompositePostgresType()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1171"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1198,
+      "declaration": "public void Bug3117()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1198"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1224,
+      "declaration": "public async Task Bug3209()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1224"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1234,
+      "declaration": "public async Task Bug3373()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1234"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1246,
+      "declaration": "public async Task Bug3649()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1246"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1276,
+      "declaration": "public async Task UIThreadSynchronizationContext_deadlock()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1276"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1297,
+      "declaration": "public async Task Bug3924()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1297"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1338,
+      "declaration": "public async Task Bug4123()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1338"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1352,
+      "declaration": "public async Task Composite_with_BigInteger([Values(CommandBehavior.Default, CommandBehavior.SequentialAccess)] CommandBehavior behavior)",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1352"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1374,
+      "declaration": "public BigInteger Value { get; set; }",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1374"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 20,
+      "declaration": "public class CopyTests : TestBase",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L20"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 25,
+      "declaration": "public async Task Issue2257()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L25"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 62,
+      "declaration": "public async Task Raw_binary_roundtrip([Values(false, true)] bool async)",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L62"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 123,
+      "declaration": "public async Task Dispose_in_middle_of_raw_binary_export()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L123"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 142,
+      "declaration": "public async Task Dispose_in_middle_of_raw_binary_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L142"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 158,
+      "declaration": "public async Task Cancel_raw_binary_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L158"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 176,
+      "declaration": "public async Task Import_large_value_raw()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L176"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 215,
+      "declaration": "public async Task Wrong_table_definition_raw_binary_copy()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L215"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 228,
+      "declaration": "public async Task Wrong_format_raw_binary_copy()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L228"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 250,
+      "declaration": "public async Task Binary_roundtrip([Values(false, true)] bool async)",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L250"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 307,
+      "declaration": "public async Task Cancel_binary_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L307"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 325,
+      "declaration": "public async Task Import_bytea()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L325"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 344,
+      "declaration": "public async Task Import_numeric()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L344"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 370,
+      "declaration": "public async Task Import_string_array()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L370"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 388,
+      "declaration": "public async Task Import_DBNull_then_other_object()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L388"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 408,
+      "declaration": "public async Task Import_reused_instance_mapping_info_identical_or_throws()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L408"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 428,
+      "declaration": "public async Task Import_string_with_buffer_length()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L428"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 445,
+      "declaration": "public async Task Import_direct_buffer()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L445"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 461,
+      "declaration": "public async Task Import_object_null()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L461"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 484,
+      "declaration": "public async Task Import_dbnull(DBNull? value)",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L484"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 501,
+      "declaration": "public async Task Wrong_table_definition_binary_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L501"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 511,
+      "declaration": "public async Task Wrong_format_binary_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L511"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 520,
+      "declaration": "public async Task Wrong_table_definition_binary_export()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L520"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 530,
+      "declaration": "public async Task MixedOperations()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L530"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 553,
+      "declaration": "public async Task ReadMoreColumnsThanExist()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L553"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 578,
+      "declaration": "public async Task ReadZeroSizedColumns()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L578"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 608,
+      "declaration": "public async Task ReadTypeInfoProviderType()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L608"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 642,
+      "declaration": "public async Task StreamingRead()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L642"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 655,
+      "declaration": "public async Task Wrong_format_binary_export()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L655"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 664,
+      "declaration": "public async Task Unexpected_exception_binary_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L664"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 690,
+      "declaration": "public async Task Import_bytea_massive()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L690"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 713,
+      "declaration": "public async Task Export_long_string()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L713"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 745,
+      "declaration": "public async Task Read_bit_string()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L745"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 767,
+      "declaration": "public async Task Array()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L767"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 790,
+      "declaration": "public async Task Enum()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L790"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 823,
+      "declaration": "public async Task Read_null_as_nullable()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L823"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 834,
+      "declaration": "public async Task Read_null_as_non_nullable_throws()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L834"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 845,
+      "declaration": "public async Task Error_during_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L845"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 861,
+      "declaration": "public async Task Import_cannot_write_after_commit()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L861"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 882,
+      "declaration": "public async Task Import_commit_in_middle_of_row()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L882"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 905,
+      "declaration": "public async Task Import_exception_does_not_commit()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L905"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 924,
+      "declaration": "public async Task Write_column_out_of_bounds_throws()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L924"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 953,
+      "declaration": "public async Task Cancel_raw_binary_export_when_not_consumed_and_then_Dispose()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L953"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 969,
+      "declaration": "public async Task Cancel_binary_export_when_not_consumed_and_then_Dispose()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L969"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 986,
+      "declaration": "public async Task Binary_copy_read_char_column()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L986"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1008,
+      "declaration": "public async Task Text_import([Values(false, true)] bool async)",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1008"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1037,
+      "declaration": "public async Task Cancel_text_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1037"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1051,
+      "declaration": "public async Task Text_import_empty()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1051"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1063,
+      "declaration": "public async Task Text_export([Values(false, true)] bool async)",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1063"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1089,
+      "declaration": "public async Task Dispose_in_middle_of_text_export()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1089"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1104,
+      "declaration": "public async Task Wrong_table_definition_text_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1104"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1113,
+      "declaration": "public async Task Wrong_format_text_import()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1113"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1122,
+      "declaration": "public async Task Wrong_table_definition_text_export()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1122"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1131,
+      "declaration": "public async Task Wrong_format_text_export()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1131"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1140,
+      "declaration": "public async Task Cancel_text_export_when_not_consumed_and_then_Dispose()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1140"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1160,
+      "declaration": "public async Task Prepended_messages()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1160"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1168,
+      "declaration": "public async Task Undefined_table_throws()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1168"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1179,
+      "declaration": "public async Task Close_during_copy_throws()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1179"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1214,
+      "declaration": "public async Task Non_ascii_column_name()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1214"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1222,
+      "declaration": "public async Task Write_null_values()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1222"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1247,
+      "declaration": "public async Task Write_different_types()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1247"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1267,
+      "declaration": "public async Task Within_transaction()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1267"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1307,
+      "declaration": "public async Task Copy_from_is_not_supported_in_regular_command_execution()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1307"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1318,
+      "declaration": "public async Task Copy_to_is_not_supported_in_regular_command_execution()",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1318"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1330,
+      "declaration": "public async Task RawBinaryCopy_write_nre([Values] bool async)",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1330"
+    }
+  ],
+  "test_method_candidates": [
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 24,
+      "method": "SequentialNullCheckOnNonFirstField",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L24"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 34,
+      "method": "SequentialSkipOverFirstRow",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L34"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 45,
+      "method": "SequentialConsumeWithNull",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L45"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 56,
+      "method": "Many_parameters_with_mixed_FormatCode",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L56"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 78,
+      "method": "Bug1450",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L78"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 91,
+      "method": "Bug1645",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L91"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 112,
+      "method": "Bug3600",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L112"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 133,
+      "method": "Bug1497",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L133"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 145,
+      "method": "Bug1558",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L145"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 157,
+      "method": "Bug1695",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L157"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 177,
+      "method": "Bug1700",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L177"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 202,
+      "method": "Bug1964",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L202"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 212,
+      "method": "Bug1986",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L212"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 229,
+      "method": "Bug1987",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L229"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 251,
+      "method": "Bug2003",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L251"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 264,
+      "method": "Bug2046",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L264"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 278,
+      "method": "Bug1761",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L278"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 315,
+      "method": "Bug2274",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L315"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 332,
+      "method": "Bug2278",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L332"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 367,
+      "method": "Bug2178",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L367"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 396,
+      "method": "Bug2296",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L396"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 410,
+      "method": "Standard_conforming_strings",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L410"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 429,
+      "method": "Bug1285",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L429"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1089,
+      "method": "Chunked_string_write_buffer_encoding_space",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1089"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1115,
+      "method": "Chunked_char_array_write_buffer_encoding_space",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1115"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1141,
+      "method": "NRE_in_BeginTextExport",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1141"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1171,
+      "method": "CompositePostgresType",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1171"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1198,
+      "method": "Bug3117",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1198"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1224,
+      "method": "Bug3209",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1224"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1234,
+      "method": "Bug3373",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1234"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1246,
+      "method": "Bug3649",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1246"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1276,
+      "method": "UIThreadSynchronizationContext_deadlock",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1276"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1297,
+      "method": "Bug3924",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1297"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1338,
+      "method": "Bug4123",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1338"
+    },
+    {
+      "path": "test/Npgsql.Tests/BugTests.cs",
+      "line": 1352,
+      "method": "Composite_with_BigInteger",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/BugTests.cs#L1352"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 25,
+      "method": "Issue2257",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L25"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 62,
+      "method": "Raw_binary_roundtrip",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L62"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 123,
+      "method": "Dispose_in_middle_of_raw_binary_export",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L123"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 142,
+      "method": "Dispose_in_middle_of_raw_binary_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L142"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 158,
+      "method": "Cancel_raw_binary_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L158"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 176,
+      "method": "Import_large_value_raw",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L176"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 215,
+      "method": "Wrong_table_definition_raw_binary_copy",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L215"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 228,
+      "method": "Wrong_format_raw_binary_copy",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L228"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 250,
+      "method": "Binary_roundtrip",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L250"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 307,
+      "method": "Cancel_binary_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L307"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 325,
+      "method": "Import_bytea",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L325"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 344,
+      "method": "Import_numeric",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L344"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 370,
+      "method": "Import_string_array",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L370"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 388,
+      "method": "Import_DBNull_then_other_object",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L388"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 408,
+      "method": "Import_reused_instance_mapping_info_identical_or_throws",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L408"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 428,
+      "method": "Import_string_with_buffer_length",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L428"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 445,
+      "method": "Import_direct_buffer",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L445"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 461,
+      "method": "Import_object_null",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L461"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 484,
+      "method": "Import_dbnull",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L484"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 501,
+      "method": "Wrong_table_definition_binary_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L501"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 511,
+      "method": "Wrong_format_binary_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L511"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 520,
+      "method": "Wrong_table_definition_binary_export",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L520"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 530,
+      "method": "MixedOperations",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L530"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 553,
+      "method": "ReadMoreColumnsThanExist",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L553"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 578,
+      "method": "ReadZeroSizedColumns",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L578"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 608,
+      "method": "ReadTypeInfoProviderType",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L608"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 642,
+      "method": "StreamingRead",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L642"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 655,
+      "method": "Wrong_format_binary_export",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L655"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 664,
+      "method": "Unexpected_exception_binary_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L664"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 690,
+      "method": "Import_bytea_massive",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L690"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 713,
+      "method": "Export_long_string",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L713"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 745,
+      "method": "Read_bit_string",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L745"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 767,
+      "method": "Array",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L767"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 790,
+      "method": "Enum",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L790"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 823,
+      "method": "Read_null_as_nullable",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L823"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 834,
+      "method": "Read_null_as_non_nullable_throws",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L834"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 845,
+      "method": "Error_during_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L845"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 861,
+      "method": "Import_cannot_write_after_commit",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L861"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 882,
+      "method": "Import_commit_in_middle_of_row",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L882"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 905,
+      "method": "Import_exception_does_not_commit",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L905"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 924,
+      "method": "Write_column_out_of_bounds_throws",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L924"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 953,
+      "method": "Cancel_raw_binary_export_when_not_consumed_and_then_Dispose",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L953"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 969,
+      "method": "Cancel_binary_export_when_not_consumed_and_then_Dispose",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L969"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 986,
+      "method": "Binary_copy_read_char_column",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L986"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1008,
+      "method": "Text_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1008"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1037,
+      "method": "Cancel_text_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1037"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1051,
+      "method": "Text_import_empty",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1051"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1063,
+      "method": "Text_export",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1063"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1089,
+      "method": "Dispose_in_middle_of_text_export",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1089"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1104,
+      "method": "Wrong_table_definition_text_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1104"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1113,
+      "method": "Wrong_format_text_import",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1113"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1122,
+      "method": "Wrong_table_definition_text_export",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1122"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1131,
+      "method": "Wrong_format_text_export",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1131"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1140,
+      "method": "Cancel_text_export_when_not_consumed_and_then_Dispose",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1140"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1160,
+      "method": "Prepended_messages",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1160"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1168,
+      "method": "Undefined_table_throws",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1168"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1179,
+      "method": "Close_during_copy_throws",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1179"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1214,
+      "method": "Non_ascii_column_name",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1214"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1222,
+      "method": "Write_null_values",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1222"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1247,
+      "method": "Write_different_types",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1247"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1267,
+      "method": "Within_transaction",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1267"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1307,
+      "method": "Copy_from_is_not_supported_in_regular_command_execution",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1307"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1318,
+      "method": "Copy_to_is_not_supported_in_regular_command_execution",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1318"
+    },
+    {
+      "path": "test/Npgsql.Tests/CopyTests.cs",
+      "line": 1330,
+      "method": "RawBinaryCopy_write_nre",
+      "attribute_candidate": true,
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/Npgsql.Tests/CopyTests.cs#L1330"
+    }
+  ],
+  "declared_references": [
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.API",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "NetTopologySuite",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "NetTopologySuite.IO.PostGIS",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "NodaTime",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "GeoJSON.Net",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Newtonsoft.Json",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.SourceLink.GitHub",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.CSharp",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.CodeAnalysis.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Scriban.Signed",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "NUnit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "NUnit.Analyzers",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.DependencyInjection",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Extensions.Logging.Console",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.NET.Test.Sdk",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "NUnit3TestAdapter",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "xunit",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "xunit.runner.visualstudio",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "GitHubActionsTestLogger",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "AdoNet.Specification.Tests",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "OpenTelemetry.Exporter.InMemory",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Microsoft.Data.SqlClient",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "BenchmarkDotNet.Diagnostics.Windows",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageVersion",
+      "name": "Mono.Cecil",
+      "file": "Directory.Packages.props",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/Directory.Packages.props"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageReference",
+      "name": "GeoJSON.Net",
+      "file": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "ProjectReference",
+      "name": "../Npgsql/Npgsql.csproj",
+      "file": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "ProjectReference",
+      "name": "../Npgsql.SourceGenerators/Npgsql.SourceGenerators.csproj",
+      "file": "src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.GeoJSON/Npgsql.GeoJSON.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageReference",
+      "name": "Newtonsoft.Json",
+      "file": "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/Npgsql.Json.NET.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/Npgsql.Json.NET.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "ProjectReference",
+      "name": "..\\Npgsql\\Npgsql.csproj",
+      "file": "src/Npgsql.Json.NET/Npgsql.Json.NET.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql.Json.NET/Npgsql.Json.NET.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageReference",
+      "name": "Mono.Cecil",
+      "file": "test/MStatDumper/MStatDumper.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/test/MStatDumper/MStatDumper.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.Logging.Abstractions",
+      "file": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageReference",
+      "name": "Microsoft.Extensions.DependencyInjection.Abstractions",
+      "file": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "PackageReference",
+      "name": "Microsoft.CodeAnalysis.PublicApiAnalyzers",
+      "file": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj"
+    },
+    {
+      "repo": "dotj-postgresql",
+      "kind": "ProjectReference",
+      "name": "../Npgsql.SourceGenerators/Npgsql.SourceGenerators.csproj",
+      "file": "src/Npgsql/Npgsql.csproj",
+      "url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Npgsql.csproj"
+    }
+  ]
+}
