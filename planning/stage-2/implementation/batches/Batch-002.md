@@ -54,6 +54,7 @@ The three framework categories total 66. No framework is formally marked BLOCKED
 | Source/blob identity | PASS | Seven selected CoreLib archive Git blob hashes matched the Git tree; root license and notice blobs matched the root tree. |
 | Gitlink scope | PASS (bounded) | Root tree and untruncated CoreLib subtree contain zero gitlinks; whole-repository recursive query was truncated and is not used for an exhaustive claim. |
 | Evidence/ledger consistency | PASS | Both JSON files parse; 66 frameworks and 1,356 unique task statuses remain NOT STARTED; copied notice hashes match the manifest. |
+| Windows checkout byte preservation | PASS | A scoped `.gitattributes` rule sets `-text` for the two release notices. Their working-tree SHA-256 hashes match the archive manifest after restoring the raw archive bytes. |
 | Staged diff whitespace | PASS with upstream evidence exception | Standard `git diff --cached --check` flagged the upstream notice's existing blank line at EOF. The staged Git blobs match both archive SHA-256 hashes exactly; `git -c core.whitespace=-blank-at-eof diff --cached --check` passed. |
 | Rights and generated-output qualification | NOT RUN | Notice applicability, transitive rights, generated outputs and conditional build closure remain E01/E02 work. |
 
@@ -61,6 +62,7 @@ The three framework categories total 66. No framework is formally marked BLOCKED
 
 - `planning/stage-2/repos/dotj-core/evidence/source-archive-v10.0.12.json`: archive, file, Git tree and generator-input hashes with limitations.
 - `planning/stage-2/repos/dotj-core/evidence/release-v10.0.12/LICENSE.TXT` and `THIRD-PARTY-NOTICES.TXT`: exact release evidence bytes.
+- `planning/stage-2/repos/dotj-core/evidence/release-v10.0.12/.gitattributes`: disables text conversion so the notice files retain their exact archive bytes after Windows checkout.
 - `planning/stage-2/repos/dotj-core/evidence/baseline-lock.json`: links the release evidence and narrows remaining E01 work.
 - `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json`: Batch-002 continuation and unchanged implementation credit.
 - `planning/stage-2/implementation/batches/Batch-002.md`: this report.
