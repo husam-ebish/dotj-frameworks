@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "scope": "dotj-core portable foundation; Windows x64 .NET 10.0.12 reference runtime",
+  "status": "VERIFIED_ARTIFACT_AND_CORELIB_SOURCE_SCOPE",
+  "releaseMetadata": {
+    "url": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
+    "release": "10.0.12",
+    "releaseDate": "2026-09-08",
+    "runtimeArchiveUrl": "https://builds.dotnet.microsoft.com/dotnet/Runtime/10.0.12/dotnet-runtime-10.0.12-win-x64.zip",
+    "runtimeArchiveSha512": "844fa99e16fd6f44e0a7c29def7a82d7846902334d6a955248a9519a4dddb3f5acceb9c9223bef69f8c83b8ae2417537e5b76dddf79fb7117dc85b5039bc1297",
+    "matchingSdkVersions": [
+      "10.0.401",
+      "10.0.112"
+    ]
+  },
+  "downloadedArchive": {
+    "bytes": 36960258,
+    "sha512": "844fa99e16fd6f44e0a7c29def7a82d7846902334d6a955248a9519a4dddb3f5acceb9c9223bef69f8c83b8ae2417537e5b76dddf79fb7117dc85b5039bc1297",
+    "metadataHashMatch": true,
+    "zipEntries": 193,
+    "crcFailure": null
+  },
+  "installedRuntimeComparison": {
+    "installationRoot": "C:/Program Files/dotnet",
+    "runtimeFolder": "shared/Microsoft.NETCore.App/10.0.12",
+    "archiveRuntimeFiles": 189,
+    "byteMatchedFiles": 189,
+    "missingFiles": 0,
+    "differentFiles": 0,
+    "selectedSha256": {
+      "shared/Microsoft.NETCore.App/10.0.12/.version": "5821d4886ce8720fea8a95a798a003e0a31197de1efc4fd22fa6a008eecfa3a8",
+      "shared/Microsoft.NETCore.App/10.0.12/System.Private.CoreLib.dll": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+      "shared/Microsoft.NETCore.App/10.0.12/coreclr.dll": "128aee8c62a673d64739e585e3876b61133571cec83a46240a62581d5465639b"
+    }
+  },
+  "sourceIdentity": {
+    "runtimeVersionFileCommit": "95017c711e6afc1085133d440e42b4bd78155701",
+    "runtimeVersionFileVersion": "10.0.12",
+    "runtimeVersionCommitRepository": "https://github.com/dotnet/dotnet",
+    "runtimeVersionCommitApi": "https://api.github.com/repos/dotnet/dotnet/commits/95017c711e6afc1085133d440e42b4bd78155701",
+    "runtimeTagRepository": "https://github.com/dotnet/runtime",
+    "runtimeTagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "runtimeTagCommitApi": "https://api.github.com/repos/dotnet/runtime/commits/4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "unifiedRepositoryRuntimeSubtree": "2867eaeb04130e3f40c762dc8512491a61de41be",
+    "runtimeTagRootTree": "8e19f3da83e388a1e61686d3222a9c2d5dab34e0",
+    "wholeRuntimeTreesMatch": false,
+    "unifiedRepositoryCoreLibTree": "90aee3e6a7dc7020a668e9718155cda6a1abfb4f",
+    "runtimeTagCoreLibTree": "90aee3e6a7dc7020a668e9718155cda6a1abfb4f",
+    "coreLibTreesMatch": true,
+    "checkedFoundationBlobCount": 6,
+    "checkedFoundationBlobsMatch": true
+  },
+  "reproductionCommands": [
+    "Get-FileHash -LiteralPath <downloaded-runtime-zip> -Algorithm SHA512",
+    "Get-Content -LiteralPath 'C:/Program Files/dotnet/shared/Microsoft.NETCore.App/10.0.12/.version'",
+    "python -m zipfile -t <downloaded-runtime-zip>",
+    "Compare SHA-256 of every ZIP file under shared/Microsoft.NETCore.App/10.0.12/ with the corresponding installed file"
+  ],
+  "limitations": [
+    "Artifact and installed runtime bytes match, but no reproducible source build was performed.",
+    "The whole dotnet/dotnet src/runtime tree and dotnet/runtime tag root tree differ; only the CoreLib subtree and six selected foundation blob identities were compared.",
+    "The SDK binary artifact was not checked in this dotj-core runtime batch.",
+    "Generated outputs, conditional dependencies, rights and behavior oracle results remain open."
+  ]
+}
