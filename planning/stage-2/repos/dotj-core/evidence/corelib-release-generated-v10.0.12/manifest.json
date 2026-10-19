@@ -1,0 +1,106 @@
+{
+    "schemaVersion":  1,
+    "recordedDate":  "2026-10-20",
+    "scope":  "dotj-core E01 pinned v10.0.12 Debug versus Release generated CoreLib output",
+    "status":  "RELEASE_BUILD_PASS_SEVEN_OF_EIGHT_OUTPUTS_MATCH_DEBUG",
+    "sourceCommit":  "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "sdkVersion":  "10.0.401",
+    "build":  {
+                  "exitCode":  0,
+                  "configuration":  "Release",
+                  "elapsed":  "00:01:24.26",
+                  "errors":  0,
+                  "command":  "dotnet build src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj -c Release --no-restore -p:NuGetPackageRoot=\u003cisolated-root\u003e/ -p:NetCoreSdkRoot=C:/Program Files/dotnet/sdk/10.0.401 -p:EmitCompilerGeneratedFiles=true --verbosity minimal",
+                  "warnings":  0
+              },
+    "evaluatedProperties":  {
+                                "Debug":  {
+                                              "DefineConstants":  "_LOGGING;DEBUG;CORECLR;NETCOREAPP;SYSTEM_PRIVATE_CORELIB;TARGET_AMD64;FEATURE_JAVAMARSHAL;FEATURE_COMWRAPPERS;FEATURE_COMINTEROP;FEATURE_COMINTEROP_APARTMENT_SUPPORT;FEATURE_IJW;FEATURE_PERFTRACING;FEATURE_TYPEEQUIVALENCE;FEATURE_EH_FUNCLETS;FEATURE_INTERPRETER;PROFILING_SUPPORTED;TARGET_64BIT;TARGET_WINDOWS",
+                                              "InformationalVersion":  "10.0.12-dev"
+                                          },
+                                "Release":  {
+                                                "IsShipping":  "true",
+                                                "DefineConstants":  "CORECLR;NETCOREAPP;SYSTEM_PRIVATE_CORELIB;TARGET_AMD64;FEATURE_COMWRAPPERS;FEATURE_COMINTEROP;FEATURE_COMINTEROP_APARTMENT_SUPPORT;FEATURE_IJW;FEATURE_PERFTRACING;FEATURE_TYPEEQUIVALENCE;FEATURE_EH_FUNCLETS;PROFILING_SUPPORTED;TARGET_64BIT;TARGET_WINDOWS",
+                                                "InformationalVersion":  "10.0.12-dev"
+                                            }
+                            },
+    "generatedFiles":  [
+                           {
+                               "bytes":  636,
+                               "sourcePath":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.ProductVersionInfoGenerator/ProductVersionInfo.g.cs",
+                               "matchesDebug":  true,
+                               "sha256":  "51c351c225ae3204954c19f3190b7774df61f277343b61e66e4778ac93849283",
+                               "debugSha256":  "51c351c225ae3204954c19f3190b7774df61f277343b61e66e4778ac93849283",
+                               "capturedFile":  null
+                           },
+                           {
+                               "bytes":  738,
+                               "sourcePath":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/TplEventSource.g.cs",
+                               "matchesDebug":  true,
+                               "sha256":  "f4992d8abeb45ec5f5e9175fb693d1a9a13c893feb2cb32c89af4d7616cb4d79",
+                               "debugSha256":  "f4992d8abeb45ec5f5e9175fb693d1a9a13c893feb2cb32c89af4d7616cb4d79",
+                               "capturedFile":  null
+                           },
+                           {
+                               "bytes":  589,
+                               "sourcePath":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/RuntimeEventSource.g.cs",
+                               "matchesDebug":  true,
+                               "sha256":  "c7f248cc9108e42b9e4d17600b550b077555c206902a883c6fc870cf8309ac7f",
+                               "debugSha256":  "c7f248cc9108e42b9e4d17600b550b077555c206902a883c6fc870cf8309ac7f",
+                               "capturedFile":  null
+                           },
+                           {
+                               "bytes":  720,
+                               "sourcePath":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/NativeRuntimeEventSource.g.cs",
+                               "matchesDebug":  true,
+                               "sha256":  "fd7ef9ef28234cec41f433aa0164b7e1c61c7609bdd308c70fd9194ab7252e76",
+                               "debugSha256":  "fd7ef9ef28234cec41f433aa0164b7e1c61c7609bdd308c70fd9194ab7252e76",
+                               "capturedFile":  null
+                           },
+                           {
+                               "bytes":  831,
+                               "sourcePath":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/FrameworkEventSource.g.cs",
+                               "matchesDebug":  true,
+                               "sha256":  "cdd3e52693350debdfa61735f024037c3ab24b6e952095553bde9fc6c7ff07f2",
+                               "debugSha256":  "cdd3e52693350debdfa61735f024037c3ab24b6e952095553bde9fc6c7ff07f2",
+                               "capturedFile":  null
+                           },
+                           {
+                               "bytes":  728,
+                               "sourcePath":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/ArrayPoolEventSource.g.cs",
+                               "matchesDebug":  true,
+                               "sha256":  "4fdf2f9c3362b89432cd8f0c454dd91d0d35ba388fff9dcb3e82137dd0119a01",
+                               "debugSha256":  "4fdf2f9c3362b89432cd8f0c454dd91d0d35ba388fff9dcb3e82137dd0119a01",
+                               "capturedFile":  null
+                           },
+                           {
+                               "bytes":  56648,
+                               "sourcePath":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.NativeRuntimeEventSourceGenerator/NativeRuntimeEventSource.g.cs",
+                               "matchesDebug":  true,
+                               "sha256":  "9248fb7a34fd1fc95521acf82a4dbd499ca705bb2f284d5fe7acffabbe2e462b",
+                               "debugSha256":  "9248fb7a34fd1fc95521acf82a4dbd499ca705bb2f284d5fe7acffabbe2e462b",
+                               "capturedFile":  null
+                           },
+                           {
+                               "bytes":  639221,
+                               "sourcePath":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs",
+                               "matchesDebug":  false,
+                               "sha256":  "9f07182c523210cb8b8d9d648b8c75dccfaefbf0e8b76804c79070f87f399ad0",
+                               "debugSha256":  "094c3ccc4a4de9fe3a146af0964b784ca8c04542f32729b86786e0d644ae248b",
+                               "capturedFile":  "Release.LibraryImports.g.cs.raw"
+                           }
+                       ],
+    "comparison":  {
+                       "differentFiles":  1,
+                       "diffAddedLines":  4,
+                       "differentFile":  "LibraryImports.g.cs",
+                       "diffRemovedLines":  114,
+                       "matchingFiles":  7
+                   },
+    "diffEvidence":  "libraryimports-debug-release.diff.raw",
+    "limitations":  [
+                        "Configuration Release is not the official release artifact build: InformationalVersion remains 10.0.12-dev.",
+                        "The LibraryImports difference coincides with changed compiler constants; individual removed members need source-conditional mapping before semantic claims.",
+                        "One Release build does not prove deterministic regeneration. Rights and notices remain open."
+                    ]
+}
