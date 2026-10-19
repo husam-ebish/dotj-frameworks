@@ -12,13 +12,14 @@
     "tagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
     "tagVerificationCommand": "git ls-remote https://github.com/dotnet/runtime.git refs/tags/v10.0.12",
     "releaseMetadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
-    "qualification": "v10.0.12 source archive, CoreLib subtree and official win-x64 runtime artifact verified; pinned .NET oracle bootstrap executed. Dependency rights, generated inputs and mapped E03 fixtures open.",
+    "qualification": "v10.0.12 source archive, CoreLib subtree and official win-x64 runtime artifact verified; pinned .NET oracle bootstrap executed. Selected foundation and direct generator source headers reviewed, but notice applicability, transitive rights, generated outputs and mapped E03 fixtures remain open.",
     "sourceArchiveEvidence": "source-archive-v10.0.12.json",
     "licenseEvidence": [
       "release-v10.0.12/LICENSE.TXT",
       "release-v10.0.12/THIRD-PARTY-NOTICES.TXT"
     ],
-    "runtimeArtifactEvidence": "runtime-artifact-v10.0.12-win-x64.json"
+    "runtimeArtifactEvidence": "runtime-artifact-v10.0.12-win-x64.json",
+    "rightsScopeEvidence": "rights-scope-v10.0.12.json"
   },
   "localOracleCandidate": {
     "os": "Windows 10.0.26200 win-x64",
@@ -58,7 +59,7 @@
     ]
   },
   "remainingE01": [
-    "Review v10.0.12 third-party notice applicability and transitive dependency rights for the foundation slice.",
+    "Map v10.0.12 third-party notice applicability to selected source, generated outputs and future distribution; resolve the generator package version, artifact hash, license and transitive dependency rights.",
     "Resolve generated output identities and conditional build inputs for the selected CoreLib contracts.",
     "Record any required full-runtime source/build provenance outside the verified CoreLib scope before extending the compatibility profile."
   ],

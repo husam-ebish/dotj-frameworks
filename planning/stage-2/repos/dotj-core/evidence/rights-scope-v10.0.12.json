@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "status": "BOUNDED_HEADER_AND_DIRECT_INPUT_REVIEW; E01_RIGHTS_OPEN",
+  "scope": "dotj-core WP-01/WP-02 selected CoreLib foundation files and direct generator inputs",
+  "source": {
+    "repository": "https://github.com/dotnet/runtime",
+    "commit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "sourceArchiveEvidence": "source-archive-v10.0.12.json",
+    "retrievalPattern": "https://raw.githubusercontent.com/dotnet/runtime/{commit}/{path}",
+    "listedSourceHashesMatchedPinnedManifest": true
+  },
+  "licenseAndNoticeFiles": {
+    "rootLicense": {
+      "path": "release-v10.0.12/LICENSE.TXT",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "observedText": "MIT; contains a condition to retain the copyright and permission notice in copies or substantial portions"
+    },
+    "thirdPartyNotices": {
+      "path": "release-v10.0.12/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "66f1d4e44973185519bb4aa8a9718eb22fc7af2cc532e3ae9cfc4c127ee7fc54",
+      "namedNoticeSections": 46,
+      "applicabilityToSelectedSourceOrGeneratedOutputs": "UNRESOLVED; the repository-wide notices do not map entries to these files"
+    }
+  },
+  "reviewedSourceFiles": [
+    {"path": "src/libraries/System.Private.CoreLib/src/System/IDisposable.cs", "sha256": "fcb8a99af86873e4c724c09f77002fd6770ea07c202fdb701c3432235e24beae", "role": "selectedFoundation"},
+    {"path": "src/libraries/System.Private.CoreLib/src/System/IAsyncDisposable.cs", "sha256": "7d590f4f940af702f8d3797655412cdc64435a0cc6454985685e415ee5fe817f", "role": "selectedFoundation"},
+    {"path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationToken.cs", "sha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c", "role": "selectedFoundation"},
+    {"path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs", "sha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30", "role": "selectedFoundation"},
+    {"path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs", "sha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d", "role": "selectedFoundation"},
+    {"path": "src/libraries/System.Private.CoreLib/gen/EventSourceGenerator.Emitter.cs", "sha256": "28fd335d2579fc4fb3479f710b6c4239c448440a943eb8d537058a5c8a9aa9f3", "role": "generatorSource"},
+    {"path": "src/libraries/System.Private.CoreLib/gen/EventSourceGenerator.Parser.cs", "sha256": "84c4efd2c3f78ca01d69858763745ae153f43b8d65eb9fe26d2213507a205557", "role": "generatorSource"},
+    {"path": "src/libraries/System.Private.CoreLib/gen/EventSourceGenerator.cs", "sha256": "bbcc7ad517c30c78d090a0f9ae87a149348f8bd4afdec80cf56f83ac853c6043", "role": "generatorSource"},
+    {"path": "src/libraries/System.Private.CoreLib/gen/IntrinsicsInSystemPrivateCoreLibAnalyzer.cs", "sha256": "d5fcc2c78128eac9b0b85540d3c5055284f90ddcdd69662256424f8d781a1f9e", "role": "generatorSource"},
+    {"path": "src/libraries/System.Private.CoreLib/gen/NativeRuntimeEventSourceGenerator.cs", "sha256": "978af41060cce4c0d08ea7441015f98f85602c5a84ad0538d18aa2b71a6b7ae2", "role": "generatorSource"},
+    {"path": "src/libraries/System.Private.CoreLib/gen/ProductVersionInfoGenerator.cs", "sha256": "942eda37780c4106fde2bdd3cf24ea6a76e6e38ef7b7692b04ba902041d52047", "role": "generatorSource"},
+    {"path": "src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/IsExternalInit.cs", "sha256": "2997b7ec2de10a41bfc76ea70d629ce36e12116635c61293e3af0115be7661d7", "role": "generatorLinkedSource"},
+    {"path": "src/libraries/System.Private.CoreLib/src/System/Collections/Generic/ValueListBuilder.cs", "sha256": "325a1ee7108845bb538b803982e0c0f984f7a88def592bcfe71ed295ea4abb81", "role": "generatorLinkedSource"},
+    {"path": "src/libraries/System.Private.CoreLib/src/System/Collections/Generic/ValueListBuilder.Pop.cs", "sha256": "79a096be0b91db125c70a186b2c6d40615acd72508da9b3d6b9dbd73bfed9321", "role": "generatorLinkedSource"}
+  ],
+  "sourceFileHeaderObservation": "All 14 reviewed .cs files begin with the two-line .NET Foundation MIT license header; none has a third-party attribution in those header lines.",
+  "generatorProject": {
+    "path": "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj",
+    "sha256": "434c05ed55f78bb61147a68b25e2b23f629eb2f209870ffd0059e28ac46959b0",
+    "perFileHeader": "none in the XML project; root license retained, applicability review open",
+    "coreLibProjectReference": "src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj:312; OutputItemType=Analyzer; ReferenceOutputAssembly=false",
+    "localCompileItems": 6,
+    "linkedSharedCompileItems": 3,
+    "declaredPackageReference": {
+      "identity": "Microsoft.CodeAnalysis.CSharp",
+      "versionExpression": "$(MicrosoftCodeAnalysisVersion_LatestVS)",
+      "privateAssets": "all",
+      "resolvedVersionAndArtifactHash": "OPEN",
+      "licenseAndNoticeEvidence": "OPEN",
+      "role": "build-time generator dependency; not established as a shipped Java dependency"
+    }
+  },
+  "disposition": {
+    "upstreamSourceCopiedIntoDotjProduct": false,
+    "sourceReuseEligibility": "OPEN pending notice mapping, conditional/transitive build dependency resolution, generated output review, and licensing reviewer decision",
+    "redistribution": "Do not infer that all or none of the repository-wide notices apply to a future dotj artifact. Preserve applicable root and file notices if source is copied, subject to review.",
+    "owner": "repository maintainer with licensing reviewer where required"
+  },
+  "limitations": [
+    "No upstream CoreLib source build, package restore or generated-output hashing was performed.",
+    "Broader imported build properties, conditions and transitive dependencies remain unresolved.",
+    "File headers do not establish complete dependency, asset, binary redistribution or third-party notice clearance.",
+    "No legal clearance or product release eligibility is claimed."
+  ]
+}
