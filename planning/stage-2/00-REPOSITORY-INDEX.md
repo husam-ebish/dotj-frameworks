@@ -1,6 +1,8 @@
 # All 66 Stage-2 repository plans
 
-All rows have the ten required detailed documents, a navigation README and machine-readable evidence. Written planning coverage is complete across the retained capability families. Exhaustive API/test/dependency audits, eligible release qualification and implementation remain separate statuses.
+**Owner requirement:** exact upstream .NET public names, casing and concepts across all 66 repositories. Read [the mandatory naming policy](08-DOTNET-API-COMPATIBILITY-POLICY.md). N01 adds a source-to-Java public API mapping and concept-preservation gate; Java implementation details must not become a replacement learning path.
+
+All rows have the eleven required detailed documents, a navigation README and machine-readable evidence. Written planning coverage is complete across the retained capability families. Exhaustive API/test/dependency audits, eligible release qualification and implementation remain separate statuses.
 
 | ID | Target | Upstream | Feature packages | Wave | Source evidence |
 |---|---|---|---|---|---|

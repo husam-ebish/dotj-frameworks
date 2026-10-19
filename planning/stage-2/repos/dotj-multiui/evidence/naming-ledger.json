@@ -1,0 +1,74 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-multiui",
+  "source": "https://github.com/dotnet/maui",
+  "revision": "3a7d72870b9c2ed006de7268a6257ae039cb7f99",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Core/src/IFlyout.cs",
+      "source_line": 3,
+      "source_url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/IFlyout.cs#L3",
+      "declaration_candidate": "public interface IFlyout : IElement",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Core/src/WeakList.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/WeakList.cs#L17",
+      "declaration_candidate": "public int Count => _list.Count;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Core/src/WeakList.cs",
+      "source_line": 19,
+      "source_url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/WeakList.cs#L19",
+      "declaration_candidate": "public int CleanupThreshold { get; set; } = 32;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Core/src/WeakList.cs",
+      "source_line": 21,
+      "source_url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/WeakList.cs#L21",
+      "declaration_candidate": "public void Add(T item)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Core/src/WeakList.cs",
+      "source_line": 27,
+      "source_url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/WeakList.cs#L27",
+      "declaration_candidate": "public void Remove(T item)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Core/src/WeakList.cs",
+      "source_line": 51,
+      "source_url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/WeakList.cs#L51",
+      "declaration_candidate": "public void Clear()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Core/src/WeakList.cs",
+      "source_line": 57,
+      "source_url": "https://github.com/dotnet/maui/blob/3a7d72870b9c2ed006de7268a6257ae039cb7f99/src/Core/src/WeakList.cs#L57",
+      "declaration_candidate": "public IEnumerator<T> GetEnumerator()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

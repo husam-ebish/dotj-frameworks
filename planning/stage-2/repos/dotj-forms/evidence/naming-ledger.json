@@ -1,0 +1,29 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-forms",
+  "source": "https://github.com/dotnet/winforms",
+  "revision": "c4891de0851184dcbe95d16ca543969fe2540245",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/System.Windows.Forms/SRCategoryAttribute.cs",
+      "source_line": 11,
+      "source_url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/SRCategoryAttribute.cs#L11",
+      "declaration_candidate": "public SRCategoryAttribute(string category) : base(category)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/System.Windows.Forms/SRCategoryAttribute.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/dotnet/winforms/blob/c4891de0851184dcbe95d16ca543969fe2540245/src/System.Windows.Forms/SRCategoryAttribute.cs#L15",
+      "declaration_candidate": "protected override string? GetLocalizedString(string value)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

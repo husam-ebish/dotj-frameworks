@@ -1,12 +1,14 @@
 > Earlier source-backed foundation research retained as evidence. Current whole-core scope and readiness are in the parent directory. This sample is not whole-core completion.
 
+**Naming correction:** earlier Java-style public proposals are superseded by [DOTNET-API-EXACT-001](../../../08-DOTNET-API-COMPATIBILITY-POLICY.md). The exact .NET public identity is required; helper contracts remain internal. This research remains sampled, not a complete API map.
+
 # Java architecture: core foundation contract draft
 
 Status: **PROPOSED, INCOMPLETE**. These are planning contracts, not implemented APIs. Decisions are in [ADRS](ADRS.md); source evidence and tests are linked in the compatibility and test maps.
 
 ## Artifact boundaries
 
-All artifacts below live in the future dotj-core repository. Proposed packages use `org.dotj.core.*`; namespace ownership remains unverified. Each artifact is independently compilable over JDK APIs plus its declared lower-level .j artifacts. There is no mandatory aggregate core dependency.
+All artifacts below live in the future dotj-core repository. Public packages retain exact source namespaces and casing under DOTNET-API-EXACT-001; `org.dotj.internal.*` is reserved for hidden implementation helpers. Artifact/module coordinates remain .j-owned. Each artifact is independently compilable over JDK APIs plus its declared lower-level .j artifacts. There is no mandatory aggregate core dependency.
 
 | Artifact suffix | Responsibility | Proposed dependencies |
 |---|---|---|
@@ -36,15 +38,15 @@ Propose the following Java signatures as the design vocabulary. Types and overlo
 
 | Proposed operation | Behavior contract |
 |---|---|
-| `CancellationToken.isCancellationRequested(): boolean` | Observable cooperative cancellation state; never implies remote rollback |
-| `CancellationToken.throwIfCancellationRequested(): void` | Throws a typed cancellation exception carrying token identity |
-| `CancellationToken.register(Runnable): CancellationRegistration` | Captures the explicit .j context; already-canceled token invokes synchronously and propagates callback failure |
-| `CancellationToken.registerUncaptured(Runnable): CancellationRegistration` | Does not capture .j context; distinct from the capturing overload |
-| `CancellationSource.cancel(boolean throwOnFirstException): void` | Marks cancellation before callbacks; LIFO callback dispatch for the declared sequential-registration case; failure policy must match the chosen source profile |
-| `CancellationSource.cancelAsync(): CompletionStage<Void>` | State becomes requested during the call; returned stage represents completion of callback processing, not cancellation of all downstream work |
-| `CancellationRegistration.unregister(): boolean` | Removes a not-yet-running callback if possible; does not wait for an executing callback |
-| `CancellationRegistration.close(): void` | Waits for executing callback completion where required, except self-disposal must not deadlock |
-| `CancellationRegistration.closeAsync(): CompletionStage<Void>` | Async completion fence for callback deregistration/completion |
+| `CancellationToken.get_IsCancellationRequested(): boolean` | Observable cooperative cancellation state; never implies remote rollback |
+| `CancellationToken.ThrowIfCancellationRequested(): void` | Throws a typed cancellation exception carrying token identity |
+| `CancellationToken.Register(Action): CancellationTokenRegistration` | Captures the explicit .j context; already-canceled token invokes synchronously and propagates callback failure |
+| `CancellationToken.UnsafeRegister(Action/state overload): CancellationTokenRegistration` | Does not capture .j context; distinct from the capturing overload |
+| `CancellationTokenSource.Cancel(boolean throwOnFirstException): void` | Marks cancellation before callbacks; LIFO callback dispatch for the declared sequential-registration case; failure policy must match the chosen source profile |
+| `CancellationTokenSource.CancelAsync(): Task` | State becomes requested during the call; returned stage represents completion of callback processing, not cancellation of all downstream work |
+| `CancellationTokenRegistration.Unregister(): boolean` | Removes a not-yet-running callback if possible; does not wait for an executing callback |
+| `CancellationTokenRegistration.Dispose(): void` | Waits for executing callback completion where required, except self-disposal must not deadlock |
+| `CancellationTokenRegistration.DisposeAsync(): ValueTask` | Async completion fence for callback deregistration/completion |
 
 Cancellation source lifetime, linking, timer replacement, reset, equality and disposed-source behavior need their full edge-case matrix before this contract is frozen. Distinguish token identity from source disposal; don't clear token identity merely because the source closes. Do not map `CompletableFuture.cancel` or thread interruption directly to this contract. Document any propagation adapter explicitly.
 
@@ -52,17 +54,17 @@ Cancellation source lifetime, linking, timer replacement, reset, equality and di
 
 ## Contract C-002: resource ownership and asynchronous close
 
-Propose `AsyncCloseable.closeAsync(): CompletionStage<Void>` alongside JDK AutoCloseable. A borrowed stream/provider/executor remains caller-owned. Scope-owned factory-created objects are released by the owning scope. Externally supplied singleton instances remain caller-owned unless an explicit ownership overload is added and labeled as a Java extension.
+Preserve `IAsyncDisposable.DisposeAsync(): ValueTask` and `IDisposable.Dispose(): void`. JDK AutoCloseable/CompletionStage may be used behind optional interop bridges, not as replacement public contracts. A borrowed stream/provider/executor remains caller-owned. Scope-owned factory-created objects are released by the owning scope. Externally supplied singleton instances remain caller-owned unless an explicit ownership overload is added and labeled as a Java extension.
 
-A synchronous scope close uses synchronous close when an object supports both forms. Async scope close prefers async close and awaits each owned resource in reverse capture order. An async-only object reached by synchronous close yields a defined error; do not block implicitly on its stage. Current source behavior deduplicates shared object instances and continues disposal after failures, aggregating errors. Preserve that profile only for the chosen reference revision; verify against the selected released baseline.
+A synchronous scope close uses synchronous close when an object supports both forms. Async scope close prefers async close and awaits each owned resource in reverse capture order. An async-only object reached by synchronous Dispose yields a defined error; do not block implicitly on its stage. Current source behavior deduplicates shared object instances and continues disposal after failures, aggregating errors. Preserve that profile only for the chosen reference revision; verify against the selected released baseline.
 
 Use reference identity for ownership deduplication. Equality overrides must not cause two different resources to be treated as one. Closing a resource is not evidence that in-flight remote operations rolled back. Exception ordering and single-versus-multiple-failure representation belong in the compatibility contract.
 
 ## Contract C-003: service identity, lifetimes and resolution
 
-Use an explicit `TypeToken<T>` and `ServiceKey<T>` composed of service type plus optional keyed-service value. Define separate paths for an unkeyed service and a keyed service with a null key if source behavior requires that distinction. Do not use raw `Class<T>` as a substitute for all closed generic service identities.
+Internally a TypeToken/ServiceKey representation may track closed generic identity and optional keyed-service values. Preserve the upstream public System.Type/service-provider vocabulary; do not require applications to learn replacement helper types. Define separate paths for an unkeyed service and a keyed service with a null key if source behavior requires that distinction. Do not use raw `Class<T>` as a substitute for all closed generic service identities.
 
-Propose `get(ServiceKey<T>)`, `getRequired(ServiceKey<T>)`, `getAll(ServiceKey<T>)` and explicit `createScope()`. Resolution order, constructor selection, open generics, keyed registrations, singleton/scoped/transient caching and validation-on-build are individual compatibility features. The current default DI source is owned here; Autofac features remain dotj-container scope.
+Preserve the actual source public families `GetService`, `GetRequiredService`, `GetServices`, `CreateScope` and keyed-service members where present in the selected profile, with their original declaring types and overload identity. ServiceKey/TypeToken are hidden helpers, not replacement public API signatures. Resolution order, constructor selection, open generics, keyed registrations, singleton/scoped/transient caching and validation-on-build are individual compatibility features. The current default DI source is owned here; Autofac features remain dotj-container scope.
 
 Build freezes the registration sequence into an immutable resolution model. Call-site generation can initially use reflection/MethodHandles; CLR IL emission is not translated literally. Factories run outside broad global locks. Exactly-one published singleton and disposal races need an explicit linearization design and stress tests before selecting a cache algorithm. Captive dependencies are diagnosed according to the declared validation mode, not silently repaired.
 
@@ -84,7 +86,7 @@ Keep logging interfaces independent from concrete loggers, DI and configuration.
 
 Named options require explicit default-name normalization, ordered configuration, post-configuration and validation. Cache semantics distinguish value, snapshot and monitor interfaces. Failure must not publish an invalid value. The inspected snapshot contains asynchronous validation and startup-specific cache behavior; those features are retained but require release-baseline selection and additional class-level analysis before Java signatures are finalized.
 
-Host/service interfaces use CompletionStage and explicit cancellation. The hosting implementation, startup ordering, rollback after failed startup, shutdown timeout and OS service adapters remain pending analysis. Do not claim the draft supports systemd or Windows services merely because interfaces compile on a JVM.
+Host/service interfaces preserve original Task/ValueTask and CancellationToken signatures, including StartAsync/StopAsync where defined; Java futures remain internal or optional interop. The hosting implementation, startup ordering, rollback after failed startup, shutdown timeout and OS service adapters remain pending analysis. Do not claim the draft supports systemd or Windows services merely because interfaces compile on a JVM.
 
 ## Contract C-007: numeric/time adapters
 

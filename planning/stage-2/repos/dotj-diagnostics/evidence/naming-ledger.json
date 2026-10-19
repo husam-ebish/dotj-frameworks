@@ -1,0 +1,542 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-diagnostics",
+  "source": "https://github.com/dotnet/diagnostics",
+  "revision": "1d95e75015fa3ccd063a59ed3d0bfe26040a6637",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L15",
+      "declaration_candidate": "public class Host : IHost, ISettingsService",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 23,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L23",
+      "declaration_candidate": "public Host(HostType type)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 36,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L36",
+      "declaration_candidate": "public ServiceManager ServiceManager => _serviceManager;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 41,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L41",
+      "declaration_candidate": "public ServiceContainer ServiceContainer => _serviceContainer ?? throw new InvalidOperationException();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 46,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L46",
+      "declaration_candidate": "public ServiceContainer CreateServiceContainer()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 62,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L62",
+      "declaration_candidate": "public void DestoryTargets()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 74,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L74",
+      "declaration_candidate": "public IServiceEvent OnShutdownEvent { get; } = new ServiceEvent();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 76,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L76",
+      "declaration_candidate": "public IServiceEvent<ITarget> OnTargetCreate { get; } = new ServiceEvent<ITarget>();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 78,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L78",
+      "declaration_candidate": "public HostType HostType { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 80,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L80",
+      "declaration_candidate": "public IServiceProvider Services => _serviceContainer ?? throw new InvalidOperationException();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 82,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L82",
+      "declaration_candidate": "public IEnumerable<ITarget> EnumerateTargets() => _targets.ToArray();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 84,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L84",
+      "declaration_candidate": "public int AddTarget(ITarget target)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 93,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L93",
+      "declaration_candidate": "public string GetTempDirectory()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 119,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L119",
+      "declaration_candidate": "public virtual bool DacSignatureVerificationEnabled { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs",
+      "source_line": 121,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Host.cs#L121",
+      "declaration_candidate": "public CDacLoadPolicy CDacLoadPolicy { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 21,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L21",
+      "declaration_candidate": "public abstract class Module : IModule, IExportSymbols, IDisposable",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 24,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L24",
+      "declaration_candidate": "public enum Flags : byte",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 40,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L40",
+      "declaration_candidate": "protected ImmutableArray<byte> _buildId;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 41,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L41",
+      "declaration_candidate": "protected readonly ServiceContainer _serviceContainer;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 43,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L43",
+      "declaration_candidate": "public Module(IServiceProvider services)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 48,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L48",
+      "declaration_candidate": "protected Module(IServiceProvider services, bool isPEModuleProbeSupported)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 60,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L60",
+      "declaration_candidate": "public virtual void Dispose()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 69,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L69",
+      "declaration_candidate": "public ITarget Target => ModuleService.Target;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 71,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L71",
+      "declaration_candidate": "public IServiceProvider Services => _serviceContainer;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 73,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L73",
+      "declaration_candidate": "public virtual int ModuleIndex { get; protected set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 75,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L75",
+      "declaration_candidate": "public virtual string FileName { get; protected set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 77,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L77",
+      "declaration_candidate": "public virtual ulong ImageBase { get; protected set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 79,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L79",
+      "declaration_candidate": "public virtual ulong ImageSize { get; protected set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 81,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L81",
+      "declaration_candidate": "public virtual uint? IndexFileSize { get; protected set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 83,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L83",
+      "declaration_candidate": "public virtual uint? IndexTimeStamp { get; protected set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 85,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L85",
+      "declaration_candidate": "public virtual bool IsPEImage",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 99,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L99",
+      "declaration_candidate": "public bool IsManaged",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 108,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L108",
+      "declaration_candidate": "public bool? IsFileLayout",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 130,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L130",
+      "declaration_candidate": "public virtual ImmutableArray<byte> BuildId",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 150,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L150",
+      "declaration_candidate": "public IEnumerable<PdbFileInfo> GetPdbFileInfos()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 157,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L157",
+      "declaration_candidate": "public string GetSymbolFileName()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 190,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L190",
+      "declaration_candidate": "public abstract Version GetVersionData();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 192,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L192",
+      "declaration_candidate": "public abstract string GetVersionString();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 194,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L194",
+      "declaration_candidate": "public abstract string LoadSymbols();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 200,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L200",
+      "declaration_candidate": "public ImmutableArray<byte> GetMetadata()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 256,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L256",
+      "declaration_candidate": "protected virtual bool TryGetSymbolAddressInner(string name, out ulong address)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 264,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L264",
+      "declaration_candidate": "protected Version GetVersionInner()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 293,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L293",
+      "declaration_candidate": "protected string GetVersionStringInner()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 302,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L302",
+      "declaration_candidate": "protected bool InitializeValue(Flags flag)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 312,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L312",
+      "declaration_candidate": "protected abstract ModuleService ModuleService { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 314,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L314",
+      "declaration_candidate": "public override bool Equals(object obj)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs",
+      "source_line": 320,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.Diagnostics.DebugServices.Implementation/Module.cs#L320",
+      "declaration_candidate": "public override int GetHashCode()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 14,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L14",
+      "declaration_candidate": "public struct SizeT",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 22,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L22",
+      "declaration_candidate": "public static implicit operator ulong (SizeT instance)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 27,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L27",
+      "declaration_candidate": "public static explicit operator long (SizeT instance)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 32,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L32",
+      "declaration_candidate": "public static explicit operator uint (SizeT instance)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 43,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L43",
+      "declaration_candidate": "public class UInt64SizeTLayout : LayoutBase",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 46,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L46",
+      "declaration_candidate": "public UInt64SizeTLayout(ILayout storageLayout) : base(typeof(SizeT), storageLayout.Size)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 55,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L55",
+      "declaration_candidate": "public override object Read(IAddressSpace dataSource, ulong position)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 61,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L61",
+      "declaration_candidate": "public class UInt32SizeTLayout : LayoutBase",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 64,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L64",
+      "declaration_candidate": "public UInt32SizeTLayout(ILayout storageLayout) : base(typeof(SizeT), storageLayout.Size)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 73,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L73",
+      "declaration_candidate": "public override object Read(IAddressSpace dataSource, ulong position)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 79,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L79",
+      "declaration_candidate": "public static partial class LayoutManagerExtensions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Microsoft.FileFormats/SizeT.cs",
+      "source_line": 90,
+      "source_url": "https://github.com/dotnet/diagnostics/blob/1d95e75015fa3ccd063a59ed3d0bfe26040a6637/src/Microsoft.FileFormats/SizeT.cs#L90",
+      "declaration_candidate": "public static LayoutManager AddSizeT(this LayoutManager layouts, int size)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

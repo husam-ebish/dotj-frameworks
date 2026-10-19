@@ -1,0 +1,164 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-scheduler",
+  "source": "https://github.com/quartznet/quartznet",
+  "revision": "a94922ad3b1c2efa6d2613916fa2f386aede6681",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 35,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L35",
+      "declaration_candidate": "public class Key<T> : IComparable<Key<T>>, IComparable, IEquatable<Key<T>>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 58,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L58",
+      "declaration_candidate": "public Key(string name) : this(name, DefaultGroup)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 75,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L75",
+      "declaration_candidate": "public Key(string name, string group)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 92,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L92",
+      "declaration_candidate": "public string Name => name;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 100,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L100",
+      "declaration_candidate": "public string Group => group;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 120,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L120",
+      "declaration_candidate": "public override int GetHashCode()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 142,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L142",
+      "declaration_candidate": "public bool Equals(Key<T>? other)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 161,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L161",
+      "declaration_candidate": "public override bool Equals(object? obj)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 190,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L190",
+      "declaration_candidate": "public int CompareTo(Key<T>? other)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 243,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L243",
+      "declaration_candidate": "public static bool operator ==(Key<T>? left, Key<T>? right)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 256,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L256",
+      "declaration_candidate": "public static bool operator !=(Key<T>? left, Key<T>? right)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 265,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L265",
+      "declaration_candidate": "public static bool operator <(Key<T> left, Key<T> right)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 273,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L273",
+      "declaration_candidate": "public static bool operator <=(Key<T> left, Key<T> right)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 282,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L282",
+      "declaration_candidate": "public static bool operator >(Key<T> left, Key<T> right)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/Key.cs",
+      "source_line": 290,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/Key.cs#L290",
+      "declaration_candidate": "public static bool operator >=(Key<T> left, Key<T> right)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/IJob.cs",
+      "source_line": 41,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/IJob.cs#L41",
+      "declaration_candidate": "public interface IJob",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Quartz/IJob.cs",
+      "source_line": 110,
+      "source_url": "https://github.com/quartznet/quartznet/blob/a94922ad3b1c2efa6d2613916fa2f386aede6681/src/Quartz/IJob.cs#L110",
+      "declaration_candidate": "public interface IJob<TInput> : IJob",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

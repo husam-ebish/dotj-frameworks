@@ -1,0 +1,128 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-markdown",
+  "source": "https://github.com/xoofx/markdig",
+  "revision": "ccb9d8593f7a0aac232342a6705e8afc8c4f374d",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L20",
+      "declaration_candidate": "public static class Markdown",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 26,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L26",
+      "declaration_candidate": "public static string Version => field ??= typeof(Markdown).Assembly.GetCustomAttribute<AssemblyFileVersionAttribute>()?.Version ?? \"Unknown\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 57,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L57",
+      "declaration_candidate": "public static string Normalize([StringSyntax(\"Markdown\")] string markdown, NormalizeOptions? options = null, MarkdownPipeline? pipeline = null, MarkdownParserContext? context = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 73,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L73",
+      "declaration_candidate": "public static MarkdownDocument Normalize([StringSyntax(\"Markdown\")] string markdown, TextWriter writer, NormalizeOptions? options = null, MarkdownPipeline? pipeline = null, MarkdownParserContext? context = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 98,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L98",
+      "declaration_candidate": "public static string ToHtml([StringSyntax(\"Markdown\")] string markdown, MarkdownPipeline? pipeline = null, MarkdownParserContext? context = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 116,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L116",
+      "declaration_candidate": "public static string ToHtml(this MarkdownDocument document, MarkdownPipeline? pipeline = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 139,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L139",
+      "declaration_candidate": "public static void ToHtml(this MarkdownDocument document, TextWriter writer, MarkdownPipeline? pipeline = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 162,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L162",
+      "declaration_candidate": "public static MarkdownDocument ToHtml([StringSyntax(\"Markdown\")] string markdown, TextWriter writer, MarkdownPipeline? pipeline = null, MarkdownParserContext? context = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 184,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L184",
+      "declaration_candidate": "public static object Convert([StringSyntax(\"Markdown\")] string markdown, IMarkdownRenderer renderer, MarkdownPipeline? pipeline = null, MarkdownParserContext? context = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 204,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L204",
+      "declaration_candidate": "public static MarkdownDocument Parse([StringSyntax(\"Markdown\")] string markdown, bool trackTrivia = false)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 221,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L221",
+      "declaration_candidate": "public static MarkdownDocument Parse([StringSyntax(\"Markdown\")] string markdown, MarkdownPipeline? pipeline, MarkdownParserContext? context = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 239,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L239",
+      "declaration_candidate": "public static MarkdownDocument ToPlainText([StringSyntax(\"Markdown\")] string markdown, TextWriter writer, MarkdownPipeline? pipeline = null, MarkdownParserContext? context = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Markdig/Markdown.cs",
+      "source_line": 271,
+      "source_url": "https://github.com/xoofx/markdig/blob/ccb9d8593f7a0aac232342a6705e8afc8c4f374d/src/Markdig/Markdown.cs#L271",
+      "declaration_candidate": "public static string ToPlainText([StringSyntax(\"Markdown\")] string markdown, MarkdownPipeline? pipeline = null, MarkdownParserContext? context = null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

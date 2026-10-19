@@ -1,5 +1,7 @@
 # Execution roadmap
 
+**Owner requirement:** exact upstream .NET public names, casing and concepts across all 66 repositories. Read [the mandatory naming policy](08-DOTNET-API-COMPATIBILITY-POLICY.md). N01 adds a source-to-Java public API mapping and concept-preservation gate; Java implementation details must not become a replacement learning path.
+
 This is sequencing, not a promise of dates or a claim that one team can implement 66 products at once. Work is selected by artifact-level prerequisites. Research for a later native/runtime wave can happen early; a wave number does not block independent contract work.
 
 ## Wave 0: qualify evidence and shared contracts

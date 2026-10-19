@@ -1,5 +1,7 @@
 > Earlier source-backed foundation research retained as evidence. Current whole-core scope and readiness are in the parent directory. This sample is not whole-core completion.
 
+**Naming correction:** earlier Java-style public proposals are superseded by [DOTNET-API-EXACT-001](../../../08-DOTNET-API-COMPATIBILITY-POLICY.md). The exact .NET public identity is required; helper contracts remain internal. This research remains sampled, not a complete API map.
+
 # Architecture decision records
 
 All decisions below are **provisional planning proposals**. They are not owner approval of unresolved scope/licensing or frozen public APIs.

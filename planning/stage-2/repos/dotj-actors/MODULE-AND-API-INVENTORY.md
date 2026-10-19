@@ -1,5 +1,7 @@
 # DJ-015 .j Actors: module and API inventory
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 | Observed item | Count | Interpretation |
 |---|---|---|
 | Listed blob paths | 5904 | recursive complete |
@@ -343,7 +345,7 @@ Full lexical records (32) and complete listed paths are in [inventory.json](evid
 
 ## Capability ownership
 
-| Package | Retained capability | Proposed contract names |
+| Package | Retained capability | Internal planning labels; public names come from source |
 |---|---|---|
 | WP-01 | Identity activation and scheduling | ActorId; ActivationId; TurnContext; ReentrancyPolicy |
 | WP-02 | Membership placement and failure detection | MemberEpoch; MembershipView; PlacementDecision |

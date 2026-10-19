@@ -1,5 +1,7 @@
 > Earlier source-backed foundation research retained as evidence. Current whole-core scope and readiness are in the parent directory. This sample is not whole-core completion.
 
+**Naming correction:** earlier Java-style public proposals are superseded by [DOTNET-API-EXACT-001](../../../08-DOTNET-API-COMPATIBILITY-POLICY.md). The exact .NET public identity is required; helper contracts remain internal. This research remains sampled, not a complete API map.
+
 # Feature compatibility matrix
 
 This is the first foundation slice, not full dotj-core coverage. Observed findings are tied to the analysis revision. Proposed Java behavior is not implemented or verified. Every unlisted library capability remains in the directory inventory with pending analysis.

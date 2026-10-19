@@ -1,0 +1,1694 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-core",
+  "source": "https://github.com/dotnet/runtime",
+  "revision": "9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 10,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L10",
+      "declaration_candidate": "public static partial class Binder",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 14,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L14",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder BinaryOperation(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, System.Linq.Expressions.ExpressionType operation, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L17",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder Convert(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, System.Type type, System.Type? context) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L20",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder GetIndex(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 23,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L23",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder GetMember(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, string name, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 26,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L26",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder Invoke(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 29,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L29",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder InvokeConstructor(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 32,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L32",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder InvokeMember(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, string name, System.Collections.Generic.IEnumerable<System.Type>? typeArguments, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 35,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L35",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder IsEvent(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, string name, System.Type? context) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 38,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L38",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder SetIndex(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 41,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L41",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder SetMember(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, string name, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 44,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L44",
+      "declaration_candidate": "public static System.Runtime.CompilerServices.CallSiteBinder UnaryOperation(Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags flags, System.Linq.Expressions.ExpressionType operation, System.Type? context, System.Collections.Generic.IEnumerable<Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo>? argumentInfo) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 47,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L47",
+      "declaration_candidate": "public sealed partial class CSharpArgumentInfo",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 50,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L50",
+      "declaration_candidate": "public static Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo Create(Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfoFlags flags, string? name) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 54,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L54",
+      "declaration_candidate": "public enum CSharpArgumentInfoFlags",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 66,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L66",
+      "declaration_candidate": "public enum CSharpBinderFlags",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 79,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L79",
+      "declaration_candidate": "public partial class RuntimeBinderException : System.Exception",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 81,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L81",
+      "declaration_candidate": "public RuntimeBinderException() { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 84,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L84",
+      "declaration_candidate": "protected RuntimeBinderException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 85,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L85",
+      "declaration_candidate": "public RuntimeBinderException(string? message) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 86,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L86",
+      "declaration_candidate": "public RuntimeBinderException(string? message, System.Exception? innerException) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 88,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L88",
+      "declaration_candidate": "public partial class RuntimeBinderInternalCompilerException : System.Exception",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 90,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L90",
+      "declaration_candidate": "public RuntimeBinderInternalCompilerException() { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 93,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L93",
+      "declaration_candidate": "protected RuntimeBinderInternalCompilerException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 94,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L94",
+      "declaration_candidate": "public RuntimeBinderInternalCompilerException(string? message) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs",
+      "source_line": 95,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.CSharp/ref/Microsoft.CSharp.cs#L95",
+      "declaration_candidate": "public RuntimeBinderInternalCompilerException(string? message, System.Exception? innerException) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L9",
+      "declaration_candidate": "public static partial class DistributedCacheEntryExtensions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 11,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L11",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions SetAbsoluteExpiration(this Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions options, System.DateTimeOffset absolute) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L12",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions SetAbsoluteExpiration(this Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions options, System.TimeSpan relative) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 13,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L13",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions SetSlidingExpiration(this Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions options, System.TimeSpan offset) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L15",
+      "declaration_candidate": "public partial class DistributedCacheEntryOptions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L17",
+      "declaration_candidate": "public DistributedCacheEntryOptions() { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 18,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L18",
+      "declaration_candidate": "public System.DateTimeOffset? AbsoluteExpiration { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 19,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L19",
+      "declaration_candidate": "public System.TimeSpan? AbsoluteExpirationRelativeToNow { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L20",
+      "declaration_candidate": "public System.TimeSpan? SlidingExpiration { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 22,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L22",
+      "declaration_candidate": "public static partial class DistributedCacheExtensions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 24,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L24",
+      "declaration_candidate": "public static string? GetString(this Microsoft.Extensions.Caching.Distributed.IDistributedCache cache, string key) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 25,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L25",
+      "declaration_candidate": "public static System.Threading.Tasks.Task<string?> GetStringAsync(this Microsoft.Extensions.Caching.Distributed.IDistributedCache cache, string key, System.Threading.CancellationToken token = default(System.Threading.CancellationToken)) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 26,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L26",
+      "declaration_candidate": "public static void Set(this Microsoft.Extensions.Caching.Distributed.IDistributedCache cache, string key, byte[] value) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 27,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L27",
+      "declaration_candidate": "public static System.Threading.Tasks.Task SetAsync(this Microsoft.Extensions.Caching.Distributed.IDistributedCache cache, string key, byte[] value, System.Threading.CancellationToken token = default(System.Threading.CancellationToken)) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 28,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L28",
+      "declaration_candidate": "public static void SetString(this Microsoft.Extensions.Caching.Distributed.IDistributedCache cache, string key, string value) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 29,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L29",
+      "declaration_candidate": "public static void SetString(this Microsoft.Extensions.Caching.Distributed.IDistributedCache cache, string key, string value, Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions options) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 30,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L30",
+      "declaration_candidate": "public static System.Threading.Tasks.Task SetStringAsync(this Microsoft.Extensions.Caching.Distributed.IDistributedCache cache, string key, string value, Microsoft.Extensions.Caching.Distributed.DistributedCacheEntryOptions options, System.Threading.CancellationToken token = default(System.Threading.CancellationToken)) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 31,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L31",
+      "declaration_candidate": "public static System.Threading.Tasks.Task SetStringAsync(this Microsoft.Extensions.Caching.Distributed.IDistributedCache cache, string key, string value, System.Threading.CancellationToken token = default(System.Threading.CancellationToken)) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 33,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L33",
+      "declaration_candidate": "public partial interface IDistributedCache",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 44,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L44",
+      "declaration_candidate": "public interface IBufferDistributedCache : IDistributedCache",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 54,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L54",
+      "declaration_candidate": "public static partial class CacheEntryExtensions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 56,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L56",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry AddExpirationToken(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, Microsoft.Extensions.Primitives.IChangeToken expirationToken) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 57,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L57",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry RegisterPostEvictionCallback(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, Microsoft.Extensions.Caching.Memory.PostEvictionDelegate callback) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 58,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L58",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry RegisterPostEvictionCallback(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, Microsoft.Extensions.Caching.Memory.PostEvictionDelegate callback, object? state) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 59,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L59",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry SetAbsoluteExpiration(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, System.DateTimeOffset absolute) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 60,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L60",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry SetAbsoluteExpiration(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, System.TimeSpan relative) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 61,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L61",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry SetOptions(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 62,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L62",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry SetPriority(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, Microsoft.Extensions.Caching.Memory.CacheItemPriority priority) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 63,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L63",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry SetSize(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, long size) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 64,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L64",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry SetSlidingExpiration(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, System.TimeSpan offset) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 65,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L65",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.ICacheEntry SetValue(this Microsoft.Extensions.Caching.Memory.ICacheEntry entry, object? value) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 67,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L67",
+      "declaration_candidate": "public static partial class CacheExtensions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 69,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L69",
+      "declaration_candidate": "public static object? Get(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 70,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L70",
+      "declaration_candidate": "public static System.Threading.Tasks.Task<TItem?> GetOrCreateAsync<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, System.Func<Microsoft.Extensions.Caching.Memory.ICacheEntry, System.Threading.Tasks.Task<TItem>> factory) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 71,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L71",
+      "declaration_candidate": "public static System.Threading.Tasks.Task<TItem?> GetOrCreateAsync<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, System.Func<Microsoft.Extensions.Caching.Memory.ICacheEntry, System.Threading.Tasks.Task<TItem>> factory, Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions? createOptions) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 72,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L72",
+      "declaration_candidate": "public static TItem? GetOrCreate<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, System.Func<Microsoft.Extensions.Caching.Memory.ICacheEntry, TItem> factory) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 73,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L73",
+      "declaration_candidate": "public static TItem? GetOrCreate<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, System.Func<Microsoft.Extensions.Caching.Memory.ICacheEntry, TItem> factory, Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions? createOptions) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 74,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L74",
+      "declaration_candidate": "public static TItem? Get<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 75,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L75",
+      "declaration_candidate": "public static TItem Set<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, TItem value) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 76,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L76",
+      "declaration_candidate": "public static TItem Set<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, TItem value, Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions? options) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 77,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L77",
+      "declaration_candidate": "public static TItem Set<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, TItem value, Microsoft.Extensions.Primitives.IChangeToken expirationToken) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 78,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L78",
+      "declaration_candidate": "public static TItem Set<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, TItem value, System.DateTimeOffset absoluteExpiration) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 79,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L79",
+      "declaration_candidate": "public static TItem Set<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, TItem value, System.TimeSpan absoluteExpirationRelativeToNow) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 80,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L80",
+      "declaration_candidate": "public static bool TryGetValue<TItem>(this Microsoft.Extensions.Caching.Memory.IMemoryCache cache, object key, out TItem? value) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 82,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L82",
+      "declaration_candidate": "public enum CacheItemPriority",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 89,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L89",
+      "declaration_candidate": "public enum EvictionReason",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 98,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L98",
+      "declaration_candidate": "public partial interface ICacheEntry : System.IDisposable",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 110,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L110",
+      "declaration_candidate": "public partial interface IMemoryCache : System.IDisposable",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 116,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L116",
+      "declaration_candidate": "public static partial class MemoryCacheEntryExtensions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 118,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L118",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions AddExpirationToken(this Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options, Microsoft.Extensions.Primitives.IChangeToken expirationToken) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 119,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L119",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions RegisterPostEvictionCallback(this Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options, Microsoft.Extensions.Caching.Memory.PostEvictionDelegate callback) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 120,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L120",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions RegisterPostEvictionCallback(this Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options, Microsoft.Extensions.Caching.Memory.PostEvictionDelegate callback, object? state) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 121,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L121",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions SetAbsoluteExpiration(this Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options, System.DateTimeOffset absolute) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 122,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L122",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions SetAbsoluteExpiration(this Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options, System.TimeSpan relative) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 123,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L123",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions SetPriority(this Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options, Microsoft.Extensions.Caching.Memory.CacheItemPriority priority) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 124,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L124",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions SetSize(this Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options, long size) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 125,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L125",
+      "declaration_candidate": "public static Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions SetSlidingExpiration(this Microsoft.Extensions.Caching.Memory.MemoryCacheEntryOptions options, System.TimeSpan offset) { throw null; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 127,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L127",
+      "declaration_candidate": "public partial class MemoryCacheEntryOptions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 129,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L129",
+      "declaration_candidate": "public MemoryCacheEntryOptions() { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 130,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L130",
+      "declaration_candidate": "public System.DateTimeOffset? AbsoluteExpiration { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 131,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L131",
+      "declaration_candidate": "public System.TimeSpan? AbsoluteExpirationRelativeToNow { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 132,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L132",
+      "declaration_candidate": "public System.Collections.Generic.IList<Microsoft.Extensions.Primitives.IChangeToken> ExpirationTokens { get { throw null; } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 133,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L133",
+      "declaration_candidate": "public System.Collections.Generic.IList<Microsoft.Extensions.Caching.Memory.PostEvictionCallbackRegistration> PostEvictionCallbacks { get { throw null; } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 134,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L134",
+      "declaration_candidate": "public Microsoft.Extensions.Caching.Memory.CacheItemPriority Priority { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 135,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L135",
+      "declaration_candidate": "public long? Size { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 136,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L136",
+      "declaration_candidate": "public System.TimeSpan? SlidingExpiration { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 138,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L138",
+      "declaration_candidate": "public partial class MemoryCacheStatistics",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 140,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L140",
+      "declaration_candidate": "public MemoryCacheStatistics() { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 141,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L141",
+      "declaration_candidate": "public long CurrentEntryCount { get { throw null; } init { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 142,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L142",
+      "declaration_candidate": "public long? CurrentEstimatedSize { get { throw null; } init { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 143,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L143",
+      "declaration_candidate": "public long TotalHits { get { throw null; } init { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 144,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L144",
+      "declaration_candidate": "public long TotalMisses { get { throw null; } init { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 145,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L145",
+      "declaration_candidate": "public long TotalEvictions { get { throw null; } init { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 147,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L147",
+      "declaration_candidate": "public partial class PostEvictionCallbackRegistration",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 149,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L149",
+      "declaration_candidate": "public PostEvictionCallbackRegistration() { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 150,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L150",
+      "declaration_candidate": "public Microsoft.Extensions.Caching.Memory.PostEvictionDelegate? EvictionCallback { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 151,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L151",
+      "declaration_candidate": "public object? State { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 153,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L153",
+      "declaration_candidate": "public delegate void PostEvictionDelegate(object key, object? value, Microsoft.Extensions.Caching.Memory.EvictionReason reason, object? state);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 157,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L157",
+      "declaration_candidate": "public partial interface ISystemClock",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 161,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L161",
+      "declaration_candidate": "public partial class SystemClock : Microsoft.Extensions.Internal.ISystemClock",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 163,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L163",
+      "declaration_candidate": "public SystemClock() { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 164,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L164",
+      "declaration_candidate": "public System.DateTimeOffset UtcNow { get { throw null; } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 169,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L169",
+      "declaration_candidate": "public partial interface IHybridCacheSerializer<T>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 174,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L174",
+      "declaration_candidate": "public interface IHybridCacheSerializerFactory",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 178,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L178",
+      "declaration_candidate": "public sealed class HybridCacheEntryContext",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 180,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L180",
+      "declaration_candidate": "public HybridCacheEntryContext(HybridCacheEntryOptions? options) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 181,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L181",
+      "declaration_candidate": "public System.TimeSpan? Expiration { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 182,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L182",
+      "declaration_candidate": "public System.TimeSpan? LocalCacheExpiration { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 183,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L183",
+      "declaration_candidate": "public HybridCacheEntryFlags? Flags { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 184,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L184",
+      "declaration_candidate": "public long? LocalSize { get { throw null; } set { } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 185,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L185",
+      "declaration_candidate": "public int Revision { get { throw null; } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 187,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L187",
+      "declaration_candidate": "public sealed class HybridCacheEntryOptions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 189,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L189",
+      "declaration_candidate": "public System.TimeSpan? Expiration { get; init; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 190,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L190",
+      "declaration_candidate": "public System.TimeSpan? LocalCacheExpiration { get; init; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 191,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L191",
+      "declaration_candidate": "public HybridCacheEntryFlags? Flags { get; init; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 192,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L192",
+      "declaration_candidate": "public long? LocalSize { get; init; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 195,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L195",
+      "declaration_candidate": "public enum HybridCacheEntryFlags",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 207,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L207",
+      "declaration_candidate": "public abstract partial class HybridCache",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 209,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L209",
+      "declaration_candidate": "public abstract System.Threading.Tasks.ValueTask<T> GetOrCreateAsync<TState, T>(string key, TState state, System.Func<TState, System.Threading.CancellationToken, System.Threading.Tasks.ValueTask<T>> factory,",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 212,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L212",
+      "declaration_candidate": "public System.Threading.Tasks.ValueTask<T> GetOrCreateAsync<T>(string key, System.Func<System.Threading.CancellationToken, System.Threading.Tasks.ValueTask<T>> factory,",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 216,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L216",
+      "declaration_candidate": "public virtual System.Threading.Tasks.ValueTask<T> GetOrCreateAsync<TState, T>(string key, TState state,",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 221,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L221",
+      "declaration_candidate": "public System.Threading.Tasks.ValueTask<T> GetOrCreateAsync<T>(string key,",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 226,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L226",
+      "declaration_candidate": "public abstract System.Threading.Tasks.ValueTask SetAsync<T>(string key, T value, HybridCacheEntryOptions? options = null, System.Collections.Generic.IEnumerable<string>? tags = null, System.Threading.CancellationToken cancellationToken = default);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 228,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L228",
+      "declaration_candidate": "public abstract System.Threading.Tasks.ValueTask RemoveAsync(string key, System.Threading.CancellationToken cancellationToken = default);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 230,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L230",
+      "declaration_candidate": "public virtual System.Threading.Tasks.ValueTask RemoveAsync(System.Collections.Generic.IEnumerable<string> keys, System.Threading.CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 233,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L233",
+      "declaration_candidate": "public virtual System.Threading.Tasks.ValueTask RemoveByTagAsync(System.Collections.Generic.IEnumerable<string> tags, System.Threading.CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs",
+      "source_line": 235,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.Caching.Abstractions/ref/Microsoft.Extensions.Caching.Abstractions.cs#L235",
+      "declaration_candidate": "public abstract System.Threading.Tasks.ValueTask RemoveByTagAsync(string tag, System.Threading.CancellationToken cancellationToken = default);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L20",
+      "declaration_candidate": "public sealed class ServiceProvider : IServiceProvider, IKeyedServiceProvider, IDisposable, IAsyncDisposable",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 103,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L103",
+      "declaration_candidate": "public object? GetService(Type serviceType) => GetService(ServiceIdentifier.FromServiceType(serviceType), Root);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 114,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L114",
+      "declaration_candidate": "public object? GetKeyedService(Type serviceType, object? serviceKey)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 139,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L139",
+      "declaration_candidate": "public object GetRequiredKeyedService(Type serviceType, object? serviceKey)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 182,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L182",
+      "declaration_candidate": "public void Dispose()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 197,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L197",
+      "declaration_candidate": "public ValueTask DisposeAsync()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 327,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L327",
+      "declaration_candidate": "public ServiceProviderDebugView(ServiceProvider serviceProvider)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 332,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L332",
+      "declaration_candidate": "public List<ServiceDescriptor> ServiceDescriptors => new List<ServiceDescriptor>(_serviceProvider.Root.RootProvider.CallSiteFactory.Descriptors);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 333,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L333",
+      "declaration_candidate": "public List<object> Disposables",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 349,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L349",
+      "declaration_candidate": "public bool Disposed => _serviceProvider.Root.Disposed;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 350,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L350",
+      "declaration_candidate": "public bool IsScope => !_serviceProvider.Root.IsRootScope;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 355,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L355",
+      "declaration_candidate": "public ServiceCallSite? CallSite { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs",
+      "source_line": 356,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceProvider.cs#L356",
+      "declaration_candidate": "public Func<ServiceProviderEngineScope, object?>? RealizedService { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 18,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L18",
+      "declaration_candidate": "public string Format(ServiceCallSite callSite)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 28,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L28",
+      "declaration_candidate": "protected override object? VisitConstructor(ConstructorCallSite constructorCallSite, CallSiteFormatterContext argument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 48,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L48",
+      "declaration_candidate": "protected override object? VisitCallSiteMain(ServiceCallSite callSite, CallSiteFormatterContext argument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 72,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L72",
+      "declaration_candidate": "protected override object? VisitConstant(ConstantCallSite constantCallSite, CallSiteFormatterContext argument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 79,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L79",
+      "declaration_candidate": "protected override object? VisitServiceProvider(ServiceProviderCallSite serviceProviderCallSite, CallSiteFormatterContext argument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 84,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L84",
+      "declaration_candidate": "protected override object? VisitIEnumerable(IEnumerableCallSite enumerableCallSite, CallSiteFormatterContext argument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 104,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L104",
+      "declaration_candidate": "protected override object? VisitFactory(FactoryCallSite factoryCallSite, CallSiteFormatterContext argument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 115,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L115",
+      "declaration_candidate": "public CallSiteFormatterContext(StringBuilder builder, int offset, HashSet<ServiceCallSite> processedCallSites)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 125,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L125",
+      "declaration_candidate": "public int Offset { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 126,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L126",
+      "declaration_candidate": "public StringBuilder Builder { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 128,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L128",
+      "declaration_candidate": "public bool ShouldFormat(ServiceCallSite serviceCallSite)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 133,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L133",
+      "declaration_candidate": "public CallSiteFormatterContext IncrementOffset()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 141,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L141",
+      "declaration_candidate": "public CallSiteFormatterContext StartObject()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 147,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L147",
+      "declaration_candidate": "public void EndObject()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 152,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L152",
+      "declaration_candidate": "public void StartProperty(string name)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 166,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L166",
+      "declaration_candidate": "public void StartArrayItem()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 178,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L178",
+      "declaration_candidate": "public void WriteProperty(string name, object? value)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 191,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L191",
+      "declaration_candidate": "public CallSiteFormatterContext StartArray()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs",
+      "source_line": 197,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/libraries/Microsoft.Extensions.DependencyInjection/src/CallSiteJsonFormatter.cs#L197",
+      "declaration_candidate": "public void EndArray()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L20",
+      "declaration_candidate": "public enum HashAlgorithmType",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 27,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L27",
+      "declaration_candidate": "public enum HashEncodingType",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 33,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L33",
+      "declaration_candidate": "public static string WebcilInWasmExtension = \".wasm\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 39,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L39",
+      "declaration_candidate": "public static string GetEmbeddedResource(string file)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 47,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L47",
+      "declaration_candidate": "public static bool IsNewerThan(string inFile, string outFile)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 51,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L51",
+      "declaration_candidate": "public static (int exitCode, string output) RunShellCommand(",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 112,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L112",
+      "declaration_candidate": "public static string RunProcess(",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 137,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L137",
+      "declaration_candidate": "public static (int, string) TryRunProcess(",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 276,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L276",
+      "declaration_candidate": "public static bool CopyIfDifferent(string src, string dst, bool useHash)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 289,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L289",
+      "declaration_candidate": "public static bool MoveIfDifferent(string src, string dst)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 354,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L354",
+      "declaration_candidate": "public static string ComputeHash(string filepath)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 359,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L359",
+      "declaration_candidate": "public static string ComputeHashEx(string filepath, HashAlgorithmType algorithm = HashAlgorithmType.SHA512, HashEncodingType encoding = HashEncodingType.Base64)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 365,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L365",
+      "declaration_candidate": "public static string ComputeIntegrity(string filepath)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 374,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L374",
+      "declaration_candidate": "public static string ComputeIntegrity(byte[] bytes)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 382,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L382",
+      "declaration_candidate": "public static string ComputeTextIntegrity(string str)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 392,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L392",
+      "declaration_candidate": "public static void DirectoryCopy(string sourceDir, string destDir, Func<string, bool>? predicate=null)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 413,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L413",
+      "declaration_candidate": "public static bool IsWindows()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 422,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L422",
+      "declaration_candidate": "public static bool IsMacOS()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 431,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L431",
+      "declaration_candidate": "public static bool IsLinux()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 440,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L440",
+      "declaration_candidate": "public static bool IsManagedAssembly(string filePath)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 451,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L451",
+      "declaration_candidate": "public static bool IsManagedAssembly(byte[] bytes)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/tasks/Common/Utils.cs",
+      "source_line": 481,
+      "source_url": "https://github.com/dotnet/runtime/blob/9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819/src/tasks/Common/Utils.cs#L481",
+      "declaration_candidate": "public static string FixupSymbolName(string name)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

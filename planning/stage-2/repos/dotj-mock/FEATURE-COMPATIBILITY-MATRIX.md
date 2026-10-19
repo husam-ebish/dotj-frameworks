@@ -1,18 +1,20 @@
 # DJ-052 .j Mock: feature compatibility matrix
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 C# expression-based setups need an owned invocation DSL. Final/static/private mocking is not assumed; capability tiers must be explicit.
 
 | Package | Retained capability | Adaptation | Required observable behavior | Status |
 |---|---|---|---|---|
-| WP-01 | Mock model and invocation recording | Proposed Java contracts: Mock, Invocation, MethodKey, ArgumentMatcher | Overload identities do not collide; strict unexpected calls fail immediately; matcher state does not leak between threads | Planned; evidence gates open |
-| WP-02 | Setup return callbacks and verification | Proposed Java contracts: Setup, Answer, Verification, Times | Setup order is deterministic; failed verification shows actual calls; callbacks throwing still record invocation according to contract | Planned; evidence gates open |
-| WP-03 | Proxy and instrumentation feasibility | Proposed Java contracts: ProxyFactory, InstrumentationCapability, ClassTransform | Interface mocks work without an agent; unsupported member interception fails clearly; instrumentation is not secretly provided by Mockito/ByteBuddy | Planned; evidence gates open |
-| WP-04 | Lifecycle concurrency and cleanup | Proposed Java contracts: MockScope, InvocationStore, AgentSession | Reset cannot corrupt active invocations; classloader stress shows no unbounded retention; failed transformations preserve valid classes | Planned; evidence gates open |
-| WP-05 | Language adaptations and conformance | Proposed Java contracts: MockExpression, MatchSpecification, MockCase | DSL validates method identity before use; adaptations are visible; upstream features without Java equivalents remain explicit coverage entries | Planned; evidence gates open |
+| WP-01 | Mock model and invocation recording | Internal planning vocabulary (verify upstream public identity): Mock, Invocation, MethodKey, ArgumentMatcher | Overload identities do not collide; strict unexpected calls fail immediately; matcher state does not leak between threads | Planned; evidence gates open |
+| WP-02 | Setup return callbacks and verification | Internal planning vocabulary (verify upstream public identity): Setup, Answer, Verification, Times | Setup order is deterministic; failed verification shows actual calls; callbacks throwing still record invocation according to contract | Planned; evidence gates open |
+| WP-03 | Proxy and instrumentation feasibility | Internal planning vocabulary (verify upstream public identity): ProxyFactory, InstrumentationCapability, ClassTransform | Interface mocks work without an agent; unsupported member interception fails clearly; instrumentation is not secretly provided by Mockito/ByteBuddy | Planned; evidence gates open |
+| WP-04 | Lifecycle concurrency and cleanup | Internal planning vocabulary (verify upstream public identity): MockScope, InvocationStore, AgentSession | Reset cannot corrupt active invocations; classloader stress shows no unbounded retention; failed transformations preserve valid classes | Planned; evidence gates open |
+| WP-05 | Language adaptations and conformance | Internal planning vocabulary (verify upstream public identity): MockExpression, MatchSpecification, MockCase | Setup expression representation validates the original method identity before use; adaptations are visible; upstream features without Java equivalents remain explicit coverage entries | Planned; evidence gates open |
 
 ## Claim rules
 
-API spelling compatibility, behavioral compatibility, protocol/file-format interoperability and deployment-platform support are separate profiles. Java contracts are proposals; they are not upstream class declarations. No CLR assembly compatibility is claimed. A feature becomes supported only after its mapped fixtures pass on the declared versions/platforms and remaining deviations are published. A feasibility failure keeps the feature visible with its evidence and alternatives.
+API spelling compatibility, behavioral compatibility, protocol/file-format interoperability and deployment-platform support are separate profiles. Internal design labels are not public API replacements. Public contracts must preserve exact upstream names, casing and concepts under N01; the semantic mapping remains open. No CLR assembly compatibility is claimed. A feature becomes supported only after its mapped fixtures pass on the declared versions/platforms and remaining deviations are published. A feasibility failure keeps the feature visible with its evidence and alternatives.
 
 ## Unresolved boundaries retained
 

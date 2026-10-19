@@ -6,7 +6,7 @@
     "repo": "dotj-core",
     "category": "Platform and developer tools",
     "feature_packages": 9,
-    "tasks": 27,
+    "tasks": 31,
     "wave": 1,
     "tree_scope": "partial listing",
     "pin": "9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819",
@@ -15,7 +15,11 @@
     "test_candidates": 9,
     "projects": 3287,
     "source": "https://github.com/dotnet/runtime",
-    "deps": "No product dependency in the base foundation"
+    "deps": "No product dependency in the base foundation",
+    "feature_tasks": 27,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-002",
@@ -24,7 +28,7 @@
     "repo": "dotj-sdk",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "c70b3856e7948678daa3950ec5517759754bf47c",
@@ -33,7 +37,11 @@
     "test_candidates": 1,
     "projects": 949,
     "source": "https://github.com/dotnet/sdk",
-    "deps": "build,templates,packages"
+    "deps": "build,templates,packages",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-003",
@@ -42,7 +50,7 @@
     "repo": "dotj-code",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 1,
     "tree_scope": "recursive complete",
     "pin": "3645b6aa36ad41775a73e57a620787a3d38327a0",
@@ -51,7 +59,11 @@
     "test_candidates": 83,
     "projects": 454,
     "source": "https://github.com/dotnet/roslyn",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-004",
@@ -60,7 +72,7 @@
     "repo": "dotj-razor",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "3645b6aa36ad41775a73e57a620787a3d38327a0",
@@ -69,7 +81,11 @@
     "test_candidates": 37,
     "projects": 50,
     "source": "https://github.com/dotnet/roslyn",
-    "deps": "code"
+    "deps": "code",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-005",
@@ -78,7 +94,7 @@
     "repo": "dotj-build",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 1,
     "tree_scope": "recursive complete",
     "pin": "6348d0c087aeec18c323b01a2c77da089ddafea0",
@@ -87,7 +103,11 @@
     "test_candidates": 37,
     "projects": 98,
     "source": "https://github.com/dotnet/msbuild",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-006",
@@ -96,7 +116,7 @@
     "repo": "dotj-extensions",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "42a0f358b14bb27bc324939d858dd04309f30477",
@@ -105,7 +125,11 @@
     "test_candidates": 47,
     "projects": 150,
     "source": "https://github.com/dotnet/extensions",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-007",
@@ -114,7 +138,7 @@
     "repo": "dotj-diagnostics",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "1d95e75015fa3ccd063a59ed3d0bfe26040a6637",
@@ -123,7 +147,11 @@
     "test_candidates": 5,
     "projects": 96,
     "source": "https://github.com/dotnet/diagnostics",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-008",
@@ -132,7 +160,7 @@
     "repo": "dotj-interactive",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "098a01b9183103186805a186a7dee3a3a70b2997",
@@ -141,7 +169,11 @@
     "test_candidates": 22,
     "projects": 62,
     "source": "https://github.com/dotnet/interactive",
-    "deps": "json,packages"
+    "deps": "json,packages",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-009",
@@ -150,7 +182,7 @@
     "repo": "dotj-scaffold",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "107111c945bcf1264c035457a0744318b6bae3d9",
@@ -159,7 +191,11 @@
     "test_candidates": 2,
     "projects": 47,
     "source": "https://github.com/dotnet/Scaffolding",
-    "deps": "code,templates,web,entity"
+    "deps": "code,templates,web,entity",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-010",
@@ -168,7 +204,7 @@
     "repo": "dotj-templates",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 1,
     "tree_scope": "recursive complete",
     "pin": "c70b3856e7948678daa3950ec5517759754bf47c",
@@ -177,7 +213,11 @@
     "test_candidates": 13,
     "projects": 132,
     "source": "https://github.com/dotnet/sdk",
-    "deps": "core,json"
+    "deps": "core,json",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-011",
@@ -186,7 +226,7 @@
     "repo": "dotj-containers",
     "category": "Platform and developer tools",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "a5ada4c290f2dc087c6926beeeaffcd07912abe7",
@@ -195,7 +235,11 @@
     "test_candidates": 12,
     "projects": 14,
     "source": "https://github.com/dotnet/dotnet-docker",
-    "deps": "sdk"
+    "deps": "sdk",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-012",
@@ -204,7 +248,7 @@
     "repo": "dotj-web",
     "category": "Web, authentication and distributed applications",
     "feature_packages": 8,
-    "tasks": 24,
+    "tasks": 28,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "c09e2b89bd8cf25e819230a94e9061023f508afe",
@@ -213,7 +257,11 @@
     "test_candidates": 2,
     "projects": 644,
     "source": "https://github.com/dotnet/aspnetcore",
-    "deps": "core,razor,json"
+    "deps": "core,razor,json",
+    "feature_tasks": 24,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-013",
@@ -222,7 +270,7 @@
     "repo": "dotj-aspire",
     "category": "Web, authentication and distributed applications",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "118781118dddea1f7a524ab3d244fa4cee3c62cf",
@@ -231,7 +279,11 @@
     "test_candidates": 16,
     "projects": 503,
     "source": "https://github.com/microsoft/aspire",
-    "deps": "extensions,web,containers"
+    "deps": "extensions,web,containers",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-014",
@@ -240,7 +292,7 @@
     "repo": "dotj-proxy",
     "category": "Web, authentication and distributed applications",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "2aa3d83550a9b7a719e347ef6a0363e5ea9505a9",
@@ -249,7 +301,11 @@
     "test_candidates": 18,
     "projects": 36,
     "source": "https://github.com/dotnet/yarp",
-    "deps": "web,resilience,extensions"
+    "deps": "web,resilience,extensions",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-015",
@@ -258,7 +314,7 @@
     "repo": "dotj-actors",
     "category": "Web, authentication and distributed applications",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "9f8310cb6e5bbe35cd3bbb0752052993578eb083",
@@ -267,7 +323,11 @@
     "test_candidates": 15,
     "projects": 283,
     "source": "https://github.com/dotnet/orleans",
-    "deps": "core,json,extensions"
+    "deps": "core,json,extensions",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-016",
@@ -276,7 +336,7 @@
     "repo": "dotj-auth",
     "category": "Web, authentication and distributed applications",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "ab23a1625279b8b656912202c2b81a63d3438ca6",
@@ -285,7 +345,11 @@
     "test_candidates": 59,
     "projects": 67,
     "source": "https://github.com/openiddict/openiddict-core",
-    "deps": "web,json,core"
+    "deps": "web,json,core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-017",
@@ -294,7 +358,7 @@
     "repo": "dotj-service-client",
     "category": "Web, authentication and distributed applications",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "d2d2036c3839b5dee95545ee08c613cfd34b86be",
@@ -303,7 +367,11 @@
     "test_candidates": 3,
     "projects": 189,
     "source": "https://github.com/dotnet/wcf",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-018",
@@ -312,7 +380,7 @@
     "repo": "dotj-services",
     "category": "Web, authentication and distributed applications",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "6e2cce88349fe41056fe8afda0dbbdf98d54bb00",
@@ -321,7 +389,11 @@
     "test_candidates": 6,
     "projects": 35,
     "source": "https://github.com/CoreWCF/CoreWCF",
-    "deps": "service-client,web,extensions"
+    "deps": "service-client,web,extensions",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-019",
@@ -330,7 +402,7 @@
     "repo": "dotj-entity",
     "category": "Database access and serialization",
     "feature_packages": 6,
-    "tasks": 18,
+    "tasks": 22,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "2e8882748cc45b317a98a6f27f0680948221ae3b",
@@ -339,7 +411,11 @@
     "test_candidates": 43,
     "projects": 59,
     "source": "https://github.com/dotnet/efcore",
-    "deps": "core,postgresql"
+    "deps": "core,postgresql",
+    "feature_tasks": 18,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-020",
@@ -348,7 +424,7 @@
     "repo": "dotj-sql",
     "category": "Database access and serialization",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
@@ -357,7 +433,11 @@
     "test_candidates": 8,
     "projects": 11,
     "source": "https://github.com/DapperLib/Dapper",
-    "deps": "postgresql,core"
+    "deps": "postgresql,core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-021",
@@ -366,7 +446,7 @@
     "repo": "dotj-postgresql",
     "category": "Database access and serialization",
     "feature_packages": 6,
-    "tasks": 18,
+    "tasks": 22,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "1083526ef25018bd65772f18f313240fd36037bb",
@@ -375,7 +455,11 @@
     "test_candidates": 99,
     "projects": 12,
     "source": "https://github.com/npgsql/npgsql",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 18,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-022",
@@ -384,7 +468,7 @@
     "repo": "dotj-redis",
     "category": "Database access and serialization",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "84765eede5c49419ed251a9cfc491a2d58667fb9",
@@ -393,7 +477,11 @@
     "test_candidates": 53,
     "projects": 27,
     "source": "https://github.com/StackExchange/StackExchange.Redis",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-023",
@@ -402,7 +490,7 @@
     "repo": "dotj-json",
     "category": "Database access and serialization",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 1,
     "tree_scope": "recursive complete",
     "pin": "52fa3aef1f2cadcd3a3f874251eddc98d3efbbaa",
@@ -411,7 +499,11 @@
     "test_candidates": 19,
     "projects": 4,
     "source": "https://github.com/JamesNK/Newtonsoft.Json",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-024",
@@ -420,7 +512,7 @@
     "repo": "dotj-mapster",
     "category": "Database access and serialization",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "cbc1e5f04e6e003744b04f83d4705670a85e459b",
@@ -429,7 +521,11 @@
     "test_candidates": 6,
     "projects": 26,
     "source": "https://github.com/MapsterMapper/Mapster",
-    "deps": "core;entity(optional)"
+    "deps": "core;entity(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-025",
@@ -438,7 +534,7 @@
     "repo": "dotj-container",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "ae9e1e1129b9c22e7ab111381308dcb02f80a8d2",
@@ -447,7 +543,11 @@
     "test_candidates": 21,
     "projects": 12,
     "source": "https://github.com/autofac/Autofac",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-026",
@@ -456,7 +556,7 @@
     "repo": "dotj-validation",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "299ef377bde844af7d28b7aa21786a6853f930e3",
@@ -465,7 +565,11 @@
     "test_candidates": 47,
     "projects": 4,
     "source": "https://github.com/FluentValidation/FluentValidation",
-    "deps": "core;web(optional)"
+    "deps": "core;web(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-027",
@@ -474,7 +578,7 @@
     "repo": "dotj-resilience",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "3f3adad9d5af85658fc3585018f02a2d8c2173e8",
@@ -483,7 +587,11 @@
     "test_candidates": 9,
     "projects": 22,
     "source": "https://github.com/App-vNext/Polly",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-028",
@@ -492,7 +600,7 @@
     "repo": "dotj-reactive",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "89e05b8730107983c3f77af54a52974ae12d37f4",
@@ -501,7 +609,11 @@
     "test_candidates": 0,
     "projects": 154,
     "source": "https://github.com/dotnet/reactive",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-029",
@@ -510,7 +622,7 @@
     "repo": "dotj-jobs",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "c35077110cc8364b06ea30d39947bd5f688b2e8b",
@@ -519,7 +631,11 @@
     "test_candidates": 28,
     "projects": 10,
     "source": "https://github.com/HangfireIO/Hangfire",
-    "deps": "core,postgresql,scheduler;web(optional)"
+    "deps": "core,postgresql,scheduler;web(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-030",
@@ -528,7 +644,7 @@
     "repo": "dotj-scheduler",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "a94922ad3b1c2efa6d2613916fa2f386aede6681",
@@ -537,7 +653,11 @@
     "test_candidates": 21,
     "projects": 45,
     "source": "https://github.com/quartznet/quartznet",
-    "deps": "core;postgresql(optional)"
+    "deps": "core;postgresql(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-031",
@@ -546,7 +666,7 @@
     "repo": "dotj-mail",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "7418d38dc27a47d8db9108d8fa994b2b784f1578",
@@ -555,7 +675,11 @@
     "test_candidates": 14,
     "projects": 7,
     "source": "https://github.com/jstedfast/MailKit",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-032",
@@ -564,7 +688,7 @@
     "repo": "dotj-rest",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "64ee12995b8d7409a5863da7b71cddfa526ffb7a",
@@ -573,7 +697,11 @@
     "test_candidates": 12,
     "projects": 15,
     "source": "https://github.com/restsharp/RestSharp",
-    "deps": "json,core"
+    "deps": "json,core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-033",
@@ -582,7 +710,7 @@
     "repo": "dotj-refit",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "92ae878250798dc103a01304704a99bb8033ed77",
@@ -591,7 +719,11 @@
     "test_candidates": 19,
     "projects": 87,
     "source": "https://github.com/reactiveui/refit",
-    "deps": "rest,json;code(dev-optional)"
+    "deps": "rest,json;code(dev-optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-034",
@@ -600,7 +732,7 @@
     "repo": "dotj-mqtt",
     "category": "Application libraries, jobs and communication",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "798a0e2250f40a241e0c8d2e7c9a366051be1b97",
@@ -609,7 +741,11 @@
     "test_candidates": 3,
     "projects": 12,
     "source": "https://github.com/dotnet/MQTTnet",
-    "deps": "core;web(optional)"
+    "deps": "core;web(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-035",
@@ -618,7 +754,7 @@
     "repo": "dotj-versioning",
     "category": "API tooling and GraphQL",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "1a22bb4281c03d44f387169eefa46765a6219118",
@@ -627,7 +763,11 @@
     "test_candidates": 0,
     "projects": 66,
     "source": "https://github.com/dotnet/aspnet-api-versioning",
-    "deps": "web"
+    "deps": "web",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-036",
@@ -636,7 +776,7 @@
     "repo": "dotj-swagger",
     "category": "API tooling and GraphQL",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "1e2b358b23cb9f041e8a395d4541d46566be7f81",
@@ -645,7 +785,11 @@
     "test_candidates": 18,
     "projects": 42,
     "source": "https://github.com/domaindrivendev/Swashbuckle.AspNetCore",
-    "deps": "web,openapi"
+    "deps": "web,openapi",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-037",
@@ -654,7 +798,7 @@
     "repo": "dotj-openapi",
     "category": "API tooling and GraphQL",
     "feature_packages": 8,
-    "tasks": 24,
+    "tasks": 28,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "63daf8fcc3a25151b62eb4b326a1e8ea048a0d41",
@@ -663,7 +807,11 @@
     "test_candidates": 5,
     "projects": 38,
     "source": "https://github.com/RicoSuter/NSwag",
-    "deps": "json;code(dev-optional)"
+    "deps": "json;code(dev-optional)",
+    "feature_tasks": 24,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-038",
@@ -672,7 +820,7 @@
     "repo": "dotj-graph-platform",
     "category": "API tooling and GraphQL",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "284f0b5f44cf1670a546f5cb1a4311bab08ffd5c",
@@ -681,7 +829,11 @@
     "test_candidates": 36,
     "projects": 372,
     "source": "https://github.com/ChilliCream/graphql-platform",
-    "deps": "web,json,core"
+    "deps": "web,json,core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-039",
@@ -690,7 +842,7 @@
     "repo": "dotj-graphql",
     "category": "API tooling and GraphQL",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "af0b3e77b874cc73167d70910103ac708f14ed28",
@@ -699,7 +851,11 @@
     "test_candidates": 9,
     "projects": 31,
     "source": "https://github.com/graphql-dotnet/graphql-dotnet",
-    "deps": "core,json;web(optional)"
+    "deps": "core,json;web(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-040",
@@ -708,7 +864,7 @@
     "repo": "dotj-presentation",
     "category": "Desktop, mobile and UI",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 6,
     "tree_scope": "recursive complete",
     "pin": "65d15adece1df9a73e3d1abc11f8bbf99e9fc7a9",
@@ -717,7 +873,11 @@
     "test_candidates": 58,
     "projects": 127,
     "source": "https://github.com/dotnet/wpf",
-    "deps": "core,toolkit"
+    "deps": "core,toolkit",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-041",
@@ -726,7 +886,7 @@
     "repo": "dotj-forms",
     "category": "Desktop, mobile and UI",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 6,
     "tree_scope": "recursive complete",
     "pin": "c4891de0851184dcbe95d16ca543969fe2540245",
@@ -735,7 +895,11 @@
     "test_candidates": 32,
     "projects": 56,
     "source": "https://github.com/dotnet/winforms",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-042",
@@ -744,7 +908,7 @@
     "repo": "dotj-multiui",
     "category": "Desktop, mobile and UI",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 6,
     "tree_scope": "recursive complete",
     "pin": "3a7d72870b9c2ed006de7268a6257ae039cb7f99",
@@ -753,7 +917,11 @@
     "test_candidates": 6,
     "projects": 130,
     "source": "https://github.com/dotnet/maui",
-    "deps": "core,toolkit;presentation(optional)"
+    "deps": "core,toolkit;presentation(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-043",
@@ -762,7 +930,7 @@
     "repo": "dotj-avalonia",
     "category": "Desktop, mobile and UI",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 6,
     "tree_scope": "recursive complete",
     "pin": "66b7273b9a2b5ba8416feb4376b9cdc3078b8573",
@@ -771,7 +939,11 @@
     "test_candidates": 29,
     "projects": 111,
     "source": "https://github.com/AvaloniaUI/Avalonia",
-    "deps": "core,toolkit"
+    "deps": "core,toolkit",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-044",
@@ -780,7 +952,7 @@
     "repo": "dotj-uno",
     "category": "Desktop, mobile and UI",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 6,
     "tree_scope": "recursive complete",
     "pin": "78728530f26880286be77d9042a8e4118a42df43",
@@ -789,7 +961,11 @@
     "test_candidates": 50,
     "projects": 135,
     "source": "https://github.com/unoplatform/uno",
-    "deps": "core,toolkit;web(optional)"
+    "deps": "core,toolkit;web(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-045",
@@ -798,7 +974,7 @@
     "repo": "dotj-toolkit",
     "category": "Desktop, mobile and UI",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "b135626dd54d33b8f05f2ff31591592c004aa848",
@@ -807,7 +983,11 @@
     "test_candidates": 38,
     "projects": 31,
     "source": "https://github.com/CommunityToolkit/dotnet",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-046",
@@ -816,7 +996,7 @@
     "repo": "dotj-material",
     "category": "Desktop, mobile and UI",
     "feature_packages": 6,
-    "tasks": 18,
+    "tasks": 22,
     "wave": 6,
     "tree_scope": "recursive complete",
     "pin": "f28086704d9d488c3c200e74ff960022af34a6ef",
@@ -825,7 +1005,11 @@
     "test_candidates": 9,
     "projects": 17,
     "source": "https://github.com/MudBlazor/MudBlazor",
-    "deps": "web,validation"
+    "deps": "web,validation",
+    "feature_tasks": 18,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-047",
@@ -834,7 +1018,7 @@
     "repo": "dotj-components",
     "category": "Desktop, mobile and UI",
     "feature_packages": 6,
-    "tasks": 18,
+    "tasks": 22,
     "wave": 6,
     "tree_scope": "recursive complete",
     "pin": "47709dc6fedfd92d66266017a0b50e0d327fa2c1",
@@ -843,7 +1027,11 @@
     "test_candidates": 11,
     "projects": 11,
     "source": "https://github.com/radzenhq/radzen-blazor",
-    "deps": "web"
+    "deps": "web",
+    "feature_tasks": 18,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-048",
@@ -852,7 +1040,7 @@
     "repo": "dotj-structured-log",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "81af75f3a5e28ec9f5be18ef74357a9914a51745",
@@ -861,7 +1049,11 @@
     "test_candidates": 9,
     "projects": 6,
     "source": "https://github.com/serilog/serilog",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-049",
@@ -870,7 +1062,7 @@
     "repo": "dotj-log",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "d9ebf823ee8ba54977c336709928a96ea58c6259",
@@ -879,7 +1071,11 @@
     "test_candidates": 46,
     "projects": 73,
     "source": "https://github.com/NLog/NLog",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-050",
@@ -888,7 +1084,7 @@
     "repo": "dotj-xtest",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 1,
     "tree_scope": "recursive complete",
     "pin": "e91cdbe7557649b1179fbc47b01e8d3a615d1256",
@@ -897,7 +1093,11 @@
     "test_candidates": 20,
     "projects": 64,
     "source": "https://github.com/xunit/xunit",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-051",
@@ -906,7 +1106,7 @@
     "repo": "dotj-test",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 1,
     "tree_scope": "recursive complete",
     "pin": "55d908f8cc4402f8d53955d20aefcee9f55a59ec",
@@ -915,7 +1115,11 @@
     "test_candidates": 9,
     "projects": 14,
     "source": "https://github.com/nunit/nunit",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-052",
@@ -924,7 +1128,7 @@
     "repo": "dotj-mock",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "bdf16e758e8022c40cef2bfd025181f845bbd2a9",
@@ -933,7 +1137,11 @@
     "test_candidates": 46,
     "projects": 14,
     "source": "https://github.com/devlooped/moq",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-053",
@@ -942,7 +1150,7 @@
     "repo": "dotj-substitute",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "f2b623d762fc28fc1a2fe3932b3b360d113c734d",
@@ -951,7 +1159,11 @@
     "test_candidates": 10,
     "projects": 6,
     "source": "https://github.com/nsubstitute/NSubstitute",
-    "deps": "core;mock(optional-spi)"
+    "deps": "core;mock(optional-spi)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-054",
@@ -960,7 +1172,7 @@
     "repo": "dotj-coverage",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "b5ba9197f032e22627836d899aa3956a50cd5017",
@@ -969,7 +1181,11 @@
     "test_candidates": 8,
     "projects": 42,
     "source": "https://github.com/coverlet-coverage/coverlet",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-055",
@@ -978,7 +1194,7 @@
     "repo": "dotj-benchmark",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "730b8b7cc67b8d75a7478e67eaa2b10af5ec562d",
@@ -987,7 +1203,11 @@
     "test_candidates": 5,
     "projects": 33,
     "source": "https://github.com/dotnet/BenchmarkDotNet",
-    "deps": "core;diagnostics(optional)"
+    "deps": "core;diagnostics(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-056",
@@ -996,7 +1216,7 @@
     "repo": "dotj-testcontainers",
     "category": "Logging, testing and performance",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "84f485caeded1cf8f8f983ddd2c0163c47e258fa",
@@ -1005,7 +1225,11 @@
     "test_candidates": 47,
     "projects": 151,
     "source": "https://github.com/testcontainers/testcontainers-dotnet",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-057",
@@ -1014,7 +1238,7 @@
     "repo": "dotj-excel",
     "category": "Documents, AI and package infrastructure",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "09f2f21a60e821ce7fb18ca3576b272e5dd6d921",
@@ -1023,7 +1247,11 @@
     "test_candidates": 3,
     "projects": 6,
     "source": "https://github.com/ClosedXML/ClosedXML",
-    "deps": "openxml,core"
+    "deps": "openxml,core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-058",
@@ -1032,7 +1260,7 @@
     "repo": "dotj-openxml",
     "category": "Documents, AI and package infrastructure",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "431ab05cf160248cc3885a4a766026d4f8243792",
@@ -1041,7 +1269,11 @@
     "test_candidates": 2,
     "projects": 23,
     "source": "https://github.com/dotnet/Open-XML-SDK",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-059",
@@ -1050,7 +1282,7 @@
     "repo": "dotj-markdown",
     "category": "Documents, AI and package infrastructure",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "ccb9d8593f7a0aac232342a6705e8afc8c4f374d",
@@ -1059,7 +1291,11 @@
     "test_candidates": 35,
     "projects": 10,
     "source": "https://github.com/xoofx/markdig",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-060",
@@ -1068,7 +1304,7 @@
     "repo": "dotj-ml",
     "category": "Documents, AI and package infrastructure",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "655f469b0d54bccf94dc251b8db457b57d56d084",
@@ -1077,7 +1313,11 @@
     "test_candidates": 26,
     "projects": 87,
     "source": "https://github.com/dotnet/machinelearning",
-    "deps": "core"
+    "deps": "core",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-061",
@@ -1086,7 +1326,7 @@
     "repo": "dotj-semantic",
     "category": "Documents, AI and package infrastructure",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "7a92cd4e7c2712370b8d85b687a474b2e858cdcc",
@@ -1095,7 +1335,11 @@
     "test_candidates": 23,
     "projects": 153,
     "source": "https://github.com/microsoft/semantic-kernel",
-    "deps": "json,rest,extensions"
+    "deps": "json,rest,extensions",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-062",
@@ -1104,7 +1348,7 @@
     "repo": "dotj-packages",
     "category": "Documents, AI and package infrastructure",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 2,
     "tree_scope": "recursive complete",
     "pin": "4c4510d29a64fcbcba6360e29c3a1e8288a87f9f",
@@ -1113,7 +1357,11 @@
     "test_candidates": 8,
     "projects": 120,
     "source": "https://github.com/NuGet/NuGet.Client",
-    "deps": "core,json"
+    "deps": "core,json",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-063",
@@ -1122,7 +1370,7 @@
     "repo": "dotj-registry",
     "category": "Documents, AI and package infrastructure",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 5,
     "tree_scope": "recursive complete",
     "pin": "d6b9e689606e174e05c064a3531320200d4033c7",
@@ -1131,7 +1379,11 @@
     "test_candidates": 31,
     "projects": 143,
     "source": "https://github.com/NuGet/NuGetGallery",
-    "deps": "web,packages,postgresql,auth"
+    "deps": "web,packages,postgresql,auth",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-064",
@@ -1140,7 +1392,7 @@
     "repo": "dotj-automap",
     "category": "Additional application frameworks",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "3019d86b3e2f1c879dfcf7d1026c90f51519a9a1",
@@ -1149,7 +1401,11 @@
     "test_candidates": 14,
     "projects": 6,
     "source": "https://github.com/LuckyPennySoftware/AutoMapper",
-    "deps": "core;entity(optional)"
+    "deps": "core;entity(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-065",
@@ -1158,7 +1414,7 @@
     "repo": "dotj-mediator",
     "category": "Additional application frameworks",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 3,
     "tree_scope": "recursive complete",
     "pin": "916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5",
@@ -1167,7 +1423,11 @@
     "test_candidates": 29,
     "projects": 15,
     "source": "https://github.com/LuckyPennySoftware/MediatR",
-    "deps": "core;container(optional)"
+    "deps": "core;container(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   },
   {
     "id": "DJ-066",
@@ -1176,7 +1436,7 @@
     "repo": "dotj-bus",
     "category": "Additional application frameworks",
     "feature_packages": 5,
-    "tasks": 15,
+    "tasks": 19,
     "wave": 4,
     "tree_scope": "recursive complete",
     "pin": "d9f61f764c802785cc9a4be92547d8f5b63018d4",
@@ -1185,6 +1445,10 @@
     "test_candidates": 74,
     "projects": 59,
     "source": "https://github.com/MassTransit/MassTransit",
-    "deps": "core,json,resilience;postgresql(optional);scheduler(optional)"
+    "deps": "core,json,resilience;postgresql(optional);scheduler(optional)",
+    "feature_tasks": 15,
+    "naming_gate_tasks": 4,
+    "naming_policy": "DOTNET-API-EXACT-001",
+    "naming_mapping_status": "open per slice"
   }
 ]

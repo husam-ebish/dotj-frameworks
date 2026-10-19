@@ -1,0 +1,209 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-avalonia",
+  "source": "https://github.com/AvaloniaUI/Avalonia",
+  "revision": "66b7273b9a2b5ba8416feb4376b9cdc3078b8573",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 10,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L10",
+      "declaration_candidate": "public IWindowImpl CreateWindow() => throw new NotSupportedException();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 11,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L11",
+      "declaration_candidate": "public ITopLevelImpl CreateEmbeddableTopLevel() => CreateEmbeddableWindow();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 13,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L13",
+      "declaration_candidate": "public IWindowImpl CreateEmbeddableWindow() => throw new NotSupportedException();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L15",
+      "declaration_candidate": "public ITrayIconImpl? CreateTrayIcon() => null;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L17",
+      "declaration_candidate": "public void GetWindowsZOrder(ReadOnlySpan<IWindowImpl> windows, Span<long> zOrder) => throw new NotSupportedException();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 22,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L22",
+      "declaration_candidate": "public IWindowIconImpl LoadIcon(IBitmapImpl bitmap)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 31,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L31",
+      "declaration_candidate": "public IWindowIconImpl LoadIcon(Stream stream)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 38,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L38",
+      "declaration_candidate": "public IWindowIconImpl LoadIcon(string fileName)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 49,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L49",
+      "declaration_candidate": "public IconStub(MemoryStream stream)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/Stubs.cs",
+      "source_line": 54,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/Stubs.cs#L54",
+      "declaration_candidate": "public void Save(Stream outputStream)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/AvaloniaView.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/AvaloniaView.cs#L20",
+      "declaration_candidate": "public partial class AvaloniaView : FrameLayout",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/AvaloniaView.cs",
+      "source_line": 29,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/AvaloniaView.cs#L29",
+      "declaration_candidate": "public AvaloniaView(Context context) : base(context)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/AvaloniaView.cs",
+      "source_line": 70,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/AvaloniaView.cs#L70",
+      "declaration_candidate": "public object? Content",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/AvaloniaView.cs",
+      "source_line": 84,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/AvaloniaView.cs#L84",
+      "declaration_candidate": "protected override void OnAttachedToWindow()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/AvaloniaView.cs",
+      "source_line": 92,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/AvaloniaView.cs#L92",
+      "declaration_candidate": "public override void OnVisibilityAggregated(bool isVisible)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/AvaloniaView.cs",
+      "source_line": 98,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/AvaloniaView.cs#L98",
+      "declaration_candidate": "protected override void OnVisibilityChanged(View changedView, [GeneratedEnum] ViewStates visibility)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/AvaloniaView.cs",
+      "source_line": 126,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/AvaloniaView.cs#L126",
+      "declaration_candidate": "protected override void OnConfigurationChanged(Configuration? newConfig)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Android/Avalonia.Android/AvaloniaView.cs",
+      "source_line": 143,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/src/Android/Avalonia.Android/AvaloniaView.cs#L143",
+      "declaration_candidate": "public ViewImpl(AvaloniaView avaloniaView) : base(avaloniaView)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "nukebuild/Build.cs",
+      "source_line": 48,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/nukebuild/Build.cs#L48",
+      "declaration_candidate": "protected override void OnBuildInitialized()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "nukebuild/Build.cs",
+      "source_line": 528,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/nukebuild/Build.cs#L528",
+      "declaration_candidate": "public static int Main() =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "nukebuild/Build.cs",
+      "source_line": 535,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/nukebuild/Build.cs#L535",
+      "declaration_candidate": "public static class ToolSettingsExtensions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "nukebuild/Build.cs",
+      "source_line": 537,
+      "source_url": "https://github.com/AvaloniaUI/Avalonia/blob/66b7273b9a2b5ba8416feb4376b9cdc3078b8573/nukebuild/Build.cs#L537",
+      "declaration_candidate": "public static T Apply<T>(this T settings, Configure<T> configurator)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

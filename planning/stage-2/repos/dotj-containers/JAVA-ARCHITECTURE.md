@@ -1,8 +1,10 @@
 # DJ-011 .j Containers: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Produce reproducible .j runtime, SDK and application container image families.
 
-Product type: Container/packaging project. This product delivers image recipes, manifests and verification tooling; it does not require a Java library or JPMS artifact. Rows below identify planning workstream units, not mandatory JAR modules. Names below are design proposals, not already implemented APIs.
+Product type: Container/packaging project. This product delivers image recipes, manifests and verification tooling; it does not require a Java library or JPMS artifact. Rows below identify planning workstream units, not mandatory JAR modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: Container/packaging project. This product delivers image recipes, 
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 Preserve image-role and deployment capabilities, not .NET image contents or tags. Pin image digests and JDK binary checksums.
 
@@ -24,7 +26,7 @@ Preserve image-role and deployment capabilities, not .NET image contents or tags
 
 ### WP-01: Image families and binary inputs
 
-Contract vocabulary: `ImageRole`, `JdkBinaryLock`, `BaseImageLock`.
+Internal analysis vocabulary (not permission to rename the public API): `ImageRole`, `JdkBinaryLock`, `BaseImageLock`.
 
 Define runtime SDK and application image responsibilities. Pin base digests JDK vendor version and checksums. Inventory redistribution and architecture constraints.
 
@@ -32,7 +34,7 @@ Required observable invariant: Every image can be traced to immutable inputs; no
 
 ### WP-02: Reproducible image assembly
 
-Contract vocabulary: `LayerPlan`, `RuntimeModuleSet`, `ImageManifest`.
+Internal analysis vocabulary (not permission to rename the public API): `LayerPlan`, `RuntimeModuleSet`, `ImageManifest`.
 
 Generate stable layers and normalized file ownership. Define jlink eligibility and fallback full-runtime images. Separate build secrets from committed layers.
 
@@ -40,7 +42,7 @@ Required observable invariant: Two clean builds have explainable digest differen
 
 ### WP-03: Runtime behavior and hardening
 
-Contract vocabulary: `ContainerLaunchContract`, `HealthProbe`, `ShutdownPolicy`.
+Internal analysis vocabulary (not permission to rename the public API): `ContainerLaunchContract`, `HealthProbe`, `ShutdownPolicy`.
 
 Run as a documented non-root identity. Forward signals and bound graceful shutdown. Exercise read-only root temporary storage CA and timezone behavior.
 
@@ -48,7 +50,7 @@ Required observable invariant: SIGTERM reaches application lifecycle; writable p
 
 ### WP-04: Architecture and Windows tracks
 
-Contract vocabulary: `PlatformManifest`, `NativeInventory`, `SmokeMatrix`.
+Internal analysis vocabulary (not permission to rename the public API): `PlatformManifest`, `NativeInventory`, `SmokeMatrix`.
 
 Build and test each architecture on a compatible executor. Record native library and libc dependencies. Keep Windows container support as a separately gated family.
 
@@ -56,7 +58,7 @@ Required observable invariant: Manifest entries refer only to tested images; nat
 
 ### WP-05: Publishing and patch maintenance
 
-Contract vocabulary: `Sbom`, `RebuildRecord`, `ImageSupportPolicy`.
+Internal analysis vocabulary (not permission to rename the public API): `Sbom`, `RebuildRecord`, `ImageSupportPolicy`.
 
 Generate SBOM and provenance per image digest. Define vulnerability triage and rebuild triggers. Stage signed manifests and promotion rollback procedures.
 
@@ -70,4 +72,4 @@ Proposed .j dependencies: sdk. Optional adapters depend inward on contracts; pro
 
 ## Migration walkthrough
 
-Take one existing .NET container images usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `ImageRole` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Every image can be traced to immutable inputs; no floating base tag is used in reproducibility claims; unsupported platforms remain explicit. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing .NET container images usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `ImageRole` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Every image can be traced to immutable inputs; no floating base tag is used in reproducibility claims; unsupported platforms remain explicit. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.

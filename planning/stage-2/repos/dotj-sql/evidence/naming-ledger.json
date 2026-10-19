@@ -1,0 +1,47 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-sql",
+  "source": "https://github.com/DapperLib/Dapper",
+  "revision": "eb47546a408bbf6c178bda4f04dc205bc51ffbfe",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "Dapper/NRT.cs",
+      "source_line": 7,
+      "source_url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs#L7",
+      "declaration_candidate": "public UnconditionalSuppressMessageAttribute(string category, string checkId) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Dapper/NRT.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs#L9",
+      "declaration_candidate": "public string? Justification { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Dapper/NRT.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs#L15",
+      "declaration_candidate": "public NotNullWhenAttribute(bool returnValue) => ReturnValue = returnValue;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Dapper/NRT.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/DapperLib/Dapper/blob/eb47546a408bbf6c178bda4f04dc205bc51ffbfe/Dapper/NRT.cs#L17",
+      "declaration_candidate": "public bool ReturnValue { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

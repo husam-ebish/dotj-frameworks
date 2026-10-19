@@ -1,0 +1,38 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-material",
+  "source": "https://github.com/MudBlazor/MudBlazor",
+  "revision": "f28086704d9d488c3c200e74ff960022af34a6ef",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/MudBlazor/Enums/Edge.cs",
+      "source_line": 16,
+      "source_url": "https://github.com/MudBlazor/MudBlazor/blob/f28086704d9d488c3c200e74ff960022af34a6ef/src/MudBlazor/Enums/Edge.cs#L16",
+      "declaration_candidate": "public enum Edge",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MudBlazor/Enums/Page.cs",
+      "source_line": 10,
+      "source_url": "https://github.com/MudBlazor/MudBlazor/blob/f28086704d9d488c3c200e74ff960022af34a6ef/src/MudBlazor/Enums/Page.cs#L10",
+      "declaration_candidate": "public enum Page",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "tools/watch.cs",
+      "source_line": 193,
+      "source_url": "https://github.com/MudBlazor/MudBlazor/blob/f28086704d9d488c3c200e74ff960022af34a6ef/tools/watch.cs#L193",
+      "declaration_candidate": "public required string BunVersion { get; init; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

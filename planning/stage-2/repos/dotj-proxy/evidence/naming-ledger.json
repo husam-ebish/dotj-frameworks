@@ -1,0 +1,56 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-proxy",
+  "source": "https://github.com/dotnet/yarp",
+  "revision": "2aa3d83550a9b7a719e347ef6a0363e5ea9505a9",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Application/Program.cs",
+      "source_line": 78,
+      "source_url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Program.cs#L78",
+      "declaration_candidate": "public partial class Program { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Application/Extensions.cs",
+      "source_line": 18,
+      "source_url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Extensions.cs#L18",
+      "declaration_candidate": "public static class Extensions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Application/Extensions.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Extensions.cs#L20",
+      "declaration_candidate": "public static TBuilder AddServiceDefaults<TBuilder>(this TBuilder builder, YarpAppConfig config) where TBuilder : IHostApplicationBuilder",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Application/Extensions.cs",
+      "source_line": 31,
+      "source_url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Extensions.cs#L31",
+      "declaration_candidate": "public static TBuilder ConfigureOpenTelemetry<TBuilder>(this TBuilder builder, YarpAppConfig config) where TBuilder : IHostApplicationBuilder",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Application/Extensions.cs",
+      "source_line": 84,
+      "source_url": "https://github.com/dotnet/yarp/blob/2aa3d83550a9b7a719e347ef6a0363e5ea9505a9/src/Application/Extensions.cs#L84",
+      "declaration_candidate": "public static TBuilder AddDefaultHealthChecks<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

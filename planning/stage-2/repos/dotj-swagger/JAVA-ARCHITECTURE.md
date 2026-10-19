@@ -1,8 +1,10 @@
 # DJ-036 .j Swagger: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Generate and serve OpenAPI descriptions from .j endpoints with interactive documentation integration.
 
-Product type: JVM API tooling. Proposed Java package root: `org.dotj.swagger`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: JVM API tooling. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: JVM API tooling. Proposed Java package root: `org.dotj.swagger`. J
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 Preserve schema customization and endpoint discovery behavior, not ASP.NET reflection APIs. Swagger UI licensing/assets need explicit provenance.
 
@@ -24,7 +26,7 @@ Preserve schema customization and endpoint discovery behavior, not ASP.NET refle
 
 ### WP-01: Endpoint discovery and schema generation
 
-Contract vocabulary: `ApiDescription`, `SchemaRegistry`, `OperationGenerator`.
+Internal analysis vocabulary (not permission to rename the public API): `ApiDescription`, `SchemaRegistry`, `OperationGenerator`.
 
 Read web metadata through optional adapters. Generate schemas for Java generics nullability and polymorphism. Assign stable schema IDs with collision diagnostics.
 
@@ -32,7 +34,7 @@ Required observable invariant: Recursive types terminate via references; same-si
 
 ### WP-02: Document filters and customization
 
-Contract vocabulary: `DocumentFilter`, `OperationFilter`, `SchemaFilter`.
+Internal analysis vocabulary (not permission to rename the public API): `DocumentFilter`, `OperationFilter`, `SchemaFilter`.
 
 Define deterministic extension order and error reporting. Expose safe document mutation through dotj-openapi. Separate global and per-document configuration.
 
@@ -40,7 +42,7 @@ Required observable invariant: Filter failure identifies its source; multiple do
 
 ### WP-03: Document serving and UI assets
 
-Contract vocabulary: `SwaggerEndpoint`, `UiAssetManifest`, `AccessPolicy`.
+Internal analysis vocabulary (not permission to rename the public API): `SwaggerEndpoint`, `UiAssetManifest`, `AccessPolicy`.
 
 Serve versioned generated documents with cache invalidation. Inventory Swagger UI/ReDoc assets as separate upstream dependencies. Define UI authentication CSP and external URL policy.
 
@@ -48,7 +50,7 @@ Required observable invariant: Private docs require configured access; UI assets
 
 ### WP-04: Versioning and security descriptions
 
-Contract vocabulary: `DocumentGroup`, `SecurityScheme`, `ExampleProvider`.
+Internal analysis vocabulary (not permission to rename the public API): `DocumentGroup`, `SecurityScheme`, `ExampleProvider`.
 
 Integrate optional API version groups. Describe authentication schemes without asserting runtime enforcement. Validate examples against emitted schema where supported.
 
@@ -56,7 +58,7 @@ Required observable invariant: Document groups match routing version metadata; s
 
 ### WP-05: Compatibility and generated-document acceptance
 
-Contract vocabulary: `SchemaFixture`, `OperationFixture`, `UiSmokeCase`.
+Internal analysis vocabulary (not permission to rename the public API): `SchemaFixture`, `OperationFixture`, `UiSmokeCase`.
 
 Port schema naming operation filtering and regressions. Compare normalized documents using openapi model. Smoke-test UI against generated documents and base paths.
 
@@ -70,4 +72,4 @@ Proposed .j dependencies: web,openapi. Optional adapters depend inward on contra
 
 ## Migration walkthrough
 
-Take one existing Swashbuckle usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `ApiDescription` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Recursive types terminate via references; same-simple-name classes do not collide silently; ignored endpoints stay excluded. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing Swashbuckle usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `ApiDescription` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Recursive types terminate via references; same-simple-name classes do not collide silently; ignored endpoints stay excluded. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.

@@ -1,8 +1,10 @@
 # Shared contracts and Java foundation
 
+**Public API contract: exact upstream .NET names, casing and concepts.** [DOTNET-API-EXACT-001](08-DOTNET-API-COMPATIBILITY-POLICY.md) is mandatory for all 66 targets and supersedes prior Java-style public naming suggestions.
+
 ## Naming and repository boundaries
 
-Keep the existing main repository as the planning/ecosystem hub. Target repositories remain the exact 66 `dotj-*` names in the inventory. Proposed Java package/module prefix is `org.dotj`; domain/namespace ownership and public publishing coordinates must be verified before publishing. Product names use `.j Core`, `.j Web`, etc. Do not use a single aggregate core JAR as every project's dependency. Use narrow artifacts such as core contracts, cancellation, DI abstractions and selected serializers.
+Keep the existing main repository as the planning/ecosystem hub. Target repositories remain the exact 66 `dotj-*` names in the inventory. Public package identity retains the exact upstream namespace and casing where representable. `org.dotj.internal.*` may hold hidden implementation helpers; .j-owned artifact and JPMS module identifiers do not rename public namespaces. Public publishing coordinates still require verification. Product names use `.j Core`, `.j Web`, etc. Do not use a single aggregate core JAR as every project's dependency. Use narrow artifacts such as core contracts, cancellation, DI abstractions and selected serializers.
 
 The same Git history can be hosted on Azure DevOps now and GitHub later. Keep build logic, task IDs and fixtures in repository files; provider-specific YAML is a thin adapter. Git import does not by itself migrate boards, branch policies, secrets, pipelines or release artifacts. Track those in a later migration checklist; no remote migration is performed here.
 
@@ -17,11 +19,11 @@ Use JDK collections, concurrency, NIO, time, compiler APIs and cryptographic pri
 | Concern | Contract rule | Required validation |
 |---|---|---|
 | Null/absence | Use presence-aware values where missing and present-null differ | Omitted/null/default fixtures |
-| Generic identity | Explicit TypeToken and ServiceKey; raw Class is insufficient for closed generics | Nested/erased generic identity cases |
-| Async | CompletionStage with explicit execution context and executor ownership | Completion/failure/cancellation/context races |
+| Generic identity | Preserve upstream public type/reflection and service identities; TypeToken/ServiceKey helpers stay internal unless they themselves are upstream public symbols | Nested/erased generic identity cases |
+| Async | Original public Task/ValueTask identities and semantics; CompletionStage is internal or optional interop | Completion/failure/cancellation/context races |
 | Cancellation | Independent token/source/registration; future cancellation is not automatic semantic parity | Late registration, callback order, unregister, synchronous/asynchronous close |
-| Ownership | Borrowed remains borrowed; created resources have explicit owning scope | Partial creation, alias deduplication, reverse close, aggregated failure |
-| Context | Immutable bounded carrier captured explicitly across scheduling | No leakage across requests or thread reuse |
+| Ownership | Original IDisposable/Dispose and IAsyncDisposable/DisposeAsync contracts; borrowed remains borrowed; JDK close bridges are optional | Partial creation, alias deduplication, reverse close, aggregated failure |
+| Context | Preserve supported ExecutionContext/AsyncLocal concepts and behavior; explicit carriers may implement them internally | No leakage across requests or thread reuse |
 | Errors | Stable category/code/path plus original cause; public responses redact secrets | Error taxonomy and negative-input fixtures |
 | Time | Monotonic durations; explicit wall clock, timezone and culture | Clock jumps, DST, ambiguity and fake-time tests |
 | Serialization | Versioned schemas, exact precision policy, safe type resolution | Unknown fields, cycles, malformed payloads and compatibility evolution |

@@ -1,0 +1,119 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-services",
+  "source": "https://github.com/CoreWCF/CoreWCF",
+  "revision": "6e2cce88349fe41056fe8afda0dbbdf98d54bb00",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Indentor.cs",
+      "source_line": 18,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Indentor.cs#L18",
+      "declaration_candidate": "public int Level { get; private set; } = 0;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Indentor.cs",
+      "source_line": 19,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Indentor.cs#L19",
+      "declaration_candidate": "public void Increment()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Indentor.cs",
+      "source_line": 24,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Indentor.cs#L24",
+      "declaration_candidate": "public void Decrement()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 13,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L13",
+      "declaration_candidate": "public static bool? IsGeneratedCode(this IMethodSymbol methodSymbol)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 16,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L16",
+      "declaration_candidate": "public static bool IsMatchingUserProvidedMethod(this IMethodSymbol methodSymbol, IMethodSymbol userProvidedMethodSymbol, INamedTypeSymbol? coreWCFInjectedAttribute, INamedTypeSymbol? fromServicesAttribute)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 47,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L47",
+      "declaration_candidate": "public static bool IsMatchingParameter(this IParameterSymbol symbol, IParameterSymbol parameterSymbol)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 53,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L53",
+      "declaration_candidate": "public static AttributeData? GetOneAttributeOf(this ISymbol symbol, params INamedTypeSymbol?[] attributeTypeSymbols)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 74,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L74",
+      "declaration_candidate": "public static bool HasOneAttributeInheritFrom(this ISymbol symbol, params INamedTypeSymbol?[] attributeTypeSymbols)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 98,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L98",
+      "declaration_candidate": "public static bool IsPrivate(this ISymbol symbol)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 111,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L111",
+      "declaration_candidate": "public static bool IsPartial(this INamedTypeSymbol namedTypeSymbol, out INamedTypeSymbol parentType)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 125,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L125",
+      "declaration_candidate": "public static string ToSafeCSharpString(this TypedConstant typedConstant)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/CoreWCF.BuildTools/src/Extensions.cs",
+      "source_line": 139,
+      "source_url": "https://github.com/CoreWCF/CoreWCF/blob/6e2cce88349fe41056fe8afda0dbbdf98d54bb00/src/CoreWCF.BuildTools/src/Extensions.cs#L139",
+      "declaration_candidate": "public static string ToMessagePropertyVariableName(this string propertyName)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

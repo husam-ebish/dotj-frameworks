@@ -1,0 +1,29 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-xtest",
+  "source": "https://github.com/xunit/xunit",
+  "revision": "e91cdbe7557649b1179fbc47b01e8d3a615d1256",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "tools/builder/Program.cs",
+      "source_line": 7,
+      "source_url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/tools/builder/Program.cs#L7",
+      "declaration_candidate": "public class Program",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "tools/builder/Program.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/xunit/xunit/blob/e91cdbe7557649b1179fbc47b01e8d3a615d1256/tools/builder/Program.cs#L9",
+      "declaration_candidate": "public static Task<int> Main(string[] args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

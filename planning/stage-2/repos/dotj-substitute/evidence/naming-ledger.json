@@ -1,0 +1,218 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-substitute",
+  "source": "https://github.com/nsubstitute/NSubstitute",
+  "revision": "f2b623d762fc28fc1a2fe3932b3b360d113c734d",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 13,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L13",
+      "declaration_candidate": "public static partial class Arg",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 22,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L22",
+      "declaration_candidate": "public interface AnyType",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 29,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L29",
+      "declaration_candidate": "public static ref T Any<T>()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 37,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L37",
+      "declaration_candidate": "public static ref T Is<T>(T value)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 46,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L46",
+      "declaration_candidate": "public static ref T Is<T>(Expression<Predicate<T>> predicate)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 55,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L55",
+      "declaration_candidate": "public static ref T Is<T>(Expression<Predicate<object>> predicate) where T : AnyType",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 63,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L63",
+      "declaration_candidate": "public static ref T Is<T>(IArgumentMatcher matcher) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 69,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L69",
+      "declaration_candidate": "public static ref T Is<T>(IArgumentMatcher<T> matcher) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 75,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L75",
+      "declaration_candidate": "public static ref T Same<T>(T value)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 84,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L84",
+      "declaration_candidate": "public static ref Action Invoke()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 92,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L92",
+      "declaration_candidate": "public static ref Action<T> Invoke<T>(T arg)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 100,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L100",
+      "declaration_candidate": "public static ref Action<T1, T2> Invoke<T1, T2>(T1 arg1, T2 arg2)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 108,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L108",
+      "declaration_candidate": "public static ref Action<T1, T2, T3> Invoke<T1, T2, T3>(T1 arg1, T2 arg2, T3 arg3)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 116,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L116",
+      "declaration_candidate": "public static ref Action<T1, T2, T3, T4> Invoke<T1, T2, T3, T4>(T1 arg1, T2 arg2, T3 arg3, T4 arg4)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 125,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L125",
+      "declaration_candidate": "public static ref TDelegate InvokeDelegate<TDelegate>(params object[] arguments)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 134,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L134",
+      "declaration_candidate": "public static ref T Do<T>(Action<T> useArgument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Arg.cs",
+      "source_line": 143,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Arg.cs#L143",
+      "declaration_candidate": "public static ref T Do<T>(Action<object> useArgument) where T : AnyType",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Raise.cs",
+      "source_line": 10,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Raise.cs#L10",
+      "declaration_candidate": "public static class Raise",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Raise.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Raise.cs#L15",
+      "declaration_candidate": "public static EventHandlerWrapper<TEventArgs> EventWith<TEventArgs>(object sender, TEventArgs eventArgs) where TEventArgs : EventArgs",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Raise.cs",
+      "source_line": 23,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Raise.cs#L23",
+      "declaration_candidate": "public static EventHandlerWrapper<TEventArgs> EventWith<TEventArgs>(TEventArgs eventArgs) where TEventArgs : EventArgs",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Raise.cs",
+      "source_line": 32,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Raise.cs#L32",
+      "declaration_candidate": "public static EventHandlerWrapper<TEventArgs> EventWith<TEventArgs>() where TEventArgs : EventArgs",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Raise.cs",
+      "source_line": 41,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Raise.cs#L41",
+      "declaration_candidate": "public static EventHandlerWrapper<EventArgs> Event()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NSubstitute/Raise.cs",
+      "source_line": 50,
+      "source_url": "https://github.com/nsubstitute/NSubstitute/blob/f2b623d762fc28fc1a2fe3932b3b360d113c734d/src/NSubstitute/Raise.cs#L50",
+      "declaration_candidate": "public static DelegateEventWrapper<THandler> Event<THandler>(params object[] arguments)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

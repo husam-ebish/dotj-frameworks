@@ -1,0 +1,65 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-resilience",
+  "source": "https://github.com/App-vNext/Polly",
+  "revision": "3f3adad9d5af85658fc3585018f02a2d8c2173e8",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Polly.Core/Outcome.cs",
+      "source_line": 6,
+      "source_url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Outcome.cs#L6",
+      "declaration_candidate": "public static class Outcome",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Polly.Core/Outcome.cs",
+      "source_line": 14,
+      "source_url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Outcome.cs#L14",
+      "declaration_candidate": "public static Outcome<TResult> FromResult<TResult>(TResult? value) => new(value);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Polly.Core/Outcome.cs",
+      "source_line": 22,
+      "source_url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Outcome.cs#L22",
+      "declaration_candidate": "public static ValueTask<Outcome<TResult>> FromResultAsValueTask<TResult>(TResult value) => new(FromResult(value));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Polly.Core/Outcome.cs",
+      "source_line": 31,
+      "source_url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Outcome.cs#L31",
+      "declaration_candidate": "public static Outcome<TResult> FromException<TResult>(Exception exception)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Polly.Core/Outcome.cs",
+      "source_line": 45,
+      "source_url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/Outcome.cs#L45",
+      "declaration_candidate": "public static ValueTask<Outcome<TResult>> FromExceptionAsValueTask<TResult>(Exception exception)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Polly.Core/VoidResult.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/App-vNext/Polly/blob/3f3adad9d5af85658fc3585018f02a2d8c2173e8/src/Polly.Core/VoidResult.cs#L12",
+      "declaration_candidate": "public static readonly VoidResult Instance = new();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

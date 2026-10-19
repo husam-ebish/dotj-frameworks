@@ -1,5 +1,7 @@
 # DJ-059 .j Markdown: Stage-2 plan
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Parse extensible Markdown to an owned AST with renderers and source positions.
 
 **Written plan coverage: complete for the capability groups below. Source audit: sampled; exhaustive API/test/dependency closure remains open. Implementation: not started.**
@@ -15,8 +17,11 @@ Parse extensible Markdown to an owned AST with renderers and source positions.
 | [TEST-PORT-MAP](TEST-PORT-MAP.md) | Source tests, designed fixtures and oracle method |
 | [WORK-PACKAGES](WORK-PACKAGES.md) | Executable task order, outputs and acceptance criteria |
 | [RISKS-AND-OPEN-DECISIONS](RISKS-AND-OPEN-DECISIONS.md) | Blocking scope and next actions |
+| [API-COMPATIBILITY](API-COMPATIBILITY.md) | Exact .NET names, concepts and N01 gate |
 | [READINESS](READINESS.md) | What is written, audited, implementable and releasable |
 
 Feature work packages: **5**. Proposed integration wave: **2**, with evidence/feasibility work allowed earlier. Start with E01-E03 in [WORK-PACKAGES.md](WORK-PACKAGES.md), then the first eligible feature slice.
 
 [All 66 repositories](../../00-REPOSITORY-INDEX.md) | [Shared contracts](../../02-SHARED-CONTRACTS.md)
+
+[API-COMPATIBILITY.md](API-COMPATIBILITY.md) is mandatory before freezing any public contract. It adds four named N01 tasks and three naming/concept acceptance cases.

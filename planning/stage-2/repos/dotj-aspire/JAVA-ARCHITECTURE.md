@@ -1,8 +1,10 @@
 # DJ-013 .j Aspire: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Describe, launch, observe and deploy distributed application resource graphs.
 
-Product type: Developer/orchestration tool. Proposed Java package root: `org.dotj.aspire`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: Developer/orchestration tool. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: Developer/orchestration tool. Proposed Java package root: `org.dot
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 Translate resource APIs to Java; dashboard and deployment formats require their own contracts. Do not reuse an existing Java Aspire implementation.
 
@@ -24,7 +26,7 @@ Translate resource APIs to Java; dashboard and deployment formats require their 
 
 ### WP-01: Application resource graph
 
-Contract vocabulary: `ResourceId`, `ResourceSpec`, `ReferenceExpression`.
+Internal analysis vocabulary (not permission to rename the public API): `ResourceId`, `ResourceSpec`, `ReferenceExpression`.
 
 Define named resources dependencies endpoints and parameters. Validate graph cycles and unresolved references. Separate literal configuration from secret references.
 
@@ -32,7 +34,7 @@ Required observable invariant: Invalid graphs fail before launching anything; st
 
 ### WP-02: Local orchestration and lifecycle
 
-Contract vocabulary: `ResourceController`, `HealthState`, `ProcessHandle`, `ContainerHandle`.
+Internal analysis vocabulary (not permission to rename the public API): `ResourceController`, `HealthState`, `ProcessHandle`, `ContainerHandle`.
 
 Map DCP-related source and protocol ownership. Launch dependencies according to readiness policies. Reconcile failures restarts shutdown and orphan cleanup.
 
@@ -40,7 +42,7 @@ Required observable invariant: A failed dependency blocks dependents with a reas
 
 ### WP-03: Service discovery and integration catalog
 
-Contract vocabulary: `EndpointReference`, `ConnectionDescriptor`, `IntegrationDescriptor`.
+Internal analysis vocabulary (not permission to rename the public API): `EndpointReference`, `ConnectionDescriptor`, `IntegrationDescriptor`.
 
 Publish endpoint changes through extensions contracts. Specify adapters for databases brokers and external resources. Version integration requirements and isolate optional dependencies.
 
@@ -48,7 +50,7 @@ Required observable invariant: Endpoint rebinding reaches consumers; incompatibl
 
 ### WP-04: Dashboard and observability
 
-Contract vocabulary: `ResourceSnapshot`, `LogStream`, `TraceLink`, `DashboardSession`.
+Internal analysis vocabulary (not permission to rename the public API): `ResourceSnapshot`, `LogStream`, `TraceLink`, `DashboardSession`.
 
 Build authenticated resource views and bounded live streams. Correlate service logs metrics traces and lifecycle events. Mask secrets in configuration and diagnostic exports.
 
@@ -56,7 +58,7 @@ Required observable invariant: Disconnected viewers release subscriptions; hosti
 
 ### WP-05: Deployment export and operational parity
 
-Contract vocabulary: `DeploymentModel`, `Exporter`, `DeploymentDiff`.
+Internal analysis vocabulary (not permission to rename the public API): `DeploymentModel`, `Exporter`, `DeploymentDiff`.
 
 Translate graph semantics into explicit backend resources. Report local-only features and unsupported deployment mappings. Validate generated artifacts without applying them.
 
@@ -70,4 +72,4 @@ Proposed .j dependencies: extensions,web,containers. Optional adapters depend in
 
 ## Migration walkthrough
 
-Take one existing Aspire usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `ResourceId` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Invalid graphs fail before launching anything; stable resource IDs survive serialization; secrets are not rendered into public manifests. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing Aspire usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `ResourceId` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Invalid graphs fail before launching anything; stable resource IDs survive serialization; secrets are not rendered into public manifests. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.

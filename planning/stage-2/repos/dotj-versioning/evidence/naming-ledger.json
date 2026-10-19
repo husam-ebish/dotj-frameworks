@@ -1,0 +1,47 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-versioning",
+  "source": "https://github.com/dotnet/aspnet-api-versioning",
+  "revision": "1a22bb4281c03d44f387169eefa46765a6219118",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Common/src/Common/PolicyKey.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/src/Common/src/Common/PolicyKey.cs#L12",
+      "declaration_candidate": "public PolicyKey( string? name, ApiVersion? version )",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Common/src/Common/PolicyKey.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/src/Common/src/Common/PolicyKey.cs#L20",
+      "declaration_candidate": "public bool Equals( PolicyKey other ) => GetHashCode() == other.GetHashCode();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Common/src/Common/PolicyKey.cs",
+      "source_line": 22,
+      "source_url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/src/Common/src/Common/PolicyKey.cs#L22",
+      "declaration_candidate": "public override bool Equals( [NotNullWhen( true )] object? obj ) => obj is PolicyKey other && Equals( other );",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Common/src/Common/PolicyKey.cs",
+      "source_line": 24,
+      "source_url": "https://github.com/dotnet/aspnet-api-versioning/blob/1a22bb4281c03d44f387169eefa46765a6219118/src/Common/src/Common/PolicyKey.cs#L24",
+      "declaration_candidate": "public override int GetHashCode()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

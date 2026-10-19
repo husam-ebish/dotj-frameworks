@@ -1,8 +1,10 @@
 # DJ-037 .j OpenAPI: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Generate OpenAPI documents and typed clients with owned tooling.
 
-Product type: JVM developer/library project. Proposed Java package root: `org.dotj.openapi`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: JVM developer/library project. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -19,7 +21,7 @@ Product type: JVM developer/library project. Proposed Java package root: `org.do
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 C# client generation becomes a separate retained language-output track; Java output is primary. Specification version and nullable semantics must be explicit.
 
@@ -27,7 +29,7 @@ C# client generation becomes a separate retained language-output track; Java out
 
 ### WP-01: Document object model and dialects
 
-Contract vocabulary: `OpenApiDocument`, `Schema`, `Operation`, `Dialect`.
+Internal analysis vocabulary (not permission to rename the public API): `OpenApiDocument`, `Schema`, `Operation`, `Dialect`.
 
 Inventory supported OpenAPI versions and JSON Schema dialects. Model extensions nullable references and ordered metadata. Preserve unknown extension values without arbitrary type activation.
 
@@ -35,7 +37,7 @@ Required observable invariant: Round trips preserve extensions; version-specific
 
 ### WP-02: Readers writers and diagnostics
 
-Contract vocabulary: `DocumentReader`, `DocumentWriter`, `Diagnostic`.
+Internal analysis vocabulary (not permission to rename the public API): `DocumentReader`, `DocumentWriter`, `Diagnostic`.
 
 Implement JSON through owned serializer contracts. Treat YAML parser as an explicitly owned/dependency-gated component. Preserve source locations and stable canonical output.
 
@@ -43,7 +45,7 @@ Required observable invariant: Malformed input yields path/location diagnostics;
 
 ### WP-03: Reference resolution and workspaces
 
-Contract vocabulary: `ReferenceId`, `DocumentWorkspace`, `ResolutionPolicy`.
+Internal analysis vocabulary (not permission to rename the public API): `ReferenceId`, `DocumentWorkspace`, `ResolutionPolicy`.
 
 Resolve local/external references with cycle detection. Restrict network/file resolution through caller policy. Cache by URI and content identity.
 
@@ -51,7 +53,7 @@ Required observable invariant: Recursive schemas terminate without losing refere
 
 ### WP-04: Validation transformations and visitors
 
-Contract vocabulary: `ValidationRule`, `DocumentVisitor`, `VersionConverter`.
+Internal analysis vocabulary (not permission to rename the public API): `ValidationRule`, `DocumentVisitor`, `VersionConverter`.
 
 Separate structural validation from semantic rules. Define visitor mutation and extension behavior. Report lossy version conversions explicitly.
 
@@ -59,7 +61,7 @@ Required observable invariant: Duplicate/missing operation constraints are diagn
 
 ### WP-05: Diff utilities and conformance corpus
 
-Contract vocabulary: `DocumentDiff`, `CompatibilityFinding`, `RoundTripCase`.
+Internal analysis vocabulary (not permission to rename the public API): `DocumentDiff`, `CompatibilityFinding`, `RoundTripCase`.
 
 Map upstream utilities and optional integrations to owned modules. Port reader/writer/reference regression fixtures. Compare normalized documents with format-aware rules.
 
@@ -67,7 +69,7 @@ Required observable invariant: Formatting-only changes do not count as semantic 
 
 ### WP-06: NSwag schema and endpoint generation
 
-Contract vocabulary: `SchemaGenerator`, `EndpointDescription`, `DocumentProcessor`.
+Internal analysis vocabulary (not permission to rename the public API): `SchemaGenerator`, `EndpointDescription`, `DocumentProcessor`.
 
 Inventory NJsonSchema and template-engine source dependencies explicitly. Generate schemas/documents from Java types and dotj-web endpoint metadata. Define processor order inheritance nullability and polymorphic schemas.
 
@@ -75,7 +77,7 @@ Required observable invariant: Recursive schema generation terminates; processor
 
 ### WP-07: Java TypeScript and retained language generators
 
-Contract vocabulary: `ClientGenerator`, `GeneratorSettings`, `GeneratedArtifact`.
+Internal analysis vocabulary (not permission to rename the public API): `ClientGenerator`, `GeneratorSettings`, `GeneratedArtifact`.
 
 Generate Java clients as primary JVM adaptation. Retain TypeScript and C# client/controller outputs as separately specified language tracks. Define authentication cancellation errors templates and deterministic source output.
 
@@ -83,7 +85,7 @@ Required observable invariant: Generated Java/TypeScript samples compile with lo
 
 ### WP-08: CLI build integration and Studio tooling
 
-Contract vocabulary: `NswagDocument`, `GenerationCommand`, `StudioProject`.
+Internal analysis vocabulary (not permission to rename the public API): `NswagDocument`, `GenerationCommand`, `StudioProject`.
 
 Read versioned generation configurations and resolve variables safely. Expose standalone CLI before optional build/SDK adapters. Keep NSwagStudio-equivalent desktop UI behind a separate platform work package.
 
@@ -97,4 +99,8 @@ Proposed .j dependencies: json;code(dev-optional). Optional adapters depend inwa
 
 ## Migration walkthrough
 
-Take one existing NSwag usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `OpenApiDocument` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Round trips preserve extensions; version-specific keywords are validated; incompatible dialect fields are not silently rewritten. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing NSwag usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `OpenApiDocument` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Round trips preserve extensions; version-specific keywords are validated; incompatible dialect fields are not silently rewritten. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+
+## Public API direction under the owner requirement
+
+Retain NSwag/NJsonSchema public symbols and generator setting names when that source scope is eligible and implemented. Generated clients follow source operation IDs and the exact-name policy. Java-specific generator mechanics remain internal.

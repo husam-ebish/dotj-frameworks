@@ -1,6 +1,8 @@
 # Full Stage-2 plan for .j Frameworks
 
-The complete written package covers all 66 repositories with 344 feature work packages, 1,032 named tasks and 1,053 designed acceptance cases.
+**Updated owner requirement:** all 66 plans now require exact upstream .NET public names, casing and concepts. See [the mandatory policy](planning/stage-2/08-DOTNET-API-COMPATIBILITY-POLICY.md). This version supersedes the earlier Java-style naming proposals. Merge/replace the included Stage-2 files in your repository; do not modify immutable source evidence.
+
+The complete written package covers all 66 repositories with 344 feature work packages, 1,296 named tasks and 1,251 designed acceptance cases.
 
 Open [planning/stage-2/README.md](planning/stage-2/README.md), then [07-IMPLEMENTATION-START.md](planning/stage-2/07-IMPLEMENTATION-START.md).
 

@@ -1,0 +1,83 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-web",
+  "source": "https://github.com/dotnet/aspnetcore",
+  "revision": "c09e2b89bd8cf25e819230a94e9061023f508afe",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Antiforgery/src/IAntiforgery.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/IAntiforgery.cs#L12",
+      "declaration_candidate": "public interface IAntiforgery",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Antiforgery/src/AntiforgeryOptions.cs",
+      "source_line": 11,
+      "source_url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/AntiforgeryOptions.cs#L11",
+      "declaration_candidate": "public class AntiforgeryOptions",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Antiforgery/src/AntiforgeryOptions.cs",
+      "source_line": 37,
+      "source_url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/AntiforgeryOptions.cs#L37",
+      "declaration_candidate": "public static readonly string DefaultCookiePrefix = \".AspNetCore.Antiforgery.\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Antiforgery/src/AntiforgeryOptions.cs",
+      "source_line": 56,
+      "source_url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/AntiforgeryOptions.cs#L56",
+      "declaration_candidate": "public CookieBuilder Cookie",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Antiforgery/src/AntiforgeryOptions.cs",
+      "source_line": 65,
+      "source_url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/AntiforgeryOptions.cs#L65",
+      "declaration_candidate": "public string FormFieldName",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Antiforgery/src/AntiforgeryOptions.cs",
+      "source_line": 75,
+      "source_url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/AntiforgeryOptions.cs#L75",
+      "declaration_candidate": "public string? HeaderName { get; set; } = AntiforgeryTokenHeaderName;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Antiforgery/src/AntiforgeryOptions.cs",
+      "source_line": 83,
+      "source_url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/AntiforgeryOptions.cs#L83",
+      "declaration_candidate": "public bool SuppressXFrameOptionsHeader { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Antiforgery/src/AntiforgeryOptions.cs",
+      "source_line": 88,
+      "source_url": "https://github.com/dotnet/aspnetcore/blob/c09e2b89bd8cf25e819230a94e9061023f508afe/src/Antiforgery/src/AntiforgeryOptions.cs#L88",
+      "declaration_candidate": "public bool SuppressReadingTokenFromFormBody { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

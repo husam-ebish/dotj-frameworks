@@ -1,8 +1,10 @@
 # DJ-029 .j Jobs: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Run durable background jobs with retries, scheduling, workers and administrative visibility.
 
-Product type: Persistent JVM job framework. Proposed Java package root: `org.dotj.jobs`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: Persistent JVM job framework. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: Persistent JVM job framework. Proposed Java package root: `org.dot
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 Serialized CLR method calls require Java invocation descriptors and allowlists; at-least-once processing demands application idempotency.
 
@@ -24,7 +26,7 @@ Serialized CLR method calls require Java invocation descriptors and allowlists; 
 
 ### WP-01: Job representation and state machine
 
-Contract vocabulary: `JobDescriptor`, `JobState`, `StateTransition`.
+Internal analysis vocabulary (not permission to rename the public API): `JobDescriptor`, `JobState`, `StateTransition`.
 
 Serialize versioned Java method identifiers and arguments safely. Define enqueue scheduled processing succeeded failed and deleted states. Specify retries and expiration as explicit transitions.
 
@@ -32,7 +34,7 @@ Required observable invariant: Unknown method versions fail before invocation; a
 
 ### WP-02: Persistent storage and atomic claims
 
-Contract vocabulary: `JobStore`, `WorkerLease`, `QueueRecord`.
+Internal analysis vocabulary (not permission to rename the public API): `JobStore`, `WorkerLease`, `QueueRecord`.
 
 Define transactional enqueue and dequeue/claim contracts. Fence stale workers and recover expired claims. Inventory storage-provider sources and license requirements.
 
@@ -40,7 +42,7 @@ Required observable invariant: Two workers cannot hold the same valid claim unde
 
 ### WP-03: Worker execution filters and cancellation
 
-Contract vocabulary: `JobContext`, `JobFilter`, `WorkerPool`.
+Internal analysis vocabulary (not permission to rename the public API): `JobContext`, `JobFilter`, `WorkerPool`.
 
 Order filters and manage scoped dependencies. Propagate shutdown cancellation without promising execution rollback. Record ambiguous outcomes and bound retry policy.
 
@@ -48,7 +50,7 @@ Required observable invariant: A side effect followed by crash is recognized as 
 
 ### WP-04: Recurring jobs continuations and batches
 
-Contract vocabulary: `RecurringDefinition`, `Continuation`, `ScheduleOccurrence`.
+Internal analysis vocabulary (not permission to rename the public API): `RecurringDefinition`, `Continuation`, `ScheduleOccurrence`.
 
 Separate schedule calculation from durable enqueue. Define duplicate occurrence keys and continuation conditions. Keep commercial/extension-only features in a distinct provenance track.
 
@@ -56,7 +58,7 @@ Required observable invariant: DST/restart cases do not silently lose occurrence
 
 ### WP-05: Dashboard and operational acceptance
 
-Contract vocabulary: `JobDashboard`, `QueueMetrics`, `RetentionPolicy`.
+Internal analysis vocabulary (not permission to rename the public API): `JobDashboard`, `QueueMetrics`, `RetentionPolicy`.
 
 Build optional authenticated web dashboard. Redact arguments and restrict retry/delete permissions. Test storage outage process death and poison jobs.
 
@@ -70,4 +72,4 @@ Proposed .j dependencies: core,postgresql,scheduler;web(optional). Optional adap
 
 ## Migration walkthrough
 
-Take one existing Hangfire usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `JobDescriptor` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Unknown method versions fail before invocation; arbitrary type activation is disabled; state history explains each retry. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing Hangfire usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `JobDescriptor` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Unknown method versions fail before invocation; arbitrary type activation is disabled; state history explains each retry. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.

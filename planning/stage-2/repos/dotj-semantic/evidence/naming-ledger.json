@@ -1,0 +1,29 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-semantic",
+  "source": "https://github.com/microsoft/semantic-kernel",
+  "revision": "7a92cd4e7c2712370b8d85b687a474b2e858cdcc",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "dotnet/notebooks/config/Utils.cs",
+      "source_line": 4,
+      "source_url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/notebooks/config/Utils.cs#L4",
+      "declaration_candidate": "public static class Utils",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "dotnet/notebooks/config/Utils.cs",
+      "source_line": 7,
+      "source_url": "https://github.com/microsoft/semantic-kernel/blob/7a92cd4e7c2712370b8d85b687a474b2e858cdcc/dotnet/notebooks/config/Utils.cs#L7",
+      "declaration_candidate": "public static string WordWrap(string text, int maxLineLength)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Decisions and blockers
 
+**Owner requirement:** exact upstream .NET public names, casing and concepts across all 66 repositories. Read [the mandatory naming policy](08-DOTNET-API-COMPATIBILITY-POLICY.md). N01 adds a source-to-Java public API mapping and concept-preservation gate; Java implementation details must not become a replacement learning path.
+
 Planning is complete across all targets without requiring another round of owner questions. The following defaults let work proceed while preserving the gates that cannot honestly be assumed resolved.
 
 | Decision | Planning default | Evidence required before affected implementation |
@@ -11,9 +13,9 @@ Planning is complete across all targets without requiring another round of owner
 | Mobile | Separate Android-compatible subset and Apple runtime/AOT investigation | Device install/launch, SDK/license/ABI evidence |
 | Native desktop | Windows-first WPF/Forms profile; other backends individually scoped | Rendering/input/accessibility/native ownership proof |
 | JSON and DI | Core profile and independent third-party product ports | Behavior-specific fixtures and adapter boundaries |
-| ORM queries | Explicit typed query IR/generated metamodel | SQL/null semantics and unsupported-expression diagnostics |
+| ORM queries | Preserve IQueryable/Expression and familiar LINQ operator names; keep IR internal and investigate familiar expression construction | SQL/null semantics, expression capture/generation feasibility and explicit unsupported syntax |
 | PostgreSQL | Owned wire driver; JDBC coverage method-by-method | Protocol/server matrix and JDBC capability evidence |
-| Instrumentation | Interface proxies first; owned classfile/agent research separately gated | Verifier/semantic equivalence and agent compatibility |
+| Instrumentation | Preserve upstream Mock/Substitute public names and setup/verification concepts; interface proxies first internally | Verifier/semantic equivalence and agent compatibility |
 | Packages | Native Java artifacts distinct from NuGet protocol compatibility | Artifact identity, resolver and format fixtures |
 | Licenses | Preserve evidence; no blanket clearance | Exact source/version/dependency eligibility and notices |
 | Source audits | Sampled evidence available; close semantic inventory per slice | E02/E03 output before each claimed capability |

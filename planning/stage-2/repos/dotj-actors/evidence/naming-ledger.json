@@ -1,0 +1,137 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-actors",
+  "source": "https://github.com/dotnet/orleans",
+  "revision": "9f8310cb6e5bbe35cd3bbb0752052993578eb083",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/Program.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/docs/site/src/content/docs/deployment/snippets/service-fabric/ServiceFabricSilo/Program.cs#L17",
+      "declaration_candidate": "public static async Task Main()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L12",
+      "declaration_candidate": "public readonly struct QueueId : IEquatable<QueueId>, IComparable<QueueId>, ISpanFormattable",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 41,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L41",
+      "declaration_candidate": "public static QueueId GetQueueId(string queueName, uint queueId, uint hash) => new(queueName, queueId, hash);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 47,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L47",
+      "declaration_candidate": "public string GetStringNamePrefix() => queueNamePrefix;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 53,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L53",
+      "declaration_candidate": "public uint GetNumericId() => queueId;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 56,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L56",
+      "declaration_candidate": "public uint GetUniformHashCode() => uniformHashCache;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 61,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L61",
+      "declaration_candidate": "public bool IsDefault => queueNamePrefix is null;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 64,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L64",
+      "declaration_candidate": "public int CompareTo(QueueId other)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 76,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L76",
+      "declaration_candidate": "public bool Equals(QueueId other) => queueId == other.queueId && uniformHashCache == other.uniformHashCache && queueNamePrefix == other.queueNamePrefix;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 79,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L79",
+      "declaration_candidate": "public override bool Equals(object? obj) => obj is QueueId queueId && Equals(queueId);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 82,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L82",
+      "declaration_candidate": "public override int GetHashCode() => HashCode.Combine(queueId, uniformHashCache, queueNamePrefix);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 90,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L90",
+      "declaration_candidate": "public static bool operator ==(QueueId left, QueueId right) => left.Equals(right);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 98,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L98",
+      "declaration_candidate": "public static bool operator !=(QueueId left, QueueId right) => !(left == right);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Orleans.Streaming/QueueId.cs",
+      "source_line": 134,
+      "source_url": "https://github.com/dotnet/orleans/blob/9f8310cb6e5bbe35cd3bbb0752052993578eb083/src/Orleans.Streaming/QueueId.cs#L134",
+      "declaration_candidate": "public string ToStringWithHashCode() => $\"{this:H}\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

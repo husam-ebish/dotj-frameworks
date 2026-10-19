@@ -1,5 +1,7 @@
 # DJ-004 .j Razor: module and API inventory
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 | Observed item | Count | Interpretation |
 |---|---|---|
 | Listed blob paths | 13931 | recursive complete |
@@ -121,7 +123,7 @@ Full lexical records (43) and complete listed paths are in [inventory.json](evid
 
 ## Capability ownership
 
-| Package | Retained capability | Proposed contract names |
+| Package | Retained capability | Internal planning labels; public names come from source |
 |---|---|---|
 | WP-01 | Mixed-language grammar | RazorDocument; Directive; MarkupNode; CodeIsland |
 | WP-02 | Intermediate representation and lowering | ComponentIR; RenderInstruction; BindingDescriptor |

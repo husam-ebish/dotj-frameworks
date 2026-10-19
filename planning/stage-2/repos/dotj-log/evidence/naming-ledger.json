@@ -1,0 +1,416 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-log",
+  "source": "https://github.com/NLog/NLog",
+  "revision": "d9ebf823ee8ba54977c336709928a96ea58c6259",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 49,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L49",
+      "declaration_candidate": "public partial class Logger : ILogger",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 65,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L65",
+      "declaration_candidate": "protected internal Logger()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 75,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L75",
+      "declaration_candidate": "public event EventHandler<EventArgs>? LoggerReconfigured;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 80,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L80",
+      "declaration_candidate": "public string Name { get; private set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 85,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L85",
+      "declaration_candidate": "public LogFactory Factory { get; private set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 94,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L94",
+      "declaration_candidate": "public IDictionary<string, object?> Properties => _contextProperties ?? System.Threading.Interlocked.CompareExchange(ref _contextProperties, CreateContextPropertiesDictionary(null), null) ?? _contextProperties;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 101,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L101",
+      "declaration_candidate": "public bool IsEnabled(LogLevel level)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 114,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L114",
+      "declaration_candidate": "public Logger WithProperty(string propertyKey, object? propertyValue)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 131,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L131",
+      "declaration_candidate": "public Logger WithProperties(IEnumerable<KeyValuePair<string, object?>> properties)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 152,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L152",
+      "declaration_candidate": "public Logger WithProperties(params ReadOnlySpan<(string, object?)> properties)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 180,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L180",
+      "declaration_candidate": "public void SetProperty(string propertyKey, object? propertyValue)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 203,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L203",
+      "declaration_candidate": "public IDisposable PushScopeProperty(string propertyName, object? propertyValue)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 215,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L215",
+      "declaration_candidate": "public IDisposable PushScopeProperty<TValue>(string propertyName, TValue? propertyValue)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 227,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L227",
+      "declaration_candidate": "public IDisposable PushScopeProperties(IReadOnlyCollection<KeyValuePair<string, object?>> scopeProperties)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 238,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L238",
+      "declaration_candidate": "public IDisposable PushScopeProperties<TValue>(IReadOnlyCollection<KeyValuePair<string, TValue?>> scopeProperties)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 249,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L249",
+      "declaration_candidate": "public IDisposable PushScopeNested<T>(T nestedState)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 259,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L259",
+      "declaration_candidate": "public IDisposable PushScopeNested(object nestedState)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 268,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L268",
+      "declaration_candidate": "public void Log(LogEventInfo logEvent)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 286,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L286",
+      "declaration_candidate": "public void Log(Type wrapperType, LogEventInfo logEvent)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 310,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L310",
+      "declaration_candidate": "public void Log<T>(LogLevel level, T? value)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 325,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L325",
+      "declaration_candidate": "public void Log<T>(LogLevel level, IFormatProvider? formatProvider, T? value)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 338,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L338",
+      "declaration_candidate": "public void Log(LogLevel level, LogMessageGenerator messageFunc)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 356,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L356",
+      "declaration_candidate": "public void Log(LogLevel level, IFormatProvider? formatProvider, [Localizable(false)][StructuredMessageTemplate] string message, params object?[] args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 370,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L370",
+      "declaration_candidate": "public void Log(LogLevel level, [Localizable(false)] string message)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 386,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L386",
+      "declaration_candidate": "public void Log(LogLevel level, [Localizable(false)][StructuredMessageTemplate] string message, params object?[] args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 403,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L403",
+      "declaration_candidate": "public void Log(LogLevel level, Exception? exception, [Localizable(false)][StructuredMessageTemplate] string message, params object?[] args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 421,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L421",
+      "declaration_candidate": "public void Log(LogLevel level, Exception? exception, IFormatProvider? formatProvider, [Localizable(false)][StructuredMessageTemplate] string message, params object?[] args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 439,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L439",
+      "declaration_candidate": "public void Log<TArgument>(LogLevel level, IFormatProvider? formatProvider, [Localizable(false)][StructuredMessageTemplate] string message, TArgument? argument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 460,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L460",
+      "declaration_candidate": "public void Log<TArgument>(LogLevel level, [Localizable(false)][StructuredMessageTemplate] string message, TArgument? argument)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 484,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L484",
+      "declaration_candidate": "public void Log<TArgument1, TArgument2>(LogLevel level, IFormatProvider? formatProvider, [Localizable(false)][StructuredMessageTemplate] string message, TArgument1? argument1, TArgument2? argument2)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 507,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L507",
+      "declaration_candidate": "public void Log<TArgument1, TArgument2>(LogLevel level, [Localizable(false)][StructuredMessageTemplate] string message, TArgument1? argument1, TArgument2? argument2)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 533,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L533",
+      "declaration_candidate": "public void Log<TArgument1, TArgument2, TArgument3>(LogLevel level, IFormatProvider? formatProvider, [Localizable(false)][StructuredMessageTemplate] string message, TArgument1? argument1, TArgument2? argument2, TArgument3? argument3)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 558,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L558",
+      "declaration_candidate": "public void Log<TArgument1, TArgument2, TArgument3>(LogLevel level, [Localizable(false)][StructuredMessageTemplate] string message, TArgument1? argument1, TArgument2? argument2, TArgument3? argument3)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 579,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L579",
+      "declaration_candidate": "public void Log(LogLevel level, [Localizable(false)][StructuredMessageTemplate] string message, params ReadOnlySpan<object?> args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 596,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L596",
+      "declaration_candidate": "public void Log(LogLevel level, Exception? exception, [Localizable(false)][StructuredMessageTemplate] string message, params ReadOnlySpan<object?> args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 690,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L690",
+      "declaration_candidate": "public void Swallow(Action action)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 709,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L709",
+      "declaration_candidate": "public T? Swallow<T>(Func<T?> func)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 722,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L722",
+      "declaration_candidate": "public T? Swallow<T>(Func<T?> func, T? fallback)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 741,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L741",
+      "declaration_candidate": "public async void Swallow(Task task)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 758,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L758",
+      "declaration_candidate": "public async Task SwallowAsync(Task task)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 774,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L774",
+      "declaration_candidate": "public async Task SwallowAsync(Func<Task> asyncAction)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 793,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L793",
+      "declaration_candidate": "public async Task<TResult?> SwallowAsync<TResult>(Func<Task<TResult?>> asyncFunc)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 806,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L806",
+      "declaration_candidate": "public async Task<TResult?> SwallowAsync<TResult>(Func<Task<TResult?>> asyncFunc, TResult? fallback)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/Logger.cs",
+      "source_line": 953,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/Logger.cs#L953",
+      "declaration_candidate": "protected virtual void OnLoggerReconfigured(EventArgs e)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/NLog/ILogger.cs",
+      "source_line": 43,
+      "source_url": "https://github.com/NLog/NLog/blob/d9ebf823ee8ba54977c336709928a96ea58c6259/src/NLog/ILogger.cs#L43",
+      "declaration_candidate": "public partial interface ILogger",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

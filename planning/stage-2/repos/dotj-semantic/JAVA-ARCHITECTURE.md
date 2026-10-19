@@ -1,8 +1,10 @@
 # DJ-061 .j Semantic: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Port the C# kernel/plugin, model connector and orchestration capabilities to owned Java modules.
 
-Product type: JVM AI orchestration library. Proposed Java package root: `org.dotj.semantic`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: JVM AI orchestration library. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: JVM AI orchestration library. Proposed Java package root: `org.dot
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 The upstream is multi-language: inspect C# functionality and do not reuse its Java implementation. Provider schemas evolve independently of framework API parity.
 
@@ -24,7 +26,7 @@ The upstream is multi-language: inspect C# functionality and do not reuse its Ja
 
 ### WP-01: Kernel functions plugins and invocation
 
-Contract vocabulary: `Kernel`, `FunctionDescriptor`, `InvocationContext`.
+Internal analysis vocabulary (not permission to rename the public API): `Kernel`, `FunctionDescriptor`, `InvocationContext`.
 
 Inventory C# Semantic Kernel functionality separately from Java/Python trees. Define plugin discovery metadata arguments and result types. Specify filters cancellation and exception boundaries.
 
@@ -32,7 +34,7 @@ Required observable invariant: Plugin names/signatures validate before use; C# c
 
 ### WP-02: AI connectors chat streaming and embeddings
 
-Contract vocabulary: `ChatService`, `EmbeddingService`, `StreamingContent`.
+Internal analysis vocabulary (not permission to rename the public API): `ChatService`, `EmbeddingService`, `StreamingContent`.
 
 Define provider-independent content/tool-call/usage contracts. Implement provider protocol adapters with versioned capabilities. Bound streaming buffers and propagate cancellation.
 
@@ -40,7 +42,7 @@ Required observable invariant: Partial streams retain terminal failure informati
 
 ### WP-03: Prompt templates planning and tool execution
 
-Contract vocabulary: `PromptTemplate`, `ToolPolicy`, `PlanStep`.
+Internal analysis vocabulary (not permission to rename the public API): `PromptTemplate`, `ToolPolicy`, `PlanStep`.
 
 Define template variables escaping and renderer ownership. Separate model suggestions from authorized tool execution. Bound recursive tool calls retries cost and deadlines.
 
@@ -48,7 +50,7 @@ Required observable invariant: Model output cannot grant new tool permissions; p
 
 ### WP-04: Memory vector data agents and process families
 
-Contract vocabulary: `MemoryRecord`, `VectorAdapter`, `AgentState`, `ProcessState`.
+Internal analysis vocabulary (not permission to rename the public API): `MemoryRecord`, `VectorAdapter`, `AgentState`, `ProcessState`.
 
 Inventory vector/memory agent/process features at the pinned revision. Map storage/provider dependencies independently. Specify state persistence isolation and recovery.
 
@@ -56,7 +58,7 @@ Required observable invariant: Tenant data cannot cross query context; process r
 
 ### WP-05: Lifecycle successor boundary and evaluation
 
-Contract vocabulary: `SemanticProfile`, `EvaluationCase`, `MigrationMap`.
+Internal analysis vocabulary (not permission to rename the public API): `SemanticProfile`, `EvaluationCase`, `MigrationMap`.
 
 Record agent-framework successor notice without replacing target. Port C# behavior tests with deterministic fake providers. Run separately labeled live-provider compatibility checks.
 
@@ -70,4 +72,4 @@ Proposed .j dependencies: json,rest,extensions. Optional adapters depend inward 
 
 ## Migration walkthrough
 
-Take one existing Semantic Kernel usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `Kernel` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Plugin names/signatures validate before use; C# coverage is not inferred from existing Java implementation; invocation errors retain function context. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing Semantic Kernel usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `Kernel` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Plugin names/signatures validate before use; C# coverage is not inferred from existing Java implementation; invocation errors retain function context. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.

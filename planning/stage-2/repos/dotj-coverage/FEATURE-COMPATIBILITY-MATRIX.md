@@ -1,18 +1,20 @@
 # DJ-054 .j Coverage: feature compatibility matrix
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 IL/PDB rewriting becomes bytecode/LineNumberTable analysis; async/generated Java code needs distinct exclusion rules.
 
 | Package | Retained capability | Adaptation | Required observable behavior | Status |
 |---|---|---|---|---|
-| WP-01 | Instrumentation and JVM bytecode model | Proposed Java contracts: ClassModel, ProbeId, InstrumentationPlan | Instrumented classes pass verification; constructors/exceptions/synchronized blocks behave equivalently; unsupported bytecode versions fail explicitly | Planned; evidence gates open |
-| WP-02 | Source mapping and coverage semantics | Proposed Java contracts: SourceSpan, BranchId, LineCoverage | Reported totals reconcile with declared denominator; missing debug info is visible; IL branches are not relabeled JVM branches | Planned; evidence gates open |
-| WP-03 | Collection merging and process lifecycle | Proposed Java contracts: CoverageSession, ProbeBuffer, MergeKey | Duplicate sessions do not double-count; changed classes cannot merge silently; incomplete runs are marked incomplete | Planned; evidence gates open |
-| WP-04 | Filters reports and CI integration | Proposed Java contracts: CoverageFilter, CoverageReport, ThresholdPolicy | Filters are explainable; report totals match raw data; threshold failures distinguish missing data from insufficient coverage | Planned; evidence gates open |
-| WP-05 | Instrumentation qualification | Proposed Java contracts: SemanticFixture, AgentCompatibility, OverheadResult | No claimed support without verifier/semantic evidence; incompatible agents are diagnosed; no JaCoCo substitution supplies coverage implementation | Planned; evidence gates open |
+| WP-01 | Instrumentation and JVM bytecode model | Internal planning vocabulary (verify upstream public identity): ClassModel, ProbeId, InstrumentationPlan | Instrumented classes pass verification; constructors/exceptions/synchronized blocks behave equivalently; unsupported bytecode versions fail explicitly | Planned; evidence gates open |
+| WP-02 | Source mapping and coverage semantics | Internal planning vocabulary (verify upstream public identity): SourceSpan, BranchId, LineCoverage | Reported totals reconcile with declared denominator; missing debug info is visible; IL branches are not relabeled JVM branches | Planned; evidence gates open |
+| WP-03 | Collection merging and process lifecycle | Internal planning vocabulary (verify upstream public identity): CoverageSession, ProbeBuffer, MergeKey | Duplicate sessions do not double-count; changed classes cannot merge silently; incomplete runs are marked incomplete | Planned; evidence gates open |
+| WP-04 | Filters reports and CI integration | Internal planning vocabulary (verify upstream public identity): CoverageFilter, CoverageReport, ThresholdPolicy | Filters are explainable; report totals match raw data; threshold failures distinguish missing data from insufficient coverage | Planned; evidence gates open |
+| WP-05 | Instrumentation qualification | Internal planning vocabulary (verify upstream public identity): SemanticFixture, AgentCompatibility, OverheadResult | No claimed support without verifier/semantic evidence; incompatible agents are diagnosed; no JaCoCo substitution supplies coverage implementation | Planned; evidence gates open |
 
 ## Claim rules
 
-API spelling compatibility, behavioral compatibility, protocol/file-format interoperability and deployment-platform support are separate profiles. Java contracts are proposals; they are not upstream class declarations. No CLR assembly compatibility is claimed. A feature becomes supported only after its mapped fixtures pass on the declared versions/platforms and remaining deviations are published. A feasibility failure keeps the feature visible with its evidence and alternatives.
+API spelling compatibility, behavioral compatibility, protocol/file-format interoperability and deployment-platform support are separate profiles. Internal design labels are not public API replacements. Public contracts must preserve exact upstream names, casing and concepts under N01; the semantic mapping remains open. No CLR assembly compatibility is claimed. A feature becomes supported only after its mapped fixtures pass on the declared versions/platforms and remaining deviations are published. A feasibility failure keeps the feature visible with its evidence and alternatives.
 
 ## Unresolved boundaries retained
 

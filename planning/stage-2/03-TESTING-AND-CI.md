@@ -1,5 +1,7 @@
 # Testing, compatibility and CI
 
+**Owner requirement:** exact upstream .NET public names, casing and concepts across all 66 repositories. Read [the mandatory naming policy](08-DOTNET-API-COMPATIBILITY-POLICY.md). N01 adds a source-to-Java public API mapping and concept-preservation gate; Java implementation details must not become a replacement learning path.
+
 ## Evidence levels
 
 1. Structural source evidence: pinned path/metadata exists.
@@ -8,7 +10,7 @@
 4. Java conformance: the same fixture passes for an implemented Java capability under approved normalization.
 5. Release qualification: the declared dependency/platform/security/provenance matrix passes.
 
-This package provides levels 1-2 in sampled scope and designs the later work. It does not claim levels 3-5 for unimplemented .j code. The 1,053 designed acceptance IDs are requirements, not passing tests. Source method candidates are explicitly labeled lexical candidates until discovered by the real runner.
+This package provides levels 1-2 in sampled scope and designs the later work. It does not claim levels 3-5 for unimplemented .j code. The 1,251 designed acceptance IDs are requirements, not passing tests. Source method candidates are explicitly labeled lexical candidates until discovered by the real runner.
 
 ## Fixture schema and comparison
 
@@ -37,3 +39,7 @@ Use barriers, deterministic clocks and explicit state schedules before stress te
 ## Coverage policy
 
 Map every supported public feature to upstream tests or an independently justified oracle. Keep unimplemented, blocked, skipped and deliberately adapted rows visible. Test counts are not a substitute for behavior coverage. Per-repository TEST-PORT-MAP documents list designed fixtures and observed source candidates.
+
+## Exact-name and familiar-workflow gate
+
+For each supported public slice, compare source and generated Java symbols case-sensitively. Fail on unintended namespace/type/method/parameter/enum renaming and missing I/Async prefixes/suffixes. Compile paired examples against the declared Java representation. Check that Task/ValueTask, IDisposable, DI, LINQ, MVC, ORM and other concepts keep their original roles and semantics. A name-only match does not override failing behavioral tests. Generic erasure, properties/events, expression capture and other language differences require explicit mapping or an honest unsupported status.

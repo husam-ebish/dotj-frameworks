@@ -1,5 +1,7 @@
 # DJ-047 .j Components: work packages
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 This is the complete authored work breakdown for the retained capability families. All packages are **NOT STARTED** as implementation. Evidence gates are work, not hidden assumptions. Deliver one vertical feature slice at a time after its prerequisites; whole-product completion is not required to begin independent eligible slices.
 
 ## E01: qualify source, release and rights
@@ -14,15 +16,19 @@ Owner role: API/build maintainer. Prerequisite: E01 analysis identity; eligibili
 
 Owner role: compatibility/test maintainer. Prerequisites: E01 and the relevant E02 slice. Tasks: discover true upstream test IDs; map source tests to the designed fixture IDs; run and retain reference outputs; review state transitions, error/cleanup rules and Java adaptations. Outputs: versioned fixture corpus, oracle result manifest and reviewed contract for the first slice. Acceptance: fixtures reproduce under locked inputs; no synthetic ID is presented as an upstream test; deviations and untested cases are explicit.
 
+## N01: exact .NET public API and concept compatibility
+
+Owner role: API/compatibility maintainer. Apply the four named tasks and three acceptance cases in [API-COMPATIBILITY.md](API-COMPATIBILITY.md). Source identity and eligibility come from E01; semantic symbols come from E02. Contract mapping precedes feature implementation; compiled API and behavior checks gate completion. Outputs: naming-ledger.json with compiler-derived identities, public API snapshot, explicit language-gap ledger and paired C#/.j examples. No automatic Java-style public renaming is allowed.
+
 ## Feature package order
 
 Numbers give the proposed review/integration sequence. Independent contract research can proceed in parallel; this is not an invented delivery calendar. Each package requires E01-E03 for its own slice and only the actual predecessor contracts it consumes. Use stubs strictly for contract tests, never as proof of compatibility.
 
 ### WP-01: Component API and rendering
 
-**Objective:** deliver the behavior represented by ComponentDescriptor, Parameter, RenderState.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: ComponentDescriptor, Parameter, RenderState.
 
-**Prerequisites:** E01; relevant E02/E03 closure; shared core/toolchain contract baseline. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; shared core/toolchain contract baseline. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -34,15 +40,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Parameter changes produce deterministic render changes; disposed components release handlers; unsupported component APIs remain inventoried.
 
-**Validation:** run this package’s `DJ-047-F01-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-047-F01-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-02: Forms input and validation
 
-**Objective:** deliver the behavior represented by InputState, EditContext, ValidationMessage.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: InputState, EditContext, ValidationMessage.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-01 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-01 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -54,15 +60,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Stale validation results cannot overwrite newer input state; errors remain associated with fields; keyboard input and IME behavior are tested.
 
-**Validation:** run this package’s `DJ-047-F02-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-047-F02-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-03: Tables grids and data interaction
 
-**Objective:** deliver the behavior represented by GridState, SortDescriptor, SelectionModel.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: GridState, SortDescriptor, SelectionModel.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-02 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-02 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -74,15 +80,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Out-of-order responses cannot replace newer data; selections follow declared identity rules; large lists render bounded visible state.
 
-**Validation:** run this package’s `DJ-047-F03-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-047-F03-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-04: Themes dialogs navigation and assets
 
-**Objective:** deliver the behavior represented by Theme, DialogResult, NavigationItem, AssetManifest.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: Theme, DialogResult, NavigationItem, AssetManifest.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-03 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-03 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -94,15 +100,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Dialog close restores focus; RTL fixtures remain usable; asset versions/licenses are explicit; no unreviewed frontend framework is silently adopted.
 
-**Validation:** run this package’s `DJ-047-F04-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-047-F04-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-05: Browser interop accessibility and coverage
 
-**Objective:** deliver the behavior represented by BrowserAdapter, AccessibilityCase, ComponentMatrix.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: BrowserAdapter, AccessibilityCase, ComponentMatrix.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-04 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-04 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -114,15 +120,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Server-only operation is distinguished from required browser behavior; hydration retains state; claimed components have interaction and accessibility evidence.
 
-**Validation:** run this package’s `DJ-047-F05-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-047-F05-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-06: Charts scheduler upload and designer boundary
 
-**Objective:** deliver the behavior represented by ChartSeries, SchedulerView, UploadSession, ComponentScope.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: ChartSeries, SchedulerView, UploadSession, ComponentScope.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-05 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-05 only where consumed. Proposed product edges: web. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -134,7 +140,7 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Cancelled uploads release resources; timezone changes preserve event identity rules; proprietary designer functionality is not claimed from the open repository.
 
-**Validation:** run this package’s `DJ-047-F06-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-047-F06-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 

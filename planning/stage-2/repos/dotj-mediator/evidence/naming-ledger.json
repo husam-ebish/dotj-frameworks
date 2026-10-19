@@ -1,0 +1,128 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-mediator",
+  "source": "https://github.com/LuckyPennySoftware/MediatR",
+  "revision": "916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/MediatR/ISender.cs",
+      "source_line": 10,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/ISender.cs#L10",
+      "declaration_candidate": "public interface ISender",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L17",
+      "declaration_candidate": "public class Mediator : IMediator",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 29,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L29",
+      "declaration_candidate": "public Mediator(IServiceProvider serviceProvider)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 37,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L37",
+      "declaration_candidate": "public Mediator(IServiceProvider serviceProvider, INotificationPublisher publisher)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 48,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L48",
+      "declaration_candidate": "public static string? LicenseKey { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 50,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L50",
+      "declaration_candidate": "public Task<TResponse> Send<TResponse>(IRequest<TResponse> request, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 67,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L67",
+      "declaration_candidate": "public Task Send<TRequest>(TRequest request, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 85,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L85",
+      "declaration_candidate": "public Task<object?> Send(object request, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 121,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L121",
+      "declaration_candidate": "public Task Publish<TNotification>(TNotification notification, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 132,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L132",
+      "declaration_candidate": "public Task Publish(object notification, CancellationToken cancellationToken = default) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 147,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L147",
+      "declaration_candidate": "protected virtual Task PublishCore(IEnumerable<NotificationHandlerExecutor> handlerExecutors, INotification notification, CancellationToken cancellationToken)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 163,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L163",
+      "declaration_candidate": "public IAsyncEnumerable<TResponse> CreateStream<TResponse>(IStreamRequest<TResponse> request, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MediatR/Mediator.cs",
+      "source_line": 183,
+      "source_url": "https://github.com/LuckyPennySoftware/MediatR/blob/916ef1b3d68ccdc96db8f914eaf1b32fc7db52c5/src/MediatR/Mediator.cs#L183",
+      "declaration_candidate": "public IAsyncEnumerable<object?> CreateStream(object request, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

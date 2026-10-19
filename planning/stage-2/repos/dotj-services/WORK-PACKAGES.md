@@ -1,5 +1,7 @@
 # DJ-018 .j Services: work packages
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 This is the complete authored work breakdown for the retained capability families. All packages are **NOT STARTED** as implementation. Evidence gates are work, not hidden assumptions. Deliver one vertical feature slice at a time after its prerequisites; whole-product completion is not required to begin independent eligible slices.
 
 ## E01: qualify source, release and rights
@@ -14,15 +16,19 @@ Owner role: API/build maintainer. Prerequisite: E01 analysis identity; eligibili
 
 Owner role: compatibility/test maintainer. Prerequisites: E01 and the relevant E02 slice. Tasks: discover true upstream test IDs; map source tests to the designed fixture IDs; run and retain reference outputs; review state transitions, error/cleanup rules and Java adaptations. Outputs: versioned fixture corpus, oracle result manifest and reviewed contract for the first slice. Acceptance: fixtures reproduce under locked inputs; no synthetic ID is presented as an upstream test; deviations and untested cases are explicit.
 
+## N01: exact .NET public API and concept compatibility
+
+Owner role: API/compatibility maintainer. Apply the four named tasks and three acceptance cases in [API-COMPATIBILITY.md](API-COMPATIBILITY.md). Source identity and eligibility come from E01; semantic symbols come from E02. Contract mapping precedes feature implementation; compiled API and behavior checks gate completion. Outputs: naming-ledger.json with compiler-derived identities, public API snapshot, explicit language-gap ledger and paired C#/.j examples. No automatic Java-style public renaming is allowed.
+
 ## Feature package order
 
 Numbers give the proposed review/integration sequence. Independent contract research can proceed in parallel; this is not an invented delivery calendar. Each package requires E01-E03 for its own slice and only the actual predecessor contracts it consumes. Use stubs strictly for contract tests, never as proof of compatibility.
 
 ### WP-01: Dispatch and operation selection
 
-**Objective:** deliver the behavior represented by DispatchTable, OperationInvoker, ServiceInstance.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: DispatchTable, OperationInvoker, ServiceInstance.
 
-**Prerequisites:** E01; relevant E02/E03 closure; shared core/toolchain contract baseline. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; shared core/toolchain contract baseline. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -34,15 +40,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Ambiguous operations fail at host startup; per-call instances are disposed once; unhandled exceptions do not disclose stack traces by default.
 
-**Validation:** run this package’s `DJ-018-F01-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-018-F01-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-02: Host and transport bindings
 
-**Objective:** deliver the behavior represented by ServiceHost, ListenerBinding, RequestChannel.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: ServiceHost, ListenerBinding, RequestChannel.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-01 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-01 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -54,15 +60,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Stopping a host rejects new work and bounds draining; binding limits are enforced before deserialization; client codecs do not depend on server dispatch.
 
-**Validation:** run this package’s `DJ-018-F02-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-018-F02-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-03: Behaviors middleware and metadata
 
-**Objective:** deliver the behavior represented by ServiceBehavior, MessageInspector, MetadataExporter.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: ServiceBehavior, MessageInspector, MetadataExporter.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-02 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-02 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -74,15 +80,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Exported metadata reimports into reference clients; inspector failures have defined cleanup; behavior order is deterministic.
 
-**Validation:** run this package’s `DJ-018-F03-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-018-F03-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-04: Authentication authorization and transactions
 
-**Objective:** deliver the behavior represented by CallerIdentity, AuthorizationDecision, TransactionContext.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: CallerIdentity, AuthorizationDecision, TransactionContext.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-03 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-03 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -94,15 +100,15 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Unauthorized operations never invoke service code; unavailable impersonation fails explicitly; timeouts do not claim a committed transaction was rolled back.
 
-**Validation:** run this package’s `DJ-018-F04-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-018-F04-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 
 ### WP-05: Server interoperability and hosting acceptance
 
-**Objective:** deliver the behavior represented by ServiceCompatibilityProfile, DotnetClientFixture, LoadScenario.
+**Objective:** preserve the upstream public API names and concepts while delivering the behavior analyzed under these internal workstream labels: ServiceCompatibilityProfile, DotnetClientFixture, LoadScenario.
 
-**Prerequisites:** E01; relevant E02/E03 closure; accepted preceding contracts through WP-04 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
+**Prerequisites:** N01 exact public contract mapping; E01; relevant E02/E03 closure; accepted preceding contracts through WP-04 only where consumed. Proposed product edges: service-client,web,extensions. Native/asset/protocol feasibility gates apply only to the affected adapter.
 
 **Tasks:**
 
@@ -114,7 +120,7 @@ Numbers give the proposed review/integration sequence. Independent contract rese
 
 **Acceptance:** Every supported binding has bidirectional fault/streaming evidence; resource use remains bounded; unsupported WS-* profiles remain enumerated.
 
-**Validation:** run this package’s `DJ-018-F05-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
+**Validation:** enforce DOTNET-API-EXACT-001 with the repository NF01-NF03 cases and compiled public API diff; run this package’s `DJ-018-F05-NN` fixtures in TEST-PORT-MAP, relevant source regressions, and applicable failure/concurrency/platform scenarios. Any missing oracle or prerequisite produces a visible blocked result.
 
 **Integration/rollback:** publish contract and implementation changes together; retain fixture/schema versioning; reject incompatible persisted data or wire changes explicitly; preserve the preceding verified artifact for rollback. Database/schema rollback is capability-specific and cannot be assumed automatically reversible.
 

@@ -1,0 +1,47 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-razor",
+  "source": "https://github.com/dotnet/roslyn",
+  "revision": "3645b6aa36ad41775a73e57a620787a3d38327a0",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Razor/src/Shared/Microsoft.AspNetCore.Razor.SharedUtilities/Opt`1.cs",
+      "source_line": 8,
+      "source_url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/Razor/src/Shared/Microsoft.AspNetCore.Razor.SharedUtilities/Opt`1.cs#L8",
+      "declaration_candidate": "public bool HasValue { get; } = true;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Razor/src/Shared/Microsoft.AspNetCore.Razor.SharedUtilities/Opt`1.cs",
+      "source_line": 10,
+      "source_url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/Razor/src/Shared/Microsoft.AspNetCore.Razor.SharedUtilities/Opt`1.cs#L10",
+      "declaration_candidate": "public T Value { get; } = value;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Razor/src/Shared/Microsoft.AspNetCore.Razor.SharedUtilities/Opt`1.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/Razor/src/Shared/Microsoft.AspNetCore.Razor.SharedUtilities/Opt`1.cs#L12",
+      "declaration_candidate": "public T GetValueOrDefault(T defaultValue)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Razor/src/Shared/Microsoft.AspNetCore.Razor.SharedUtilities/Opt`1.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/dotnet/roslyn/blob/3645b6aa36ad41775a73e57a620787a3d38327a0/src/Razor/src/Shared/Microsoft.AspNetCore.Razor.SharedUtilities/Opt`1.cs#L15",
+      "declaration_candidate": "public static implicit operator Opt<T>(T value)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

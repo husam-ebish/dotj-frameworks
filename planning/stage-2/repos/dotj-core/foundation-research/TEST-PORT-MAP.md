@@ -1,5 +1,7 @@
 > Earlier source-backed foundation research retained as evidence. Current whole-core scope and readiness are in the parent directory. This sample is not whole-core completion.
 
+**Naming correction:** earlier Java-style public proposals are superseded by [DOTNET-API-EXACT-001](../../../08-DOTNET-API-COMPATIBILITY-POLICY.md). The exact .NET public identity is required; helper contracts remain internal. This research remains sampled, not a complete API map.
+
 # Test-port map: selected foundation scenarios
 
 Every method below was found in a retrieved test file at the analysis pin. These are selected test cases, not a complete test inventory. **No test has been ported or run.** Intended Java acceptance behavior still needs review of each full upstream test body and dependencies before implementation.

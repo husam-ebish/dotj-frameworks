@@ -1,18 +1,20 @@
 # DJ-036 .j Swagger: feature compatibility matrix
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Preserve schema customization and endpoint discovery behavior, not ASP.NET reflection APIs. Swagger UI licensing/assets need explicit provenance.
 
 | Package | Retained capability | Adaptation | Required observable behavior | Status |
 |---|---|---|---|---|
-| WP-01 | Endpoint discovery and schema generation | Proposed Java contracts: ApiDescription, SchemaRegistry, OperationGenerator | Recursive types terminate via references; same-simple-name classes do not collide silently; ignored endpoints stay excluded | Planned; evidence gates open |
-| WP-02 | Document filters and customization | Proposed Java contracts: DocumentFilter, OperationFilter, SchemaFilter | Filter failure identifies its source; multiple documents do not share mutable schemas; extensions survive serialization | Planned; evidence gates open |
-| WP-03 | Document serving and UI assets | Proposed Java contracts: SwaggerEndpoint, UiAssetManifest, AccessPolicy | Private docs require configured access; UI assets have provenance and pinned checksums; untrusted document URLs cannot bypass access policy | Planned; evidence gates open |
-| WP-04 | Versioning and security descriptions | Proposed Java contracts: DocumentGroup, SecurityScheme, ExampleProvider | Document groups match routing version metadata; security declarations do not masquerade as enforcement; invalid examples are reported | Planned; evidence gates open |
-| WP-05 | Compatibility and generated-document acceptance | Proposed Java contracts: SchemaFixture, OperationFixture, UiSmokeCase | Each advertised generator behavior has fixtures; reverse-proxy base paths remain valid; no existing Java Swagger generator replaces implementation | Planned; evidence gates open |
+| WP-01 | Endpoint discovery and schema generation | Internal planning vocabulary (verify upstream public identity): ApiDescription, SchemaRegistry, OperationGenerator | Recursive types terminate via references; same-simple-name classes do not collide silently; ignored endpoints stay excluded | Planned; evidence gates open |
+| WP-02 | Document filters and customization | Internal planning vocabulary (verify upstream public identity): DocumentFilter, OperationFilter, SchemaFilter | Filter failure identifies its source; multiple documents do not share mutable schemas; extensions survive serialization | Planned; evidence gates open |
+| WP-03 | Document serving and UI assets | Internal planning vocabulary (verify upstream public identity): SwaggerEndpoint, UiAssetManifest, AccessPolicy | Private docs require configured access; UI assets have provenance and pinned checksums; untrusted document URLs cannot bypass access policy | Planned; evidence gates open |
+| WP-04 | Versioning and security descriptions | Internal planning vocabulary (verify upstream public identity): DocumentGroup, SecurityScheme, ExampleProvider | Document groups match routing version metadata; security declarations do not masquerade as enforcement; invalid examples are reported | Planned; evidence gates open |
+| WP-05 | Compatibility and generated-document acceptance | Internal planning vocabulary (verify upstream public identity): SchemaFixture, OperationFixture, UiSmokeCase | Each advertised generator behavior has fixtures; reverse-proxy base paths remain valid; no existing Java Swagger generator replaces implementation | Planned; evidence gates open |
 
 ## Claim rules
 
-API spelling compatibility, behavioral compatibility, protocol/file-format interoperability and deployment-platform support are separate profiles. Java contracts are proposals; they are not upstream class declarations. No CLR assembly compatibility is claimed. A feature becomes supported only after its mapped fixtures pass on the declared versions/platforms and remaining deviations are published. A feasibility failure keeps the feature visible with its evidence and alternatives.
+API spelling compatibility, behavioral compatibility, protocol/file-format interoperability and deployment-platform support are separate profiles. Internal design labels are not public API replacements. Public contracts must preserve exact upstream names, casing and concepts under N01; the semantic mapping remains open. No CLR assembly compatibility is claimed. A feature becomes supported only after its mapped fixtures pass on the declared versions/platforms and remaining deviations are published. A feasibility failure keeps the feature visible with its evidence and alternatives.
 
 ## Unresolved boundaries retained
 

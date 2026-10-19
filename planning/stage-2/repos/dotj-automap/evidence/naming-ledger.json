@@ -1,0 +1,281 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-automap",
+  "source": "https://github.com/LuckyPennySoftware/AutoMapper",
+  "revision": "3019d86b3e2f1c879dfcf7d1026c90f51519a9a1",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 5,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L5",
+      "declaration_candidate": "public interface IMapperBase",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 50,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L50",
+      "declaration_candidate": "public interface IMapper : IMapperBase",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 131,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L131",
+      "declaration_candidate": "public interface IRuntimeMapper : IMapperBase",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 140,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L140",
+      "declaration_candidate": "public sealed class Mapper : IMapper, IInternalRuntimeMapper",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 145,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L145",
+      "declaration_candidate": "public Mapper(IConfigurationProvider configuration) : this(configuration, configuration.Internal().ServiceCtor) { }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 146,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L146",
+      "declaration_candidate": "public Mapper(IConfigurationProvider configuration, Factory serviceCtor)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 156,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L156",
+      "declaration_candidate": "public IConfigurationProvider ConfigurationProvider => _configuration;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 157,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L157",
+      "declaration_candidate": "public TDestination Map<TDestination>(object source) => Map(source, default(TDestination));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 158,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L158",
+      "declaration_candidate": "public TDestination Map<TDestination>(object source, Action<IMappingOperationOptions<object, TDestination>> opts) => Map(source, default, opts);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 159,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L159",
+      "declaration_candidate": "public TDestination Map<TSource, TDestination>(TSource source) => Map(source, default(TDestination));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 160,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L160",
+      "declaration_candidate": "public TDestination Map<TSource, TDestination>(TSource source, Action<IMappingOperationOptions<TSource, TDestination>> opts) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 162,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L162",
+      "declaration_candidate": "public TDestination Map<TSource, TDestination>(TSource source, TDestination destination) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 164,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L164",
+      "declaration_candidate": "public TDestination Map<TSource, TDestination>(TSource source, TDestination destination, Action<IMappingOperationOptions<TSource, TDestination>> opts) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 166,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L166",
+      "declaration_candidate": "public object Map(object source, Type sourceType, Type destinationType) => Map(source, null, sourceType, destinationType);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 167,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L167",
+      "declaration_candidate": "public object Map(object source, Type sourceType, Type destinationType, Action<IObjectMappingOperationOptions> opts) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 169,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L169",
+      "declaration_candidate": "public object Map(object source, object destination, Type sourceType, Type destinationType) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 171,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L171",
+      "declaration_candidate": "public object Map(object source, object destination, Type sourceType, Type destinationType, Action<IObjectMappingOperationOptions> opts) =>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 173,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L173",
+      "declaration_candidate": "public IQueryable<TDestination> ProjectTo<TDestination>(IQueryable source, object parameters, params Expression<Func<TDestination, object>>[] membersToExpand)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 175,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L175",
+      "declaration_candidate": "public IQueryable<TDestination> ProjectTo<TDestination>(IQueryable source, IDictionary<string, object> parameters, params string[] membersToExpand)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/Mapper.cs",
+      "source_line": 177,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/Mapper.cs#L177",
+      "declaration_candidate": "public IQueryable ProjectTo(IQueryable source, Type destinationType, IDictionary<string, object> parameters, params string[] membersToExpand)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 5,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L5",
+      "declaration_candidate": "public sealed class PathMap(LambdaExpression destinationExpression, MemberPath memberPath, TypeMap typeMap)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 8,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L8",
+      "declaration_candidate": "public PathMap(PathMap pathMap, TypeMap typeMap, IncludedMember includedMember) : this(pathMap.DestinationExpression, pathMap.MemberPath, typeMap)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L15",
+      "declaration_candidate": "public override Type SourceType => Resolver.ResolvedType;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 16,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L16",
+      "declaration_candidate": "public LambdaExpression DestinationExpression { get; } = destinationExpression;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L17",
+      "declaration_candidate": "public MemberPath MemberPath { get; } = memberPath;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 18,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L18",
+      "declaration_candidate": "public override string DestinationName => MemberPath.ToString();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 19,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L19",
+      "declaration_candidate": "public override bool CanBeSet => ReflectionHelper.CanBeSet(MemberPath.Last);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L20",
+      "declaration_candidate": "public override bool Ignored { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 21,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L21",
+      "declaration_candidate": "public override IncludedMember IncludedMember { get; protected set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AutoMapper/PathMap.cs",
+      "source_line": 22,
+      "source_url": "https://github.com/LuckyPennySoftware/AutoMapper/blob/3019d86b3e2f1c879dfcf7d1026c90f51519a9a1/src/AutoMapper/PathMap.cs#L22",
+      "declaration_candidate": "public override LambdaExpression Condition { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

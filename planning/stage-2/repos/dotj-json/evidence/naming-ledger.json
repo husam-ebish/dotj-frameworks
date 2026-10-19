@@ -1,0 +1,29 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-json",
+  "source": "https://github.com/JamesNK/Newtonsoft.Json",
+  "revision": "52fa3aef1f2cadcd3a3f874251eddc98d3efbbaa",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "Src/Newtonsoft.Json/Required.cs",
+      "source_line": 31,
+      "source_url": "https://github.com/JamesNK/Newtonsoft.Json/blob/52fa3aef1f2cadcd3a3f874251eddc98d3efbbaa/Src/Newtonsoft.Json/Required.cs#L31",
+      "declaration_candidate": "public enum Required",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Src/Newtonsoft.Json/JsonToken.cs",
+      "source_line": 35,
+      "source_url": "https://github.com/JamesNK/Newtonsoft.Json/blob/52fa3aef1f2cadcd3a3f874251eddc98d3efbbaa/Src/Newtonsoft.Json/JsonToken.cs#L35",
+      "declaration_candidate": "public enum JsonToken",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

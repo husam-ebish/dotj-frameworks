@@ -1,0 +1,83 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-mock",
+  "source": "https://github.com/devlooped/moq",
+  "revision": "bdf16e758e8022c40cef2bfd025181f845bbd2a9",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Moq/Arg.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L9",
+      "declaration_candidate": "public static class Arg",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Moq/Arg.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L15",
+      "declaration_candidate": "public static T Any<T>() => MockSetup.Push<T>(AnyMatcher<T>.Default);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Moq/Arg.cs",
+      "source_line": 22,
+      "source_url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L22",
+      "declaration_candidate": "public static T Any<T>(Func<T?, bool> condition) => MockSetup.Push<T>(new ConditionalMatcher<T>(condition));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Moq/Arg.cs",
+      "source_line": 28,
+      "source_url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L28",
+      "declaration_candidate": "public static T Not<T>(T? value) => MockSetup.Push<T>(new NotMatcher<T>(value));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Moq/Arg.cs",
+      "source_line": 35,
+      "source_url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L35",
+      "declaration_candidate": "public static class Arg<T>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Moq/Arg.cs",
+      "source_line": 40,
+      "source_url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L40",
+      "declaration_candidate": "public static T Any => MockSetup.Push<T>(AnyMatcher<T>.Default);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Moq/Arg.cs",
+      "source_line": 45,
+      "source_url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/Arg.cs#L45",
+      "declaration_candidate": "public static T Not(T? value) => MockSetup.Push<T>(new NotMatcher<T>(value));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Moq/IMock.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/devlooped/moq/blob/bdf16e758e8022c40cef2bfd025181f845bbd2a9/src/Moq/IMock.cs#L9",
+      "declaration_candidate": "public interface IMock : IFluentInterface",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

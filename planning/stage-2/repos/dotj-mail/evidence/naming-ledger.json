@@ -1,0 +1,191 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-mail",
+  "source": "https://github.com/jstedfast/MailKit",
+  "revision": "7418d38dc27a47d8db9108d8fa994b2b784f1578",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "MailKit/BodyPart.cs",
+      "source_line": 48,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/BodyPart.cs#L48",
+      "declaration_candidate": "public abstract class BodyPart",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/BodyPart.cs",
+      "source_line": 63,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/BodyPart.cs#L63",
+      "declaration_candidate": "protected BodyPart (ContentType contentType, string partSpecifier)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/BodyPart.cs",
+      "source_line": 82,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/BodyPart.cs#L82",
+      "declaration_candidate": "public ContentType ContentType {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/BodyPart.cs",
+      "source_line": 96,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/BodyPart.cs#L96",
+      "declaration_candidate": "public string PartSpecifier {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/BodyPart.cs",
+      "source_line": 115,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/BodyPart.cs#L115",
+      "declaration_candidate": "public abstract void Accept (BodyPartVisitor visitor);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/BodyPart.cs",
+      "source_line": 251,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/BodyPart.cs#L251",
+      "declaration_candidate": "protected abstract void Encode (StringBuilder builder);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/BodyPart.cs",
+      "source_line": 764,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/BodyPart.cs#L764",
+      "declaration_candidate": "public static bool TryParse (string text, out BodyPart? part)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 48,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L48",
+      "declaration_candidate": "public class Envelope",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 56,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L56",
+      "declaration_candidate": "public Envelope ()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 73,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L73",
+      "declaration_candidate": "public InternetAddressList From {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 85,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L85",
+      "declaration_candidate": "public InternetAddressList Sender {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 97,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L97",
+      "declaration_candidate": "public InternetAddressList ReplyTo {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 108,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L108",
+      "declaration_candidate": "public InternetAddressList To {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 119,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L119",
+      "declaration_candidate": "public InternetAddressList Cc {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 130,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L130",
+      "declaration_candidate": "public InternetAddressList Bcc {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 141,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L141",
+      "declaration_candidate": "public string? InReplyTo {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 152,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L152",
+      "declaration_candidate": "public DateTimeOffset? Date {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 163,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L163",
+      "declaration_candidate": "public string? MessageId {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 174,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L174",
+      "declaration_candidate": "public string? Subject {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "MailKit/Envelope.cs",
+      "source_line": 620,
+      "source_url": "https://github.com/jstedfast/MailKit/blob/7418d38dc27a47d8db9108d8fa994b2b784f1578/MailKit/Envelope.cs#L620",
+      "declaration_candidate": "public static bool TryParse (string text, out Envelope? envelope)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

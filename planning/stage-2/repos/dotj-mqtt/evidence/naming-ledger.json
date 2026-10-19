@@ -1,0 +1,281 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-mqtt",
+  "source": "https://github.com/dotnet/MQTTnet",
+  "revision": "798a0e2250f40a241e0c8d2e7c9a366051be1b97",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L9",
+      "declaration_candidate": "public class DuplexPipe : IDuplexPipe",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 11,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L11",
+      "declaration_candidate": "public DuplexPipe(PipeReader reader, PipeWriter writer)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L17",
+      "declaration_candidate": "public PipeReader Input { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 19,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L19",
+      "declaration_candidate": "public PipeWriter Output { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 21,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L21",
+      "declaration_candidate": "public static DuplexPipePair CreateConnectionPair(PipeOptions inputOptions, PipeOptions outputOptions)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 33,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L33",
+      "declaration_candidate": "public readonly struct DuplexPipePair",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 35,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L35",
+      "declaration_candidate": "public IDuplexPipe Transport { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 36,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L36",
+      "declaration_candidate": "public IDuplexPipe Application { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/DuplexPipe.cs",
+      "source_line": 38,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/DuplexPipe.cs#L38",
+      "declaration_candidate": "public DuplexPipePair(IDuplexPipe transport, IDuplexPipe application)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/SocketSender.cs",
+      "source_line": 13,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/SocketSender.cs#L13",
+      "declaration_candidate": "public sealed class SocketSender : IDisposable",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/SocketSender.cs",
+      "source_line": 21,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/SocketSender.cs#L21",
+      "declaration_candidate": "public SocketSender(Socket socket, PipeScheduler scheduler)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/SocketSender.cs",
+      "source_line": 29,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/SocketSender.cs#L29",
+      "declaration_candidate": "public void Dispose()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet.AspnetCore/SocketSender.cs",
+      "source_line": 34,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet.AspnetCore/SocketSender.cs#L34",
+      "declaration_candidate": "public SocketAwaitable SendAsync(in ReadOnlySequence<byte> buffers)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L17",
+      "declaration_candidate": "public sealed class MqttClient : Disposable, IMqttClient",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 49,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L49",
+      "declaration_candidate": "public MqttClient(IMqttClientAdapterFactory channelFactory, IMqttNetLogger logger)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 56,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L56",
+      "declaration_candidate": "public event Func<MqttApplicationMessageReceivedEventArgs, Task> ApplicationMessageReceivedAsync",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 62,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L62",
+      "declaration_candidate": "public event Func<MqttClientConnectedEventArgs, Task> ConnectedAsync",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 68,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L68",
+      "declaration_candidate": "public event Func<MqttClientConnectingEventArgs, Task> ConnectingAsync",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 74,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L74",
+      "declaration_candidate": "public event Func<MqttClientDisconnectedEventArgs, Task> DisconnectedAsync",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 80,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L80",
+      "declaration_candidate": "public event Func<InspectMqttPacketEventArgs, Task> InspectPacketAsync",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 86,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L86",
+      "declaration_candidate": "public bool IsConnected => (MqttClientConnectionStatus)_connectionStatus == MqttClientConnectionStatus.Connected;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 88,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L88",
+      "declaration_candidate": "public MqttClientOptions Options { get; private set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 90,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L90",
+      "declaration_candidate": "public async Task<MqttClientConnectResult> ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 178,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L178",
+      "declaration_candidate": "public async Task DisconnectAsync(MqttClientDisconnectOptions options, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 226,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L226",
+      "declaration_candidate": "public async Task PingAsync(CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 244,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L244",
+      "declaration_candidate": "public Task<MqttClientPublishResult> PublishAsync(MqttApplicationMessage applicationMessage, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 281,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L281",
+      "declaration_candidate": "public Task SendEnhancedAuthenticationExchangeDataAsync(MqttEnhancedAuthenticationExchangeData data, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 301,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L301",
+      "declaration_candidate": "public async Task<MqttClientSubscribeResult> SubscribeAsync(MqttClientSubscribeOptions options, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 335,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L335",
+      "declaration_candidate": "public async Task<MqttClientUnsubscribeResult> UnsubscribeAsync(MqttClientUnsubscribeOptions options, CancellationToken cancellationToken = default)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "Source/MQTTnet/MqttClient.cs",
+      "source_line": 369,
+      "source_url": "https://github.com/dotnet/MQTTnet/blob/798a0e2250f40a241e0c8d2e7c9a366051be1b97/Source/MQTTnet/MqttClient.cs#L369",
+      "declaration_candidate": "protected override void Dispose(bool disposing)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

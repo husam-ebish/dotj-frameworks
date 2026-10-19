@@ -1,8 +1,10 @@
 # DJ-026 .j Validation: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Provide fluent rules, composed validators and contextual validation results.
 
-Product type: JVM validation library. Proposed Java package root: `org.dotj.validation`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: JVM validation library. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: JVM validation library. Proposed Java package root: `org.dotj.vali
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 Property paths and lambda-based member discovery need generated accessors or explicit paths; avoid fragile serialized-lambda inspection.
 
@@ -24,7 +26,7 @@ Property paths and lambda-based member discovery need generated accessors or exp
 
 ### WP-01: Rule model and fluent construction
 
-Contract vocabulary: `Validator`, `Rule`, `PropertyPath`, `RuleSet`.
+Internal analysis vocabulary (not permission to rename the public API): `Validator`, `Rule`, `PropertyPath`, `RuleSet`.
 
 Define property accessors rule chains conditions and dependent rules. Specify cascade modes and severity/error-code metadata. Freeze or isolate mutable builder configuration before concurrent use.
 
@@ -32,7 +34,7 @@ Required observable invariant: Rule ordering is deterministic; nested paths pres
 
 ### WP-02: Built-in validators and comparisons
 
-Contract vocabulary: `Constraint`, `ComparisonContext`, `MessageArgument`.
+Internal analysis vocabulary (not permission to rename the public API): `Constraint`, `ComparisonContext`, `MessageArgument`.
 
 Map null empty length range regex email and comparison semantics. Define culture Unicode and numeric conversion policies. Bound expensive regex and custom validation operations.
 
@@ -40,7 +42,7 @@ Required observable invariant: Null-versus-empty behavior matches its profile; l
 
 ### WP-03: Asynchronous and child validation
 
-Contract vocabulary: `ValidationContext`, `AsyncRule`, `ChildValidator`.
+Internal analysis vocabulary (not permission to rename the public API): `ValidationContext`, `AsyncRule`, `ChildValidator`.
 
 Propagate cancellation through asynchronous validators. Compose child/collection validation with clear stop policies. Distinguish validation failures from validator execution errors.
 
@@ -48,7 +50,7 @@ Required observable invariant: Cancellation prevents later rules where promised;
 
 ### WP-04: Messages localization and extensibility
 
-Contract vocabulary: `MessageCatalog`, `CustomValidator`, `FailureFormatter`.
+Internal analysis vocabulary (not permission to rename the public API): `MessageCatalog`, `CustomValidator`, `FailureFormatter`.
 
 Define placeholder expansion and localized catalogs. Permit custom validators through stable context interfaces. Keep sensitive property values out of default error serialization.
 
@@ -56,7 +58,7 @@ Required observable invariant: Missing translations use documented fallback; cus
 
 ### WP-05: Web integration and regression acceptance
 
-Contract vocabulary: `ValidationAdapter`, `ValidationResult`, `RuleCoverage`.
+Internal analysis vocabulary (not permission to rename the public API): `ValidationAdapter`, `ValidationResult`, `RuleCoverage`.
 
 Integrate endpoint/model binding as an optional web adapter. Port rule-order culture async and collection regression cases. Expose machine-readable failures independently of HTTP formatting.
 
@@ -70,4 +72,4 @@ Proposed .j dependencies: core;web(optional). Optional adapters depend inward on
 
 ## Migration walkthrough
 
-Take one existing FluentValidation usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `Validator` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Rule ordering is deterministic; nested paths preserve collection indices; concurrent validations do not share mutable request state. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing FluentValidation usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `Validator` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Rule ordering is deterministic; nested paths preserve collection indices; concurrent validations do not share mutable request state. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.

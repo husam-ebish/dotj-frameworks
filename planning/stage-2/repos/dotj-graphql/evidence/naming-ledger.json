@@ -1,0 +1,128 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-graphql",
+  "source": "https://github.com/graphql-dotnet/graphql-dotnet",
+  "revision": "af0b3e77b874cc73167d70910103ac708f14ed28",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/GraphQL/BoolBox.cs",
+      "source_line": 4,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/BoolBox.cs#L4",
+      "declaration_candidate": "public static class BoolBox",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/BoolBox.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/BoolBox.cs#L9",
+      "declaration_candidate": "public static readonly object True = true;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/BoolBox.cs",
+      "source_line": 14,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/BoolBox.cs#L14",
+      "declaration_candidate": "public static readonly object False = false;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/BoolBox.cs",
+      "source_line": 19,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/BoolBox.cs#L19",
+      "declaration_candidate": "public static object Boxed(this bool value) => value switch",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/BoolBox.cs",
+      "source_line": 28,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/BoolBox.cs#L28",
+      "declaration_candidate": "public static object? Boxed(this bool? value) => value switch",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/VariableName.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/VariableName.cs#L9",
+      "declaration_candidate": "public struct VariableName",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/VariableName.cs",
+      "source_line": 14,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/VariableName.cs#L14",
+      "declaration_candidate": "public VariableName(VariableName variableName, int index)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/VariableName.cs",
+      "source_line": 24,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/VariableName.cs#L24",
+      "declaration_candidate": "public VariableName(VariableName variableName, string childName)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/VariableName.cs",
+      "source_line": 43,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/VariableName.cs#L43",
+      "declaration_candidate": "public string Name { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/VariableName.cs",
+      "source_line": 48,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/VariableName.cs#L48",
+      "declaration_candidate": "public int? Index { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/VariableName.cs",
+      "source_line": 53,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/VariableName.cs#L53",
+      "declaration_candidate": "public string? ChildName { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/VariableName.cs",
+      "source_line": 63,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/VariableName.cs#L63",
+      "declaration_candidate": "public static implicit operator VariableName(string name) => new() { Name = name };",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/GraphQL/VariableName.cs",
+      "source_line": 66,
+      "source_url": "https://github.com/graphql-dotnet/graphql-dotnet/blob/af0b3e77b874cc73167d70910103ac708f14ed28/src/GraphQL/VariableName.cs#L66",
+      "declaration_candidate": "public static implicit operator string(VariableName variableName) => variableName.ToString();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

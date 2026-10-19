@@ -1,8 +1,10 @@
 # DJ-035 .j Versioning: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Provide API-version discovery, selection, routing and deprecation reporting.
 
-Product type: JVM web library. Proposed Java package root: `org.dotj.versioning`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: JVM web library. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: JVM web library. Proposed Java package root: `org.dotj.versioning`
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 Preserve query/header/media-type version negotiation and ambiguity behavior; Java endpoint metadata replaces ASP.NET action descriptors.
 
@@ -24,7 +26,7 @@ Preserve query/header/media-type version negotiation and ambiguity behavior; Jav
 
 ### WP-01: Version model and readers
 
-Contract vocabulary: `ApiVersion`, `VersionReader`, `VersionSet`.
+Internal analysis vocabulary (not permission to rename the public API): `ApiVersion`, `VersionReader`, `VersionSet`.
 
 Define numeric/string versions and neutral/deprecated semantics. Compose query header media-type and URL readers. Reject ambiguous conflicting version inputs.
 
@@ -32,7 +34,7 @@ Required observable invariant: Same request cannot silently select between confl
 
 ### WP-02: Endpoint selection and reporting
 
-Contract vocabulary: `VersionedEndpoint`, `SelectionPolicy`, `VersionReport`.
+Internal analysis vocabulary (not permission to rename the public API): `VersionedEndpoint`, `SelectionPolicy`, `VersionReport`.
 
 Integrate route selection with dotj-web metadata. Define default-version behavior only when configured. Report supported/deprecated versions without exposing internal endpoints.
 
@@ -40,7 +42,7 @@ Required observable invariant: Unsupported versions produce documented status; r
 
 ### WP-03: MVC and minimal API conventions
 
-Contract vocabulary: `VersionConvention`, `ControllerVersionModel`, `EndpointGroup`.
+Internal analysis vocabulary (not permission to rename the public API): `VersionConvention`, `ControllerVersionModel`, `EndpointGroup`.
 
 Define annotation and convention precedence. Support controller inheritance and endpoint groups. Keep framework-specific adapters separate.
 
@@ -48,7 +50,7 @@ Required observable invariant: Inherited actions resolve consistently; explicit 
 
 ### WP-04: API exploration and documentation
 
-Contract vocabulary: `VersionedDescription`, `GroupName`, `ParameterSubstitution`.
+Internal analysis vocabulary (not permission to rename the public API): `VersionedDescription`, `GroupName`, `ParameterSubstitution`.
 
 Generate per-version endpoint descriptions. Substitute URL version parameters safely. Connect documentation through optional openapi adapters.
 
@@ -56,7 +58,7 @@ Required observable invariant: Documents contain only applicable operations; con
 
 ### WP-05: Migration and compatibility cases
 
-Contract vocabulary: `VersioningProfile`, `RequestFixture`, `DeprecationPolicy`.
+Internal analysis vocabulary (not permission to rename the public API): `VersioningProfile`, `RequestFixture`, `DeprecationPolicy`.
 
 Port reader selection error and explorer regressions. Document behavior changes between source baselines. Provide examples for each reader strategy.
 
@@ -70,4 +72,4 @@ Proposed .j dependencies: web. Optional adapters depend inward on contracts; pro
 
 ## Migration walkthrough
 
-Take one existing ASP.NET API Versioning usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `ApiVersion` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Same request cannot silently select between conflicting versions; invalid syntax has stable error details; neutral endpoints have explicit rules. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing ASP.NET API Versioning usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `ApiVersion` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Same request cannot silently select between conflicting versions; invalid syntax has stable error details; neutral endpoints have explicit rules. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.

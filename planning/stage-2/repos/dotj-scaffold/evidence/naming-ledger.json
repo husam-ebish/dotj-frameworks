@@ -1,0 +1,38 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-scaffold",
+  "source": "https://github.com/dotnet/Scaffolding",
+  "revision": "107111c945bcf1264c035457a0744318b6bae3d9",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/MSIdentityScaffolding/dotnet-msidentity/Program.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/dotnet-msidentity/Program.cs#L12",
+      "declaration_candidate": "public static class Program",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MSIdentityScaffolding/dotnet-msidentity/Program.cs",
+      "source_line": 14,
+      "source_url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/MSIdentityScaffolding/dotnet-msidentity/Program.cs#L14",
+      "declaration_candidate": "public static async Task<int> Main(string[] args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Scaffolding/VS.Web.CG.Mvc/Constants.cs",
+      "source_line": 25,
+      "source_url": "https://github.com/dotnet/Scaffolding/blob/107111c945bcf1264c035457a0744318b6bae3d9/src/Scaffolding/VS.Web.CG.Mvc/Constants.cs#L25",
+      "declaration_candidate": "public static readonly string ThisAssemblyName = typeof(Constants).GetTypeInfo().Assembly.GetName().Name;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

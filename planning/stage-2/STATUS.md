@@ -1,11 +1,13 @@
 # Current status
 
+**Owner requirement:** exact upstream .NET public names, casing and concepts across all 66 repositories. Read [the mandatory naming policy](08-DOTNET-API-COMPATIBILITY-POLICY.md). N01 adds a source-to-Java public API mapping and concept-preservation gate; Java implementation details must not become a replacement learning path.
+
 | Dimension | Status |
 |---|---|
 | Inventory coverage | 66 of 66 targets included |
 | Stage-1 main plans | Previously delivered; historical inputs |
-| Stage-2 written plan coverage | 66 of 66; 344 feature packages; 1032 named tasks |
-| Designed acceptance cases | 1053 |
+| Stage-2 written plan coverage | 66 of 66; 344 feature packages; 1296 named tasks |
+| Designed acceptance cases | 1251 |
 | New pinned source/API/test samples | 311 |
 | Source tree scope | 65 recorded recursive listings; core recursive listing partial with separate complete 218-directory library root |
 | Semantic/API/test analysis | Sampled; exhaustive build-aware closure OPEN per slice |

@@ -1,0 +1,83 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-graph-platform",
+  "source": "https://github.com/ChilliCream/graphql-platform",
+  "revision": "284f0b5f44cf1670a546f5cb1a4311bab08ffd5c",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Nullable.cs",
+      "source_line": 60,
+      "source_url": "https://github.com/ChilliCream/graphql-platform/blob/284f0b5f44cf1670a546f5cb1a4311bab08ffd5c/src/Nullable.cs#L60",
+      "declaration_candidate": "public MaybeNullWhenAttribute(bool returnValue) => ReturnValue = returnValue;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Nullable.cs",
+      "source_line": 63,
+      "source_url": "https://github.com/ChilliCream/graphql-platform/blob/284f0b5f44cf1670a546f5cb1a4311bab08ffd5c/src/Nullable.cs#L63",
+      "declaration_candidate": "public bool ReturnValue { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Nullable.cs",
+      "source_line": 79,
+      "source_url": "https://github.com/ChilliCream/graphql-platform/blob/284f0b5f44cf1670a546f5cb1a4311bab08ffd5c/src/Nullable.cs#L79",
+      "declaration_candidate": "public NotNullWhenAttribute(bool returnValue) => ReturnValue = returnValue;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Nullable.cs",
+      "source_line": 82,
+      "source_url": "https://github.com/ChilliCream/graphql-platform/blob/284f0b5f44cf1670a546f5cb1a4311bab08ffd5c/src/Nullable.cs#L82",
+      "declaration_candidate": "public bool ReturnValue { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Nullable.cs",
+      "source_line": 98,
+      "source_url": "https://github.com/ChilliCream/graphql-platform/blob/284f0b5f44cf1670a546f5cb1a4311bab08ffd5c/src/Nullable.cs#L98",
+      "declaration_candidate": "public NotNullIfNotNullAttribute(string parameterName) => ParameterName = parameterName;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Nullable.cs",
+      "source_line": 101,
+      "source_url": "https://github.com/ChilliCream/graphql-platform/blob/284f0b5f44cf1670a546f5cb1a4311bab08ffd5c/src/Nullable.cs#L101",
+      "declaration_candidate": "public string ParameterName { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Nullable.cs",
+      "source_line": 127,
+      "source_url": "https://github.com/ChilliCream/graphql-platform/blob/284f0b5f44cf1670a546f5cb1a4311bab08ffd5c/src/Nullable.cs#L127",
+      "declaration_candidate": "public DoesNotReturnIfAttribute(bool parameterValue) => ParameterValue = parameterValue;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Nullable.cs",
+      "source_line": 130,
+      "source_url": "https://github.com/ChilliCream/graphql-platform/blob/284f0b5f44cf1670a546f5cb1a4311bab08ffd5c/src/Nullable.cs#L130",
+      "declaration_candidate": "public bool ParameterValue { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

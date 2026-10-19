@@ -1,8 +1,10 @@
 # DJ-047 .j Components: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Provide Radzen-style application UI components, data displays and interaction tooling.
 
-Product type: Browser component library. Proposed Java package root: `org.dotj.components`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: Browser component library. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -17,7 +19,7 @@ Product type: Browser component library. Proposed Java package root: `org.dotj.c
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 Preserve event/data-binding behavior and pagination/filtering contracts; chart/scheduler UI must not take over domain scheduling ownership.
 
@@ -25,7 +27,7 @@ Preserve event/data-binding behavior and pagination/filtering contracts; chart/s
 
 ### WP-01: Component API and rendering
 
-Contract vocabulary: `ComponentDescriptor`, `Parameter`, `RenderState`.
+Internal analysis vocabulary (not permission to rename the public API): `ComponentDescriptor`, `Parameter`, `RenderState`.
 
 Inventory Radzen open-source component families and parameters. Bind component output to dotj-web/Razor contracts. Define parameter updates event callbacks and disposal.
 
@@ -33,7 +35,7 @@ Required observable invariant: Parameter changes produce deterministic render ch
 
 ### WP-02: Forms input and validation
 
-Contract vocabulary: `InputState`, `EditContext`, `ValidationMessage`.
+Internal analysis vocabulary (not permission to rename the public API): `InputState`, `EditContext`, `ValidationMessage`.
 
 Specify value parsing formatting focus and touched/dirty states. Integrate optional validation adapters. Handle asynchronous validation races and debounce.
 
@@ -41,7 +43,7 @@ Required observable invariant: Stale validation results cannot overwrite newer i
 
 ### WP-03: Tables grids and data interaction
 
-Contract vocabulary: `GridState`, `SortDescriptor`, `SelectionModel`.
+Internal analysis vocabulary (not permission to rename the public API): `GridState`, `SortDescriptor`, `SelectionModel`.
 
 Define local/remote sorting filtering grouping and pagination. Specify virtualization item identity and selection persistence. Bound remote requests and cancel superseded loads.
 
@@ -49,7 +51,7 @@ Required observable invariant: Out-of-order responses cannot replace newer data;
 
 ### WP-04: Themes dialogs navigation and assets
 
-Contract vocabulary: `Theme`, `DialogResult`, `NavigationItem`, `AssetManifest`.
+Internal analysis vocabulary (not permission to rename the public API): `Theme`, `DialogResult`, `NavigationItem`, `AssetManifest`.
 
 Define styling tokens responsive layout and directionality. Manage overlays focus traps and navigation events. Track icons fonts CSS and JavaScript asset provenance.
 
@@ -57,7 +59,7 @@ Required observable invariant: Dialog close restores focus; RTL fixtures remain 
 
 ### WP-05: Browser interop accessibility and coverage
 
-Contract vocabulary: `BrowserAdapter`, `AccessibilityCase`, `ComponentMatrix`.
+Internal analysis vocabulary (not permission to rename the public API): `BrowserAdapter`, `AccessibilityCase`, `ComponentMatrix`.
 
 Specify required JS functions through a narrow versioned contract. Test hydration reconnect keyboard screen readers and reduced motion. Map every component to implemented deferred or feasibility-gated status.
 
@@ -65,7 +67,7 @@ Required observable invariant: Server-only operation is distinguished from requi
 
 ### WP-06: Charts scheduler upload and designer boundary
 
-Contract vocabulary: `ChartSeries`, `SchedulerView`, `UploadSession`, `ComponentScope`.
+Internal analysis vocabulary (not permission to rename the public API): `ChartSeries`, `SchedulerView`, `UploadSession`, `ComponentScope`.
 
 Specify SVG/canvas charts accessible alternatives and interaction. Keep scheduler UI distinct from durable job scheduling. Define upload cancellation limits and open-component versus proprietary designer scope.
 
@@ -79,4 +81,8 @@ Proposed .j dependencies: web. Optional adapters depend inward on contracts; pro
 
 ## Migration walkthrough
 
-Take one existing Radzen Blazor usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `ComponentDescriptor` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Parameter changes produce deterministic render changes; disposed components release handlers; unsupported component APIs remain inventoried. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing Radzen Blazor usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `ComponentDescriptor` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Parameter changes produce deterministic render changes; disposed components release handlers; unsupported component APIs remain inventoried. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+
+## Public API direction under the owner requirement
+
+Retain original Radzen component names, parameters and event names for the declared open-source profile. Product branding does not authorize renaming Radzen-prefixed public components; proprietary designer scope remains separate.

@@ -1,6 +1,8 @@
 # .j Frameworks: complete Stage-2 written planning package
 
-Dated 2026-10-19. **66 repositories; 344 feature work packages; 1,032 named implementation tasks; 1,053 designed acceptance cases.** Each repository also has evidence gates E01-E03 and integrated qualification Q01. These counts describe written planning, not completed implementation or executed tests.
+**Owner requirement:** exact upstream .NET public names, casing and concepts across all 66 repositories. Read [the mandatory naming policy](08-DOTNET-API-COMPATIBILITY-POLICY.md). N01 adds a source-to-Java public API mapping and concept-preservation gate; Java implementation details must not become a replacement learning path.
+
+Dated 2026-10-19. **66 repositories; 344 feature work packages; 1,296 named implementation tasks; 1,251 designed acceptance cases.** Each repository also has evidence gates E01-E03, exact-API gate N01 and integrated qualification Q01. These counts describe written planning, not completed implementation or executed tests.
 
 This package completes the authored Stage-2 work breakdown for the full inventory. It supersedes the earlier core-only increment as the current planning handoff. It retains the deeper core source research and makes every other repository's plan available now.
 
@@ -20,6 +22,8 @@ This package completes the authored Stage-2 work breakdown for the full inventor
 | [05-PROVENANCE-AND-MAINTENANCE.md](05-PROVENANCE-AND-MAINTENANCE.md) | Source pins, licenses, asset/native rights and updates |
 | [06-DECISIONS-AND-BLOCKERS.md](06-DECISIONS-AND-BLOCKERS.md) | Defaults and gates that remain unresolved |
 | [07-IMPLEMENTATION-START.md](07-IMPLEMENTATION-START.md) | Concrete starting procedure and first milestone |
+| [08-DOTNET-API-COMPATIBILITY-POLICY.md](08-DOTNET-API-COMPATIBILITY-POLICY.md) | Mandatory exact .NET public names and concepts |
+| [09-NAMING-REVISION.md](09-NAMING-REVISION.md) | Changes made after the owner naming instruction |
 | [STATUS.md](STATUS.md) | Separate written-plan, audit, implementation and release status |
 | [VALIDATION.md](VALIDATION.md) | Package verification results |
 
@@ -31,6 +35,6 @@ You can commit and use this plan now. You do not need another response to obtain
 
 ## Folder convention
 
-This is an additive `planning/stage-2/` tree. It does not rewrite Stage-1 history. Each `repos/dotj-*/` directory has the ten required Stage-2 documents plus a README and evidence inventory. Existing files with the same Stage-2 paths are replaced by this consolidated revision. Do not treat the historical Stage-1 “Stage 2 not started” status as current.
+This is an additive `planning/stage-2/` tree. It does not rewrite Stage-1 history. Each `repos/dotj-*/` directory has the eleven required Stage-2 documents plus a README and evidence inventory. Existing files with the same Stage-2 paths are replaced by this consolidated revision. Do not treat the historical Stage-1 “Stage 2 not started” status as current.
 
 Machine-readable [task backlog](evidence/task-backlog.json), [acceptance cases](evidence/acceptance-fixtures.json) and [repository status](evidence/repository-status.json) can be used to create Azure DevOps work items later; no work items were created or messages sent.

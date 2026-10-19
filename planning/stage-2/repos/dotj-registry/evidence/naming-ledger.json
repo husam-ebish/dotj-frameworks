@@ -1,0 +1,83 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-registry",
+  "source": "https://github.com/NuGet/NuGetGallery",
+  "revision": "d6b9e689606e174e05c064a3531320200d4033c7",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/AccountDeleter/Job.cs",
+      "source_line": 34,
+      "source_url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/AccountDeleter/Job.cs#L34",
+      "declaration_candidate": "public class Job : SubscriptionProcessorJob<AccountDeleteMessage>",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AccountDeleter/Job.cs",
+      "source_line": 41,
+      "source_url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/AccountDeleter/Job.cs#L41",
+      "declaration_candidate": "public override void Init(IServiceContainer serviceContainer, IDictionary<string, string> jobArgsDictionary)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AccountDeleter/Job.cs",
+      "source_line": 47,
+      "source_url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/AccountDeleter/Job.cs#L47",
+      "declaration_candidate": "protected override void ConfigureJobServices(IServiceCollection services, IConfigurationRoot configurationRoot)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AccountDeleter/Job.cs",
+      "source_line": 118,
+      "source_url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/AccountDeleter/Job.cs#L118",
+      "declaration_candidate": "protected void ConfigureGalleryServices(IServiceCollection services)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/AccountDeleter/Job.cs",
+      "source_line": 183,
+      "source_url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/AccountDeleter/Job.cs#L183",
+      "declaration_candidate": "protected override void ConfigureAutofacServices(ContainerBuilder containerBuilder, IConfigurationRoot configurationRoot)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Ng/Program.cs",
+      "source_line": 27,
+      "source_url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/Ng/Program.cs#L27",
+      "declaration_candidate": "public class Program",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Ng/Program.cs",
+      "source_line": 33,
+      "source_url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/Ng/Program.cs#L33",
+      "declaration_candidate": "public static void Main(string[] args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Ng/Program.cs",
+      "source_line": 38,
+      "source_url": "https://github.com/NuGet/NuGetGallery/blob/d6b9e689606e174e05c064a3531320200d4033c7/src/Ng/Program.cs#L38",
+      "declaration_candidate": "public static async Task MainAsync(string[] args)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

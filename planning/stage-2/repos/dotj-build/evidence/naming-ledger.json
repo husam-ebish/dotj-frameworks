@@ -1,0 +1,1406 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-build",
+  "source": "https://github.com/dotnet/msbuild",
+  "revision": "6348d0c087aeec18c323b01a2c77da089ddafea0",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Framework/ITask.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/ITask.cs#L12",
+      "declaration_candidate": "public interface ITask",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L15",
+      "declaration_candidate": "public static Traits Instance",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 27,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L27",
+      "declaration_candidate": "public Traits()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 35,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L35",
+      "declaration_candidate": "public EscapeHatches EscapeHatches { get; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 40,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L40",
+      "declaration_candidate": "public readonly bool ForceAllTasksOutOfProcToTaskHost = Environment.GetEnvironmentVariable(\"MSBUILDFORCEALLTASKSOUTOFPROC\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 46,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L46",
+      "declaration_candidate": "public readonly bool ForceMultiThreaded = Environment.GetEnvironmentVariable(\"MSBUILDFORCEMULTITHREADED\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 52,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L52",
+      "declaration_candidate": "public readonly bool EnableMultiThreaded = Environment.GetEnvironmentVariable(\"MSBUILDENABLEMULTITHREADED\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 57,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L57",
+      "declaration_candidate": "public readonly bool UseLazyWildCardEvaluation = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MsBuildSkipEagerWildCardEvaluationRegexes\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 58,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L58",
+      "declaration_candidate": "public readonly bool LogExpandedWildcards = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBUILDLOGEXPANDEDWILDCARDS\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 59,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L59",
+      "declaration_candidate": "public readonly bool ThrowOnDriveEnumeratingWildcard = Environment.GetEnvironmentVariable(\"MSBUILDFAILONDRIVEENUMERATINGWILDCARD\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 60,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L60",
+      "declaration_candidate": "public readonly bool UseLegacyCultureSensitiveFileGlobs = Environment.GetEnvironmentVariable(\"MSBUILDUSELEGACYCULTURESENSITIVEFILEGLOBS\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 65,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L65",
+      "declaration_candidate": "public readonly bool CacheFileExistence = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MsBuildCacheFileExistence\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 67,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L67",
+      "declaration_candidate": "public readonly bool UseSimpleProjectRootElementCacheConcurrency = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MsBuildUseSimpleProjectRootElementCacheConcurrency\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 72,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L72",
+      "declaration_candidate": "public readonly bool MSBuildCacheFileEnumerations = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MsBuildCacheFileEnumerations\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 74,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L74",
+      "declaration_candidate": "public readonly bool EnableAllPropertyFunctions = Environment.GetEnvironmentVariable(\"MSBUILDENABLEALLPROPERTYFUNCTIONS\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 79,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L79",
+      "declaration_candidate": "public readonly bool EnableRestoreFirst = Environment.GetEnvironmentVariable(\"MSBUILDENABLERESTOREFIRST\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 84,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L84",
+      "declaration_candidate": "public static readonly string? MSBuildNodeHandshakeSalt = Environment.GetEnvironmentVariable(\"MSBUILDNODEHANDSHAKESALT\");",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 89,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L89",
+      "declaration_candidate": "public readonly bool ForceEvaluateAsFullFramework = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MsBuildForceEvaluateAsFullFramework\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 97,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L97",
+      "declaration_candidate": "public readonly int CopyTaskParallelism = EnvironmentUtilities.GetValueAsInt32OrDefault(\"MSBUILDCOPYTASKPARALLELISM\", -1);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 102,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L102",
+      "declaration_candidate": "public readonly bool EmitSolutionMetaproj = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBuildEmitSolution\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 112,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L112",
+      "declaration_candidate": "public readonly bool SolutionBatchTargets = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBuildSolutionBatchTargets\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 117,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L117",
+      "declaration_candidate": "public readonly bool LogPropertyFunctionsRequiringReflection = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBuildLogPropertyFunctionsRequiringReflection\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 122,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L122",
+      "declaration_candidate": "public readonly bool LogAllAssemblyLoads = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBUILDLOGALLASSEMBLYLOADS\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 127,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L127",
+      "declaration_candidate": "public static bool LogAllEnvironmentVariables = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBUILDLOGALLENVIRONMENTVARIABLES\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 132,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L132",
+      "declaration_candidate": "public readonly int LogPropertyTracking = EnvironmentUtilities.GetValueAsInt32OrDefault(\"MsBuildLogPropertyTracking\", 0); // Default to logging nothing via the property tracker.",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 137,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L137",
+      "declaration_candidate": "public readonly int DictionaryBasedItemRemoveThreshold = EnvironmentUtilities.GetValueAsInt32OrDefault(\"MSBUILDDICTIONARYBASEDITEMREMOVETHRESHOLD\", 100);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 150,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L150",
+      "declaration_candidate": "public readonly int NodeConnectionBufferSize = GetNodeConnectionBufferSize();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 158,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L158",
+      "declaration_candidate": "public readonly int LogPacketBatchSize = GetLogPacketBatchSize();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 187,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L187",
+      "declaration_candidate": "public readonly bool EnableRarNode = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBuildRarNode\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 192,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L192",
+      "declaration_candidate": "public readonly bool EnableCoordinator = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(UseCoordinatorEnvVarName));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 219,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L219",
+      "declaration_candidate": "public static string? MSBuildLoggingArgs => Environment.GetEnvironmentVariable(MSBuildLoggingArgsEnvVarName);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 224,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L224",
+      "declaration_candidate": "public readonly bool EmitLogsAsMessage = string.Equals(Environment.GetEnvironmentVariable(MSBuildLoggingArgsLevelEnvVarName), \"message\", StringComparison.OrdinalIgnoreCase);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 226,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L226",
+      "declaration_candidate": "public readonly bool DebugEngine =",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 231,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L231",
+      "declaration_candidate": "public readonly bool DebugScheduler;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 232,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L232",
+      "declaration_candidate": "public readonly bool DebugNodeCommunication;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 233,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L233",
+      "declaration_candidate": "public readonly bool DebugUnitTests = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBuildDebugUnitTests\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 235,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L235",
+      "declaration_candidate": "public readonly bool InProcNodeDisabled = Environment.GetEnvironmentVariable(\"MSBUILDNOINPROCNODE\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 240,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L240",
+      "declaration_candidate": "public readonly bool ForceTaskFactoryOutOfProc = Environment.GetEnvironmentVariable(\"MSBUILDFORCEINLINETASKFACTORIESOUTOFPROC\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 245,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L245",
+      "declaration_candidate": "public readonly bool ConsoleUseDefaultEncoding = Environment.GetEnvironmentVariable(\"MSBUILD_CONSOLE_USE_DEFAULT_ENCODING\") == \"1\" || Environment.GetEnvironmentVariable(\"DOTNET_CLI_CONSOLE_USE_DEFAULT_ENCODING\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 252,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L252",
+      "declaration_candidate": "public bool SdkTelemetryOptOut = EnvironmentUtilities.IsValueOneOrTrue(\"DOTNET_CLI_TELEMETRY_OPTOUT\");",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 253,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L253",
+      "declaration_candidate": "public bool FrameworkTelemetryOptOut = EnvironmentUtilities.IsValueOneOrTrue(\"MSBUILD_TELEMETRY_OPTOUT\");",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 254,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L254",
+      "declaration_candidate": "public bool ExcludeTasksDetailsFromTelemetry = EnvironmentUtilities.IsValueOneOrTrue(\"MSBUILDTELEMETRYEXCLUDETASKSDETAILS\");",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 255,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L255",
+      "declaration_candidate": "public bool FlushNodesTelemetryIntoConsole = EnvironmentUtilities.IsValueOneOrTrue(\"MSBUILDFLUSHNODESTELEMETRYINTOCONSOLE\");",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 256,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L256",
+      "declaration_candidate": "public bool TelemetryDiagnostics = EnvironmentUtilities.IsValueOneOrTrue(\"MSBUILD_TELEMETRY_DIAGNOSTICS\");",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 261,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L261",
+      "declaration_candidate": "public readonly int TelemetryShutdownTimeoutMs = GetTelemetryShutdownTimeoutMs();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 269,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L269",
+      "declaration_candidate": "public bool EnableTargetOutputLogging = EnvironmentUtilities.IsValueOneOrTrue(\"MSBUILDTARGETOUTPUTLOGGING\");",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 272,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L272",
+      "declaration_candidate": "public readonly bool SlnParsingWithSolutionPersistenceOptIn = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBUILD_PARSE_SLN_WITH_SOLUTIONPERSISTENCE\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 274,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L274",
+      "declaration_candidate": "public static void UpdateFromEnvironment()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 286,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L286",
+      "declaration_candidate": "public readonly bool DoNotSendDeferredMessagesToBuildManager = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MsBuildDoNotSendDeferredMessagesToBuildManager\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 292,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L292",
+      "declaration_candidate": "public readonly bool DoNotExpandQualifiedMetadataInUpdateOperation = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBuildDoNotExpandQualifiedMetadataInUpdateOperation\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 297,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L297",
+      "declaration_candidate": "public readonly bool? EvaluateElementsWithFalseConditionInProjectEvaluation = ParseNullableBoolFromEnvironmentVariable(\"MSBUILDEVALUATEELEMENTSWITHFALSECONDITIONINPROJECTEVALUATION\");",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 302,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L302",
+      "declaration_candidate": "public readonly bool AlwaysUseContentTimestamp = Environment.GetEnvironmentVariable(\"MSBUILDALWAYSCHECKCONTENTTIMESTAMP\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 308,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L308",
+      "declaration_candidate": "public readonly bool TruncateTaskInputs = Environment.GetEnvironmentVariable(\"MSBUILDTRUNCATETASKINPUTS\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 313,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L313",
+      "declaration_candidate": "public readonly bool DoNotTruncateConditions = Environment.GetEnvironmentVariable(\"MSBuildDoNotTruncateConditions\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 318,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L318",
+      "declaration_candidate": "public readonly bool AlwaysEvaluateDangerousGlobs = Environment.GetEnvironmentVariable(\"MSBuildAlwaysEvaluateDangerousGlobs\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 325,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L325",
+      "declaration_candidate": "public readonly bool DisableParseConfig = Environment.GetEnvironmentVariable(\"MSBUILD_DISABLE_PARSE_CONFIG\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 330,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L330",
+      "declaration_candidate": "public readonly bool AlwaysDoImmutableFilesUpToDateCheck = Environment.GetEnvironmentVariable(\"MSBUILDDONOTCACHEMODIFICATIONTIME\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 335,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L335",
+      "declaration_candidate": "public readonly bool CopyWithoutDelete = Environment.GetEnvironmentVariable(\"MSBUILDCOPYWITHOUTDELETE\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 345,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L345",
+      "declaration_candidate": "public bool LogProjectImports",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 363,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L363",
+      "declaration_candidate": "public bool LogTaskInputs",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 381,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L381",
+      "declaration_candidate": "public bool? LogPropertiesAndItemsAfterEvaluation",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 408,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L408",
+      "declaration_candidate": "public readonly bool CacheAssemblyInformation = Environment.GetEnvironmentVariable(\"MSBUILDDONOTCACHERARASSEMBLYINFORMATION\") != \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 410,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L410",
+      "declaration_candidate": "public readonly ProjectInstanceTranslationMode? ProjectInstanceTranslation = ComputeProjectInstanceTranslation();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 415,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L415",
+      "declaration_candidate": "public readonly bool UseSymlinkTimeInsteadOfTargetTime = Environment.GetEnvironmentVariable(\"MSBUILDUSESYMLINKTIMESTAMP\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 420,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L420",
+      "declaration_candidate": "public readonly bool ReuseTaskHostNodes = Environment.GetEnvironmentVariable(\"MSBUILDREUSETASKHOSTNODES\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 425,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L425",
+      "declaration_candidate": "public readonly bool IgnoreEmptyImports = Environment.GetEnvironmentVariable(\"MSBUILDIGNOREEMPTYIMPORTS\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 430,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L430",
+      "declaration_candidate": "public readonly bool IgnoreTreatAsLocalProperty = Environment.GetEnvironmentVariable(\"MSBUILDIGNORETREATASLOCALPROPERTY\") != null;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 435,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L435",
+      "declaration_candidate": "public readonly bool DebugEvaluation = Environment.GetEnvironmentVariable(\"MSBUILDDEBUGEVALUATION\") != null;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 440,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L440",
+      "declaration_candidate": "public readonly bool WarnOnUninitializedProperty = !String.IsNullOrEmpty(Environment.GetEnvironmentVariable(\"MSBUILDWARNONUNINITIALIZEDPROPERTY\"));",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 448,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L448",
+      "declaration_candidate": "public readonly bool UseCaseSensitiveItemNames = Environment.GetEnvironmentVariable(\"MSBUILDUSECASESENSITIVEITEMNAMES\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 453,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L453",
+      "declaration_candidate": "public readonly bool DisableLongPaths = Environment.GetEnvironmentVariable(\"MSBUILDDISABLELONGPATHS\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 458,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L458",
+      "declaration_candidate": "public readonly bool DisableSdkResolutionCache = Environment.GetEnvironmentVariable(\"MSBUILDDISABLESDKCACHE\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 463,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L463",
+      "declaration_candidate": "public readonly bool TargetPathForRelatedFiles = Environment.GetEnvironmentVariable(\"MSBUILDTARGETPATHFORRELATEDFILES\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 468,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L468",
+      "declaration_candidate": "public readonly bool UseSingleLoadContext = Environment.GetEnvironmentVariable(\"MSBUILDSINGLELOADCONTEXT\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 475,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L475",
+      "declaration_candidate": "public readonly bool UseCustomLoadContextForDependenciesInToolsDirectory = Environment.GetEnvironmentVariable(\"MSBUILDUSECUSTOMLOADCONTEXTFORDEPENDENCIESINTOOLSDIRECTORY\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 480,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L480",
+      "declaration_candidate": "public readonly bool UseAutoRunWhenLaunchingProcessUnderCmd = Environment.GetEnvironmentVariable(\"MSBUILDUSERAUTORUNINCMD\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 485,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L485",
+      "declaration_candidate": "public readonly bool AvoidUnicodeWhenWritingToolTaskBatch = Environment.GetEnvironmentVariable(\"MSBUILDAVOIDUNICODE\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 490,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L490",
+      "declaration_candidate": "public readonly bool EnsureStdOutForChildNodesIsPrimaryStdout = Environment.GetEnvironmentVariable(\"MSBUILDENSURESTDOUTFORTASKPROCESSES\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 498,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L498",
+      "declaration_candidate": "public readonly bool UseMinimalResxParsingInCoreScenarios = Environment.GetEnvironmentVariable(\"MSBUILDUSEMINIMALRESX\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 506,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L506",
+      "declaration_candidate": "public readonly bool DoNotVersionBuildResult = Environment.GetEnvironmentVariable(\"MSBUILDDONOTVERSIONBUILDRESULT\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 511,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L511",
+      "declaration_candidate": "public readonly bool DoNotLimitBuildCheckResultsNumber = Environment.GetEnvironmentVariable(\"MSBUILDDONOTLIMITBUILDCHECKRESULTSNUMBER\") == \"1\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 522,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L522",
+      "declaration_candidate": "public SdkReferencePropertyExpansionMode? SdkReferencePropertyExpansion",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 610,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L610",
+      "declaration_candidate": "public enum ProjectInstanceTranslationMode",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Framework/Traits.cs",
+      "source_line": 616,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Framework/Traits.cs#L616",
+      "declaration_candidate": "public enum SdkReferencePropertyExpansionMode",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 23,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L23",
+      "declaration_candidate": "public class AL : ToolTaskExtension, IALTaskContract",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 76,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L76",
+      "declaration_candidate": "public string AlgorithmId",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 82,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L82",
+      "declaration_candidate": "public string BaseAddress",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 88,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L88",
+      "declaration_candidate": "public string CompanyName",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 94,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L94",
+      "declaration_candidate": "public string Configuration",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 100,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L100",
+      "declaration_candidate": "public string Copyright",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 106,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L106",
+      "declaration_candidate": "public string Culture",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 112,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L112",
+      "declaration_candidate": "public bool DelaySign",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 118,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L118",
+      "declaration_candidate": "public string Description",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 124,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L124",
+      "declaration_candidate": "public string EvidenceFile",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 130,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L130",
+      "declaration_candidate": "public string FileVersion",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 136,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L136",
+      "declaration_candidate": "public string Flags",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 142,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L142",
+      "declaration_candidate": "public bool GenerateFullPaths",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 148,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L148",
+      "declaration_candidate": "public string KeyFile",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 154,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L154",
+      "declaration_candidate": "public string KeyContainer",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 160,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L160",
+      "declaration_candidate": "public string MainEntryPoint",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 168,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L168",
+      "declaration_candidate": "public ITaskItem OutputAssembly",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 174,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L174",
+      "declaration_candidate": "public string Platform",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 196,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L196",
+      "declaration_candidate": "public bool Prefer32Bit",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 202,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L202",
+      "declaration_candidate": "public string ProductName",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 208,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L208",
+      "declaration_candidate": "public string ProductVersion",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 214,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L214",
+      "declaration_candidate": "public string[] ResponseFiles",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 220,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L220",
+      "declaration_candidate": "public string TargetType",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 226,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L226",
+      "declaration_candidate": "public string TemplateFile",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 232,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L232",
+      "declaration_candidate": "public string Title",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 238,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L238",
+      "declaration_candidate": "public string Trademark",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 244,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L244",
+      "declaration_candidate": "public string Version",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 250,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L250",
+      "declaration_candidate": "public string Win32Icon",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 256,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L256",
+      "declaration_candidate": "public string Win32Resource",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 265,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L265",
+      "declaration_candidate": "public ITaskItem[] SourceModules",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 272,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L272",
+      "declaration_candidate": "public ITaskItem[] EmbedResources",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 279,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L279",
+      "declaration_candidate": "public ITaskItem[] LinkResources",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 285,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L285",
+      "declaration_candidate": "public string SdkToolsPath",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 297,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L297",
+      "declaration_candidate": "protected override string ToolName => \"al.exe\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 302,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L302",
+      "declaration_candidate": "protected override string GenerateFullPathToTool()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 338,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L338",
+      "declaration_candidate": "protected internal override void AddResponseFileCommands(CommandLineBuilderExtension commandLine)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 391,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L391",
+      "declaration_candidate": "public override bool Execute()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 412,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L412",
+      "declaration_candidate": "public sealed class AL : TaskRequiresFramework, IALTaskContract",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 414,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L414",
+      "declaration_candidate": "public AL()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 421,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L421",
+      "declaration_candidate": "public string AlgorithmId { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 423,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L423",
+      "declaration_candidate": "public string BaseAddress { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 425,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L425",
+      "declaration_candidate": "public string CompanyName { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 427,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L427",
+      "declaration_candidate": "public string Configuration { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 429,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L429",
+      "declaration_candidate": "public string Copyright { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 431,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L431",
+      "declaration_candidate": "public string Culture { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 433,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L433",
+      "declaration_candidate": "public bool DelaySign { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 435,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L435",
+      "declaration_candidate": "public string Description { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 437,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L437",
+      "declaration_candidate": "public string EvidenceFile { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 439,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L439",
+      "declaration_candidate": "public string FileVersion { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 441,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L441",
+      "declaration_candidate": "public string Flags { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 443,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L443",
+      "declaration_candidate": "public bool GenerateFullPaths { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 445,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L445",
+      "declaration_candidate": "public string KeyFile { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 447,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L447",
+      "declaration_candidate": "public string KeyContainer { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 449,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L449",
+      "declaration_candidate": "public string MainEntryPoint { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 452,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L452",
+      "declaration_candidate": "public ITaskItem OutputAssembly { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 454,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L454",
+      "declaration_candidate": "public string Platform { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 456,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L456",
+      "declaration_candidate": "public bool Prefer32Bit { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 458,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L458",
+      "declaration_candidate": "public string ProductName { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 460,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L460",
+      "declaration_candidate": "public string ProductVersion { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 462,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L462",
+      "declaration_candidate": "public string[] ResponseFiles { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 464,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L464",
+      "declaration_candidate": "public string TargetType { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 466,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L466",
+      "declaration_candidate": "public string TemplateFile { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 468,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L468",
+      "declaration_candidate": "public string Title { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 470,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L470",
+      "declaration_candidate": "public string Trademark { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 472,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L472",
+      "declaration_candidate": "public string Version { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 474,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L474",
+      "declaration_candidate": "public string Win32Icon { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 476,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L476",
+      "declaration_candidate": "public string Win32Resource { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 478,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L478",
+      "declaration_candidate": "public ITaskItem[] SourceModules { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 480,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L480",
+      "declaration_candidate": "public ITaskItem[] EmbedResources { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 482,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L482",
+      "declaration_candidate": "public ITaskItem[] LinkResources { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Tasks/Al.cs",
+      "source_line": 484,
+      "source_url": "https://github.com/dotnet/msbuild/blob/6348d0c087aeec18c323b01a2c77da089ddafea0/src/Tasks/Al.cs#L484",
+      "declaration_candidate": "public string SdkToolsPath { get; set; }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

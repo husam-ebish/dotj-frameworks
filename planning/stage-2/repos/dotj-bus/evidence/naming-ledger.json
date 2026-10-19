@@ -1,0 +1,308 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-bus",
+  "source": "https://github.com/MassTransit/MassTransit",
+  "revision": "d9f61f764c802785cc9a4be92547d8f5b63018d4",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/MassTransit/Bus.cs",
+      "source_line": 9,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Bus.cs#L9",
+      "declaration_candidate": "public static class Bus",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Bus.cs",
+      "source_line": 14,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Bus.cs#L14",
+      "declaration_candidate": "public static IBusFactorySelector Factory { get; } = new BusFactorySelector();",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L12",
+      "declaration_candidate": "public static class Retry",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 19,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L19",
+      "declaration_candidate": "public static IRetryPolicy None { get; } = new NoRetryPolicy(new AllExceptionFilter());",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 27,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L27",
+      "declaration_candidate": "public static IRetryPolicy Immediate(int retryLimit)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 39,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L39",
+      "declaration_candidate": "public static IRetryPolicy Immediate(this IExceptionFilter filter, int retryLimit)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 50,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L50",
+      "declaration_candidate": "public static IRetryPolicy Intervals(params TimeSpan[] intervals)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 62,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L62",
+      "declaration_candidate": "public static IRetryPolicy Intervals(this IExceptionFilter filter, params TimeSpan[] intervals)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 73,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L73",
+      "declaration_candidate": "public static IRetryPolicy Intervals(params int[] intervals)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 85,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L85",
+      "declaration_candidate": "public static IRetryPolicy Intervals(this IExceptionFilter filter, params int[] intervals)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 96,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L96",
+      "declaration_candidate": "public static IRetryPolicy Interval(int retryCount, TimeSpan interval)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 107,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L107",
+      "declaration_candidate": "public static IRetryPolicy Interval(int retryCount, int interval)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 119,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L119",
+      "declaration_candidate": "public static IRetryPolicy Interval(this IExceptionFilter filter, int retryCount, TimeSpan interval)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 133,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L133",
+      "declaration_candidate": "public static IRetryPolicy Exponential(int retryLimit, TimeSpan minInterval, TimeSpan maxInterval,",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 147,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L147",
+      "declaration_candidate": "public static IRetryPolicy Exponential(TimeSpan minInterval, TimeSpan maxInterval, TimeSpan intervalDelta)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 162,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L162",
+      "declaration_candidate": "public static IRetryPolicy Exponential(this IExceptionFilter filter, int retryLimit,",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 177,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L177",
+      "declaration_candidate": "public static IRetryPolicy Incremental(int retryLimit, TimeSpan initialInterval,",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 192,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L192",
+      "declaration_candidate": "public static IRetryPolicy Incremental(this IExceptionFilter filter, int retryLimit,",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 199,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L199",
+      "declaration_candidate": "public static IRetryPolicy CreatePolicy(Action<IRetryConfigurator> configure)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 213,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L213",
+      "declaration_candidate": "public static IExceptionFilter Except(params Type[] exceptionTypes)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 222,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L222",
+      "declaration_candidate": "public static IExceptionFilter Except<T1>()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 231,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L231",
+      "declaration_candidate": "public static IExceptionFilter Except<T1, T2>()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 240,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L240",
+      "declaration_candidate": "public static IExceptionFilter Except<T1, T2, T3>()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 250,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L250",
+      "declaration_candidate": "public static IExceptionFilter Selected(params Type[] exceptionTypes)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 259,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L259",
+      "declaration_candidate": "public static IExceptionFilter Selected<T1>()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 268,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L268",
+      "declaration_candidate": "public static IExceptionFilter Selected<T1, T2>()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 277,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L277",
+      "declaration_candidate": "public static IExceptionFilter Selected<T1, T2, T3>()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 286,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L286",
+      "declaration_candidate": "public static IExceptionFilter All()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 297,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L297",
+      "declaration_candidate": "public static IExceptionFilter Filter<T>(Func<T, bool> filter)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 312,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L312",
+      "declaration_candidate": "public RetryConfigurator()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 317,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L317",
+      "declaration_candidate": "public void SetRetryPolicy(RetryPolicyFactory factory)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 327,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L327",
+      "declaration_candidate": "public IEnumerable<ValidationResult> Validate()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/MassTransit/Retry.cs",
+      "source_line": 333,
+      "source_url": "https://github.com/MassTransit/MassTransit/blob/d9f61f764c802785cc9a4be92547d8f5b63018d4/src/MassTransit/Retry.cs#L333",
+      "declaration_candidate": "public IRetryPolicy Build()",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

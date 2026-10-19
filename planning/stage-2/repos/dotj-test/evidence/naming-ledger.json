@@ -1,0 +1,56 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-test",
+  "source": "https://github.com/nunit/nunit",
+  "revision": "55d908f8cc4402f8d53955d20aefcee9f55a59ec",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "CakeScripts/MinVerTool.cs",
+      "source_line": 5,
+      "source_url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts/MinVerTool.cs#L5",
+      "declaration_candidate": "public enum AutoIncrement",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "CakeScripts/MinVerTool.cs",
+      "source_line": 12,
+      "source_url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts/MinVerTool.cs#L12",
+      "declaration_candidate": "public static class MinVerTool",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "CakeScripts/MinVerTool.cs",
+      "source_line": 14,
+      "source_url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts/MinVerTool.cs#L14",
+      "declaration_candidate": "public static string GetVersion(AutoIncrement autoIncrement = AutoIncrement.Minor, string tagPrefix = \"v\")",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "CakeScripts/VersionParsers.cs",
+      "source_line": 3,
+      "source_url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts/VersionParsers.cs#L3",
+      "declaration_candidate": "public static class VersionParsers",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "CakeScripts/VersionParsers.cs",
+      "source_line": 5,
+      "source_url": "https://github.com/nunit/nunit/blob/55d908f8cc4402f8d53955d20aefcee9f55a59ec/CakeScripts/VersionParsers.cs#L5",
+      "declaration_candidate": "public static string ParseAssemblyVersion(string version)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

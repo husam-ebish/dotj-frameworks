@@ -1,5 +1,7 @@
 # DJ-006 .j Extensions: module and API inventory
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 | Observed item | Count | Interpretation |
 |---|---|---|
 | Listed blob paths | 3721 | recursive complete |
@@ -248,7 +250,7 @@ Full lexical records (126) and complete listed paths are in [inventory.json](evi
 
 ## Capability ownership
 
-| Package | Retained capability | Proposed contract names |
+| Package | Retained capability | Internal planning labels; public names come from source |
 |---|---|---|
 | WP-01 | Package ownership and adapter graph | ExtensionModuleDescriptor; CapabilitySPI; IntegrationManifest |
 | WP-02 | Resilience HTTP and service discovery | ServiceEndpointResolver; HttpPipelineDecorator; DiscoverySnapshot |

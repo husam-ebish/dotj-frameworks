@@ -1,8 +1,10 @@
 # DJ-065 .j Mediator: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Provide in-process request/response, notifications and composable pipeline behavior.
 
-Product type: JVM application library. Proposed Java package root: `org.dotj.mediator`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: JVM application library. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: JVM application library. Proposed Java package root: `org.dotj.med
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 Preserve handler resolution and pipeline order; generic variance and streaming cancellation need Java-specific contracts.
 
@@ -24,7 +26,7 @@ Preserve handler resolution and pipeline order; generic variance and streaming c
 
 ### WP-01: License baseline requests and handlers
 
-Contract vocabulary: `MediatorLicenseRecord`, `Request`, `Handler`, `Response`.
+Internal analysis vocabulary (not permission to rename the public API): `MediatorLicenseRecord`, `Request`, `Handler`, `Response`.
 
 Freeze inspected MediatR revision and license path. Define typed request/response and handler cardinality. Validate registration without executing handlers.
 
@@ -32,7 +34,7 @@ Required observable invariant: Source reuse waits for rights resolution; missing
 
 ### WP-02: Pipeline behaviors and exception handling
 
-Contract vocabulary: `PipelineBehavior`, `RequestContext`, `ExceptionHandler`.
+Internal analysis vocabulary (not permission to rename the public API): `PipelineBehavior`, `RequestContext`, `ExceptionHandler`.
 
 Define pre/post processor nesting and exception actions. Propagate cancellation and explicit context. Separate handler failures from pipeline construction errors.
 
@@ -40,7 +42,7 @@ Required observable invariant: Behavior order is deterministic; cleanup runs on 
 
 ### WP-03: Notifications publishing and concurrency
 
-Contract vocabulary: `Notification`, `NotificationHandler`, `PublishStrategy`.
+Internal analysis vocabulary (not permission to rename the public API): `Notification`, `NotificationHandler`, `PublishStrategy`.
 
 Specify sequential and parallel publish strategies. Define aggregate failures and cancellation policy. Preserve per-publication scoped dependencies.
 
@@ -48,7 +50,7 @@ Required observable invariant: Parallel failures are not lost; sequential strate
 
 ### WP-04: Streaming requests and lifecycle
 
-Contract vocabulary: `StreamRequest`, `StreamHandler`, `StreamBehavior`.
+Internal analysis vocabulary (not permission to rename the public API): `StreamRequest`, `StreamHandler`, `StreamBehavior`.
 
 Define lazy stream creation backpressure and cancellation. Wrap stream enumeration in pipeline lifecycle. Dispose handlers/resources when consumers stop early.
 
@@ -56,7 +58,7 @@ Required observable invariant: Early termination closes owned resources; excepti
 
 ### WP-05: Registration adapters and verification
 
-Contract vocabulary: `MediatorRegistry`, `CoreDiAdapter`, `MediatorCase`.
+Internal analysis vocabulary (not permission to rename the public API): `MediatorRegistry`, `CoreDiAdapter`, `MediatorCase`.
 
 Keep core DI integration optional. Port request pipeline notification streaming regressions after license gate. Provide deterministic registration diagnostics.
 
@@ -70,4 +72,4 @@ Proposed .j dependencies: core;container(optional). Optional adapters depend inw
 
 ## Migration walkthrough
 
-Take one existing MediatR usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `MediatorLicenseRecord` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Source reuse waits for rights resolution; missing/multiple handlers fail explicitly; generic request identity survives erasure through tokens. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing MediatR usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `MediatorLicenseRecord` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Source reuse waits for rights resolution; missing/multiple handlers fail explicitly; generic request identity survives erasure through tokens. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.

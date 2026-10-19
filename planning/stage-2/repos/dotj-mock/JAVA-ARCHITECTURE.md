@@ -1,8 +1,10 @@
 # DJ-052 .j Mock: Java architecture and contracts
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 Offer configurable test doubles, argument matchers, verification and behavior sequences.
 
-Product type: JVM mocking/instrumentation library. Proposed Java package root: `org.dotj.mock`. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are design proposals, not already implemented APIs.
+Product type: JVM mocking/instrumentation library. Public package names preserve the exact source namespace identity and casing, subject to explicit JVM/JPMS feasibility. `org.dotj.internal.*` is reserved for hidden implementation helpers. JPMS exports are limited to contracts; adapters and generated/internal implementations are separate modules. Names below are internal design/workstream vocabulary unless verified against the source. They are not authority to rename public APIs. N01 defines the exact source-derived public surface.
 
 ## Module responsibilities
 
@@ -16,7 +18,7 @@ Product type: JVM mocking/instrumentation library. Proposed Java package root: `
 
 ## Data, ownership, threading and errors
 
-Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Async methods return CompletionStage; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
+Use explicit immutable request/settings snapshots and typed result values where absence differs from null. Public async signatures retain the original Task/ValueTask type names and semantics; CompletionStage is permitted behind the compatibility facade or in optional Java interop, not as a silent replacement; streaming methods expose a demand-aware contract or explicitly state push-only semantics. Cancellation is a separate token and is not equivalent to cancelling a Java future. Caller-owned objects remain caller-owned; created resources close in reverse dependency order with aggregated cleanup failures. Capture context explicitly before scheduling work. Use monotonic time for durations and explicit zone/culture for civil values. Errors retain stable category/code, contextual path and original cause; public protocol responses and logs redact secrets. Native/UI callbacks have a declared owner thread and cannot outlive their handle/session.
 
 C# expression-based setups need an owned invocation DSL. Final/static/private mocking is not assumed; capability tiers must be explicit.
 
@@ -24,7 +26,7 @@ C# expression-based setups need an owned invocation DSL. Final/static/private mo
 
 ### WP-01: Mock model and invocation recording
 
-Contract vocabulary: `Mock`, `Invocation`, `MethodKey`, `ArgumentMatcher`.
+Internal analysis vocabulary (not permission to rename the public API): `Mock`, `Invocation`, `MethodKey`, `ArgumentMatcher`.
 
 Define strict/loose mocks defaults and invocation ordering. Resolve Java overloaded generic default and bridge methods. Record arguments with explicit snapshot/reference policy.
 
@@ -32,7 +34,7 @@ Required observable invariant: Overload identities do not collide; strict unexpe
 
 ### WP-02: Setup return callbacks and verification
 
-Contract vocabulary: `Setup`, `Answer`, `Verification`, `Times`.
+Internal analysis vocabulary (not permission to rename the public API): `Setup`, `Answer`, `Verification`, `Times`.
 
 Implement matching precedence sequences callbacks and exceptions. Define verify/no-other-calls and asynchronous results. Handle recursive mocks with bounded identity rules.
 
@@ -40,7 +42,7 @@ Required observable invariant: Setup order is deterministic; failed verification
 
 ### WP-03: Proxy and instrumentation feasibility
 
-Contract vocabulary: `ProxyFactory`, `InstrumentationCapability`, `ClassTransform`.
+Internal analysis vocabulary (not permission to rename the public API): `ProxyFactory`, `InstrumentationCapability`, `ClassTransform`.
 
 Start with JDK interface proxies. Investigate subclass generation final/static/private interception separately. Map DynamicProxy/Castle source dependency and bytecode-tool ownership.
 
@@ -48,7 +50,7 @@ Required observable invariant: Interface mocks work without an agent; unsupporte
 
 ### WP-04: Lifecycle concurrency and cleanup
 
-Contract vocabulary: `MockScope`, `InvocationStore`, `AgentSession`.
+Internal analysis vocabulary (not permission to rename the public API): `MockScope`, `InvocationStore`, `AgentSession`.
 
 Specify reset concurrent verification and shared mock behavior. Scope generated classes/classloaders and agent transformations. Restore transformed classes where supported.
 
@@ -56,11 +58,11 @@ Required observable invariant: Reset cannot corrupt active invocations; classloa
 
 ### WP-05: Language adaptations and conformance
 
-Contract vocabulary: `MockExpression`, `MatchSpecification`, `MockCase`.
+Internal analysis vocabulary (not permission to rename the public API): `MockExpression`, `MatchSpecification`, `MockCase`.
 
-Replace C# expression-tree setup with explicit Java invocation DSL. Document equality matcher and property-event adaptations. Port setup verification async and regression cases.
+Preserve Moq public setup names/concepts and investigate Java expression capture or generated representations; keep any internal invocation IR hidden. Document equality matcher and property-event adaptations. Port setup verification async and regression cases.
 
-Required observable invariant: DSL validates method identity before use; adaptations are visible; upstream features without Java equivalents remain explicit coverage entries.
+Required observable invariant: Setup expression representation validates the original method identity before use; adaptations are visible; upstream features without Java equivalents remain explicit coverage entries.
 
 ## Bootstrap and dependency boundaries
 
@@ -70,4 +72,8 @@ Proposed .j dependencies: core. Optional adapters depend inward on contracts; pr
 
 ## Migration walkthrough
 
-Take one existing Moq usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then express the same intent with `Mock` and its companion contracts. Preserve semantic differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Overload identities do not collide; strict unexpected calls fail immediately; matcher state does not leak between threads. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+Take one existing Moq usage scenario in the first capability family, record its input/settings/expected failure and cleanup behavior against the pinned oracle, then preserve the original public API names and workflow; the internal analysis label `Mock` is not a replacement public API. Document unavoidable syntax/representation differences documented in the feature matrix rather than translating C# syntax mechanically. The initial acceptance scenario is: Overload identities do not collide; strict unexpected calls fail immediately; matcher state does not leak between threads. For each public example, provide input, Java API usage once finalized, expected observable output, required artifacts and documented deviations. Examples are planned outputs; no uncompiled Java snippet is represented as working code.
+
+## Public API direction under the owner requirement
+
+Preserve Moq public names and setup/verification concepts, including Mock, Setup and Verify where declared. A separately named Java invocation DSL is not the default user-facing design. Investigate source-generation/expression capture while retaining unsupported syntax explicitly.

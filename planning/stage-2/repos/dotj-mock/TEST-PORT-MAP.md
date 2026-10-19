@@ -1,5 +1,7 @@
 # DJ-052 .j Mock: test-port map
 
+**Mandatory owner requirement: exact .NET names and concepts.** Preserve upstream public names, casing, namespaces, interface prefixes, method/Async suffixes and familiar workflows. Internal labels below do not authorize replacement public APIs. Apply [DOTNET-API-EXACT-001](../../08-DOTNET-API-COMPATIBILITY-POLICY.md) and this repository’s [API-COMPATIBILITY.md](API-COMPATIBILITY.md).
+
 ## Evidence versus designed fixtures
 
 Source method rows below are lexical candidates from retrieved files. They are not all verified runnable tests, not a full upstream test census, and not proof of conformance. Attribute candidates identify nearby test annotations only. E03 must discover actual cases with the pinned upstream runner and assign them by behavior. Synthetic fixture IDs below are newly designed acceptance cases, never invented upstream identifiers.
@@ -69,7 +71,7 @@ Source method rows below are lexical candidates from retrieved files. They are n
 | DJ-052-F04-01 | WP-04 | Reset cannot corrupt active invocations | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-052-F04-02 | WP-04 | classloader stress shows no unbounded retention | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-052-F04-03 | WP-04 | failed transformations preserve valid classes | Designed; map actual upstream case or specify independent oracle in E03 |
-| DJ-052-F05-01 | WP-05 | DSL validates method identity before use | Designed; map actual upstream case or specify independent oracle in E03 |
+| DJ-052-F05-01 | WP-05 | Setup expression representation validates the original method identity before use | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-052-F05-02 | WP-05 | adaptations are visible | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-052-F05-03 | WP-05 | upstream features without Java equivalents remain explicit coverage entries | Designed; map actual upstream case or specify independent oracle in E03 |
 
@@ -86,3 +88,13 @@ Add negative inputs and each cleanup/cancellation edge from the architecture. Co
 ## Porting completion
 
 Every public feature has mapped cases or an explicit independent-oracle rationale. Every skip has a reason and blocking capability. Run the same immutable fixture payloads across environments; store results with source/toolchain/dependency locks. None of these future Java implementation tests has been executed by this planning task.
+
+## Mandatory naming and concept regression cases
+
+| Fixture | Required observation |
+|---|---|
+| DJ-052-NF01 | Supported public types/members/namespaces match the selected upstream identities with exact spelling and casing; no lowerCamelCase conversion, dropped I prefix, removed Async suffix or replacement domain name is introduced. |
+| DJ-052-NF02 | Paired C#/.j examples use the same framework concepts, lifecycle and operation names; every syntax-only difference is documented and internal Java helper types do not become mandatory new public concepts. |
+| DJ-052-NF03 | Unrepresentable signatures or semantics are reported as blocked/unsupported with source identity and evidence; no renamed API, JDK substitute type or changed behavior is falsely marked exact compatibility. |
+
+These additional cases enforce the owner naming decision across public signatures, generated APIs and paired examples. They are designed requirements, not executed results.

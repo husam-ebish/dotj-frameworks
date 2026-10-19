@@ -1,0 +1,29 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-postgresql",
+  "source": "https://github.com/npgsql/npgsql",
+  "revision": "1083526ef25018bd65772f18f313240fd36037bb",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/Npgsql/Common.cs",
+      "source_line": 65,
+      "source_url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/Common.cs#L65",
+      "declaration_candidate": "public enum StatementType",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/Npgsql/PgPassFile.cs",
+      "source_line": 28,
+      "source_url": "https://github.com/npgsql/npgsql/blob/1083526ef25018bd65772f18f313240fd36037bb/src/Npgsql/PgPassFile.cs#L28",
+      "declaration_candidate": "public PgPassFile(string fileName)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

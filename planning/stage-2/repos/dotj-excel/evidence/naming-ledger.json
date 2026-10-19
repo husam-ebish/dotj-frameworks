@@ -1,0 +1,218 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-excel",
+  "source": "https://github.com/ClosedXML/ClosedXML",
+  "revision": "09f2f21a60e821ce7fb18ca3576b272e5dd6d921",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 13,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L13",
+      "declaration_candidate": "public static partial class XLHelper",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 15,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L15",
+      "declaration_candidate": "public const int MinRowNumber = 1;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 16,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L16",
+      "declaration_candidate": "public const int MinColumnNumber = 1;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 17,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L17",
+      "declaration_candidate": "public const int MaxRowNumber = 1048576;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 18,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L18",
+      "declaration_candidate": "public const int MaxColumnNumber = 16384;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 19,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L19",
+      "declaration_candidate": "public const String MaxColumnLetter = \"XFD\";",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 21,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L21",
+      "declaration_candidate": "public const Double Epsilon = 1e-10;",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 40,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L40",
+      "declaration_candidate": "public static Encoding NoBomUTF8 = new UTF8Encoding(false);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 42,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L42",
+      "declaration_candidate": "public static String LastCell { get { return $\"{MaxColumnLetter}{MaxRowNumber}\"; } }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 121,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L121",
+      "declaration_candidate": "public static int GetColumnNumberFromLetter(string columnLetter)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 142,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L142",
+      "declaration_candidate": "public static string GetColumnLetterFromNumber(int columnNumber, bool trimToAllowed = false)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 163,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L163",
+      "declaration_candidate": "public static bool IsValidColumn(string column)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 194,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L194",
+      "declaration_candidate": "public static bool IsValidRow(string rowString)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 201,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L201",
+      "declaration_candidate": "public static bool IsValidA1Address(string address)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 218,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L218",
+      "declaration_candidate": "public static bool IsValidRCAddress(string address)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 226,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L226",
+      "declaration_candidate": "public static Boolean IsValidRangeAddress(String rangeAddress)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 234,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L234",
+      "declaration_candidate": "public static Boolean IsValidRangeAddress(IXLRangeAddress rangeAddress)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 243,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L243",
+      "declaration_candidate": "public static int GetColumnNumberFromAddress(string cellAddressString)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 310,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L310",
+      "declaration_candidate": "public static Boolean AreEqual(Double d1, Double d2)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper.cs",
+      "source_line": 315,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper.cs#L315",
+      "declaration_candidate": "public static DateTime GetDate(Object v)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper_ASF.cs",
+      "source_line": 25,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper_ASF.cs#L25",
+      "declaration_candidate": "public static partial class XLHelper",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper_ASF.cs",
+      "source_line": 43,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper_ASF.cs#L43",
+      "declaration_candidate": "public static string CreateSafeSheetName(string nameProposal, char replaceChar = ' ')",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "ClosedXML/XLHelper_ASF.cs",
+      "source_line": 91,
+      "source_url": "https://github.com/ClosedXML/ClosedXML/blob/09f2f21a60e821ce7fb18ca3576b272e5dd6d921/ClosedXML/XLHelper_ASF.cs#L91",
+      "declaration_candidate": "public static void ValidateSheetName(String sheetName)",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}

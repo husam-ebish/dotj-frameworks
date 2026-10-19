@@ -1,0 +1,74 @@
+{
+  "policy": "DOTNET-API-EXACT-001",
+  "repository": "dotj-rest",
+  "source": "https://github.com/restsharp/RestSharp",
+  "revision": "64ee12995b8d7409a5863da7b71cddfa526ffb7a",
+  "gate": "N01",
+  "mapping_complete": false,
+  "method": "lexical source candidates only; compiler-aware symbol identity and target representation remain required",
+  "candidates": [
+    {
+      "source_path": "src/RestSharp/Enum.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/restsharp/RestSharp/blob/64ee12995b8d7409a5863da7b71cddfa526ffb7a/src/RestSharp/Enum.cs#L20",
+      "declaration_candidate": "public enum ParameterType {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/RestSharp/Enum.cs",
+      "source_line": 65,
+      "source_url": "https://github.com/restsharp/RestSharp/blob/64ee12995b8d7409a5863da7b71cddfa526ffb7a/src/RestSharp/Enum.cs#L65",
+      "declaration_candidate": "public enum DataFormat { Json, Xml, Binary, None }",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/RestSharp/Enum.cs",
+      "source_line": 70,
+      "source_url": "https://github.com/restsharp/RestSharp/blob/64ee12995b8d7409a5863da7b71cddfa526ffb7a/src/RestSharp/Enum.cs#L70",
+      "declaration_candidate": "public enum Method {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/RestSharp/Enum.cs",
+      "source_line": 78,
+      "source_url": "https://github.com/restsharp/RestSharp/blob/64ee12995b8d7409a5863da7b71cddfa526ffb7a/src/RestSharp/Enum.cs#L78",
+      "declaration_candidate": "public struct DateFormat {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/RestSharp/Enum.cs",
+      "source_line": 93,
+      "source_url": "https://github.com/restsharp/RestSharp/blob/64ee12995b8d7409a5863da7b71cddfa526ffb7a/src/RestSharp/Enum.cs#L93",
+      "declaration_candidate": "public enum ResponseStatus {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/RestSharp/Ensure.cs",
+      "source_line": 18,
+      "source_url": "https://github.com/restsharp/RestSharp/blob/64ee12995b8d7409a5863da7b71cddfa526ffb7a/src/RestSharp/Ensure.cs#L18",
+      "declaration_candidate": "public static T NotNull<T>(T? value, [InvokerParameterName] string name) => value ?? throw new ArgumentNullException(name);",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    },
+    {
+      "source_path": "src/RestSharp/Ensure.cs",
+      "source_line": 20,
+      "source_url": "https://github.com/restsharp/RestSharp/blob/64ee12995b8d7409a5863da7b71cddfa526ffb7a/src/RestSharp/Ensure.cs#L20",
+      "declaration_candidate": "public static string NotEmptyString(object? value, [InvokerParameterName] string name) {",
+      "required_public_name": "identical upstream symbol and casing after semantic extraction",
+      "status": "semantic mapping pending",
+      "java_declaration": null
+    }
+  ]
+}
