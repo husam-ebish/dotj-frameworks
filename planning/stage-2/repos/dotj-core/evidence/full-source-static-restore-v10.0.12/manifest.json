@@ -1,0 +1,115 @@
+{
+    "schemaVersion":  1,
+    "recordedDate":  "2026-10-19",
+    "scope":  "dotj-core E01 pinned v10.0.12 full-source static-graph restore comparison",
+    "status":  "COMPLETE_EXTRACTION; STATIC_RESTORE_PASSES_WITHOUT_REDUNDANT_GLOBAL_TARGETFRAMEWORK",
+    "source":  {
+                   "archiveSha256":  "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+                   "runtimeCommit":  "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+                   "requestedSdk":  "10.0.110 with rollForward major",
+                   "selectedSdk":  "10.0.401",
+                   "archiveFileCount":  60838,
+                   "initialTarExitCode":  1,
+                   "repairedFromArchiveCount":  3,
+                   "remainingMissingFileCount":  0,
+                   "extractionAudit":  "extraction-audit.json"
+               },
+    "project":  {
+                    "path":  "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj",
+                    "declaredTargetFramework":  "netstandard2.0",
+                    "nugetConfig":  "pinned source NuGet.Config",
+                    "packageFolder":  "reused isolated Batch-007 package folder"
+                },
+    "attempts":  [
+                     {
+                         "name":  "full-static-global-tfm",
+                         "command":  "dotnet restore \u003cproject\u003e --configfile NuGet.Config --packages \u003cBatch-007-folder\u003e -p:TargetFramework=netstandard2.0 --verbosity minimal",
+                         "exitCode":  1,
+                         "result":  "NuGet.Build.Tasks.Console.MSBuildStaticGraphRestore null reference"
+                     },
+                     {
+                         "name":  "full-nonstatic-global-tfm",
+                         "command":  "dotnet restore \u003cproject\u003e --configfile NuGet.Config --packages \u003cBatch-007-folder\u003e -p:TargetFramework=netstandard2.0 -p:RestoreUseStaticGraphEvaluation=false --verbosity minimal",
+                         "exitCode":  0,
+                         "result":  "Restored project"
+                     },
+                     {
+                         "name":  "full-static-no-global-tfm-force",
+                         "command":  "dotnet restore \u003cproject\u003e --force --configfile NuGet.Config --packages \u003cBatch-007-folder\u003e --verbosity minimal",
+                         "exitCode":  0,
+                         "result":  "Restored project"
+                     },
+                     {
+                         "name":  "full-static-global-tfm-force",
+                         "command":  "dotnet restore \u003cproject\u003e --force --configfile NuGet.Config --packages \u003cBatch-007-folder\u003e -p:TargetFramework=netstandard2.0 --verbosity minimal",
+                         "exitCode":  1,
+                         "result":  "Same NuGet static-graph null reference"
+                     },
+                     {
+                         "name":  "subset-static-no-global-tfm-force",
+                         "command":  "dotnet restore \u003cproject\u003e --force --configfile NuGet.Config --packages \u003cBatch-007-folder\u003e --verbosity minimal",
+                         "exitCode":  0,
+                         "result":  "Restored project in earlier temporary subset"
+                     }
+                 ],
+    "restoredAssets":  {
+                           "target":  "netstandard2.0",
+                           "directPackageCount":  9,
+                           "resolvedPackageCount":  20,
+                           "path":  "full-project.assets.raw"
+                       },
+    "conclusion":  "In this SDK 10.0.401 environment, explicit global TargetFramework=netstandard2.0 triggers the static-graph restore null reference even though the project declares that target. Omitting the redundant global property allows static-graph restore in both complete and subset extractions; the earlier failure was not caused by missing source files.",
+    "rawEvidence":  {
+                        "full-nonstatic.stderr.raw":  {
+                                                          "bytes":  0,
+                                                          "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                                      },
+                        "full-nonstatic.stdout.raw":  {
+                                                          "bytes":  520,
+                                                          "sha256":  "9136a555e874d815514e0de8c1ac02c3fd1c0d36dbf103f52bde7095f2512f8b"
+                                                      },
+                        "full-project.assets.raw":  {
+                                                        "bytes":  85459,
+                                                        "sha256":  "e5979531d69e8c7b52168431dbf3d25f21ef3c2c3ab30b7fe47807b8e516f5ce"
+                                                    },
+                        "full-static-global-tfm.stderr.raw":  {
+                                                                  "bytes":  0,
+                                                                  "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                                              },
+                        "full-static-global-tfm.stdout.raw":  {
+                                                                  "bytes":  5518,
+                                                                  "sha256":  "ab18cfae5b8974f9f7dace1c11bc3cdb6e343fa2c9af072ccd00f5dcbd356288"
+                                                              },
+                        "full-static-global-tfm-force.stderr.raw":  {
+                                                                        "bytes":  0,
+                                                                        "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                                                    },
+                        "full-static-global-tfm-force.stdout.raw":  {
+                                                                        "bytes":  5518,
+                                                                        "sha256":  "ab18cfae5b8974f9f7dace1c11bc3cdb6e343fa2c9af072ccd00f5dcbd356288"
+                                                                    },
+                        "full-static-no-global-tfm-force.stderr.raw":  {
+                                                                           "bytes":  0,
+                                                                           "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                                                       },
+                        "full-static-no-global-tfm-force.stdout.raw":  {
+                                                                           "bytes":  516,
+                                                                           "sha256":  "09f2b7f92bb1998ff14ae70e05b1c6a81b0f1f8c886119fcea46924e0b4c37d9"
+                                                                       },
+                        "subset-static-no-global-tfm-force.stderr.raw":  {
+                                                                             "bytes":  0,
+                                                                             "sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+                                                                         },
+                        "subset-static-no-global-tfm-force.stdout.raw":  {
+                                                                             "bytes":  418,
+                                                                             "sha256":  "c3eb0d833977a74dfb0535c50b9b3442679cc8b65749a51417d9eee723aef4a3"
+                                                                         }
+                    },
+    "limitations":  [
+                        "A successful package restore is not a generator compilation or complete upstream runtime build.",
+                        "The tested installed SDK 10.0.401 was selected via major roll-forward instead of upstream requested 10.0.110.",
+                        "Packages were reused from the isolated Batch-007 cache and pinned public Azure feeds; no independent clean end-to-end upstream build was run.",
+                        "NuGet static-graph behavior under the explicit global TargetFramework property remains an SDK/tooling issue; no upstream source was modified.",
+                        "Generated outputs, rights applicability and mapped E03 behavior remain unqualified."
+                    ]
+}
