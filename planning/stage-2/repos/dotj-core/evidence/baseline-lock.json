@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "scope": "dotj-core portable foundation E01, WP-01/WP-02 prerequisites",
+  "status": "PARTIAL",
+  "analysisRevision": "9b1b0e9c699a54a2b8e8241bbc2ab650bd89d819",
+  "referenceCandidate": {
+    "release": "10.0.12",
+    "releaseDate": "2026-09-08",
+    "sourceRepository": "https://github.com/dotnet/runtime",
+    "tag": "v10.0.12",
+    "tagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "tagVerificationCommand": "git ls-remote https://github.com/dotnet/runtime.git refs/tags/v10.0.12",
+    "releaseMetadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
+    "qualification": "candidate; source archive, binary/source correspondence, submodules, generated inputs and rights review open"
+  },
+  "localOracleCandidate": {
+    "os": "Windows 10.0.26200 win-x64",
+    "sdkVersion": "10.0.401",
+    "sdkCommitFromDotnetInfo": "e34a38d2ae",
+    "runtimeVersion": "10.0.12",
+    "runtimeCommitFromDotnetInfo": "95017c711e",
+    "environment": "machine-installed binaries; no global.json in repository",
+    "binaryHashesSha256": {
+      "C:/Program Files/dotnet/dotnet.exe": "21a46f1e5235cf4e844b9de5429f0e198b9c97a41f0503a66442f1d639ca3ee6",
+      "C:/Program Files/dotnet/sdk/10.0.401/dotnet.dll": "616dbda77bc20692d615e2a679f31ffff04f693e8d6b3e24779cf8838adb6a85",
+      "C:/Program Files/dotnet/shared/Microsoft.NETCore.App/10.0.12/System.Private.CoreLib.dll": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678"
+    },
+    "reproductionCommands": [
+      "dotnet --info",
+      "dotnet --list-runtimes"
+    ],
+    "behaviorOracleRun": false
+  },
+  "localJavaToolchain": {
+    "distribution": "Microsoft OpenJDK",
+    "version": "21.0.12.1+1-LTS",
+    "installation": "C:/Program Files/Microsoft/jdk-21.0.12.101-hotspot",
+    "binaryHashesSha256": {
+      "bin/java.exe": "1f41cc782de7ddd8824376568f9011413d710cf225047906106d2a01a0e3f7a9",
+      "bin/javac.exe": "00ff52b49ba8cb2de4718fade93f411549d704eb869641eaa69986608a452a26",
+      "bin/jar.exe": "cb2ac2389d5689d9930e997be4a33c564906d5d8afa9cf2b115c1be5654a7584"
+    },
+    "reproductionCommands": [
+      "java -version",
+      "javac -version",
+      "jar --version"
+    ]
+  },
+  "remainingE01": [
+    "Download and hash an immutable v10.0.12 source archive; inspect submodule and generated input identities.",
+    "Reconcile the release tag, installed runtime commit and binary build provenance before treating them as one source profile.",
+    "Review v10.0.12 source and transitive dependency rights and required notices for the foundation slice.",
+    "Create and execute a pinned .NET behavior oracle with raw output and exact invocation flags."
+  ],
+  "compatibilityImpact": "The 9b1b0e9 analysis samples are navigation evidence only until diffed against v10.0.12; no E02, E03 or N01 result is claimed."
+}
