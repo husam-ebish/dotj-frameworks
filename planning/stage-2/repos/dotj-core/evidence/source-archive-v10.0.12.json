@@ -1,0 +1,145 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "status": "VERIFIED FOR LISTED FILES; FULL E01 OPEN",
+  "release": "10.0.12",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "archive": {
+    "url": "https://codeload.github.com/dotnet/runtime/zip/4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "bytes": 136239366,
+    "sha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+    "localVerification": "ZIP CRC pass; archive root names the exact source commit",
+    "entryCount": 71249,
+    "fileCount": 60838
+  },
+  "treeScope": {
+    "rootGitmodulesPresent": false,
+    "rootGitlinks": 0,
+    "corelibGitTreeSha": "90aee3e6a7dc7020a668e9718155cda6a1abfb4f",
+    "corelibRecursiveTreeTruncated": false,
+    "corelibTreeEntries": 1809,
+    "corelibGitlinks": 0,
+    "wholeRepositoryRecursiveTreeTruncated": true,
+    "rootTreeQueryRef": "4271d88e0aebf3d04f188f1334c2220d80555ef6"
+  },
+  "files": [
+    {
+      "path": "LICENSE.TXT",
+      "bytes": 1116,
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "gitBlobSha1": "984713a49622a96da110443c15477613bc12656b",
+      "gitTreeMatch": true
+    },
+    {
+      "path": "THIRD-PARTY-NOTICES.TXT",
+      "bytes": 76623,
+      "sha256": "66f1d4e44973185519bb4aa8a9718eb22fc7af2cc532e3ae9cfc4c127ee7fc54",
+      "gitBlobSha1": "1e194f3b353a4fa1b369e843975a1e94ba90addc",
+      "gitTreeMatch": true
+    },
+    {
+      "path": "global.json",
+      "bytes": 480,
+      "sha256": "becc73a427a02b17534a71b50dafe3008c53f64fc9fc69b5c34c3ef48270dc6d",
+      "gitBlobSha1": "52fec4cf267204beb42f5b29565dd48156a9b6c6",
+      "gitTreeMatch": null
+    },
+    {
+      "path": "src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj",
+      "bytes": 21340,
+      "sha256": "3cbb9c5281f0082d76beb24935066fb1a9678e9ab95f7fbbd210d9802e0a6f24",
+      "gitBlobSha1": "c12d6c854ac0c0b102c8c5733379e7e1979915ce",
+      "gitTreeMatch": null
+    },
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System.Private.CoreLib.Shared.projitems",
+      "bytes": 241946,
+      "sha256": "f4235874ab414596562b74ffed7b7083811059f8fcdb31b0041f5cffa82b86c8",
+      "gitBlobSha1": "fc30a00f0e1818098b27fbd1889457d68cf6db56",
+      "gitTreeMatch": true
+    },
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/IDisposable.cs",
+      "bytes": 3116,
+      "sha256": "fcb8a99af86873e4c724c09f77002fd6770ea07c202fdb701c3432235e24beae",
+      "gitBlobSha1": "f5d250aefd159570ea29171624e3b8a7566f0d9a",
+      "gitTreeMatch": true
+    },
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/IAsyncDisposable.cs",
+      "bytes": 561,
+      "sha256": "7d590f4f940af702f8d3797655412cdc64435a0cc6454985685e415ee5fe817f",
+      "gitBlobSha1": "53b32a1956696db25db0ada392eaea0fde9f6b5c",
+      "gitTreeMatch": true
+    },
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+      "bytes": 23104,
+      "sha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "gitBlobSha1": "07106341f868bce21f858c999dca02d76f2ae4f8",
+      "gitTreeMatch": true
+    },
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenSource.cs",
+      "bytes": 64308,
+      "sha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "gitBlobSha1": "7ea36b67c970be0fe299b1edce82947bd78bbb83",
+      "gitTreeMatch": true
+    },
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+      "bytes": 9879,
+      "sha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "gitBlobSha1": "345b41a32acff711897868ffce28e6af287c431b",
+      "gitTreeMatch": true
+    }
+  ],
+  "generatedInputEvidence": {
+    "coreclrProject": "src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj",
+    "directGeneratorProject": "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj",
+    "generatorDirectoryFileCount": 7,
+    "generatorDirectoryFiles": [
+      {
+        "path": "src/libraries/System.Private.CoreLib/gen/EventSourceGenerator.Emitter.cs",
+        "sha256": "28fd335d2579fc4fb3479f710b6c4239c448440a943eb8d537058a5c8a9aa9f3"
+      },
+      {
+        "path": "src/libraries/System.Private.CoreLib/gen/EventSourceGenerator.Parser.cs",
+        "sha256": "84c4efd2c3f78ca01d69858763745ae153f43b8d65eb9fe26d2213507a205557"
+      },
+      {
+        "path": "src/libraries/System.Private.CoreLib/gen/EventSourceGenerator.cs",
+        "sha256": "bbcc7ad517c30c78d090a0f9ae87a149348f8bd4afdec80cf56f83ac853c6043"
+      },
+      {
+        "path": "src/libraries/System.Private.CoreLib/gen/IntrinsicsInSystemPrivateCoreLibAnalyzer.cs",
+        "sha256": "d5fcc2c78128eac9b0b85540d3c5055284f90ddcdd69662256424f8d781a1f9e"
+      },
+      {
+        "path": "src/libraries/System.Private.CoreLib/gen/NativeRuntimeEventSourceGenerator.cs",
+        "sha256": "978af41060cce4c0d08ea7441015f98f85602c5a84ad0538d18aa2b71a6b7ae2"
+      },
+      {
+        "path": "src/libraries/System.Private.CoreLib/gen/ProductVersionInfoGenerator.cs",
+        "sha256": "942eda37780c4106fde2bdd3cf24ea6a76e6e38ef7b7692b04ba902041d52047"
+      },
+      {
+        "path": "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj",
+        "sha256": "434c05ed55f78bb61147a68b25e2b23f629eb2f209870ffd0059e28ac46959b0"
+      }
+    ],
+    "projectEmitsCompilerGeneratedFiles": true,
+    "sharedProjectEnablesLibraryImportGenerator": true,
+    "generatedOutputHashes": "OPEN"
+  },
+  "rights": {
+    "rootLicense": "MIT text captured; applicability of third-party notices not yet reviewed",
+    "noticeReview": "OPEN",
+    "transitiveDependencyRights": "OPEN"
+  },
+  "limitations": [
+    "GitHub-generated source ZIP hash is a locally observed digest; no separately published checksum was found in this batch.",
+    "Whole-repository recursive Git tree response was truncated; gitlink absence is established only for the root and CoreLib subtree.",
+    "Generated outputs and resolved conditional dependency inputs have not been built or hashed."
+  ]
+}

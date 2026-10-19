@@ -12,7 +12,12 @@
     "tagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
     "tagVerificationCommand": "git ls-remote https://github.com/dotnet/runtime.git refs/tags/v10.0.12",
     "releaseMetadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
-    "qualification": "candidate; source archive, binary/source correspondence, submodules, generated inputs and rights review open"
+    "qualification": "v10.0.12 source archive and listed CoreLib inputs verified; binary/source correspondence, generated outputs, dependency rights and behavior oracle open",
+    "sourceArchiveEvidence": "source-archive-v10.0.12.json",
+    "licenseEvidence": [
+      "release-v10.0.12/LICENSE.TXT",
+      "release-v10.0.12/THIRD-PARTY-NOTICES.TXT"
+    ]
   },
   "localOracleCandidate": {
     "os": "Windows 10.0.26200 win-x64",
@@ -48,9 +53,9 @@
     ]
   },
   "remainingE01": [
-    "Download and hash an immutable v10.0.12 source archive; inspect submodule and generated input identities.",
     "Reconcile the release tag, installed runtime commit and binary build provenance before treating them as one source profile.",
-    "Review v10.0.12 source and transitive dependency rights and required notices for the foundation slice.",
+    "Review v10.0.12 third-party notice applicability and transitive dependency rights for the foundation slice.",
+    "Resolve generated output identities and conditional build inputs for the selected CoreLib contracts.",
     "Create and execute a pinned .NET behavior oracle with raw output and exact invocation flags."
   ],
   "compatibilityImpact": "The 9b1b0e9 analysis samples are navigation evidence only until diffed against v10.0.12; no E02, E03 or N01 result is claimed."

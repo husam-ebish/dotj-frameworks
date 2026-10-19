@@ -15,7 +15,8 @@
   },
   "currentBatch": null,
   "completedBatches": [
-    "Batch-001"
+    "Batch-001",
+    "Batch-002"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -208,7 +209,7 @@
         "N01": "NOT STARTED",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-001",
+      "lastUpdatedBatch": "Batch-002",
       "blocked": false,
       "unclassifiedTaskIds": [
         "DJ-001-WP-01-T1",
@@ -9819,12 +9820,12 @@
   ],
   "measurementNote": "Null percentages mean Not yet measurable. The 1356 named tasks mix implementation and preparation. E01-E03 and Q01 are separate gates; N01 tasks are recorded as prerequisites. No preparation earns implementation credit.",
   "nextProposedBatch": {
-    "id": "Batch-002",
+    "id": "Batch-003",
     "framework": "dotj-core",
     "planTaskIds": [
       "E01"
     ],
-    "outcome": "Verify v10.0.12 source archive, submodule/generated-input identities and release notice evidence for the portable foundation.",
+    "outcome": "Reconcile the installed .NET 10.0.12 runtime commit and artifact checksum with the pinned v10.0.12 source release.",
     "requiresContinue": true
   }
 }
