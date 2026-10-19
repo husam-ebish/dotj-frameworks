@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "status": "DIRECT_PACKAGE_IDENTITY_AND_NOTICE_VERIFIED; BUILD_EVALUATION_AND_TRANSITIVES_OPEN",
+  "scope": "dotj-core E01 direct build-time package for System.Private.CoreLib.Generators.csproj",
+  "sourceDeclaration": {
+    "runtimeCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "projectPath": "src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj",
+    "projectSha256": "434c05ed55f78bb61147a68b25e2b23f629eb2f209870ffd0059e28ac46959b0",
+    "packageReference": "Microsoft.CodeAnalysis.CSharp",
+    "versionExpression": "$(MicrosoftCodeAnalysisVersion_LatestVS)",
+    "privateAssets": "all",
+    "propertyFile": "eng/Versions.props",
+    "propertyFileSha256": "4db48b1f520b9a25d905fb063aee511227e7698b9365d87676822546b041f424",
+    "propertyLine": 72,
+    "declaredPropertyValue": "4.14.0",
+    "separateVersionDetailsEntry": "eng/Version.Details.xml:342 lists Microsoft.CodeAnalysis.CSharp 5.0.0-2.26411.108; that entry is not the generator project's direct Version expression",
+    "effectiveEvaluatedBuildValue": "NOT VERIFIED; imports, property overrides, conditions and restore were not evaluated"
+  },
+  "package": {
+    "id": "Microsoft.CodeAnalysis.CSharp",
+    "version": "4.14.0",
+    "downloadUrl": "https://www.nuget.org/api/v2/package/Microsoft.CodeAnalysis.CSharp/4.14.0",
+    "catalogUrl": "https://api.nuget.org/v3/catalog0/data/2025.05.15.18.34.12/microsoft.codeanalysis.csharp.4.14.0.json",
+    "bytes": 17342224,
+    "sha256": "e4cce3dd791860b9300d6875eebd4d11749b5f0c166103e23a6912325828d496",
+    "sha512Base64": "kqS2NihVvNQHxzLePtyYiiJmFzoYO9Wm46O9DhfUgIIf5NwTbvSy66kV9EM+qAHmGpi7zQy4w8JU6DFnPlAyTA==",
+    "catalogSha512Matched": true,
+    "zipMemberCount": 55,
+    "zipCrcPassed": true,
+    "retainedFullPackage": false,
+    "nuspec": {
+      "path": "Microsoft.CodeAnalysis.CSharp.nuspec",
+      "bytes": 3301,
+      "sha256": "bff26146813a2ba8450713193b662a4ae84ab69af44f348fc7359fb47f559d32",
+      "idAndVersionMatch": true,
+      "licenseExpression": "MIT",
+      "licenseUrl": "https://licenses.nuget.org/MIT",
+      "repositoryUrl": "https://github.com/dotnet/roslyn",
+      "repositoryCommit": "8edf7bcd4f1594c3d68a6a567469f41dbd33dd1b",
+      "netstandard2DirectDependencyDeclarations": 10,
+      "resolvedDependencyClosure": "OPEN"
+    },
+    "thirdPartyNotice": {
+      "path": "ThirdPartyNotices.rtf",
+      "bytes": 2183,
+      "sha256": "ef4678850e7e3aaf9297f07e5c4060d477854e545ccf8e2ef8452d65a7b2efaf",
+      "observation": "Package includes a .NET Compiler Platform RTF notice containing MIT text and .NET Foundation attribution; retained unmodified"
+    },
+    "embeddedLicenseFile": "NONE; nuspec declares MIT expression and license URL"
+  },
+  "limitations": [
+    "The declared 4.14.0 property value is source-backed, but no full MSBuild property evaluation or restore proved it is the effective package in every upstream build configuration.",
+    "The package's netstandard2.0 dependency declarations were counted, not restored or transitively qualified.",
+    "The direct package license expression and notice file do not settle obligations for transitive packages, generated outputs or future .j redistribution.",
+    "No .j product source, package or release artifact includes this upstream package."
+  ]
+}
