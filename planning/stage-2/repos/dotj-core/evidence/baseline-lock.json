@@ -12,7 +12,7 @@
     "tagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
     "tagVerificationCommand": "git ls-remote https://github.com/dotnet/runtime.git refs/tags/v10.0.12",
     "releaseMetadata": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
-    "qualification": "v10.0.12 source archive, CoreLib subtree and official win-x64 runtime artifact verified; pinned .NET oracle bootstrap executed. Selected source headers and direct generator package artifact/license/notice reviewed. One netstandard2.0 generator profile evaluated and restored with static graph disabled; static graph failure, package hash metadata mismatch, transitive rights, notice applicability, generated outputs and mapped E03 fixtures remain open.",
+    "qualification": "v10.0.12 source archive, CoreLib subtree and official win-x64 runtime artifact verified; pinned .NET oracle bootstrap executed. Selected source headers and direct generator package artifact/license/notice reviewed. One netstandard2.0 generator profile evaluated and restored with static graph disabled. A fresh NuGet.org-only Roslyn probe reproduced the Azure-feed hash difference; NuGet documents separate signature-excluding content and complete-file hashes. Static-graph restore, transitive rights, notice applicability, generated outputs and mapped E03 fixtures remain open.",
     "sourceArchiveEvidence": "source-archive-v10.0.12.json",
     "licenseEvidence": [
       "release-v10.0.12/LICENSE.TXT",
@@ -21,7 +21,8 @@
     "runtimeArtifactEvidence": "runtime-artifact-v10.0.12-win-x64.json",
     "rightsScopeEvidence": "rights-scope-v10.0.12.json",
     "generatorPackageEvidence": "roslyn-package-v4.14.0/manifest.json",
-    "generatorRestoreGraphEvidence": "restore-graph-v10.0.12-netstandard2.0/manifest.json"
+    "generatorRestoreGraphEvidence": "restore-graph-v10.0.12-netstandard2.0/manifest.json",
+    "generatorNugetHashProbeEvidence": "nuget-hash-probe-v4.14.0/manifest.json"
   },
   "localOracleCandidate": {
     "os": "Windows 10.0.26200 win-x64",
@@ -61,7 +62,7 @@
     ]
   },
   "remainingE01": [
-    "Map v10.0.12 third-party notice applicability to selected source, generated outputs and future distribution; resolve the generator restore's static-graph failure, NuGet metadata/content hash discrepancy and transitive dependency rights.",
+    "Map v10.0.12 third-party notice applicability to selected source, generated outputs and future distribution; resolve the generator restore's static-graph failure and transitive dependency rights. NuGet's signature-excluding content hash and complete-file hash differ by design in the observed signed Roslyn package.",
     "Resolve generated output identities and conditional build inputs for the selected CoreLib contracts.",
     "Record any required full-runtime source/build provenance outside the verified CoreLib scope before extending the compatibility profile."
   ],

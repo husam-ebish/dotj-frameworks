@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-19",
+  "scope": "dotj-core E01 Roslyn 4.14.0 NuGet.org-only hash probe",
+  "status": "ORIGINAL_RESTORE_FAILS_MISSING_PACKAGES; ISOLATED_PROBE_PASSES; HASH_DIFFERENCE_NOT_FEED_SPECIFIC",
+  "sourceProfile": {
+    "nugetConfig": "NuGet.org only; inherited sources cleared",
+    "freshPackageFolder": "C:/Users/husam/AppData/Local/Temp/dotj-batch-008-nuget-only-packages",
+    "originalProject": "Pinned v10.0.12 System.Private.CoreLib.Generators.csproj temporary subset, netstandard2.0",
+    "probeProject": "Independent net10.0 project with one direct Microsoft.CodeAnalysis.CSharp 4.14.0 reference"
+  },
+  "originalProjectRestore": {
+    "command": "dotnet restore src/libraries/System.Private.CoreLib/gen/System.Private.CoreLib.Generators.csproj --configfile NuGet.Batch008.Config --packages <fresh-folder> -p:TargetFramework=netstandard2.0 -p:RestoreUseStaticGraphEvaluation=false --verbosity minimal",
+    "exitCode": 1,
+    "errors": [
+      "NU1603: Microsoft.CodeAnalysis.Analyzers 5.0.0-2.26411.108 absent",
+      "NU1603: Microsoft.Net.Compilers.Toolset 5.0.0-2.26411.108 absent",
+      "NU1101: Microsoft.DotNet.CodeAnalysis absent",
+      "NU1101: Microsoft.DotNet.Build.Tasks.TargetFramework absent"
+    ]
+  },
+  "isolatedProbeRestore": {
+    "command": "dotnet restore RoslynHashProbe.csproj --configfile NuGet.Config --packages <fresh-folder> --verbosity minimal",
+    "exitCode": 0,
+    "assetsTarget": "net10.0",
+    "resolvedPackageCount": 3
+  },
+  "roslynHashObservation": {
+    "package": "Microsoft.CodeAnalysis.CSharp/4.14.0",
+    "metadataSource": "https://api.nuget.org/v3/index.json",
+    "assetsSha512Base64": "568a6wcTivauIhbeWcCwfWwIn7UV7MeHEBvFB2uzGIpM2OhJ4eM/FZ8KS0yhPoNxnSpjGzz7x7CIjTxhslojQA==",
+    "metadataContentHashBase64": "568a6wcTivauIhbeWcCwfWwIn7UV7MeHEBvFB2uzGIpM2OhJ4eM/FZ8KS0yhPoNxnSpjGzz7x7CIjTxhslojQA==",
+    "localNupkgSidecarSha512Base64": "kqS2NihVvNQHxzLePtyYiiJmFzoYO9Wm46O9DhfUgIIf5NwTbvSy66kV9EM+qAHmGpi7zQy4w8JU6DFnPlAyTA==",
+    "actualNupkgSha512Base64": "kqS2NihVvNQHxzLePtyYiiJmFzoYO9Wm46O9DhfUgIIf5NwTbvSy66kV9EM+qAHmGpi7zQy4w8JU6DFnPlAyTA==",
+    "actualNupkgSha256": "e4cce3dd791860b9300d6875eebd4d11749b5f0c166103e23a6912325828d496",
+    "nupkgBytes": 17342224,
+    "signatureEntryCount": 1,
+    "matchesBatch007AzureContentHash": true,
+    "matchesBatch006OfficialPackageSha256": true
+  },
+  "nugetHashSemantics": {
+    "contentHash": "NuGet's signature-excluding package-content hash, stable across signing or re-signing",
+    "nupkgSha512Sidecar": "SHA-512 over the complete nupkg file bytes",
+    "officialDesign": "https://github.com/NuGet/Home/wiki/Nupkg-Metadata-File",
+    "nugetMaintainerExplanation": "https://github.com/NuGet/Home/issues/10787",
+    "interpretation": "The two hashes cover different inputs for a signed package. The content-hash algorithm was not independently reimplemented."
+  },
+  "comparison": "A fresh NuGet.org-only restore reproduced the Batch-007 Azure-feed content hash and full-file hash. The observed difference is not specific to the configured Azure feed in these two restores.",
+  "rawEvidence": {
+    "original.nuget-config.raw": { "bytes": 178, "sha256": "d47829bb77b3f99fe206f0d3882a3c1ce7bee0e9bca2db08904aa288e177190a" },
+    "original-restore.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "original-restore.stdout.raw": { "bytes": 3198, "sha256": "80ff84c896fab44253023a132d015b5aac942f2d5a5cd625e9db2b872f7da76a" },
+    "probe.csproj.raw": { "bytes": 216, "sha256": "ae87fe76d83e2754ad122707b3702d5d01ac27a0999cd40cd34490638222c09f" },
+    "probe.nuget-config.raw": { "bytes": 178, "sha256": "d47829bb77b3f99fe206f0d3882a3c1ce7bee0e9bca2db08904aa288e177190a" },
+    "probe-project.assets.raw": { "bytes": 102627, "sha256": "6a4d360a78318f3728c83c65abd8e80c922c3563dda3016c4cbd2f26f2d893b4" },
+    "probe-restore.stderr.raw": { "bytes": 0, "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855" },
+    "probe-restore.stdout.raw": { "bytes": 306, "sha256": "a6871a26bb3655feb83944e4fe040e1b48efa88aae17d0cd3bef5e6765482965" },
+    "probe-roslyn-metadata.raw": { "bytes": 182, "sha256": "7ba294a09b4f49a7e066eb345ee5b195d16a432d7facd1eaf8e59877aafb101b" },
+    "probe-roslyn-sha512.raw": { "bytes": 88, "sha256": "f2becb62922b6dfa9cae438e242aba05236fd6b361e09f60dd346ba98cac616b" }
+  },
+  "limitations": [
+    "NuGet.org alone could not restore the original upstream generator project because required beta and internal packages were unavailable.",
+    "The isolated probe tests one Roslyn package under net10.0, not the original generator graph or its netstandard2.0 build.",
+    "NuGet content-hash semantics were checked against official documentation, not independently reimplemented.",
+    "Transitive rights, generated outputs, upstream source build and .j behavior remain unqualified."
+  ]
+}
