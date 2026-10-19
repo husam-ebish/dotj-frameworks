@@ -1,0 +1,80 @@
+﻿{
+    "schemaVersion":  1,
+    "recordedDate":  "2026-10-20",
+    "scope":  "dotj-core E01 Release CoreLib forced rebuild comparison",
+    "status":  "EIGHT_OF_EIGHT_GENERATED_HASHES_REPRODUCED_IN_FORCED_REBUILD",
+    "sourceCommit":  "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "sdkVersion":  "10.0.401",
+    "firstBuildEvidence":  "../corelib-release-generated-v10.0.12/manifest.json",
+    "rebuild":  {
+                    "exitCode":  0,
+                    "command":  "dotnet build src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj -c Release -t:Rebuild --no-restore -p:NuGetPackageRoot=\u003cisolated-root\u003e/ -p:NetCoreSdkRoot=C:/Program Files/dotnet/sdk/10.0.401 -p:EmitCompilerGeneratedFiles=true --verbosity minimal",
+                    "errors":  0,
+                    "warnings":  0,
+                    "elapsed":  "00:01:27.71"
+                },
+    "generatedFiles":  [
+                           {
+                               "path":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.ProductVersionInfoGenerator/ProductVersionInfo.g.cs",
+                               "bytes":  636,
+                               "sha256":  "51c351c225ae3204954c19f3190b7774df61f277343b61e66e4778ac93849283",
+                               "matchesFirst":  true,
+                               "firstSha256":  "51c351c225ae3204954c19f3190b7774df61f277343b61e66e4778ac93849283"
+                           },
+                           {
+                               "path":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/TplEventSource.g.cs",
+                               "bytes":  738,
+                               "sha256":  "f4992d8abeb45ec5f5e9175fb693d1a9a13c893feb2cb32c89af4d7616cb4d79",
+                               "matchesFirst":  true,
+                               "firstSha256":  "f4992d8abeb45ec5f5e9175fb693d1a9a13c893feb2cb32c89af4d7616cb4d79"
+                           },
+                           {
+                               "path":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/RuntimeEventSource.g.cs",
+                               "bytes":  589,
+                               "sha256":  "c7f248cc9108e42b9e4d17600b550b077555c206902a883c6fc870cf8309ac7f",
+                               "matchesFirst":  true,
+                               "firstSha256":  "c7f248cc9108e42b9e4d17600b550b077555c206902a883c6fc870cf8309ac7f"
+                           },
+                           {
+                               "path":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/NativeRuntimeEventSource.g.cs",
+                               "bytes":  720,
+                               "sha256":  "fd7ef9ef28234cec41f433aa0164b7e1c61c7609bdd308c70fd9194ab7252e76",
+                               "matchesFirst":  true,
+                               "firstSha256":  "fd7ef9ef28234cec41f433aa0164b7e1c61c7609bdd308c70fd9194ab7252e76"
+                           },
+                           {
+                               "path":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/FrameworkEventSource.g.cs",
+                               "bytes":  831,
+                               "sha256":  "cdd3e52693350debdfa61735f024037c3ab24b6e952095553bde9fc6c7ff07f2",
+                               "matchesFirst":  true,
+                               "firstSha256":  "cdd3e52693350debdfa61735f024037c3ab24b6e952095553bde9fc6c7ff07f2"
+                           },
+                           {
+                               "path":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.EventSourceGenerator/ArrayPoolEventSource.g.cs",
+                               "bytes":  728,
+                               "sha256":  "4fdf2f9c3362b89432cd8f0c454dd91d0d35ba388fff9dcb3e82137dd0119a01",
+                               "matchesFirst":  true,
+                               "firstSha256":  "4fdf2f9c3362b89432cd8f0c454dd91d0d35ba388fff9dcb3e82137dd0119a01"
+                           },
+                           {
+                               "path":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/System.Private.CoreLib.Generators/Generators.NativeRuntimeEventSourceGenerator/NativeRuntimeEventSource.g.cs",
+                               "bytes":  56648,
+                               "sha256":  "9248fb7a34fd1fc95521acf82a4dbd499ca705bb2f284d5fe7acffabbe2e462b",
+                               "matchesFirst":  true,
+                               "firstSha256":  "9248fb7a34fd1fc95521acf82a4dbd499ca705bb2f284d5fe7acffabbe2e462b"
+                           },
+                           {
+                               "path":  "artifacts/obj/coreclr/System.Private.CoreLib/windows.x64.Release/generated/Microsoft.Interop.LibraryImportGenerator/Microsoft.Interop.LibraryImportGenerator/LibraryImports.g.cs",
+                               "bytes":  639221,
+                               "sha256":  "9f07182c523210cb8b8d9d648b8c75dccfaefbf0e8b76804c79070f87f399ad0",
+                               "matchesFirst":  true,
+                               "firstSha256":  "9f07182c523210cb8b8d9d648b8c75dccfaefbf0e8b76804c79070f87f399ad0"
+                           }
+                       ],
+    "matchingCount":  8,
+    "limitations":  [
+                        "A forced rebuild in the same source checkout, SDK and package cache establishes repeatability only for this environment.",
+                        "It does not establish independent machine reproduction, official release-artifact provenance, or runtime behavior parity.",
+                        "Rights and notice applicability remain unresolved."
+                    ]
+}
