@@ -370,6 +370,14 @@ Run("waitAsyncNegativeTimeout", () =>
     Check(!source.Task.IsCompleted, "invalid timeout completed source");
 });
 
+Run("waitAsyncExcessiveTimeout", () =>
+{
+    TaskCompletionSource<int> source = new();
+    CheckThrows<ArgumentOutOfRangeException>(() => source.Task.WaitAsync(TimeSpan.FromMilliseconds(uint.MaxValue)),
+        "excessive timeout argument");
+    Check(!source.Task.IsCompleted, "excessive timeout completed source");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
