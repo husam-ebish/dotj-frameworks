@@ -161,6 +161,14 @@ Run("valueTaskBackedFault", () =>
         "Task-backed ValueTask fault");
 });
 
+Run("valueTaskBackedCancel", () =>
+{
+    Task backing = Task.FromCanceled(new CancellationToken(canceled: true));
+    ValueTask value = new(backing);
+    Check(value.IsCanceled && ReferenceEquals(value.AsTask(), backing),
+        "Task-backed ValueTask cancel");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
