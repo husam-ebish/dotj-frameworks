@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class OwnedResourcesBoundaryTest {
     public static void main(String[] args) throws Exception {
         emptyCloseIsIdempotent();
+        nullOwnedRejected();
         // Next bounded case.
         System.out.println("PASS: internal ownership boundary checks");
     }
@@ -22,6 +23,14 @@ public final class OwnedResourcesBoundaryTest {
 
     private static void emptyCloseIsIdempotent() throws Exception {
         OwnedResources scope = new OwnedResources(); scope.close(); scope.close();
+    }
+
+    private static void nullOwnedRejected() throws Exception {
+        OwnedResources scope = new OwnedResources();
+        try { scope.addOwned(null); throw new AssertionError("Null owned resource accepted"); }
+        catch (NullPointerException expected) { }
+        AtomicInteger calls = new AtomicInteger(); scope.addOwned(() -> calls.incrementAndGet()); scope.close();
+        if (calls.get() != 1) throw new AssertionError("Scope unusable after rejected registration");
     }
 
     // Next bounded method.
