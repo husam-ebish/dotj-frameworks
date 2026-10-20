@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-071",
+  "type": "System.Threading.Tasks.ValueTask",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
+  "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+  "installedCoreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "snapshotPath": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+  "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13",
+  "declaredPublicMethods": 19,
+  "declaredPublicProperties": 5,
+  "declaredPublicConstructors": 2,
+  "observation": "ValueTask is a public value type with completion and awaiter-related members; this blocks a trivial Java IAsyncDisposable return mapping.",
+  "limits": "Installed artifact reflection plus selected source hash, not a complete conditional-source API inventory or approved Java public facade."
+}
