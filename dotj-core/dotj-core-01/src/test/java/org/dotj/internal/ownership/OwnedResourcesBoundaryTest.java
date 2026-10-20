@@ -13,6 +13,7 @@ public final class OwnedResourcesBoundaryTest {
         borrowedStaysCallerOwned();
         duplicateOwnedIdentity();
         equalDistinctResources();
+        reverseOrderWithBorrowed();
         // Next bounded case.
         System.out.println("PASS: internal ownership boundary checks");
     }
@@ -61,6 +62,13 @@ public final class OwnedResourcesBoundaryTest {
         OwnedResources scope = new OwnedResources(); AtomicInteger calls = new AtomicInteger();
         scope.addOwned(new EqualResource(calls)); scope.addOwned(new EqualResource(calls)); scope.close();
         if (calls.get() != 2) throw new AssertionError("Equality incorrectly deduplicated resources");
+    }
+
+    private static void reverseOrderWithBorrowed() throws Exception {
+        OwnedResources scope = new OwnedResources(); List<String> events = new ArrayList<>();
+        scope.addOwned(() -> events.add("a")); scope.addBorrowed(() -> events.add("borrowed"));
+        scope.addOwned(() -> events.add("b")); scope.addOwned(() -> events.add("c")); scope.close();
+        if (!events.equals(List.of("c", "b", "a"))) throw new AssertionError(events.toString());
     }
 
     // Next bounded method.
