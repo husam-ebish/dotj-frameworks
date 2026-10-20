@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "scope": "Selected declared-public metadata with verified owning source file hashes; no member-level source attribution or public Java API qualification",
+  "entries": [
+    {
+      "batch": "Batch-301",
+      "declaringType": "System.Threading.Tasks.Task",
+      "name": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task WaitAsync(System.Threading.CancellationToken)",
+      "returnType": "System.Threading.Tasks.Task",
+      "isStatic": false,
+      "genericArity": 0,
+      "parameters": [
+        {
+          "Name": "cancellationToken",
+          "type": "System.Threading.CancellationToken",
+          "IsOptional": false,
+          "IsOut": false
+        }
+      ],
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315",
+      "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+    }
+  ]
+}

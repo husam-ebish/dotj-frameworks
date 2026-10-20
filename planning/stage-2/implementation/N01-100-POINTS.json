@@ -1,0 +1,904 @@
+{
+  "schemaVersion": 1,
+  "scope": "Batches 301-400: 99 distinct compiler-derived WP-02 public methods plus one ledger audit; N01 prerequisite evidence only",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "batches": [
+    {
+      "batch": "Batch-301",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task WaitAsync(System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.Task WaitAsync(System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-302",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task WaitAsync(System.TimeSpan)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.Task WaitAsync(System.TimeSpan) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-303",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-304",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.TimeProvider)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.TimeProvider) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-305",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-306",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_AsyncState",
+      "signature": "System.Object get_AsyncState()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Object get_AsyncState() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-307",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_CompletedTask",
+      "signature": "System.Threading.Tasks.Task get_CompletedTask()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.Task get_CompletedTask() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-308",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_CreationOptions",
+      "signature": "System.Threading.Tasks.TaskCreationOptions get_CreationOptions()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.TaskCreationOptions get_CreationOptions() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-309",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_Exception",
+      "signature": "System.AggregateException get_Exception()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.AggregateException get_Exception() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-310",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_Id",
+      "signature": "Int32 get_Id()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::Int32 get_Id() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-311",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_IsCanceled",
+      "signature": "Boolean get_IsCanceled()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::Boolean get_IsCanceled() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-312",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_IsCompleted",
+      "signature": "Boolean get_IsCompleted()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::Boolean get_IsCompleted() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-313",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_IsCompletedSuccessfully",
+      "signature": "Boolean get_IsCompletedSuccessfully()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::Boolean get_IsCompletedSuccessfully() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-314",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_IsFaulted",
+      "signature": "Boolean get_IsFaulted()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::Boolean get_IsFaulted() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-315",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "get_Status",
+      "signature": "System.Threading.Tasks.TaskStatus get_Status()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.TaskStatus get_Status() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-316",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "GetAwaiter",
+      "signature": "System.Runtime.CompilerServices.TaskAwaiter GetAwaiter()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Runtime.CompilerServices.TaskAwaiter GetAwaiter() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-317",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "ConfigureAwait",
+      "signature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfigureAwait(Boolean)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfigureAwait(Boolean) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-318",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "ConfigureAwait",
+      "signature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfigureAwait(System.Threading.Tasks.ConfigureAwaitOptions)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfigureAwait(System.Threading.Tasks.ConfigureAwaitOptions) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-319",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "FromResult",
+      "signature": "System.Threading.Tasks.Task`1[TResult] FromResult[TResult](TResult)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] FromResult[TResult](TResult) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-320",
+      "family": "Task",
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "FromException",
+      "signature": "System.Threading.Tasks.Task FromException(System.Exception)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "outcome": "Verify System.Threading.Tasks.Task::System.Threading.Tasks.Task FromException(System.Exception) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-321",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TResult] WaitAsync(System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-322",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-323",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-324",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.TimeProvider)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.TimeProvider) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-325",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "WaitAsync",
+      "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-326",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "get_Result",
+      "signature": "TResult get_Result()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::TResult get_Result() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-327",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "get_Factory",
+      "signature": "System.Threading.Tasks.TaskFactory`1[TResult] get_Factory()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.TaskFactory`1[TResult] get_Factory() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-328",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "GetAwaiter",
+      "signature": "System.Runtime.CompilerServices.TaskAwaiter`1[TResult] GetAwaiter()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Runtime.CompilerServices.TaskAwaiter`1[TResult] GetAwaiter() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-329",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "ConfigureAwait",
+      "signature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult] ConfigureAwait(Boolean)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult] ConfigureAwait(Boolean) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-330",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "ConfigureAwait",
+      "signature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult] ConfigureAwait(System.Threading.Tasks.ConfigureAwaitOptions)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult] ConfigureAwait(System.Threading.Tasks.ConfigureAwaitOptions) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-331",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "ContinueWith",
+      "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]])",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]]) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-332",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "ContinueWith",
+      "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-333",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "ContinueWith",
+      "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-334",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "ContinueWith",
+      "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskContinuationOptions)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskContinuationOptions) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-335",
+      "family": "Task<TResult>",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "method": "ContinueWith",
+      "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskScheduler)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskScheduler) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-336",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "get_Task",
+      "signature": "System.Threading.Tasks.Task get_Task()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::System.Threading.Tasks.Task get_Task() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-337",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "SetCanceled",
+      "signature": "Void SetCanceled()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Void SetCanceled() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-338",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "SetCanceled",
+      "signature": "Void SetCanceled(System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Void SetCanceled(System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-339",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "SetException",
+      "signature": "Void SetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Void SetException(System.Collections.Generic.IEnumerable`1[System.Exception]) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-340",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "SetException",
+      "signature": "Void SetException(System.Exception)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Void SetException(System.Exception) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-341",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "SetFromTask",
+      "signature": "Void SetFromTask(System.Threading.Tasks.Task)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Void SetFromTask(System.Threading.Tasks.Task) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-342",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "SetResult",
+      "signature": "Void SetResult()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Void SetResult() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-343",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "TrySetCanceled",
+      "signature": "Boolean TrySetCanceled()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Boolean TrySetCanceled() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-344",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "TrySetCanceled",
+      "signature": "Boolean TrySetCanceled(System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Boolean TrySetCanceled(System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-345",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "TrySetException",
+      "signature": "Boolean TrySetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Boolean TrySetException(System.Collections.Generic.IEnumerable`1[System.Exception]) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-346",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "TrySetException",
+      "signature": "Boolean TrySetException(System.Exception)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Boolean TrySetException(System.Exception) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-347",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "TrySetFromTask",
+      "signature": "Boolean TrySetFromTask(System.Threading.Tasks.Task)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Boolean TrySetFromTask(System.Threading.Tasks.Task) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-348",
+      "family": "TaskCompletionSource",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "method": "TrySetResult",
+      "signature": "Boolean TrySetResult()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource::Boolean TrySetResult() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-349",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "get_Task",
+      "signature": "System.Threading.Tasks.Task`1[TResult] get_Task()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::System.Threading.Tasks.Task`1[TResult] get_Task() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-350",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "SetCanceled",
+      "signature": "Void SetCanceled()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Void SetCanceled() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-351",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "SetCanceled",
+      "signature": "Void SetCanceled(System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Void SetCanceled(System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-352",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "SetException",
+      "signature": "Void SetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Void SetException(System.Collections.Generic.IEnumerable`1[System.Exception]) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-353",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "SetException",
+      "signature": "Void SetException(System.Exception)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Void SetException(System.Exception) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-354",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "SetFromTask",
+      "signature": "Void SetFromTask(System.Threading.Tasks.Task`1[TResult])",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Void SetFromTask(System.Threading.Tasks.Task`1[TResult]) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-355",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "SetResult",
+      "signature": "Void SetResult(TResult)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Void SetResult(TResult) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-356",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "TrySetCanceled",
+      "signature": "Boolean TrySetCanceled()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Boolean TrySetCanceled() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-357",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "TrySetCanceled",
+      "signature": "Boolean TrySetCanceled(System.Threading.CancellationToken)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Boolean TrySetCanceled(System.Threading.CancellationToken) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-358",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "TrySetException",
+      "signature": "Boolean TrySetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Boolean TrySetException(System.Collections.Generic.IEnumerable`1[System.Exception]) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-359",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "TrySetException",
+      "signature": "Boolean TrySetException(System.Exception)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Boolean TrySetException(System.Exception) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-360",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "TrySetFromTask",
+      "signature": "Boolean TrySetFromTask(System.Threading.Tasks.Task`1[TResult])",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Boolean TrySetFromTask(System.Threading.Tasks.Task`1[TResult]) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-361",
+      "family": "TaskCompletionSource<TResult>",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "method": "TrySetResult",
+      "signature": "Boolean TrySetResult(TResult)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "outcome": "Verify System.Threading.Tasks.TaskCompletionSource`1::Boolean TrySetResult(TResult) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-362",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "AsTask",
+      "signature": "System.Threading.Tasks.Task AsTask()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::System.Threading.Tasks.Task AsTask() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-363",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "ConfigureAwait",
+      "signature": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable ConfigureAwait(Boolean)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable ConfigureAwait(Boolean) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-364",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "GetAwaiter",
+      "signature": "System.Runtime.CompilerServices.ValueTaskAwaiter GetAwaiter()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::System.Runtime.CompilerServices.ValueTaskAwaiter GetAwaiter() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-365",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "Preserve",
+      "signature": "System.Threading.Tasks.ValueTask Preserve()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::System.Threading.Tasks.ValueTask Preserve() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-366",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "get_IsCanceled",
+      "signature": "Boolean get_IsCanceled()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::Boolean get_IsCanceled() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-367",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "get_IsCompleted",
+      "signature": "Boolean get_IsCompleted()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::Boolean get_IsCompleted() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-368",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "get_IsCompletedSuccessfully",
+      "signature": "Boolean get_IsCompletedSuccessfully()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::Boolean get_IsCompletedSuccessfully() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-369",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "get_IsFaulted",
+      "signature": "Boolean get_IsFaulted()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::Boolean get_IsFaulted() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-370",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "get_CompletedTask",
+      "signature": "System.Threading.Tasks.ValueTask get_CompletedTask()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::System.Threading.Tasks.ValueTask get_CompletedTask() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-371",
+      "family": "ValueTask",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "FromResult",
+      "signature": "System.Threading.Tasks.ValueTask`1[TResult] FromResult[TResult](TResult)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask::System.Threading.Tasks.ValueTask`1[TResult] FromResult[TResult](TResult) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-372",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "AsTask",
+      "signature": "System.Threading.Tasks.Task`1[TResult] AsTask()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::System.Threading.Tasks.Task`1[TResult] AsTask() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-373",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "ConfigureAwait",
+      "signature": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1[TResult] ConfigureAwait(Boolean)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1[TResult] ConfigureAwait(Boolean) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-374",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "GetAwaiter",
+      "signature": "System.Runtime.CompilerServices.ValueTaskAwaiter`1[TResult] GetAwaiter()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::System.Runtime.CompilerServices.ValueTaskAwaiter`1[TResult] GetAwaiter() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-375",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "Preserve",
+      "signature": "System.Threading.Tasks.ValueTask`1[TResult] Preserve()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::System.Threading.Tasks.ValueTask`1[TResult] Preserve() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-376",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "get_IsCanceled",
+      "signature": "Boolean get_IsCanceled()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::Boolean get_IsCanceled() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-377",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "get_IsCompleted",
+      "signature": "Boolean get_IsCompleted()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::Boolean get_IsCompleted() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-378",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "get_IsCompletedSuccessfully",
+      "signature": "Boolean get_IsCompletedSuccessfully()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::Boolean get_IsCompletedSuccessfully() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-379",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "get_IsFaulted",
+      "signature": "Boolean get_IsFaulted()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::Boolean get_IsFaulted() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-380",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "get_Result",
+      "signature": "TResult get_Result()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::TResult get_Result() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-381",
+      "family": "ValueTask<TResult>",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "method": "ToString",
+      "signature": "System.String ToString()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+      "outcome": "Verify System.Threading.Tasks.ValueTask`1::System.String ToString() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-382",
+      "family": "CancellationToken",
+      "declaringType": "System.Threading.CancellationToken",
+      "method": "get_CanBeCanceled",
+      "signature": "Boolean get_CanBeCanceled()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+      "outcome": "Verify System.Threading.CancellationToken::Boolean get_CanBeCanceled() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-383",
+      "family": "CancellationToken",
+      "declaringType": "System.Threading.CancellationToken",
+      "method": "get_IsCancellationRequested",
+      "signature": "Boolean get_IsCancellationRequested()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+      "outcome": "Verify System.Threading.CancellationToken::Boolean get_IsCancellationRequested() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-384",
+      "family": "CancellationToken",
+      "declaringType": "System.Threading.CancellationToken",
+      "method": "get_None",
+      "signature": "System.Threading.CancellationToken get_None()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+      "outcome": "Verify System.Threading.CancellationToken::System.Threading.CancellationToken get_None() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-385",
+      "family": "CancellationToken",
+      "declaringType": "System.Threading.CancellationToken",
+      "method": "get_WaitHandle",
+      "signature": "System.Threading.WaitHandle get_WaitHandle()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+      "outcome": "Verify System.Threading.CancellationToken::System.Threading.WaitHandle get_WaitHandle() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-386",
+      "family": "CancellationToken",
+      "declaringType": "System.Threading.CancellationToken",
+      "method": "ThrowIfCancellationRequested",
+      "signature": "Void ThrowIfCancellationRequested()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+      "outcome": "Verify System.Threading.CancellationToken::Void ThrowIfCancellationRequested() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-387",
+      "family": "CancellationToken",
+      "declaringType": "System.Threading.CancellationToken",
+      "method": "Register",
+      "signature": "System.Threading.CancellationTokenRegistration Register(System.Action)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+      "outcome": "Verify System.Threading.CancellationToken::System.Threading.CancellationTokenRegistration Register(System.Action) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-388",
+      "family": "CancellationToken",
+      "declaringType": "System.Threading.CancellationToken",
+      "method": "Register",
+      "signature": "System.Threading.CancellationTokenRegistration Register(System.Action, Boolean)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+      "outcome": "Verify System.Threading.CancellationToken::System.Threading.CancellationTokenRegistration Register(System.Action, Boolean) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-389",
+      "family": "CancellationToken",
+      "declaringType": "System.Threading.CancellationToken",
+      "method": "UnsafeRegister",
+      "signature": "System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`1[System.Object], System.Object)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+      "outcome": "Verify System.Threading.CancellationToken::System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`1[System.Object], System.Object) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-390",
+      "family": "CancellationTokenSource",
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "method": "Cancel",
+      "signature": "Void Cancel()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json",
+      "outcome": "Verify System.Threading.CancellationTokenSource::Void Cancel() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-391",
+      "family": "CancellationTokenSource",
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "method": "Cancel",
+      "signature": "Void Cancel(Boolean)",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json",
+      "outcome": "Verify System.Threading.CancellationTokenSource::Void Cancel(Boolean) against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-392",
+      "family": "CancellationTokenSource",
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "method": "CancelAsync",
+      "signature": "System.Threading.Tasks.Task CancelAsync()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json",
+      "outcome": "Verify System.Threading.CancellationTokenSource::System.Threading.Tasks.Task CancelAsync() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-393",
+      "family": "CancellationTokenSource",
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "method": "get_Token",
+      "signature": "System.Threading.CancellationToken get_Token()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json",
+      "outcome": "Verify System.Threading.CancellationTokenSource::System.Threading.CancellationToken get_Token() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-394",
+      "family": "CancellationTokenSource",
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "method": "TryReset",
+      "signature": "Boolean TryReset()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json",
+      "outcome": "Verify System.Threading.CancellationTokenSource::Boolean TryReset() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-395",
+      "family": "CancellationTokenSource",
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "method": "Dispose",
+      "signature": "Void Dispose()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json",
+      "outcome": "Verify System.Threading.CancellationTokenSource::Void Dispose() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-396",
+      "family": "CancellationTokenRegistration",
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "method": "Dispose",
+      "signature": "Void Dispose()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json",
+      "outcome": "Verify System.Threading.CancellationTokenRegistration::Void Dispose() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-397",
+      "family": "CancellationTokenRegistration",
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "method": "DisposeAsync",
+      "signature": "System.Threading.Tasks.ValueTask DisposeAsync()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json",
+      "outcome": "Verify System.Threading.CancellationTokenRegistration::System.Threading.Tasks.ValueTask DisposeAsync() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-398",
+      "family": "CancellationTokenRegistration",
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "method": "Unregister",
+      "signature": "Boolean Unregister()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json",
+      "outcome": "Verify System.Threading.CancellationTokenRegistration::Boolean Unregister() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-399",
+      "family": "CancellationTokenRegistration",
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "method": "get_Token",
+      "signature": "System.Threading.CancellationToken get_Token()",
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json",
+      "outcome": "Verify System.Threading.CancellationTokenRegistration::System.Threading.CancellationToken get_Token() against pinned metadata and owning source hash."
+    },
+    {
+      "batch": "Batch-400",
+      "family": "N01 audit",
+      "outcome": "Audit all 99 selected public method signatures, source hashes, branch merges, and open Java representation gaps."
+    }
+  ]
+}
