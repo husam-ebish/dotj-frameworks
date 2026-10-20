@@ -34,6 +34,7 @@ public final class AsyncTimedWaitTest {
         scenario("infinite cancel first", -1, "pending", false, "cancel", "cancel", "signal");
         invalidTimeout(-2, true);
         scenario("timeout then source", 10, "pending", false, "none", "timeout", "result");
+        timeoutSibling();
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -130,6 +131,18 @@ public final class AsyncTimedWaitTest {
             check(source.state() == AsyncState.PENDING && signal.listenerCount() == 0,
                     "invalid timeout changed source or registered listener");
         }
+    }
+
+    private static void timeoutSibling() throws Exception {
+        AsyncCompletion<Integer> source = new AsyncCompletion<>();
+        CompletableFuture<Integer> timed = source.waitAsync(10);
+        CompletableFuture<Integer> sibling = source.waitAsync(-1);
+        assertOutcome("timed sibling", timed, "timeout", null);
+        check(!sibling.isDone() && source.state() == AsyncState.PENDING,
+                "timed wait changed sibling or source");
+        source.setResult(42);
+        check(sibling.get(5, TimeUnit.SECONDS) == 42, "sibling lost source result");
+        assertOutcome("timed sibling after", timed, "timeout", null);
     }
 
     private static void check(boolean condition, String message) {
