@@ -353,6 +353,15 @@ Run("waitAsyncInfiniteTimeoutFault", () =>
     Check(ReferenceEquals(waiting.Exception?.InnerException, failure), "infinite timeout changed fault identity");
 });
 
+Run("waitAsyncInfiniteTimeoutCancel", () =>
+{
+    TaskCompletionSource<int> source = new();
+    Task<int> waiting = source.Task.WaitAsync(Timeout.InfiniteTimeSpan);
+    source.SetCanceled();
+    CheckThrows<TaskCanceledException>(() => waiting.GetAwaiter().GetResult(), "infinite timeout source cancellation");
+    Check(waiting.IsCanceled && source.Task.IsCanceled, "infinite timeout changed cancellation");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
