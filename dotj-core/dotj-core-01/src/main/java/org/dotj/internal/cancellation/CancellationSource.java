@@ -3,6 +3,7 @@ package org.dotj.internal.cancellation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.CompletableFuture;
 
 /** Internal state prototype; not a public System.Threading API. */
 final class CancellationSource implements AutoCloseable {
@@ -32,18 +33,34 @@ final class CancellationSource implements AutoCloseable {
     }
 
     void cancel(boolean throwOnFirstException) {
-        List<CancellationRegistration> callbacks;
+        List<CancellationRegistration> callbacks = beginCancellation();
+        invokeCallbacks(callbacks, throwOnFirstException);
+    }
+
+    CompletableFuture<Void> cancelAsync() {
+        List<CancellationRegistration> callbacks = beginCancellation();
+        if (callbacks.isEmpty()) {
+            return CompletableFuture.completedFuture(null);
+        }
+        return CompletableFuture.runAsync(() -> invokeCallbacks(callbacks, false));
+    }
+
+    private List<CancellationRegistration> beginCancellation() {
         synchronized (lock) {
             if (closed) {
                 throw new IllegalStateException("Cancellation source is closed");
             }
             if (cancellationRequested) {
-                return;
+                return List.of();
             }
             cancellationRequested = true;
-            callbacks = new ArrayList<>(registrations);
+            List<CancellationRegistration> callbacks = new ArrayList<>(registrations);
             registrations.clear();
+            return callbacks;
         }
+    }
+
+    private static void invokeCallbacks(List<CancellationRegistration> callbacks, boolean throwOnFirstException) {
         List<RuntimeException> failures = new ArrayList<>();
         for (int index = callbacks.size() - 1; index >= 0; index--) {
             try {
