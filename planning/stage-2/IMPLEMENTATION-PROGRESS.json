@@ -42,7 +42,8 @@
     "Batch-025",
     "Batch-026",
     "Batch-027",
-    "Batch-028"
+    "Batch-028",
+    "Batch-029"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -203,12 +204,12 @@
         },
         {
           "id": "DJ-001-N01-T1",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "prerequisite"
         },
         {
           "id": "DJ-001-N01-T2",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "prerequisite"
         },
         {
@@ -232,10 +233,10 @@
         "E01": "IN PROGRESS",
         "E02": "IN PROGRESS",
         "E03": "IN PROGRESS",
-        "N01": "NOT STARTED",
+        "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-028",
+      "lastUpdatedBatch": "Batch-029",
       "blocked": false,
       "unclassifiedTaskIds": [
         "DJ-001-WP-01-T1",
@@ -9846,13 +9847,12 @@
   ],
   "measurementNote": "Null percentages mean Not yet measurable. The 1356 named tasks mix implementation and preparation. E01-E03 and Q01 are separate gates; N01 tasks are recorded as prerequisites. No preparation earns implementation credit.",
   "nextProposedBatch": {
-    "id": "Batch-029",
+    "id": "Batch-030",
     "framework": "dotj-core",
     "planTaskIds": [
-      "DJ-001-N01-T2",
-      "E02"
+      "DJ-001-WP-01-T2"
     ],
-    "outcome": "Record exact-name Java representation for System.IDisposable and explicit IAsyncDisposable blocker.",
+    "outcome": "Implement an internal JDK-only owned/borrowed resource helper with direct executable tests; no public facade yet.",
     "requiresContinue": false
   }
 }

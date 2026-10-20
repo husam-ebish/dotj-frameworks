@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 1,
+  "sourceTag": "v10.0.12",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "scope": "N01 candidate mapping for the WP-01 disposal interface slice only",
+  "sourceEvidence": "disposal-source-inventory-v10.0.12/manifest.json",
+  "metadataEvidence": "disposal-metadata-v10.0.12/oracle-output.json",
+  "behaviorEvidence": "disposal-behavior-v10.0.12/oracle-output.json",
+  "symbols": [
+    {
+      "upstreamFullName": "System.IDisposable",
+      "namespace": "System",
+      "declaringType": "IDisposable",
+      "kind": "public interface",
+      "genericArity": 0,
+      "method": "Dispose",
+      "returnType": "System.Void",
+      "parameters": [],
+      "isAbstract": true,
+      "javaPackageCandidate": "System",
+      "javaTypeCandidate": "IDisposable",
+      "javaMethodCandidate": "Dispose",
+      "javaReturnCandidate": "void",
+      "javaArtifactCandidate": "dotj-core-01",
+      "javaSourceStatus": "NOT CREATED",
+      "mappingStatus": "EXACT-NAME CANDIDATE; compiled Java API and ownership behavior pending",
+      "syntaxDifference": "Java package declaration and interface method syntax; C# using is not assumed to compile in Java",
+      "conceptBoundary": "Dispose dispatch is a method call; idempotence and exception policy depend on the implementing resource and owning scope",
+      "optionalBridge": "AutoCloseable.close may be a separate Java adapter, not the canonical public method"
+    },
+    {
+      "upstreamFullName": "System.IAsyncDisposable",
+      "namespace": "System",
+      "declaringType": "IAsyncDisposable",
+      "kind": "public interface",
+      "genericArity": 0,
+      "method": "DisposeAsync",
+      "returnType": "System.Threading.Tasks.ValueTask",
+      "parameters": [],
+      "isAbstract": true,
+      "javaPackageCandidate": "System",
+      "javaTypeCandidate": "IAsyncDisposable",
+      "javaMethodCandidate": "DisposeAsync",
+      "javaReturnCandidate": "System.Threading.Tasks.ValueTask",
+      "javaArtifactCandidate": "dotj-core-01 or a split module after ValueTask contract review",
+      "javaSourceStatus": "NOT CREATED",
+      "mappingStatus": "BLOCKED; ValueTask public value/awaiter lifecycle and Java representation unresolved",
+      "syntaxDifference": "C# await using is not assumed to compile in Java",
+      "conceptBoundary": "CompletionStage or CompletableFuture is not a verified public return replacement"
+    }
+  ],
+  "limits": [
+    "This is a selected two-interface ledger, not complete N01-T1/T2 for core or a compiled Java surface.",
+    "E01 notice applicability and the designed ownership/context fixtures remain open; no public source is authorized by this record alone.",
+    "No .j implementation credit is awarded."
+  ]
+}
