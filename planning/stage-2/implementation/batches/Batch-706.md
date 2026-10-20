@@ -26,6 +26,20 @@
 | Next proposed batch | `Batch-707`: Integrate arity-aware type reference binding with a source declaration or signature path. |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
+The batch number counts narrow historical work units, including evidence and preparation. It is not an implementation denominator. Earlier forecasts grew when new work units were scheduled; the v7 plan deliberately leaves the future batch total unknown. This 50-point tranche has a fixed endpoint at `Batch-755`.
+
+## Verification and compatibility
+
+| Check | Command and result |
+|---|---|
+| Internal fixture run | `& tools/oracle/dotj-core/run-wp01-fixtures.ps1` — passed 15 Java fixtures and five independent .NET oracles. |
+| Internal JAR | `& tools/oracle/dotj-core/build-internal-core.ps1` — passed; 14 Java sources and 15 class files. |
+| Bounded foundation gate | `python tools/oracle/dotj-core/run-foundation-gate.py --source-root C:\Users\husam\AppData\Local\Temp\dotj-upstream-tests-v10\runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6` — passed WP-01 15+5, WP-02 15 Java + 10 upstream, and async reference/collision checks. |
+| Progress ledger | `python tools/progress/verify-batch-plan.py` — passed with 706 completed batches and 1,686 open acceptance items. |
+| Usage measurement | Unavailable. |
+
+The binder retains the upstream `System.Threading.Tasks` and type spelling in its input, but maps generic arity to a distinct JVM binary name. No `.j` compiler integration exists in the repository, so this does not validate source-level compatibility or the public Task contract. E01-E03/N01 qualification remains open.
+
 ## Files changed
 
 | Path | Purpose |
