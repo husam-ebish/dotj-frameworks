@@ -5,6 +5,7 @@ public final class ContextSnapshotBoundaryTest {
     public static void main(String[] args) throws Exception {
         emptySnapshot();
         copyOnWrite();
+        entryLimitAndOverwrite();
         // Next bounded case.
         System.out.println("PASS: internal context boundary checks");
     }
@@ -20,6 +21,15 @@ public final class ContextSnapshotBoundaryTest {
         ContextSnapshot second = first.with("key", "two");
         if (!"one".equals(first.get("key")) || !"two".equals(second.get("key")) || second.size() != 1)
             throw new AssertionError("Context update mutated the earlier snapshot");
+    }
+
+    private static void entryLimitAndOverwrite() throws Exception {
+        ContextSnapshot snapshot = ContextSnapshot.empty();
+        for (int i = 0; i < 32; i++) snapshot = snapshot.with("k" + i, "v");
+        snapshot = snapshot.with("k0", "new");
+        if (snapshot.size() != 32 || !"new".equals(snapshot.get("k0"))) throw new AssertionError("Overwrite changed capacity");
+        try { snapshot.with("overflow", "x"); throw new AssertionError("Entry limit not enforced"); }
+        catch (IllegalStateException expected) { }
     }
 
     // Next bounded method.
