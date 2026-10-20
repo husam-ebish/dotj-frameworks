@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-073",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "verificationCommand": "python tools/oracle/dotj-core/verify-selected-api-shapes.py --source-root <extracted pinned source root>",
+  "selectedTypesVerified": 7,
+  "checks": ["selected source-file SHA256", "metadata snapshot SHA256", "installed CoreLib SHA256", "exact selected declaration anchors", "required reflected method names"],
+  "result": "PASS: all seven selected shapes and anchors verified.",
+  "limit": "This verifies selected anchors and installed artifact metadata. It does not compare every source member, generated/conditional member, inherited API or Java facade. System.Type is partial and spans additional source files."
+}
