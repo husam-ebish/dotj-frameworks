@@ -10,12 +10,12 @@ $manifestPath = Join-Path $repoRoot 'planning\stage-2\repos\dotj-core\evidence\i
 New-Item -ItemType Directory -Force -Path $classes | Out-Null
 
 $sources = @(Get-ChildItem -LiteralPath $main -Recurse -Filter '*.java' | Sort-Object FullName)
-if ($sources.Count -ne 8) { throw "Expected eight internal Java source files, found $($sources.Count)." }
+if ($sources.Count -ne 11) { throw "Expected eleven internal Java source files, found $($sources.Count)." }
 & javac --release 21 -d $classes @($sources | ForEach-Object FullName)
 if ($LASTEXITCODE -ne 0) { throw 'Internal Java compilation failed.' }
 
 $classFiles = @(Get-ChildItem -LiteralPath $classes -Recurse -Filter '*.class')
-if ($classFiles.Count -ne 8) { throw "Expected eight internal class files, found $($classFiles.Count)." }
+if ($classFiles.Count -ne 11) { throw "Expected eleven internal class files, found $($classFiles.Count)." }
 & jar --create --file $jarPath --date=2026-10-20T00:00:00Z -C $classes .
 if ($LASTEXITCODE -ne 0) { throw 'Internal JAR creation failed.' }
 $entries = @(& jar --list --file $jarPath)
