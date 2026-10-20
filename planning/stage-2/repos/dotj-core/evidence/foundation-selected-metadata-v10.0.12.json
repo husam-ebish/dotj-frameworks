@@ -536,6 +536,88 @@
     "underlying": "System.Int32",
     "nonEnumError": "System.ArgumentException"
   },
+  "selectedAssignability": [
+    {
+      "target": "System.Object",
+      "candidate": "System.String",
+      "result": true
+    },
+    {
+      "target": "System.Object",
+      "candidate": "System.Int32",
+      "result": true
+    },
+    {
+      "target": "System.Object",
+      "candidate": "System.IDisposable",
+      "result": true
+    },
+    {
+      "target": "System.Object",
+      "candidate": "System.String[]",
+      "result": true
+    },
+    {
+      "target": "System.Object",
+      "candidate": "System.String&",
+      "result": false
+    },
+    {
+      "target": "System.Object",
+      "candidate": "System.String*",
+      "result": false
+    },
+    {
+      "target": "System.ValueType",
+      "candidate": "System.Int32",
+      "result": true
+    },
+    {
+      "target": "System.ValueType",
+      "candidate": "System.Reflection.MemberTypes",
+      "result": true
+    },
+    {
+      "target": "System.ValueType",
+      "candidate": "System.String",
+      "result": false
+    },
+    {
+      "target": "System.Enum",
+      "candidate": "System.Reflection.MemberTypes",
+      "result": true
+    },
+    {
+      "target": "System.Enum",
+      "candidate": "System.Int32",
+      "result": false
+    },
+    {
+      "target": "System.Array",
+      "candidate": "System.String[]",
+      "result": true
+    },
+    {
+      "target": "System.Array",
+      "candidate": "System.String",
+      "result": false
+    },
+    {
+      "target": "System.Collections.Generic.List`1",
+      "candidate": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "result": false
+    },
+    {
+      "target": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "candidate": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "result": true
+    },
+    {
+      "target": "System.String",
+      "candidate": null,
+      "result": false
+    }
+  ],
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -1269,6 +1351,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "46900e6dac5cf8a65d1dbec9d26aee691eb3e7c0551e51a16b6ad6652aed281e",
+  "oracleProgramSha256": "f88d8c1d8d8a0bb036e79f0810b99d7798af821c0e960d0d5a0e3cbbf111f8f6",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

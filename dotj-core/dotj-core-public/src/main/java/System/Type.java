@@ -393,6 +393,29 @@ public abstract class Type extends MemberInfo {
         return fromJavaClass(Integer.class);
     }
 
+    public boolean IsAssignableFrom(Type candidate) {
+        if (candidate == null) {
+            return false;
+        }
+        if (this == candidate) {
+            return true;
+        }
+        if (candidate.get_IsByRef() || candidate.get_IsPointer()) {
+            return false;
+        }
+        if (this == fromJavaClass(Object.class)) {
+            return true;
+        }
+        Type ancestor = candidate.get_BaseType();
+        while (ancestor != null) {
+            if (this == ancestor) {
+                return true;
+            }
+            ancestor = ancestor.get_BaseType();
+        }
+        return false;
+    }
+
     private static String arraySuffix(int rank, boolean vector) {
         if (rank == 1) {
             return vector ? "[]" : "[*]";

@@ -52,6 +52,7 @@ def main():
         "System.Type MakeGenericType(System.Type[])",
         "System.Type GetType(System.String)",
         "System.Type GetEnumUnderlyingType()",
+        "Boolean IsAssignableFrom(System.Type)",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
     assert selected <= signatures
@@ -170,6 +171,11 @@ def main():
         "enumBase": "System.Enum", "baseBase": "System.ValueType",
         "underlying": "System.Int32", "nonEnumError": "System.ArgumentException",
     }
+    assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
+    assert [item["result"] for item in assignability] == [
+        True, True, True, True, False, False, True, True, False, True, False,
+        True, False, False, True, False,
+    ]
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -209,6 +215,7 @@ def main():
         "public boolean get_IsInterface();",
         "public boolean get_IsEnum();",
         "public System.Type GetEnumUnderlyingType();",
+        "public boolean IsAssignableFrom(System.Type);",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",
