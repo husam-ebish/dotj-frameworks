@@ -11,6 +11,10 @@ public final class TypeIdentityTest {
     private List<String> same;
     private List<Integer> different;
     private List<?> wildcard;
+    private Map<String, List<Integer>> nestedFirst;
+    private Map<String, List<Integer>> nestedSame;
+    private Map<String, List<Long>> nestedDifferent;
+    private Map<String, List<?>> nestedWildcard;
 
     public static void main(String[] args) throws NoSuchFieldException {
         TypeIdentity first = identityOf("first");
@@ -33,7 +37,19 @@ public final class TypeIdentityTest {
         } catch (IllegalArgumentException expected) {
             // Unmapped generic forms remain explicit.
         }
-        System.out.println("PASS: DJ-001-F01-01 and F01-02 closed generic identity");
+        TypeIdentity nestedFirst = identityOf("nestedFirst");
+        TypeIdentity nestedSame = identityOf("nestedSame");
+        TypeIdentity nestedDifferent = identityOf("nestedDifferent");
+        if (!nestedFirst.equals(nestedSame) || nestedFirst.equals(nestedDifferent)) {
+            throw new AssertionError("nested closed argument identity is incorrect");
+        }
+        try {
+            identityOf("nestedWildcard");
+            throw new AssertionError("nested unmapped wildcard was accepted");
+        } catch (IllegalArgumentException expected) {
+            // Recursive shape validation reaches nested type arguments.
+        }
+        System.out.println("PASS: DJ-001-F01-01 and F01-02 simple and nested generic identity");
     }
 
     private static TypeIdentity identityOf(String field) throws NoSuchFieldException {
