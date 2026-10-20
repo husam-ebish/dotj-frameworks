@@ -640,7 +640,8 @@
     "Batch-623",
     "Batch-624",
     "Batch-625",
-    "Batch-626"
+    "Batch-626",
+    "Batch-627"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -833,7 +834,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-626",
+      "lastUpdatedBatch": "Batch-627",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -10444,20 +10445,20 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-627",
+    "id": "Batch-628",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T1"
     ],
-    "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask`1::Int32 GetHashCode().",
+    "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask`1::Boolean op_Equality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult]).",
     "requiresContinue": true
   },
   "batchPlan": {
     "version": "stage-2-batches-v6",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v6.json",
     "plannedTotalBatches": 2386,
-    "completedBatches": 626,
-    "remainingPlannedBatches": 1760,
+    "completedBatches": 627,
+    "remainingPlannedBatches": 1759,
     "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes"
   }
 }
