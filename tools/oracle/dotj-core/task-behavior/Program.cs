@@ -145,6 +145,14 @@ Run("defaultValueTask", () =>
         "default ValueTask state");
 });
 
+Run("valueTaskBackedSuccess", () =>
+{
+    Task backing = Task.CompletedTask;
+    ValueTask value = new(backing);
+    Check(value.IsCompletedSuccessfully && ReferenceEquals(value.AsTask(), backing),
+        "Task-backed ValueTask success");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
