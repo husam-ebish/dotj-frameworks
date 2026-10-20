@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "scope": "Direct return-type dependency of System.IAsyncDisposable.DisposeAsync",
+  "valueTaskSource": {
+    "path": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
+    "bytes": 39388,
+    "sha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3"
+  },
+  "sharedProject": {
+    "path": "src/libraries/System.Private.CoreLib/src/System.Private.CoreLib.Shared.projitems",
+    "sha256": "f4235874ab414596562b74ffed7b7083811059f8fcdb31b0041f5cffa82b86c8",
+    "compileInclude": "$(MSBuildThisFileDirectory)System\\Threading\\Tasks\\ValueTask.cs",
+    "directCondition": null
+  },
+  "iAsyncDisposableSourceSha256": "7d590f4f940af702f8d3797655412cdc64435a0cc6454985685e415ee5fe817f",
+  "observedSourceTokens": {
+    "nongenericDeclaration": "public readonly struct ValueTask : IEquatable<ValueTask>",
+    "genericDeclaration": "public readonly struct ValueTask<TResult> : IEquatable<ValueTask<TResult>>",
+    "taskConversion": "public Task AsTask()",
+    "awaiter": "public ValueTaskAwaiter GetAwaiter()",
+    "sourceBacker": "IValueTaskSource"
+  },
+  "sourceLineCount": 851,
+  "disposition": "IAsyncDisposable exact Java API deferred until the ValueTask lifecycle/awaiter representation and behavior oracle are resolved; CompletableFuture is not assumed equivalent.",
+  "limits": [
+    "This maps the immediate source dependency and selected source tokens, not the full ValueTask transitive dependency graph or semantics.",
+    "No Java public IAsyncDisposable declaration or .j behavior is implemented in this batch."
+  ]
+}
