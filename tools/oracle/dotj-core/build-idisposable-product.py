@@ -13,6 +13,7 @@ SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/IDisposable.jav
 SNAPSHOT = ROOT / "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/idisposable.json"
 PROVENANCE = SNAPSHOT.with_name("idisposable-provenance.json")
 CONSUMER = ROOT / "tools/oracle/dotj-core/java-probes/consumer/IndependentDisposableConsumer.java"
+PRODUCT_CONSUMER = ROOT / "dotj-core/dotj-core-public/src/test/java/consumer/ProductDisposableContractConsumer.java"
 BUILD = ROOT / "dotj-core/dotj-core-public/build/idisposable-v1"
 CLASSES = BUILD / "classes"
 JAR = BUILD / "dotj-core-idisposable-v1.jar"
@@ -62,10 +63,14 @@ def main():
 
     consumer_classes = BUILD / "consumer-classes"
     consumer_classes.mkdir(parents=True, exist_ok=True)
-    run("javac", "--release", "21", "-cp", str(JAR), "-d", str(consumer_classes), str(CONSUMER))
+    run("javac", "--release", "21", "-cp", str(JAR), "-d", str(consumer_classes),
+        str(CONSUMER), str(PRODUCT_CONSUMER))
     consumer_result = run("java", "-cp", os.pathsep.join((str(consumer_classes), str(JAR))),
                           "consumer.IndependentDisposableConsumer").strip()
     assert consumer_result == "PASS: independent IDisposable candidate consumer"
+    product_result = run("java", "-cp", os.pathsep.join((str(consumer_classes), str(JAR))),
+                         "consumer.ProductDisposableContractConsumer").strip()
+    assert product_result == "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation"
 
     result = {
         "schemaVersion": 1,
@@ -80,6 +85,7 @@ def main():
         "classSha256": sha256(class_path),
         "jarSha256": sha256(JAR),
         "independentConsumer": consumer_result,
+        "productContractConsumer": product_result,
         "status": "PUBLIC_INTERFACE_CANDIDATE; broader N01, E01 release rights and behavior qualification OPEN",
     }
     EVIDENCE.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
