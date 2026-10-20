@@ -212,7 +212,8 @@ def main():
         result["batch"] = "Batch-" + str(index + 767)
         ledger["entries"].append(result)
         LEDGER.write_text(json.dumps(ledger, indent=2) + "\n", encoding="utf-8")
-        print(f"PASS selected method {index}/99: {result['backendOwner']}.{entries[index - 1]['name']}")
+        state = "BLOCKED" if result["compilerError"] else "COMPILED"
+        print(f"{state} selected method {index}/99: {result['backendOwner']}.{entries[index - 1]['name']}")
     else:
         for index, observed in enumerate(ledger["entries"], 1):
             expected = verify_one(index, entries[index - 1], args.source_root)
