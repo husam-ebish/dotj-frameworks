@@ -20,6 +20,7 @@ public final class CancellationBoundaryTest {
         nestedLateRegistration();
         removeOlderDuringCancel();
         closeDuringCallback();
+        linkedWithNoParents();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -97,6 +98,11 @@ public final class CancellationBoundaryTest {
         CancellationSource source = new CancellationSource(); CancellationToken token = source.token();
         source.token().register(source::close); source.cancel();
         if (!token.isCancellationRequested()) throw new AssertionError("Cancellation state was lost");
+    }
+
+    private static void linkedWithNoParents() throws Exception {
+        CancellationSource child = CancellationSource.linked();
+        if (child.isCancellationRequested()) throw new AssertionError("Empty linked source canceled"); child.close();
     }
 
     // Next bounded method.
