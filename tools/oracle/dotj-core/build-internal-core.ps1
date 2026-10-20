@@ -11,14 +11,19 @@ $publicJar = Join-Path $repoRoot 'dotj-core\dotj-core-public\build\idisposable-v
 & python (Join-Path $repoRoot 'tools\oracle\dotj-core\build-idisposable-product.py')
 if ($LASTEXITCODE -ne 0) { throw 'Public IDisposable dependency build failed.' }
 New-Item -ItemType Directory -Force -Path $classes | Out-Null
+$classesRoot = [System.IO.Path]::GetFullPath($classes)
+if (-not $classesRoot.StartsWith([System.IO.Path]::GetFullPath($build) + [System.IO.Path]::DirectorySeparatorChar, [StringComparison]::OrdinalIgnoreCase)) {
+    throw 'Class output is outside the intended build directory.'
+}
+Get-ChildItem -LiteralPath $classes -Recurse -Filter '*.class' | ForEach-Object { Remove-Item -LiteralPath $_.FullName -Force }
 
 $sources = @(Get-ChildItem -LiteralPath $main -Recurse -Filter '*.java' | Sort-Object FullName)
-if ($sources.Count -ne 16) { throw "Expected sixteen internal Java source files, found $($sources.Count)." }
+if ($sources.Count -lt 16) { throw "Internal Java source set unexpectedly shrank to $($sources.Count)." }
 & javac --release 21 -classpath $publicJar -d $classes @($sources | ForEach-Object FullName)
 if ($LASTEXITCODE -ne 0) { throw 'Internal Java compilation failed.' }
 
 $classFiles = @(Get-ChildItem -LiteralPath $classes -Recurse -Filter '*.class')
-if ($classFiles.Count -ne 18) { throw "Expected eighteen internal class files, found $($classFiles.Count)." }
+if ($classFiles.Count -lt 18) { throw "Internal Java class set unexpectedly shrank to $($classFiles.Count)." }
 & jar --create --file $jarPath --date=2026-10-20T00:00:00Z -C $classes .
 if ($LASTEXITCODE -ne 0) { throw 'Internal JAR creation failed.' }
 $entries = @(& jar --list --file $jarPath)

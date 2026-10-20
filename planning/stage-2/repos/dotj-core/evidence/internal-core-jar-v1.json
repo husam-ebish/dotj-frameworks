@@ -2,9 +2,9 @@
     "schemaVersion":  1,
     "purpose":  "Internal development bootstrap artifact; not a public .j product package",
     "jdkVersion":  "javac 21.0.12.1",
-    "sourceCount":  16,
-    "classCount":  18,
-    "jarSha256":  "bbd431dcff577a5a43b5e2171f0e3c1281b9d2e09e2db64078d278851257866e",
+    "sourceCount":  17,
+    "classCount":  21,
+    "jarSha256":  "17e15378d0bf248949827f306f7bd79f3d8cd6c9946ec56b1e36a965ff63fdce",
     "entries":  [
                     "META-INF/",
                     "META-INF/MANIFEST.MF",
@@ -31,6 +31,9 @@
                     "org/dotj/internal/types/ArityJavaSourceRenderer.class",
                     "org/dotj/internal/types/ArityMethodSignatureBinder.class",
                     "org/dotj/internal/types/ArityNameMap.class",
+                    "org/dotj/internal/types/AritySourceCompiler$1.class",
+                    "org/dotj/internal/types/AritySourceCompiler$Compilation.class",
+                    "org/dotj/internal/types/AritySourceCompiler.class",
                     "org/dotj/internal/types/ArityTypeReferenceBinder$Parser.class",
                     "org/dotj/internal/types/ArityTypeReferenceBinder.class",
                     "org/dotj/internal/types/TypeIdentity.class"
@@ -91,6 +94,10 @@
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/ArityNameMap.java",
                              "sha256":  "0ec3ea0425dcba39cba553d8c5cbea7a7228522b1291a9f5665bb1337bbeb5dc"
+                         },
+                         {
+                             "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/AritySourceCompiler.java",
+                             "sha256":  "d61155cbb27e2a525aba4dffa7205ad8637154c95ec088b8877cefeaad92851f"
                          },
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/ArityTypeReferenceBinder.java",
