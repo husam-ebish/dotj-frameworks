@@ -4371,6 +4371,21 @@
       "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
       "compilerError": "unexpected type",
       "batch": "Batch-1162"
+    },
+    {
+      "index": 294,
+      "sourceBatch": "Batch-666",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.TaskFactory get_Factory()",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static TaskFactory get_Factory() { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "331bc4e3b4d744634139151b2d6e3e6df6a32c76972fab7244adcad3b7063f12",
+      "supportTypes": [
+        "System.Threading.Tasks.TaskFactory"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-1163"
     }
   ]
 }
