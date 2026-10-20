@@ -319,6 +319,14 @@ Run("waitAsyncZeroTimeoutCanceled", () =>
     Check(waiting.IsCanceled && source.IsCanceled, "source cancellation changed");
 });
 
+Run("waitAsyncFiniteTimeoutPending", () =>
+{
+    TaskCompletionSource source = new();
+    Task waiting = source.Task.WaitAsync(TimeSpan.FromMilliseconds(10));
+    CheckThrows<TimeoutException>(() => waiting.GetAwaiter().GetResult(), "finite timeout on pending task");
+    Check(waiting.IsFaulted && !source.Task.IsCompleted, "finite timeout completed the source");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
