@@ -14,6 +14,10 @@ public final class ArityTypeReferenceBinderTest {
                 "System.Threading.Tasks.TaskCompletionSource_1<System.String>");
         assertLower("System.Threading.Tasks.ValueTask<System.String>",
                 "System.Threading.Tasks.ValueTask_1<System.String>");
+        assertLower("System.Threading.Tasks.Task<System.String>[]",
+                "System.Threading.Tasks.Task_1<System.String>[]");
+        assertLower("System.Threading.Tasks.Task<System.String[]>[][]",
+                "System.Threading.Tasks.Task_1<System.String[]>[][]");
         expectInvalid("Task<System.String>");
         expectInvalid("System.Threading.Tasks.Task<>");
         expectInvalid("System.Threading.Tasks.Task<System.String");
@@ -21,6 +25,9 @@ public final class ArityTypeReferenceBinderTest {
         expectInvalid("System.Threading.Tasks.Unknown<System.String>");
         expectInvalid("System..Threading.Tasks.Task");
         expectInvalid("System.Threading.Tasks.Task trailing");
+        expectInvalid("System.Threading.Tasks.Task[");
+        expectInvalid("System.Threading.Tasks.Task[ ]");
+        expectInvalid("System.Threading.Tasks.Task][]");
         expectInvalid("System.class.Task");
         expectInvalid("System.Threading.void.Task");
         java.lang.System.out.println("PASS: bounded source type references bind Task-family arities without JVM collisions");
