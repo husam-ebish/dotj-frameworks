@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "scope": "Independent synchronous IDisposable/using behavior oracle on installed .NET 10.0.12",
+  "projectSha256": "c299ec65c19b75d1f4fd4ce516c09ee667a141b87a68a37ec76169cc3f86df2c",
+  "programSha256": "ab09155f6f8639562f3a064cc9992dc3d64f9cc05dce659dff6cfca4351a1089",
+  "countingDisposableSha256": "3b2af49a268cbd8a8022734838a29e73f42fe9d25f9a1364c72b986b1b5faed0",
+  "buildCommand": "dotnet build -c Release",
+  "runCommand": "dotnet run --no-build -c Release",
+  "buildWarnings": 0,
+  "buildErrors": 0,
+  "buildLogSha256": "86dc8016dff381131c3c598123688a93982111117f6a062fc86c4b3b76d645ae",
+  "oracleOutputSha256": "3ca6bd8763b6d49ecd3561dc74d53feebba4ebbfb23c89d3cfb7fde4cfb4b262",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "observations": {
+    "directInterfaceDispatchCount": 1,
+    "normalUsingDisposeCount": 1,
+    "bodyFailureDisposeCount": 1,
+    "bodyFailureObserved": "body",
+    "disposeFailureDisposeCount": 1,
+    "disposeFailureObserved": "dispose",
+    "repeatedExplicitDisposeCount": 2,
+    "untouchedDisposeCount": 0
+  },
+  "limits": [
+    "This independently tests C# interface dispatch and using/finally behavior; the mapped upstream xUnit suite was not executed.",
+    "Repeated Dispose count of two demonstrates this sample implementation is not idempotent; the interface alone does not enforce the source comment guidance.",
+    "The oracle does not establish designed F01-03 caller ownership, F01-04 cross-request context isolation, or asynchronous ValueTask behavior."
+  ]
+}
