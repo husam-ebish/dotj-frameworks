@@ -257,6 +257,30 @@ var result = new
         underlying = typeof(MemberTypes).GetEnumUnderlyingType().FullName,
         nonEnumError = ObserveNonEnumUnderlying(),
     },
+    selectedAssignability = new (Type Target, Type? Candidate)[]
+    {
+        (typeof(object), typeof(string)),
+        (typeof(object), typeof(int)),
+        (typeof(object), typeof(IDisposable)),
+        (typeof(object), typeof(string[])),
+        (typeof(object), typeof(string).MakeByRefType()),
+        (typeof(object), typeof(string).MakePointerType()),
+        (typeof(ValueType), typeof(int)),
+        (typeof(ValueType), typeof(MemberTypes)),
+        (typeof(ValueType), typeof(string)),
+        (typeof(Enum), typeof(MemberTypes)),
+        (typeof(Enum), typeof(int)),
+        (typeof(Array), typeof(string[])),
+        (typeof(Array), typeof(string)),
+        (typeof(List<>), typeof(List<string>)),
+        (typeof(List<string>), typeof(List<string>)),
+        (typeof(string), null),
+    }.Select(pair => new
+    {
+        target = pair.Target.FullName,
+        candidate = pair.Candidate?.FullName,
+        result = pair.Target.IsAssignableFrom(pair.Candidate),
+    }).ToArray(),
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -289,7 +313,7 @@ var result = new
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
                 or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType"
-                or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType")
+                or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType" or "IsAssignableFrom")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)

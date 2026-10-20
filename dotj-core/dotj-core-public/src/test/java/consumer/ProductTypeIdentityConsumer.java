@@ -232,6 +232,22 @@ public final class ProductTypeIdentityConsumer {
         } catch (ArgumentException expected) {
             // Selected pinned error type.
         }
+        if (!object.IsAssignableFrom(string) || !object.IsAssignableFrom(integer)
+                || !object.IsAssignableFrom(disposalType)
+                || !object.IsAssignableFrom(Type.GetType("System.String[]"))
+                || object.IsAssignableFrom(byReference) || object.IsAssignableFrom(pointer)
+                || !valueType.IsAssignableFrom(integer)
+                || !valueType.IsAssignableFrom(memberTypesType)
+                || valueType.IsAssignableFrom(string)
+                || !enumBase.IsAssignableFrom(memberTypesType)
+                || enumBase.IsAssignableFrom(integer)
+                || !arrayBase.IsAssignableFrom(Type.GetType("System.String[]"))
+                || arrayBase.IsAssignableFrom(string)
+                || definition.IsAssignableFrom(first)
+                || !first.IsAssignableFrom(first)
+                || string.IsAssignableFrom(null)) {
+            throw new AssertionError("Selected Type assignability changed");
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition
