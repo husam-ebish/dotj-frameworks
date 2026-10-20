@@ -55,7 +55,8 @@ def main():
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
-            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer"} <= properties
+            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
+            "FullName", "Namespace"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
         "exact": {"result": "System.String", "exception": None, "paramName": None},
@@ -115,6 +116,16 @@ def main():
         "element": "System.String", "repeatSameIdentity": True,
         "pointerToPointer": "System.String**", "byRefError": "System.TypeLoadException",
     }
+    names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedTypeNames"]
+    assert [item["Name"] for item in names] == [
+        "String", "Int32", "List`1", "List`1", "String[]", "String[,]", "String&", "String*", "T",
+    ]
+    assert [item["Namespace"] for item in names] == [
+        "System", "System", "System.Collections.Generic", "System.Collections.Generic",
+        "System", "System", "System", "System", "System.Collections.Generic",
+    ]
+    assert names[-1]["FullName"] is None
+    assert names[3]["FullName"] == observed["listStringSimple"]["result"]
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -144,6 +155,9 @@ def main():
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
         "public System.Type[] get_GenericTypeArguments();",
+        "public java.lang.String get_Name();",
+        "public java.lang.String get_FullName();",
+        "public java.lang.String get_Namespace();",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",

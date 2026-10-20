@@ -179,6 +179,17 @@ var result = new
         pointerToPointer = typeof(string).MakePointerType().MakePointerType().FullName,
         byRefError = ObservePointerFromByRef(),
     },
+    selectedTypeNames = new[]
+    {
+        typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
+        typeof(string[]), typeof(string[,]), typeof(string).MakeByRefType(),
+        typeof(string).MakePointerType(), typeof(List<>).GetGenericArguments()[0],
+    }.Select(type => new
+    {
+        type.Name,
+        type.FullName,
+        type.Namespace,
+    }).ToArray(),
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -206,7 +217,7 @@ var result = new
             .Where(property => property.Name is "ParamName" or "Message" or "InnerException" or "IsGenericType"
                 or "IsConstructedGenericType" or "IsGenericParameter"
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
-                or "IsPointer")
+                or "IsPointer" or "Name" or "FullName" or "Namespace")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)
