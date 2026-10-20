@@ -368,6 +368,28 @@
       "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
       "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
       "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+    },
+    {
+      "batch": "Batch-320",
+      "declaringType": "System.Threading.Tasks.Task",
+      "name": "FromException",
+      "signature": "System.Threading.Tasks.Task FromException(System.Exception)",
+      "returnType": "System.Threading.Tasks.Task",
+      "isStatic": true,
+      "genericArity": 0,
+      "parameters": [
+        {
+          "Name": "exception",
+          "type": "System.Exception",
+          "IsOptional": false,
+          "IsOut": false
+        }
+      ],
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json",
+      "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315",
+      "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
     }
   ]
 }
