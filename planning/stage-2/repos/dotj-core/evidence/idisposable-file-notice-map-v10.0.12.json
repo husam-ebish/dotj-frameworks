@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "scope": "Compile-only independent Java System.IDisposable candidate, not a product release",
+  "scope": "Independent Java System.IDisposable syntax probe and built public product candidate; neither is a qualified release",
   "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "candidateInputs": [
     {
@@ -36,6 +36,24 @@
     "entries": ["META-INF/MANIFEST.MF", "System/IDisposable.class"],
     "evidence": "idisposable-candidate-jar-v1.json"
   },
-  "status": "FILE_INPUTS_AND_CANDIDATE_JAR_CONTENTS_VERIFIED; NOTICE_APPLICABILITY_PENDING",
-  "releaseQualification": "OPEN: actual package contents, project license, notice applicability, and required licensing review"
+  "productInputs": [
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java",
+      "sha256": "4a480be9caa88936b7c95aeeee4799edd072f47671488d44bc936a53fb8078e0",
+      "role": "Independently authored public Java interface compiled into the candidate product JAR"
+    },
+    {
+      "path": "JDK 21 javac and Python zipfile",
+      "role": "Build tools; no JDK or Python binary or source is an archive entry"
+    }
+  ],
+  "productOutput": {
+    "path": "dotj-core/dotj-core-public/build/idisposable-v1/dotj-core-idisposable-v1.jar",
+    "sha256": "4f3df3b621126d6438dfd5703266e7435afcf2362dbd1b9014c131dbd575d7e1",
+    "entries": ["META-INF/MANIFEST.MF", "System/IDisposable.class"],
+    "evidence": "idisposable-product-v1.json",
+    "distributionStatus": "BUILT_CANDIDATE_NOT_RELEASED"
+  },
+  "status": "PROBE_AND_PRODUCT_CANDIDATE_INPUTS_AND_JAR_CONTENTS_RECORDED; NOTICE_APPLICABILITY_PENDING",
+  "releaseQualification": "OPEN: project license, file-level notice applicability, and required licensing review"
 }
