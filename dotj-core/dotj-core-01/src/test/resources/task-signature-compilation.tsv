@@ -35,3 +35,4 @@ valuetask-of-task	PASS	fixture	Probe	System.Threading.Tasks.ValueTask<System.Thr
 completion-of-task	PASS	fixture	Probe	System.Threading.Tasks.TaskCompletionSource<System.Threading.Tasks.Task<System.String>> Chain()	TaskCompletionSource_1<Task_1<String>> Chain()
 task-of-list	PASS	fixture	Probe	System.Threading.Tasks.Task<java.util.List<System.String>> Gather()	Task_1<java.util.List<String>> Gather()
 task-of-map	PASS	fixture	Probe	System.Threading.Tasks.Task<java.util.Map<System.String, System.String>> Gather()	Task_1<java.util.Map<String, String>> Gather()
+task-overloads	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String> Overload(System.Threading.Tasks.Task value)~~System.Threading.Tasks.Task<System.String> Overload(System.Threading.Tasks.Task<System.String> value)	Overload(Task_1<String> value)
