@@ -5545,6 +5545,44 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-591",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetType",
+          "signature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json",
+          "returnType": "System.Type",
+          "isStatic": true,
+          "genericArity": 0,
+          "parameters": [
+            {
+              "Name": "typeName",
+              "type": "System.String",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "assemblyResolver",
+              "type": "System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly]",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "typeResolver",
+              "type": "System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type]",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "798309af37ad61a2b7f311dc0d18bc3df25e3904d86ea8c0a43d598110909637",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
+          "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
