@@ -162,9 +162,11 @@ def batch(number):
         gaps = ["Method return spelling compiles; ValueTask state, awaiting and exception behavior are unimplemented."]
     elif number == 88:
         task = "E03"
-        output = run("powershell", "-NoProfile", "-File", str(ROOT / "tools/oracle/dotj-core/run-wp01-upstream-tests.ps1"), "-SourceRoot", str(SOURCE))
-        assert "PASS:" in output
-        subject, observed = "Pinned upstream WP-01 regression run", {"resultTail": output.splitlines()[-8:]}
+        run("powershell", "-NoProfile", "-File", str(ROOT / "tools/oracle/dotj-core/run-wp01-upstream-tests.ps1"), "-SourceRoot", str(SOURCE))
+        result = json.loads((Path.home() / "AppData/Local/Temp/dotj-wp01-upstream-results/summary.json").read_text(encoding="utf-8-sig"))
+        assert result["sourceCommit"] == "4271d88e0aebf3d04f188f1334c2220d80555ef6"
+        assert result["totalPassed"] == 39 and all(suite["failed"] == 0 for suite in result["suites"])
+        subject, observed = "Pinned upstream WP-01 regression run", {"totalPassed": result["totalPassed"], "suites": result["suites"]}
         gaps = ["Passing selected upstream tests does not validate the Java async prototype."]
     elif number == 89:
         task = "E02"
@@ -183,7 +185,7 @@ def batch(number):
         task = "E02"
         t = shape("async-local")
         assert t["isGenericTypeDefinition"] and len(t["genericParameters"]) == 1
-        assert any(p.startswith("T Value") for p in t["properties"])
+        assert any(p["Name"] == "Value" and p["type"] == "T" for p in t["properties"])
         subject, observed = "AsyncLocal generic ambient-value anchor", {"type": t["fullName"], "properties": t["properties"]}
         gaps = ["No implicit ambient value flow has been implemented in Java."]
     elif number == 92:
