@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-085",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "Generic ValueTask family distinction",
+  "assertionsPassed": [
+    "Generic ValueTask family distinction passed"
+  ],
+  "observed": {
+    "type": "System.Threading.Tasks.ValueTask`1",
+    "arity": 1,
+    "methodCount": 15
+  },
+  "openGaps": [
+    "Generic arity and JVM erasure mappings remain unqualified."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
