@@ -19,6 +19,11 @@ LEDGER = EVIDENCE / "n01-remaining-java-declarations-v10.0.12.json"
 PROBE = runpy.run_path(str(Path(__file__).with_name("verify-selected-method-java-declarations.py")))
 
 
+def batch_for_index(index):
+    # Batch 1001 is the collective-erasure audit between the two probe runs.
+    return f"Batch-{index + (867 if index <= 132 else 869)}"
+
+
 def method_inventory():
     inventory = json.loads(SOURCE.read_text(encoding="utf-8"))
     methods = [(batch["batch"], method) for batch in inventory["batches"] for method in batch["members"]]
@@ -85,7 +90,7 @@ def main():
             raise ValueError("Remaining method append must be sequential")
         source_batch, method = methods[index - 1]
         result = verify_method(index, source_batch, method, args.source_root)
-        result["batch"] = f"Batch-{index + 867}"
+        result["batch"] = batch_for_index(index)
         ledger["entries"].append(result)
         LEDGER.write_text(json.dumps(ledger, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
         print(result["result"].split(";", 1)[0], index, result["declaringType"], result["metadataSignature"])
@@ -93,7 +98,7 @@ def main():
     for index, observed in enumerate(ledger["entries"], 1):
         source_batch, method = methods[index - 1]
         expected = verify_method(index, source_batch, method, args.source_root)
-        if observed != {**expected, "batch": f"Batch-{index + 867}"}:
+        if observed != {**expected, "batch": batch_for_index(index)}:
             raise ValueError(f"Remaining method ledger drift at index {index}")
     print(f"PASS: {len(ledger['entries'])}/{len(methods)} remaining method declarations and source hashes")
 
