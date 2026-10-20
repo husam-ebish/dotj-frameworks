@@ -1,0 +1,135 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "type": {
+    "name": "ExecutionContext",
+    "fullName": "System.Threading.ExecutionContext",
+    "isInterface": false,
+    "isValueType": false,
+    "isGenericTypeDefinition": false,
+    "baseType": "System.Object",
+    "genericParameters": [],
+    "interfaces": [
+      "System.IDisposable",
+      "System.Runtime.Serialization.ISerializable"
+    ],
+    "constructors": [],
+    "methods": [
+      {
+        "Name": "Capture",
+        "signature": "System.Threading.ExecutionContext Capture()",
+        "returnType": "System.Threading.ExecutionContext",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "CreateCopy",
+        "signature": "System.Threading.ExecutionContext CreateCopy()",
+        "returnType": "System.Threading.ExecutionContext",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "Dispose",
+        "signature": "Void Dispose()",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "GetObjectData",
+        "signature": "Void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "info",
+            "type": "System.Runtime.Serialization.SerializationInfo",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "context",
+            "type": "System.Runtime.Serialization.StreamingContext",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "IsFlowSuppressed",
+        "signature": "Boolean IsFlowSuppressed()",
+        "returnType": "System.Boolean",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "Restore",
+        "signature": "Void Restore(System.Threading.ExecutionContext)",
+        "returnType": "System.Void",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "executionContext",
+            "type": "System.Threading.ExecutionContext",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "RestoreFlow",
+        "signature": "Void RestoreFlow()",
+        "returnType": "System.Void",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "Run",
+        "signature": "Void Run(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object)",
+        "returnType": "System.Void",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "executionContext",
+            "type": "System.Threading.ExecutionContext",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "callback",
+            "type": "System.Threading.ContextCallback",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "SuppressFlow",
+        "signature": "System.Threading.AsyncFlowControl SuppressFlow()",
+        "returnType": "System.Threading.AsyncFlowControl",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": []
+      }
+    ],
+    "properties": [],
+    "events": [],
+    "fields": []
+  }
+}
