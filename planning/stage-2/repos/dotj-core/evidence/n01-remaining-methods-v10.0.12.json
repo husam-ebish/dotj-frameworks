@@ -6800,6 +6800,32 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-633",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "FromCanceled",
+          "signature": "System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+          "returnType": "System.Threading.Tasks.ValueTask`1[TResult]",
+          "isStatic": true,
+          "genericArity": 1,
+          "parameters": [
+            {
+              "Name": "cancellationToken",
+              "type": "System.Threading.CancellationToken",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
+          "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
