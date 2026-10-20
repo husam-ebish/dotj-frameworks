@@ -12,6 +12,7 @@ public final class CancellationBoundaryTest {
         retainedTokenAfterClose();
         closedFreshToken();
         closedCancel();
+        closedRegistration();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -35,6 +36,13 @@ public final class CancellationBoundaryTest {
         CancellationSource source = new CancellationSource(); source.close();
         try { source.cancel(); throw new AssertionError("Closed source canceled"); }
         catch (IllegalStateException expected) { }
+    }
+
+    private static void closedRegistration() throws Exception {
+        CancellationSource source = new CancellationSource(); CancellationToken token = source.token();
+        AtomicInteger calls = new AtomicInteger(); source.close();
+        CancellationRegistration registration = token.register(calls::incrementAndGet);
+        if (registration.unregister() || calls.get() != 0) throw new AssertionError("Closed source retained a callback");
     }
 
     // Next bounded method.
