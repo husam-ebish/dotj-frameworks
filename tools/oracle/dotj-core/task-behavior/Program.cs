@@ -60,6 +60,14 @@ Run("nonGenericSourcePending", () =>
         "non-generic source pending state");
 });
 
+Run("nonGenericSourceResult", () =>
+{
+    TaskCompletionSource source = new();
+    source.SetResult();
+    Check(source.Task.IsCompletedSuccessfully && source.Task.Status == TaskStatus.RanToCompletion,
+        "non-generic source result");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
