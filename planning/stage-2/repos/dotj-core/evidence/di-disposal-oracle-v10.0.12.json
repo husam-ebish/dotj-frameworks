@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-034",
+  "oracleProject": "tools/oracle/dotj-core/di-ownership/DiOwnershipOracle.csproj",
+  "execution": "dotnet run --project tools/oracle/dotj-core/di-ownership/DiOwnershipOracle.csproj --configuration Release --no-launch-profile",
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "installedRuntime": {
+    "Microsoft.AspNetCore.App": "10.0.12",
+    "Microsoft.Extensions.DependencyInjection.dll.sha256": "6424c0b19a1cef1977db79eee164dcaeb3cba6abdaa583d6f5ff6413f7f7244a",
+    "System.Private.CoreLib.dll.sha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678"
+  },
+  "observations": {
+    "callerOwnedCloseCount": 0,
+    "reverseOrder": ["second", "first"],
+    "failureOrder": ["third", "second"],
+    "firstClosedAfterFailure": false
+  },
+  "limits": [
+    "This is an independent executable oracle, not execution of the upstream xUnit tests.",
+    "The installed DI assembly has a recorded hash, but its exact byte correspondence to the pinned source archive was not independently established.",
+    "The fail-fast DI behavior differs from the internal Java helper's continue-and-suppress cleanup policy."
+  ]
+}
