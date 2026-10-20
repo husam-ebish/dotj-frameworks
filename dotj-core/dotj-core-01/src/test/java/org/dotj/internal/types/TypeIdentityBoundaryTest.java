@@ -17,6 +17,7 @@ public final class TypeIdentityBoundaryTest<T> {
 
     public static void main(String[] args) throws Exception {
         sameClassIdentity();
+        differentClassIdentity();
         // Next bounded case.
         System.out.println("PASS: internal type-identity boundary checks");
     }
@@ -30,6 +31,11 @@ public final class TypeIdentityBoundaryTest<T> {
         TypeIdentity first = TypeIdentity.of(String.class), same = TypeIdentity.of(String.class);
         if (!first.equals(same) || first.hashCode() != same.hashCode())
             throw new AssertionError("Same class identity differs");
+    }
+
+    private static void differentClassIdentity() throws Exception {
+        if (TypeIdentity.of(String.class).equals(TypeIdentity.of(Integer.class)))
+            throw new AssertionError("Different classes shared identity");
     }
 
     // Next bounded method.
