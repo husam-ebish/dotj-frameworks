@@ -47,3 +47,4 @@ method-keyword	REJECT	fixture	Probe	System.Threading.Tasks.Task class()	Expected
 parameter-keyword	REJECT	fixture	Probe	System.Threading.Tasks.Task Run(System.String switch)	Expected Java identifier
 unsupported-arity	REJECT	fixture	Probe	System.Threading.Tasks.Task<System.String, System.String> Run()	Unsupported generic arity
 malformed-generic	REJECT	fixture	Probe	System.Threading.Tasks.Task<System.String Run()	Expected one closing >
+empty-signatures	REJECT	fixture	Probe		At least one method signature
