@@ -21,6 +21,7 @@ public final class CancellationBoundaryTest {
         removeOlderDuringCancel();
         closeDuringCallback();
         linkedWithNoParents();
+        linkedNullArray();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -103,6 +104,12 @@ public final class CancellationBoundaryTest {
     private static void linkedWithNoParents() throws Exception {
         CancellationSource child = CancellationSource.linked();
         if (child.isCancellationRequested()) throw new AssertionError("Empty linked source canceled"); child.close();
+    }
+
+    private static void linkedNullArray() throws Exception {
+        try { CancellationSource.linked((CancellationToken[]) null);
+            throw new AssertionError("Null parent array accepted"); }
+        catch (NullPointerException expected) { }
     }
 
     // Next bounded method.
