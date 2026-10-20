@@ -22,6 +22,7 @@ public final class CancellationBoundaryTest {
         closeDuringCallback();
         linkedWithNoParents();
         linkedNullArray();
+        linkedNullElementNoLeak();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -110,6 +111,15 @@ public final class CancellationBoundaryTest {
         try { CancellationSource.linked((CancellationToken[]) null);
             throw new AssertionError("Null parent array accepted"); }
         catch (NullPointerException expected) { }
+    }
+
+    private static void linkedNullElementNoLeak() throws Exception {
+        CancellationSource first = new CancellationSource();
+        try { CancellationSource.linked(first.token(), null); throw new AssertionError("Null parent accepted"); }
+        catch (NullPointerException expected) { }
+        var field = CancellationSource.class.getDeclaredField("registrations"); field.setAccessible(true);
+        if (!((java.util.List<?>) field.get(first)).isEmpty()) throw new AssertionError("Failed linked creation leaked a parent callback");
+        first.close();
     }
 
     // Next bounded method.
