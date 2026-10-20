@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "upstreamIdentities": [
+    "System.Threading.Tasks.Task",
+    "System.Threading.Tasks.Task`1"
+  ],
+  "candidateBackendNames": [
+    "System.Threading.Tasks.Task",
+    "System.Threading.Tasks.Task_1"
+  ],
+  "compiled": {
+    "System.Threading.Tasks.Task": {
+      "sha256": "835f9e4f8ead7a2b38f5fc5f80ab5074dcb2790aa454e293df7252e1f9796897",
+      "javap": "Compiled from \"Task.java\"\npublic class System.Threading.Tasks.Task {\n  public System.Threading.Tasks.Task();\n}"
+    },
+    "System.Threading.Tasks.Task_1": {
+      "sha256": "1fcf5e09dd21a43162c338825bce6289ce407dcb04a427034029495ed483bb4e",
+      "javap": "Compiled from \"Task_1.java\"\npublic class System.Threading.Tasks.Task_1<TResult> extends System.Threading.Tasks.Task {\n  public System.Threading.Tasks.Task_1();\n}"
+    }
+  },
+  "status": "COMPILE_ONLY_CANDIDATE; .j source-level arity resolution and exact public API comparison OPEN",
+  "limitations": [
+    "Task_1 is an internal backend name, not an approved public .j name.",
+    "No .j compiler currently lowers Task<TResult> to this class or preserves both upstream identities.",
+    "The empty classes establish only distinct JVM binary identities, not Task behavior or source-level compatibility."
+  ]
+}

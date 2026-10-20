@@ -1,0 +1,4069 @@
+{
+  "schemaVersion": 1,
+  "scope": "One compile-only candidate, 298 bounded method metadata batches covering 327 remaining methods, and one audit; no accepted public API qualification",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "selectedSnapshotCount": 14,
+  "previouslyVerifiedMethods": 99,
+  "remainingMethods": 327,
+  "batches": [
+    {
+      "batch": "Batch-401",
+      "kind": "compiler-candidate",
+      "outcome": "Compile distinct internal JVM Task arity names and record unresolved .j source-level mapping."
+    },
+    {
+      "batch": "Batch-402",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        },
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::Boolean Equals(System.Object), Boolean Equals(System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-403",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "Register",
+          "signature": "System.Threading.CancellationTokenRegistration Register(System.Action`1[System.Object], System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        },
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "Register",
+          "signature": "System.Threading.CancellationTokenRegistration Register(System.Action`1[System.Object], System.Object, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::System.Threading.CancellationTokenRegistration Register(System.Action`1[System.Object], System.Object), System.Threading.CancellationTokenRegistration Register(System.Action`1[System.Object], System.Object, Boolean)."
+    },
+    {
+      "batch": "Batch-404",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenRegistration",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json"
+        },
+        {
+          "declaringType": "System.Threading.CancellationTokenRegistration",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Threading.CancellationTokenRegistration)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationTokenRegistration::Boolean Equals(System.Object), Boolean Equals(System.Threading.CancellationTokenRegistration)."
+    },
+    {
+      "batch": "Batch-405",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenSource",
+          "method": "CancelAfter",
+          "signature": "Void CancelAfter(Int32)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json"
+        },
+        {
+          "declaringType": "System.Threading.CancellationTokenSource",
+          "method": "CancelAfter",
+          "signature": "Void CancelAfter(System.TimeSpan)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationTokenSource::Void CancelAfter(Int32), Void CancelAfter(System.TimeSpan)."
+    },
+    {
+      "batch": "Batch-406",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenSource",
+          "method": "CreateLinkedTokenSource",
+          "signature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.ReadOnlySpan`1[System.Threading.CancellationToken])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json"
+        },
+        {
+          "declaringType": "System.Threading.CancellationTokenSource",
+          "method": "CreateLinkedTokenSource",
+          "signature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationTokenSource::System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.ReadOnlySpan`1[System.Threading.CancellationToken]), System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-407",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenSource",
+          "method": "CreateLinkedTokenSource",
+          "signature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json"
+        },
+        {
+          "declaringType": "System.Threading.CancellationTokenSource",
+          "method": "CreateLinkedTokenSource",
+          "signature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationTokenSource::System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken, System.Threading.CancellationToken), System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken[])."
+    },
+    {
+      "batch": "Batch-408",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task]), System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-409",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.Tasks.TaskContinuationOptions)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler), System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.Tasks.TaskContinuationOptions)."
+    },
+    {
+      "batch": "Batch-410",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.Tasks.TaskScheduler), System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object)."
+    },
+    {
+      "batch": "Batch-411",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.CancellationToken), System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-412",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.Tasks.TaskContinuationOptions), System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-413",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult]), System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-414",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.Tasks.TaskContinuationOptions)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler), System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.Tasks.TaskContinuationOptions)."
+    },
+    {
+      "batch": "Batch-415",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.Tasks.TaskScheduler), System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object)."
+    },
+    {
+      "batch": "Batch-416",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.CancellationToken), System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-417",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.Tasks.TaskContinuationOptions), System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-418",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Delay",
+          "signature": "System.Threading.Tasks.Task Delay(Int32)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Delay",
+          "signature": "System.Threading.Tasks.Task Delay(Int32, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task Delay(Int32), System.Threading.Tasks.Task Delay(Int32, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-419",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Delay",
+          "signature": "System.Threading.Tasks.Task Delay(System.TimeSpan)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Delay",
+          "signature": "System.Threading.Tasks.Task Delay(System.TimeSpan, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task Delay(System.TimeSpan), System.Threading.Tasks.Task Delay(System.TimeSpan, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-420",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Delay",
+          "signature": "System.Threading.Tasks.Task Delay(System.TimeSpan, System.TimeProvider)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Delay",
+          "signature": "System.Threading.Tasks.Task Delay(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task Delay(System.TimeSpan, System.TimeProvider), System.Threading.Tasks.Task Delay(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-421",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "FromCanceled",
+          "signature": "System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "FromCanceled",
+          "signature": "System.Threading.Tasks.Task`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken), System.Threading.Tasks.Task`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-422",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Run",
+          "signature": "System.Threading.Tasks.Task Run(System.Action)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Run",
+          "signature": "System.Threading.Tasks.Task Run(System.Action, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task Run(System.Action), System.Threading.Tasks.Task Run(System.Action, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-423",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Run",
+          "signature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Run",
+          "signature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task]), System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-424",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Run",
+          "signature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Run",
+          "signature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]]), System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-425",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Run",
+          "signature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Run",
+          "signature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult]), System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-426",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "RunSynchronously",
+          "signature": "Void RunSynchronously()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "RunSynchronously",
+          "signature": "Void RunSynchronously(System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Void RunSynchronously(), Void RunSynchronously(System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-427",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Start",
+          "signature": "Void Start()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Start",
+          "signature": "Void Start(System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Void Start(), Void Start(System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-428",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Wait",
+          "signature": "Boolean Wait(Int32)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Wait",
+          "signature": "Boolean Wait(Int32, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Boolean Wait(Int32), Boolean Wait(Int32, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-429",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Wait",
+          "signature": "Boolean Wait(System.TimeSpan)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Wait",
+          "signature": "Boolean Wait(System.TimeSpan, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Boolean Wait(System.TimeSpan), Boolean Wait(System.TimeSpan, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-430",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Wait",
+          "signature": "Void Wait()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        },
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Wait",
+          "signature": "Void Wait(System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Void Wait(), Void Wait(System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-431",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.AsyncLocal`1",
+          "method": "get_Value",
+          "signature": "T get_Value()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/async-local.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.AsyncLocal`1::T get_Value()."
+    },
+    {
+      "batch": "Batch-432",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.AsyncLocal`1",
+          "method": "set_Value",
+          "signature": "Void set_Value(T)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/async-local.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.AsyncLocal`1::Void set_Value(T)."
+    },
+    {
+      "batch": "Batch-433",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "Capture",
+          "signature": "System.Threading.ExecutionContext Capture()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::System.Threading.ExecutionContext Capture()."
+    },
+    {
+      "batch": "Batch-434",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "CreateCopy",
+          "signature": "System.Threading.ExecutionContext CreateCopy()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::System.Threading.ExecutionContext CreateCopy()."
+    },
+    {
+      "batch": "Batch-435",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "Dispose",
+          "signature": "Void Dispose()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::Void Dispose()."
+    },
+    {
+      "batch": "Batch-436",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "GetObjectData",
+          "signature": "Void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::Void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)."
+    },
+    {
+      "batch": "Batch-437",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "IsFlowSuppressed",
+          "signature": "Boolean IsFlowSuppressed()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::Boolean IsFlowSuppressed()."
+    },
+    {
+      "batch": "Batch-438",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "Restore",
+          "signature": "Void Restore(System.Threading.ExecutionContext)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::Void Restore(System.Threading.ExecutionContext)."
+    },
+    {
+      "batch": "Batch-439",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "RestoreFlow",
+          "signature": "Void RestoreFlow()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::Void RestoreFlow()."
+    },
+    {
+      "batch": "Batch-440",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "Run",
+          "signature": "Void Run(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::Void Run(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object)."
+    },
+    {
+      "batch": "Batch-441",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.ExecutionContext",
+          "method": "SuppressFlow",
+          "signature": "System.Threading.AsyncFlowControl SuppressFlow()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/execution-context.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.ExecutionContext::System.Threading.AsyncFlowControl SuppressFlow()."
+    },
+    {
+      "batch": "Batch-442",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.IAsyncDisposable",
+          "method": "DisposeAsync",
+          "signature": "System.Threading.Tasks.ValueTask DisposeAsync()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/iasyncdisposable.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.IAsyncDisposable::System.Threading.Tasks.ValueTask DisposeAsync()."
+    },
+    {
+      "batch": "Batch-443",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.IDisposable",
+          "method": "Dispose",
+          "signature": "Void Dispose()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/idisposable.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.IDisposable::Void Dispose()."
+    },
+    {
+      "batch": "Batch-444",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean Equals(System.Object)."
+    },
+    {
+      "batch": "Batch-445",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean Equals(System.Type)."
+    },
+    {
+      "batch": "Batch-446",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "FindInterfaces",
+          "signature": "System.Type[] FindInterfaces(System.Reflection.TypeFilter, System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] FindInterfaces(System.Reflection.TypeFilter, System.Object)."
+    },
+    {
+      "batch": "Batch-447",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "FindMembers",
+          "signature": "System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, System.Object)."
+    },
+    {
+      "batch": "Batch-448",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_Assembly",
+          "signature": "System.Reflection.Assembly get_Assembly()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.Assembly get_Assembly()."
+    },
+    {
+      "batch": "Batch-449",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_AssemblyQualifiedName",
+          "signature": "System.String get_AssemblyQualifiedName()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.String get_AssemblyQualifiedName()."
+    },
+    {
+      "batch": "Batch-450",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_Attributes",
+          "signature": "System.Reflection.TypeAttributes get_Attributes()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.TypeAttributes get_Attributes()."
+    },
+    {
+      "batch": "Batch-451",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_BaseType",
+          "signature": "System.Type get_BaseType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type get_BaseType()."
+    },
+    {
+      "batch": "Batch-452",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_ContainsGenericParameters",
+          "signature": "Boolean get_ContainsGenericParameters()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_ContainsGenericParameters()."
+    },
+    {
+      "batch": "Batch-453",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_DeclaringMethod",
+          "signature": "System.Reflection.MethodBase get_DeclaringMethod()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodBase get_DeclaringMethod()."
+    },
+    {
+      "batch": "Batch-454",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_DeclaringType",
+          "signature": "System.Type get_DeclaringType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type get_DeclaringType()."
+    },
+    {
+      "batch": "Batch-455",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_DefaultBinder",
+          "signature": "System.Reflection.Binder get_DefaultBinder()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.Binder get_DefaultBinder()."
+    },
+    {
+      "batch": "Batch-456",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_FullName",
+          "signature": "System.String get_FullName()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.String get_FullName()."
+    },
+    {
+      "batch": "Batch-457",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_GenericParameterAttributes",
+          "signature": "System.Reflection.GenericParameterAttributes get_GenericParameterAttributes()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.GenericParameterAttributes get_GenericParameterAttributes()."
+    },
+    {
+      "batch": "Batch-458",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_GenericParameterPosition",
+          "signature": "Int32 get_GenericParameterPosition()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Int32 get_GenericParameterPosition()."
+    },
+    {
+      "batch": "Batch-459",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_GenericTypeArguments",
+          "signature": "System.Type[] get_GenericTypeArguments()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] get_GenericTypeArguments()."
+    },
+    {
+      "batch": "Batch-460",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_GUID",
+          "signature": "System.Guid get_GUID()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Guid get_GUID()."
+    },
+    {
+      "batch": "Batch-461",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_HasElementType",
+          "signature": "Boolean get_HasElementType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_HasElementType()."
+    },
+    {
+      "batch": "Batch-462",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsAbstract",
+          "signature": "Boolean get_IsAbstract()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsAbstract()."
+    },
+    {
+      "batch": "Batch-463",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsAnsiClass",
+          "signature": "Boolean get_IsAnsiClass()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsAnsiClass()."
+    },
+    {
+      "batch": "Batch-464",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsArray",
+          "signature": "Boolean get_IsArray()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsArray()."
+    },
+    {
+      "batch": "Batch-465",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsAutoClass",
+          "signature": "Boolean get_IsAutoClass()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsAutoClass()."
+    },
+    {
+      "batch": "Batch-466",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsAutoLayout",
+          "signature": "Boolean get_IsAutoLayout()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsAutoLayout()."
+    },
+    {
+      "batch": "Batch-467",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsByRef",
+          "signature": "Boolean get_IsByRef()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsByRef()."
+    },
+    {
+      "batch": "Batch-468",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsByRefLike",
+          "signature": "Boolean get_IsByRefLike()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsByRefLike()."
+    },
+    {
+      "batch": "Batch-469",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsClass",
+          "signature": "Boolean get_IsClass()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsClass()."
+    },
+    {
+      "batch": "Batch-470",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsCOMObject",
+          "signature": "Boolean get_IsCOMObject()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsCOMObject()."
+    },
+    {
+      "batch": "Batch-471",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsConstructedGenericType",
+          "signature": "Boolean get_IsConstructedGenericType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsConstructedGenericType()."
+    },
+    {
+      "batch": "Batch-472",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsContextful",
+          "signature": "Boolean get_IsContextful()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsContextful()."
+    },
+    {
+      "batch": "Batch-473",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsEnum",
+          "signature": "Boolean get_IsEnum()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsEnum()."
+    },
+    {
+      "batch": "Batch-474",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsExplicitLayout",
+          "signature": "Boolean get_IsExplicitLayout()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsExplicitLayout()."
+    },
+    {
+      "batch": "Batch-475",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsFunctionPointer",
+          "signature": "Boolean get_IsFunctionPointer()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsFunctionPointer()."
+    },
+    {
+      "batch": "Batch-476",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsGenericMethodParameter",
+          "signature": "Boolean get_IsGenericMethodParameter()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsGenericMethodParameter()."
+    },
+    {
+      "batch": "Batch-477",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsGenericParameter",
+          "signature": "Boolean get_IsGenericParameter()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsGenericParameter()."
+    },
+    {
+      "batch": "Batch-478",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsGenericType",
+          "signature": "Boolean get_IsGenericType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsGenericType()."
+    },
+    {
+      "batch": "Batch-479",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsGenericTypeDefinition",
+          "signature": "Boolean get_IsGenericTypeDefinition()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsGenericTypeDefinition()."
+    },
+    {
+      "batch": "Batch-480",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsGenericTypeParameter",
+          "signature": "Boolean get_IsGenericTypeParameter()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsGenericTypeParameter()."
+    },
+    {
+      "batch": "Batch-481",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsImport",
+          "signature": "Boolean get_IsImport()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsImport()."
+    },
+    {
+      "batch": "Batch-482",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsInterface",
+          "signature": "Boolean get_IsInterface()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsInterface()."
+    },
+    {
+      "batch": "Batch-483",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsLayoutSequential",
+          "signature": "Boolean get_IsLayoutSequential()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsLayoutSequential()."
+    },
+    {
+      "batch": "Batch-484",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsMarshalByRef",
+          "signature": "Boolean get_IsMarshalByRef()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsMarshalByRef()."
+    },
+    {
+      "batch": "Batch-485",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsNested",
+          "signature": "Boolean get_IsNested()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsNested()."
+    },
+    {
+      "batch": "Batch-486",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsNestedAssembly",
+          "signature": "Boolean get_IsNestedAssembly()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsNestedAssembly()."
+    },
+    {
+      "batch": "Batch-487",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsNestedFamANDAssem",
+          "signature": "Boolean get_IsNestedFamANDAssem()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsNestedFamANDAssem()."
+    },
+    {
+      "batch": "Batch-488",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsNestedFamily",
+          "signature": "Boolean get_IsNestedFamily()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsNestedFamily()."
+    },
+    {
+      "batch": "Batch-489",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsNestedFamORAssem",
+          "signature": "Boolean get_IsNestedFamORAssem()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsNestedFamORAssem()."
+    },
+    {
+      "batch": "Batch-490",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsNestedPrivate",
+          "signature": "Boolean get_IsNestedPrivate()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsNestedPrivate()."
+    },
+    {
+      "batch": "Batch-491",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsNestedPublic",
+          "signature": "Boolean get_IsNestedPublic()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsNestedPublic()."
+    },
+    {
+      "batch": "Batch-492",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsNotPublic",
+          "signature": "Boolean get_IsNotPublic()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsNotPublic()."
+    },
+    {
+      "batch": "Batch-493",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsPointer",
+          "signature": "Boolean get_IsPointer()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsPointer()."
+    },
+    {
+      "batch": "Batch-494",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsPrimitive",
+          "signature": "Boolean get_IsPrimitive()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsPrimitive()."
+    },
+    {
+      "batch": "Batch-495",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsPublic",
+          "signature": "Boolean get_IsPublic()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsPublic()."
+    },
+    {
+      "batch": "Batch-496",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsSealed",
+          "signature": "Boolean get_IsSealed()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsSealed()."
+    },
+    {
+      "batch": "Batch-497",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsSecurityCritical",
+          "signature": "Boolean get_IsSecurityCritical()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsSecurityCritical()."
+    },
+    {
+      "batch": "Batch-498",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsSecuritySafeCritical",
+          "signature": "Boolean get_IsSecuritySafeCritical()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsSecuritySafeCritical()."
+    },
+    {
+      "batch": "Batch-499",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsSecurityTransparent",
+          "signature": "Boolean get_IsSecurityTransparent()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsSecurityTransparent()."
+    },
+    {
+      "batch": "Batch-500",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsSerializable",
+          "signature": "Boolean get_IsSerializable()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsSerializable()."
+    },
+    {
+      "batch": "Batch-501",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsSignatureType",
+          "signature": "Boolean get_IsSignatureType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsSignatureType()."
+    },
+    {
+      "batch": "Batch-502",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsSpecialName",
+          "signature": "Boolean get_IsSpecialName()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsSpecialName()."
+    },
+    {
+      "batch": "Batch-503",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsSZArray",
+          "signature": "Boolean get_IsSZArray()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsSZArray()."
+    },
+    {
+      "batch": "Batch-504",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsTypeDefinition",
+          "signature": "Boolean get_IsTypeDefinition()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsTypeDefinition()."
+    },
+    {
+      "batch": "Batch-505",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsUnicodeClass",
+          "signature": "Boolean get_IsUnicodeClass()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsUnicodeClass()."
+    },
+    {
+      "batch": "Batch-506",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsUnmanagedFunctionPointer",
+          "signature": "Boolean get_IsUnmanagedFunctionPointer()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsUnmanagedFunctionPointer()."
+    },
+    {
+      "batch": "Batch-507",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsValueType",
+          "signature": "Boolean get_IsValueType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsValueType()."
+    },
+    {
+      "batch": "Batch-508",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsVariableBoundArray",
+          "signature": "Boolean get_IsVariableBoundArray()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsVariableBoundArray()."
+    },
+    {
+      "batch": "Batch-509",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_IsVisible",
+          "signature": "Boolean get_IsVisible()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean get_IsVisible()."
+    },
+    {
+      "batch": "Batch-510",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_MemberType",
+          "signature": "System.Reflection.MemberTypes get_MemberType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberTypes get_MemberType()."
+    },
+    {
+      "batch": "Batch-511",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_Module",
+          "signature": "System.Reflection.Module get_Module()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.Module get_Module()."
+    },
+    {
+      "batch": "Batch-512",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_Namespace",
+          "signature": "System.String get_Namespace()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.String get_Namespace()."
+    },
+    {
+      "batch": "Batch-513",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_ReflectedType",
+          "signature": "System.Type get_ReflectedType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type get_ReflectedType()."
+    },
+    {
+      "batch": "Batch-514",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_StructLayoutAttribute",
+          "signature": "System.Runtime.InteropServices.StructLayoutAttribute get_StructLayoutAttribute()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Runtime.InteropServices.StructLayoutAttribute get_StructLayoutAttribute()."
+    },
+    {
+      "batch": "Batch-515",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_TypeHandle",
+          "signature": "System.RuntimeTypeHandle get_TypeHandle()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.RuntimeTypeHandle get_TypeHandle()."
+    },
+    {
+      "batch": "Batch-516",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_TypeInitializer",
+          "signature": "System.Reflection.ConstructorInfo get_TypeInitializer()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.ConstructorInfo get_TypeInitializer()."
+    },
+    {
+      "batch": "Batch-517",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "get_UnderlyingSystemType",
+          "signature": "System.Type get_UnderlyingSystemType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type get_UnderlyingSystemType()."
+    },
+    {
+      "batch": "Batch-518",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetArrayRank",
+          "signature": "Int32 GetArrayRank()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Int32 GetArrayRank()."
+    },
+    {
+      "batch": "Batch-519",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetConstructor",
+          "signature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-520",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetConstructor",
+          "signature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-521",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetConstructor",
+          "signature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Type[])."
+    },
+    {
+      "batch": "Batch-522",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetConstructor",
+          "signature": "System.Reflection.ConstructorInfo GetConstructor(System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.ConstructorInfo GetConstructor(System.Type[])."
+    },
+    {
+      "batch": "Batch-523",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetConstructors",
+          "signature": "System.Reflection.ConstructorInfo[] GetConstructors()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.ConstructorInfo[] GetConstructors()."
+    },
+    {
+      "batch": "Batch-524",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetConstructors",
+          "signature": "System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-525",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetDefaultMembers",
+          "signature": "System.Reflection.MemberInfo[] GetDefaultMembers()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberInfo[] GetDefaultMembers()."
+    },
+    {
+      "batch": "Batch-526",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetElementType",
+          "signature": "System.Type GetElementType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetElementType()."
+    },
+    {
+      "batch": "Batch-527",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEnumName",
+          "signature": "System.String GetEnumName(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.String GetEnumName(System.Object)."
+    },
+    {
+      "batch": "Batch-528",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEnumNames",
+          "signature": "System.String[] GetEnumNames()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.String[] GetEnumNames()."
+    },
+    {
+      "batch": "Batch-529",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEnumUnderlyingType",
+          "signature": "System.Type GetEnumUnderlyingType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetEnumUnderlyingType()."
+    },
+    {
+      "batch": "Batch-530",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEnumValues",
+          "signature": "System.Array GetEnumValues()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Array GetEnumValues()."
+    },
+    {
+      "batch": "Batch-531",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEnumValuesAsUnderlyingType",
+          "signature": "System.Array GetEnumValuesAsUnderlyingType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Array GetEnumValuesAsUnderlyingType()."
+    },
+    {
+      "batch": "Batch-532",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEvent",
+          "signature": "System.Reflection.EventInfo GetEvent(System.String, System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.EventInfo GetEvent(System.String, System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-533",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEvent",
+          "signature": "System.Reflection.EventInfo GetEvent(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.EventInfo GetEvent(System.String)."
+    },
+    {
+      "batch": "Batch-534",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEvents",
+          "signature": "System.Reflection.EventInfo[] GetEvents()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.EventInfo[] GetEvents()."
+    },
+    {
+      "batch": "Batch-535",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetEvents",
+          "signature": "System.Reflection.EventInfo[] GetEvents(System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.EventInfo[] GetEvents(System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-536",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetField",
+          "signature": "System.Reflection.FieldInfo GetField(System.String, System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.FieldInfo GetField(System.String, System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-537",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetField",
+          "signature": "System.Reflection.FieldInfo GetField(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.FieldInfo GetField(System.String)."
+    },
+    {
+      "batch": "Batch-538",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetFields",
+          "signature": "System.Reflection.FieldInfo[] GetFields()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.FieldInfo[] GetFields()."
+    },
+    {
+      "batch": "Batch-539",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetFields",
+          "signature": "System.Reflection.FieldInfo[] GetFields(System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.FieldInfo[] GetFields(System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-540",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetFunctionPointerCallingConventions",
+          "signature": "System.Type[] GetFunctionPointerCallingConventions()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetFunctionPointerCallingConventions()."
+    },
+    {
+      "batch": "Batch-541",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetFunctionPointerParameterTypes",
+          "signature": "System.Type[] GetFunctionPointerParameterTypes()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetFunctionPointerParameterTypes()."
+    },
+    {
+      "batch": "Batch-542",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetFunctionPointerReturnType",
+          "signature": "System.Type GetFunctionPointerReturnType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetFunctionPointerReturnType()."
+    },
+    {
+      "batch": "Batch-543",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetGenericArguments",
+          "signature": "System.Type[] GetGenericArguments()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetGenericArguments()."
+    },
+    {
+      "batch": "Batch-544",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetGenericParameterConstraints",
+          "signature": "System.Type[] GetGenericParameterConstraints()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetGenericParameterConstraints()."
+    },
+    {
+      "batch": "Batch-545",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetGenericTypeDefinition",
+          "signature": "System.Type GetGenericTypeDefinition()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetGenericTypeDefinition()."
+    },
+    {
+      "batch": "Batch-546",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Int32 GetHashCode()."
+    },
+    {
+      "batch": "Batch-547",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetInterface",
+          "signature": "System.Type GetInterface(System.String, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetInterface(System.String, Boolean)."
+    },
+    {
+      "batch": "Batch-548",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetInterface",
+          "signature": "System.Type GetInterface(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetInterface(System.String)."
+    },
+    {
+      "batch": "Batch-549",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetInterfaceMap",
+          "signature": "System.Reflection.InterfaceMapping GetInterfaceMap(System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.InterfaceMapping GetInterfaceMap(System.Type)."
+    },
+    {
+      "batch": "Batch-550",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetInterfaces",
+          "signature": "System.Type[] GetInterfaces()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetInterfaces()."
+    },
+    {
+      "batch": "Batch-551",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMember",
+          "signature": "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-552",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMember",
+          "signature": "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-553",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMember",
+          "signature": "System.Reflection.MemberInfo[] GetMember(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberInfo[] GetMember(System.String)."
+    },
+    {
+      "batch": "Batch-554",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMembers",
+          "signature": "System.Reflection.MemberInfo[] GetMembers()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberInfo[] GetMembers()."
+    },
+    {
+      "batch": "Batch-555",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMembers",
+          "signature": "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-556",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMemberWithSameMetadataDefinitionAs",
+          "signature": "System.Reflection.MemberInfo GetMemberWithSameMetadataDefinitionAs(System.Reflection.MemberInfo)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MemberInfo GetMemberWithSameMetadataDefinitionAs(System.Reflection.MemberInfo)."
+    },
+    {
+      "batch": "Batch-557",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-558",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-559",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Type[])."
+    },
+    {
+      "batch": "Batch-560",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-561",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Type[])."
+    },
+    {
+      "batch": "Batch-562",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-563",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-564",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Type[])."
+    },
+    {
+      "batch": "Batch-565",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-566",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-567",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String, System.Type[])."
+    },
+    {
+      "batch": "Batch-568",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo GetMethod(System.String)."
+    },
+    {
+      "batch": "Batch-569",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethods",
+          "signature": "System.Reflection.MethodInfo[] GetMethods()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo[] GetMethods()."
+    },
+    {
+      "batch": "Batch-570",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetMethods",
+          "signature": "System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-571",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetNestedType",
+          "signature": "System.Type GetNestedType(System.String, System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetNestedType(System.String, System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-572",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetNestedType",
+          "signature": "System.Type GetNestedType(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetNestedType(System.String)."
+    },
+    {
+      "batch": "Batch-573",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetNestedTypes",
+          "signature": "System.Type[] GetNestedTypes()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetNestedTypes()."
+    },
+    {
+      "batch": "Batch-574",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetNestedTypes",
+          "signature": "System.Type[] GetNestedTypes(System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetNestedTypes(System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-575",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetOptionalCustomModifiers",
+          "signature": "System.Type[] GetOptionalCustomModifiers()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetOptionalCustomModifiers()."
+    },
+    {
+      "batch": "Batch-576",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperties",
+          "signature": "System.Reflection.PropertyInfo[] GetProperties()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo[] GetProperties()."
+    },
+    {
+      "batch": "Batch-577",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperties",
+          "signature": "System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-578",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo GetProperty(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-579",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Reflection.BindingFlags)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo GetProperty(System.String, System.Reflection.BindingFlags)."
+    },
+    {
+      "batch": "Batch-580",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type, System.Type[], System.Reflection.ParameterModifier[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo GetProperty(System.String, System.Type, System.Type[], System.Reflection.ParameterModifier[])."
+    },
+    {
+      "batch": "Batch-581",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo GetProperty(System.String, System.Type, System.Type[])."
+    },
+    {
+      "batch": "Batch-582",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo GetProperty(System.String, System.Type)."
+    },
+    {
+      "batch": "Batch-583",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo GetProperty(System.String, System.Type[])."
+    },
+    {
+      "batch": "Batch-584",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Reflection.PropertyInfo GetProperty(System.String)."
+    },
+    {
+      "batch": "Batch-585",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetRequiredCustomModifiers",
+          "signature": "System.Type[] GetRequiredCustomModifiers()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetRequiredCustomModifiers()."
+    },
+    {
+      "batch": "Batch-586",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetType",
+          "signature": "System.Type GetType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetType()."
+    },
+    {
+      "batch": "Batch-587",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetType",
+          "signature": "System.Type GetType(System.String, Boolean, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetType(System.String, Boolean, Boolean)."
+    },
+    {
+      "batch": "Batch-588",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetType",
+          "signature": "System.Type GetType(System.String, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetType(System.String, Boolean)."
+    },
+    {
+      "batch": "Batch-589",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetType",
+          "signature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean, Boolean)."
+    },
+    {
+      "batch": "Batch-590",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetType",
+          "signature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean)."
+    },
+    {
+      "batch": "Batch-591",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetType",
+          "signature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])."
+    },
+    {
+      "batch": "Batch-592",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetType",
+          "signature": "System.Type GetType(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetType(System.String)."
+    },
+    {
+      "batch": "Batch-593",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeArray",
+          "signature": "System.Type[] GetTypeArray(System.Object[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type[] GetTypeArray(System.Object[])."
+    },
+    {
+      "batch": "Batch-594",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeCode",
+          "signature": "System.TypeCode GetTypeCode(System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.TypeCode GetTypeCode(System.Type)."
+    },
+    {
+      "batch": "Batch-595",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromCLSID",
+          "signature": "System.Type GetTypeFromCLSID(System.Guid, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromCLSID(System.Guid, Boolean)."
+    },
+    {
+      "batch": "Batch-596",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromCLSID",
+          "signature": "System.Type GetTypeFromCLSID(System.Guid, System.String, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromCLSID(System.Guid, System.String, Boolean)."
+    },
+    {
+      "batch": "Batch-597",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromCLSID",
+          "signature": "System.Type GetTypeFromCLSID(System.Guid, System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromCLSID(System.Guid, System.String)."
+    },
+    {
+      "batch": "Batch-598",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromCLSID",
+          "signature": "System.Type GetTypeFromCLSID(System.Guid)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromCLSID(System.Guid)."
+    },
+    {
+      "batch": "Batch-599",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromHandle",
+          "signature": "System.Type GetTypeFromHandle(System.RuntimeTypeHandle)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromHandle(System.RuntimeTypeHandle)."
+    },
+    {
+      "batch": "Batch-600",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromProgID",
+          "signature": "System.Type GetTypeFromProgID(System.String, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromProgID(System.String, Boolean)."
+    },
+    {
+      "batch": "Batch-601",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromProgID",
+          "signature": "System.Type GetTypeFromProgID(System.String, System.String, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromProgID(System.String, System.String, Boolean)."
+    },
+    {
+      "batch": "Batch-602",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromProgID",
+          "signature": "System.Type GetTypeFromProgID(System.String, System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromProgID(System.String, System.String)."
+    },
+    {
+      "batch": "Batch-603",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeFromProgID",
+          "signature": "System.Type GetTypeFromProgID(System.String)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type GetTypeFromProgID(System.String)."
+    },
+    {
+      "batch": "Batch-604",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "GetTypeHandle",
+          "signature": "System.RuntimeTypeHandle GetTypeHandle(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.RuntimeTypeHandle GetTypeHandle(System.Object)."
+    },
+    {
+      "batch": "Batch-605",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "InvokeMember",
+          "signature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Globalization.CultureInfo)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Globalization.CultureInfo)."
+    },
+    {
+      "batch": "Batch-606",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "InvokeMember",
+          "signature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[])."
+    },
+    {
+      "batch": "Batch-607",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "InvokeMember",
+          "signature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[])."
+    },
+    {
+      "batch": "Batch-608",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "IsAssignableFrom",
+          "signature": "Boolean IsAssignableFrom(System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean IsAssignableFrom(System.Type)."
+    },
+    {
+      "batch": "Batch-609",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "IsAssignableTo",
+          "signature": "Boolean IsAssignableTo(System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean IsAssignableTo(System.Type)."
+    },
+    {
+      "batch": "Batch-610",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "IsEnumDefined",
+          "signature": "Boolean IsEnumDefined(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean IsEnumDefined(System.Object)."
+    },
+    {
+      "batch": "Batch-611",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "IsEquivalentTo",
+          "signature": "Boolean IsEquivalentTo(System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean IsEquivalentTo(System.Type)."
+    },
+    {
+      "batch": "Batch-612",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "IsInstanceOfType",
+          "signature": "Boolean IsInstanceOfType(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean IsInstanceOfType(System.Object)."
+    },
+    {
+      "batch": "Batch-613",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "IsSubclassOf",
+          "signature": "Boolean IsSubclassOf(System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean IsSubclassOf(System.Type)."
+    },
+    {
+      "batch": "Batch-614",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "MakeArrayType",
+          "signature": "System.Type MakeArrayType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type MakeArrayType()."
+    },
+    {
+      "batch": "Batch-615",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "MakeArrayType",
+          "signature": "System.Type MakeArrayType(Int32)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type MakeArrayType(Int32)."
+    },
+    {
+      "batch": "Batch-616",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "MakeByRefType",
+          "signature": "System.Type MakeByRefType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type MakeByRefType()."
+    },
+    {
+      "batch": "Batch-617",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "MakeGenericMethodParameter",
+          "signature": "System.Type MakeGenericMethodParameter(Int32)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type MakeGenericMethodParameter(Int32)."
+    },
+    {
+      "batch": "Batch-618",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "MakeGenericSignatureType",
+          "signature": "System.Type MakeGenericSignatureType(System.Type, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type MakeGenericSignatureType(System.Type, System.Type[])."
+    },
+    {
+      "batch": "Batch-619",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "MakeGenericType",
+          "signature": "System.Type MakeGenericType(System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type MakeGenericType(System.Type[])."
+    },
+    {
+      "batch": "Batch-620",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "MakePointerType",
+          "signature": "System.Type MakePointerType()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type MakePointerType()."
+    },
+    {
+      "batch": "Batch-621",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "op_Equality",
+          "signature": "Boolean op_Equality(System.Type, System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean op_Equality(System.Type, System.Type)."
+    },
+    {
+      "batch": "Batch-622",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "op_Inequality",
+          "signature": "Boolean op_Inequality(System.Type, System.Type)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::Boolean op_Inequality(System.Type, System.Type)."
+    },
+    {
+      "batch": "Batch-623",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "ReflectionOnlyGetType",
+          "signature": "System.Type ReflectionOnlyGetType(System.String, Boolean, Boolean)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.Type ReflectionOnlyGetType(System.String, Boolean, Boolean)."
+    },
+    {
+      "batch": "Batch-624",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "ToString",
+          "signature": "System.String ToString()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Type::System.String ToString()."
+    },
+    {
+      "batch": "Batch-625",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask`1",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask`1::Boolean Equals(System.Object)."
+    },
+    {
+      "batch": "Batch-626",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask`1",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Threading.Tasks.ValueTask`1[TResult])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask`1::Boolean Equals(System.Threading.Tasks.ValueTask`1[TResult])."
+    },
+    {
+      "batch": "Batch-627",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask`1",
+          "method": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask`1::Int32 GetHashCode()."
+    },
+    {
+      "batch": "Batch-628",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask`1",
+          "method": "op_Equality",
+          "signature": "Boolean op_Equality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask`1::Boolean op_Equality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])."
+    },
+    {
+      "batch": "Batch-629",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask`1",
+          "method": "op_Inequality",
+          "signature": "Boolean op_Inequality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask`1::Boolean op_Inequality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])."
+    },
+    {
+      "batch": "Batch-630",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::Boolean Equals(System.Object)."
+    },
+    {
+      "batch": "Batch-631",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "Equals",
+          "signature": "Boolean Equals(System.Threading.Tasks.ValueTask)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::Boolean Equals(System.Threading.Tasks.ValueTask)."
+    },
+    {
+      "batch": "Batch-632",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "FromCanceled",
+          "signature": "System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-633",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "FromCanceled",
+          "signature": "System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-634",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "FromException",
+          "signature": "System.Threading.Tasks.ValueTask FromException(System.Exception)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::System.Threading.Tasks.ValueTask FromException(System.Exception)."
+    },
+    {
+      "batch": "Batch-635",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "FromException",
+          "signature": "System.Threading.Tasks.ValueTask`1[TResult] FromException[TResult](System.Exception)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::System.Threading.Tasks.ValueTask`1[TResult] FromException[TResult](System.Exception)."
+    },
+    {
+      "batch": "Batch-636",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::Int32 GetHashCode()."
+    },
+    {
+      "batch": "Batch-637",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "op_Equality",
+          "signature": "Boolean op_Equality(System.Threading.Tasks.ValueTask, System.Threading.Tasks.ValueTask)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::Boolean op_Equality(System.Threading.Tasks.ValueTask, System.Threading.Tasks.ValueTask)."
+    },
+    {
+      "batch": "Batch-638",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask",
+          "method": "op_Inequality",
+          "signature": "Boolean op_Inequality(System.Threading.Tasks.ValueTask, System.Threading.Tasks.ValueTask)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.ValueTask::Boolean op_Inequality(System.Threading.Tasks.ValueTask, System.Threading.Tasks.ValueTask)."
+    },
+    {
+      "batch": "Batch-639",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenRegistration",
+          "method": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationTokenRegistration::Int32 GetHashCode()."
+    },
+    {
+      "batch": "Batch-640",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenRegistration",
+          "method": "op_Equality",
+          "signature": "Boolean op_Equality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationTokenRegistration::Boolean op_Equality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)."
+    },
+    {
+      "batch": "Batch-641",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenRegistration",
+          "method": "op_Inequality",
+          "signature": "Boolean op_Inequality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationTokenRegistration::Boolean op_Inequality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)."
+    },
+    {
+      "batch": "Batch-642",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenSource",
+          "method": "get_IsCancellationRequested",
+          "signature": "Boolean get_IsCancellationRequested()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-source.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationTokenSource::Boolean get_IsCancellationRequested()."
+    },
+    {
+      "batch": "Batch-643",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::Int32 GetHashCode()."
+    },
+    {
+      "batch": "Batch-644",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "op_Equality",
+          "signature": "Boolean op_Equality(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::Boolean op_Equality(System.Threading.CancellationToken, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-645",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "op_Inequality",
+          "signature": "Boolean op_Inequality(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::Boolean op_Inequality(System.Threading.CancellationToken, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-646",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "Register",
+          "signature": "System.Threading.CancellationTokenRegistration Register(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::System.Threading.CancellationTokenRegistration Register(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object)."
+    },
+    {
+      "batch": "Batch-647",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "UnsafeRegister",
+          "signature": "System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object)."
+    },
+    {
+      "batch": "Batch-648",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-649",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-650",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.Tasks.TaskContinuationOptions)."
+    },
+    {
+      "batch": "Batch-651",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-652",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object)."
+    },
+    {
+      "batch": "Batch-653",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-654",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-655",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskContinuationOptions)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskContinuationOptions)."
+    },
+    {
+      "batch": "Batch-656",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-657",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult])."
+    },
+    {
+      "batch": "Batch-658",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-659",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-660",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.Tasks.TaskContinuationOptions)."
+    },
+    {
+      "batch": "Batch-661",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.Tasks.TaskScheduler)."
+    },
+    {
+      "batch": "Batch-662",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task`1::System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object)."
+    },
+    {
+      "batch": "Batch-663",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Dispose",
+          "signature": "Void Dispose()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Void Dispose()."
+    },
+    {
+      "batch": "Batch-664",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "FromException",
+          "signature": "System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)."
+    },
+    {
+      "batch": "Batch-665",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "get_CurrentId",
+          "signature": "System.Nullable`1[System.Int32] get_CurrentId()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Nullable`1[System.Int32] get_CurrentId()."
+    },
+    {
+      "batch": "Batch-666",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "get_Factory",
+          "signature": "System.Threading.Tasks.TaskFactory get_Factory()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.TaskFactory get_Factory()."
+    },
+    {
+      "batch": "Batch-667",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAll",
+          "signature": "Boolean WaitAll(System.Threading.Tasks.Task[], Int32, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Boolean WaitAll(System.Threading.Tasks.Task[], Int32, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-668",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAll",
+          "signature": "Boolean WaitAll(System.Threading.Tasks.Task[], Int32)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Boolean WaitAll(System.Threading.Tasks.Task[], Int32)."
+    },
+    {
+      "batch": "Batch-669",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAll",
+          "signature": "Boolean WaitAll(System.Threading.Tasks.Task[], System.TimeSpan)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Boolean WaitAll(System.Threading.Tasks.Task[], System.TimeSpan)."
+    },
+    {
+      "batch": "Batch-670",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAll",
+          "signature": "Void WaitAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Void WaitAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-671",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAll",
+          "signature": "Void WaitAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Void WaitAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])."
+    },
+    {
+      "batch": "Batch-672",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAll",
+          "signature": "Void WaitAll(System.Threading.Tasks.Task[], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Void WaitAll(System.Threading.Tasks.Task[], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-673",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAll",
+          "signature": "Void WaitAll(System.Threading.Tasks.Task[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Void WaitAll(System.Threading.Tasks.Task[])."
+    },
+    {
+      "batch": "Batch-674",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAny",
+          "signature": "Int32 WaitAny(System.Threading.Tasks.Task[], Int32, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Int32 WaitAny(System.Threading.Tasks.Task[], Int32, System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-675",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAny",
+          "signature": "Int32 WaitAny(System.Threading.Tasks.Task[], Int32)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Int32 WaitAny(System.Threading.Tasks.Task[], Int32)."
+    },
+    {
+      "batch": "Batch-676",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAny",
+          "signature": "Int32 WaitAny(System.Threading.Tasks.Task[], System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Int32 WaitAny(System.Threading.Tasks.Task[], System.Threading.CancellationToken)."
+    },
+    {
+      "batch": "Batch-677",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAny",
+          "signature": "Int32 WaitAny(System.Threading.Tasks.Task[], System.TimeSpan)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Int32 WaitAny(System.Threading.Tasks.Task[], System.TimeSpan)."
+    },
+    {
+      "batch": "Batch-678",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WaitAny",
+          "signature": "Int32 WaitAny(System.Threading.Tasks.Task[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::Int32 WaitAny(System.Threading.Tasks.Task[])."
+    },
+    {
+      "batch": "Batch-679",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAll",
+          "signature": "System.Threading.Tasks.Task WhenAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task WhenAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])."
+    },
+    {
+      "batch": "Batch-680",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAll",
+          "signature": "System.Threading.Tasks.Task WhenAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task WhenAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])."
+    },
+    {
+      "batch": "Batch-681",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAll",
+          "signature": "System.Threading.Tasks.Task WhenAll(System.Threading.Tasks.Task[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task WhenAll(System.Threading.Tasks.Task[])."
+    },
+    {
+      "batch": "Batch-682",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAll",
+          "signature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])."
+    },
+    {
+      "batch": "Batch-683",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAll",
+          "signature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])."
+    },
+    {
+      "batch": "Batch-684",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAll",
+          "signature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Threading.Tasks.Task`1[TResult][])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Threading.Tasks.Task`1[TResult][])."
+    },
+    {
+      "batch": "Batch-685",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAny",
+          "signature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])."
+    },
+    {
+      "batch": "Batch-686",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAny",
+          "signature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.ReadOnlySpan`1[System.Threading.Tasks.Task])."
+    },
+    {
+      "batch": "Batch-687",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAny",
+          "signature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Threading.Tasks.Task, System.Threading.Tasks.Task)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Threading.Tasks.Task, System.Threading.Tasks.Task)."
+    },
+    {
+      "batch": "Batch-688",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAny",
+          "signature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Threading.Tasks.Task[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Threading.Tasks.Task[])."
+    },
+    {
+      "batch": "Batch-689",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAny",
+          "signature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])."
+    },
+    {
+      "batch": "Batch-690",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAny",
+          "signature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])."
+    },
+    {
+      "batch": "Batch-691",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAny",
+          "signature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Threading.Tasks.Task`1[TResult], System.Threading.Tasks.Task`1[TResult])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Threading.Tasks.Task`1[TResult], System.Threading.Tasks.Task`1[TResult])."
+    },
+    {
+      "batch": "Batch-692",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenAny",
+          "signature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Threading.Tasks.Task`1[TResult][])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Threading.Tasks.Task`1[TResult][])."
+    },
+    {
+      "batch": "Batch-693",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenEach",
+          "signature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])."
+    },
+    {
+      "batch": "Batch-694",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenEach",
+          "signature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.ReadOnlySpan`1[System.Threading.Tasks.Task])."
+    },
+    {
+      "batch": "Batch-695",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenEach",
+          "signature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Threading.Tasks.Task[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Threading.Tasks.Task[])."
+    },
+    {
+      "batch": "Batch-696",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenEach",
+          "signature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])."
+    },
+    {
+      "batch": "Batch-697",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenEach",
+          "signature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])."
+    },
+    {
+      "batch": "Batch-698",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "WhenEach",
+          "signature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Threading.Tasks.Task`1[TResult][])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Threading.Tasks.Task`1[TResult][])."
+    },
+    {
+      "batch": "Batch-699",
+      "kind": "method-metadata",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task",
+          "method": "Yield",
+          "signature": "System.Runtime.CompilerServices.YieldAwaitable Yield()",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task.json"
+        }
+      ],
+      "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.Tasks.Task::System.Runtime.CompilerServices.YieldAwaitable Yield()."
+    },
+    {
+      "batch": "Batch-700",
+      "kind": "inventory-audit",
+      "outcome": "Audit all 426 distinct declared-public methods in fourteen selected snapshots and the open qualification gates."
+    }
+  ]
+}
