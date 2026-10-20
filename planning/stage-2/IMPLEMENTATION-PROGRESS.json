@@ -246,7 +246,8 @@
     "Batch-229",
     "Batch-230",
     "Batch-231",
-    "Batch-232"
+    "Batch-232",
+    "Batch-233"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -439,7 +440,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-232",
+      "lastUpdatedBatch": "Batch-233",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -10050,20 +10051,20 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-233",
+    "id": "Batch-234",
     "framework": "dotj-core",
     "planTaskIds": [
       "E03"
     ],
-    "outcome": "Record rejection of a negative non-infinite timeout.",
+    "outcome": "Record rejection of a timeout above the supported timer range.",
     "requiresContinue": true
   },
   "batchPlan": {
     "version": "stage-2-batches-v3",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v3.json",
     "plannedTotalBatches": 1936,
-    "completedBatches": 232,
-    "remainingPlannedBatches": 1704,
+    "completedBatches": 233,
+    "remainingPlannedBatches": 1703,
     "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes"
   }
 }
