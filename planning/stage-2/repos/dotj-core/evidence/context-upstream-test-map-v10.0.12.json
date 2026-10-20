@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-045",
+  "archiveCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "archiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "candidates": [
+    {
+      "sourcePath": "src/libraries/System.Threading/tests/AsyncLocalTests.cs",
+      "sourceSha256": "acf6f236c142e98a38c6a2f237585e6718deba5568d6593e543c6a1c7136c119",
+      "method": "System.Threading.Tests.AsyncLocalTests.CaptureAndRestore",
+      "annotation": "Fact",
+      "lines": "28-49",
+      "observedAssertion": "ExecutionContext.Run sees captured AsyncLocal value 42, then caller still sees 12 after return.",
+      "relationToF0104": "Supports context restoration; it does not itself simulate two independent requests."
+    },
+    {
+      "sourcePath": "src/libraries/System.Threading/tests/ExecutionContextTests.cs",
+      "sourceSha256": "6b3a4c92779fcadfdbea667d76a8cd380d60b896cac01fe65fa16445afb59477",
+      "method": "System.Threading.Tests.ExecutionContextTests.FlowTest",
+      "annotation": "ConditionalFact(IsThreadingSupported)",
+      "lines": "64-120 (selected window)",
+      "observedAssertion": "Flow is observed with value 1, suppression with 0, and restoration with 1 in helper calls.",
+      "relationToF0104": "Supports ambient flow and suppression rules, but is not an exact cross-request isolation fixture."
+    }
+  ],
+  "execution": "NOT RUN: pinned upstream xUnit test project was not built or executed",
+  "conclusion": "Two source-verified supporting upstream candidates exist. DJ-001-F01-04 remains an independent designed fixture with a declared Java adaptation, not an upstream test ID."
+}
