@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-059",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "runner": "tools/oracle/dotj-core/run-wp01-upstream-tests.ps1",
+  "invocation": "& 'tools/oracle/dotj-core/run-wp01-upstream-tests.ps1' -SourceRoot '<extracted pinned runtime source root>' -OutputDirectory '<writable result directory>'",
+  "checks": [
+    "Six selected pinned source-file SHA256 hashes match before execution.",
+    "Installed Microsoft.NETCore.App 10.0.12 and SDK root are present.",
+    "A temporary short drive path avoids Windows MAX_PATH failures and is removed after the run.",
+    "Each expected upstream test method has its exact expected pass count in the TRX result."
+  ],
+  "run": {
+    "sdk": "10.0.401",
+    "contextPassed": 2,
+    "ownershipPassed": 37,
+    "totalPassed": 39,
+    "failed": 0,
+    "contextTrxSha256": "313af8ec897fc283e0d17d0fe9bf2068e592c4e96c30c4b4be1180b8a02f93a3",
+    "ownershipTrxSha256": "56b14efae1deb0e89647861c5e538d8e898e5bf2351cb0df91ea5af6549cbae4",
+    "summarySha256": "8123090fc73581c4c782ecb7956c6f9ae5ac4686b87d4f30b5f4d479d772e57b"
+  },
+  "qualification": "Reproducible upstream reference behavior only; designed Java fixtures and public API gates remain separate."
+}
