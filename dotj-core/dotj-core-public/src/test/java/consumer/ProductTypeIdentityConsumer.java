@@ -220,6 +220,18 @@ public final class ProductTypeIdentityConsumer {
                 || string.get_IsInterface() || integer.get_IsEnum()) {
             throw new AssertionError("Selected interface and enum flags changed");
         }
+        Type enumBase = Type.GetType("System.Enum");
+        if (enumBase == null || memberTypesType.get_BaseType() != enumBase
+                || enumBase.get_BaseType() != valueType
+                || memberTypesType.GetEnumUnderlyingType() != integer) {
+            throw new AssertionError("Selected enum base or underlying type changed");
+        }
+        try {
+            string.GetEnumUnderlyingType();
+            throw new AssertionError("Non-enum underlying type accepted");
+        } catch (ArgumentException expected) {
+            // Selected pinned error type.
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition

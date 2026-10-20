@@ -114,6 +114,7 @@ public abstract class Type extends MemberInfo {
             case "System.Array" -> fromJavaClass(java.lang.reflect.Array.class);
             case "System.IDisposable" -> fromJavaClass(IDisposable.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
+            case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
             case "System.String[]" -> fromJavaClass(String[].class);
@@ -146,6 +147,7 @@ public abstract class Type extends MemberInfo {
             case "system.array" -> ignoreCase ? fromJavaClass(java.lang.reflect.Array.class) : null;
             case "system.idisposable" -> ignoreCase ? fromJavaClass(IDisposable.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
+            case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
             case "system.collections.generic.dictionary`2" -> ignoreCase ? fromJavaClass(java.util.Map.class) : null;
             case "system.string[]" -> ignoreCase ? fromJavaClass(String[].class) : null;
@@ -269,6 +271,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Object.class) return "Object";
         if (this.definition == Number.class) return "ValueType";
         if (this.definition == java.lang.reflect.Array.class) return "Array";
+        if (this.definition == Enum.class) return "Enum";
         if (this.definition == java.util.List.class) return "List`1";
         if (this.definition == java.util.Map.class) return "Dictionary`2";
         return this.definition.getSimpleName();
@@ -322,7 +325,7 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == String.class || this.definition == Integer.class
                 || this.definition == Object.class || this.definition == Number.class
-                || this.definition == java.lang.reflect.Array.class) {
+                || this.definition == java.lang.reflect.Array.class || this.definition == Enum.class) {
             return "System";
         }
         return this.definition.getPackageName();
@@ -351,6 +354,12 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Integer.class) {
             return fromJavaClass(Number.class);
         }
+        if (this.definition == MemberTypes.class) {
+            return fromJavaClass(Enum.class);
+        }
+        if (this.definition == Enum.class) {
+            return fromJavaClass(Number.class);
+        }
         if (this.parameterIndex >= 0 || this.definition == String.class
                 || this.definition == java.util.List.class || this.definition == java.util.Map.class
                 || this.definition == Number.class || this.definition == java.lang.reflect.Array.class) {
@@ -375,6 +384,13 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsEnum() {
         return this.definition == MemberTypes.class;
+    }
+
+    public Type GetEnumUnderlyingType() {
+        if (!this.get_IsEnum()) {
+            throw new ArgumentException("Type must be an enum");
+        }
+        return fromJavaClass(Integer.class);
     }
 
     private static String arraySuffix(int rank, boolean vector) {
