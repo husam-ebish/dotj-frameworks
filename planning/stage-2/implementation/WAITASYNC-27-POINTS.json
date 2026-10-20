@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "scope": "Pinned .NET 10.0.12 Task.WaitAsync timeout and cancellation ordering observations; E03 evidence only",
+  "batches": [
+    {"batch": "Batch-224", "case": "waitAsyncZeroTimeoutPending", "outcome": "Record zero-timeout behavior for a pending generic task."},
+    {"batch": "Batch-225", "case": "waitAsyncZeroTimeoutCompleted", "outcome": "Record zero-timeout behavior for an already successful generic task."},
+    {"batch": "Batch-226", "case": "waitAsyncZeroTimeoutFaulted", "outcome": "Record zero-timeout behavior for an already faulted generic task."},
+    {"batch": "Batch-227", "case": "waitAsyncZeroTimeoutCanceled", "outcome": "Record zero-timeout behavior for an already canceled generic task."},
+    {"batch": "Batch-228", "case": "waitAsyncFiniteTimeoutPending", "outcome": "Record finite-timeout behavior for a pending non-generic task."},
+    {"batch": "Batch-229", "case": "waitAsyncFiniteTimeoutGeneric", "outcome": "Record finite-timeout behavior for a pending generic task."},
+    {"batch": "Batch-230", "case": "waitAsyncInfiniteTimeoutResult", "outcome": "Record infinite-timeout behavior when the generic source succeeds."},
+    {"batch": "Batch-231", "case": "waitAsyncInfiniteTimeoutFault", "outcome": "Record infinite-timeout behavior when the generic source faults."},
+    {"batch": "Batch-232", "case": "waitAsyncInfiniteTimeoutCancel", "outcome": "Record infinite-timeout behavior when the generic source cancels."},
+    {"batch": "Batch-233", "case": "waitAsyncNegativeTimeout", "outcome": "Record rejection of a negative non-infinite timeout."},
+    {"batch": "Batch-234", "case": "waitAsyncExcessiveTimeout", "outcome": "Record rejection of a timeout above the supported timer range."},
+    {"batch": "Batch-235", "case": "waitAsyncZeroTimeoutWithToken", "outcome": "Record zero-timeout behavior with a non-canceled token."},
+    {"batch": "Batch-236", "case": "waitAsyncZeroTimeoutPreCanceledToken", "outcome": "Record precedence between zero timeout and a pre-canceled token."},
+    {"batch": "Batch-237", "case": "waitAsyncZeroTimeoutCompletedWithToken", "outcome": "Record precedence of a completed source over zero timeout and token."},
+    {"batch": "Batch-238", "case": "waitAsyncZeroTimeoutFaultWithToken", "outcome": "Record precedence of a faulted source over zero timeout and token."},
+    {"batch": "Batch-239", "case": "waitAsyncZeroTimeoutCancelWithToken", "outcome": "Record precedence of a canceled source over zero timeout and token."},
+    {"batch": "Batch-240", "case": "waitAsyncFiniteTokenCancellationFirst", "outcome": "Record token cancellation before a finite timeout and source completion."},
+    {"batch": "Batch-241", "case": "waitAsyncFiniteSourceResultFirst", "outcome": "Record source success before token cancellation under a finite timeout."},
+    {"batch": "Batch-242", "case": "waitAsyncFiniteSourceFaultFirst", "outcome": "Record source fault before token cancellation under a finite timeout."},
+    {"batch": "Batch-243", "case": "waitAsyncFiniteSourceCancelFirst", "outcome": "Record source cancellation before token cancellation under a finite timeout."},
+    {"batch": "Batch-244", "case": "waitAsyncInfiniteTokenCancellationFirst", "outcome": "Record token cancellation before source completion under infinite timeout."},
+    {"batch": "Batch-245", "case": "waitAsyncInfiniteSourceResultFirst", "outcome": "Record source success before token cancellation under infinite timeout."},
+    {"batch": "Batch-246", "case": "waitAsyncInfiniteSourceFaultFirst", "outcome": "Record source fault before token cancellation under infinite timeout."},
+    {"batch": "Batch-247", "case": "waitAsyncInfiniteSourceCancelFirst", "outcome": "Record source cancellation before token cancellation under infinite timeout."},
+    {"batch": "Batch-248", "case": "waitAsyncNegativeTimeoutWithToken", "outcome": "Record negative-timeout argument validation with a cancellation token."},
+    {"batch": "Batch-249", "case": "waitAsyncTimeoutSourceIndependence", "outcome": "Record that a timed-out wait leaves its source pending and later successful."},
+    {"batch": "Batch-250", "case": "waitAsyncTimeoutSiblingIndependence", "outcome": "Record that one timed-out wait leaves a sibling wait able to observe source success."}
+  ]
+}

@@ -79,7 +79,7 @@ def record(args):
     plan = json.loads((ROOT / plan_source).read_text(encoding="utf-8"))
     total_batches = plan["plannedTotalBatches"]
     assert args.number <= total_batches, "Rebaseline the batch plan before exhausting it"
-    acceptance_start = plan["historicalCompletedBatches"] + plan["baselineBatchSlots"]
+    acceptance_start = plan["historicalCompletedBatches"] + plan["baselineBatchSlots"] + plan.get("scheduledEvidenceBatchSlots", 0)
     if args.number > acceptance_start:
         accepted = sum(task["status"] == "COMPLETE" for item in progress["frameworks"] for task in item["tasks"])
         accepted += sum(status == "COMPLETE" for item in progress["frameworks"] for status in item["outstandingPreparationAndQualificationGates"].values())
@@ -123,6 +123,8 @@ def record(args):
     report_path = STAGE / f"implementation/batches/{current}.md"
     assert not report_path.exists()
     changed = "\n".join(f"| `{path}` | {args.file_purpose} |" for path in args.files)
+    series_row = (f"| Requested 27-point series | **{args.number - 223} / 27 complete** (`Batch-224` through `Batch-250`) |\n"
+                  if plan["planVersion"] == "stage-2-batches-v3" and 224 <= args.number <= 250 else "")
     report_path.write_text(f"""# {current} report
 
 | Field | Result |
@@ -144,7 +146,7 @@ def record(args):
 | Frameworks fully implemented and qualified | **0 / 66 (0.00%)** |
 | In-progress / not-started frameworks | **1 / 65** |
 | Batches completed / planned | **{args.number:,} / {total_batches:,} ({args.number / total_batches * 100:.2f}%)** (`{plan['planVersion']}`) |
-| Batches still to do | **{total_batches - args.number:,} planned**; revise the denominator in a new plan version when scope or batch granularity changes |
+{series_row}| Batches still to do | **{total_batches - args.number:,} planned**; revise the denominator in a new plan version when scope or batch granularity changes |
 | Next proposed batch | `{following}`: {args.next_outcome} |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
