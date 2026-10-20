@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -17,6 +19,11 @@ final class ArityJavaSourceRenderer {
     }
 
     static BoundMethod renderMethod(String sourceSignature) {
+        return renderMethod(sourceSignature, Set.of());
+    }
+
+    static BoundMethod renderMethod(String sourceSignature, Set<String> reservedSimpleNames) {
+        Objects.requireNonNull(reservedSimpleNames, "reservedSimpleNames");
         String bound = ArityMethodSignatureBinder.lower(sourceSignature);
         Matcher matcher = SYSTEM_TYPE.matcher(bound);
         StringBuilder declaration = new StringBuilder();
@@ -25,6 +32,9 @@ final class ArityJavaSourceRenderer {
         while (matcher.find()) {
             String qualified = matcher.group();
             String simple = qualified.substring(qualified.lastIndexOf('.') + 1);
+            if (reservedSimpleNames.contains(simple)) {
+                throw new IllegalArgumentException("Imported type conflicts with declaration scope: " + simple);
+            }
             String previous = names.putIfAbsent(simple, qualified);
             if (previous != null && !previous.equals(qualified)) {
                 throw new IllegalArgumentException("Conflicting simple type name " + simple
