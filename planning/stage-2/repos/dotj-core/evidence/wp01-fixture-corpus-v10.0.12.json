@@ -9,8 +9,8 @@
       "expectation": "equal closed parameterized types share identity",
       "java": "TypeIdentityTest passed in Batch-040",
       "dotnetOracle": "type-identity oracle passed in Batch-041",
-      "upstreamTest": "not mapped or executed",
-      "status": "PARTIAL: one generic definition and its selected arguments"
+      "upstreamTest": "Batch-060 passed TypeInfoTests.UnderlyingSystemType and MakeGenericType; they support constructed-generic equality and classification, while direct reference identity is checked by the independent oracle",
+      "status": "PARTIAL: one generic definition and selected arguments, with supporting upstream tests but no public System.Type mapping"
     },
     {
       "id": "DJ-001-F01-02",
