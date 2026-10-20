@@ -1,0 +1,321 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "type": {
+    "name": "CancellationToken",
+    "fullName": "System.Threading.CancellationToken",
+    "isInterface": false,
+    "isValueType": true,
+    "isGenericTypeDefinition": false,
+    "baseType": "System.ValueType",
+    "genericParameters": [],
+    "interfaces": [
+      "System.IEquatable`1[System.Threading.CancellationToken]"
+    ],
+    "constructors": [
+      "Void .ctor(Boolean)"
+    ],
+    "methods": [
+      {
+        "Name": "Equals",
+        "signature": "Boolean Equals(System.Object)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "other",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Equals",
+        "signature": "Boolean Equals(System.Threading.CancellationToken)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "other",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "get_CanBeCanceled",
+        "signature": "Boolean get_CanBeCanceled()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_IsCancellationRequested",
+        "signature": "Boolean get_IsCancellationRequested()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_None",
+        "signature": "System.Threading.CancellationToken get_None()",
+        "returnType": "System.Threading.CancellationToken",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_WaitHandle",
+        "signature": "System.Threading.WaitHandle get_WaitHandle()",
+        "returnType": "System.Threading.WaitHandle",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "GetHashCode",
+        "signature": "Int32 GetHashCode()",
+        "returnType": "System.Int32",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "op_Equality",
+        "signature": "Boolean op_Equality(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+        "returnType": "System.Boolean",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "left",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "right",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "op_Inequality",
+        "signature": "Boolean op_Inequality(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+        "returnType": "System.Boolean",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "left",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "right",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Register",
+        "signature": "System.Threading.CancellationTokenRegistration Register(System.Action, Boolean)",
+        "returnType": "System.Threading.CancellationTokenRegistration",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "callback",
+            "type": "System.Action",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "useSynchronizationContext",
+            "type": "System.Boolean",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Register",
+        "signature": "System.Threading.CancellationTokenRegistration Register(System.Action)",
+        "returnType": "System.Threading.CancellationTokenRegistration",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "callback",
+            "type": "System.Action",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Register",
+        "signature": "System.Threading.CancellationTokenRegistration Register(System.Action`1[System.Object], System.Object, Boolean)",
+        "returnType": "System.Threading.CancellationTokenRegistration",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "callback",
+            "type": "System.Action`1[System.Object]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "useSynchronizationContext",
+            "type": "System.Boolean",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Register",
+        "signature": "System.Threading.CancellationTokenRegistration Register(System.Action`1[System.Object], System.Object)",
+        "returnType": "System.Threading.CancellationTokenRegistration",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "callback",
+            "type": "System.Action`1[System.Object]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Register",
+        "signature": "System.Threading.CancellationTokenRegistration Register(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object)",
+        "returnType": "System.Threading.CancellationTokenRegistration",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "callback",
+            "type": "System.Action`2[System.Object,System.Threading.CancellationToken]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ThrowIfCancellationRequested",
+        "signature": "Void ThrowIfCancellationRequested()",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "UnsafeRegister",
+        "signature": "System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`1[System.Object], System.Object)",
+        "returnType": "System.Threading.CancellationTokenRegistration",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "callback",
+            "type": "System.Action`1[System.Object]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "UnsafeRegister",
+        "signature": "System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object)",
+        "returnType": "System.Threading.CancellationTokenRegistration",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "callback",
+            "type": "System.Action`2[System.Object,System.Threading.CancellationToken]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "Name": "CanBeCanceled",
+        "type": "System.Boolean",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "IsCancellationRequested",
+        "type": "System.Boolean",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "None",
+        "type": "System.Threading.CancellationToken",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "WaitHandle",
+        "type": "System.Threading.WaitHandle",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      }
+    ],
+    "events": [],
+    "fields": []
+  }
+}
