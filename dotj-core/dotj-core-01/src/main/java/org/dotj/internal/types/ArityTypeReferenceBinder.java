@@ -8,6 +8,7 @@ import java.util.Set;
 /** Bounded type-reference binder for the pinned Task-family arity pairs. */
 final class ArityTypeReferenceBinder {
     private static final int MAX_GENERIC_NESTING = 32;
+    private static final int MAX_ARRAY_DIMENSIONS = 32;
     private static final int MAX_REFERENCE_LENGTH = 4096;
     private static final Set<String> RESERVED = Set.of(
             "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class",
@@ -101,6 +102,9 @@ final class ArityTypeReferenceBinder {
                 }
                 position++;
                 arrayDimensions++;
+                if (arrayDimensions > MAX_ARRAY_DIMENSIONS) {
+                    throw new IllegalArgumentException("Array dimensions exceed " + MAX_ARRAY_DIMENSIONS);
+                }
                 skipWhitespace();
             }
             int separator = name.lastIndexOf('.');
