@@ -1,0 +1,194 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "type": {
+    "name": "TaskCompletionSource",
+    "fullName": "System.Threading.Tasks.TaskCompletionSource",
+    "isInterface": false,
+    "isValueType": false,
+    "isGenericTypeDefinition": false,
+    "baseType": "System.Object",
+    "genericParameters": [],
+    "interfaces": [],
+    "constructors": [
+      "Void .ctor()",
+      "Void .ctor(System.Object, System.Threading.Tasks.TaskCreationOptions)",
+      "Void .ctor(System.Object)",
+      "Void .ctor(System.Threading.Tasks.TaskCreationOptions)"
+    ],
+    "methods": [
+      {
+        "Name": "get_Task",
+        "signature": "System.Threading.Tasks.Task get_Task()",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "SetCanceled",
+        "signature": "Void SetCanceled()",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "SetCanceled",
+        "signature": "Void SetCanceled(System.Threading.CancellationToken)",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "SetException",
+        "signature": "Void SetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "exceptions",
+            "type": "System.Collections.Generic.IEnumerable`1[System.Exception]",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "SetException",
+        "signature": "Void SetException(System.Exception)",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "exception",
+            "type": "System.Exception",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "SetFromTask",
+        "signature": "Void SetFromTask(System.Threading.Tasks.Task)",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "completedTask",
+            "type": "System.Threading.Tasks.Task",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "SetResult",
+        "signature": "Void SetResult()",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "TrySetCanceled",
+        "signature": "Boolean TrySetCanceled()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "TrySetCanceled",
+        "signature": "Boolean TrySetCanceled(System.Threading.CancellationToken)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "TrySetException",
+        "signature": "Boolean TrySetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "exceptions",
+            "type": "System.Collections.Generic.IEnumerable`1[System.Exception]",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "TrySetException",
+        "signature": "Boolean TrySetException(System.Exception)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "exception",
+            "type": "System.Exception",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "TrySetFromTask",
+        "signature": "Boolean TrySetFromTask(System.Threading.Tasks.Task)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "completedTask",
+            "type": "System.Threading.Tasks.Task",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "TrySetResult",
+        "signature": "Boolean TrySetResult()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      }
+    ],
+    "properties": [
+      {
+        "Name": "Task",
+        "type": "System.Threading.Tasks.Task",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      }
+    ],
+    "events": [],
+    "fields": []
+  }
+}
