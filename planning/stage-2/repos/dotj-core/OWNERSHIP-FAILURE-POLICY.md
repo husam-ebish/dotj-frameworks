@@ -10,4 +10,6 @@ Status: **bounded decision, 2026-10-20**. Applies to the pinned .NET 10.0.12 DI 
 
 The Java helper's continue-and-suppress policy is an **internal adaptation**. It is not a port of the DI scope's failure path. A later DI-specific compatibility implementation must use the verified fail-fast policy and its own oracle fixtures. The source method `CaptureDisposable` lists captured objects without a visible identity check, so identity deduplication cannot be attributed to that method; registration and caching paths need separate analysis.
 
+The internal helper serializes registration with the close transition. A registration accepted before close is released exactly once; a registration rejected after close leaves ownership with its caller. The helper detaches its list under the lock and invokes resource code outside it. `OwnedResourcesRaceTest` exercised 200 registration/close races. This is an internal lifecycle rule, not a claim of DI scope race parity.
+
 The pinned source also has a special late-capture path after the scope has already been disposed that synchronously waits for an async-only object's disposal. This differs from the ordinary `Dispose` loop's async-only error and needs a separate fixture before any whole-scope async rule is stated. No exact `IAsyncDisposable` Java facade is approved while `ValueTask` mapping remains open.
