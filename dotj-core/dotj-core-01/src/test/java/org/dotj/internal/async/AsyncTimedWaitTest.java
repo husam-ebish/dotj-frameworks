@@ -17,6 +17,7 @@ public final class AsyncTimedWaitTest {
         scenario("infinite result", -1, "pending", false, "result", "result", "none");
         scenario("infinite fault", -1, "pending", false, "fault", "fault", "none");
         scenario("infinite cancel", -1, "pending", false, "cancel", "cancel", "none");
+        invalidTimeout(-2, false);
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -98,6 +99,21 @@ public final class AsyncTimedWaitTest {
             check(expected.getCause() instanceof TimeoutException, "finite wait had wrong failure");
         }
         check(source.state() == AsyncState.PENDING, "timeout changed source state");
+    }
+
+    private static void invalidTimeout(long timeout, boolean presignal) {
+        AsyncCompletion<Integer> source = new AsyncCompletion<>();
+        WaitCancellationSignal signal = new WaitCancellationSignal();
+        if (presignal) {
+            signal.signal();
+        }
+        try {
+            source.waitAsync(timeout, signal);
+            throw new AssertionError("invalid timeout was accepted: " + timeout);
+        } catch (IllegalArgumentException expected) {
+            check(source.state() == AsyncState.PENDING && signal.listenerCount() == 0,
+                    "invalid timeout changed source or registered listener");
+        }
     }
 
     private static void check(boolean condition, String message) {
