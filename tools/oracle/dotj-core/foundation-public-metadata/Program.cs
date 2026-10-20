@@ -202,6 +202,17 @@ var result = new
         genericParameter = typeof(List<>).GetGenericArguments()[0].MemberType.ToString(),
         memberTypeGetterAbstract = typeof(MemberInfo).GetProperty("MemberType")?.GetMethod?.IsAbstract,
     },
+    selectedMemberOwnerBehavior = new[]
+    {
+        typeof(string), typeof(List<>), typeof(List<string>),
+        typeof(List<>).GetGenericArguments()[0], typeof(string[]),
+        typeof(string).MakeByRefType(), typeof(string).MakePointerType(),
+    }.Select(type => new
+    {
+        name = type.FullName ?? type.Name,
+        declaringType = type.DeclaringType?.FullName,
+        reflectedType = type.ReflectedType?.FullName,
+    }).ToArray(),
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -209,6 +220,8 @@ var result = new
         isInterface = type.IsInterface,
         isAbstract = type.IsAbstract,
         nameGetterIsAbstract = type.GetProperty("Name")?.GetMethod?.IsAbstract,
+        declaringGetterIsAbstract = type.GetProperty("DeclaringType")?.GetMethod?.IsAbstract,
+        reflectedGetterIsAbstract = type.GetProperty("ReflectedType")?.GetMethod?.IsAbstract,
         declaredPublicMethodCount = type.GetMethods(declaredPublic).Count(method => !method.IsSpecialName),
         declaredPublicPropertyCount = type.GetProperties(declaredPublic).Length,
         selectedMethods = type.GetMethods(declaredPublic)
@@ -230,7 +243,8 @@ var result = new
             .Where(property => property.Name is "ParamName" or "Message" or "InnerException" or "IsGenericType"
                 or "IsConstructedGenericType" or "IsGenericParameter"
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
-                or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType")
+                or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
+                or "DeclaringType" or "ReflectedType")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)

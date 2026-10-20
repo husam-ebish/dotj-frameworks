@@ -139,6 +139,12 @@ def main():
     assert all(member_type[key] == "TypeInfo" for key in
                ("stringType", "arrayType", "openGeneric", "genericParameter"))
     assert member_type["memberTypeGetterAbstract"]
+    owners = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberOwnerBehavior"]
+    assert len(owners) == 7
+    assert all(item["declaringType"] is None and item["reflectedType"] is None
+               for index, item in enumerate(owners) if index != 3)
+    assert owners[3]["name"] == "T"
+    assert owners[3]["declaringType"] == owners[3]["reflectedType"] == "System.Collections.Generic.List`1"
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -170,6 +176,8 @@ def main():
         "public System.Type[] get_GenericTypeArguments();",
         "public java.lang.String get_FullName();",
         "public java.lang.String get_Namespace();",
+        "public System.Type get_DeclaringType();",
+        "public System.Type get_ReflectedType();",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",

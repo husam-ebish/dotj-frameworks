@@ -43,9 +43,12 @@ def main():
         elif name == "System.Reflection.MemberInfo":
             assert header == "public abstract class System.Reflection.MemberInfo {"
             assert declarations == ["public abstract java.lang.String get_Name();",
-                                    "public abstract System.Reflection.MemberTypes get_MemberType();"]
+                                    "public abstract System.Reflection.MemberTypes get_MemberType();",
+                                    "public abstract System.Type get_DeclaringType();",
+                                    "public abstract System.Type get_ReflectedType();"]
             assert upstream["nameGetterIsAbstract"]
-            disposition = "PARTIAL_MEMBERINFO_SURFACE; selected abstract Name and MemberType"
+            assert upstream["declaringGetterIsAbstract"] and upstream["reflectedGetterIsAbstract"]
+            disposition = "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties"
         elif name == "System.Reflection.MemberTypes":
             assert "extends java.lang.Enum<System.Reflection.MemberTypes>" in header
             assert "public int get_Value();" in declarations

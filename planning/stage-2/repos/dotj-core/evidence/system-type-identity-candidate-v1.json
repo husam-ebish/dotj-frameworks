@@ -187,7 +187,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "b0b55b9461c41a14a9de56b59ace382c3cfa9549c78a0cffb280d8b56ae6b0a8",
+  "sourceSha256": "ce498e46442bc49c9fd476aa9bb41c3dfec040415b26fef9a0b50838f4a80bb8",
   "exceptionSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -223,17 +223,17 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberInfo.java",
-      "sha256": "61d86885e413a910d02ea4bb5b20cb58757e03285554f6a792cce1e96d482078"
+      "sha256": "4049a3326435a85e370655e6341cc13c6fb40bd5b61f4f0a1d86df8f2930d38f"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberTypes.java",
-      "sha256": "0a524b53dce37b35e763bebb6bf37ecaf905e59c22a70e30eaedaf277684e568"
+      "sha256": "f9f2ddb8cb93f55848a80ef8afe6a304f932dea999722b9f61c55e0417517f94"
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
   "testSha256": "12a935a158b3bb41c4fac98c03d0b44196f4244157d0a08d17a86b0754c824e3",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
-  "externalConsumerSha256": "67090063430fba3c5594f77cfdfee3d4b633c5c3b220225dee9ff398b5dab0bf",
+  "externalConsumerSha256": "0042e70d4eec66d5eac6fbf1f2f67f8553d17b86b93765b310a71b32c8b80f94",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
   "concurrencyTestSha256": "400b29826a163847549aaa6afcd65b9ddf5f3ccd8b0d82d8b5cb8140381844ad",
   "loaderFixturePath": "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java",
@@ -252,6 +252,8 @@
     "public System.Type[] get_GenericTypeArguments();",
     "public java.lang.String get_FullName();",
     "public java.lang.String get_Namespace();",
+    "public System.Type get_DeclaringType();",
+    "public System.Type get_ReflectedType();",
     "public boolean get_IsArray();",
     "public boolean get_IsByRef();",
     "public boolean get_IsPointer();",

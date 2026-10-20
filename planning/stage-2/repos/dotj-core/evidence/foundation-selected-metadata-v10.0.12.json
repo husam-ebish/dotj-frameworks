@@ -351,6 +351,43 @@
     "genericParameter": "TypeInfo",
     "memberTypeGetterAbstract": true
   },
+  "selectedMemberOwnerBehavior": [
+    {
+      "name": "System.String",
+      "declaringType": null,
+      "reflectedType": null
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "declaringType": null,
+      "reflectedType": null
+    },
+    {
+      "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "declaringType": null,
+      "reflectedType": null
+    },
+    {
+      "name": "T",
+      "declaringType": "System.Collections.Generic.List`1",
+      "reflectedType": "System.Collections.Generic.List`1"
+    },
+    {
+      "name": "System.String[]",
+      "declaringType": null,
+      "reflectedType": null
+    },
+    {
+      "name": "System.String&",
+      "declaringType": null,
+      "reflectedType": null
+    },
+    {
+      "name": "System.String*",
+      "declaringType": null,
+      "reflectedType": null
+    }
+  ],
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -358,6 +395,8 @@
       "isInterface": true,
       "isAbstract": true,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 1,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [
@@ -377,6 +416,8 @@
       "isInterface": false,
       "isAbstract": true,
       "nameGetterIsAbstract": true,
+      "declaringGetterIsAbstract": false,
+      "reflectedGetterIsAbstract": false,
       "declaredPublicMethodCount": 109,
       "declaredPublicPropertyCount": 70,
       "selectedMethods": [
@@ -601,6 +642,14 @@
           "type": "System.String"
         },
         {
+          "name": "DeclaringType",
+          "type": "System.Type"
+        },
+        {
+          "name": "ReflectedType",
+          "type": "System.Type"
+        },
+        {
           "name": "IsArray",
           "type": "System.Boolean"
         },
@@ -641,6 +690,8 @@
       "isInterface": false,
       "isAbstract": true,
       "nameGetterIsAbstract": true,
+      "declaringGetterIsAbstract": true,
+      "reflectedGetterIsAbstract": true,
       "declaredPublicMethodCount": 7,
       "declaredPublicPropertyCount": 8,
       "selectedMethods": [
@@ -664,6 +715,14 @@
         {
           "name": "Name",
           "type": "System.String"
+        },
+        {
+          "name": "DeclaringType",
+          "type": "System.Type"
+        },
+        {
+          "name": "ReflectedType",
+          "type": "System.Type"
         }
       ],
       "publicConstructors": []
@@ -674,6 +733,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 0,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -686,6 +747,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 4,
       "declaredPublicPropertyCount": 8,
       "selectedMethods": [
@@ -732,6 +795,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 0,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -762,6 +827,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 3,
       "declaredPublicPropertyCount": 2,
       "selectedMethods": [],
@@ -825,6 +892,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 2,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -865,6 +934,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 1,
       "declaredPublicPropertyCount": 2,
       "selectedMethods": [],
@@ -900,6 +971,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 0,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -930,6 +1003,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 0,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -970,6 +1045,8 @@
       "isInterface": false,
       "isAbstract": false,
       "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 2,
       "declaredPublicPropertyCount": 3,
       "selectedMethods": [],
@@ -1024,6 +1101,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "74177b1dd2d093a397bceda062e7737b8a11a79fc0667d239477a959620a5809",
+  "oracleProgramSha256": "1afdc39729e8c36a3b097faa6210480acc0af1f9af32baf10d9201c02717e0b7",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
