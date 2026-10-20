@@ -1,0 +1,302 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "selectedLedgerSha256": "d0c7e4475be4cb191ad96baeb9d44fa8b1a16ca14ab8a9473ecf3ac3f21aa9ac",
+  "remainingLedgerSha256": "6ea2d25812d6941f4265d9e2a86942be69c731198352f4b0372a0f232b10107f",
+  "collisionAuditSha256": "b33596045cf9575213f54a1f0c2aa73a9da57c66097ad366102f4bca59e41f4b",
+  "collisionGroups": 12,
+  "mappedMethods": 26,
+  "scope": "All twelve colliding groups compile with deterministic internal backend names. Source-level .j calls still require overload resolution and lowering; public Java API and behavior remain unqualified.",
+  "groups": [
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "FromCanceled",
+      "originalCompilerError": "method FromCanceled(CancellationToken) is already defined in class Task",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "6f9842eb54bd1ee746a470dbe03399f967dc1848def5fb8595b9666be1e2f5fd",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-421",
+          "backendName": "FromCanceled__dotj_ee6f7cb6dc24",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-421",
+          "backendName": "FromCanceled__dotj_2cf294bc7360",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "FromException",
+      "originalCompilerError": "method FromException(Exception) is already defined in class Task",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "8c86e0c2021eeb947a16ffa2036cf06a6831a43abb5a9c0c0ce14df6b8ff0676",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task FromException(System.Exception)",
+          "sourceBatch": "Batch-320",
+          "backendName": "FromException__dotj_c42000a95d67",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)",
+          "sourceBatch": "Batch-664",
+          "backendName": "FromException__dotj_d8530b802ffd",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "Run",
+      "originalCompilerError": "name clash: <TResult>Run(Func_1<Task_1<TResult>>) and Run(Func_1<Task>) have the same erasure",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "ee4a50d178a7f86e711384d765559ca2dbac5e57e1d7e3249f838c1acd5ed258",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-423",
+          "backendName": "Run__dotj_ef4ab638723f",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-424",
+          "backendName": "Run__dotj_e9b71511f06c",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult])",
+          "sourceBatch": "Batch-425",
+          "backendName": "Run__dotj_a4f9050d7e6c",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "Run",
+      "originalCompilerError": "name clash: <TResult>Run(Func_1<Task_1<TResult>>,CancellationToken) and Run(Func_1<Task>,CancellationToken) have the same erasure",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "71ed4e3c1b738a5b2fe6bc9407c1fc4bd86d5ff741ebd0fbe8fc12c156a890b1",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-423",
+          "backendName": "Run__dotj_7df1e3eca7ae",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-424",
+          "backendName": "Run__dotj_8108b8b5df99",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-425",
+          "backendName": "Run__dotj_cf6040964744",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAll",
+      "originalCompilerError": "name clash: <TResult>WhenAll(IEnumerable_1<Task_1<TResult>>) and WhenAll(IEnumerable_1<Task>) have the same erasure",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "61cade0bd3703088ca288d0447f6dcd55128f5dc9bdb302ec52d55a00ab80f7d",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-679",
+          "backendName": "WhenAll__dotj_50deaf164f40",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-682",
+          "backendName": "WhenAll__dotj_c4c603cba569",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAll",
+      "originalCompilerError": "name clash: <TResult>WhenAll(ReadOnlySpan_1<Task_1<TResult>>) and WhenAll(ReadOnlySpan_1<Task>) have the same erasure",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "557c01c4a5aa866928679f8505aec62cb6c0583099a5702385bac968eee8e31d",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-680",
+          "backendName": "WhenAll__dotj_779180b2fe81",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-683",
+          "backendName": "WhenAll__dotj_6b3c126513bf",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAny",
+      "originalCompilerError": "name clash: <TResult>WhenAny(IEnumerable_1<Task_1<TResult>>) and WhenAny(IEnumerable_1<Task>) have the same erasure",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "69ede5ca97e424dc278b26dd5e9da87bb33bf75a3fd876e87e1afefeaf4ca894",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-685",
+          "backendName": "WhenAny__dotj_511969068ecd",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-689",
+          "backendName": "WhenAny__dotj_d4be534a6609",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAny",
+      "originalCompilerError": "name clash: <TResult>WhenAny(ReadOnlySpan_1<Task_1<TResult>>) and WhenAny(ReadOnlySpan_1<Task>) have the same erasure",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "aaf6279f717c8df0f62f6adcf636b1ec065a93007ac75a489d1f1b1eec004ee0",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-686",
+          "backendName": "WhenAny__dotj_08ef65768441",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-690",
+          "backendName": "WhenAny__dotj_64c01c841f84",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenEach",
+      "originalCompilerError": "name clash: <TResult>WhenEach(IEnumerable_1<Task_1<TResult>>) and WhenEach(IEnumerable_1<Task>) have the same erasure",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "78381fb2e4efd62e41be9d0c9c656be925b5e4b6c63e8928ab4568f38933527a",
+      "members": [
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-693",
+          "backendName": "WhenEach__dotj_ed809ab2c6d2",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-696",
+          "backendName": "WhenEach__dotj_40ec14d14122",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenEach",
+      "originalCompilerError": "name clash: <TResult>WhenEach(ReadOnlySpan_1<Task_1<TResult>>) and WhenEach(ReadOnlySpan_1<Task>) have the same erasure",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "193750b84d15676072fa0aa51838b7bd72e700bed357221d944dcbf52421cb9f",
+      "members": [
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-694",
+          "backendName": "WhenEach__dotj_9550ad1d43d6",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        },
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-697",
+          "backendName": "WhenEach__dotj_19fe53cc12b7",
+          "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+          "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "FromCanceled",
+      "originalCompilerError": "method FromCanceled(CancellationToken) is already defined in class ValueTask",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "4265e1c35b9ca770ee2b951080602f28414bc94f5ecd541699de1f0c93a09ffa",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-632",
+          "backendName": "FromCanceled__dotj_2e253a2b93d4",
+          "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+          "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-633",
+          "backendName": "FromCanceled__dotj_c8fded448b4e",
+          "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+          "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "FromException",
+      "originalCompilerError": "method FromException(Exception) is already defined in class ValueTask",
+      "mappedCompilerResult": "COMPILED",
+      "mappedSourceSha256": "fc9cc36076b6d4e0518697b5f40b9fc32adadc53e5a114fe953e2ad64192d8f9",
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask FromException(System.Exception)",
+          "sourceBatch": "Batch-634",
+          "backendName": "FromException__dotj_28017c972fe7",
+          "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+          "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromException[TResult](System.Exception)",
+          "sourceBatch": "Batch-635",
+          "backendName": "FromException__dotj_fca4a2515b45",
+          "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+          "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13"
+        }
+      ]
+    }
+  ]
+}

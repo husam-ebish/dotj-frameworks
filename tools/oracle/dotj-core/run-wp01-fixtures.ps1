@@ -16,6 +16,7 @@ $sources = @(
     'src/main/java/org/dotj/internal/types/ArityTypeReferenceBinder.java'
     'src/main/java/org/dotj/internal/types/ArityMethodSignatureBinder.java'
     'src/main/java/org/dotj/internal/types/ArityJavaSourceRenderer.java'
+    'src/main/java/org/dotj/internal/types/ErasureMethodNameMap.java'
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesTest.java'
     'src/test/java/org/dotj/internal/ownership/CallerOwnershipTest.java'
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesRaceTest.java'
@@ -33,6 +34,7 @@ $sources = @(
     'src/test/java/org/dotj/internal/types/ArityNameMapTest.java'
     'src/test/java/org/dotj/internal/types/ArityTypeReferenceBinderTest.java'
     'src/test/java/org/dotj/internal/types/ArityMethodSignatureBinderTest.java'
+    'src/test/java/org/dotj/internal/types/ErasureMethodNameMapTest.java'
 ) | ForEach-Object { Join-Path $javaRoot $_ }
 
 & javac -d $classes @sources
@@ -55,6 +57,7 @@ $javaTests = @(
     'org.dotj.internal.types.ArityNameMapTest'
     'org.dotj.internal.types.ArityTypeReferenceBinderTest'
     'org.dotj.internal.types.ArityMethodSignatureBinderTest'
+    'org.dotj.internal.types.ErasureMethodNameMapTest'
 )
 foreach ($test in $javaTests) {
     & java -cp $classes $test
