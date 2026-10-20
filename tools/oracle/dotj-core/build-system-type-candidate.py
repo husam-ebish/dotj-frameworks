@@ -55,6 +55,9 @@ def main():
         "Boolean IsAssignableFrom(System.Type)",
         "Boolean IsSubclassOf(System.Type)",
         "Boolean IsInstanceOfType(System.Object)",
+        "System.Type[] GetInterfaces()",
+        "System.Type GetInterface(System.String)",
+        "System.Type GetInterface(System.String, Boolean)",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
     assert selected <= signatures
@@ -189,6 +192,13 @@ def main():
         True, True, False, True, False, True, False, True, True, True, True,
         True, False, False,
     ]
+    interfaces = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInterfaceBehavior"]
+    assert interfaces["objectInterfaces"] == interfaces["disposableInterfaces"] == []
+    assert all(interfaces[key]["result"] is None and interfaces[key]["exception"] is None
+               for key in ("objectMiss", "disposableSelf", "emptyName"))
+    assert interfaces["nullName"] == {
+        "result": None, "exception": "System.ArgumentNullException", "paramName": "fullname",
+    }
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -231,6 +241,9 @@ def main():
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
+        "public System.Type[] GetInterfaces();",
+        "public System.Type GetInterface(java.lang.String);",
+        "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",

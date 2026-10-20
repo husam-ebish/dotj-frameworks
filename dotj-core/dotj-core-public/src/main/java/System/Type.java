@@ -459,6 +459,27 @@ public abstract class Type extends MemberInfo {
         return this.definition.isInstance(value);
     }
 
+    public Type[] GetInterfaces() {
+        if (this.definition == Object.class || this.definition == IDisposable.class) {
+            return new Type[0];
+        }
+        throw new UnsupportedOperationException("Interface enumeration is not mapped for this candidate type");
+    }
+
+    public Type GetInterface(String fullname) {
+        return this.GetInterface(fullname, false);
+    }
+
+    public Type GetInterface(String fullname, boolean ignoreCase) {
+        if (fullname == null) {
+            throw new ArgumentNullException("fullname");
+        }
+        if (this.definition == Object.class || this.definition == IDisposable.class) {
+            return null;
+        }
+        throw new UnsupportedOperationException("Interface lookup is not mapped for this candidate type");
+    }
+
     private static String arraySuffix(int rank, boolean vector) {
         if (rank == 1) {
             return vector ? "[]" : "[*]";
