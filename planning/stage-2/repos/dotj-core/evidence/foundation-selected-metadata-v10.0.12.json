@@ -134,6 +134,16 @@
       "exception": null,
       "paramName": null
     },
+    "stringByRef": {
+      "result": "System.String&",
+      "exception": null,
+      "paramName": null
+    },
+    "stringArrayByRef": {
+      "result": "System.String[]&",
+      "exception": null,
+      "paramName": null
+    },
     "dictionarySimple": {
       "result": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
       "exception": null,
@@ -221,6 +231,14 @@
     "nestedVector": "System.String[][]",
     "genericVector": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][]",
     "rankZeroError": "System.IndexOutOfRangeException"
+  },
+  "selectedByRefBehavior": {
+    "name": "System.String&",
+    "isByRef": true,
+    "element": "System.String",
+    "arrayName": "System.String[]&",
+    "repeatSameIdentity": true,
+    "doubleByRefError": "System.TypeLoadException"
   },
   "types": [
     {
@@ -411,6 +429,12 @@
           ]
         },
         {
+          "name": "MakeByRefType",
+          "isStatic": false,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
           "name": "MakeGenericType",
           "isStatic": false,
           "returnType": "System.Type",
@@ -447,6 +471,10 @@
       "selectedProperties": [
         {
           "name": "IsArray",
+          "type": "System.Boolean"
+        },
+        {
+          "name": "IsByRef",
           "type": "System.Boolean"
         },
         {
@@ -808,6 +836,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "c0667b9a865e737b7a306ea4ab0c52229933f330406d761ec19169b4ac472675",
+  "oracleProgramSha256": "2afa19aad355177df8f0d9835ca002c1919aa3b2ea41e24c529213f38ac0d0d8",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

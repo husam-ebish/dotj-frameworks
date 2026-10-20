@@ -130,6 +130,16 @@
       "exception": null,
       "paramName": null
     },
+    "stringByRef": {
+      "result": "System.String&",
+      "exception": null,
+      "paramName": null
+    },
+    "stringArrayByRef": {
+      "result": "System.String[]&",
+      "exception": null,
+      "paramName": null
+    },
     "dictionarySimple": {
       "result": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
       "exception": null,
@@ -167,7 +177,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "8224deed65f36d8e949a5dc5c15ab5089ad676fe93cbcbad948ad3594db025f0",
+  "sourceSha256": "24b11eec224d6b971c61eecb26326ef3515643371646b5af5b566601684dd488",
   "exceptionSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -191,7 +201,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/IndexOutOfRangeException.java",
-      "sha256": "082aaed7c8e81c4cf9534e233466e2b3e24d14cb6d8091b5aa657a192e09b770"
+      "sha256": "047265ee57947a94ba48f3d56558a62a229e5e11f1a418b9faa0912a3b7f9f5e"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/IO/IOException.java",
@@ -205,7 +215,7 @@
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
   "testSha256": "12a935a158b3bb41c4fac98c03d0b44196f4244157d0a08d17a86b0754c824e3",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
-  "externalConsumerSha256": "6a9873569c0be125b53fd36041bcb5f3ae7e0ecc6975446ab07ad396510567cd",
+  "externalConsumerSha256": "bb1b37289c9b0cc4ce69588665aa712268f9154d6600fd22d16ed8feecf82d00",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
   "concurrencyTestSha256": "400b29826a163847549aaa6afcd65b9ddf5f3ccd8b0d82d8b5cb8140381844ad",
   "loaderFixturePath": "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java",
@@ -217,10 +227,12 @@
     "public System.Type MakeGenericType(System.Type[]);",
     "public System.Type MakeArrayType();",
     "public System.Type MakeArrayType(int);",
+    "public System.Type MakeByRefType();",
     "public System.Type GetGenericTypeDefinition();",
     "public System.Type[] GetGenericArguments();",
     "public System.Type[] get_GenericTypeArguments();",
     "public boolean get_IsArray();",
+    "public boolean get_IsByRef();",
     "public System.Type GetElementType();",
     "public int GetArrayRank();",
     "public boolean get_IsGenericType();",

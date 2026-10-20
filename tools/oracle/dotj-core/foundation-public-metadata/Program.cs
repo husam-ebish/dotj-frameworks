@@ -64,6 +64,18 @@ static string? ObserveRankZero()
         return exception.GetType().FullName;
     }
 }
+static string? ObserveDoubleByRef()
+{
+    try
+    {
+        typeof(string).MakeByRefType().MakeByRefType();
+        return null;
+    }
+    catch (Exception exception)
+    {
+        return exception.GetType().FullName;
+    }
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -110,6 +122,8 @@ var result = new
         listStringSimple = ObserveGetType("System.Collections.Generic.List`1[System.String]", false, false),
         listStringQualified = ObserveGetType("System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]", false, false),
         rankOneNonVector = ObserveGetType("System.String[*]", false, false),
+        stringByRef = ObserveGetType("System.String&", false, false),
+        stringArrayByRef = ObserveGetType("System.String[]&", false, false),
         dictionarySimple = ObserveGetType("System.Collections.Generic.Dictionary`2[System.String,System.Int32]", false, false),
         dictionaryQualified = ObserveGetType("System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]", false, false),
         dictionarySwapped = ObserveGetType("System.Collections.Generic.Dictionary`2[System.Int32,System.String]", false, false),
@@ -132,6 +146,15 @@ var result = new
         genericVector = typeof(List<string>).MakeArrayType().FullName,
         rankZeroError = ObserveRankZero(),
     },
+    selectedByRefBehavior = new
+    {
+        name = typeof(string).MakeByRefType().FullName,
+        isByRef = typeof(string).MakeByRefType().IsByRef,
+        element = typeof(string).MakeByRefType().GetElementType()?.FullName,
+        arrayName = typeof(string[]).MakeByRefType().FullName,
+        repeatSameIdentity = ReferenceEquals(typeof(string).MakeByRefType(), typeof(string).MakeByRefType()),
+        doubleByRefError = ObserveDoubleByRef(),
+    },
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -144,7 +167,7 @@ var result = new
             .Where(method => !method.IsSpecialName && (
                 method.Name is "Dispose" or "Equals" or "GetType" or "MakeGenericType"
                     or "GetGenericArguments" or "GetGenericTypeDefinition"
-                    or "GetElementType" or "GetArrayRank" or "MakeArrayType"))
+                    or "GetElementType" or "GetArrayRank" or "MakeArrayType" or "MakeByRefType"))
             .Select(method => new
             {
                 name = method.Name,
@@ -157,7 +180,7 @@ var result = new
         selectedProperties = type.GetProperties(declaredPublic)
             .Where(property => property.Name is "ParamName" or "Message" or "InnerException" or "IsGenericType"
                 or "IsConstructedGenericType" or "IsGenericParameter"
-                or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray")
+                or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)
