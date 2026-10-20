@@ -24,8 +24,9 @@ def gate():
     assert SOURCE.is_dir(), "Pinned source must be mapped to R:"
     wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 12 Java fixtures and 5 .NET oracles")
     wp02 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-java-fixtures.ps1"), contains="PASS: 15 internal WP-02 Java fixtures")
-    run("powershell", "-NoProfile", "-File", str(ORACLE / "run-async-java-fixtures.ps1"),
-        contains="PASS: 200 internal source-completion versus wait-cancellation races")
+    async_output = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-async-java-fixtures.ps1"),
+                       contains="PASS: internal timed wait cases")
+    assert async_output.count("PASS:") == 5
     reference = json.loads(run("dotnet", "run", "--project", str(ORACLE / "cancellation-behavior/CancellationBehaviorOracle.csproj"), "--configuration", "Release", "--no-build", "--no-launch-profile", contains="\"runtimeVersion\""))
     assert reference["coreLibSha256"] == CORELIB_HASH and len(reference["cases"]) == 10
     assert reference == json.loads((EVIDENCE / "cancellation-behavior-v10.0.12/oracle-output.json").read_text(encoding="utf-8"))
@@ -63,17 +64,19 @@ def gate():
         "asyncFamilyArityPairs": 3,
         "asyncJavaNameCollisions": 3,
         "selectedTaskValueTaskReferenceCases": 57,
-        "internalAsyncStateFixtures": 4,
+        "internalAsyncStateFixtures": 5,
         "internalAsyncRaceRounds": 200,
         "internalAsyncWaitRaceRounds": 200,
+        "internalTimedWaitRaceRoundsPerMode": 100,
+        "internalTimedWaitRaceModes": 5,
         "waitCancellationListenerCleanup": True,
         "internalJarSha256": jar_hash,
         "status": "BOUNDED_PASS; E01/E02/E03/N01 AND PUBLIC WP-01/WP-02 QUALIFICATION OPEN",
-        "limitations": ["The internal cancellation and async state prototypes do not cover full Task/ValueTask public semantics.", "The selected Task/ValueTask cases and four internal Java fixtures are bounded observations, not public Java parity or upstream xUnit tests.", "Cancelable waits use a private removable signal and do not implement .NET cancellation tokens or awaiters.", "The three exact-name Java collisions leave public generic/non-generic representation unresolved.", "The coordinated races do not exhaust all interleavings or publication conditions.", "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.", "No public .j facade or product release is qualified."],
+        "limitations": ["The internal cancellation and async state prototypes do not cover full Task/ValueTask public semantics.", "The selected Task/ValueTask cases and five internal Java fixtures are bounded observations, not public Java parity or upstream xUnit tests.", "Timed waits use a private removable signal, daemon scheduler and Java TimeoutException; they do not implement .NET cancellation tokens, awaiters or public Task.WaitAsync.", "The three exact-name Java collisions leave public generic/non-generic representation unresolved.", "The coordinated races do not exhaust all interleavings or publication conditions.", "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.", "No public .j facade or product release is qualified."],
     }
     output = EVIDENCE / "foundation-gate-v10.0.12.json"
     output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print("PASS bounded foundation gate: WP-01 12+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 57 reference cases + 4 Java fixtures")
+    print("PASS bounded foundation gate: WP-01 12+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 57 reference cases + 5 Java fixtures")
 
 
 if __name__ == "__main__":
