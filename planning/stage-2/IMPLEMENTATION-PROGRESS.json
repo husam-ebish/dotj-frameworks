@@ -43,13 +43,14 @@
     "Batch-026",
     "Batch-027",
     "Batch-028",
-    "Batch-029"
+    "Batch-029",
+    "Batch-030"
   ],
   "overall": {
     "frameworkCount": 66,
     "frameworksFullyImplementedAndQualified": 0,
-    "frameworksWithImplementationInProgress": 0,
-    "frameworksWithNoImplementationStarted": 66,
+    "frameworksWithImplementationInProgress": 1,
+    "frameworksWithNoImplementationStarted": 65,
     "blockedFrameworkCount": 0,
     "completedImplementationTaskCount": 0,
     "totalBaselinedImplementationTaskCount": null,
@@ -74,7 +75,7 @@
         },
         {
           "id": "DJ-001-WP-01-T2",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "pending review"
         },
         {
@@ -223,7 +224,7 @@
           "classification": "prerequisite"
         }
       ],
-      "taskStatus": "NOT STARTED",
+      "taskStatus": "IN PROGRESS",
       "completedImplementationTaskCount": 0,
       "totalBaselinedImplementationTaskCount": null,
       "implementedPercent": null,
@@ -236,7 +237,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-029",
+      "lastUpdatedBatch": "Batch-030",
       "blocked": false,
       "unclassifiedTaskIds": [
         "DJ-001-WP-01-T1",
@@ -9847,12 +9848,12 @@
   ],
   "measurementNote": "Null percentages mean Not yet measurable. The 1356 named tasks mix implementation and preparation. E01-E03 and Q01 are separate gates; N01 tasks are recorded as prerequisites. No preparation earns implementation credit.",
   "nextProposedBatch": {
-    "id": "Batch-030",
+    "id": "Batch-031",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-WP-01-T2"
     ],
-    "outcome": "Implement an internal JDK-only owned/borrowed resource helper with direct executable tests; no public facade yet.",
+    "outcome": "Make owned resource registration identity-safe and verify duplicate aliases with direct executable tests.",
     "requiresContinue": false
   }
 }
