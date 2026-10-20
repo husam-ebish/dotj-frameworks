@@ -26,8 +26,8 @@
         "ProductDisposableContractConsumer",
         "wp01-t1-null-exception-oracle-v10.0.12.json"
       ],
-      "observation": "Selected .NET disposal failures and the Java public-interface consumer propagate their implementation failure. The pinned .NET using case preserves the Dispose exception object and InnerException reference; the Java consumer checks the same Throwable object.",
-      "remaining": "A cross-language System.Exception cause/type mapping, stack/inner-exception behavior, and broader failure ordering are not specified or qualified."
+      "observation": "Selected .NET disposal failures and the Java public-interface consumer propagate their implementation failure. The pinned using case preserves the Dispose exception and InnerException references. Selected exception constructor counts, ParamName, Message, and InnerException behavior are observed in the pinned metadata and Java external consumer.",
+      "remaining": "The Java exception carrier still differs from the CLR base hierarchy; complete System.Exception behavior, stack semantics, localization, and broader failure ordering remain unqualified."
     }
   ],
   "taskStatus": "IN_PROGRESS",
