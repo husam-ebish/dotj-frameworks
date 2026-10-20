@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-/** Explicit bounded context values for one request; never reads thread locals. */
+/** Explicit context values bounded by UTF-16 code units; never reads thread locals. */
 final class ContextSnapshot {
     private static final int MAX_ENTRIES = 32;
     private static final int MAX_KEY_LENGTH = 128;

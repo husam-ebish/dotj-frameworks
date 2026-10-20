@@ -11,6 +11,8 @@ Status: bounded internal adaptation, 2026-10-20. No public `ExecutionContext` or
 
 The only common acceptance observation for designed fixture `DJ-001-F01-04` is that request B must not receive request A's selected value. The two mechanisms are **not interchangeable**: the Java helper has string-only bounded values and never copies arbitrary thread locals. A future public API must retain exact upstream names and pass its own E02/N01 review. [Fixture status](evidence/wp01-fixture-corpus-v10.0.12.json) remains partial: two supporting upstream tests are source-mapped, but neither is an exact cross-request case or has been executed, and broader CLR behavior remains unverified.
 
+The internal snapshot accepts at most 32 entries, keys of 1–128 Java UTF-16 code units, and values of at most 1024 code units. It rejects null keys/values. These are local resource bounds, not a .NET context contract.
+
 For the internal Java transfer only, executor rejection propagates to the caller and the action does not run. `ContextTransferTest` exercises this failure path; no CLR counterpart is claimed.
 
 Evidence: [independent .NET oracle](evidence/context-flow-oracle-v10.0.12.json), `ContextSnapshotTest`, `ContextTransferTest`, and `ContextIsolationTest` in `dotj-core-01`.
