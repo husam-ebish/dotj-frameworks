@@ -1,5 +1,6 @@
 package org.dotj.internal.ownership;
 
+import System.IDisposable;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.Objects;
 final class OwnedResources implements AutoCloseable {
     private final Object lock = new Object();
     private final List<AutoCloseable> owned = new ArrayList<>();
-    private final IdentityHashMap<AutoCloseable, Boolean> ownedIdentities = new IdentityHashMap<>();
+    private final IdentityHashMap<Object, Boolean> ownedIdentities = new IdentityHashMap<>();
     private boolean closed;
 
     void addOwned(AutoCloseable resource) {
@@ -23,6 +24,23 @@ final class OwnedResources implements AutoCloseable {
     }
 
     void addBorrowed(AutoCloseable resource) {
+        synchronized (lock) {
+            requireOpen();
+            Objects.requireNonNull(resource);
+        }
+    }
+
+    void addOwnedDisposable(IDisposable resource) {
+        synchronized (lock) {
+            requireOpen();
+            Objects.requireNonNull(resource);
+            if (ownedIdentities.putIfAbsent(resource, Boolean.TRUE) == null) {
+                owned.add(resource::Dispose);
+            }
+        }
+    }
+
+    void addBorrowedDisposable(IDisposable resource) {
         synchronized (lock) {
             requireOpen();
             Objects.requireNonNull(resource);

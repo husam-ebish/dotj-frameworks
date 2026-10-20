@@ -2,18 +2,18 @@
 
 import hashlib
 import json
+import argparse
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence/wp02-upstream-test-map-v10.0.12.json"
-SOURCE = Path("R:/")
 
 
-def verify():
+def verify(source_root):
     mapping = json.loads(EVIDENCE.read_text(encoding="utf-8"))
-    source = SOURCE / mapping["sourcePath"]
-    project = SOURCE / mapping["projectPath"]
+    source = source_root / mapping["sourcePath"]
+    project = source_root / mapping["projectPath"]
     assert hashlib.sha256(source.read_bytes()).hexdigest() == mapping["sourceSha256"]
     assert hashlib.sha256(project.read_bytes()).hexdigest() == mapping["projectSha256"]
     text = source.read_text(encoding="utf-8-sig")
@@ -25,4 +25,6 @@ def verify():
 
 
 if __name__ == "__main__":
-    print(f"PASS {len(verify())} pinned WP-02 upstream method IDs")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source-root", type=Path, default=Path("R:/"))
+    print(f"PASS {len(verify(parser.parse_args().source_root))} pinned WP-02 upstream method IDs")

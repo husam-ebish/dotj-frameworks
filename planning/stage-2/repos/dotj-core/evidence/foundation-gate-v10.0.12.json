@@ -3,7 +3,7 @@
   "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "wp01JavaFixtures": 12,
+  "wp01JavaFixtures": 13,
   "wp01DotnetOracles": 5,
   "wp02InternalJavaFixtures": 15,
   "wp02ReferenceCases": 10,
@@ -18,7 +18,7 @@
   "internalTimedWaitRaceRoundsPerMode": 100,
   "internalTimedWaitRaceModes": 5,
   "waitCancellationListenerCleanup": true,
-  "internalJarSha256": "31acc0a8cb8106697748bde9d11cf065fc8aaa542280de9a7ca0ffe382953e46",
+  "internalJarSha256": "f7738b579a1fd00d263cbcac64df680549f7452141a5eca2f2a178d24454fed3",
   "status": "BOUNDED_PASS; E01/E02/E03/N01 AND PUBLIC WP-01/WP-02 QUALIFICATION OPEN",
   "limitations": [
     "The internal cancellation and async state prototypes do not cover full Task/ValueTask public semantics.",
@@ -27,6 +27,6 @@
     "The three exact-name Java collisions leave public generic/non-generic representation unresolved.",
     "The coordinated races do not exhaust all interleavings or publication conditions.",
     "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.",
-    "No public .j facade or product release is qualified."
+    "Only one public IDisposable candidate exists; full .j facade and product release are not qualified."
   ]
 }

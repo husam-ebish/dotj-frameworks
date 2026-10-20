@@ -7,6 +7,7 @@ $classes = Join-Path $javaRoot 'build\test-classes'
 New-Item -ItemType Directory -Force -Path $classes | Out-Null
 
 $sources = @(
+    '..\dotj-core-public\src\main\java\System\IDisposable.java'
     'src/main/java/org/dotj/internal/ownership/OwnedResources.java'
     'src/main/java/org/dotj/internal/context/ContextSnapshot.java'
     'src/main/java/org/dotj/internal/context/ContextTransfer.java'
@@ -16,6 +17,7 @@ $sources = @(
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesRaceTest.java'
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesReentrancyTest.java'
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesBoundaryTest.java'
+    'src/test/java/org/dotj/internal/ownership/OwnedDisposableBridgeTest.java'
     'src/test/java/org/dotj/internal/context/ContextSnapshotTest.java'
     'src/test/java/org/dotj/internal/context/ContextTransferTest.java'
     'src/test/java/org/dotj/internal/context/ContextIsolationTest.java'
@@ -35,6 +37,7 @@ $javaTests = @(
     'org.dotj.internal.ownership.OwnedResourcesRaceTest'
     'org.dotj.internal.ownership.OwnedResourcesReentrancyTest'
     'org.dotj.internal.ownership.OwnedResourcesBoundaryTest'
+    'org.dotj.internal.ownership.OwnedDisposableBridgeTest'
     'org.dotj.internal.context.ContextSnapshotTest'
     'org.dotj.internal.context.ContextTransferTest'
     'org.dotj.internal.context.ContextIsolationTest'
