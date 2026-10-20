@@ -15,6 +15,7 @@ public final class OwnedResourcesBoundaryTest {
         equalDistinctResources();
         reverseOrderWithBorrowed();
         checkedFailurePreserved();
+        suppressedFailureOrder();
         // Next bounded case.
         System.out.println("PASS: internal ownership boundary checks");
     }
@@ -78,6 +79,19 @@ public final class OwnedResourcesBoundaryTest {
         scope.addOwned(() -> { throw failure; });
         try { scope.close(); throw new AssertionError("Checked cleanup failure lost"); }
         catch (Exception observed) { if (observed != failure || lower.get() != 1) throw observed; }
+    }
+
+    private static void suppressedFailureOrder() throws Exception {
+        OwnedResources scope = new OwnedResources();
+        Exception first = new Exception("first"), second = new Exception("second"), third = new Exception("third");
+        scope.addOwned(() -> { throw first; }); scope.addOwned(() -> { throw second; });
+        scope.addOwned(() -> { throw third; });
+        try { scope.close(); throw new AssertionError("Failure lost"); }
+        catch (Exception observed) {
+            if (observed != third || observed.getSuppressed().length != 2 ||
+                observed.getSuppressed()[0] != second || observed.getSuppressed()[1] != first)
+                throw new AssertionError("Suppression order incorrect", observed);
+        }
     }
 
     // Next bounded method.
