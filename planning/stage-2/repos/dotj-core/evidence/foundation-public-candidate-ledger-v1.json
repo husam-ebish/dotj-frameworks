@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "5becf044bf8842d9f56909623b6ca695bbf6bcbb86af286a3a5a8576f03cce3e",
+  "candidateJarSha256": "893d02c8883a55f7da46f4965302bb4835e6d17b361064289c0a21e491ce69ea",
   "typeCount": 6,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -15,6 +15,7 @@
       "upstreamDeclaredNonAccessorMethods": 1,
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
       "javaPublicHeader": "public interface System.IDisposable {",
       "javaPublicDeclarations": [
         "public abstract void Dispose();"
@@ -30,6 +31,7 @@
       "upstreamDeclaredNonAccessorMethods": 109,
       "upstreamDeclaredProperties": 70,
       "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
       "javaPublicHeader": "public abstract class System.Type {",
       "javaPublicDeclarations": [
         "public static System.Type GetType(java.lang.String);",
@@ -54,10 +56,14 @@
       "upstreamDeclaredNonAccessorMethods": 4,
       "upstreamDeclaredProperties": 8,
       "upstreamPublicConstructors": 3,
+      "javaPublicConstructors": 3,
       "javaPublicHeader": "public class System.Exception extends java.lang.RuntimeException {",
       "javaPublicDeclarations": [
+        "public System.Exception();",
         "public System.Exception(java.lang.String);",
-        "public System.Exception(java.lang.String, java.lang.Throwable);"
+        "public System.Exception(java.lang.String, System.Exception);",
+        "public java.lang.String get_Message();",
+        "public System.Exception get_InnerException();"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false
@@ -70,9 +76,12 @@
       "upstreamDeclaredNonAccessorMethods": 0,
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 3,
+      "javaPublicConstructors": 3,
       "javaPublicHeader": "public class System.SystemException extends System.Exception {",
       "javaPublicDeclarations": [
-        "public System.SystemException(java.lang.String);"
+        "public System.SystemException();",
+        "public System.SystemException(java.lang.String);",
+        "public System.SystemException(java.lang.String, System.Exception);"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false
@@ -85,10 +94,16 @@
       "upstreamDeclaredNonAccessorMethods": 3,
       "upstreamDeclaredProperties": 2,
       "upstreamPublicConstructors": 5,
+      "javaPublicConstructors": 5,
       "javaPublicHeader": "public class System.ArgumentException extends System.SystemException {",
       "javaPublicDeclarations": [
+        "public System.ArgumentException();",
+        "public System.ArgumentException(java.lang.String);",
+        "public System.ArgumentException(java.lang.String, System.Exception);",
         "public System.ArgumentException(java.lang.String, java.lang.String);",
-        "public java.lang.String get_ParamName();"
+        "public System.ArgumentException(java.lang.String, java.lang.String, System.Exception);",
+        "public java.lang.String get_ParamName();",
+        "public java.lang.String get_Message();"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false
@@ -101,9 +116,13 @@
       "upstreamDeclaredNonAccessorMethods": 2,
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 4,
+      "javaPublicConstructors": 4,
       "javaPublicHeader": "public class System.ArgumentNullException extends System.ArgumentException {",
       "javaPublicDeclarations": [
-        "public System.ArgumentNullException(java.lang.String);"
+        "public System.ArgumentNullException();",
+        "public System.ArgumentNullException(java.lang.String);",
+        "public System.ArgumentNullException(java.lang.String, System.Exception);",
+        "public System.ArgumentNullException(java.lang.String, java.lang.String);"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false

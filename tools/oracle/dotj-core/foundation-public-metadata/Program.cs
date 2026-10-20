@@ -13,11 +13,28 @@ Type[] selected = [
 
 BindingFlags declaredPublic = BindingFlags.Public | BindingFlags.DeclaredOnly
     | BindingFlags.Instance | BindingFlags.Static;
+Exception inner = new("inner");
+ArgumentException outer = new("outer", "value", inner);
+ArgumentNullException nullArgument = new("typeName", "missing type");
+if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
+    || !ReferenceEquals(outer.InnerException, inner)
+    || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
+{
+    throw new InvalidOperationException("Selected exception constructor observation changed.");
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
     coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(Type).Assembly.Location)))
         .ToLowerInvariant(),
+    selectedConstructorBehavior = new
+    {
+        argumentParamName = outer.ParamName,
+        argumentMessage = outer.Message,
+        argumentInnerSameReference = ReferenceEquals(outer.InnerException, inner),
+        nullArgumentParamName = nullArgument.ParamName,
+        nullArgumentMessage = nullArgument.Message,
+    },
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -40,14 +57,15 @@ var result = new
                     .ToArray(),
             }).ToArray(),
         selectedProperties = type.GetProperties(declaredPublic)
-            .Where(property => property.Name is "ParamName" or "IsGenericType"
+            .Where(property => property.Name is "ParamName" or "Message" or "InnerException" or "IsGenericType"
                 or "IsConstructedGenericType" or "IsGenericParameter"
                 or "GenericParameterPosition" or "GenericTypeArguments")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)
             .Select(constructor => constructor.GetParameters()
-                .Select(parameter => parameter.ParameterType.FullName).ToArray()).ToArray(),
+                .Select(parameter => new { name = parameter.Name, type = parameter.ParameterType.FullName })
+                .ToArray()).ToArray(),
     }).ToArray(),
 };
 Console.WriteLine(JsonSerializer.Serialize(result, new JsonSerializerOptions { WriteIndented = true }));

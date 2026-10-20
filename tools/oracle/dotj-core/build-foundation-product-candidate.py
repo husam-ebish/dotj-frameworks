@@ -13,7 +13,7 @@ PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
     "IDisposable", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException")]
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
-    "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer")]
+    "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -76,8 +76,10 @@ def main():
     classpath = os.pathsep.join((str(CONSUMER_CLASSES), str(JAR)))
     disposal_result = run("java", "-cp", classpath, "consumer.ProductDisposableContractConsumer").strip()
     type_result = run("java", "-cp", classpath, "consumer.ProductTypeIdentityConsumer").strip()
+    exception_result = run("java", "-cp", classpath, "consumer.ProductExceptionContractConsumer").strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
+    assert exception_result == "PASS external selected Exception constructors and inner identity"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
@@ -87,6 +89,7 @@ def main():
         "classSha256": {name: sha256(CLASSES / name) for name in class_files},
         "disposalConsumer": disposal_result,
         "typeConsumer": type_result,
+        "exceptionConsumer": exception_result,
         "status": "BUILT_FOUNDATION_CANDIDATE; complete public API, behavior, E01 release rights and framework qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
     print("PASS combined foundation candidate JAR and independent consumers")

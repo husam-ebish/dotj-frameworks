@@ -31,6 +31,8 @@ def main():
         lines = [line.strip() for line in output.splitlines()]
         header = next(line for line in lines if line.startswith("public ") and line.endswith("{"))
         declarations = [line for line in lines if line.startswith("public ") and line.endswith(";")]
+        constructors = [line for line in declarations if line.startswith("public " + name + "(")]
+        assert len(constructors) == len(upstream["publicConstructors"])
         if name == "System.IDisposable":
             assert declarations == ["public abstract void Dispose();"]
             disposition = "EXACT_SELECTED_INTERFACE_MEMBER; behavior and release unqualified"
@@ -40,6 +42,11 @@ def main():
             disposition = "PARTIAL_PUBLIC_SURFACE; MemberInfo base, Java property lowering and semantics open"
         else:
             assert header.startswith("public class " + name)
+            if name == "System.Exception":
+                assert "public java.lang.String get_Message();" in declarations
+                assert "public System.Exception get_InnerException();" in declarations
+            if name == "System.ArgumentException":
+                assert "public java.lang.String get_ParamName();" in declarations
             disposition = "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only"
         records.append({
             "upstreamFullName": name,
@@ -49,6 +56,7 @@ def main():
             "upstreamDeclaredNonAccessorMethods": upstream["declaredPublicMethodCount"],
             "upstreamDeclaredProperties": upstream["declaredPublicPropertyCount"],
             "upstreamPublicConstructors": len(upstream["publicConstructors"]),
+            "javaPublicConstructors": len(constructors),
             "javaPublicHeader": header,
             "javaPublicDeclarations": declarations,
             "disposition": disposition,
