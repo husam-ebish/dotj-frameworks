@@ -398,6 +398,15 @@ Run("waitAsyncZeroTimeoutPreCanceledToken", () =>
     Check(waiting.IsCanceled && !source.Task.IsCompleted, "pre-canceled token changed source");
 });
 
+Run("waitAsyncZeroTimeoutCompletedWithToken", () =>
+{
+    Task<int> source = Task.FromResult(42);
+    using CancellationTokenSource cancellation = new();
+    cancellation.Cancel();
+    Task<int> waiting = source.WaitAsync(TimeSpan.Zero, cancellation.Token);
+    Check(waiting.IsCompletedSuccessfully && waiting.Result == 42, "completed source lost to zero timeout or canceled token");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
