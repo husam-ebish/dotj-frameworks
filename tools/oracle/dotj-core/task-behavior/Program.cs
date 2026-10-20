@@ -295,6 +295,13 @@ Run("waitAsyncZeroTimeoutPending", () =>
     Check(waiting.IsFaulted && !source.Task.IsCompleted, "zero timeout completed the source");
 });
 
+Run("waitAsyncZeroTimeoutCompleted", () =>
+{
+    Task<int> source = Task.FromResult(42);
+    Task<int> waiting = source.WaitAsync(TimeSpan.Zero);
+    Check(waiting.IsCompletedSuccessfully && waiting.Result == 42, "completed source lost to zero timeout");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
