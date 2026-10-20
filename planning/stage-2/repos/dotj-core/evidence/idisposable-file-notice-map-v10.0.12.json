@@ -30,7 +30,12 @@
       "role": "Pinned upstream notice evidence; file-level applicability remains for review"
     }
   ],
-  "candidateOutputToInspect": "Deterministic JAR with System/IDisposable.class and JAR metadata only",
-  "status": "FILE_INPUTS_MAPPED; ACTUAL_JAR_CONTENTS_AND_NOTICE_APPLICABILITY_PENDING",
+  "candidateOutput": {
+    "path": "dotj-core/dotj-core-01/build/idisposable-candidate/idisposable-candidate.jar",
+    "sha256": "d58f34f93aed029b03454b09b53161b3e35ccc833c36dda45373b59db3cb47b7",
+    "entries": ["META-INF/MANIFEST.MF", "System/IDisposable.class"],
+    "evidence": "idisposable-candidate-jar-v1.json"
+  },
+  "status": "FILE_INPUTS_AND_CANDIDATE_JAR_CONTENTS_VERIFIED; NOTICE_APPLICABILITY_PENDING",
   "releaseQualification": "OPEN: actual package contents, project license, notice applicability, and required licensing review"
 }
