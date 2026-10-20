@@ -11,3 +11,4 @@ generic-task-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(System
 valuetask-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(System.Threading.Tasks.ValueTask value)	ValueTask value
 generic-valuetask-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(System.Threading.Tasks.ValueTask<System.String> value)	ValueTask_1<String> value
 completion-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(System.Threading.Tasks.TaskCompletionSource source)	TaskCompletionSource source
+generic-completion-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(System.Threading.Tasks.TaskCompletionSource<System.String> source)	TaskCompletionSource_1<String> source
