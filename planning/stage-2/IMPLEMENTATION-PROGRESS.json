@@ -128,7 +128,8 @@
     "Batch-111",
     "Batch-112",
     "Batch-113",
-    "Batch-114"
+    "Batch-114",
+    "Batch-115"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -321,7 +322,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-114",
+      "lastUpdatedBatch": "Batch-115",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -9932,12 +9933,12 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-115",
+    "id": "Batch-116",
     "framework": "dotj-core",
     "planTaskIds": [
-      "DJ-001-WP-02-T2"
+      "DJ-001-WP-02-T1"
     ],
-    "outcome": "Verify callback self-close cannot deadlock.",
+    "outcome": "Implement async cancellation completion after callbacks.",
     "requiresContinue": false
   }
 }
