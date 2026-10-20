@@ -5,3 +5,4 @@ generic-task-return	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String
 valuetask-return	PASS	fixture	Probe	System.Threading.Tasks.ValueTask FlushAsync()	ValueTask FlushAsync()
 generic-valuetask-return	PASS	fixture	Probe	System.Threading.Tasks.ValueTask<System.String> ReadAsync()	ValueTask_1<String> ReadAsync()
 completion-return	PASS	fixture	Probe	System.Threading.Tasks.TaskCompletionSource Create()	TaskCompletionSource Create()
+generic-completion-return	PASS	fixture	Probe	System.Threading.Tasks.TaskCompletionSource<System.String> Create()	TaskCompletionSource_1<String> Create()
