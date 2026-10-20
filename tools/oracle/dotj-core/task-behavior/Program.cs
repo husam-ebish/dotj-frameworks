@@ -327,6 +327,14 @@ Run("waitAsyncFiniteTimeoutPending", () =>
     Check(waiting.IsFaulted && !source.Task.IsCompleted, "finite timeout completed the source");
 });
 
+Run("waitAsyncFiniteTimeoutGeneric", () =>
+{
+    TaskCompletionSource<int> source = new();
+    Task<int> waiting = source.Task.WaitAsync(TimeSpan.FromMilliseconds(10));
+    CheckThrows<TimeoutException>(() => waiting.GetAwaiter().GetResult(), "finite timeout on pending generic task");
+    Check(waiting.IsFaulted && !source.Task.IsCompleted, "finite generic timeout completed the source");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
