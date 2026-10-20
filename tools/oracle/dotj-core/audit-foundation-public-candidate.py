@@ -1,4 +1,4 @@
-"""Compare thirteen compiled Java candidate types with pinned selected CoreLib metadata."""
+"""Compare fifteen compiled Java candidate types with pinned selected CoreLib metadata."""
 
 import hashlib
 import json
@@ -40,6 +40,14 @@ def main():
             assert "public interface System.IComparable" in header
             assert declarations == ["public abstract int CompareTo(java.lang.Object);"]
             disposition = "SELECTED_INTERFACE_MEMBER; Java Object parameter and behavior unqualified"
+        elif name == "System.IFormattable":
+            assert "public interface System.IFormattable" in header
+            assert declarations == ["public abstract java.lang.String ToString(java.lang.String, System.IFormatProvider);"]
+            disposition = "SELECTED_INTERFACE_MEMBER; formatting behavior unqualified"
+        elif name == "System.IFormatProvider":
+            assert "public interface System.IFormatProvider" in header
+            assert declarations == ["public abstract java.lang.Object GetFormat(System.Type);"]
+            disposition = "SELECTED_INTERFACE_MEMBER; provider behavior unqualified"
         elif name == "System.Type":
             assert "public abstract class System.Type extends System.Reflection.MemberInfo" in header
             assert any(" MakeGenericType(System.Type[]);" in line for line in declarations)
@@ -79,7 +87,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 13
+    assert len(records) == 15
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -98,7 +106,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS thirteen selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS fifteen selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":
