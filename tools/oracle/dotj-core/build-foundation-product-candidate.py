@@ -1,0 +1,96 @@
+"""Build a deterministic combined public foundation candidate JAR and test it externally."""
+
+import hashlib
+import json
+import os
+import subprocess
+import zipfile
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[3]
+PRODUCT = ROOT / "dotj-core/dotj-core-public"
+SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
+    "IDisposable", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException")]
+CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
+    "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer")]
+BUILD = PRODUCT / "build/foundation-v1"
+CLASSES = BUILD / "classes"
+CONSUMER_CLASSES = BUILD / "consumer-classes"
+JAR = BUILD / "dotj-core-foundation-v1.jar"
+EVIDENCE_ROOT = ROOT / "planning/stage-2/repos/dotj-core/evidence"
+EVIDENCE = EVIDENCE_ROOT / "foundation-product-candidate-v1.json"
+EXPECTED_CLASSES = [
+    "System/ArgumentException.class",
+    "System/ArgumentNullException.class",
+    "System/Exception.class",
+    "System/IDisposable.class",
+    "System/SystemException.class",
+    "System/Type$1.class",
+    "System/Type$2.class",
+    "System/Type$GenericParameterType.class",
+    "System/Type$ResolvedType.class",
+    "System/Type.class",
+]
+
+
+def sha256(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def run(*command):
+    return subprocess.run(command, cwd=ROOT, capture_output=True, text=True, check=True).stdout
+
+
+def main():
+    type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
+    disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
+    assert type_evidence["sourceSha256"] == sha256(SOURCES[1])
+    assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
+
+    CLASSES.mkdir(parents=True, exist_ok=True)
+    CONSUMER_CLASSES.mkdir(parents=True, exist_ok=True)
+    run("javac", "--release", "21", "-d", str(CLASSES), *(str(path) for path in SOURCES))
+    class_files = sorted(path.relative_to(CLASSES).as_posix() for path in CLASSES.rglob("*.class"))
+    assert class_files == EXPECTED_CLASSES, class_files
+    public_type = run("javap", "-public", "-classpath", str(CLASSES), "System.Type")
+    members = [line.strip() for line in public_type.splitlines() if line.strip().endswith(";")]
+    assert members == type_evidence["publicMembers"]
+    public_disposal = run("javap", "-public", "-classpath", str(CLASSES), "System.IDisposable")
+    assert "public abstract void Dispose();" in public_disposal
+
+    manifest = b"Manifest-Version: 1.0\r\nCreated-By: dotj-core foundation candidate\r\n\r\n"
+    with zipfile.ZipFile(JAR, "w") as archive:
+        for name, data in [("META-INF/MANIFEST.MF", manifest), *[
+            (name, (CLASSES / name).read_bytes()) for name in class_files]]:
+            entry = zipfile.ZipInfo(name, date_time=(2026, 10, 21, 0, 0, 0))
+            entry.compress_type = zipfile.ZIP_STORED
+            entry.create_system = 0
+            entry.external_attr = 0
+            archive.writestr(entry, data)
+    with zipfile.ZipFile(JAR) as archive:
+        assert archive.namelist() == ["META-INF/MANIFEST.MF", *class_files]
+
+    run("javac", "--release", "21", "-cp", str(JAR), "-d", str(CONSUMER_CLASSES),
+        *(str(path) for path in CONSUMERS))
+    classpath = os.pathsep.join((str(CONSUMER_CLASSES), str(JAR)))
+    disposal_result = run("java", "-cp", classpath, "consumer.ProductDisposableContractConsumer").strip()
+    type_result = run("java", "-cp", classpath, "consumer.ProductTypeIdentityConsumer").strip()
+    assert disposal_result.startswith("PASS: product IDisposable shape")
+    assert type_result == "PASS external System.Type selected identity consumer"
+    EVIDENCE.write_text(json.dumps({
+        "schemaVersion": 1,
+        "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
+        "jarPath": JAR.relative_to(ROOT).as_posix(),
+        "jarSha256": sha256(JAR),
+        "jarEntries": ["META-INF/MANIFEST.MF", *class_files],
+        "classSha256": {name: sha256(CLASSES / name) for name in class_files},
+        "disposalConsumer": disposal_result,
+        "typeConsumer": type_result,
+        "status": "BUILT_FOUNDATION_CANDIDATE; complete public API, behavior, E01 release rights and framework qualification OPEN",
+    }, indent=2) + "\n", encoding="utf-8")
+    print("PASS combined foundation candidate JAR and independent consumers")
+
+
+if __name__ == "__main__":
+    main()
