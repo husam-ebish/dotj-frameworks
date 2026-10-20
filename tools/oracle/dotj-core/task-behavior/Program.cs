@@ -191,6 +191,14 @@ Run("genericValueTaskBackedSuccess", () =>
         "Task-backed generic ValueTask success");
 });
 
+Run("genericValueTaskBackedFault", () =>
+{
+    Task<int> backing = Task.FromException<int>(new InvalidOperationException("generic value fault"));
+    ValueTask<int> value = new(backing);
+    Check(value.IsFaulted && ReferenceEquals(value.AsTask(), backing),
+        "Task-backed generic ValueTask fault");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
