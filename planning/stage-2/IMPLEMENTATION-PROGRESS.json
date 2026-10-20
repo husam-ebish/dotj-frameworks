@@ -264,7 +264,8 @@
     "Batch-247",
     "Batch-248",
     "Batch-249",
-    "Batch-250"
+    "Batch-250",
+    "Batch-251"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -457,7 +458,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-250",
+      "lastUpdatedBatch": "Batch-251",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -10068,20 +10069,20 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-251",
+    "id": "Batch-252",
     "framework": "dotj-core",
     "planTaskIds": [
       "E03"
     ],
-    "outcome": "Implement an internal timed-wait adapter with timeout cleanup and isolation fixtures; rebaseline if E03 remains open.",
+    "outcome": "Verify zero-timeout behavior for a pending source.",
     "requiresContinue": true
   },
   "batchPlan": {
-    "version": "stage-2-batches-v3",
-    "source": "planning/stage-2/implementation/BATCH-PLAN-v3.json",
-    "plannedTotalBatches": 1936,
-    "completedBatches": 250,
-    "remainingPlannedBatches": 1686,
+    "version": "stage-2-batches-v4",
+    "source": "planning/stage-2/implementation/BATCH-PLAN-v4.json",
+    "plannedTotalBatches": 1986,
+    "completedBatches": 251,
+    "remainingPlannedBatches": 1735,
     "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes"
   }
 }
