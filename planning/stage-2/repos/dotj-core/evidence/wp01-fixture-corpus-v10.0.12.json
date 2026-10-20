@@ -33,8 +33,8 @@
       "expectation": "context values do not leak between requests",
       "java": "ContextIsolationTest passed in Batch-038",
       "dotnetOracle": "independent AsyncLocal/ExecutionContext flow oracle passed in Batch-043",
-      "upstreamTest": "CaptureAndRestore and FlowTest are source-verified supporting candidates in context-upstream-test-map-v10.0.12.json; not executed or exact cross-request cases",
-      "status": "PARTIAL: paired independent observations and declared normalization in CONTEXT-TRANSFER-CONTRACT.md; no CLR ambient parity or upstream test execution"
+      "upstreamTest": "CaptureAndRestore and FlowTest passed as exact filtered upstream tests in Batch-055; supporting context behavior, not exact cross-request cases",
+      "status": "PARTIAL: paired independent observations, two supporting upstream tests, and declared normalization in CONTEXT-TRANSFER-CONTRACT.md; no CLR ambient parity or exact upstream cross-request fixture"
     }
   ],
   "qualification": "E03 IN PROGRESS; none of the four designed fixtures qualifies full WP-01 or a public .j API",
