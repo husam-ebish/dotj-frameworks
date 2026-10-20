@@ -53,6 +53,7 @@ public final class AsyncTimedWaitTest {
         raceAgainstTimeout("result");
         raceAgainstTimeout("fault");
         raceAgainstTimeout("cancel");
+        raceAgainstTimeout("signal");
         System.out.println("PASS: internal timed wait cases");
     }
 
