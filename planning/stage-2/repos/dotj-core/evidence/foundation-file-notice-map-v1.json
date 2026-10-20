@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "scope": "Built dotj-core foundation candidate JAR, not a release",
+  "artifactEvidence": "foundation-product-candidate-v1.json",
+  "jarSha256": "5becf044bf8842d9f56909623b6ca695bbf6bcbb86af286a3a5a8576f03cce3e",
+  "sourceToClasses": {
+    "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java": ["System/IDisposable.class"],
+    "dotj-core/dotj-core-public/src/main/java/System/Type.java": ["System/Type.class", "System/Type$1.class", "System/Type$2.class", "System/Type$GenericParameterType.class", "System/Type$ResolvedType.class"],
+    "dotj-core/dotj-core-public/src/main/java/System/Exception.java": ["System/Exception.class"],
+    "dotj-core/dotj-core-public/src/main/java/System/SystemException.java": ["System/SystemException.class"],
+    "dotj-core/dotj-core-public/src/main/java/System/ArgumentException.java": ["System/ArgumentException.class"],
+    "dotj-core/dotj-core-public/src/main/java/System/ArgumentNullException.java": ["System/ArgumentNullException.class"]
+  },
+  "manifestEntry": "META-INF/MANIFEST.MF",
+  "jarNoticeEntries": [],
+  "observedJdkModuleDependencies": ["java.base"],
+  "upstreamReferenceEvidenceExcludedFromJar": [
+    {
+      "path": "planning/stage-2/repos/dotj-core/evidence/notices/LICENSE.TXT",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310"
+    },
+    {
+      "path": "planning/stage-2/repos/dotj-core/evidence/notices/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "66f1d4e44973185519bb4aa8a9718eb22fc7af2cc532e3ae9cfc4c127ee7fc54"
+    }
+  ],
+  "decisionInputs": [
+    "Choose and record the dotj-core product license and artifact notice placement.",
+    "Review file-level upstream notice applicability to the independently authored selected Java sources and generated classes.",
+    "Obtain the repository licensing review required by E01 before public release qualification."
+  ],
+  "status": "ARCHIVE_AND_SOURCE_MAPPING_VERIFIED; E01_RELEASE_REVIEW_OPEN"
+}
