@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-062",
+  "profile": "Pinned dotnet/runtime v10.0.12 source, installed Microsoft.NETCore.App 10.0.12, .NET SDK 10.0.401, JDK 21",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "localGate": {
+    "command": "& 'tools/oracle/dotj-core/run-wp01-fixtures.ps1'",
+    "javaFixturesPassed": 9,
+    "independentDotNetOraclesPassed": 5,
+    "exitCode": 0,
+    "contextExtension": "same-worker A then B and restoration passed"
+  },
+  "upstreamGate": {
+    "command": "& 'tools/oracle/dotj-core/run-wp01-upstream-tests.ps1' -SourceRoot '<extracted pinned source root>' -OutputDirectory '<writable result directory>'",
+    "contextPassed": 2,
+    "diOwnershipPassed": 37,
+    "totalPassed": 39,
+    "failed": 0,
+    "exitCode": 0,
+    "contextTrxSha256": "9f9417c119ee49d8bae388751fd0b395e80b20a9cbf874deed7c01b367e50d7f",
+    "ownershipTrxSha256": "34a64d5e7536b7b7c8c09e590c5ad4d611401117223e42aada53516bb9421b1d",
+    "summarySha256": "dc05ae62352932e991e9cc33e4115e0b162c4a1d3110986da781b7cdc951c6aa"
+  },
+  "additionalUpstreamReflection": "Batch-060 passed five selected pinned System.Reflection cases; not part of the repeatable 39-case runner.",
+  "fixtureStatuses": {
+    "DJ-001-F01-01": "PARTIAL",
+    "DJ-001-F01-02": "PARTIAL",
+    "DJ-001-F01-03": "PARTIAL",
+    "DJ-001-F01-04": "PARTIAL"
+  },
+  "gateStatus": "E03 IN PROGRESS",
+  "remaining": [
+    "Finish E01 source reuse and release-rights qualification.",
+    "Complete relevant E02 public symbol and semantic inventory.",
+    "Compile and review the exact public .j API under N01, including ValueTask language-gap handling.",
+    "Resolve F01-02 upstream inequality mapping or document an accepted independent-oracle rationale.",
+    "Qualify broader ownership and ambient-context behavior beyond the bounded adaptations.",
+    "Run WP-01 public API and full Q01 qualification before completion credit."
+  ],
+  "frameworkCompletedImplementationTasks": 0,
+  "frameworkQualification": "0 of 66"
+}
