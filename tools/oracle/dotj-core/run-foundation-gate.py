@@ -25,7 +25,7 @@ def gate():
     wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 12 Java fixtures and 5 .NET oracles")
     wp02 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-java-fixtures.ps1"), contains="PASS: 15 internal WP-02 Java fixtures")
     run("powershell", "-NoProfile", "-File", str(ORACLE / "run-async-java-fixtures.ps1"),
-        contains="PASS: internal cancelable wait leaves source and other waits independent")
+        contains="PASS: internal cancelable wait and listener cleanup")
     reference = json.loads(run("dotnet", "run", "--project", str(ORACLE / "cancellation-behavior/CancellationBehaviorOracle.csproj"), "--configuration", "Release", "--no-build", "--no-launch-profile", contains="\"runtimeVersion\""))
     assert reference["coreLibSha256"] == CORELIB_HASH and len(reference["cases"]) == 10
     assert reference == json.loads((EVIDENCE / "cancellation-behavior-v10.0.12/oracle-output.json").read_text(encoding="utf-8"))
@@ -44,7 +44,7 @@ def gate():
     run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-upstream-tests.ps1"), "-SourceRoot", str(SOURCE), contains="Passed:    10")
     upstream = json.loads((Path.home() / "AppData/Local/Temp/dotj-wp02-upstream-results/summary.json").read_text(encoding="utf-8-sig"))
     assert upstream["passed"] == 10 and upstream["sourceCommit"] == "4271d88e0aebf3d04f188f1334c2220d80555ef6"
-    run("powershell", "-NoProfile", "-File", str(ORACLE / "build-internal-core.ps1"), contains="PASS: 11 internal sources and 11 classes")
+    run("powershell", "-NoProfile", "-File", str(ORACLE / "build-internal-core.ps1"), contains="PASS: 12 internal sources and 12 classes")
     jar = ROOT / "dotj-core/dotj-core-01/build/dotj-core-internal-v1.jar"
     jar_hash = hashlib.sha256(jar.read_bytes()).hexdigest()
     jar_manifest = json.loads((EVIDENCE / "internal-core-jar-v1.json").read_text(encoding="utf-8-sig"))
@@ -65,9 +65,10 @@ def gate():
         "selectedTaskValueTaskReferenceCases": 25,
         "internalAsyncStateFixtures": 3,
         "internalAsyncRaceRounds": 200,
+        "waitCancellationListenerCleanup": True,
         "internalJarSha256": jar_hash,
         "status": "BOUNDED_PASS; E01/E02/E03/N01 AND PUBLIC WP-01/WP-02 QUALIFICATION OPEN",
-        "limitations": ["The internal cancellation and async state prototypes do not cover full Task/ValueTask public semantics.", "The selected Task/ValueTask cases and three internal Java fixtures are bounded observations, not public Java parity or upstream xUnit tests.", "Cancelable waits use a CompletableFuture signal and do not implement .NET cancellation tokens or awaiters.", "The three exact-name Java collisions leave public generic/non-generic representation unresolved.", "Two hundred coordinated races do not exhaust all interleavings or publication conditions.", "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.", "No public .j facade or product release is qualified."],
+        "limitations": ["The internal cancellation and async state prototypes do not cover full Task/ValueTask public semantics.", "The selected Task/ValueTask cases and three internal Java fixtures are bounded observations, not public Java parity or upstream xUnit tests.", "Cancelable waits use a private removable signal and do not implement .NET cancellation tokens or awaiters.", "The three exact-name Java collisions leave public generic/non-generic representation unresolved.", "Two hundred coordinated races do not exhaust all interleavings or publication conditions.", "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.", "No public .j facade or product release is qualified."],
     }
     output = EVIDENCE / "foundation-gate-v10.0.12.json"
     output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")

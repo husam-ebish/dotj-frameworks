@@ -8,48 +8,71 @@ import java.util.concurrent.TimeUnit;
 public final class AsyncWaitTest {
     public static void main(String[] args) throws Exception {
         AsyncCompletion<Integer> source = new AsyncCompletion<>();
-        CompletableFuture<Void> cancelFirst = new CompletableFuture<>();
+        WaitCancellationSignal cancelFirst = new WaitCancellationSignal();
+        WaitCancellationSignal keepWaiting = new WaitCancellationSignal();
         CompletableFuture<Integer> canceledWait = source.waitAsync(cancelFirst);
-        CompletableFuture<Integer> survivingWait = source.waitAsync(new CompletableFuture<>());
-        check(source.state() == AsyncState.PENDING && !canceledWait.isDone(), "wait did not start pending");
-        cancelFirst.complete(null);
+        CompletableFuture<Integer> survivingWait = source.waitAsync(keepWaiting);
+        check(source.state() == AsyncState.PENDING && !canceledWait.isDone() &&
+                cancelFirst.listenerCount() == 1 && keepWaiting.listenerCount() == 1,
+                "wait did not start pending with one listener per signal");
+        cancelFirst.signal();
         check(canceledWait.isCancelled() && source.state() == AsyncState.PENDING &&
-                !survivingWait.isDone(), "canceling one wait changed the source or another wait");
+                !survivingWait.isDone() && cancelFirst.listenerCount() == 0 &&
+                keepWaiting.listenerCount() == 1,
+                "canceling one wait changed the source or another wait");
         source.setResult(42);
         check(source.state() == AsyncState.SUCCEEDED && source.result() == 42 &&
-                survivingWait.get(5, TimeUnit.SECONDS) == 42 && canceledWait.isCancelled(),
+                survivingWait.get(5, TimeUnit.SECONDS) == 42 && canceledWait.isCancelled() &&
+                keepWaiting.listenerCount() == 0,
                 "source could not complete after one wait was canceled");
 
         AsyncCompletion<Integer> sourceFirst = new AsyncCompletion<>();
-        CompletableFuture<Void> lateCancel = new CompletableFuture<>();
+        WaitCancellationSignal lateCancel = new WaitCancellationSignal();
         CompletableFuture<Integer> successfulWait = sourceFirst.waitAsync(lateCancel);
         sourceFirst.setResult(7);
-        check(successfulWait.get(5, TimeUnit.SECONDS) == 7, "source-first result was lost");
-        lateCancel.complete(null);
+        check(successfulWait.get(5, TimeUnit.SECONDS) == 7 && lateCancel.listenerCount() == 0,
+                "source-first result was lost or listener remained");
+        lateCancel.signal();
         check(!successfulWait.isCancelled() && successfulWait.get(5, TimeUnit.SECONDS) == 7,
                 "late cancellation changed a completed wait");
 
         AsyncCompletion<Integer> faulted = new AsyncCompletion<>();
         Throwable failure = new IllegalArgumentException("fault");
-        CompletableFuture<Integer> faultWait = faulted.waitAsync(new CompletableFuture<>());
+        WaitCancellationSignal faultSignal = new WaitCancellationSignal();
+        CompletableFuture<Integer> faultWait = faulted.waitAsync(faultSignal);
         faulted.setFault(failure);
         try {
             faultWait.get(5, TimeUnit.SECONDS);
             throw new AssertionError("faulted wait completed successfully");
         } catch (ExecutionException expected) {
-            check(expected.getCause() == failure, "fault identity changed");
+            check(expected.getCause() == failure && faultSignal.listenerCount() == 0,
+                    "fault identity changed or listener remained");
         }
 
         AsyncCompletion<Integer> canceled = new AsyncCompletion<>();
-        CompletableFuture<Integer> sourceCanceledWait = canceled.waitAsync(new CompletableFuture<>());
+        WaitCancellationSignal sourceCancelSignal = new WaitCancellationSignal();
+        CompletableFuture<Integer> sourceCanceledWait = canceled.waitAsync(sourceCancelSignal);
         canceled.setCanceled();
-        check(sourceCanceledWait.isCancelled(), "source cancellation did not cancel its wait");
+        check(sourceCanceledWait.isCancelled() && sourceCancelSignal.listenerCount() == 0,
+                "source cancellation did not release its wait listener");
 
         AsyncCompletion<Integer> preCanceled = new AsyncCompletion<>();
-        CompletableFuture<Void> alreadySignaled = CompletableFuture.completedFuture(null);
+        WaitCancellationSignal alreadySignaled = new WaitCancellationSignal();
+        alreadySignaled.signal();
         check(preCanceled.waitAsync(alreadySignaled).isCancelled() &&
-                preCanceled.state() == AsyncState.PENDING, "pre-signaled cancellation changed source");
-        System.out.println("PASS: internal cancelable wait leaves source and other waits independent");
+                preCanceled.state() == AsyncState.PENDING && alreadySignaled.listenerCount() == 0,
+                "pre-signaled cancellation changed source or retained a listener");
+
+        WaitCancellationSignal longLived = new WaitCancellationSignal();
+        for (int value = 0; value < 100; value++) {
+            AsyncCompletion<Integer> one = new AsyncCompletion<>();
+            CompletableFuture<Integer> waiting = one.waitAsync(longLived);
+            check(longLived.listenerCount() == 1, "wait did not register on long-lived signal");
+            one.setResult(value);
+            check(waiting.get(5, TimeUnit.SECONDS) == value && longLived.listenerCount() == 0,
+                    "completed wait left a callback on long-lived signal");
+        }
+        System.out.println("PASS: internal cancelable wait and listener cleanup");
     }
 
     private static void check(boolean condition, String label) {

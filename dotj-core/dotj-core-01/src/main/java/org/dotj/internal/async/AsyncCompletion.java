@@ -96,7 +96,7 @@ final class AsyncCompletion<T> {
         return fault;
     }
 
-    CompletableFuture<T> waitAsync(CompletableFuture<?> cancellationSignal) {
+    CompletableFuture<T> waitAsync(WaitCancellationSignal cancellationSignal) {
         Objects.requireNonNull(cancellationSignal, "cancellationSignal");
         CompletableFuture<T> waiting = new CompletableFuture<>();
         AsyncState observed;
@@ -111,8 +111,11 @@ final class AsyncCompletion<T> {
             }
         }
         if (observed == AsyncState.PENDING) {
-            waiting.whenComplete((value, error) -> removeWaiter(waiting));
-            cancellationSignal.whenComplete((value, error) -> cancelWait(waiting));
+            Runnable unregister = cancellationSignal.register(() -> cancelWait(waiting));
+            waiting.whenComplete((value, error) -> {
+                removeWaiter(waiting);
+                unregister.run();
+            });
         } else if (observed == AsyncState.SUCCEEDED) {
             waiting.complete(observedResult);
         } else if (observed == AsyncState.FAULTED) {
