@@ -7,21 +7,26 @@ import java.util.Objects;
 
 /** Tracks resources created for one internal scope. */
 final class OwnedResources implements AutoCloseable {
+    private final Object lock = new Object();
     private final List<AutoCloseable> owned = new ArrayList<>();
     private final IdentityHashMap<AutoCloseable, Boolean> ownedIdentities = new IdentityHashMap<>();
     private boolean closed;
 
     void addOwned(AutoCloseable resource) {
-        requireOpen();
-        Objects.requireNonNull(resource);
-        if (ownedIdentities.putIfAbsent(resource, Boolean.TRUE) == null) {
-            owned.add(resource);
+        synchronized (lock) {
+            requireOpen();
+            Objects.requireNonNull(resource);
+            if (ownedIdentities.putIfAbsent(resource, Boolean.TRUE) == null) {
+                owned.add(resource);
+            }
         }
     }
 
     void addBorrowed(AutoCloseable resource) {
-        requireOpen();
-        Objects.requireNonNull(resource);
+        synchronized (lock) {
+            requireOpen();
+            Objects.requireNonNull(resource);
+        }
     }
 
     private void requireOpen() {
@@ -32,15 +37,21 @@ final class OwnedResources implements AutoCloseable {
 
     @Override
     public void close() throws Exception {
-        if (closed) {
-            return;
+        List<AutoCloseable> toClose;
+        synchronized (lock) {
+            if (closed) {
+                return;
+            }
+            closed = true;
+            toClose = new ArrayList<>(owned);
+            owned.clear();
+            ownedIdentities.clear();
         }
-        closed = true;
 
         Exception failure = null;
-        for (int index = owned.size() - 1; index >= 0; index--) {
+        for (int index = toClose.size() - 1; index >= 0; index--) {
             try {
-                owned.get(index).close();
+                toClose.get(index).close();
             } catch (Exception exception) {
                 if (failure == null) {
                     failure = exception;
@@ -49,8 +60,6 @@ final class OwnedResources implements AutoCloseable {
                 }
             }
         }
-        owned.clear();
-        ownedIdentities.clear();
         if (failure != null) {
             throw failure;
         }
