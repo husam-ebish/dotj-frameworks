@@ -6658,6 +6658,38 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-628",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.ValueTask`1",
+          "method": "op_Equality",
+          "signature": "Boolean op_Equality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task-generic.json",
+          "returnType": "System.Boolean",
+          "isStatic": true,
+          "genericArity": 0,
+          "parameters": [
+            {
+              "Name": "left",
+              "type": "System.Threading.Tasks.ValueTask`1[TResult]",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "right",
+              "type": "System.Threading.Tasks.ValueTask`1[TResult]",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "ff646154a540ac97f011ecd17bbc44eee680352c22deb1ee4438586a1909ede6",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
+          "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
