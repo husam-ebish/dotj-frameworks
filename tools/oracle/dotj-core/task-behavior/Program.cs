@@ -183,6 +183,14 @@ Run("directGenericValueTaskResult", () =>
         "direct generic ValueTask result");
 });
 
+Run("genericValueTaskBackedSuccess", () =>
+{
+    Task<int> backing = Task.FromResult(42);
+    ValueTask<int> value = new(backing);
+    Check(value.IsCompletedSuccessfully && value.Result == 42 && ReferenceEquals(value.AsTask(), backing),
+        "Task-backed generic ValueTask success");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
