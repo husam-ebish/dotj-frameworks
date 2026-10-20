@@ -32,6 +32,8 @@ def main():
             values = dict(line.split("=", 1) for line in output.splitlines() if "=" in line)
             assert values["runtimeVersion"] == record["runtimeVersion"]
             assert values["nullTypeArgumentsParameter"] == oracle["observedParameter"]
+            assert values["nullTypeNameParameter"] == oracle["observedNullTypeNameParameter"]
+            assert values["argumentNullHierarchy"] == "True"
             assert (values["selectedTypeNameLookup"] == "True") is oracle["selectedTypeNameLookup"]
         else:
             values = json.loads(output)

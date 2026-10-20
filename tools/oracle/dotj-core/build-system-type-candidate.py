@@ -12,6 +12,8 @@ EVIDENCE_ROOT = ROOT / "planning/stage-2/repos/dotj-core/evidence"
 SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
+EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
+                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException")]
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
 EXTERNAL = ROOT / "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java"
 BUILD = ROOT / "dotj-core/dotj-core-public/build/type-identity-candidate-v2"
@@ -51,7 +53,8 @@ def main():
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
-    run("javac", "--release", "21", "-d", str(CLASSES), str(SOURCE))
+    run("javac", "--release", "21", "-d", str(CLASSES),
+        *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES]))
     assert not (CLASSES / "System/TypeCandidateFactory.class").exists()
     run("javac", "--release", "21", "-cp", str(CLASSES), "-d", str(TEST_CLASSES),
         str(TEST), str(EXTERNAL))
@@ -69,6 +72,9 @@ def main():
         "public boolean get_IsConstructedGenericType();",
         "public boolean Equals(System.Type);",
     ], members
+    null_exception = run("javap", "-public", "-classpath", str(CLASSES),
+                         "System.ArgumentNullException")
+    assert "public class System.ArgumentNullException extends System.ArgumentException" in null_exception
     classpath = os.pathsep.join((str(CLASSES), str(TEST_CLASSES)))
     result = run("java", "-cp", classpath, "System.TypeIdentityCandidateTest").strip()
     assert result.startswith("PASS selected System.Type identity")
@@ -82,6 +88,8 @@ def main():
         "snapshotSha256": sha256(SNAPSHOT),
         "sourcePath": SOURCE.relative_to(ROOT).as_posix(),
         "sourceSha256": sha256(SOURCE),
+        "exceptionSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)}
+                             for path in EXCEPTION_SOURCES],
         "testPath": TEST.relative_to(ROOT).as_posix(),
         "testSha256": sha256(TEST),
         "externalConsumerPath": EXTERNAL.relative_to(ROOT).as_posix(),

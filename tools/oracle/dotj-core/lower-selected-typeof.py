@@ -9,6 +9,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
+EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
+                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException")]
 BUILD = ROOT / "dotj-core/dotj-core-public/build/typeof-selected-v1"
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json"
 NAME = re.compile(r"System(?:\.[A-Za-z][A-Za-z0-9]*)+")
@@ -122,7 +124,8 @@ def main():
         "}",
     ])
     generated.write_text("\n".join(lines) + "\n", encoding="utf-8")
-    subprocess.run(["javac", "--release", "21", "-d", str(product_classes), str(SOURCE)], check=True)
+    subprocess.run(["javac", "--release", "21", "-d", str(product_classes),
+                    *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES])], check=True)
     subprocess.run(["javac", "--release", "21", "-cp", str(product_classes), "-d",
                     str(consumer_classes), str(generated)], check=True)
     import os

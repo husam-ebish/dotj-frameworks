@@ -35,9 +35,17 @@ public final class TypeIdentityCandidateTest {
         try {
             list.MakeGenericType(null);
             throw new AssertionError("Null generic arguments accepted");
-        } catch (NullPointerException expected) {
-            if (!"typeArguments".equals(expected.getMessage())) {
+        } catch (ArgumentNullException expected) {
+            if (!"typeArguments".equals(expected.get_ParamName())) {
                 throw new AssertionError("Null parameter identity changed", expected);
+            }
+        }
+        try {
+            Type.GetType(null);
+            throw new AssertionError("Null type name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"typeName".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null type-name parameter identity changed", expected);
             }
         }
         try {
