@@ -199,6 +199,14 @@ Run("genericValueTaskBackedFault", () =>
         "Task-backed generic ValueTask fault");
 });
 
+Run("genericValueTaskBackedCancel", () =>
+{
+    Task<int> backing = Task.FromCanceled<int>(new CancellationToken(canceled: true));
+    ValueTask<int> value = new(backing);
+    Check(value.IsCanceled && ReferenceEquals(value.AsTask(), backing),
+        "Task-backed generic ValueTask cancel");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
