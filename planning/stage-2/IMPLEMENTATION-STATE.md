@@ -717,9 +717,9 @@ Updated: 2026-10-20. Baseline: `stage-2-2026-10-20-v2`.
 - E02, E03 and N01: **IN PROGRESS** for the bounded WP-01 disposal slice. WP-01-T1/T2/T3 implementation: **IN PROGRESS**; WP-02: **IN PROGRESS**. Existing development-pin samples are not qualified against the chosen release candidate.
 - All other frameworks: implementation **NOT STARTED**. Their preparation and qualification gates remain open.
 - Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.
-- Batch tracking: 716 historical batches completed under `stage-2-batches-v7`; the exact number of future batches is unknown. 1,686 acceptance items remain; 484 batches remain in the earlier 500-batch request, 39 in the 50-batch tranche, and 0 in the current 10-batch request. The next proposed batch is `Batch-717`.
+- Batch tracking: 716 total batches completed under `stage-2-batches-v7`; total planned and total remaining batches are unknown. 1,686 acceptance items remain; these are not a batch count. The next proposed batch is `Batch-717`.
 
-Every future batch report and user handoff should show the overall implementation percentage, the active versioned completed/planned batch count, remaining planned batches, and the next batch. Keep the 0/66 qualified-framework measure separate from the implementation percentage. Rebaseline the batch plan when acceptance work needs additional batches or the named scope changes.
+Every future batch report and user handoff should show only the overall implementation percentage, total batches completed, total batches planned and remaining (or "unknown"), and the next batch. Do not show overlapping request-series or tranche counters. Keep the 0/66 qualified-framework measure separate from the implementation percentage. Rebaseline the batch plan when acceptance work needs additional batches or the named scope changes.
 
 ## Continuation
 

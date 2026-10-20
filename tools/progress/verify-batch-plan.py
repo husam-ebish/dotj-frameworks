@@ -310,21 +310,12 @@ def main():
             accepted = sum(task["status"] == "COMPLETE" for framework in progress["frameworks"] for task in framework["tasks"])
             accepted += sum(status == "COMPLETE" for framework in progress["frameworks"] for status in framework["outstandingPreparationAndQualificationGates"].values())
             assert tracking["outstandingAcceptanceItems"] == reserved - accepted
-            assert tracking["requestedSeries"]["completed"] == len(completed) - 700
-            assert tracking["requestedSeries"]["remaining"] == 1200 - len(completed)
-            if 706 <= len(completed) <= 755:
-                assert tracking["activeTranche"] == {"firstBatch": "Batch-706", "lastBatch": "Batch-755", "completed": len(completed) - 705, "remaining": 755 - len(completed)}
-            else:
-                assert tracking["activeTranche"] is None
-            if 707 <= len(completed) <= 716:
-                assert tracking["currentRequest"] == {"firstBatch": "Batch-707", "lastBatch": "Batch-716", "completed": len(completed) - 706, "remaining": 716 - len(completed)}
-            else:
-                assert tracking.get("currentRequest") is None
+            assert all(key not in tracking for key in ("requestedSeries", "activeTranche", "currentRequest"))
             assert progress["nextProposedBatch"]["requiresContinue"] == (len(completed) in (716, 755) or len(completed) >= 1200)
         else:
             assert tracking["remainingPlannedBatches"] == expected_total - len(completed)
     if plan["planVersion"] == "stage-2-batches-v7":
-        print(f"PASS stage-2-batches-v7: {len(completed)} completed; future total unknown; {tracking['requestedSeries']['remaining']} requested batches remaining")
+        print(f"PASS stage-2-batches-v7: {len(completed)} total batches completed; total planned and remaining unknown")
     else:
         print(f"PASS {plan['planVersion']}: {len(completed)}/{expected_total} planned batches; {expected_total - len(completed)} remaining")
     print(f"Accepted slots: {gate_count} gates + {naming_count} naming tasks + {implementation_count} implementation tasks = {reserved}")

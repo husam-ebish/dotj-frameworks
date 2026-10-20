@@ -18,12 +18,10 @@
 | Remaining implementation tasks | **1,092 (100.00%)** |
 | Frameworks fully implemented and qualified | **0 / 66 (0.00%)** |
 | In-progress / not-started frameworks | **1 / 65** |
-| Batches completed | **716**; future total unknown (`stage-2-batches-v7`) |
+| Batches completed, total | **716** |
+| Batches planned, total | **Unknown**; no project-wide batch baseline |
+| Batches remaining, total | **Unknown**; acceptance items are not batches |
 | Outstanding acceptance items | **1,686**: 330 gates + 264 naming tasks + 1,092 implementation tasks, less accepted items |
-| Requested 500-point series | **16 / 500 complete** (`Batch-701` through `Batch-1200`) |
-| Current 50-point tranche | **11 / 50 complete** (`Batch-706` through `Batch-755`) |
-| Current 10-point request | **10 / 10 complete** (`Batch-707` through `Batch-716`) |
-| Batches still to do | **0 in the current 10-point request**; 39 in the 50-point tranche; 484 in the earlier 500-point request; exact project total unknown |
 | Next proposed batch | `Batch-717`: Define and implement the first real .j source-compilation integration for Task-family arity mapping, subject to the dotj-code contract. |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
@@ -36,7 +34,7 @@
 | Batch ledger | `python tools/progress/verify-batch-plan.py` passed with 716 completed batches and 1,686 open acceptance items. |
 | Usage measurement | Unavailable. |
 
-The ten batches in this request delivered bounded N01 type/signature mapping and JVM naming evidence. No complete implementation task passed its acceptance gates, so the implementation percentage remains 0.00%. Historical completed-batch numbers rise by one per finished branch; the project-wide total remains unknown. The completed 10-batch request has a fixed denominator and did not add ten batches to a project-wide forecast.
+The latest work delivered bounded N01 type/signature mapping and JVM naming evidence. No complete implementation task passed its acceptance gates, so the implementation percentage remains 0.00%. The completed-batch total rises by one per finished branch; the project-wide planned and remaining totals are unknown.
 
 ## Files changed
 
