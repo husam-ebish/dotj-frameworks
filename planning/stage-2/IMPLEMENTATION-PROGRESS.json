@@ -49,7 +49,8 @@
     "Batch-032",
     "Batch-033",
     "Batch-034",
-    "Batch-035"
+    "Batch-035",
+    "Batch-036"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -85,7 +86,7 @@
         },
         {
           "id": "DJ-001-WP-01-T3",
-          "status": "NOT STARTED",
+          "status": "IN PROGRESS",
           "classification": "pending review"
         },
         {
@@ -242,7 +243,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-035",
+      "lastUpdatedBatch": "Batch-036",
       "blocked": false,
       "unclassifiedTaskIds": [
         "DJ-001-WP-01-T1",
@@ -9853,12 +9854,12 @@
   ],
   "measurementNote": "Null percentages mean Not yet measurable. The 1356 named tasks mix implementation and preparation. E01-E03 and Q01 are separate gates; N01 tasks are recorded as prerequisites. No preparation earns implementation credit.",
   "nextProposedBatch": {
-    "id": "Batch-036",
+    "id": "Batch-037",
     "framework": "dotj-core",
     "planTaskIds": [
-      "DJ-001-WP-01-T2"
+      "DJ-001-WP-01-T3"
     ],
-    "outcome": "Implement a bounded explicit request-context snapshot without copying arbitrary thread locals.",
+    "outcome": "Transfer an explicit context snapshot through an executor without ambient thread-local copying.",
     "requiresContinue": false
   }
 }
