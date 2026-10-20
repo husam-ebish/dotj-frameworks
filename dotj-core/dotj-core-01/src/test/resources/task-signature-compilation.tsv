@@ -7,3 +7,4 @@ generic-valuetask-return	PASS	fixture	Probe	System.Threading.Tasks.ValueTask<Sys
 completion-return	PASS	fixture	Probe	System.Threading.Tasks.TaskCompletionSource Create()	TaskCompletionSource Create()
 generic-completion-return	PASS	fixture	Probe	System.Threading.Tasks.TaskCompletionSource<System.String> Create()	TaskCompletionSource_1<String> Create()
 task-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Continue(System.Threading.Tasks.Task antecedent)	Continue(Task antecedent)
+generic-task-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(System.Threading.Tasks.Task<System.String> task)	Task_1<String> task
