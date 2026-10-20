@@ -13,3 +13,4 @@ generic-valuetask-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(S
 completion-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(System.Threading.Tasks.TaskCompletionSource source)	TaskCompletionSource source
 generic-completion-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Use(System.Threading.Tasks.TaskCompletionSource<System.String> source)	TaskCompletionSource_1<String> source
 cancellation-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task WaitAsync(System.Threading.CancellationToken cancellationToken)	CancellationToken cancellationToken
+nested-task	PASS	fixture	Probe	System.Threading.Tasks.Task<System.Threading.Tasks.Task<System.String>> Chain()	Task_1<Task_1<String>> Chain()
