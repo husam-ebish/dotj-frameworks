@@ -114,6 +114,13 @@ Run("genericSourceResult", () =>
         "generic source result");
 });
 
+Run("genericTryResult", () =>
+{
+    TaskCompletionSource<int> source = new();
+    Check(source.TrySetResult(42) && !source.TrySetResult(99) && source.Task.Result == 42,
+        "generic try result");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
