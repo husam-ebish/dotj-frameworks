@@ -4438,6 +4438,21 @@
       "result": "PROBE_UNSUPPORTED; BEHAVIOR_UNVERIFIED",
       "probeError": "By-reference or optional parameter needs separate representation",
       "batch": "Batch-1167"
+    },
+    {
+      "index": 299,
+      "sourceBatch": "Batch-671",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void WaitAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static void WaitAll(ReadOnlySpan_1<Task> tasks) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "8d206aaab03331f7ac6706f2b4cbb21308d6a0d0a7fa144938ee7e2067b688ca",
+      "supportTypes": [
+        "System.ReadOnlySpan_1"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-1168"
     }
   ]
 }
