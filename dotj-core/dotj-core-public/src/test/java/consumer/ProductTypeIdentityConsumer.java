@@ -177,6 +177,21 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("External Type identity call changed");
         }
         Type parameter = definition.GetGenericArguments()[0];
+        if (!"String".equals(string.get_Name()) || !"System.String".equals(string.get_FullName())
+                || !"System".equals(string.get_Namespace())
+                || !"Int32".equals(integer.get_Name())
+                || !"List`1".equals(definition.get_Name())
+                || !"System.Collections.Generic.List`1".equals(definition.get_FullName())
+                || !"System.Collections.Generic".equals(definition.get_Namespace())
+                || !first.get_FullName().startsWith("System.Collections.Generic.List`1[[System.String,")
+                || !"String[]".equals(Type.GetType("System.String[]").get_Name())
+                || !"System.String[,]".equals(rectangular.get_FullName())
+                || !"String&".equals(byReference.get_Name())
+                || !"System.String*".equals(pointer.get_FullName())
+                || !"T".equals(parameter.get_Name()) || parameter.get_FullName() != null
+                || !"System.Collections.Generic".equals(parameter.get_Namespace())) {
+            throw new AssertionError("Selected Type name projections changed");
+        }
         if (!parameter.get_IsGenericParameter() || parameter.get_GenericParameterPosition() != 0
                 || parameter != definition.GetGenericArguments()[0]) {
             throw new AssertionError("External generic parameter identity changed");

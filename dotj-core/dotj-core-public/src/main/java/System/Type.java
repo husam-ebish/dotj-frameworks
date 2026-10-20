@@ -58,7 +58,7 @@ public abstract class Type {
 
     private static Type arrayOf(Type elementType, int rank, boolean vector) {
         List<Object> key = List.of(elementType, rank, vector);
-        return arrayShapes.computeIfAbsent(key, ignored -> new ArrayType(elementType, rank));
+        return arrayShapes.computeIfAbsent(key, ignored -> new ArrayType(elementType, rank, vector));
     }
 
     /** Selected CoreLib names only; broader lookup and assembly resolution remain open. */
@@ -233,6 +233,91 @@ public abstract class Type {
         return this.arguments.toArray(Type[]::new);
     }
 
+    public String get_Name() {
+        if (this.parameterIndex >= 0) {
+            if (this.definition == java.util.List.class) {
+                return "T";
+            }
+            if (this.definition == java.util.Map.class) {
+                return this.parameterIndex == 0 ? "TKey" : "TValue";
+            }
+            return this.definition.getTypeParameters()[this.parameterIndex].getName();
+        }
+        if (this instanceof ArrayType array) {
+            return array.elementType.get_Name() + arraySuffix(array.rank, array.vector);
+        }
+        if (this.get_IsByRef() || this.get_IsPointer()) {
+            return this.GetElementType().get_Name() + (this.get_IsByRef() ? "&" : "*");
+        }
+        if (this.definition.isArray()) {
+            return this.GetElementType().get_Name() + "[]";
+        }
+        if (this.definition == String.class) return "String";
+        if (this.definition == Integer.class) return "Int32";
+        if (this.definition == java.util.List.class) return "List`1";
+        if (this.definition == java.util.Map.class) return "Dictionary`2";
+        return this.definition.getSimpleName();
+    }
+
+    public String get_FullName() {
+        if (this.parameterIndex >= 0) {
+            return null;
+        }
+        if (this instanceof ArrayType array) {
+            String element = array.elementType.get_FullName();
+            return element == null ? null : element + arraySuffix(array.rank, array.vector);
+        }
+        if (this.get_IsByRef() || this.get_IsPointer()) {
+            String element = this.GetElementType().get_FullName();
+            return element == null ? null : element + (this.get_IsByRef() ? "&" : "*");
+        }
+        if (this.definition.isArray()) {
+            String element = this.GetElementType().get_FullName();
+            return element == null ? null : element + "[]";
+        }
+        String baseName = this.get_Namespace() + "." + this.get_Name();
+        if (this.arguments.isEmpty()) {
+            return baseName;
+        }
+        StringBuilder constructed = new StringBuilder(baseName).append('[');
+        for (int index = 0; index < this.arguments.size(); index++) {
+            String argument = this.arguments.get(index).get_FullName();
+            if (argument == null) {
+                return null;
+            }
+            if (index != 0) {
+                constructed.append(',');
+            }
+            constructed.append('[').append(argument)
+                    .append(", System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, ")
+                    .append("PublicKeyToken=7cec85d7bea7798e]");
+        }
+        return constructed.append(']').toString();
+    }
+
+    public String get_Namespace() {
+        if (this instanceof ArrayType array) {
+            return array.elementType.get_Namespace();
+        }
+        if (this.get_IsByRef() || this.get_IsPointer() || this.definition.isArray()) {
+            return this.GetElementType().get_Namespace();
+        }
+        if (this.definition == java.util.List.class || this.definition == java.util.Map.class) {
+            return "System.Collections.Generic";
+        }
+        if (this.definition == String.class || this.definition == Integer.class) {
+            return "System";
+        }
+        return this.definition.getPackageName();
+    }
+
+    private static String arraySuffix(int rank, boolean vector) {
+        if (rank == 1) {
+            return vector ? "[]" : "[*]";
+        }
+        return "[" + ",".repeat(rank - 1) + "]";
+    }
+
     public boolean get_IsArray() {
         return this.definition.isArray();
     }
@@ -295,11 +380,13 @@ public abstract class Type {
     private static final class ArrayType extends Type {
         private final Type elementType;
         private final int rank;
+        private final boolean vector;
 
-        private ArrayType(Type elementType, int rank) {
+        private ArrayType(Type elementType, int rank, boolean vector) {
             super(Object.class, List.of());
             this.elementType = elementType;
             this.rank = rank;
+            this.vector = vector;
         }
 
         @Override
