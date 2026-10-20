@@ -7210,6 +7210,56 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-648",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+          "returnType": "System.Threading.Tasks.Task",
+          "isStatic": false,
+          "genericArity": 0,
+          "parameters": [
+            {
+              "Name": "continuationAction",
+              "type": "System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object]",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "state",
+              "type": "System.Object",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "cancellationToken",
+              "type": "System.Threading.CancellationToken",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "continuationOptions",
+              "type": "System.Threading.Tasks.TaskContinuationOptions",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "scheduler",
+              "type": "System.Threading.Tasks.TaskScheduler",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "48836e51ebedf532261f41b1fba8efb00309e93d0f0215fbae705f4e64045327",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Future.cs",
+          "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
