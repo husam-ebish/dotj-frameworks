@@ -45,6 +45,7 @@ public final class AsyncTimedWaitTest {
         listenerTransition("fault");
         listenerTransition("cancel");
         listenerTransition("timeout");
+        listenerTransition("futureCancel");
         System.out.println("PASS: internal timed wait cases");
     }
 
