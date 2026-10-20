@@ -98,6 +98,8 @@ def record(args):
     marker = "- E02, E03 and N01: **IN PROGRESS**"
     assert marker in state
     state = state.replace(marker, f"- {current}: {args.outcome} {args.limitation}\n{marker}", 1)
+    if args.task_id.startswith("DJ-001-WP-02-"):
+        state = state.replace("WP-02: **NOT STARTED**", "WP-02: **IN PROGRESS**")
     state_path.write_text(state, encoding="utf-8")
 
     report_path = STAGE / f"implementation/batches/{current}.md"
