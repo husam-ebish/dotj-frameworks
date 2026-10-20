@@ -106,6 +106,14 @@ Run("genericSourcePending", () =>
         "generic source pending state");
 });
 
+Run("genericSourceResult", () =>
+{
+    TaskCompletionSource<int> source = new();
+    source.SetResult(42);
+    Check(source.Task.IsCompletedSuccessfully && source.Task.Result == 42,
+        "generic source result");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
