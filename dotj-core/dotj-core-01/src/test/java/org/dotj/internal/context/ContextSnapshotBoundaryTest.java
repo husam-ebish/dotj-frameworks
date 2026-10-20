@@ -8,6 +8,7 @@ public final class ContextSnapshotBoundaryTest {
         entryLimitAndOverwrite();
         nullKeyRejected();
         nullValueRejected();
+        emptyKeyRejected();
         // Next bounded case.
         System.out.println("PASS: internal context boundary checks");
     }
@@ -46,6 +47,11 @@ public final class ContextSnapshotBoundaryTest {
         try { snapshot.with("key", null); throw new AssertionError("Null value accepted"); }
         catch (NullPointerException expected) { }
         if (snapshot.size() != 0) throw new AssertionError("Rejected update changed snapshot");
+    }
+
+    private static void emptyKeyRejected() throws Exception {
+        try { ContextSnapshot.empty().with("", "x"); throw new AssertionError("Empty key accepted"); }
+        catch (IllegalArgumentException expected) { }
     }
 
     // Next bounded method.
