@@ -22,7 +22,7 @@ def run(*args, contains):
 
 def gate():
     assert SOURCE.is_dir(), "Pinned source must be mapped to R:"
-    wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 9 Java fixtures and 5 .NET oracles")
+    wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 12 Java fixtures and 5 .NET oracles")
     wp02 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-java-fixtures.ps1"), contains="PASS: 15 internal WP-02 Java fixtures")
     reference = json.loads(run("dotnet", "run", "--project", str(ORACLE / "cancellation-behavior/CancellationBehaviorOracle.csproj"), "--configuration", "Release", "--no-build", "--no-launch-profile", contains="\"runtimeVersion\""))
     assert reference["coreLibSha256"] == CORELIB_HASH and len(reference["cases"]) == 10
@@ -44,7 +44,7 @@ def gate():
         "sourceCommit": upstream["sourceCommit"],
         "runtimeVersion": "10.0.12",
         "coreLibSha256": CORELIB_HASH,
-        "wp01JavaFixtures": 9,
+        "wp01JavaFixtures": 12,
         "wp01DotnetOracles": 5,
         "wp02InternalJavaFixtures": 15,
         "wp02ReferenceCases": 10,
@@ -56,7 +56,7 @@ def gate():
     }
     output = EVIDENCE / "foundation-gate-v10.0.12.json"
     output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print("PASS bounded foundation gate: WP-01 9+5, WP-02 15 Java + 10 upstream")
+    print("PASS bounded foundation gate: WP-01 12+5, WP-02 15 Java + 10 upstream")
 
 
 if __name__ == "__main__":
