@@ -480,6 +480,17 @@ Run("waitAsyncInfiniteTokenCancellationFirst", () =>
     Check(waiting.IsCanceled && !source.Task.IsCompleted, "infinite token cancellation completed source");
 });
 
+Run("waitAsyncInfiniteSourceResultFirst", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.Task.WaitAsync(Timeout.InfiniteTimeSpan, cancellation.Token);
+    source.SetResult(42);
+    Check(waiting.GetAwaiter().GetResult() == 42, "source result under infinite timeout");
+    cancellation.Cancel();
+    Check(waiting.IsCompletedSuccessfully && waiting.Result == 42, "late token changed infinite result");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
