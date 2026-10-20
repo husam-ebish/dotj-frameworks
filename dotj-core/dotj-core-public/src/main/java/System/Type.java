@@ -5,9 +5,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import System.IO.FileNotFoundException;
+import System.Reflection.MemberInfo;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
-public abstract class Type {
+public abstract class Type extends MemberInfo {
     private static final ClassValue<ConcurrentHashMap<List<Type>, Type>> canonical =
             new ClassValue<>() {
                 @Override
@@ -233,7 +234,7 @@ public abstract class Type {
         return this.arguments.toArray(Type[]::new);
     }
 
-    public String get_Name() {
+    protected final String nameCore() {
         if (this.parameterIndex >= 0) {
             if (this.definition == java.util.List.class) {
                 return "T";
@@ -369,11 +370,21 @@ public abstract class Type {
         private ResolvedType(Class<?> definition, List<Type> arguments) {
             super(definition, arguments);
         }
+
+        @Override
+        public String get_Name() {
+            return this.nameCore();
+        }
     }
 
     private static final class GenericParameterType extends Type {
         private GenericParameterType(Class<?> definition, int index) {
             super(definition, List.of(), index);
+        }
+
+        @Override
+        public String get_Name() {
+            return this.nameCore();
         }
     }
 
@@ -387,6 +398,11 @@ public abstract class Type {
             this.elementType = elementType;
             this.rank = rank;
             this.vector = vector;
+        }
+
+        @Override
+        public String get_Name() {
+            return this.nameCore();
         }
 
         @Override
@@ -414,6 +430,11 @@ public abstract class Type {
         }
 
         @Override
+        public String get_Name() {
+            return this.nameCore();
+        }
+
+        @Override
         public boolean get_IsByRef() {
             return true;
         }
@@ -430,6 +451,11 @@ public abstract class Type {
         private PointerType(Type elementType) {
             super(Object.class, List.of());
             this.elementType = elementType;
+        }
+
+        @Override
+        public String get_Name() {
+            return this.nameCore();
         }
 
         @Override

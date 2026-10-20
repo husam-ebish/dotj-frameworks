@@ -5,6 +5,7 @@ using System.Text.Json;
 Type[] selected = [
     typeof(IDisposable),
     typeof(Type),
+    typeof(MemberInfo),
     typeof(Exception),
     typeof(SystemException),
     typeof(ArgumentException),
@@ -196,6 +197,7 @@ var result = new
         baseType = type.BaseType?.FullName,
         isInterface = type.IsInterface,
         isAbstract = type.IsAbstract,
+        nameGetterIsAbstract = type.GetProperty("Name")?.GetMethod?.IsAbstract,
         declaredPublicMethodCount = type.GetMethods(declaredPublic).Count(method => !method.IsSpecialName),
         declaredPublicPropertyCount = type.GetProperties(declaredPublic).Length,
         selectedMethods = type.GetMethods(declaredPublic)
