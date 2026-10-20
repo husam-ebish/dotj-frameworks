@@ -30,6 +30,20 @@ public abstract class Type {
         return canonical.get(definition).computeIfAbsent(List.of(), key -> new ResolvedType(definition, key));
     }
 
+    /** Selected CoreLib names only; broader lookup and assembly resolution remain open. */
+    public static Type GetType(String typeName) {
+        if (typeName == null) {
+            throw new NullPointerException("typeName");
+        }
+        return switch (typeName) {
+            case "System.String" -> fromJavaClass(String.class);
+            case "System.Int32" -> fromJavaClass(Integer.class);
+            case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
+            case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
+            default -> null;
+        };
+    }
+
     public Type MakeGenericType(Type[] typeArguments) {
         if (typeArguments == null) {
             throw new NullPointerException("typeArguments");

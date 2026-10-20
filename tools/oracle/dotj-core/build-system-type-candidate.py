@@ -13,9 +13,8 @@ SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
-FACTORY = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeCandidateFactory.java"
 EXTERNAL = ROOT / "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java"
-BUILD = ROOT / "dotj-core/dotj-core-public/build/type-identity-candidate"
+BUILD = ROOT / "dotj-core/dotj-core-public/build/type-identity-candidate-v2"
 CLASSES = BUILD / "product-classes"
 TEST_CLASSES = BUILD / "test-classes"
 EVIDENCE = EVIDENCE_ROOT / "system-type-identity-candidate-v1.json"
@@ -41,9 +40,12 @@ def main():
         "System.Type GetGenericTypeDefinition()",
         "System.Type[] GetGenericArguments()",
         "System.Type MakeGenericType(System.Type[])",
+        "System.Type GetType(System.String)",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
     assert selected <= signatures
+    assert any(method["signature"] == "System.Type GetType(System.String)" and method["isStatic"]
+               for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType"} <= properties
 
@@ -52,11 +54,13 @@ def main():
     run("javac", "--release", "21", "-d", str(CLASSES), str(SOURCE))
     assert not (CLASSES / "System/TypeCandidateFactory.class").exists()
     run("javac", "--release", "21", "-cp", str(CLASSES), "-d", str(TEST_CLASSES),
-        str(FACTORY), str(TEST), str(EXTERNAL))
+        str(TEST), str(EXTERNAL))
+    assert not (TEST_CLASSES / "System/TypeCandidateFactory.class").exists()
     public = run("javap", "-public", "-classpath", str(CLASSES), "System.Type")
     assert "public abstract class System.Type" in public
     members = [line.strip() for line in public.splitlines() if line.strip().endswith(";")]
     assert members == [
+        "public static System.Type GetType(java.lang.String);",
         "public System.Type MakeGenericType(System.Type[]);",
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
@@ -80,8 +84,6 @@ def main():
         "sourceSha256": sha256(SOURCE),
         "testPath": TEST.relative_to(ROOT).as_posix(),
         "testSha256": sha256(TEST),
-        "testFactoryPath": FACTORY.relative_to(ROOT).as_posix(),
-        "testFactorySha256": sha256(FACTORY),
         "externalConsumerPath": EXTERNAL.relative_to(ROOT).as_posix(),
         "externalConsumerSha256": sha256(EXTERNAL),
         "publicMembers": members,

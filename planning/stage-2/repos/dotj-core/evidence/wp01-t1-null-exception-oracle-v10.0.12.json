@@ -7,10 +7,11 @@
   "oracles": [
     {
       "project": "tools/oracle/dotj-core/type-identity/TypeIdentityOracle.csproj",
-      "programSha256": "1139ebb31ad45eeebba2b29c7a8a60fd21e04324580ff20b3b8b92cc52fd1293",
+      "programSha256": "792db0a96581de222aa91bf89e129be064e161ed31909c90dce089abf72e6613",
       "case": "typeof(List<>).MakeGenericType(null Type[])",
       "observedException": "System.ArgumentNullException",
       "observedParameter": "typeArguments",
+      "selectedTypeNameLookup": true,
       "result": "PASS"
     },
     {
