@@ -235,7 +235,8 @@
     "Batch-218",
     "Batch-219",
     "Batch-220",
-    "Batch-221"
+    "Batch-221",
+    "Batch-222"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -10039,12 +10040,20 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-222",
+    "id": "Batch-223",
     "framework": "dotj-core",
     "planTaskIds": [
-      "BATCH-PLAN"
+      "E03"
     ],
-    "outcome": "Baseline a versioned total batch plan for a defensible cumulative x/y count.",
+    "outcome": "Continue dotj-core WP-01/WP-02 E03 acceptance work and reconcile the plan if the gate remains open.",
     "requiresContinue": true
+  },
+  "batchPlan": {
+    "version": "stage-2-batches-v1",
+    "source": "planning/stage-2/implementation/BATCH-PLAN-v1.json",
+    "plannedTotalBatches": 1908,
+    "completedBatches": 222,
+    "remainingPlannedBatches": 1686,
+    "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes"
   }
 }
