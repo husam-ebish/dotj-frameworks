@@ -1658,6 +1658,32 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-432",
+      "members": [
+        {
+          "declaringType": "System.Threading.AsyncLocal`1",
+          "method": "set_Value",
+          "signature": "Void set_Value(T)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/async-local.json",
+          "returnType": "System.Void",
+          "isStatic": false,
+          "genericArity": 0,
+          "parameters": [
+            {
+              "Name": "value",
+              "type": "T",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "fcbe01418e67f1149f71d6a67ba9ccdf4cad2deefd2a695b3b2da1c84a38c4b3",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/AsyncLocal.cs",
+          "owningSourceSha256": "ddf43175640a71d1594855242d8e1f9269d18e928daefe35912dfecca34d6fd1",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
