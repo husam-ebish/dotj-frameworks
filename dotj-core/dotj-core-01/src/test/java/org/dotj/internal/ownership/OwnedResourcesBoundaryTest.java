@@ -14,6 +14,7 @@ public final class OwnedResourcesBoundaryTest {
         duplicateOwnedIdentity();
         equalDistinctResources();
         reverseOrderWithBorrowed();
+        checkedFailurePreserved();
         // Next bounded case.
         System.out.println("PASS: internal ownership boundary checks");
     }
@@ -69,6 +70,14 @@ public final class OwnedResourcesBoundaryTest {
         scope.addOwned(() -> events.add("a")); scope.addBorrowed(() -> events.add("borrowed"));
         scope.addOwned(() -> events.add("b")); scope.addOwned(() -> events.add("c")); scope.close();
         if (!events.equals(List.of("c", "b", "a"))) throw new AssertionError(events.toString());
+    }
+
+    private static void checkedFailurePreserved() throws Exception {
+        OwnedResources scope = new OwnedResources(); AtomicInteger lower = new AtomicInteger();
+        Exception failure = new Exception("checked"); scope.addOwned(() -> lower.incrementAndGet());
+        scope.addOwned(() -> { throw failure; });
+        try { scope.close(); throw new AssertionError("Checked cleanup failure lost"); }
+        catch (Exception observed) { if (observed != failure || lower.get() != 1) throw observed; }
     }
 
     // Next bounded method.
