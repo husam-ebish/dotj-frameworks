@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-086",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "Java async-disposal signature syntax",
+  "assertionsPassed": [
+    "Java async-disposal signature syntax passed"
+  ],
+  "observed": {
+    "compiled": true,
+    "returnType": "System.Threading.Tasks.ValueTask",
+    "javaSyntaxConstraint": "Import ValueTask; java.lang.System shadows a fully qualified System.Threading reference in this context."
+  },
+  "openGaps": [
+    "The ValueTask class is an empty compile-only placeholder; async behavior is blocked."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}

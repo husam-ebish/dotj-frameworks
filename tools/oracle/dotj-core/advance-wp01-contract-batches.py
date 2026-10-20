@@ -21,7 +21,9 @@ PROBES = ROOT / "tools/oracle/dotj-core/java-probes"
 
 
 def run(*args):
-    result = subprocess.run(args, cwd=ROOT, text=True, capture_output=True, check=True)
+    result = subprocess.run(args, cwd=ROOT, text=True, capture_output=True)
+    if result.returncode:
+        raise RuntimeError(f"Command failed: {args}\n{result.stdout}\n{result.stderr}")
     return result.stdout.strip()
 
 
@@ -145,11 +147,11 @@ def batch(number):
         value_task.parent.mkdir(parents=True, exist_ok=True)
         value_task.write_text("package System.Threading.Tasks;\n\n/** Compile-only placeholder; no ValueTask semantics. */\npublic final class ValueTask {\n}\n", encoding="utf-8")
         async_disposable = PROBES / "System/IAsyncDisposable.java"
-        async_disposable.write_text("package System;\n\n/** Compile-only exact-name probe; not product API. */\npublic interface IAsyncDisposable {\n    System.Threading.Tasks.ValueTask DisposeAsync();\n}\n", encoding="utf-8")
+        async_disposable.write_text("package System;\n\nimport System.Threading.Tasks.ValueTask;\n\n/** Compile-only exact-name probe; not product API. */\npublic interface IAsyncDisposable {\n    ValueTask DisposeAsync();\n}\n", encoding="utf-8")
         files += [value_task, async_disposable]
         output = ROOT / "dotj-core/dotj-core-01/build/name-probes"
         run("javac", "-d", str(output), str(value_task), str(async_disposable))
-        subject, observed = "Java async-disposal signature syntax", {"compiled": True, "returnType": "System.Threading.Tasks.ValueTask"}
+        subject, observed = "Java async-disposal signature syntax", {"compiled": True, "returnType": "System.Threading.Tasks.ValueTask", "javaSyntaxConstraint": "Import ValueTask; java.lang.System shadows a fully qualified System.Threading reference in this context."}
         gaps = ["The ValueTask class is an empty compile-only placeholder; async behavior is blocked."]
     elif number == 87:
         task = "N01"
@@ -249,10 +251,15 @@ def batch(number):
 
 def main():
     assert SOURCE.exists(), "Pinned source must be mapped to R:"
-    assert run("git", "branch", "--show-current") == "master"
-    for number in range(75, 95):
+    progress = json.loads((ROOT / "planning/stage-2/IMPLEMENTATION-PROGRESS.json").read_text(encoding="utf-8"))
+    start = len(progress["completedBatches"]) + 1
+    assert 75 <= start <= 94
+    current_branch = run("git", "branch", "--show-current")
+    assert current_branch in ("master", f"feature/batch-{start:03d}-wp01-contract")
+    for number in range(start, 95):
         branch = f"feature/batch-{number:03d}-wp01-contract"
-        run("git", "switch", "-c", branch)
+        if run("git", "branch", "--show-current") == "master":
+            run("git", "switch", "-c", branch)
         try:
             task, outcome, next_text, files, limitation = batch(number)
             relative = [str(path.relative_to(ROOT)).replace("\\", "/") for path in files]
