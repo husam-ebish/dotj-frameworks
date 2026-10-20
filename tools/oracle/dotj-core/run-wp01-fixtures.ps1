@@ -12,6 +12,7 @@ $sources = @(
     'src/main/java/org/dotj/internal/context/ContextSnapshot.java'
     'src/main/java/org/dotj/internal/context/ContextTransfer.java'
     'src/main/java/org/dotj/internal/types/TypeIdentity.java'
+    'src/main/java/org/dotj/internal/types/ArityNameMap.java'
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesTest.java'
     'src/test/java/org/dotj/internal/ownership/CallerOwnershipTest.java'
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesRaceTest.java'
@@ -26,6 +27,7 @@ $sources = @(
     'src/test/java/org/dotj/internal/types/TypeIdentityTest.java'
     'src/test/java/org/dotj/internal/types/TypeIdentityLoaderTest.java'
     'src/test/java/org/dotj/internal/types/TypeIdentityBoundaryTest.java'
+    'src/test/java/org/dotj/internal/types/ArityNameMapTest.java'
 ) | ForEach-Object { Join-Path $javaRoot $_ }
 
 & javac -d $classes @sources
@@ -45,6 +47,7 @@ $javaTests = @(
     'org.dotj.internal.types.TypeIdentityTest'
     'org.dotj.internal.types.TypeIdentityLoaderTest'
     'org.dotj.internal.types.TypeIdentityBoundaryTest'
+    'org.dotj.internal.types.ArityNameMapTest'
 )
 foreach ($test in $javaTests) {
     & java -cp $classes $test
