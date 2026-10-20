@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "selectedMethodCount": 99,
+  "scope": "Compile-only Java declaration feasibility with temporary support stubs; no method behavior or public facade qualification",
+  "entries": [
+    {
+      "index": 1,
+      "sourceBatch": "Batch-301",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WaitAsync(System.Threading.CancellationToken)",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public abstract Task WaitAsync(CancellationToken cancellationToken);",
+      "generatedSourceSha256": "ab7b9ca8cac54be126a30657273699bd30139f92f2ba416093bacc16d179d389",
+      "supportTypes": [
+        "System.Threading.CancellationToken"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-768"
+    }
+  ]
+}
