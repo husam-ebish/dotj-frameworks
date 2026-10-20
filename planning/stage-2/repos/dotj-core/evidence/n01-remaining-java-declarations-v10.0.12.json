@@ -122,6 +122,22 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-875"
+    },
+    {
+      "index": 9,
+      "sourceBatch": "Batch-406",
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.ReadOnlySpan`1[System.Threading.CancellationToken])",
+      "backendOwner": "System.Threading.CancellationTokenSource",
+      "javaDeclaration": "public static CancellationTokenSource CreateLinkedTokenSource(ReadOnlySpan_1<CancellationToken> tokens) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "13fb55214004b6406bcdad5824e5699e4b33c434ef0cf1fe638bbb358a0723ee",
+      "supportTypes": [
+        "System.ReadOnlySpan_1",
+        "System.Threading.CancellationToken"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-876"
     }
   ]
 }
