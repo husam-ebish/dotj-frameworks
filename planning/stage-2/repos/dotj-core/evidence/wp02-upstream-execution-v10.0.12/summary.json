@@ -1,0 +1,62 @@
+{
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sdkVersion": "10.0.401",
+  "runtimeVersion": "10.0.12",
+  "testSourceSha256": "dcbd3e37b3bd1f1243d468016757df610c84e7c949961ca3e528a27992226d8d",
+  "projectSha256": "acdec2f8c5538d740f8ab2efba1aa4a147ecb37e6d2c346eadad012ff66f4ae5",
+  "passed": 10,
+  "cases": [
+    {
+      "oracleCase": "lateRegistration",
+      "upstreamMethod": "CancellationTokenLateEnlistment",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "callbackOrder",
+      "upstreamMethod": "CallbacksOrderIsLifo",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "aggregateException",
+      "upstreamMethod": "Cancel_DontThrowOnFirstException",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "stopOnFirstException",
+      "upstreamMethod": "Cancel_ThrowOnFirstException",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "unregister",
+      "upstreamMethod": "CancellationTokenRegistration_UnregisterRemovesDelegate",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "cancelAsync",
+      "upstreamMethod": "CancellationTokenSource_CancelAsync_CallbacksInvokedAsynchronously",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "linked",
+      "upstreamMethod": "CreateLinkedTokenSource_Simple_TwoToken",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "retainedToken",
+      "upstreamMethod": "TokenSourceDispose_Negative",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "tryReset",
+      "upstreamMethod": "CancellationTokenSource_TryReset_ReturnsFalseIfAlreadyCanceled",
+      "outcome": "Passed"
+    },
+    {
+      "oracleCase": "cancelAfter",
+      "upstreamMethod": "CancellationTokenSourceWithTimer",
+      "outcome": "Passed"
+    }
+  ],
+  "trxPath": "cancellation.trx",
+  "trxSha256": "1201c5bb78d8e8b972739356ab214b2b9048636064c08c9c9f46b1f6b762494f"
+}
