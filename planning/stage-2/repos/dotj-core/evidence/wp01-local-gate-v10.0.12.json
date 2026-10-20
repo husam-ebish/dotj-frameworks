@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-052",
+  "command": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/oracle/dotj-core/run-wp01-fixtures.ps1",
+  "runnerSha256": "9cf1428ac67bacfd97caa9ab59f4c6cd3d954e0f22e96377c229cd51c5706b71",
+  "toolchain": {
+    "javac": "21.0.12.1",
+    "dotnetSdk": "10.0.401",
+    "dotnetRuntime": "10.0.12",
+    "System.Private.CoreLib.dll.sha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678"
+  },
+  "result": "PASS",
+  "javaFixtureCount": 9,
+  "dotnetOracleCount": 5,
+  "javaFixtures": [
+    "OwnedResourcesTest",
+    "CallerOwnershipTest",
+    "OwnedResourcesRaceTest",
+    "OwnedResourcesReentrancyTest",
+    "ContextSnapshotTest",
+    "ContextTransferTest",
+    "ContextIsolationTest",
+    "TypeIdentityTest",
+    "TypeIdentityLoaderTest"
+  ],
+  "dotnetOracles": [
+    "DisposalMetadataOracle",
+    "DisposalBehaviorOracle",
+    "DiOwnershipOracle",
+    "ContextFlowOracle",
+    "TypeIdentityOracle"
+  ],
+  "limits": [
+    "These are local internal Java fixtures and independent .NET oracles, not the pinned upstream xUnit suite.",
+    "The runner does not establish public API equivalence or close E01-E03, N01 or Q01.",
+    "The overall implementation-only task denominator remains unclassified."
+  ]
+}
