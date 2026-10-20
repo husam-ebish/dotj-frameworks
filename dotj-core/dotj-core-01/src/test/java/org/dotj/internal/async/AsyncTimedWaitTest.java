@@ -10,6 +10,7 @@ public final class AsyncTimedWaitTest {
     public static void main(String[] args) throws Exception {
         finitePendingTimesOut();
         scenario("zero pending", 0, "pending", false, "none", "timeout", "none");
+        scenario("zero completed result", 0, "result", false, "none", "result", "none");
         System.out.println("PASS: internal timed wait cases");
     }
 
