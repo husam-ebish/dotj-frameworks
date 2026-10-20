@@ -41,6 +41,7 @@ public final class AsyncTimedWaitTest {
         resourceTransition("cancel");
         resourceTransition("signal");
         resourceTransition("timeout");
+        listenerTransition("result");
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -189,6 +190,27 @@ public final class AsyncTimedWaitTest {
         if (terminal.equals("timeout") || terminal.equals("signal")) {
             check(source.state() == AsyncState.PENDING, terminal + " changed source state");
         }
+    }
+
+    private static void listenerTransition(String terminal) throws Exception {
+        AsyncCompletion<Integer> source = new AsyncCompletion<>();
+        WaitCancellationSignal shared = new WaitCancellationSignal();
+        Throwable fault = new IllegalStateException("listener " + terminal);
+        long timeout = terminal.equals("timeout") ? 100 : -1;
+        CompletableFuture<Integer> waiting = source.waitAsync(timeout, shared);
+        check(shared.listenerCount() == 1 && source.waiterCount() == 1,
+                terminal + " did not register listener");
+        if (terminal.equals("futureCancel")) {
+            waiting.cancel(false);
+        } else if (!terminal.equals("timeout")) {
+            apply(terminal, source, shared, fault);
+        }
+        String expected = terminal.equals("futureCancel") || terminal.equals("signal") ?
+                "cancel" : terminal;
+        assertOutcome("listener " + terminal, waiting, expected, fault);
+        awaitCleanup(source, shared, "listener " + terminal);
+        shared.signal();
+        assertOutcome("listener late signal " + terminal, waiting, expected, fault);
     }
 
     private static void check(boolean condition, String message) {
