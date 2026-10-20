@@ -3264,6 +3264,21 @@
       "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
       "compilerError": "unexpected type",
       "batch": "Batch-1088"
+    },
+    {
+      "index": 220,
+      "sourceBatch": "Batch-592",
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String)",
+      "backendOwner": "System.Type",
+      "javaDeclaration": "public static Type GetType(String typeName) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "d1f87af7a4ce1474500088919edd2ddc819964728b8b0cb7b4c9b92bb148bf42",
+      "supportTypes": [
+        "System.String"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-1089"
     }
   ]
 }
