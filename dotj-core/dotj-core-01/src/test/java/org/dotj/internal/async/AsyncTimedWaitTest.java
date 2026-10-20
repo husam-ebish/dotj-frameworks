@@ -55,6 +55,7 @@ public final class AsyncTimedWaitTest {
         raceAgainstTimeout("cancel");
         raceAgainstTimeout("signal");
         raceAgainstTimeout("threeWay");
+        daemonTimer();
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -344,6 +345,22 @@ public final class AsyncTimedWaitTest {
             Thread.currentThread().interrupt();
             throw new AssertionError("race worker interrupted", exception);
         }
+    }
+
+    private static void daemonTimer() throws Exception {
+        AsyncCompletion<Integer> source = new AsyncCompletion<>();
+        WaitCancellationSignal signal = new WaitCancellationSignal();
+        CompletableFuture<Integer> waiting = source.waitAsync(30_000, signal);
+        boolean found = false;
+        for (Thread thread : Thread.getAllStackTraces().keySet()) {
+            if (thread.getName().equals("dotj-async-wait-timer")) {
+                check(thread.isDaemon(), "timed-wait thread is not a daemon");
+                found = true;
+            }
+        }
+        check(found, "timed-wait timer thread was not started");
+        waiting.cancel(false);
+        awaitCleanup(source, signal, "daemon timer");
     }
 
     private static void check(boolean condition, String message) {
