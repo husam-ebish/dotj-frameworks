@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "declaringType": "System.Threading.Tasks.Task`1",
+  "sourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Future.cs",
+  "sourceLine": 474,
+  "metadataSignature": "System.Threading.Tasks.TaskFactory`1[TResult] get_Factory()",
+  "isStatic": true,
+  "methodGenericArity": 0,
+  "javaProbe": "public static TaskFactory_1<TResult> get_Factory()",
+  "javacDiagnostic": "non-static type variable TResult cannot be referenced from a static context",
+  "candidateDisposition": "BLOCKED: a Java static member cannot reference its declaring class's TResult type parameter. Making get_Factory a generic method would change its method generic arity from the pinned .NET metadata; a raw TaskFactory return would lose its generic result identity. Neither is recorded as exact compatibility.",
+  "qualification": "N01 mapping unresolved; no product API or behavior accepted"
+}

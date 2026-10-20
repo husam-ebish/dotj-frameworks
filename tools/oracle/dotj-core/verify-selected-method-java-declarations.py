@@ -41,6 +41,8 @@ def split_arguments(text):
 
 
 def convert_type(metadata, type_parameters, support):
+    if metadata.endswith("[]"):
+        return convert_type(metadata[:-2], type_parameters, support) + "[]"
     if metadata in PRIMITIVES:
         return PRIMITIVES[metadata]
     if metadata in type_parameters:
@@ -51,9 +53,9 @@ def convert_type(metadata, type_parameters, support):
     base = match["base"]
     arity = int(match["arity"]) if match["arity"] else 0
     arguments = split_arguments(match["arguments"]) if match["arguments"] else []
-    if len(arguments) != arity or arity > 1:
+    if len(arguments) != arity:
         raise ValueError("Unsupported metadata arity: " + metadata)
-    backend = base + ("_1" if arity else "")
+    backend = base + ("_" + str(arity) if arity else "")
     support[backend] = arity
     simple = backend.rsplit(".", 1)[-1]
     if arguments:
@@ -83,7 +85,7 @@ def build_probe(entry):
         raise ValueError("Unsupported declaring type arity")
     owner_name = owner["base"] + ("_1" if owner_arity else "")
     owner_package, owner_simple = owner_name.rsplit(".", 1)
-    class_parameters = ["TResult"] if owner_arity else []
+    class_parameters = (["T"] if owner["base"] == "System.Threading.AsyncLocal" else ["TResult"]) if owner_arity else []
     generic_method_parameters = method_parameters(entry)
     all_parameters = set(class_parameters + generic_method_parameters)
     if len(all_parameters) != len(class_parameters) + len(generic_method_parameters):
@@ -113,7 +115,7 @@ def build_probe(entry):
     declaration = ("public static " if entry["isStatic"] else "public abstract ") + generic_prefix + return_type
     declaration += " " + entry["name"] + "(" + ", ".join(arguments) + ")"
     declaration += " { throw new UnsupportedOperationException(); }" if entry["isStatic"] else ";"
-    class_suffix = "<TResult>" if owner_arity else ""
+    class_suffix = "<" + class_parameters[0] + ">" if owner_arity else ""
     source = "package " + owner_package + ";\n"
     source += "".join("import " + name + ";\n" for name in imported)
     source += "public abstract class " + owner_simple + class_suffix + " {\n    " + declaration + "\n}\n"
@@ -134,7 +136,7 @@ def compile_probe(owner_name, source, support):
         files = [java_file(root, owner_name, source)]
         for name, arity in sorted(support.items()):
             package, simple = name.rsplit(".", 1)
-            suffix = "<T>" if arity else ""
+            suffix = "<" + ", ".join("T" + str(i) for i in range(1, arity + 1)) + ">" if arity else ""
             files.append(java_file(root, name, "package " + package + "; public class " + simple + suffix + " {}\n"))
         output = root / "classes"
         output.mkdir()
