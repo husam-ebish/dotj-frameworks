@@ -63,12 +63,18 @@ public abstract class Type {
         if (typeName == null) {
             throw new ArgumentNullException("typeName");
         }
-        String name = typeName;
+        String name = typeName.stripLeading();
         int assemblySeparator = typeName.indexOf(',');
         if (assemblySeparator >= 0) {
             String assembly = typeName.substring(assemblySeparator + 1).trim();
+            if (assembly.isEmpty()) {
+                if (throwOnError) {
+                    throw new ArgumentException("Invalid assembly name", "typeName@" + assemblySeparator);
+                }
+                return null;
+            }
             if (assembly.equals("System.Private.CoreLib") || assembly.equals("mscorlib")) {
-                name = typeName.substring(0, assemblySeparator).trim();
+                name = typeName.substring(0, assemblySeparator).stripLeading();
             } else if (throwOnError) {
                 throw new FileNotFoundException("Could not load assembly: " + assembly);
             }

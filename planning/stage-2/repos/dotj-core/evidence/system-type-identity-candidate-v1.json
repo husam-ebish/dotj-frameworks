@@ -59,10 +59,45 @@
       "result": null,
       "exception": "System.IO.FileNotFoundException",
       "paramName": null
+    },
+    "emptyName": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "emptyNameThrow": {
+      "result": null,
+      "exception": "System.TypeLoadException",
+      "paramName": null
+    },
+    "leadingSpace": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "trailingSpace": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "qualifierSpace": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "emptyAssembly": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "emptyAssemblyThrow": {
+      "result": null,
+      "exception": "System.ArgumentException",
+      "paramName": "typeName@13"
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "218a40242f8b5e01aa52f116e7b7d5dbc67b23e0878442e84d76b8ee6487e19b",
+  "sourceSha256": "98f30bcedefe5c3ec8431cfc9329d10f2c790cddb9e8a4ae7e38493b45d37356",
   "exceptionSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -86,17 +121,17 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/IO/IOException.java",
-      "sha256": "914db3ec09bf6aeadd4e224970c122e6d9b137dbf20bc8fb6cd2bdd47a54cc6c"
+      "sha256": "1874b8967afc8c1fb73e76797897e11fd8082113908b80a09639c41b390c86f4"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/IO/FileNotFoundException.java",
-      "sha256": "2ea33dd66fb04065b2c8e23ed1412baa0605966604907c1795067621e2320357"
+      "sha256": "07306b6ea5a76527d74d28480f7e1847894647fd1dffbcd5d2ac9c5845cd6d22"
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
   "testSha256": "12a935a158b3bb41c4fac98c03d0b44196f4244157d0a08d17a86b0754c824e3",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
-  "externalConsumerSha256": "74aa424c593a0a5f7eb367c8551a6967b0f771d9a8a844bcc8dbe738c9da794b",
+  "externalConsumerSha256": "db6b057aec357dcd448be888b721a2abc84530efe142244c57ea405c4f2b027e",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
   "concurrencyTestSha256": "400b29826a163847549aaa6afcd65b9ddf5f3ccd8b0d82d8b5cb8140381844ad",
   "loaderFixturePath": "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java",

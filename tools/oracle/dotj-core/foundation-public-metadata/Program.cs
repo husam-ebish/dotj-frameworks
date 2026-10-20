@@ -68,6 +68,13 @@ var result = new
         legacyString = ObserveGetType("System.String, mscorlib", false, false),
         unknownAssembly = ObserveGetType("System.String, NotAnAssembly", false, false),
         unknownAssemblyThrow = ObserveGetType("System.String, NotAnAssembly", true, false),
+        emptyName = ObserveGetType("", false, false),
+        emptyNameThrow = ObserveGetType("", true, false),
+        leadingSpace = ObserveGetType(" System.String", false, false),
+        trailingSpace = ObserveGetType("System.String ", false, false),
+        qualifierSpace = ObserveGetType("System.String , System.Private.CoreLib", false, false),
+        emptyAssembly = ObserveGetType("System.String, ", false, false),
+        emptyAssemblyThrow = ObserveGetType("System.String, ", true, false),
     },
     types = selected.Select(type => new
     {
