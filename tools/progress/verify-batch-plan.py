@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import re
 from pathlib import Path
 
 
@@ -292,6 +293,14 @@ def main():
             [(m["declaringType"], m["signature"]) for m in item["members"]] for item in schedule[1:1 + verified]]
     completed = progress["completedBatches"]
     assert completed == [f"Batch-{number:03d}" for number in range(1, len(completed) + 1)]
+    latest = completed[-1]
+    following = f"Batch-{len(completed) + 1:03d}"
+    state = (STAGE / "IMPLEMENTATION-STATE.md").read_text(encoding="utf-8")
+    assert re.search(r"^- Completed batches: `Batch-001` through `" + latest + r"`", state, re.M)
+    assert re.search(r"^- Batch tracking: " + f"{len(completed):,}" + r" (?:total batches|/)", state, re.M)
+    assert re.search(r"^Proposed `" + following + r"`:", state, re.M)
+    assert f"See [{latest}](implementation/batches/{latest}.md)" in state
+    assert progress["nextProposedBatch"]["id"] == following
     assert len(completed) >= plan["historicalCompletedBatches"]
     if plan["planVersion"] != "stage-2-batches-v7":
         assert len(completed) <= expected_total, "Rebaseline before exhausting planned slots"

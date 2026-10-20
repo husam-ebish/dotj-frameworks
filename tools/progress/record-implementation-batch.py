@@ -15,6 +15,13 @@ def save_json(path, value):
     path.write_text(json.dumps(value, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
 
+def replace_once(pattern, replacement, source, flags=0):
+    updated, count = re.subn(pattern, replacement, source, count=1, flags=flags)
+    if count != 1:
+        raise ValueError("Implementation state anchor missing: " + pattern)
+    return updated
+
+
 def baseline(progress):
     counts = {"WP": 0, "SDK": 0, "N01": 0}
     all_ids = set()
@@ -113,20 +120,20 @@ def record(args):
     state_path = STAGE / "IMPLEMENTATION-STATE.md"
     state = state_path.read_text(encoding="utf-8")
     state = re.sub(r"Updated: .*? Baseline: `[^`]+`\.", f"Updated: 2026-10-20. Baseline: `{BASELINE}`.", state, count=1)
-    state = re.sub(r"Completed batches: `Batch-001` through `Batch-\d{3}`", f"Completed batches: `Batch-001` through `{current}`", state, count=1)
+    state = replace_once(r"Completed batches: `Batch-001` through `Batch-\d+`", f"Completed batches: `Batch-001` through `{current}`", state)
     state = re.sub(r"Implementation percentage: \*\*.*?\*\*\. .*?(?=\n- Batch tracking:)",
                    "Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.", state, count=1, flags=re.S)
     tracking_line = (f"Batch tracking: {args.number:,} total batches completed under `{plan['planVersion']}`; total planned and total remaining batches are unknown. "
                      f"{open_acceptance:,} acceptance items remain; these are not a batch count. The next proposed batch is `{following}`."
                      if open_acceptance is not None else
                      f"Batch tracking: {args.number:,}/{total_batches:,} planned batches completed under `{plan['planVersion']}`; {total_batches - args.number:,} planned batches remain. This is a versioned scheduling estimate. The next proposed batch is `{following}`.")
-    state = re.sub(r"Batch tracking: .*?The next proposed batch is `Batch-\d{3}`\.", tracking_line, state, count=1)
-    state = re.sub(r"Proposed `Batch-\d{3}`:.*", f"Proposed `{following}`: {args.next_outcome}", state, count=1)
+    state = replace_once(r"Batch tracking: .*?The next proposed batch is `Batch-\d+`\.", tracking_line, state)
+    state = replace_once(r"Proposed `Batch-\d+`:.*", f"Proposed `{following}`: {args.next_outcome}", state)
     continuation = ("The current request authorizes the next batch." if open_acceptance is not None and open_acceptance > 0
                     else "A new CONTINUE signal is needed to start the next batch.")
-    state = re.sub(r"See \[Batch-\d{3}\]\(implementation/batches/Batch-\d{3}\.md\).*",
+    state = replace_once(r"See \[Batch-\d+\]\(implementation/batches/Batch-\d+\.md\).*",
                    f"See [{current}](implementation/batches/{current}.md) for the latest validation record and limitations. " +
-                   continuation, state, count=1)
+                   continuation, state)
     marker = "- E02, E03 and N01: **IN PROGRESS**"
     assert marker in state
     state = state.replace(marker, f"- {current}: {args.outcome} {args.limitation}\n{marker}", 1)
