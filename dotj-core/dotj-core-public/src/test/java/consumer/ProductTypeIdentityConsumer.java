@@ -89,6 +89,18 @@ public final class ProductTypeIdentityConsumer {
                 || jagged != Type.GetType("system.string[][]", false, true)) {
             throw new AssertionError("Selected jagged array identity changed");
         }
+        Type rectangular = Type.GetType("System.String[,]");
+        Type rankThree = Type.GetType("System.String[,,]");
+        Type listArray = Type.GetType("System.Collections.Generic.List`1[System.String][]");
+        if (rectangular == null || rankThree == null || listArray == null
+                || rectangular == rankThree || rectangular == jagged
+                || rectangular == Type.GetType("System.String[]")
+                || rectangular != Type.GetType("System.String[,]")
+                || rankThree != Type.GetType("system.string[,,]", false, true)
+                || listArray != Type.GetType("System.Collections.Generic.List`1[System.String][]")
+                || listArray.get_IsGenericType()) {
+            throw new AssertionError("Selected CLR array-shape identity changed");
+        }
         Type same = definition.MakeGenericType(new Type[] {string});
         Type different = definition.MakeGenericType(new Type[] {integer});
         if (first != same || !first.Equals(same) || first.Equals(different)

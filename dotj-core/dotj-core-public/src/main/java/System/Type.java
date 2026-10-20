@@ -26,6 +26,7 @@ public abstract class Type {
             return result;
         }
     };
+    private static final ConcurrentHashMap<List<Object>, Type> arrayShapes = new ConcurrentHashMap<>();
 
     private final Class<?> definition;
     private final List<Type> arguments;
@@ -47,6 +48,11 @@ public abstract class Type {
             throw new NullPointerException("definition");
         }
         return canonical.get(definition).computeIfAbsent(List.of(), key -> new ResolvedType(definition, key));
+    }
+
+    private static Type arrayOf(Type elementType, int rank) {
+        List<Object> key = List.of(elementType, rank);
+        return arrayShapes.computeIfAbsent(key, ignored -> new ArrayType(elementType, rank));
     }
 
     /** Selected CoreLib names only; broader lookup and assembly resolution remain open. */
@@ -99,6 +105,8 @@ public abstract class Type {
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
             case "System.String[]" -> fromJavaClass(String[].class);
             case "System.String[][]" -> fromJavaClass(String[][].class);
+            case "System.String[,]" -> arrayOf(fromJavaClass(String.class), 2);
+            case "System.String[,,]" -> arrayOf(fromJavaClass(String.class), 3);
             case "System.Int32[]" -> fromJavaClass(int[].class);
             case "System.Collections.Generic.List`1[System.String]",
                     "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]" ->
@@ -110,12 +118,17 @@ public abstract class Type {
             case "System.Collections.Generic.Dictionary`2[System.Int32,System.String]" ->
                     fromJavaClass(java.util.Map.class).MakeGenericType(
                             new Type[] {fromJavaClass(Integer.class), fromJavaClass(String.class)});
+            case "System.Collections.Generic.List`1[System.String][]" ->
+                    arrayOf(fromJavaClass(java.util.List.class)
+                            .MakeGenericType(new Type[] {fromJavaClass(String.class)}), 1);
             case "system.string" -> ignoreCase ? fromJavaClass(String.class) : null;
             case "system.int32" -> ignoreCase ? fromJavaClass(Integer.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
             case "system.collections.generic.dictionary`2" -> ignoreCase ? fromJavaClass(java.util.Map.class) : null;
             case "system.string[]" -> ignoreCase ? fromJavaClass(String[].class) : null;
             case "system.string[][]" -> ignoreCase ? fromJavaClass(String[][].class) : null;
+            case "system.string[,]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 2) : null;
+            case "system.string[,,]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 3) : null;
             case "system.int32[]" -> ignoreCase ? fromJavaClass(int[].class) : null;
             case "system.collections.generic.list`1[system.string]",
                     "system.collections.generic.list`1[[system.string, system.private.corelib]]" ->
@@ -202,6 +215,17 @@ public abstract class Type {
     private static final class GenericParameterType extends Type {
         private GenericParameterType(Class<?> definition, int index) {
             super(definition, List.of(), index);
+        }
+    }
+
+    private static final class ArrayType extends Type {
+        private final Type elementType;
+        private final int rank;
+
+        private ArrayType(Type elementType, int rank) {
+            super(Object.class, List.of());
+            this.elementType = elementType;
+            this.rank = rank;
         }
     }
 }
