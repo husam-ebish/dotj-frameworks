@@ -1109,6 +1109,7 @@ Updated: 2026-10-20. Baseline: `stage-2-2026-10-20-v2`.
 - Batch-1109: Checked pinned remaining method 240: System.Type.Boolean IsInstanceOfType(System.Object) Java declaration feasibility. Temporary support types verify syntax only; behavior and public facade remain unqualified.
 - Batch-1110: Checked pinned remaining method 241: System.Type.Boolean IsSubclassOf(System.Type) Java declaration feasibility. Temporary support types verify syntax only; behavior and public facade remain unqualified.
 - Batch-1111: Checked pinned remaining method 242: System.Type.System.Type MakeArrayType() Java declaration feasibility. Temporary support types verify syntax only; behavior and public facade remain unqualified.
+- Batch-1112: Checked pinned remaining method 243: System.Type.System.Type MakeArrayType(Int32) Java declaration feasibility. Temporary support types verify syntax only; behavior and public facade remain unqualified.
 - E02, E03 and N01: **IN PROGRESS** for the bounded WP-01 disposal slice. WP-01-T1/T2/T3 implementation: **IN PROGRESS**; WP-02: **IN PROGRESS**. Existing development-pin samples are not qualified against the chosen release candidate.
 - All other frameworks: implementation **NOT STARTED**. Their preparation and qualification gates remain open.
 - Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.
