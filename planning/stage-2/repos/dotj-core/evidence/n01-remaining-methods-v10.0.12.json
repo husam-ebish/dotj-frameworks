@@ -7114,6 +7114,38 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-645",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationToken",
+          "method": "op_Inequality",
+          "signature": "Boolean op_Inequality(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-token.json",
+          "returnType": "System.Boolean",
+          "isStatic": true,
+          "genericArity": 0,
+          "parameters": [
+            {
+              "Name": "left",
+              "type": "System.Threading.CancellationToken",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "right",
+              "type": "System.Threading.CancellationToken",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "d7f42f384fe7d8b94668d23d8d111e01455b5075131f4f38b724c284f7ef5a7c",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationToken.cs",
+          "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
