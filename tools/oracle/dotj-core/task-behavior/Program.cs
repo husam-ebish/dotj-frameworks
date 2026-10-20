@@ -491,6 +491,18 @@ Run("waitAsyncInfiniteSourceResultFirst", () =>
     Check(waiting.IsCompletedSuccessfully && waiting.Result == 42, "late token changed infinite result");
 });
 
+Run("waitAsyncInfiniteSourceFaultFirst", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.Task.WaitAsync(Timeout.InfiniteTimeSpan, cancellation.Token);
+    Exception failure = new InvalidOperationException("infinite source fault");
+    source.SetException(failure);
+    CheckThrows<InvalidOperationException>(() => waiting.GetAwaiter().GetResult(), "source fault under infinite timeout");
+    cancellation.Cancel();
+    Check(ReferenceEquals(waiting.Exception?.InnerException, failure), "late token changed infinite fault");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
