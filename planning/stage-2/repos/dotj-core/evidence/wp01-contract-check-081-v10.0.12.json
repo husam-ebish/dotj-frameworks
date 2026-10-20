@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-081",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "IDisposable and AutoCloseable semantic gap",
+  "assertionsPassed": [
+    "IDisposable and AutoCloseable semantic gap passed"
+  ],
+  "observed": {
+    "upstream": "System.IDisposable.Dispose returns void and declares no checked exception",
+    "javaPrimitive": "AutoCloseable.close declares throws Exception",
+    "decision": "Internal AutoCloseable remains hidden; no public substitute or automatic equivalence claim"
+  },
+  "openGaps": [
+    "A public exact-name adapter needs exception and lifecycle behavior tests."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
