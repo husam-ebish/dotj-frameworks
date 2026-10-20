@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-088",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "Pinned upstream WP-01 regression run",
+  "assertionsPassed": [
+    "Pinned upstream WP-01 regression run passed"
+  ],
+  "observed": {
+    "totalPassed": 39,
+    "suites": [
+      {
+        "suite": "context",
+        "project": "src/libraries/System.Threading/tests/System.Threading.Tests.csproj",
+        "expected": 2,
+        "passed": 2,
+        "failed": 0,
+        "resultFile": "C:\\Users\\husam\\AppData\\Local\\Temp\\dotj-wp01-upstream-results\\context.trx"
+      },
+      {
+        "suite": "ownership",
+        "project": "src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/Microsoft.Extensions.DependencyInjection.Tests.csproj",
+        "expected": 37,
+        "passed": 37,
+        "failed": 0,
+        "resultFile": "C:\\Users\\husam\\AppData\\Local\\Temp\\dotj-wp01-upstream-results\\ownership.trx"
+      }
+    ]
+  },
+  "openGaps": [
+    "Passing selected upstream tests does not validate the Java async prototype."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
