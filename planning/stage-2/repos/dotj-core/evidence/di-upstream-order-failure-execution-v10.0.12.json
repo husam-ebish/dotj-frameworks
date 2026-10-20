@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-058",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "project": "src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/Microsoft.Extensions.DependencyInjection.Tests.csproj",
+  "sourceFilesSha256": {
+    "src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderContainerTests.cs": "43883d7686636dcb84c4fa5a74386a67d29499f5b915033918bc55de2125968f",
+    "src/libraries/Microsoft.Extensions.DependencyInjection.Specification.Tests/src/DependencyInjectionSpecificationTests.cs": "b600356d3641e29e2e9a3a0dad9f63fecb8395ced022dc39df4f0c7d29a2b306"
+  },
+  "runtime": "Installed Microsoft.NETCore.App 10.0.12",
+  "results": [
+    {"method": "DisposesInReverseOrderOfCreation", "passed": 5, "variants": ["Default", "DefaultWithOptions", "Dynamic", "Expressions", "ILEmit"]},
+    {"method": "ProviderScopeDisposeThrowsWhenOnlyDisposeAsyncImplemented", "passed": 4, "variants": ["Default", "Dynamic", "Expressions", "ILEmit"]},
+    {"method": "ProviderAsyncScopeDisposeThrowsWhenOnlyDisposeAsyncImplemented", "passed": 4, "variants": ["Default", "Dynamic", "Expressions", "ILEmit"]}
+  ],
+  "total": 13,
+  "passed": 13,
+  "failed": 0,
+  "skipped": 0,
+  "invocation": "dotnet test on R: source alias, net10.0, filter OR of the three method-name substrings, UseLocalTargetingRuntimePack=false, UseDefaultTestHost=true, RunSettingsDotNetHostPath=installed dotnet.exe, NetCoreSdkRoot=installed SDK 10.0.401",
+  "scope": "Reverse creation order and sync-disposal rejection for async-only objects; does not directly test behavior after a Dispose callback itself throws.",
+  "qualification": "E03 remains IN PROGRESS."
+}
