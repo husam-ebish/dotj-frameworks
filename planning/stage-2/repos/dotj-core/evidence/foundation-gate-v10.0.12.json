@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "wp01JavaFixtures": 9,
+  "wp01DotnetOracles": 5,
+  "wp02InternalJavaFixtures": 14,
+  "wp02ReferenceCases": 10,
+  "wp02SelectedUpstreamTestsPassed": 10,
+  "selectedApiShapePairs": 14,
+  "internalJarSha256": "1c6bf62fc64905c3feb4c0d942a284847289afb616b874d759da36eadaf8c196",
+  "status": "BOUNDED_PASS; E01/E02/E03/N01 AND PUBLIC WP-01/WP-02 QUALIFICATION OPEN",
+  "limitations": [
+    "The internal cancellation implementation does not cover the full Task/ValueTask public semantics.",
+    "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.",
+    "No public .j facade or product release is qualified."
+  ]
+}
