@@ -46,6 +46,7 @@ public final class AsyncTimedWaitTest {
         listenerTransition("cancel");
         listenerTransition("timeout");
         listenerTransition("futureCancel");
+        sharedSignalWaits();
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -215,6 +216,21 @@ public final class AsyncTimedWaitTest {
         awaitCleanup(source, shared, "listener " + terminal);
         shared.signal();
         assertOutcome("listener late signal " + terminal, waiting, expected, fault);
+    }
+
+    private static void sharedSignalWaits() throws Exception {
+        WaitCancellationSignal shared = new WaitCancellationSignal();
+        AsyncCompletion<Integer> first = new AsyncCompletion<>();
+        AsyncCompletion<Integer> second = new AsyncCompletion<>();
+        CompletableFuture<Integer> a = first.waitAsync(30_000, shared);
+        CompletableFuture<Integer> b = second.waitAsync(-1, shared);
+        check(shared.listenerCount() == 2, "shared signal lost a registration");
+        shared.signal();
+        check(a.isCancelled() && b.isCancelled(), "shared signal did not cancel both waits");
+        awaitCleanup(first, shared, "shared first");
+        awaitCleanup(second, shared, "shared second");
+        check(first.state() == AsyncState.PENDING && second.state() == AsyncState.PENDING,
+                "shared signal changed source state");
     }
 
     private static void check(boolean condition, String message) {
