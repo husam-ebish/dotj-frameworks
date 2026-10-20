@@ -62,9 +62,10 @@ final class CancellationSource implements AutoCloseable {
 
     CancellationRegistration register(Runnable callback) {
         Objects.requireNonNull(callback, "callback");
-        CancellationRegistration registration = new CancellationRegistration(callback);
+        CancellationRegistration registration = new CancellationRegistration(this, callback);
         synchronized (lock) {
             if (closed) {
+                registration.unregister();
                 return registration;
             }
             if (!cancellationRequested) {
@@ -74,6 +75,12 @@ final class CancellationSource implements AutoCloseable {
         }
         registration.invoke();
         return registration;
+    }
+
+    void remove(CancellationRegistration registration) {
+        synchronized (lock) {
+            registrations.remove(registration);
+        }
     }
 
     @Override
