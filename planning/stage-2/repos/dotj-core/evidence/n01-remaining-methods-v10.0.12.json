@@ -6389,6 +6389,38 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-618",
+      "members": [
+        {
+          "declaringType": "System.Type",
+          "method": "MakeGenericSignatureType",
+          "signature": "System.Type MakeGenericSignatureType(System.Type, System.Type[])",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/system-type.json",
+          "returnType": "System.Type",
+          "isStatic": true,
+          "genericArity": 0,
+          "parameters": [
+            {
+              "Name": "genericTypeDefinition",
+              "type": "System.Type",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "typeArguments",
+              "type": "System.Type[]",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "798309af37ad61a2b7f311dc0d18bc3df25e3904d86ea8c0a43d598110909637",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
+          "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
