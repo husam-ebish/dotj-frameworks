@@ -214,6 +214,17 @@ Run("whenAllResultOrder", () =>
         "WhenAll result ordering");
 });
 
+Run("waitAsyncCancellationIndependence", () =>
+{
+    TaskCompletionSource source = new();
+    using CancellationTokenSource cancellation = new();
+    Task waiting = source.Task.WaitAsync(cancellation.Token);
+    cancellation.Cancel();
+    CheckThrows<TaskCanceledException>(() => waiting.GetAwaiter().GetResult(), "WaitAsync canceled wait");
+    Check(waiting.IsCanceled && !source.Task.IsCompleted, "WaitAsync canceled underlying task");
+    source.SetResult();
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
