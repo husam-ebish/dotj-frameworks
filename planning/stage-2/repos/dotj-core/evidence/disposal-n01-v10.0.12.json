@@ -23,11 +23,14 @@
       "javaMethodCandidate": "Dispose",
       "javaReturnCandidate": "void",
       "javaArtifactCandidate": "dotj-core-01",
-      "javaSourceStatus": "NOT CREATED",
-      "mappingStatus": "EXACT-NAME CANDIDATE; compiled Java API and ownership behavior pending",
+      "javaSourceStatus": "CREATED_AND_COMPILED",
+      "mappingStatus": "EXACT_NAME_JAVA_INTERFACE_COMPILED; BEHAVIOR_AND_RELEASE_UNQUALIFIED",
       "syntaxDifference": "Java package declaration and interface method syntax; C# using is not assumed to compile in Java",
       "conceptBoundary": "Dispose dispatch is a method call; idempotence and exception policy depend on the implementing resource and owning scope",
-      "optionalBridge": "AutoCloseable.close may be a separate Java adapter, not the canonical public method"
+      "optionalBridge": "AutoCloseable.close may be a separate Java adapter, not the canonical public method",
+      "javaProductSourcePath": "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java",
+      "javaProductSourceSha256": "4a480be9caa88936b7c95aeeee4799edd072f47671488d44bc936a53fb8078e0",
+      "javaProductEvidence": "idisposable-product-v1.json"
     },
     {
       "upstreamFullName": "System.IAsyncDisposable",
@@ -51,7 +54,7 @@
     }
   ],
   "limits": [
-    "This is a selected two-interface ledger, not complete N01-T1/T2 for core or a compiled Java surface.",
+    "This is a selected two-interface ledger, not complete N01-T1/T2 for core. IDisposable has a compiled exact-name Java interface candidate; IAsyncDisposable and the broader public surface remain unqualified.",
     "E01 notice applicability and the designed ownership/context fixtures remain open; no public source is authorized by this record alone.",
     "No .j implementation credit is awarded."
   ]
