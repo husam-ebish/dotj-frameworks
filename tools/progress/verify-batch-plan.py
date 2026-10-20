@@ -11,7 +11,9 @@ PROGRESS = STAGE / "IMPLEMENTATION-PROGRESS.json"
 PLAN = STAGE / "implementation/BATCH-PLAN-v1.json"
 PLAN_V2 = STAGE / "implementation/BATCH-PLAN-v2.json"
 PLAN_V3 = STAGE / "implementation/BATCH-PLAN-v3.json"
+PLAN_V4 = STAGE / "implementation/BATCH-PLAN-v4.json"
 EVIDENCE_SCHEDULE = STAGE / "implementation/WAITASYNC-27-POINTS.json"
+TIMED_WAIT_SCHEDULE = STAGE / "implementation/TIMED-WAIT-50-POINTS.json"
 GATES = ("E01", "E02", "E03", "N01", "Q01")
 
 
@@ -38,6 +40,7 @@ def main():
     parser.add_argument("--write", action="store_true", help="Create the initial versioned plan")
     parser.add_argument("--write-v2", action="store_true", help="Rebaseline after Batch 223's additional E03 evidence batch")
     parser.add_argument("--write-v3", action="store_true", help="Schedule the 27 requested WaitAsync evidence batches")
+    parser.add_argument("--write-v4", action="store_true", help="Schedule the 50 requested internal timed-wait batches")
     args = parser.parse_args()
 
     progress = json.loads(PROGRESS.read_text(encoding="utf-8"))
@@ -116,9 +119,31 @@ def main():
         print(f"CREATED {plan['planVersion']}: {plan['plannedTotalBatches']} planned batches")
         return
 
+    if args.write_v4:
+        assert not PLAN_V4.exists(), "Version 4 already exists; create a new version to rebaseline"
+        assert len(progress["completedBatches"]) == 250
+        old = json.loads(PLAN_V3.read_text(encoding="utf-8"))
+        schedule = json.loads(TIMED_WAIT_SCHEDULE.read_text(encoding="utf-8"))["batches"]
+        assert [item["batch"] for item in schedule] == [f"Batch-{number:03d}" for number in range(251, 301)]
+        assert len({item["case"] for item in schedule}) == 50
+        plan = dict(old)
+        plan.update({
+            "planVersion": "stage-2-batches-v4",
+            "supersedes": old["planVersion"],
+            "scheduledEvidenceBatchSlots": old["scheduledEvidenceBatchSlots"] + len(schedule),
+            "timedWaitSchedule": "planning/stage-2/implementation/TIMED-WAIT-50-POINTS.json",
+            "plannedTotalBatches": old["plannedTotalBatches"] + len(schedule),
+            "firstFutureBatch": "Batch-301",
+            "planningRule": "Retain batches 001-250 once; schedule 50 bounded internal timed-wait batches 251-300; then reserve one acceptance batch for each still-open gate, naming task, and WP or SDK implementation task.",
+            "rebaselineReason": "The user requested 50 continuation points. The internal timed-wait adapter, behavior, cleanup, race, and gate-evidence outcomes are additional to named acceptance items still open.",
+        })
+        PLAN_V4.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"CREATED {plan['planVersion']}: {plan['plannedTotalBatches']} planned batches")
+        return
+
     plan_source = progress.get("batchPlan", {}).get("source", "planning/stage-2/implementation/BATCH-PLAN-v1.json")
     plan = json.loads((ROOT / plan_source).read_text(encoding="utf-8"))
-    assert plan["planVersion"] in ("stage-2-batches-v1", "stage-2-batches-v2", "stage-2-batches-v3")
+    assert plan["planVersion"] in ("stage-2-batches-v1", "stage-2-batches-v2", "stage-2-batches-v3", "stage-2-batches-v4")
     assert plan["frameworkSlots"] == rows, "Framework task inventory drift requires a new plan version"
     assert plan["reservedGateSlots"] == gate_count
     assert plan["reservedNamingTaskSlots"] == naming_count
@@ -145,6 +170,15 @@ def main():
         oracle = json.loads((STAGE / "repos/dotj-core/evidence/task-behavior-v10.0.12/oracle-output.json").read_text(encoding="utf-8"))
         completed_evidence = max(0, min(len(progress["completedBatches"]) - 223, 27))
         assert [item["case"] for item in schedule[:completed_evidence]] == oracle["cases"][30:30 + completed_evidence]
+    if plan["planVersion"] == "stage-2-batches-v4":
+        previous = json.loads(PLAN_V3.read_text(encoding="utf-8"))
+        schedule = json.loads((ROOT / plan["timedWaitSchedule"]).read_text(encoding="utf-8"))["batches"]
+        assert plan["supersedes"] == previous["planVersion"]
+        assert plan["frameworkSlots"] == previous["frameworkSlots"]
+        assert [item["batch"] for item in schedule] == [f"Batch-{number:03d}" for number in range(251, 301)]
+        assert len({item["case"] for item in schedule}) == 50
+        assert plan["scheduledEvidenceBatchSlots"] == previous["scheduledEvidenceBatchSlots"] + 50
+        assert expected_total == previous["plannedTotalBatches"] + 50
     completed = progress["completedBatches"]
     assert completed == [f"Batch-{number:03d}" for number in range(1, len(completed) + 1)]
     assert len(completed) >= plan["historicalCompletedBatches"]

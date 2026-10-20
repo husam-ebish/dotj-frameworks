@@ -125,6 +125,8 @@ def record(args):
     changed = "\n".join(f"| `{path}` | {args.file_purpose} |" for path in args.files)
     series_row = (f"| Requested 27-point series | **{args.number - 223} / 27 complete** (`Batch-224` through `Batch-250`) |\n"
                   if plan["planVersion"] == "stage-2-batches-v3" and 224 <= args.number <= 250 else "")
+    if plan["planVersion"] == "stage-2-batches-v4" and 251 <= args.number <= 300:
+        series_row = f"| Requested 50-point series | **{args.number - 250} / 50 complete** (`Batch-251` through `Batch-300`) |\n"
     report_path.write_text(f"""# {current} report
 
 | Field | Result |

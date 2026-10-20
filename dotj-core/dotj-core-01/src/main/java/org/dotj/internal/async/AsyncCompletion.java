@@ -4,9 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+import java.util.concurrent.atomic.AtomicReference;
 
 /** One-shot internal completion state; not a public Task or TaskCompletionSource. */
 final class AsyncCompletion<T> {
+    private static final long MAX_TIMEOUT_MILLIS = 4_294_967_294L;
+    private static final ScheduledThreadPoolExecutor TIMER = createTimer();
     private AsyncState state = AsyncState.PENDING;
     private T result;
     private Throwable fault;
@@ -97,7 +105,18 @@ final class AsyncCompletion<T> {
     }
 
     CompletableFuture<T> waitAsync(WaitCancellationSignal cancellationSignal) {
+        return waitAsync(-1, cancellationSignal);
+    }
+
+    CompletableFuture<T> waitAsync(long timeoutMillis) {
+        return waitAsync(timeoutMillis, new WaitCancellationSignal());
+    }
+
+    CompletableFuture<T> waitAsync(long timeoutMillis, WaitCancellationSignal cancellationSignal) {
         Objects.requireNonNull(cancellationSignal, "cancellationSignal");
+        if (timeoutMillis < -1 || timeoutMillis > MAX_TIMEOUT_MILLIS) {
+            throw new IllegalArgumentException("timeoutMillis must be -1 or 0.." + MAX_TIMEOUT_MILLIS);
+        }
         CompletableFuture<T> waiting = new CompletableFuture<>();
         AsyncState observed;
         T observedResult;
@@ -111,11 +130,26 @@ final class AsyncCompletion<T> {
             }
         }
         if (observed == AsyncState.PENDING) {
+            AtomicReference<ScheduledFuture<?>> timer = new AtomicReference<>();
             Runnable unregister = cancellationSignal.register(() -> cancelWait(waiting));
             waiting.whenComplete((value, error) -> {
                 removeWaiter(waiting);
                 unregister.run();
+                ScheduledFuture<?> scheduled = timer.get();
+                if (scheduled != null) {
+                    scheduled.cancel(false);
+                }
             });
+            if (timeoutMillis == 0) {
+                timeoutWait(waiting);
+            } else if (timeoutMillis > 0 && !waiting.isDone()) {
+                ScheduledFuture<?> scheduled = TIMER.schedule(
+                        () -> timeoutWait(waiting), timeoutMillis, TimeUnit.MILLISECONDS);
+                timer.set(scheduled);
+                if (waiting.isDone()) {
+                    scheduled.cancel(false);
+                }
+            }
         } else if (observed == AsyncState.SUCCEEDED) {
             waiting.complete(observedResult);
         } else if (observed == AsyncState.FAULTED) {
@@ -144,5 +178,30 @@ final class AsyncCompletion<T> {
         if (canceled) {
             waiting.cancel(false);
         }
+    }
+
+    private void timeoutWait(CompletableFuture<T> waiting) {
+        boolean timedOut;
+        synchronized (this) {
+            timedOut = state == AsyncState.PENDING && waiters.remove(waiting);
+        }
+        if (timedOut) {
+            waiting.completeExceptionally(new TimeoutException("Wait timed out"));
+        }
+    }
+
+    static int timerQueueSize() {
+        return TIMER.getQueue().size();
+    }
+
+    private static ScheduledThreadPoolExecutor createTimer() {
+        ThreadFactory daemon = task -> {
+            Thread thread = new Thread(task, "dotj-async-wait-timer");
+            thread.setDaemon(true);
+            return thread;
+        };
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1, daemon);
+        executor.setRemoveOnCancelPolicy(true);
+        return executor;
     }
 }
