@@ -30,3 +30,4 @@ unicode-method	PASS	fixture	Probe	System.Threading.Tasks.Task Météo()	Météo(
 underscored-method	PASS	fixture	Probe	System.Threading.Tasks.Task Run_Async()	Run_Async()
 task-array	PASS	fixture	Probe	System.Threading.Tasks.Task[] Batch()	Task[] Batch()
 completion-array	PASS	fixture	Probe	System.Threading.Tasks.TaskCompletionSource<System.String>[] Sources()	TaskCompletionSource_1<String>[] Sources()
+task-of-valuetask	PASS	fixture	Probe	System.Threading.Tasks.Task<System.Threading.Tasks.ValueTask<System.String>> Chain()	Task_1<ValueTask_1<String>> Chain()
