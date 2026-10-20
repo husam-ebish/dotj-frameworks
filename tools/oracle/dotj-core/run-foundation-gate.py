@@ -22,7 +22,7 @@ def run(*args, contains):
 
 def gate(source):
     assert source.is_dir(), "A pinned source root is required"
-    wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 14 Java fixtures and 5 .NET oracles")
+    wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 15 Java fixtures and 5 .NET oracles")
     wp02 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-java-fixtures.ps1"), contains="PASS: 15 internal WP-02 Java fixtures")
     async_output = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-async-java-fixtures.ps1"),
                        contains="PASS: internal timed wait cases")
@@ -45,7 +45,7 @@ def gate(source):
     run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-upstream-tests.ps1"), "-SourceRoot", str(source), contains="Passed:    10")
     upstream = json.loads((Path.home() / "AppData/Local/Temp/dotj-wp02-upstream-results/summary.json").read_text(encoding="utf-8-sig"))
     assert upstream["passed"] == 10 and upstream["sourceCommit"] == "4271d88e0aebf3d04f188f1334c2220d80555ef6"
-    run("powershell", "-NoProfile", "-File", str(ORACLE / "build-internal-core.ps1"), contains="PASS: 13 internal sources and 13 classes")
+    run("powershell", "-NoProfile", "-File", str(ORACLE / "build-internal-core.ps1"), contains="PASS: 14 internal sources and 15 classes")
     jar = ROOT / "dotj-core/dotj-core-01/build/dotj-core-internal-v1.jar"
     jar_hash = hashlib.sha256(jar.read_bytes()).hexdigest()
     jar_manifest = json.loads((EVIDENCE / "internal-core-jar-v1.json").read_text(encoding="utf-8-sig"))
@@ -55,7 +55,7 @@ def gate(source):
         "sourceCommit": upstream["sourceCommit"],
         "runtimeVersion": "10.0.12",
         "coreLibSha256": CORELIB_HASH,
-        "wp01JavaFixtures": 14,
+        "wp01JavaFixtures": 15,
         "wp01DotnetOracles": 5,
         "wp02InternalJavaFixtures": 15,
         "wp02ReferenceCases": 10,
@@ -76,7 +76,7 @@ def gate(source):
     }
     output = EVIDENCE / "foundation-gate-v10.0.12.json"
     output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print("PASS bounded foundation gate: WP-01 14+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 57 reference cases + 5 Java fixtures")
+    print("PASS bounded foundation gate: WP-01 15+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 57 reference cases + 5 Java fixtures")
 
 
 if __name__ == "__main__":

@@ -13,12 +13,12 @@ if ($LASTEXITCODE -ne 0) { throw 'Public IDisposable dependency build failed.' }
 New-Item -ItemType Directory -Force -Path $classes | Out-Null
 
 $sources = @(Get-ChildItem -LiteralPath $main -Recurse -Filter '*.java' | Sort-Object FullName)
-if ($sources.Count -ne 13) { throw "Expected thirteen internal Java source files, found $($sources.Count)." }
+if ($sources.Count -ne 14) { throw "Expected fourteen internal Java source files, found $($sources.Count)." }
 & javac --release 21 -classpath $publicJar -d $classes @($sources | ForEach-Object FullName)
 if ($LASTEXITCODE -ne 0) { throw 'Internal Java compilation failed.' }
 
 $classFiles = @(Get-ChildItem -LiteralPath $classes -Recurse -Filter '*.class')
-if ($classFiles.Count -ne 13) { throw "Expected thirteen internal class files, found $($classFiles.Count)." }
+if ($classFiles.Count -ne 15) { throw "Expected fifteen internal class files, found $($classFiles.Count)." }
 & jar --create --file $jarPath --date=2026-10-20T00:00:00Z -C $classes .
 if ($LASTEXITCODE -ne 0) { throw 'Internal JAR creation failed.' }
 $entries = @(& jar --list --file $jarPath)
