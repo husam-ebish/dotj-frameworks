@@ -13,6 +13,30 @@
   ],
   "implementationApproach": "Use the compiled public metadata as the contract input and write an independent Java declaration; do not copy the C# commentary or implementation body.",
   "productSourceCopied": false,
+  "candidateDistribution": {
+    "evidence": "idisposable-product-v1.json",
+    "noticeMap": "idisposable-file-notice-map-v10.0.12.json",
+    "jarEntries": ["META-INF/MANIFEST.MF", "System/IDisposable.class"],
+    "upstreamNoticeEntriesInJar": [],
+    "releaseStatus": "BUILT_CANDIDATE_NOT_RELEASED"
+  },
+  "releaseDecisionInputs": [
+    {
+      "question": "Choose and record the dotj-core product license for source and binary distribution.",
+      "observedState": "No LICENSE or NOTICE file exists at the workspace root or dotj-core product-module root.",
+      "decision": "OPEN"
+    },
+    {
+      "question": "Decide which pinned upstream notices, if any, apply to the independently authored source and two-entry candidate JAR.",
+      "observedState": "Pinned upstream LICENSE.TXT and THIRD-PARTY-NOTICES.TXT are retained as evidence, not JAR entries.",
+      "decision": "OPEN"
+    },
+    {
+      "question": "Obtain the repository licensing review required by E01 before release qualification.",
+      "observedState": "No approval is recorded for this candidate artifact.",
+      "decision": "OPEN"
+    }
+  ],
   "selectedSliceStatus": "RESEARCH_ELIGIBLE; PUBLIC_RELEASE_BLOCKED",
   "overallE01Status": "OPEN",
   "openReleaseChecks": [
