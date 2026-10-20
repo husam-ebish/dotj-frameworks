@@ -42,3 +42,4 @@ mixed-async-cancel	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String>
 cross-namespace-collision	REJECT	fixture	Probe	System.A.Task Invoke(System.B.Task other)	Conflicting simple type name
 class-import-collision	REJECT	fixture	Task	System.Threading.Tasks.Task Run()	conflicts with declaration scope
 class-keyword	REJECT	fixture	class	System.Threading.Tasks.Task Run()	Invalid Java identifier
+package-keyword	REJECT	fixture.class	Probe	System.Threading.Tasks.Task Run()	Invalid Java identifier
