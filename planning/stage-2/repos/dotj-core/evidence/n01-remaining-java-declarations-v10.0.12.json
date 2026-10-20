@@ -586,6 +586,22 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-903"
+    },
+    {
+      "index": 37,
+      "sourceBatch": "Batch-420",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Delay(System.TimeSpan, System.TimeProvider)",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static Task Delay(TimeSpan delay, TimeProvider timeProvider) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "89265c3f7faccc5b9550e83a63272d2aaeafa5294c84e8360bbc57c1a0d64861",
+      "supportTypes": [
+        "System.TimeProvider",
+        "System.TimeSpan"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-904"
     }
   ]
 }
