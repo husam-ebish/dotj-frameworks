@@ -102,6 +102,19 @@ static string? ObserveNonEnumUnderlying()
         return exception.GetType().FullName;
     }
 }
+static object ObserveSubclass(Type type, Type? parent)
+{
+    try
+    {
+        return new { result = (bool?)type.IsSubclassOf(parent!), exception = (string?)null,
+            paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (bool?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -281,6 +294,24 @@ var result = new
         candidate = pair.Candidate?.FullName,
         result = pair.Target.IsAssignableFrom(pair.Candidate),
     }).ToArray(),
+    selectedSubclassBehavior = new (Type Type, Type? Parent)[]
+    {
+        (typeof(string), typeof(object)),
+        (typeof(int), typeof(ValueType)),
+        (typeof(int), typeof(object)),
+        (typeof(MemberTypes), typeof(Enum)),
+        (typeof(MemberTypes), typeof(ValueType)),
+        (typeof(string[]), typeof(Array)),
+        (typeof(IDisposable), typeof(object)),
+        (typeof(List<string>), typeof(List<>)),
+        (typeof(string), typeof(string)),
+        (typeof(string), null),
+    }.Select(pair => new
+    {
+        type = pair.Type.FullName,
+        parent = pair.Parent?.FullName,
+        observation = ObserveSubclass(pair.Type, pair.Parent),
+    }).ToArray(),
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -313,7 +344,8 @@ var result = new
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
                 or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType"
-                or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType" or "IsAssignableFrom")
+                or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType" or "IsAssignableFrom"
+                or "IsSubclassOf")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)

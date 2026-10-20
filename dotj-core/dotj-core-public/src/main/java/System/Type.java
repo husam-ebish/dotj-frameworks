@@ -416,6 +416,26 @@ public abstract class Type extends MemberInfo {
         return false;
     }
 
+    public boolean IsSubclassOf(Type parent) {
+        if (parent == null) {
+            throw new ArgumentNullException("type");
+        }
+        if (this == parent) {
+            return false;
+        }
+        if (this.get_IsInterface() && parent == fromJavaClass(Object.class)) {
+            return true;
+        }
+        Type ancestor = this.get_BaseType();
+        while (ancestor != null) {
+            if (ancestor == parent) {
+                return true;
+            }
+            ancestor = ancestor.get_BaseType();
+        }
+        return false;
+    }
+
     private static String arraySuffix(int rank, boolean vector) {
         if (rank == 1) {
             return vector ? "[]" : "[*]";

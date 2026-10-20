@@ -53,6 +53,7 @@ def main():
         "System.Type GetType(System.String)",
         "System.Type GetEnumUnderlyingType()",
         "Boolean IsAssignableFrom(System.Type)",
+        "Boolean IsSubclassOf(System.Type)",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
     assert selected <= signatures
@@ -176,6 +177,12 @@ def main():
         True, True, True, True, False, False, True, True, False, True, False,
         True, False, False, True, False,
     ]
+    subclass = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSubclassBehavior"]
+    assert [item["observation"]["result"] for item in subclass] == [
+        True, True, True, True, True, True, True, False, False, None,
+    ]
+    assert subclass[-1]["observation"]["exception"] == "System.ArgumentNullException"
+    assert subclass[-1]["observation"]["paramName"] == "type"
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -216,6 +223,7 @@ def main():
         "public boolean get_IsEnum();",
         "public System.Type GetEnumUnderlyingType();",
         "public boolean IsAssignableFrom(System.Type);",
+        "public boolean IsSubclassOf(System.Type);",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",

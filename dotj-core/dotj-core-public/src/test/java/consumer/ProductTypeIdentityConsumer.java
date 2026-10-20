@@ -248,6 +248,24 @@ public final class ProductTypeIdentityConsumer {
                 || string.IsAssignableFrom(null)) {
             throw new AssertionError("Selected Type assignability changed");
         }
+        if (!string.IsSubclassOf(object) || !integer.IsSubclassOf(valueType)
+                || !integer.IsSubclassOf(object)
+                || !memberTypesType.IsSubclassOf(enumBase)
+                || !memberTypesType.IsSubclassOf(valueType)
+                || !Type.GetType("System.String[]").IsSubclassOf(arrayBase)
+                || !disposalType.IsSubclassOf(object)
+                || first.IsSubclassOf(definition)
+                || string.IsSubclassOf(string)) {
+            throw new AssertionError("Selected Type subclass relationships changed");
+        }
+        try {
+            string.IsSubclassOf(null);
+            throw new AssertionError("Null subclass target accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"type".equals(expected.get_ParamName())) {
+                throw new AssertionError("Subclass null parameter changed", expected);
+            }
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition
