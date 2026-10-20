@@ -335,6 +335,14 @@ Run("waitAsyncFiniteTimeoutGeneric", () =>
     Check(waiting.IsFaulted && !source.Task.IsCompleted, "finite generic timeout completed the source");
 });
 
+Run("waitAsyncInfiniteTimeoutResult", () =>
+{
+    TaskCompletionSource<int> source = new();
+    Task<int> waiting = source.Task.WaitAsync(Timeout.InfiniteTimeSpan);
+    source.SetResult(42);
+    Check(waiting.GetAwaiter().GetResult() == 42 && waiting.IsCompletedSuccessfully, "infinite timeout lost result");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
