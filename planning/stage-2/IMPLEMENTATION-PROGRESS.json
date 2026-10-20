@@ -659,7 +659,8 @@
     "Batch-642",
     "Batch-643",
     "Batch-644",
-    "Batch-645"
+    "Batch-645",
+    "Batch-646"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -852,7 +853,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-645",
+      "lastUpdatedBatch": "Batch-646",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -10463,20 +10464,20 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-646",
+    "id": "Batch-647",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T1"
     ],
-    "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::System.Threading.CancellationTokenRegistration Register(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object).",
+    "outcome": "Verify pinned declared-public metadata and owning source hash for System.Threading.CancellationToken::System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object).",
     "requiresContinue": true
   },
   "batchPlan": {
     "version": "stage-2-batches-v6",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v6.json",
     "plannedTotalBatches": 2386,
-    "completedBatches": 645,
-    "remainingPlannedBatches": 1741,
+    "completedBatches": 646,
+    "remainingPlannedBatches": 1740,
     "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes"
   }
 }
