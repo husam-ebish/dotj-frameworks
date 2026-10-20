@@ -207,6 +207,13 @@ Run("genericValueTaskBackedCancel", () =>
         "Task-backed generic ValueTask cancel");
 });
 
+Run("whenAllResultOrder", () =>
+{
+    Task<int[]> combined = Task.WhenAll(Task.FromResult(2), Task.FromResult(1));
+    Check(combined.IsCompletedSuccessfully && combined.Result.SequenceEqual([2, 1]),
+        "WhenAll result ordering");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
