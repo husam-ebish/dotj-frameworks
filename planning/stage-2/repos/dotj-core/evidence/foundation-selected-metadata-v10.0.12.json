@@ -430,6 +430,68 @@
       "baseType": null
     }
   ],
+  "selectedKindFlags": [
+    {
+      "name": "System.Object",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.String",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.Int32",
+      "IsClass": false,
+      "IsValueType": true
+    },
+    {
+      "name": "System.ValueType",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.Array",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "T",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.String[]",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.String[,]",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.String&",
+      "IsClass": true,
+      "IsValueType": false
+    },
+    {
+      "name": "System.String*",
+      "IsClass": true,
+      "IsValueType": false
+    }
+  ],
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -722,6 +784,14 @@
         {
           "name": "GenericParameterPosition",
           "type": "System.Int32"
+        },
+        {
+          "name": "IsClass",
+          "type": "System.Boolean"
+        },
+        {
+          "name": "IsValueType",
+          "type": "System.Boolean"
         },
         {
           "name": "BaseType",
@@ -1147,6 +1217,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "63b1faee05b48d63db9d64ca1a8fb8cb7d526f1d4296d31061ea19bf5ecfc06c",
+  "oracleProgramSha256": "c80aeb400670ecc23c34f6f36dd8df23cd08e936ed7adf989f7b044abd02a95e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
