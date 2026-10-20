@@ -165,6 +165,50 @@
       "paramName": null
     }
   },
+  "selectedArrayBehavior": [
+    {
+      "name": "System.String",
+      "IsArray": false,
+      "element": null,
+      "rank": null,
+      "error": "System.ArgumentException"
+    },
+    {
+      "name": "System.String[]",
+      "IsArray": true,
+      "element": "System.String",
+      "rank": 1,
+      "error": null
+    },
+    {
+      "name": "System.String[][]",
+      "IsArray": true,
+      "element": "System.String[]",
+      "rank": 1,
+      "error": null
+    },
+    {
+      "name": "System.String[,]",
+      "IsArray": true,
+      "element": "System.String",
+      "rank": 2,
+      "error": null
+    },
+    {
+      "name": "System.String[,,]",
+      "IsArray": true,
+      "element": "System.String",
+      "rank": 3,
+      "error": null
+    },
+    {
+      "name": "System.Collections.Generic.List`1[System.String][]",
+      "IsArray": true,
+      "element": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "rank": 1,
+      "error": null
+    }
+  ],
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -313,6 +357,18 @@
           "parameters": []
         },
         {
+          "name": "GetElementType",
+          "isStatic": false,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "GetArrayRank",
+          "isStatic": false,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
           "name": "GetGenericTypeDefinition",
           "isStatic": false,
           "returnType": "System.Type",
@@ -359,6 +415,10 @@
         }
       ],
       "selectedProperties": [
+        {
+          "name": "IsArray",
+          "type": "System.Boolean"
+        },
         {
           "name": "IsConstructedGenericType",
           "type": "System.Boolean"
@@ -689,6 +749,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "4a64e0c25d3cad137d3ac4d20da0bae4112b08422db401d46188ac1b78445b60",
+  "oracleProgramSha256": "2f7b43dcadd5732d71a5bbea427fd7e386cd98e8c6a21005fcbd376f8f72df06",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

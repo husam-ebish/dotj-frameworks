@@ -101,6 +101,23 @@ public final class ProductTypeIdentityConsumer {
                 || listArray.get_IsGenericType()) {
             throw new AssertionError("Selected CLR array-shape identity changed");
         }
+        if (string.get_IsArray() || string.GetElementType() != null
+                || !Type.GetType("System.String[]").get_IsArray()
+                || Type.GetType("System.String[]").GetElementType() != string
+                || Type.GetType("System.String[]").GetArrayRank() != 1
+                || jagged.GetElementType() != Type.GetType("System.String[]")
+                || jagged.GetArrayRank() != 1
+                || rectangular.GetElementType() != string || rectangular.GetArrayRank() != 2
+                || rankThree.GetElementType() != string || rankThree.GetArrayRank() != 3
+                || listArray.GetElementType() != first || listArray.GetArrayRank() != 1) {
+            throw new AssertionError("Selected array reflection behavior changed");
+        }
+        try {
+            string.GetArrayRank();
+            throw new AssertionError("Non-array rank accepted");
+        } catch (ArgumentException expected) {
+            // Selected pinned error type.
+        }
         Type same = definition.MakeGenericType(new Type[] {string});
         Type different = definition.MakeGenericType(new Type[] {integer});
         if (first != same || !first.Equals(same) || first.Equals(different)
