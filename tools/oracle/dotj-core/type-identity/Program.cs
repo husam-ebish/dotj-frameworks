@@ -17,6 +17,11 @@ Type reconstructedListOfInt = typeof(List<>).MakeGenericType(typeof(int));
 Check(ReferenceEquals(listOfInt, reconstructedListOfInt), "second generic definition canonical identity");
 Check(!ReferenceEquals(listOfInt, listOfLong), "second generic definition different argument identity");
 Check(listOfInt.GetGenericTypeDefinition() == listOfLong.GetGenericTypeDefinition(), "second generic definition shared definition");
+Check(ReferenceEquals(Type.GetType("System.String"), typeof(string)), "string type-name lookup");
+Check(ReferenceEquals(Type.GetType("System.Int32"), typeof(int)), "int type-name lookup");
+Check(ReferenceEquals(Type.GetType("System.Collections.Generic.List`1"), typeof(List<>)), "list definition lookup");
+Check(ReferenceEquals(Type.GetType("System.Collections.Generic.Dictionary`2"), typeof(Dictionary<,>)), "dictionary definition lookup");
+Check(Type.GetType("System.Unknown") is null, "unknown type-name lookup");
 
 string? nullTypeArgumentsParameter = null;
 try
@@ -38,6 +43,7 @@ Console.WriteLine("sameGenericDefinition=" + (first.GetGenericTypeDefinition() =
 Console.WriteLine("secondDefinitionCanonical=" + ReferenceEquals(listOfInt, reconstructedListOfInt));
 Console.WriteLine("secondDefinitionDifferentArgumentsSameReference=" + ReferenceEquals(listOfInt, listOfLong));
 Console.WriteLine("nullTypeArgumentsParameter=" + nullTypeArgumentsParameter);
+Console.WriteLine("selectedTypeNameLookup=True");
 
 static void Check(bool condition, string label)
 {

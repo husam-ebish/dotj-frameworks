@@ -1,15 +1,17 @@
 package consumer;
 
 import System.Type;
-import System.TypeCandidateFactory;
-import java.util.List;
 
 /** Calls the candidate's public members from outside the System package. */
 public final class ProductTypeIdentityConsumer {
     public static void main(String[] args) {
-        Type definition = TypeCandidateFactory.Of(List.class);
-        Type string = TypeCandidateFactory.Of(String.class);
-        Type integer = TypeCandidateFactory.Of(Integer.class);
+        Type definition = Type.GetType("System.Collections.Generic.List`1");
+        Type string = Type.GetType("System.String");
+        Type integer = Type.GetType("System.Int32");
+        if (definition == null || string == null || integer == null
+                || Type.GetType("System.Unknown") != null) {
+            throw new AssertionError("Selected type-name lookup changed");
+        }
         Type first = definition.MakeGenericType(new Type[] {string});
         Type same = definition.MakeGenericType(new Type[] {string});
         Type different = definition.MakeGenericType(new Type[] {integer});
