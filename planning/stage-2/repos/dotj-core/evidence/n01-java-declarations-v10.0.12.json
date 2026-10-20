@@ -519,6 +519,23 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-801"
+    },
+    {
+      "index": 35,
+      "sourceBatch": "Batch-335",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskScheduler)",
+      "backendOwner": "System.Threading.Tasks.Task_1",
+      "javaDeclaration": "public abstract Task ContinueWith(Action_1<Task_1<TResult>> continuationAction, TaskScheduler scheduler);",
+      "generatedSourceSha256": "454549a734bd38f1446ef54f4c635f24da1e1d2dbd6d3d0d8d363e38ff4b9d0e",
+      "supportTypes": [
+        "System.Action_1",
+        "System.Threading.Tasks.Task",
+        "System.Threading.Tasks.TaskScheduler"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-802"
     }
   ]
 }
