@@ -48,6 +48,7 @@ public final class AsyncTimedWaitTest {
         listenerTransition("futureCancel");
         sharedSignalWaits();
         mixedDeadlineWaits();
+        signalReuse();
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -247,6 +248,17 @@ public final class AsyncTimedWaitTest {
         check(longWait.get(5, TimeUnit.SECONDS) == 42, "long wait lost result");
         awaitCleanup(source, firstSignal, "mixed first");
         awaitCleanup(source, secondSignal, "mixed second");
+    }
+
+    private static void signalReuse() throws Exception {
+        WaitCancellationSignal shared = new WaitCancellationSignal();
+        for (int index = 0; index < 100; index++) {
+            AsyncCompletion<Integer> source = new AsyncCompletion<>();
+            CompletableFuture<Integer> waiting = source.waitAsync(30_000, shared);
+            source.setResult(index);
+            check(waiting.get(5, TimeUnit.SECONDS) == index, "reused signal lost result " + index);
+            awaitCleanup(source, shared, "reused signal " + index);
+        }
     }
 
     private static void check(boolean condition, String message) {
