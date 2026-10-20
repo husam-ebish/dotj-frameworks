@@ -38,9 +38,9 @@ def gate():
         run("python", str(ORACLE / "verify-async-java-name-collision.py"), family,
             contains=f"PASS expected Java name collision: {family}")
     run("python", str(ORACLE / "run-task-behavior-oracle.py"),
-        contains="PASS 50 selected Task/ValueTask reference cases on pinned CoreLib")
+        contains="PASS 51 selected Task/ValueTask reference cases on pinned CoreLib")
     task_reference = json.loads((EVIDENCE / "task-behavior-v10.0.12/oracle-output.json").read_text(encoding="utf-8"))
-    assert task_reference["coreLibSha256"] == CORELIB_HASH and len(task_reference["cases"]) == 50
+    assert task_reference["coreLibSha256"] == CORELIB_HASH and len(task_reference["cases"]) == 51
     run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-upstream-tests.ps1"), "-SourceRoot", str(SOURCE), contains="Passed:    10")
     upstream = json.loads((Path.home() / "AppData/Local/Temp/dotj-wp02-upstream-results/summary.json").read_text(encoding="utf-8-sig"))
     assert upstream["passed"] == 10 and upstream["sourceCommit"] == "4271d88e0aebf3d04f188f1334c2220d80555ef6"
@@ -62,7 +62,7 @@ def gate():
         "selectedApiShapePairs": 14,
         "asyncFamilyArityPairs": 3,
         "asyncJavaNameCollisions": 3,
-        "selectedTaskValueTaskReferenceCases": 50,
+        "selectedTaskValueTaskReferenceCases": 51,
         "internalAsyncStateFixtures": 4,
         "internalAsyncRaceRounds": 200,
         "internalAsyncWaitRaceRounds": 200,
@@ -73,7 +73,7 @@ def gate():
     }
     output = EVIDENCE / "foundation-gate-v10.0.12.json"
     output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print("PASS bounded foundation gate: WP-01 12+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 50 reference cases + 4 Java fixtures")
+    print("PASS bounded foundation gate: WP-01 12+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 51 reference cases + 4 Java fixtures")
 
 
 if __name__ == "__main__":
