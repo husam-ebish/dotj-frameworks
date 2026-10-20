@@ -7482,6 +7482,38 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-655",
+      "members": [
+        {
+          "declaringType": "System.Threading.Tasks.Task`1",
+          "method": "ContinueWith",
+          "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskContinuationOptions)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-generic.json",
+          "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+          "isStatic": false,
+          "genericArity": 1,
+          "parameters": [
+            {
+              "Name": "continuationFunction",
+              "type": "System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult]",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "continuationOptions",
+              "type": "System.Threading.Tasks.TaskContinuationOptions",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "48836e51ebedf532261f41b1fba8efb00309e93d0f0215fbae705f4e64045327",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Future.cs",
+          "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
