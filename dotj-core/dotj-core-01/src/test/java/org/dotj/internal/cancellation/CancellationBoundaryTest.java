@@ -19,6 +19,7 @@ public final class CancellationBoundaryTest {
         lateFailure();
         nestedLateRegistration();
         removeOlderDuringCancel();
+        closeDuringCallback();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -90,6 +91,12 @@ public final class CancellationBoundaryTest {
         CancellationRegistration older = source.token().register(calls::incrementAndGet);
         source.token().register(older::close); source.cancel();
         if (calls.get() != 0) throw new AssertionError("Removed older callback ran"); source.close();
+    }
+
+    private static void closeDuringCallback() throws Exception {
+        CancellationSource source = new CancellationSource(); CancellationToken token = source.token();
+        source.token().register(source::close); source.cancel();
+        if (!token.isCancellationRequested()) throw new AssertionError("Cancellation state was lost");
     }
 
     // Next bounded method.
