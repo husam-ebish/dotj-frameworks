@@ -27,3 +27,4 @@ six-family-imports	PASS	fixture	Probe	System.Threading.Tasks.Task A()~~System.Th
 duplicate-import	PASS	fixture	Probe	System.Threading.Tasks.Task First()~~System.Threading.Tasks.Task Second()	import System.Threading.Tasks.Task;
 separate-package	PASS	examples.asyncs	Probe	System.Threading.Tasks.Task Run()	package examples.asyncs;
 unicode-method	PASS	fixture	Probe	System.Threading.Tasks.Task Météo()	Météo()
+underscored-method	PASS	fixture	Probe	System.Threading.Tasks.Task Run_Async()	Run_Async()
