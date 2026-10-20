@@ -7,6 +7,7 @@ import System.TypeLoadException;
 import System.IO.FileNotFoundException;
 import System.IO.IOException;
 import System.IndexOutOfRangeException;
+import System.IDisposable;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -265,6 +266,24 @@ public final class ProductTypeIdentityConsumer {
             if (!"type".equals(expected.get_ParamName())) {
                 throw new AssertionError("Subclass null parameter changed", expected);
             }
+        }
+        IDisposable disposableValue = new IDisposable() {
+            @Override
+            public void Dispose() {
+            }
+        };
+        if (!object.IsInstanceOfType("text") || !object.IsInstanceOfType(42)
+                || object.IsInstanceOfType(null)
+                || !string.IsInstanceOfType("text") || string.IsInstanceOfType(42)
+                || !integer.IsInstanceOfType(42) || integer.IsInstanceOfType("text")
+                || !valueType.IsInstanceOfType(42)
+                || !enumBase.IsInstanceOfType(MemberTypes.TypeInfo)
+                || !arrayBase.IsInstanceOfType(new String[] {"text"})
+                || !Type.GetType("System.String[]").IsInstanceOfType(new String[] {"text"})
+                || !disposalType.IsInstanceOfType(disposableValue)
+                || definition.IsInstanceOfType(java.util.List.of("text"))
+                || string.IsInstanceOfType(null)) {
+            throw new AssertionError("Selected instance-of-type behavior changed");
         }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null

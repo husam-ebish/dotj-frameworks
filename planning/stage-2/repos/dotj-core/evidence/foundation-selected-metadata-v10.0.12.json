@@ -710,6 +710,78 @@
       }
     }
   ],
+  "selectedInstanceBehavior": [
+    {
+      "target": "System.Object",
+      "valueType": "System.String",
+      "result": true
+    },
+    {
+      "target": "System.Object",
+      "valueType": "System.Int32",
+      "result": true
+    },
+    {
+      "target": "System.Object",
+      "valueType": null,
+      "result": false
+    },
+    {
+      "target": "System.String",
+      "valueType": "System.String",
+      "result": true
+    },
+    {
+      "target": "System.String",
+      "valueType": "System.Int32",
+      "result": false
+    },
+    {
+      "target": "System.Int32",
+      "valueType": "System.Int32",
+      "result": true
+    },
+    {
+      "target": "System.Int32",
+      "valueType": "System.String",
+      "result": false
+    },
+    {
+      "target": "System.ValueType",
+      "valueType": "System.Int32",
+      "result": true
+    },
+    {
+      "target": "System.Enum",
+      "valueType": "System.Reflection.MemberTypes",
+      "result": true
+    },
+    {
+      "target": "System.Array",
+      "valueType": "System.String[]",
+      "result": true
+    },
+    {
+      "target": "System.String[]",
+      "valueType": "System.String[]",
+      "result": true
+    },
+    {
+      "target": "System.IDisposable",
+      "valueType": "System.IO.MemoryStream",
+      "result": true
+    },
+    {
+      "target": "System.Collections.Generic.List`1",
+      "valueType": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "result": false
+    },
+    {
+      "target": "System.String",
+      "valueType": null,
+      "result": false
+    }
+  ],
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -1443,6 +1515,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "bbcfade7a733662e4a8b401caec3ea0f73bba555ba5be9f745b3e9556d91d78a",
+  "oracleProgramSha256": "da42bf833ce19c498a49158cb99ec90bf9625722b3ba27ed1801ab8a6eca061e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -312,6 +312,28 @@ var result = new
         parent = pair.Parent?.FullName,
         observation = ObserveSubclass(pair.Type, pair.Parent),
     }).ToArray(),
+    selectedInstanceBehavior = new (Type Target, object? Value)[]
+    {
+        (typeof(object), "text"),
+        (typeof(object), 42),
+        (typeof(object), null),
+        (typeof(string), "text"),
+        (typeof(string), 42),
+        (typeof(int), 42),
+        (typeof(int), "text"),
+        (typeof(ValueType), 42),
+        (typeof(Enum), MemberTypes.TypeInfo),
+        (typeof(Array), new string[] { "text" }),
+        (typeof(string[]), new string[] { "text" }),
+        (typeof(IDisposable), new System.IO.MemoryStream()),
+        (typeof(List<>), new List<string>()),
+        (typeof(string), null),
+    }.Select(pair => new
+    {
+        target = pair.Target.FullName,
+        valueType = pair.Value?.GetType().FullName,
+        result = pair.Target.IsInstanceOfType(pair.Value),
+    }).ToArray(),
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -345,7 +367,7 @@ var result = new
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
                 or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType"
                 or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType" or "IsAssignableFrom"
-                or "IsSubclassOf")
+                or "IsSubclassOf" or "IsInstanceOfType")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)
