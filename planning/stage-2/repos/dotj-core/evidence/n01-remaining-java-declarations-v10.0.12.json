@@ -366,6 +366,23 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-890"
+    },
+    {
+      "index": 24,
+      "sourceBatch": "Batch-413",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.CancellationToken)",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public abstract <TResult> Task_1<TResult> ContinueWith(Func_2<Task, TResult> continuationFunction, CancellationToken cancellationToken);",
+      "generatedSourceSha256": "988c0c7613357ad8d2d1f3858dd89a113328b5c4af363ceaa08ad7b3b7474dc1",
+      "supportTypes": [
+        "System.Func_2",
+        "System.Threading.CancellationToken",
+        "System.Threading.Tasks.Task_1"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-891"
     }
   ]
 }
