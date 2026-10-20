@@ -79,7 +79,7 @@ def record(args):
         "framework": "dotj-core",
         "planTaskIds": [args.next_task],
         "outcome": args.next_outcome,
-        "requiresContinue": args.number == 220,
+        "requiresContinue": args.number == 221,
     }
     save_json(progress_path, progress)
 
@@ -90,11 +90,11 @@ def record(args):
     state = re.sub(r"Implementation percentage: \*\*.*?\*\*\. .*?(?=\n- Batch tracking:)",
                    "Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.", state, count=1, flags=re.S)
     state = re.sub(r"Batch tracking: \d+ completed;.*?The next proposed batch is `Batch-\d{3}`\.",
-                   f"Batch tracking: {args.number} completed; the total and remaining batch count are not baselined. At least 66 further batches are needed to address the 66 unqualified frameworks under the one-small-outcome-per-batch rule; the actual total will be higher. The next proposed batch is `{following}`.", state, count=1)
+                   f"Batch tracking: {args.number} completed; the total and remaining batch count are not baselined. At least 66 further batches are needed to address the 66 unqualified frameworks under the one-small-outcome-per-batch rule; this is a lower bound, not a countdown, and stays at 66 until a framework qualifies. The next proposed batch is `{following}`.", state, count=1)
     state = re.sub(r"Proposed `Batch-\d{3}`:.*", f"Proposed `{following}`: {args.next_outcome}", state, count=1)
     state = re.sub(r"See \[Batch-\d{3}\]\(implementation/batches/Batch-\d{3}\.md\).*",
                    f"See [{current}](implementation/batches/{current}.md) for the latest validation record and limitations. " +
-                   ("A new CONTINUE signal is needed to start the next batch." if args.number == 220 else "The current request authorizes the next batch."), state, count=1)
+                   ("A new CONTINUE signal is needed to start the next batch." if args.number == 221 else "The current request authorizes the next batch."), state, count=1)
     marker = "- E02, E03 and N01: **IN PROGRESS**"
     assert marker in state
     state = state.replace(marker, f"- {current}: {args.outcome} {args.limitation}\n{marker}", 1)
@@ -126,7 +126,8 @@ def record(args):
 | Frameworks fully implemented and qualified | **0 / 66 (0.00%)** |
 | In-progress / not-started frameworks | **1 / 65** |
 | Batches completed | **{args.number}** (`Batch-001` through `{current}`) |
-| Batches still to do | **At least 66**; exact total is not baselined |
+| Total planned batches | **Not baselined**; no defensible cumulative `x/y` denominator exists yet |
+| Batches still to do | **Unknown**; lower bound: at least 66 to address 66 unqualified frameworks |
 | Next proposed batch | `{following}`: {args.next_outcome} |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
