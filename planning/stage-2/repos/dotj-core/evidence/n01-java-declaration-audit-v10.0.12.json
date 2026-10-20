@@ -3,24 +3,16 @@
   "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "selectedLedgerSha256": "d0c7e4475be4cb191ad96baeb9d44fa8b1a16ca14ab8a9473ecf3ac3f21aa9ac",
-  "remainingLedgerSha256": "b95a0f73bef8d85d10c33f837c03ed7c7975210d0dcf1cdd73286fb91ebe5682",
+  "remainingLedgerSha256": "6ea2d25812d6941f4265d9e2a86942be69c731198352f4b0372a0f232b10107f",
   "selectedMethodsProbed": 99,
   "remainingMethodsInventoried": 327,
   "remainingMethodsRecorded": 327,
-  "remainingMethodsWithoutCompilerResult": 1,
+  "remainingMethodsWithoutCompilerResult": 0,
   "distinctMethodsRecorded": 426,
-  "javaDeclarationsCompiled": 425,
+  "javaDeclarationsCompiled": 426,
   "javaDeclarationsBlocked": 0,
-  "javaProbesUnsupported": 1,
+  "javaProbesUnsupported": 0,
   "blockedIdentities": [],
-  "unsupportedIdentities": [
-    {
-      "declaringType": "System.Threading.Tasks.Task",
-      "metadataSignature": "Void WaitAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
-      "probeError": "By-reference or optional parameter needs separate representation",
-      "sourceBatch": "Batch-670",
-      "probeBatch": "Batch-1167"
-    }
-  ],
-  "scope": "Independent syntax probes with temporary support types; three generic-owner static members lift TResult to Java method scope. No exact metadata identity, collective overload, behavior, public facade, or release qualification"
+  "unsupportedIdentities": [],
+  "scope": "Independent syntax probes with temporary support types; three generic-owner static members lift TResult to Java method scope, and optional WaitAll uses a Java overload. No exact metadata identity, collective overload, behavior, public facade, or release qualification"
 }

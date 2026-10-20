@@ -11,6 +11,7 @@
   "sourceDeclaration": "public static void WaitAll(IEnumerable<Task> tasks, CancellationToken cancellationToken = default)",
   "metadataOptionalParameter": "cancellationToken",
   "twoArgumentJavaDeclaration": "COMPILED with temporary support types",
-  "oneArgumentJavaCall": "REJECTED: method WaitAll cannot be applied to given types",
-  "qualification": "The optional call form requires a deliberate Java representation; the pinned metadata snapshot has IsOptional but does not capture default-value semantics, and no public API or behavior is qualified"
+  "oneArgumentJavaCall": "COMPILED via explicit Java overload",
+  "twoArgumentJavaCall": "COMPILED",
+  "qualification": "The one-argument Java overload is a compile-only representation. A temporary token stub does not establish .NET default-value or WaitAll behavior; no public API is qualified"
 }

@@ -4439,8 +4439,15 @@
       "sourceBatch": "Batch-670",
       "declaringType": "System.Threading.Tasks.Task",
       "metadataSignature": "Void WaitAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
-      "result": "PROBE_UNSUPPORTED; BEHAVIOR_UNVERIFIED",
-      "probeError": "By-reference or optional parameter needs separate representation",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static void WaitAll(IEnumerable_1<Task> tasks, CancellationToken cancellationToken) { throw new UnsupportedOperationException(); }\n    public static void WaitAll(IEnumerable_1<Task> tasks) { WaitAll(tasks, new CancellationToken()); }",
+      "generatedSourceSha256": "c8bda80add69daf754b8ebc9be9b5d2f698e7c68319205529c3c5857f66447aa",
+      "supportTypes": [
+        "System.Collections.Generic.IEnumerable_1",
+        "System.Threading.CancellationToken"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
       "batch": "Batch-1167"
     },
     {

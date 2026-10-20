@@ -37,8 +37,8 @@ def main():
     if (method["declaringType"] != "System.Threading.Tasks.Task" or method["method"] != "WaitAll" or
             method["parameters"][1]["Name"] != "cancellationToken" or
             method["parameters"][1]["IsOptional"] is not True or
-            ledger["result"] != "PROBE_UNSUPPORTED; BEHAVIOR_UNVERIFIED" or
-            ledger["probeError"] != "By-reference or optional parameter needs separate representation"):
+            ledger["result"] != "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED" or
+            "new CancellationToken()" not in ledger["javaDeclaration"]):
         raise ValueError("Pinned optional WaitAll method or probe result changed")
     source = args.source_root / method["owningSourcePath"]
     snapshot = ROOT / method["snapshot"]
@@ -51,14 +51,15 @@ def main():
         raise ValueError("Optional parameter source declaration not found uniquely")
     declaration = """public class Task {
     public static void WaitAll(IEnumerable_1<Task> tasks, CancellationToken cancellationToken) {}
+    public static void WaitAll(IEnumerable_1<Task> tasks) { WaitAll(tasks, new CancellationToken()); }
 }
 class IEnumerable_1<T> {}
 class CancellationToken {}
 """
     direct = compile_java(declaration)
-    one_argument = compile_java(declaration + "class Consumer { static void call(IEnumerable_1<Task> tasks) { Task.WaitAll(tasks); } }\n")
-    if direct.returncode != 0 or one_argument.returncode == 0 or "cannot be applied to given types" not in one_argument.stderr:
-        raise RuntimeError("Expected Java optional-argument syntax boundary not reproduced")
+    consumer = compile_java(declaration + "class Consumer { static void call(IEnumerable_1<Task> tasks, CancellationToken token) { Task.WaitAll(tasks); Task.WaitAll(tasks, token); } }\n")
+    if direct.returncode != 0 or consumer.returncode != 0:
+        raise RuntimeError("Expected one- and two-argument Java calls did not compile: " + consumer.stderr)
     audit = {
         "schemaVersion": 1,
         "sourceCommit": inventory["sourceCommit"],
@@ -72,11 +73,12 @@ class CancellationToken {}
         "sourceDeclaration": matching[0][1],
         "metadataOptionalParameter": "cancellationToken",
         "twoArgumentJavaDeclaration": "COMPILED with temporary support types",
-        "oneArgumentJavaCall": "REJECTED: method WaitAll cannot be applied to given types",
-        "qualification": "The optional call form requires a deliberate Java representation; the pinned metadata snapshot has IsOptional but does not capture default-value semantics, and no public API or behavior is qualified",
+        "oneArgumentJavaCall": "COMPILED via explicit Java overload",
+        "twoArgumentJavaCall": "COMPILED",
+        "qualification": "The one-argument Java overload is a compile-only representation. A temporary token stub does not establish .NET default-value or WaitAll behavior; no public API is qualified",
     }
     OUTPUT.write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print("PASS: optional WaitAll token source and metadata pinned; two-argument Java declaration compiles, one-argument call is rejected")
+    print("PASS: optional WaitAll token source and metadata pinned; one- and two-argument Java calls compile")
 
 
 if __name__ == "__main__":
