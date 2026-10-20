@@ -21,6 +21,9 @@ Updated: 2026-10-20. Baseline: `stage-2-2026-10-19-v1`.
 - E02, E03, N01, WP-01 and WP-02: **NOT STARTED**. Existing development-pin samples are not qualified against the chosen release candidate.
 - All other frameworks: implementation **NOT STARTED**. Their preparation and qualification gates remain open.
 - Implementation percentage: **Not yet measurable**. The written backlog has 1,356 unique task IDs, including 60 SDK integration task IDs and 264 N01 prerequisite task IDs. It mixes implementation and preparation work, so a reviewed implementation-only denominator has not been established. Completing E01 does not earn implementation credit.
+- Batch tracking: 19 completed; the total and remaining batch count are not baselined. At least 66 further batches are needed to address the 66 unqualified frameworks under the one-small-outcome-per-batch rule; the actual total will be higher. The next proposed batch is `Batch-020`.
+
+Every future batch report and user handoff should show the overall implementation percentage (or "Not yet measurable" with its reason), completed/remaining batch counts (or the explicit unknown), and the next batch. Keep the 0/66 qualified-framework measure separate from the implementation percentage.
 
 ## Continuation
 
