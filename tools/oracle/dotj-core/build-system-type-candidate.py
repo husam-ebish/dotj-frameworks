@@ -79,6 +79,12 @@ def main():
     assert observed["emptyAssembly"]["result"] is None
     assert observed["emptyAssemblyThrow"]["exception"] == "System.ArgumentException"
     assert observed["emptyAssemblyThrow"]["paramName"] == "typeName@13"
+    assert observed["stringArray"]["result"] == "System.String[]"
+    assert observed["intArray"]["result"] == "System.Int32[]"
+    assert observed["stringArrayInsensitive"]["result"] == "System.String[]"
+    assert observed["stringArrayQualified"]["result"] == "System.String[]"
+    assert observed["listStringSimple"]["result"] == observed["listStringQualified"]["result"]
+    assert observed["listStringSimple"]["result"].startswith("System.Collections.Generic.List`1[[System.String,")
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
