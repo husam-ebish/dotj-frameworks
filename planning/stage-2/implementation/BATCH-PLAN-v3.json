@@ -1,0 +1,486 @@
+{
+  "schemaVersion": 1,
+  "planVersion": "stage-2-batches-v3",
+  "baselineDate": "2026-10-20",
+  "sourceLedger": "planning/stage-2/IMPLEMENTATION-PROGRESS.json",
+  "historicalCompletedBatches": 223,
+  "baselineBatch": "Batch-223",
+  "baselineBatchSlots": 0,
+  "reservedGateSlots": 330,
+  "reservedNamingTaskSlots": 264,
+  "reservedImplementationTaskSlots": 1092,
+  "reservedAcceptanceSlots": 1686,
+  "plannedTotalBatches": 1936,
+  "firstFutureBatch": "Batch-251",
+  "frameworkSlots": [
+    {
+      "frameworkId": "DJ-001",
+      "repository": "dotj-core",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 27
+    },
+    {
+      "frameworkId": "DJ-002",
+      "repository": "dotj-sdk",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 50
+    },
+    {
+      "frameworkId": "DJ-003",
+      "repository": "dotj-code",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-004",
+      "repository": "dotj-razor",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-005",
+      "repository": "dotj-build",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 25
+    },
+    {
+      "frameworkId": "DJ-006",
+      "repository": "dotj-extensions",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-007",
+      "repository": "dotj-diagnostics",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-008",
+      "repository": "dotj-interactive",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-009",
+      "repository": "dotj-scaffold",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-010",
+      "repository": "dotj-templates",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 20
+    },
+    {
+      "frameworkId": "DJ-011",
+      "repository": "dotj-containers",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-012",
+      "repository": "dotj-web",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 24
+    },
+    {
+      "frameworkId": "DJ-013",
+      "repository": "dotj-aspire",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-014",
+      "repository": "dotj-proxy",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-015",
+      "repository": "dotj-actors",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-016",
+      "repository": "dotj-auth",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-017",
+      "repository": "dotj-service-client",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-018",
+      "repository": "dotj-services",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-019",
+      "repository": "dotj-entity",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 18
+    },
+    {
+      "frameworkId": "DJ-020",
+      "repository": "dotj-sql",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-021",
+      "repository": "dotj-postgresql",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 18
+    },
+    {
+      "frameworkId": "DJ-022",
+      "repository": "dotj-redis",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-023",
+      "repository": "dotj-json",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-024",
+      "repository": "dotj-mapster",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-025",
+      "repository": "dotj-container",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-026",
+      "repository": "dotj-validation",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-027",
+      "repository": "dotj-resilience",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-028",
+      "repository": "dotj-reactive",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-029",
+      "repository": "dotj-jobs",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-030",
+      "repository": "dotj-scheduler",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-031",
+      "repository": "dotj-mail",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-032",
+      "repository": "dotj-rest",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-033",
+      "repository": "dotj-refit",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-034",
+      "repository": "dotj-mqtt",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-035",
+      "repository": "dotj-versioning",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-036",
+      "repository": "dotj-swagger",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-037",
+      "repository": "dotj-openapi",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 24
+    },
+    {
+      "frameworkId": "DJ-038",
+      "repository": "dotj-graph-platform",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-039",
+      "repository": "dotj-graphql",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-040",
+      "repository": "dotj-presentation",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-041",
+      "repository": "dotj-forms",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-042",
+      "repository": "dotj-multiui",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-043",
+      "repository": "dotj-avalonia",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-044",
+      "repository": "dotj-uno",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-045",
+      "repository": "dotj-toolkit",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-046",
+      "repository": "dotj-material",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 18
+    },
+    {
+      "frameworkId": "DJ-047",
+      "repository": "dotj-components",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 18
+    },
+    {
+      "frameworkId": "DJ-048",
+      "repository": "dotj-structured-log",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-049",
+      "repository": "dotj-log",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-050",
+      "repository": "dotj-xtest",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-051",
+      "repository": "dotj-test",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-052",
+      "repository": "dotj-mock",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-053",
+      "repository": "dotj-substitute",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-054",
+      "repository": "dotj-coverage",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-055",
+      "repository": "dotj-benchmark",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-056",
+      "repository": "dotj-testcontainers",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-057",
+      "repository": "dotj-excel",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-058",
+      "repository": "dotj-openxml",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-059",
+      "repository": "dotj-markdown",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-060",
+      "repository": "dotj-ml",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-061",
+      "repository": "dotj-semantic",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-062",
+      "repository": "dotj-packages",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 20
+    },
+    {
+      "frameworkId": "DJ-063",
+      "repository": "dotj-registry",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 20
+    },
+    {
+      "frameworkId": "DJ-064",
+      "repository": "dotj-automap",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-065",
+      "repository": "dotj-mediator",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    },
+    {
+      "frameworkId": "DJ-066",
+      "repository": "dotj-bus",
+      "gateSlots": 5,
+      "namingTaskSlots": 4,
+      "implementationTaskSlots": 15
+    }
+  ],
+  "planningRule": "Retain batches 001-223 once; schedule 27 bounded E03 evidence batches 224-250; then reserve one future acceptance batch for each still-open gate, naming task, and WP or SDK implementation task.",
+  "revisionRule": "One slot is a scheduling target, not a claim that its acceptance work fits one historical-sized batch. Add or remove slots only in a new plan version with reconciled counts and a stated reason; retain historical batches.",
+  "supersedes": "stage-2-batches-v2",
+  "acceptedItemsAtBaseline": 0,
+  "rebaselineReason": "The user requested 27 continuation points. These are explicitly scheduled E03 evidence outcomes and are additional to the still-open named acceptance items.",
+  "scheduledEvidenceBatchSlots": 27,
+  "evidenceSchedule": "planning/stage-2/implementation/WAITASYNC-27-POINTS.json"
+}

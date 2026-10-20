@@ -287,6 +287,14 @@ Run("waitAsyncPresignaledCancellation", () =>
         "presignaled wait changed the source");
 });
 
+Run("waitAsyncZeroTimeoutPending", () =>
+{
+    TaskCompletionSource<int> source = new();
+    Task<int> waiting = source.Task.WaitAsync(TimeSpan.Zero);
+    CheckThrows<TimeoutException>(() => waiting.GetAwaiter().GetResult(), "zero timeout on pending source");
+    Check(waiting.IsFaulted && !source.Task.IsCompleted, "zero timeout completed the source");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
