@@ -47,6 +47,7 @@ public final class AsyncTimedWaitTest {
         listenerTransition("timeout");
         listenerTransition("futureCancel");
         sharedSignalWaits();
+        mixedDeadlineWaits();
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -231,6 +232,21 @@ public final class AsyncTimedWaitTest {
         awaitCleanup(second, shared, "shared second");
         check(first.state() == AsyncState.PENDING && second.state() == AsyncState.PENDING,
                 "shared signal changed source state");
+    }
+
+    private static void mixedDeadlineWaits() throws Exception {
+        AsyncCompletion<Integer> source = new AsyncCompletion<>();
+        WaitCancellationSignal firstSignal = new WaitCancellationSignal();
+        WaitCancellationSignal secondSignal = new WaitCancellationSignal();
+        CompletableFuture<Integer> shortWait = source.waitAsync(10, firstSignal);
+        CompletableFuture<Integer> longWait = source.waitAsync(30_000, secondSignal);
+        assertOutcome("short deadline", shortWait, "timeout", null);
+        check(!longWait.isDone() && source.waiterCount() == 1 &&
+                secondSignal.listenerCount() == 1, "short deadline changed long wait");
+        source.setResult(42);
+        check(longWait.get(5, TimeUnit.SECONDS) == 42, "long wait lost result");
+        awaitCleanup(source, firstSignal, "mixed first");
+        awaitCleanup(source, secondSignal, "mixed second");
     }
 
     private static void check(boolean condition, String message) {
