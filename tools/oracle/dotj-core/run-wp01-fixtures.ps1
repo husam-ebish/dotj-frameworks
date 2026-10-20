@@ -23,6 +23,7 @@ $sources = @(
     'src/test/java/org/dotj/internal/types/LoadableType.java'
     'src/test/java/org/dotj/internal/types/TypeIdentityTest.java'
     'src/test/java/org/dotj/internal/types/TypeIdentityLoaderTest.java'
+    'src/test/java/org/dotj/internal/types/TypeIdentityBoundaryTest.java'
 ) | ForEach-Object { Join-Path $javaRoot $_ }
 
 & javac -d $classes @sources
@@ -40,6 +41,7 @@ $javaTests = @(
     'org.dotj.internal.context.ContextSnapshotBoundaryTest'
     'org.dotj.internal.types.TypeIdentityTest'
     'org.dotj.internal.types.TypeIdentityLoaderTest'
+    'org.dotj.internal.types.TypeIdentityBoundaryTest'
 )
 foreach ($test in $javaTests) {
     & java -cp $classes $test
