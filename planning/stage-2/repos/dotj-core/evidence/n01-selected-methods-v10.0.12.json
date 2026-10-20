@@ -1290,6 +1290,28 @@
       "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
       "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
       "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+    },
+    {
+      "batch": "Batch-363",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "name": "ConfigureAwait",
+      "signature": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable ConfigureAwait(Boolean)",
+      "returnType": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable",
+      "isStatic": false,
+      "genericArity": 0,
+      "parameters": [
+        {
+          "Name": "continueOnCapturedContext",
+          "type": "System.Boolean",
+          "IsOptional": false,
+          "IsOut": false
+        }
+      ],
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/api-shapes-v10.0.12/value-task.json",
+      "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13",
+      "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
     }
   ]
 }
