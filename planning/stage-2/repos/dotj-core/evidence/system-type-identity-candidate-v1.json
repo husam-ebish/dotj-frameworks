@@ -140,6 +140,16 @@
       "exception": null,
       "paramName": null
     },
+    "stringPointer": {
+      "result": "System.String*",
+      "exception": null,
+      "paramName": null
+    },
+    "intPointer": {
+      "result": "System.Int32*",
+      "exception": null,
+      "paramName": null
+    },
     "dictionarySimple": {
       "result": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
       "exception": null,
@@ -177,7 +187,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "24b11eec224d6b971c61eecb26326ef3515643371646b5af5b566601684dd488",
+  "sourceSha256": "88006ed20a3e836eb686cced543a43313a2930dff7c195b9ecc15ae4529ce4eb",
   "exceptionSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -215,7 +225,7 @@
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
   "testSha256": "12a935a158b3bb41c4fac98c03d0b44196f4244157d0a08d17a86b0754c824e3",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
-  "externalConsumerSha256": "bb1b37289c9b0cc4ce69588665aa712268f9154d6600fd22d16ed8feecf82d00",
+  "externalConsumerSha256": "1201c4b2dd546630bdb503bc37b30d88f4951408ce2ef5aea507161075465664",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
   "concurrencyTestSha256": "400b29826a163847549aaa6afcd65b9ddf5f3ccd8b0d82d8b5cb8140381844ad",
   "loaderFixturePath": "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java",
@@ -228,11 +238,13 @@
     "public System.Type MakeArrayType();",
     "public System.Type MakeArrayType(int);",
     "public System.Type MakeByRefType();",
+    "public System.Type MakePointerType();",
     "public System.Type GetGenericTypeDefinition();",
     "public System.Type[] GetGenericArguments();",
     "public System.Type[] get_GenericTypeArguments();",
     "public boolean get_IsArray();",
     "public boolean get_IsByRef();",
+    "public boolean get_IsPointer();",
     "public System.Type GetElementType();",
     "public int GetArrayRank();",
     "public boolean get_IsGenericType();",

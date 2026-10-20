@@ -55,7 +55,7 @@ def main():
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
-            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef"} <= properties
+            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
         "exact": {"result": "System.String", "exception": None, "paramName": None},
@@ -107,6 +107,14 @@ def main():
         "arrayName": "System.String[]&", "repeatSameIdentity": True,
         "doubleByRefError": "System.TypeLoadException",
     }
+    assert observed["stringPointer"]["result"] == "System.String*"
+    assert observed["intPointer"]["result"] == "System.Int32*"
+    pointer = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPointerBehavior"]
+    assert pointer == {
+        "name": "System.String*", "intName": "System.Int32*", "isPointer": True,
+        "element": "System.String", "repeatSameIdentity": True,
+        "pointerToPointer": "System.String**", "byRefError": "System.TypeLoadException",
+    }
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -132,11 +140,13 @@ def main():
         "public System.Type MakeArrayType();",
         "public System.Type MakeArrayType(int);",
         "public System.Type MakeByRefType();",
+        "public System.Type MakePointerType();",
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
         "public System.Type[] get_GenericTypeArguments();",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
+        "public boolean get_IsPointer();",
         "public System.Type GetElementType();",
         "public int GetArrayRank();",
         "public boolean get_IsGenericType();",

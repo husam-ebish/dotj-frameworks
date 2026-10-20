@@ -36,6 +36,7 @@ EXPECTED_CLASSES = [
     "System/Type$ArrayType.class",
     "System/Type$ByRefType.class",
     "System/Type$GenericParameterType.class",
+    "System/Type$PointerType.class",
     "System/Type$ResolvedType.class",
     "System/Type.class",
     "System/TypeLoadException.class",
