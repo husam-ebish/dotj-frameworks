@@ -1,10 +1,20 @@
 package org.dotj.internal.types;
 
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Comparator;
+import java.util.List;
+import javax.tools.DiagnosticCollector;
+import javax.tools.JavaFileObject;
+import javax.tools.SimpleJavaFileObject;
+import javax.tools.ToolProvider;
+
 public final class ArityMethodSignatureBinderTest {
     private ArityMethodSignatureBinderTest() {
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         assertLower("System.Threading.Tasks.Task Run()", "System.Threading.Tasks.Task Run()");
         assertLower("System.Threading.Tasks.Task WaitAsync(System.Threading.CancellationToken cancellationToken)",
                 "System.Threading.Tasks.Task WaitAsync(System.Threading.CancellationToken cancellationToken)");
@@ -18,7 +28,65 @@ public final class ArityMethodSignatureBinderTest {
         expectInvalid("System.Threading.Tasks.Task Run(System.String value))");
         expectInvalid("System.Threading.Tasks.Task Run(System.Threading.Tasks.Task<System.String, System.String> value)");
         expectInvalid("System.Threading.Tasks.Task run-name()");
+        verifyCompilableBackendDeclaration();
         java.lang.System.out.println("PASS: bounded Task-family method signature binding");
+    }
+
+    private static void verifyCompilableBackendDeclaration() throws Exception {
+        String signature = ArityMethodSignatureBinder.lower(
+                "System.Threading.Tasks.Task<java.lang.String> ContinueWith(System.Threading.Tasks.Task antecedent)");
+        Path output = Files.createTempDirectory("dotj-arity-signature-");
+        try {
+            var compiler = ToolProvider.getSystemJavaCompiler();
+            if (compiler == null) {
+                throw new AssertionError("A JDK compiler is required");
+            }
+            List<JavaFileObject> direct = List.of(
+                    source("System.Threading.Tasks.Task", "package System.Threading.Tasks; public class Task {}"),
+                    source("System.Threading.Tasks.Task_1", "package System.Threading.Tasks; public class Task_1<T> {}"),
+                    source("fixture.DirectProbe", "package fixture; public abstract class DirectProbe { public abstract "
+                            + signature + "; }"));
+            var directDiagnostics = new DiagnosticCollector<JavaFileObject>();
+            Boolean directPassed = compiler.getTask(null, null, directDiagnostics,
+                    List.of("--release", "21", "-d", output.toString()), null, direct).call();
+            if (Boolean.TRUE.equals(directPassed) || directDiagnostics.getDiagnostics().stream().noneMatch(
+                    diagnostic -> diagnostic.toString().contains("java.lang.System"))) {
+                throw new AssertionError("Expected the java.lang.System source-name collision");
+            }
+            var diagnostics = new DiagnosticCollector<JavaFileObject>();
+            List<JavaFileObject> sources = List.of(
+                    source("System.Threading.Tasks.Task", "package System.Threading.Tasks; public class Task {}"),
+                    source("System.Threading.Tasks.Task_1", "package System.Threading.Tasks; public class Task_1<T> {}"),
+                    source("fixture.Probe", "package fixture; import System.Threading.Tasks.Task; "
+                            + "import System.Threading.Tasks.Task_1; public abstract class Probe { public abstract "
+                            + signature.replace("System.Threading.Tasks.", "") + "; }"));
+            Boolean passed = compiler.getTask(null, null, diagnostics,
+                    List.of("--release", "21", "-d", output.toString()), null, sources).call();
+            if (!Boolean.TRUE.equals(passed)) {
+                throw new AssertionError("Bound declaration did not compile: " + diagnostics.getDiagnostics());
+            }
+            if (!Files.isRegularFile(output.resolve("fixture/Probe.class"))
+                    || !Files.isRegularFile(output.resolve("System/Threading/Tasks/Task.class"))
+                    || !Files.isRegularFile(output.resolve("System/Threading/Tasks/Task_1.class"))) {
+                throw new AssertionError("Expected JVM classes were not emitted");
+            }
+        } finally {
+            try (var paths = Files.walk(output)) {
+                for (Path path : paths.sorted(Comparator.reverseOrder()).toList()) {
+                    Files.delete(path);
+                }
+            }
+        }
+    }
+
+    private static JavaFileObject source(String name, String contents) {
+        URI uri = URI.create("string:///" + name.replace('.', '/') + JavaFileObject.Kind.SOURCE.extension);
+        return new SimpleJavaFileObject(uri, JavaFileObject.Kind.SOURCE) {
+            @Override
+            public CharSequence getCharContent(boolean ignoreEncodingErrors) {
+                return contents;
+            }
+        };
     }
 
     private static void assertLower(String source, String expected) {
