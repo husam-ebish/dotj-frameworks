@@ -45,7 +45,7 @@ def gate(source):
     run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-upstream-tests.ps1"), "-SourceRoot", str(source), contains="Passed:    10")
     upstream = json.loads((Path.home() / "AppData/Local/Temp/dotj-wp02-upstream-results/summary.json").read_text(encoding="utf-8-sig"))
     assert upstream["passed"] == 10 and upstream["sourceCommit"] == "4271d88e0aebf3d04f188f1334c2220d80555ef6"
-    run("powershell", "-NoProfile", "-File", str(ORACLE / "build-internal-core.ps1"), contains="PASS: 15 internal sources and 16 classes")
+    run("powershell", "-NoProfile", "-File", str(ORACLE / "build-internal-core.ps1"), contains="PASS: 16 internal sources and 18 classes")
     jar = ROOT / "dotj-core/dotj-core-01/build/dotj-core-internal-v1.jar"
     jar_hash = hashlib.sha256(jar.read_bytes()).hexdigest()
     jar_manifest = json.loads((EVIDENCE / "internal-core-jar-v1.json").read_text(encoding="utf-8-sig"))

@@ -722,7 +722,8 @@
     "Batch-705",
     "Batch-706",
     "Batch-707",
-    "Batch-708"
+    "Batch-708",
+    "Batch-709"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -915,7 +916,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-708",
+      "lastUpdatedBatch": "Batch-709",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -10526,38 +10527,38 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-709",
+    "id": "Batch-710",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Add an internal source renderer that emits Task-family imports and simple backend names for bound method signatures.",
+    "outcome": "Preserve source type identity when an imported simple name conflicts with java.lang or the declaration scope.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 708,
+    "completedBatches": 709,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "requestedSeries": {
       "firstBatch": "Batch-701",
       "lastBatch": "Batch-1200",
-      "completed": 8,
-      "remaining": 492
+      "completed": 9,
+      "remaining": 491
     },
     "activeTranche": {
       "firstBatch": "Batch-706",
       "lastBatch": "Batch-755",
-      "completed": 3,
-      "remaining": 47
+      "completed": 4,
+      "remaining": 46
     },
     "currentRequest": {
       "firstBatch": "Batch-707",
       "lastBatch": "Batch-716",
-      "completed": 2,
-      "remaining": 8
+      "completed": 3,
+      "remaining": 7
     },
     "status": "Future batch count UNKNOWN; report accepted work and requested series separately"
   }
