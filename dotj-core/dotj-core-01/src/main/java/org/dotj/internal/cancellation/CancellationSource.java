@@ -47,9 +47,12 @@ final class CancellationSource implements AutoCloseable {
 
     static CancellationSource linked(CancellationToken... parents) {
         Objects.requireNonNull(parents, "parents");
+        for (CancellationToken parent : parents) {
+            Objects.requireNonNull(parent, "parent");
+        }
         CancellationSource child = new CancellationSource();
         for (CancellationToken parent : parents) {
-            CancellationRegistration link = Objects.requireNonNull(parent, "parent").register(child::cancel);
+            CancellationRegistration link = parent.register(child::cancel);
             child.parentLinks.add(link);
         }
         return child;
