@@ -523,6 +523,16 @@ Run("waitAsyncNegativeTimeoutWithToken", () =>
     Check(!source.Task.IsCompleted, "negative combined timeout completed source");
 });
 
+Run("waitAsyncTimeoutSourceIndependence", () =>
+{
+    TaskCompletionSource<int> source = new();
+    Task<int> waiting = source.Task.WaitAsync(TimeSpan.FromMilliseconds(10));
+    CheckThrows<TimeoutException>(() => waiting.GetAwaiter().GetResult(), "timeout before source completion");
+    Check(!source.Task.IsCompleted, "timeout completed source");
+    source.SetResult(42);
+    Check(waiting.IsFaulted && source.Task.Result == 42, "later source result changed timed-out wait");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
