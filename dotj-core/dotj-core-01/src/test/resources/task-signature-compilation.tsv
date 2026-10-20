@@ -17,3 +17,4 @@ nested-task	PASS	fixture	Probe	System.Threading.Tasks.Task<System.Threading.Task
 generic-task-array	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String>[] Batch()	Task_1<String>[] Batch()
 jagged-task-array	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String>[][] Batch()	Task_1<String>[][] Batch()
 list-of-task	PASS	fixture	Probe	java.util.List<System.Threading.Tasks.Task<System.String>> Batch()	java.util.List<Task_1<String>> Batch()
+map-of-task	PASS	fixture	Probe	java.util.Map<System.String, System.Threading.Tasks.Task<System.String>> Batch()	java.util.Map<String, Task_1<String>> Batch()
