@@ -15,17 +15,18 @@
     },
     {
       "topic": "nullability",
-      "evidence": ["TypeIdentityBoundaryTest"],
-      "observation": "The internal helper rejects a null Type with a Java NullPointerException naming the type parameter.",
-      "remaining": "No corresponding pinned .NET null-input oracle or public nullability/exception contract is qualified by this internal guard."
+      "evidence": ["TypeIdentityBoundaryTest", "wp01-t1-null-exception-oracle-v10.0.12.json"],
+      "observation": "The internal helper rejects a null Type with a Java NullPointerException naming type. The pinned .NET Type.MakeGenericType null-array case throws ArgumentNullException naming typeArguments.",
+      "remaining": "These are different operations; the public nullability and exception mapping has not been specified or qualified."
     },
     {
       "topic": "exception cause and identity",
       "evidence": [
         "disposal-behavior-v10.0.12/oracle-output.json",
-        "ProductDisposableContractConsumer"
+        "ProductDisposableContractConsumer",
+        "wp01-t1-null-exception-oracle-v10.0.12.json"
       ],
-      "observation": "Selected .NET disposal failures and the Java public-interface consumer propagate their implementation failure; the Java consumer checks the same Throwable object.",
+      "observation": "Selected .NET disposal failures and the Java public-interface consumer propagate their implementation failure. The pinned .NET using case preserves the Dispose exception object and InnerException reference; the Java consumer checks the same Throwable object.",
       "remaining": "A cross-language System.Exception cause/type mapping, stack/inner-exception behavior, and broader failure ordering are not specified or qualified."
     }
   ],
@@ -33,7 +34,6 @@
   "completionCredit": false,
   "nextNeeded": [
     "Specify public System.Type and closed-generic representations against the complete selected semantic surface.",
-    "Capture pinned .NET null-input and exception-cause cases for selected public operations.",
     "Write a versioned public nullability and exception mapping contract and verify it with paired consumers."
   ]
 }

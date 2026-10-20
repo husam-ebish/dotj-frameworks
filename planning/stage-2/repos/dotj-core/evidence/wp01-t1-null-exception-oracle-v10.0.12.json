@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "planTask": "DJ-001-WP-01-T1",
+  "runtimeVersion": "10.0.12",
+  "dotnetSdk": "10.0.401",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracles": [
+    {
+      "project": "tools/oracle/dotj-core/type-identity/TypeIdentityOracle.csproj",
+      "programSha256": "1139ebb31ad45eeebba2b29c7a8a60fd21e04324580ff20b3b8b92cc52fd1293",
+      "case": "typeof(List<>).MakeGenericType(null Type[])",
+      "observedException": "System.ArgumentNullException",
+      "observedParameter": "typeArguments",
+      "result": "PASS"
+    },
+    {
+      "project": "tools/oracle/dotj-core/disposal-behavior/DisposalBehaviorOracle.csproj",
+      "programSha256": "0b171c7cdaed6f87e5d3c536cfe4ff14e187eec4ee46f6a18ca1de03b6d33511",
+      "case": "using body and IDisposable.Dispose both fail",
+      "observedException": "System.InvalidOperationException",
+      "disposeFailureSameReference": true,
+      "disposeCauseSameReference": true,
+      "observedMessage": "dispose",
+      "result": "PASS"
+    }
+  ],
+  "fullWp01Runner": "PASS: 17 Java fixtures and 5 .NET oracles",
+  "limits": [
+    "Independent pinned-runtime oracles, not selected upstream test methods.",
+    "The Java internal TypeIdentity null guard does not claim the same public exception type or parameter name as System.Type.MakeGenericType.",
+    "Selected exception reference and InnerException preservation do not establish a general cross-language System.Exception mapping."
+  ],
+  "qualification": "BOUNDED_ORACLE_EVIDENCE; WP-01-T1 AND PUBLIC_API QUALIFICATION OPEN"
+}
