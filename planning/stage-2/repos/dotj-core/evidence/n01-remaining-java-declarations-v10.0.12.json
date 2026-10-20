@@ -665,6 +665,22 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-908"
+    },
+    {
+      "index": 42,
+      "sourceBatch": "Batch-422",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Run(System.Action, System.Threading.CancellationToken)",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static Task Run(Action action, CancellationToken cancellationToken) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "1fbd0d2d8271346e1d829a71555ea30e68873678328c57bb1e25320a81c9e328",
+      "supportTypes": [
+        "System.Action",
+        "System.Threading.CancellationToken"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-909"
     }
   ]
 }
