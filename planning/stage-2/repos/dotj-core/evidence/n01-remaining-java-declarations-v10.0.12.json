@@ -4611,6 +4611,22 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-1179"
+    },
+    {
+      "index": 311,
+      "sourceBatch": "Batch-683",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static <TResult> Task_1<TResult[]> WhenAll(ReadOnlySpan_1<Task_1<TResult>> tasks) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "3aa6ffa40b9ffd3c5c2adc25e80a2971987a245ed4a2e18e0ca114991af83bff",
+      "supportTypes": [
+        "System.ReadOnlySpan_1",
+        "System.Threading.Tasks.Task_1"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-1180"
     }
   ]
 }
