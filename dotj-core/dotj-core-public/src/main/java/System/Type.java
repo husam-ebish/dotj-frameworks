@@ -2,6 +2,7 @@ package System;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
@@ -49,16 +50,34 @@ public abstract class Type {
 
     /** Selected CoreLib names only; broader lookup and assembly resolution remain open. */
     public static Type GetType(String typeName) {
+        return GetType(typeName, false, false);
+    }
+
+    public static Type GetType(String typeName, boolean throwOnError) {
+        return GetType(typeName, throwOnError, false);
+    }
+
+    /** Selected CoreLib names only; assembly resolution remains open. */
+    public static Type GetType(String typeName, boolean throwOnError, boolean ignoreCase) {
         if (typeName == null) {
             throw new ArgumentNullException("typeName");
         }
-        return switch (typeName) {
+        String key = ignoreCase ? typeName.toLowerCase(Locale.ROOT) : typeName;
+        Type resolved = switch (key) {
             case "System.String" -> fromJavaClass(String.class);
             case "System.Int32" -> fromJavaClass(Integer.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
+            case "system.string" -> ignoreCase ? fromJavaClass(String.class) : null;
+            case "system.int32" -> ignoreCase ? fromJavaClass(Integer.class) : null;
+            case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
+            case "system.collections.generic.dictionary`2" -> ignoreCase ? fromJavaClass(java.util.Map.class) : null;
             default -> null;
         };
+        if (resolved == null && throwOnError) {
+            throw new TypeLoadException("Could not resolve selected type: " + typeName);
+        }
+        return resolved;
     }
 
     public Type MakeGenericType(Type[] typeArguments) {

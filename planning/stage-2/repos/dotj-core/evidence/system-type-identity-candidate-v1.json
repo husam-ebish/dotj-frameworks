@@ -4,8 +4,40 @@
   "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "snapshotSha256": "798309af37ad61a2b7f311dc0d18bc3df25e3904d86ea8c0a43d598110909637",
+  "selectedGetTypeBehavior": {
+    "exact": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "insensitive": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "sensitiveMiss": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "missing": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "missingThrow": {
+      "result": null,
+      "exception": "System.TypeLoadException",
+      "paramName": null
+    },
+    "nullName": {
+      "result": null,
+      "exception": "System.ArgumentNullException",
+      "paramName": "typeName"
+    }
+  },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "7ebf55f62283142be8e278bc73976f1d325d056740cb287e5d80e6b92cf44049",
+  "sourceSha256": "15807ee487fd79631859e2c70be5c82cef8befdd64396704f607c39899527ce2",
   "exceptionSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -22,18 +54,24 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentNullException.java",
       "sha256": "0be38df37380b6a57dd1995bc2c5e8b7a8dcbc8f10c3557c972716bff24bb58b"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/TypeLoadException.java",
+      "sha256": "e5efca376e1efd5d002106ecbb1833c1153048ed923d3d116ad1ff240b596791"
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
   "testSha256": "12a935a158b3bb41c4fac98c03d0b44196f4244157d0a08d17a86b0754c824e3",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
-  "externalConsumerSha256": "d663a17ca161acad7a3c8286ac91bda2071d6610331dedb499c14860a6f79a9b",
+  "externalConsumerSha256": "46620eface33292b26b590009b3306a8e4cd02859a6003f4fe59018fabc2d833",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
   "concurrencyTestSha256": "400b29826a163847549aaa6afcd65b9ddf5f3ccd8b0d82d8b5cb8140381844ad",
   "loaderFixturePath": "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java",
   "loaderFixtureSha256": "63b9a27179754cc7c7e31acc3c8be8d6947e5bbf3f37ab838c9ce5445f62e4e4",
   "publicMembers": [
     "public static System.Type GetType(java.lang.String);",
+    "public static System.Type GetType(java.lang.String, boolean);",
+    "public static System.Type GetType(java.lang.String, boolean, boolean);",
     "public System.Type MakeGenericType(System.Type[]);",
     "public System.Type GetGenericTypeDefinition();",
     "public System.Type[] GetGenericArguments();",

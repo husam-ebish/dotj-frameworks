@@ -7,7 +7,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "7ebf55f62283142be8e278bc73976f1d325d056740cb287e5d80e6b92cf44049"
+      "sha256": "15807ee487fd79631859e2c70be5c82cef8befdd64396704f607c39899527ce2"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -24,10 +24,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentNullException.java",
       "sha256": "0be38df37380b6a57dd1995bc2c5e8b7a8dcbc8f10c3557c972716bff24bb58b"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/TypeLoadException.java",
+      "sha256": "e5efca376e1efd5d002106ecbb1833c1153048ed923d3d116ad1ff240b596791"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "893d02c8883a55f7da46f4965302bb4835e6d17b361064289c0a21e491ce69ea",
+  "jarSha256": "d7292e6b3606f97a720c307deb99cf1d46b97869c1f48fe04eacfe8575ac6c25",
   "jarEntries": [
     "META-INF/MANIFEST.MF",
     "System/ArgumentException.class",
@@ -39,7 +43,8 @@
     "System/Type$2.class",
     "System/Type$GenericParameterType.class",
     "System/Type$ResolvedType.class",
-    "System/Type.class"
+    "System/Type.class",
+    "System/TypeLoadException.class"
   ],
   "classSha256": {
     "System/ArgumentException.class": "ff5916353a148f42cd6024d7acc1eeb755c94671064b87a44fa9862a41c566ce",
@@ -47,11 +52,12 @@
     "System/Exception.class": "ec46b472c6bd47b0cc155d3167f9b3218e611659182fe149ab479462757900f8",
     "System/IDisposable.class": "e308da2ce34102fc8c31e2d96beb0b54aba33b05aabe0e1e63196fb87ae5687b",
     "System/SystemException.class": "8a0ce898bd9a9a53c79f403b1685f06fd421a639e972bab3d2cb083581b3d169",
-    "System/Type$1.class": "c11e7f732644696ac0e6d3be686d975e277b375219dc948f00c163a98f7fbd00",
-    "System/Type$2.class": "fed7dd463102425722297bab16bb58eb22763822b65e75ea1b241426e48e26a7",
-    "System/Type$GenericParameterType.class": "c855059b863cf6976692d7cea9b0abb67e9571b289e8257eaf1c4d49e2b46142",
-    "System/Type$ResolvedType.class": "6ceb6388aeb4d265fa66f8db90836705fad12be73ad0eb4fb315925c79382bb3",
-    "System/Type.class": "55fc67b8a5eed222b2763ebe484925b1b78ca3194bb8145578b27330a0c094ee"
+    "System/Type$1.class": "ec9e43474d6406d664de377533ac66748d4a0c20b95f0897f203634d7023729a",
+    "System/Type$2.class": "d0e2be30a3886578aa48eceddc20ad36813ced25dfb67c00111a01b3ea9fabde",
+    "System/Type$GenericParameterType.class": "eeef3c408e53d10656b8dafb3eb62161f8f715fd4b5bfb57621091febfcb6c6b",
+    "System/Type$ResolvedType.class": "d64127a125fd4c54f89570af798f76626ac5ac04e68dd5aa3d77f1aea4e7876b",
+    "System/Type.class": "55004926575c56c8337483b5c875eb43cc89edfc8daeb52107de0d4b2cf9f43d",
+    "System/TypeLoadException.class": "5abf39d1265d20b8756e5215d23b19be75c13fb33def2c35f0736daf1ced4fac"
   },
   "disposalConsumer": "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation",
   "typeConsumer": "PASS external System.Type selected identity consumer",

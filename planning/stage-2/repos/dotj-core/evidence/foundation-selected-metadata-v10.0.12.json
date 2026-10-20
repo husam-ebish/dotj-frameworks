@@ -8,6 +8,38 @@
     "nullArgumentParamName": "typeName",
     "nullArgumentMessage": "missing type (Parameter 'typeName')"
   },
+  "selectedGetTypeBehavior": {
+    "exact": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "insensitive": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "sensitiveMiss": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "missing": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "missingThrow": {
+      "result": null,
+      "exception": "System.TypeLoadException",
+      "paramName": null
+    },
+    "nullName": {
+      "result": null,
+      "exception": "System.ArgumentNullException",
+      "paramName": "typeName"
+    }
+  },
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -399,8 +431,42 @@
           }
         ]
       ]
+    },
+    {
+      "fullName": "System.TypeLoadException",
+      "baseType": "System.SystemException",
+      "isInterface": false,
+      "isAbstract": false,
+      "declaredPublicMethodCount": 1,
+      "declaredPublicPropertyCount": 2,
+      "selectedMethods": [],
+      "selectedProperties": [
+        {
+          "name": "Message",
+          "type": "System.String"
+        }
+      ],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "inner",
+            "type": "System.Exception"
+          }
+        ]
+      ]
     }
   ],
-  "oracleProgramSha256": "25db6757eefffc7eb76204ba1af737138c224ad3256645097b72a4a88df4b09d",
+  "oracleProgramSha256": "02dd805e6db9e6aa4dce460898e0ae8b8bf7acef4374dad3e78218b005c44838",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -9,6 +9,7 @@ Type[] selected = [
     typeof(SystemException),
     typeof(ArgumentException),
     typeof(ArgumentNullException),
+    typeof(TypeLoadException),
 ];
 
 BindingFlags declaredPublic = BindingFlags.Public | BindingFlags.DeclaredOnly
@@ -16,6 +17,23 @@ BindingFlags declaredPublic = BindingFlags.Public | BindingFlags.DeclaredOnly
 Exception inner = new("inner");
 ArgumentException outer = new("outer", "value", inner);
 ArgumentNullException nullArgument = new("typeName", "missing type");
+static object ObserveGetType(string? name, bool throwOnError, bool ignoreCase)
+{
+    try
+    {
+        Type? resolved = Type.GetType(name!, throwOnError, ignoreCase);
+        return new { result = resolved?.FullName, exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new
+        {
+            result = (string?)null,
+            exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName,
+        };
+    }
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -34,6 +52,15 @@ var result = new
         argumentInnerSameReference = ReferenceEquals(outer.InnerException, inner),
         nullArgumentParamName = nullArgument.ParamName,
         nullArgumentMessage = nullArgument.Message,
+    },
+    selectedGetTypeBehavior = new
+    {
+        exact = ObserveGetType("System.String", false, false),
+        insensitive = ObserveGetType("system.string", false, true),
+        sensitiveMiss = ObserveGetType("system.string", false, false),
+        missing = ObserveGetType("System.Unknown", false, false),
+        missingThrow = ObserveGetType("System.Unknown", true, false),
+        nullName = ObserveGetType(null, false, false),
     },
     types = selected.Select(type => new
     {

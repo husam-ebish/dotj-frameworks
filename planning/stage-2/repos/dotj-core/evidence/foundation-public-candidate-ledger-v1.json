@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "893d02c8883a55f7da46f4965302bb4835e6d17b361064289c0a21e491ce69ea",
-  "typeCount": 6,
+  "candidateJarSha256": "d7292e6b3606f97a720c307deb99cf1d46b97869c1f48fe04eacfe8575ac6c25",
+  "typeCount": 7,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -35,6 +35,8 @@
       "javaPublicHeader": "public abstract class System.Type {",
       "javaPublicDeclarations": [
         "public static System.Type GetType(java.lang.String);",
+        "public static System.Type GetType(java.lang.String, boolean);",
+        "public static System.Type GetType(java.lang.String, boolean, boolean);",
         "public System.Type MakeGenericType(System.Type[]);",
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
@@ -123,6 +125,24 @@
         "public System.ArgumentNullException(java.lang.String);",
         "public System.ArgumentNullException(java.lang.String, System.Exception);",
         "public System.ArgumentNullException(java.lang.String, java.lang.String);"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.TypeLoadException",
+      "upstreamBaseType": "System.SystemException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 1,
+      "upstreamDeclaredProperties": 2,
+      "upstreamPublicConstructors": 3,
+      "javaPublicConstructors": 3,
+      "javaPublicHeader": "public class System.TypeLoadException extends System.SystemException {",
+      "javaPublicDeclarations": [
+        "public System.TypeLoadException();",
+        "public System.TypeLoadException(java.lang.String);",
+        "public System.TypeLoadException(java.lang.String, System.Exception);"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false
