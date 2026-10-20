@@ -18,10 +18,15 @@ public final class ArityTypeReferenceBinderTest {
                 "System.Threading.Tasks.Task_1<System.String>[]");
         assertLower("System.Threading.Tasks.Task<System.String[]>[][]",
                 "System.Threading.Tasks.Task_1<System.String[]>[][]");
+        assertLower("System.Collections.Generic.List<System.Threading.Tasks.Task<System.String>>",
+                "System.Collections.Generic.List<System.Threading.Tasks.Task_1<System.String>>");
+        assertLower("java.util.Map<System.String, System.Threading.Tasks.Task<System.String>>",
+                "java.util.Map<System.String, System.Threading.Tasks.Task_1<System.String>>");
         expectInvalid("Task<System.String>");
         expectInvalid("System.Threading.Tasks.Task<>");
         expectInvalid("System.Threading.Tasks.Task<System.String");
         expectInvalid("System.Threading.Tasks.Task<System.String, System.Int32>");
+        expectInvalid("System.Threading.Tasks.Task<System.String, System.Threading.Tasks.Task<System.String>>");
         expectInvalid("System.Threading.Tasks.Unknown<System.String>");
         expectInvalid("System..Threading.Tasks.Task");
         expectInvalid("System.Threading.Tasks.Task trailing");
