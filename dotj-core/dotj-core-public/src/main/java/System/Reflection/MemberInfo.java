@@ -6,4 +6,6 @@ public abstract class MemberInfo {
     }
 
     public abstract String get_Name();
+
+    public abstract MemberTypes get_MemberType();
 }

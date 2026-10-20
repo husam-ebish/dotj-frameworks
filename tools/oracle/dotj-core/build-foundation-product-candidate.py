@@ -15,6 +15,7 @@ SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException")]
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
@@ -32,6 +33,7 @@ EXPECTED_CLASSES = [
     "System/IO/IOException.class",
     "System/IndexOutOfRangeException.class",
     "System/Reflection/MemberInfo.class",
+    "System/Reflection/MemberTypes.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",

@@ -8,6 +8,7 @@ import System.IO.FileNotFoundException;
 import System.IO.IOException;
 import System.IndexOutOfRangeException;
 import System.Reflection.MemberInfo;
+import System.Reflection.MemberTypes;
 
 /** Calls the candidate's public members from outside the System package. */
 public final class ProductTypeIdentityConsumer {
@@ -15,7 +16,10 @@ public final class ProductTypeIdentityConsumer {
         Type definition = Type.GetType("System.Collections.Generic.List`1");
         Type string = Type.GetType("System.String");
         MemberInfo stringMember = string;
-        if (!"String".equals(stringMember.get_Name())) {
+        if (!"String".equals(stringMember.get_Name())
+                || stringMember.get_MemberType() != MemberTypes.TypeInfo
+                || MemberTypes.TypeInfo.get_Value() != 32
+                || MemberTypes.All.get_Value() != 191) {
             throw new AssertionError("Selected MemberInfo Name inheritance changed");
         }
         Type integer = Type.GetType("System.Int32");

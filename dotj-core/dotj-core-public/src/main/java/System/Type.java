@@ -6,6 +6,7 @@ import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import System.IO.FileNotFoundException;
 import System.Reflection.MemberInfo;
+import System.Reflection.MemberTypes;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
 public abstract class Type extends MemberInfo {
@@ -375,6 +376,11 @@ public abstract class Type extends MemberInfo {
         public String get_Name() {
             return this.nameCore();
         }
+
+        @Override
+        public MemberTypes get_MemberType() {
+            return MemberTypes.TypeInfo;
+        }
     }
 
     private static final class GenericParameterType extends Type {
@@ -385,6 +391,11 @@ public abstract class Type extends MemberInfo {
         @Override
         public String get_Name() {
             return this.nameCore();
+        }
+
+        @Override
+        public MemberTypes get_MemberType() {
+            return MemberTypes.TypeInfo;
         }
     }
 
@@ -403,6 +414,11 @@ public abstract class Type extends MemberInfo {
         @Override
         public String get_Name() {
             return this.nameCore();
+        }
+
+        @Override
+        public MemberTypes get_MemberType() {
+            return MemberTypes.TypeInfo;
         }
 
         @Override
@@ -435,6 +451,11 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public MemberTypes get_MemberType() {
+            return MemberTypes.TypeInfo;
+        }
+
+        @Override
         public boolean get_IsByRef() {
             return true;
         }
@@ -456,6 +477,11 @@ public abstract class Type extends MemberInfo {
         @Override
         public String get_Name() {
             return this.nameCore();
+        }
+
+        @Override
+        public MemberTypes get_MemberType() {
+            return MemberTypes.TypeInfo;
         }
 
         @Override

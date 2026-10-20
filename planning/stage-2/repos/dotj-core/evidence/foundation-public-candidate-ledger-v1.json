@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "e49683570e97782aa56904522ce6165041a832c25d6e77743ed4d171fed10d82",
-  "typeCount": 11,
+  "candidateJarSha256": "3bc59f6b144e8c37aa70a04421bb00961bfc618d3d48c4fc358199c84fa3e5ca",
+  "typeCount": 12,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -72,9 +72,37 @@
       "javaPublicConstructors": 0,
       "javaPublicHeader": "public abstract class System.Reflection.MemberInfo {",
       "javaPublicDeclarations": [
-        "public abstract java.lang.String get_Name();"
+        "public abstract java.lang.String get_Name();",
+        "public abstract System.Reflection.MemberTypes get_MemberType();"
       ],
-      "disposition": "PARTIAL_MEMBERINFO_SURFACE; selected abstract Name only",
+      "disposition": "PARTIAL_MEMBERINFO_SURFACE; selected abstract Name and MemberType",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Reflection.MemberTypes",
+      "upstreamBaseType": "System.Enum",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public final class System.Reflection.MemberTypes extends java.lang.Enum<System.Reflection.MemberTypes> {",
+      "javaPublicDeclarations": [
+        "public static final System.Reflection.MemberTypes Constructor;",
+        "public static final System.Reflection.MemberTypes Event;",
+        "public static final System.Reflection.MemberTypes Field;",
+        "public static final System.Reflection.MemberTypes Method;",
+        "public static final System.Reflection.MemberTypes Property;",
+        "public static final System.Reflection.MemberTypes TypeInfo;",
+        "public static final System.Reflection.MemberTypes Custom;",
+        "public static final System.Reflection.MemberTypes NestedType;",
+        "public static final System.Reflection.MemberTypes All;",
+        "public static System.Reflection.MemberTypes[] values();",
+        "public static System.Reflection.MemberTypes valueOf(java.lang.String);",
+        "public int get_Value();"
+      ],
+      "disposition": "PARTIAL_ENUM_SURFACE; selected values only, Java enum differs from CLR Enum",
       "qualified": false
     },
     {
