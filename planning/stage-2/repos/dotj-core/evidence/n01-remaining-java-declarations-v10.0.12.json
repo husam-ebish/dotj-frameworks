@@ -3815,6 +3815,21 @@
       "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
       "compilerError": "non-static type variable TResult cannot be referenced from a static context",
       "batch": "Batch-1126"
+    },
+    {
+      "index": 258,
+      "sourceBatch": "Batch-630",
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean Equals(System.Object)",
+      "backendOwner": "System.Threading.Tasks.ValueTask",
+      "javaDeclaration": "public abstract boolean Equals(Object obj);",
+      "generatedSourceSha256": "1d3c720fa4639e973d1cc5111d26c00b2ae5a7b599010056dd7fe432e596dde2",
+      "supportTypes": [
+        "System.Object"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-1127"
     }
   ]
 }
