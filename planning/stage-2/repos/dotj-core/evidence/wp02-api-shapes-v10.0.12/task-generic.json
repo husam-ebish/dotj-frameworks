@@ -1,0 +1,711 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "type": {
+    "name": "Task`1",
+    "fullName": "System.Threading.Tasks.Task`1",
+    "isInterface": false,
+    "isValueType": false,
+    "isGenericTypeDefinition": true,
+    "baseType": "System.Threading.Tasks.Task",
+    "genericParameters": [
+      {
+        "Name": "TResult",
+        "attributes": "None",
+        "constraints": []
+      }
+    ],
+    "interfaces": [
+      "System.IAsyncResult",
+      "System.IDisposable"
+    ],
+    "constructors": [
+      "Void .ctor(System.Func`1[TResult], System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions)",
+      "Void .ctor(System.Func`1[TResult], System.Threading.CancellationToken)",
+      "Void .ctor(System.Func`1[TResult], System.Threading.Tasks.TaskCreationOptions)",
+      "Void .ctor(System.Func`1[TResult])",
+      "Void .ctor(System.Func`2[System.Object,TResult], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskCreationOptions)",
+      "Void .ctor(System.Func`2[System.Object,TResult], System.Object, System.Threading.CancellationToken)",
+      "Void .ctor(System.Func`2[System.Object,TResult], System.Object, System.Threading.Tasks.TaskCreationOptions)",
+      "Void .ctor(System.Func`2[System.Object,TResult], System.Object)"
+    ],
+    "methods": [
+      {
+        "Name": "ConfigureAwait",
+        "signature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult] ConfigureAwait(Boolean)",
+        "returnType": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult]",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continueOnCapturedContext",
+            "type": "System.Boolean",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ConfigureAwait",
+        "signature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult] ConfigureAwait(System.Threading.Tasks.ConfigureAwaitOptions)",
+        "returnType": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult]",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "options",
+            "type": "System.Threading.Tasks.ConfigureAwaitOptions",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`1[System.Threading.Tasks.Task`1[TResult]]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "continuationOptions",
+            "type": "System.Threading.Tasks.TaskContinuationOptions",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "scheduler",
+            "type": "System.Threading.Tasks.TaskScheduler",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`1[System.Threading.Tasks.Task`1[TResult]]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskContinuationOptions)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`1[System.Threading.Tasks.Task`1[TResult]]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "continuationOptions",
+            "type": "System.Threading.Tasks.TaskContinuationOptions",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskScheduler)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`1[System.Threading.Tasks.Task`1[TResult]]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "scheduler",
+            "type": "System.Threading.Tasks.TaskScheduler",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]])",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`1[System.Threading.Tasks.Task`1[TResult]]",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "continuationOptions",
+            "type": "System.Threading.Tasks.TaskContinuationOptions",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "scheduler",
+            "type": "System.Threading.Tasks.TaskScheduler",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "continuationOptions",
+            "type": "System.Threading.Tasks.TaskContinuationOptions",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.Tasks.TaskScheduler)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "scheduler",
+            "type": "System.Threading.Tasks.TaskScheduler",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object)",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continuationAction",
+            "type": "System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "continuationOptions",
+            "type": "System.Threading.Tasks.TaskContinuationOptions",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "scheduler",
+            "type": "System.Threading.Tasks.TaskScheduler",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskContinuationOptions)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "continuationOptions",
+            "type": "System.Threading.Tasks.TaskContinuationOptions",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskScheduler)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "scheduler",
+            "type": "System.Threading.Tasks.TaskScheduler",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult])",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "continuationOptions",
+            "type": "System.Threading.Tasks.TaskContinuationOptions",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "scheduler",
+            "type": "System.Threading.Tasks.TaskScheduler",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "continuationOptions",
+            "type": "System.Threading.Tasks.TaskContinuationOptions",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.Tasks.TaskScheduler)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "scheduler",
+            "type": "System.Threading.Tasks.TaskScheduler",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "ContinueWith",
+        "signature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object)",
+        "returnType": "System.Threading.Tasks.Task`1[TNewResult]",
+        "isStatic": false,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "continuationFunction",
+            "type": "System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult]",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "state",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "get_Factory",
+        "signature": "System.Threading.Tasks.TaskFactory`1[TResult] get_Factory()",
+        "returnType": "System.Threading.Tasks.TaskFactory`1[TResult]",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_Result",
+        "signature": "TResult get_Result()",
+        "returnType": "TResult",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "GetAwaiter",
+        "signature": "System.Runtime.CompilerServices.TaskAwaiter`1[TResult] GetAwaiter()",
+        "returnType": "System.Runtime.CompilerServices.TaskAwaiter`1[TResult]",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "WaitAsync",
+        "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.Task`1[TResult]",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "WaitAsync",
+        "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.Task`1[TResult]",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "timeout",
+            "type": "System.TimeSpan",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "WaitAsync",
+        "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.Task`1[TResult]",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "timeout",
+            "type": "System.TimeSpan",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "timeProvider",
+            "type": "System.TimeProvider",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "WaitAsync",
+        "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.TimeProvider)",
+        "returnType": "System.Threading.Tasks.Task`1[TResult]",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "timeout",
+            "type": "System.TimeSpan",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "timeProvider",
+            "type": "System.TimeProvider",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "WaitAsync",
+        "signature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan)",
+        "returnType": "System.Threading.Tasks.Task`1[TResult]",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "timeout",
+            "type": "System.TimeSpan",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "Name": "Factory",
+        "type": "System.Threading.Tasks.TaskFactory`1[TResult]",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "Result",
+        "type": "TResult",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      }
+    ],
+    "events": [],
+    "fields": []
+  }
+}
