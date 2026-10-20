@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "scope": "Compile-only independent Java System.IDisposable candidate, not a product release",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "candidateInputs": [
+    {
+      "path": "tools/oracle/dotj-core/java-probes/System/IDisposable.java",
+      "sha256": "8d680bfa3dd07bd32bda3a3f4e92f97ed42140fd57f7b12c9ce8838aa3b4e219",
+      "role": "Independently authored Java syntax probe; proposed sole compilation source"
+    },
+    {
+      "path": "JDK 21 javac and jar",
+      "role": "Build tools; no JDK runtime binary or source is proposed for the candidate archive"
+    }
+  ],
+  "excludedReferenceInputs": [
+    {
+      "path": "src/libraries/System.Private.CoreLib/src/System/IDisposable.cs",
+      "sha256": "fcb8a99af86873e4c724c09f77002fd6770ea07c202fdb701c3432235e24beae",
+      "role": "Pinned declaration and metadata reference; no source bytes proposed for the Java archive"
+    },
+    {
+      "path": "planning/stage-2/repos/dotj-core/evidence/notices/LICENSE.TXT",
+      "sha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+      "role": "Pinned upstream MIT evidence; applicability to a released artifact remains for review"
+    },
+    {
+      "path": "planning/stage-2/repos/dotj-core/evidence/notices/THIRD-PARTY-NOTICES.TXT",
+      "sha256": "66f1d4e44973185519bb4aa8a9718eb22fc7af2cc532e3ae9cfc4c127ee7fc54",
+      "role": "Pinned upstream notice evidence; file-level applicability remains for review"
+    }
+  ],
+  "candidateOutputToInspect": "Deterministic JAR with System/IDisposable.class and JAR metadata only",
+  "status": "FILE_INPUTS_MAPPED; ACTUAL_JAR_CONTENTS_AND_NOTICE_APPLICABILITY_PENDING",
+  "releaseQualification": "OPEN: actual package contents, project license, notice applicability, and required licensing review"
+}
