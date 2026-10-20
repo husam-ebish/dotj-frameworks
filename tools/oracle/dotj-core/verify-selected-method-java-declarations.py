@@ -114,7 +114,11 @@ def build_probe(entry):
         if simple == owner_simple:
             raise ValueError("Imported type conflicts with owning declaration")
         simple_names[simple] = name
-    generic_prefix = "<" + ", ".join(generic_method_parameters) + "> " if generic_method_parameters else ""
+    # Java static members cannot capture their owning class's type parameter.
+    # Lift that parameter to the Java method for a compilable backend shape.
+    # This is a lowering candidate, not an exact public metadata identity.
+    java_method_parameters = (class_parameters if entry["isStatic"] else []) + generic_method_parameters
+    generic_prefix = "<" + ", ".join(java_method_parameters) + "> " if java_method_parameters else ""
     declaration = ("public static " if entry["isStatic"] else "public abstract ") + generic_prefix + return_type
     declaration += " " + entry["name"] + "(" + ", ".join(arguments) + ")"
     declaration += " { throw new UnsupportedOperationException(); }" if entry["isStatic"] else ";"

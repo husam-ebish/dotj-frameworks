@@ -396,13 +396,13 @@
       "declaringType": "System.Threading.Tasks.Task`1",
       "metadataSignature": "System.Threading.Tasks.TaskFactory`1[TResult] get_Factory()",
       "backendOwner": "System.Threading.Tasks.Task_1",
-      "javaDeclaration": "public static TaskFactory_1<TResult> get_Factory() { throw new UnsupportedOperationException(); }",
-      "generatedSourceSha256": "41ad72a66c8fb8ef22e3372cec3bf06df4eebedb7cab61d9b0688d6ca7388b50",
+      "javaDeclaration": "public static <TResult> TaskFactory_1<TResult> get_Factory() { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "06ce6d6ae9b3cefb7217343fb5abb7f44be6837fc4936581d26d1a41fed0920f",
       "supportTypes": [
         "System.Threading.Tasks.TaskFactory_1"
       ],
-      "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
-      "compilerError": "non-static type variable TResult cannot be referenced from a static context",
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
       "batch": "Batch-794"
     },
     {
