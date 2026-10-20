@@ -49,6 +49,7 @@ public final class AsyncTimedWaitTest {
         sharedSignalWaits();
         mixedDeadlineWaits();
         signalReuse();
+        timeoutReuse();
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -258,6 +259,17 @@ public final class AsyncTimedWaitTest {
             source.setResult(index);
             check(waiting.get(5, TimeUnit.SECONDS) == index, "reused signal lost result " + index);
             awaitCleanup(source, shared, "reused signal " + index);
+        }
+    }
+
+    private static void timeoutReuse() throws Exception {
+        for (int index = 0; index < 30; index++) {
+            AsyncCompletion<Integer> source = new AsyncCompletion<>();
+            WaitCancellationSignal signal = new WaitCancellationSignal();
+            CompletableFuture<Integer> waiting = source.waitAsync(1, signal);
+            assertOutcome("reused timeout " + index, waiting, "timeout", null);
+            awaitCleanup(source, signal, "reused timeout " + index);
+            check(source.state() == AsyncState.PENDING, "reused timeout changed source " + index);
         }
     }
 
