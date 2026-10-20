@@ -55,7 +55,7 @@ def main():
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
-            "IsGenericParameter", "GenericParameterPosition"} <= properties
+            "IsGenericParameter", "GenericParameterPosition", "IsArray"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
         "exact": {"result": "System.String", "exception": None, "paramName": None},
@@ -92,6 +92,11 @@ def main():
     assert observed["rectangularString"]["result"] == "System.String[,]"
     assert observed["rankThreeString"]["result"] == "System.String[,,]"
     assert observed["arrayOfListString"]["result"].endswith("]]" + "[]")
+    array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
+    assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
+        (False, None, "System.ArgumentException"),
+        (True, 1, None), (True, 1, None), (True, 2, None), (True, 3, None), (True, 1, None),
+    ]
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
@@ -112,6 +117,9 @@ def main():
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
         "public System.Type[] get_GenericTypeArguments();",
+        "public boolean get_IsArray();",
+        "public System.Type GetElementType();",
+        "public int GetArrayRank();",
         "public boolean get_IsGenericType();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",

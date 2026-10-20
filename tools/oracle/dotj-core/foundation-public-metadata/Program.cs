@@ -36,6 +36,21 @@ static object ObserveGetType(string? name, bool throwOnError, bool ignoreCase)
         };
     }
 }
+static object ObserveArray(string name)
+{
+    Type type = Type.GetType(name, true)!;
+    string? error = null;
+    int? rank = null;
+    try
+    {
+        rank = type.GetArrayRank();
+    }
+    catch (Exception exception)
+    {
+        error = exception.GetType().FullName;
+    }
+    return new { name, type.IsArray, element = type.GetElementType()?.FullName, rank, error };
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -89,6 +104,11 @@ var result = new
         rankThreeString = ObserveGetType("System.String[,,]", false, false),
         arrayOfListString = ObserveGetType("System.Collections.Generic.List`1[System.String][]", false, false),
     },
+    selectedArrayBehavior = new[]
+    {
+        "System.String", "System.String[]", "System.String[][]", "System.String[,]",
+        "System.String[,,]", "System.Collections.Generic.List`1[System.String][]",
+    }.Select(ObserveArray).ToArray(),
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -100,7 +120,8 @@ var result = new
         selectedMethods = type.GetMethods(declaredPublic)
             .Where(method => !method.IsSpecialName && (
                 method.Name is "Dispose" or "Equals" or "GetType" or "MakeGenericType"
-                    or "GetGenericArguments" or "GetGenericTypeDefinition"))
+                    or "GetGenericArguments" or "GetGenericTypeDefinition"
+                    or "GetElementType" or "GetArrayRank"))
             .Select(method => new
             {
                 name = method.Name,
@@ -113,7 +134,7 @@ var result = new
         selectedProperties = type.GetProperties(declaredPublic)
             .Where(property => property.Name is "ParamName" or "Message" or "InnerException" or "IsGenericType"
                 or "IsConstructedGenericType" or "IsGenericParameter"
-                or "GenericParameterPosition" or "GenericTypeArguments")
+                or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)

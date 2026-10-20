@@ -183,6 +183,22 @@ public abstract class Type {
         return this.arguments.toArray(Type[]::new);
     }
 
+    public boolean get_IsArray() {
+        return this.definition.isArray();
+    }
+
+    public Type GetElementType() {
+        Class<?> element = this.definition.getComponentType();
+        return element == null ? null : fromJavaClass(element);
+    }
+
+    public int GetArrayRank() {
+        if (!this.get_IsArray()) {
+            throw new ArgumentException("Type must be an array");
+        }
+        return 1;
+    }
+
     public boolean get_IsGenericType() {
         return this.parameterIndex < 0 && this.definition.getTypeParameters().length != 0;
     }
@@ -226,6 +242,21 @@ public abstract class Type {
             super(Object.class, List.of());
             this.elementType = elementType;
             this.rank = rank;
+        }
+
+        @Override
+        public boolean get_IsArray() {
+            return true;
+        }
+
+        @Override
+        public Type GetElementType() {
+            return this.elementType;
+        }
+
+        @Override
+        public int GetArrayRank() {
+            return this.rank;
         }
     }
 }
