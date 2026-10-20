@@ -171,10 +171,13 @@ def record(source_root, number):
     assert batch["batch"] == f"Batch-{number:03d}" and batch["kind"] == "method-metadata"
     ledger = read(LEDGER)
     assert len(ledger["batches"]) == number - 402
-    entry = {"batch": batch["batch"], "members": [verify_member(m, source_root, {}, {}) for m in batch["members"]]}
+    snapshots = {}
+    hashes = {}
+    entry = {"batch": batch["batch"], "members": [verify_member(m, source_root, snapshots, hashes) for m in batch["members"]]}
     ledger["batches"].append(entry)
     write(LEDGER, ledger)
-    verify(source_root, number)
+    assert entry["members"] == [verify_member(m, source_root, snapshots, hashes) for m in batch["members"]]
+    print(f"PASS {batch['batch']}: {len(entry['members'])} pinned declared-public method(s) and owning source hash")
 
 
 def main():
