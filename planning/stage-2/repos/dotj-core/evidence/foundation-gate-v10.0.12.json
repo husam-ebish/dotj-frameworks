@@ -12,13 +12,15 @@
   "asyncFamilyArityPairs": 3,
   "asyncJavaNameCollisions": 3,
   "selectedTaskValueTaskReferenceCases": 25,
-  "internalAsyncStateFixtures": 1,
+  "internalAsyncStateFixtures": 2,
+  "internalAsyncRaceRounds": 200,
   "internalJarSha256": "6fdfc1832c239bed00ca2adde020313abc9e58ecb60ff86a2e4ed43fe3d745dd",
   "status": "BOUNDED_PASS; E01/E02/E03/N01 AND PUBLIC WP-01/WP-02 QUALIFICATION OPEN",
   "limitations": [
     "The internal cancellation and async state prototypes do not cover full Task/ValueTask public semantics.",
-    "The selected Task/ValueTask cases and one internal Java fixture are bounded observations, not public Java parity or upstream xUnit tests.",
+    "The selected Task/ValueTask cases and two internal Java fixtures are bounded observations, not public Java parity or upstream xUnit tests.",
     "The three exact-name Java collisions leave public generic/non-generic representation unresolved.",
+    "Two hundred coordinated races do not exhaust all interleavings or publication conditions.",
     "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.",
     "No public .j facade or product release is qualified."
   ]

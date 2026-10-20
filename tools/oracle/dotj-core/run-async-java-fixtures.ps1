@@ -14,3 +14,5 @@ $sources = @((Get-ChildItem -LiteralPath $main -Filter '*.java').FullName) +
 if ($LASTEXITCODE -ne 0) { throw 'Internal async Java compilation failed.' }
 & java -cp $classes 'org.dotj.internal.async.AsyncStateTest'
 if ($LASTEXITCODE -ne 0) { throw 'Internal async Java fixture failed.' }
+& java -cp $classes 'org.dotj.internal.async.AsyncCompletionRaceTest'
+if ($LASTEXITCODE -ne 0) { throw 'Internal async race fixture failed.' }
