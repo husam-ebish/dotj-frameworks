@@ -533,6 +533,17 @@ Run("waitAsyncTimeoutSourceIndependence", () =>
     Check(waiting.IsFaulted && source.Task.Result == 42, "later source result changed timed-out wait");
 });
 
+Run("waitAsyncTimeoutSiblingIndependence", () =>
+{
+    TaskCompletionSource<int> source = new();
+    Task<int> timed = source.Task.WaitAsync(TimeSpan.FromMilliseconds(10));
+    Task<int> sibling = source.Task.WaitAsync(Timeout.InfiniteTimeSpan);
+    CheckThrows<TimeoutException>(() => timed.GetAwaiter().GetResult(), "timed sibling wait");
+    Check(!sibling.IsCompleted && !source.Task.IsCompleted, "timed wait completed sibling or source");
+    source.SetResult(42);
+    Check(timed.IsFaulted && sibling.GetAwaiter().GetResult() == 42, "timed wait affected sibling result");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
