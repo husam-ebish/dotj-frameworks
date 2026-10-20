@@ -4260,6 +4260,23 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-1155"
+    },
+    {
+      "index": 287,
+      "sourceBatch": "Batch-659",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken)",
+      "backendOwner": "System.Threading.Tasks.Task_1",
+      "javaDeclaration": "public abstract <TNewResult> Task_1<TNewResult> ContinueWith(Func_3<Task_1<TResult>, Object, TNewResult> continuationFunction, Object state, CancellationToken cancellationToken);",
+      "generatedSourceSha256": "351e3f05ee916c8eef95734674041f04b013850e76e29a68fafe679ee6903f2a",
+      "supportTypes": [
+        "System.Func_3",
+        "System.Object",
+        "System.Threading.CancellationToken"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-1156"
     }
   ]
 }
