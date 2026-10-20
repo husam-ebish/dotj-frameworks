@@ -13,7 +13,7 @@ SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
-                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException")]
+                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException")]
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException")]
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
@@ -92,6 +92,13 @@ def main():
     assert observed["rectangularString"]["result"] == "System.String[,]"
     assert observed["rankThreeString"]["result"] == "System.String[,,]"
     assert observed["arrayOfListString"]["result"].endswith("]]" + "[]")
+    assert observed["rankOneNonVector"]["result"] == "System.String[*]"
+    make_array = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMakeArrayBehavior"]
+    assert [make_array[key] for key in ("vector", "rankOne", "rankTwo", "nestedVector")] == [
+        "System.String[]", "System.String[*]", "System.String[,]", "System.String[][]",
+    ]
+    assert make_array["genericVector"] == observed["arrayOfListString"]["result"]
+    assert make_array["rankZeroError"] == "System.IndexOutOfRangeException"
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -114,6 +121,8 @@ def main():
         "public static System.Type GetType(java.lang.String, boolean);",
         "public static System.Type GetType(java.lang.String, boolean, boolean);",
         "public System.Type MakeGenericType(System.Type[]);",
+        "public System.Type MakeArrayType();",
+        "public System.Type MakeArrayType(int);",
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
         "public System.Type[] get_GenericTypeArguments();",

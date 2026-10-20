@@ -51,7 +51,11 @@ public abstract class Type {
     }
 
     private static Type arrayOf(Type elementType, int rank) {
-        List<Object> key = List.of(elementType, rank);
+        return arrayOf(elementType, rank, rank == 1);
+    }
+
+    private static Type arrayOf(Type elementType, int rank, boolean vector) {
+        List<Object> key = List.of(elementType, rank, vector);
         return arrayShapes.computeIfAbsent(key, ignored -> new ArrayType(elementType, rank));
     }
 
@@ -107,6 +111,7 @@ public abstract class Type {
             case "System.String[][]" -> fromJavaClass(String[][].class);
             case "System.String[,]" -> arrayOf(fromJavaClass(String.class), 2);
             case "System.String[,,]" -> arrayOf(fromJavaClass(String.class), 3);
+            case "System.String[*]" -> arrayOf(fromJavaClass(String.class), 1, false);
             case "System.Int32[]" -> fromJavaClass(int[].class);
             case "System.Collections.Generic.List`1[System.String]",
                     "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]" ->
@@ -129,6 +134,7 @@ public abstract class Type {
             case "system.string[][]" -> ignoreCase ? fromJavaClass(String[][].class) : null;
             case "system.string[,]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 2) : null;
             case "system.string[,,]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 3) : null;
+            case "system.string[*]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 1, false) : null;
             case "system.int32[]" -> ignoreCase ? fromJavaClass(int[].class) : null;
             case "system.collections.generic.list`1[system.string]",
                     "system.collections.generic.list`1[[system.string, system.private.corelib]]" ->
@@ -160,6 +166,26 @@ public abstract class Type {
         }
         List<Type> key = List.copyOf(Arrays.asList(typeArguments.clone()));
         return canonical.get(this.definition).computeIfAbsent(key, arguments -> new ResolvedType(this.definition, arguments));
+    }
+
+    public Type MakeArrayType() {
+        if (this == fromJavaClass(String.class)) {
+            return fromJavaClass(String[].class);
+        }
+        if (this == fromJavaClass(Integer.class)) {
+            return fromJavaClass(int[].class);
+        }
+        if (this == fromJavaClass(String[].class)) {
+            return fromJavaClass(String[][].class);
+        }
+        return arrayOf(this, 1);
+    }
+
+    public Type MakeArrayType(int rank) {
+        if (rank < 1) {
+            throw new IndexOutOfRangeException("Array rank is out of range");
+        }
+        return arrayOf(this, rank, false);
     }
 
     public Type GetGenericTypeDefinition() {

@@ -6,6 +6,7 @@ import System.ArgumentException;
 import System.TypeLoadException;
 import System.IO.FileNotFoundException;
 import System.IO.IOException;
+import System.IndexOutOfRangeException;
 
 /** Calls the candidate's public members from outside the System package. */
 public final class ProductTypeIdentityConsumer {
@@ -111,6 +112,23 @@ public final class ProductTypeIdentityConsumer {
                 || rankThree.GetElementType() != string || rankThree.GetArrayRank() != 3
                 || listArray.GetElementType() != first || listArray.GetArrayRank() != 1) {
             throw new AssertionError("Selected array reflection behavior changed");
+        }
+        Type nonVectorRankOne = Type.GetType("System.String[*]");
+        if (string.MakeArrayType() != Type.GetType("System.String[]")
+                || string.MakeArrayType(1) != nonVectorRankOne
+                || nonVectorRankOne == string.MakeArrayType()
+                || nonVectorRankOne.GetArrayRank() != 1
+                || nonVectorRankOne.GetElementType() != string
+                || string.MakeArrayType(2) != rectangular
+                || Type.GetType("System.String[]").MakeArrayType() != jagged
+                || first.MakeArrayType() != listArray) {
+            throw new AssertionError("Selected MakeArrayType behavior changed");
+        }
+        try {
+            string.MakeArrayType(0);
+            throw new AssertionError("Rank zero accepted");
+        } catch (IndexOutOfRangeException expected) {
+            // Selected pinned error type.
         }
         try {
             string.GetArrayRank();
