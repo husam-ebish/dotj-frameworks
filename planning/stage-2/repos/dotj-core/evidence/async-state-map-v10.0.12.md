@@ -1,0 +1,15 @@
+# Bounded async state mapping at Batch-217
+
+Reference: [25 selected .NET 10.0.12 observations](task-behavior-v10.0.12/oracle-output.json) on installed CoreLib SHA-256 `1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678`. The Java side is the package-private `org.dotj.internal.async` prototype, exercised by `AsyncStateTest` and packaged in the internal JDK-only JAR.
+
+| Oracle cases | Internal mapping checked by the Java fixture | Scope |
+|---|---|---|
+| `completedTask`, `faultedTask`, `canceledTask` | `AsyncCompletion<Void>` can enter `SUCCEEDED`, `FAULTED`, or `CANCELED`; a fault retains the same `Throwable` object. | Terminal state only; the .NET factory methods and exception representation are not implemented. |
+| `nonGenericSourcePending`, `nonGenericSourceResult`, `nonGenericTryResult`, `nonGenericDuplicateResult`, `nonGenericSourceFault`, `nonGenericSourceCancel` | `AsyncCompletion<Void>` starts `PENDING`, accepts one terminal transition, rejects later `trySetResult`, and throws on a duplicate `setResult`. | `Void` is an internal stand-in; it does not establish a distinct public non-generic Java type. |
+| `genericSourcePending`, `genericSourceResult`, `genericTryResult`, `genericSourceFault`, `genericSourceCancel` | `AsyncCompletion<Integer>` retains result 42 or the fault object, and keeps the first terminal state. | State and result storage only; no awaiter, scheduling, continuation, or CLR exception behavior. |
+| `valueTaskBackedSuccess`, `valueTaskBackedFault`, `valueTaskBackedCancel` | `AsyncValue<Void>` observes the corresponding backing completion state. | The view is an internal Java reference object, not a CLR value type or public `AsTask` API. |
+| `directGenericValueTaskResult` | `AsyncValue<Integer>.completed(42)` observes direct success and result 42. | No default-value or source-backed value-task semantics. |
+| `genericValueTaskBackedSuccess`, `genericValueTaskBackedFault`, `genericValueTaskBackedCancel` | `AsyncValue<Integer>` observes backing success, fault, and cancellation and retains backing identity. | No public `ValueTask<TResult>` layout or consumption contract. |
+| `defaultValueTask`, `defaultGenericValueTask`, `whenAllResultOrder`, `waitAsyncCancellationIndependence` | No Java mapping in this prototype. | Default CLR value-type behavior, aggregation, and cancelable waiting remain open. |
+
+This maps the state facets of 21 selected reference cases and explicitly leaves four cases outside the prototype. The fixture does not prove Java/.NET behavioral equivalence. The public `Task`/`Task<TResult>`, `TaskCompletionSource`/`TaskCompletionSource<TResult>`, and `ValueTask`/`ValueTask<TResult>` naming collisions remain unresolved.
