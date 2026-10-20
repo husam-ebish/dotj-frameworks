@@ -22,10 +22,10 @@ Source method rows below are lexical candidates from retrieved files. They are n
 
 | Fixture ID | Package | Expected observation | Evidence status |
 |---|---|---|---|
-| DJ-001-F01-01 | WP-01 | Equal parameterized types share identity | Independent Java and .NET oracle cases passed for one bounded shape; upstream test unmapped. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
+| DJ-001-F01-01 | WP-01 | Equal parameterized types share identity | Independent Java and .NET oracle cases passed for one bounded shape; five supporting upstream reflection cases passed in Batch-060, without a direct reference-identity assertion. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
 | DJ-001-F01-02 | WP-01 | different generic arguments do not | Independent Java and .NET oracle cases passed for one bounded shape; upstream test unmapped. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
-| DJ-001-F01-03 | WP-01 | supplied resources are never closed implicitly | Independent Java and .NET DI oracle cases passed; selected upstream test source-inspected, not executed. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
-| DJ-001-F01-04 | WP-01 | context values do not leak between requests | Java explicit-context fixture and independent .NET AsyncLocal oracle passed; the semantics differ and upstream test mapping remains open. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
+| DJ-001-F01-03 | WP-01 | supplied resources are never closed implicitly | Independent Java and .NET DI oracle cases passed; 37 selected upstream DI ownership/order cases passed in Batch-062. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
+| DJ-001-F01-04 | WP-01 | context values do not leak between requests | Java explicit-context and independent same-worker CLR cases passed; two supporting upstream context methods passed. Mechanisms differ and no exact upstream cross-request case is claimed. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
 | DJ-001-F02-01 | WP-02 | Late registration runs synchronously | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-001-F02-02 | WP-02 | sequential callbacks use the declared LIFO profile | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-001-F02-03 | WP-02 | self-close cannot deadlock | Designed; map actual upstream case or specify independent oracle in E03 |
@@ -74,7 +74,7 @@ Add negative inputs and each cleanup/cancellation edge from the architecture. Co
 
 ## Porting completion
 
-Every public feature has mapped cases or an explicit independent-oracle rationale. Every skip has a reason and blocking capability. Run the same immutable fixture payloads across environments; store results with source/toolchain/dependency locks. None of these future Java implementation tests has been executed by this planning task.
+Every public feature needs mapped cases or an explicit independent-oracle rationale. Every skip needs a reason and blocking capability. Run the same immutable fixture payloads across environments; store results with source/toolchain/dependency locks. The bounded WP-01 internal Java fixtures and selected upstream tests have run; future public API acceptance tests and later-package fixtures remain open.
 
 ## Mandatory naming and concept regression cases
 
