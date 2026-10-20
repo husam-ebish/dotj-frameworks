@@ -2,6 +2,7 @@ package consumer;
 
 import System.Type;
 import System.ArgumentNullException;
+import System.ArgumentException;
 import System.TypeLoadException;
 import System.IO.FileNotFoundException;
 import System.IO.IOException;
@@ -27,6 +28,20 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, mscorlib") != string
                 || Type.GetType("System.String, NotAnAssembly") != null) {
             throw new AssertionError("Selected assembly-qualified lookup changed");
+        }
+        if (Type.GetType("") != null || Type.GetType(" System.String") != string
+                || Type.GetType("System.String ") != null
+                || Type.GetType("System.String , System.Private.CoreLib") != null
+                || Type.GetType("System.String, ") != null) {
+            throw new AssertionError("Selected type-name boundary behavior changed");
+        }
+        try {
+            Type.GetType("System.String, ", true);
+            throw new AssertionError("Empty assembly accepted with throwOnError");
+        } catch (ArgumentException expected) {
+            if (!"typeName@13".equals(expected.get_ParamName())) {
+                throw new AssertionError("Empty assembly parameter changed", expected);
+            }
         }
         try {
             Type.GetType("System.String, NotAnAssembly", true);

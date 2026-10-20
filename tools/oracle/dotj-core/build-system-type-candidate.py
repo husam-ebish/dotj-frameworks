@@ -71,6 +71,14 @@ def main():
     assert observed["legacyString"]["result"] == "System.String"
     assert observed["unknownAssembly"]["result"] is None
     assert observed["unknownAssemblyThrow"]["exception"] == "System.IO.FileNotFoundException"
+    assert observed["emptyName"]["result"] is None
+    assert observed["emptyNameThrow"]["exception"] == "System.TypeLoadException"
+    assert observed["leadingSpace"]["result"] == "System.String"
+    assert observed["trailingSpace"]["result"] is None
+    assert observed["qualifierSpace"]["result"] is None
+    assert observed["emptyAssembly"]["result"] is None
+    assert observed["emptyAssemblyThrow"]["exception"] == "System.ArgumentException"
+    assert observed["emptyAssemblyThrow"]["paramName"] == "typeName@13"
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
