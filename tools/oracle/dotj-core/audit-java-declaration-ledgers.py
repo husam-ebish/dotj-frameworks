@@ -27,22 +27,29 @@ def main():
     b = remaining["entries"]
     if selected["sourceCommit"] != remaining["sourceCommit"] or selected["coreLibSha256"] != remaining["coreLibSha256"]:
         raise ValueError("Probe ledgers have different immutable upstream baselines")
-    if len(a) != 99 or len(b) != 132 or remaining["remainingMethodCount"] != 327:
+    if len(a) != 99 or len(b) != 327 or remaining["remainingMethodCount"] != 327:
         raise ValueError("Unexpected bounded method counts")
     if [entry["index"] for entry in a] != list(range(1, 100)):
         raise ValueError("Selected indices are not contiguous")
-    if [entry["index"] for entry in b] != list(range(1, 133)):
+    if [entry["index"] for entry in b] != list(range(1, 328)):
         raise ValueError("Remaining indices are not contiguous")
     if [entry["batch"] for entry in a] != [f"Batch-{number}" for number in range(768, 867)]:
         raise ValueError("Selected batch IDs drifted")
-    if [entry["batch"] for entry in b] != [f"Batch-{number}" for number in range(868, 1000)]:
+    expected_remaining_batches = ([f"Batch-{number}" for number in range(868, 1000)] +
+                                  [f"Batch-{number}" for number in range(1002, 1197)])
+    if [entry["batch"] for entry in b] != expected_remaining_batches:
         raise ValueError("Remaining batch IDs drifted")
     identities = [(entry["declaringType"], entry["metadataSignature"]) for entry in a + b]
-    if len(set(identities)) != 231:
+    if len(set(identities)) != 426:
         raise ValueError("Duplicate declaration identity across ledgers")
     compiled = [entry for entry in a + b if entry["result"] == "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"]
     blocked = [entry for entry in a + b if entry["result"] == "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED"]
-    if len(compiled) != 230 or len(blocked) != 1 or blocked[0]["index"] != 27 or blocked[0]["batch"] != "Batch-794":
+    unsupported = [entry for entry in a + b if entry["result"] == "PROBE_UNSUPPORTED; BEHAVIOR_UNVERIFIED"]
+    if (len(compiled) != 418 or len(blocked) != 7 or len(unsupported) != 1 or
+            {entry["batch"] for entry in blocked} != {
+                "Batch-794", "Batch-1086", "Batch-1087", "Batch-1088",
+                "Batch-1125", "Batch-1126", "Batch-1162"} or
+            unsupported[0]["batch"] != "Batch-1167"):
         raise ValueError("Unexpected declaration result counts")
     audit = {
         "schemaVersion": 1,
@@ -52,21 +59,30 @@ def main():
         "remainingLedgerSha256": sha256(REMAINING),
         "selectedMethodsProbed": 99,
         "remainingMethodsInventoried": 327,
-        "remainingMethodsProbed": 132,
-        "remainingMethodsUnprobed": 195,
-        "distinctMethodsProbed": 231,
-        "javaDeclarationsCompiled": 230,
-        "javaDeclarationsBlocked": 1,
-        "blockedIdentity": {
-            "declaringType": blocked[0]["declaringType"],
-            "metadataSignature": blocked[0]["metadataSignature"],
-            "compilerError": blocked[0]["compilerError"],
-            "sourceBatch": blocked[0]["sourceBatch"],
-        },
+        "remainingMethodsRecorded": 327,
+        "remainingMethodsWithoutCompilerResult": len(unsupported),
+        "distinctMethodsRecorded": 426,
+        "javaDeclarationsCompiled": len(compiled),
+        "javaDeclarationsBlocked": len(blocked),
+        "javaProbesUnsupported": len(unsupported),
+        "blockedIdentities": [{
+            "declaringType": entry["declaringType"],
+            "metadataSignature": entry["metadataSignature"],
+            "compilerError": entry["compilerError"],
+            "sourceBatch": entry["sourceBatch"],
+            "probeBatch": entry["batch"],
+        } for entry in blocked],
+        "unsupportedIdentities": [{
+            "declaringType": entry["declaringType"],
+            "metadataSignature": entry["metadataSignature"],
+            "probeError": entry["probeError"],
+            "sourceBatch": entry["sourceBatch"],
+            "probeBatch": entry["batch"],
+        } for entry in unsupported],
         "scope": "Independent syntax probes with temporary support types; no collective overload, behavior, public facade, or release qualification",
     }
     OUTPUT.write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print("PASS: 231 distinct pinned method probes; 230 compile, one Java blocker, 195 remaining inventory methods unprobed")
+    print("PASS: 426 distinct pinned method records; 418 compile, seven Java blockers, one probe limitation")
 
 
 if __name__ == "__main__":

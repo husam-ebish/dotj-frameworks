@@ -3,19 +3,74 @@
   "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "selectedLedgerSha256": "9eb5afc77da9ee016d1e9f2eb4e180a2cd397eb96f6bb9703383061dda55e496",
-  "remainingLedgerSha256": "ed310feecfca74d9bc20f6f3223c31ea7f7c14eb0576d68098f4a9023401a17e",
+  "remainingLedgerSha256": "b2978b21615f2a39df9a7e15d596d7bef1bb0e71ce86598b7617c90f82199571",
   "selectedMethodsProbed": 99,
   "remainingMethodsInventoried": 327,
-  "remainingMethodsProbed": 132,
-  "remainingMethodsUnprobed": 195,
-  "distinctMethodsProbed": 231,
-  "javaDeclarationsCompiled": 230,
-  "javaDeclarationsBlocked": 1,
-  "blockedIdentity": {
-    "declaringType": "System.Threading.Tasks.Task`1",
-    "metadataSignature": "System.Threading.Tasks.TaskFactory`1[TResult] get_Factory()",
-    "compilerError": "non-static type variable TResult cannot be referenced from a static context",
-    "sourceBatch": "Batch-327"
-  },
+  "remainingMethodsRecorded": 327,
+  "remainingMethodsWithoutCompilerResult": 1,
+  "distinctMethodsRecorded": 426,
+  "javaDeclarationsCompiled": 418,
+  "javaDeclarationsBlocked": 7,
+  "javaProbesUnsupported": 1,
+  "blockedIdentities": [
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.TaskFactory`1[TResult] get_Factory()",
+      "compilerError": "non-static type variable TResult cannot be referenced from a static context",
+      "sourceBatch": "Batch-327",
+      "probeBatch": "Batch-794"
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean, Boolean)",
+      "compilerError": "unexpected type",
+      "sourceBatch": "Batch-589",
+      "probeBatch": "Batch-1086"
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean)",
+      "compilerError": "unexpected type",
+      "sourceBatch": "Batch-590",
+      "probeBatch": "Batch-1087"
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])",
+      "compilerError": "unexpected type",
+      "sourceBatch": "Batch-591",
+      "probeBatch": "Batch-1088"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean op_Equality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+      "compilerError": "non-static type variable TResult cannot be referenced from a static context",
+      "sourceBatch": "Batch-628",
+      "probeBatch": "Batch-1125"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean op_Inequality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+      "compilerError": "non-static type variable TResult cannot be referenced from a static context",
+      "sourceBatch": "Batch-629",
+      "probeBatch": "Batch-1126"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Nullable`1[System.Int32] get_CurrentId()",
+      "compilerError": "unexpected type",
+      "sourceBatch": "Batch-665",
+      "probeBatch": "Batch-1162"
+    }
+  ],
+  "unsupportedIdentities": [
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void WaitAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+      "probeError": "By-reference or optional parameter needs separate representation",
+      "sourceBatch": "Batch-670",
+      "probeBatch": "Batch-1167"
+    }
+  ],
   "scope": "Independent syntax probes with temporary support types; no collective overload, behavior, public facade, or release qualification"
 }
