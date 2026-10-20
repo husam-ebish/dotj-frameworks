@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-065",
+  "tool": "tools/oracle/dotj-core/api-shape/ApiShapeOracle.csproj",
+  "sourceAssembly": "Installed System.Private.CoreLib.dll",
+  "sourceAssemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "runtime": "Microsoft.NETCore.App 10.0.12",
+  "build": "Release build passed with zero warnings and errors.",
+  "positiveSmoke": "System.IDisposable returned one declared public method named Dispose.",
+  "negativeSmoke": "System.NonexistentType was rejected with exit code 3.",
+  "output": "Deterministic JSON of selected public CoreLib type identity, generic parameters, interfaces, and declared public constructors/methods/properties/events/fields.",
+  "limits": ["Installed release-artifact reflection, not a source-level conditional API census.", "Inherited members and protected/internal members are intentionally excluded.", "No Java public API is generated or qualified by this tool."]
+}
