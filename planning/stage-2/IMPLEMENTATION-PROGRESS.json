@@ -714,7 +714,8 @@
     "Batch-697",
     "Batch-698",
     "Batch-699",
-    "Batch-700"
+    "Batch-700",
+    "Batch-701"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -10518,20 +10519,27 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-701",
+    "id": "Batch-702",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Implement and compile the .j source-level generic-arity mapping for Task and Task<TResult>, then compare exact public facade signatures.",
-    "requiresContinue": true
+    "outcome": "Build the first exact-name System.IDisposable product facade and run an independent JDK-only consumer with ownership tests.",
+    "requiresContinue": false
   },
   "batchPlan": {
-    "version": "stage-2-batches-v6",
-    "source": "planning/stage-2/implementation/BATCH-PLAN-v6.json",
-    "plannedTotalBatches": 2386,
-    "completedBatches": 700,
-    "remainingPlannedBatches": 1686,
-    "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes"
+    "version": "stage-2-batches-v7",
+    "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
+    "plannedTotalBatches": null,
+    "completedBatches": 701,
+    "remainingPlannedBatches": null,
+    "outstandingAcceptanceItems": 1686,
+    "requestedSeries": {
+      "firstBatch": "Batch-701",
+      "lastBatch": "Batch-1200",
+      "completed": 1,
+      "remaining": 499
+    },
+    "status": "Future batch count UNKNOWN; report accepted work and requested series separately"
   }
 }
