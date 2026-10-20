@@ -23,7 +23,7 @@ Source method rows below are lexical candidates from retrieved files. They are n
 | Fixture ID | Package | Expected observation | Evidence status |
 |---|---|---|---|
 | DJ-001-F01-01 | WP-01 | Equal parameterized types share identity | Independent Java and .NET oracle cases passed for one bounded shape; five supporting upstream reflection cases passed in Batch-060, without a direct reference-identity assertion. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
-| DJ-001-F01-02 | WP-01 | different generic arguments do not | Independent Java and .NET oracle cases passed for one bounded shape; upstream test unmapped. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
+| DJ-001-F01-02 | WP-01 | different generic arguments do not | Independent Java and .NET oracle cases passed for one bounded shape; four upstream argument-metadata cases passed, without a direct inequality assertion. [Disposition](evidence/type-inequality-disposition-v10.0.12.json) |
 | DJ-001-F01-03 | WP-01 | supplied resources are never closed implicitly | Independent Java and .NET DI oracle cases passed; 37 selected upstream DI ownership/order cases passed in Batch-062. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
 | DJ-001-F01-04 | WP-01 | context values do not leak between requests | Java explicit-context and independent same-worker CLR cases passed; two supporting upstream context methods passed. Mechanisms differ and no exact upstream cross-request case is claimed. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
 | DJ-001-F02-01 | WP-02 | Late registration runs synchronously | Designed; map actual upstream case or specify independent oracle in E03 |

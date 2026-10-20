@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-063",
+  "fixture": "DJ-001-F01-02",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "boundedSearch": "System.Reflection.Tests TypeInfoTests.cs and adjacent System.Reflection test files were inspected for direct generic-type inequality assertions; no direct selected method was identified. This is a bounded search, not an upstream census.",
+  "supportingUpstreamTest": {
+    "method": "System.Reflection.Tests.TypeInfoTests.GetGenericArguments",
+    "sourceSha256": "59d06a698129ff37e2e572dbebbedbea446eb9dcb8b208fdf043f2d15c44c991",
+    "passed": 4,
+    "failed": 0,
+    "trxSha256": "6d754dff60e8d24d1dd7d34efb209e333b8d3245f971e967ec937467e8ce1e6c",
+    "relevance": "Verifies generic argument metadata, including a closed <int,string> type; it does not compare two closed types for identity."
+  },
+  "directOracle": "Batch-041 independent .NET 10.0.12 oracle asserts Dictionary<string,int> differs from Dictionary<string,long> while retaining the same generic definition; matching bounded internal Java fixture passed in Batch-040.",
+  "disposition": "Use the direct independent .NET oracle for the F01-02 inequality assertion and the upstream test as supporting metadata evidence. Keep F01-02 PARTIAL until the public System.Type mapping and broader forms are qualified."
+}
