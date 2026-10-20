@@ -4386,6 +4386,21 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-1163"
+    },
+    {
+      "index": 295,
+      "sourceBatch": "Batch-667",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean WaitAll(System.Threading.Tasks.Task[], Int32, System.Threading.CancellationToken)",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static boolean WaitAll(Task[] tasks, int millisecondsTimeout, CancellationToken cancellationToken) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "b2d6d95b4cd58ed54c7b61f1f235f513dc1d629d8280d366a3f4a5b4a7b4f6e9",
+      "supportTypes": [
+        "System.Threading.CancellationToken"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-1164"
     }
   ]
 }
