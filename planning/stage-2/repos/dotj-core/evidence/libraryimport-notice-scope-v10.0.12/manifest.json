@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-20",
+  "scope": "Bounded notice and artifact-boundary review for the pinned LibraryImportGenerator build chain and captured CoreLib generated output",
+  "status": "BUILD_CHAIN_INVENTORIED; FILE_TO_NOTICE_AND_FUTURE_DISTRIBUTION_APPLICABILITY_OPEN",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "priorGraphManifest": {
+    "path": "../libraryimport-package-graph-v10.0.12/manifest.json"
+  },
+  "sourceGenerationAssets": {
+    "path": "source-generation.assets.json.raw",
+    "bytes": 134285,
+    "sha256": "a4bacb4292c2199a5baffdf778c9e129231dda83a0bd85f652b076d953592dbb"
+  },
+  "sourceFiles": {
+    "generatorProject": {
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.csproj",
+      "path": "source/LibraryImportGenerator.csproj.raw",
+      "bytes": 1971,
+      "sha256": "48b5cec5bb4db0fb9e9bb2cc7e6c5390f9767e75e2c188d1cd6e24f548e8258a"
+    },
+    "sourceGenerationProject": {
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/Microsoft.Interop.SourceGeneration.csproj",
+      "path": "source/Microsoft.Interop.SourceGeneration.csproj.raw",
+      "bytes": 2098,
+      "sha256": "469e452d8e496806630e140b1769a8e3d433b4f1d0ee3cfd90892f92a709457e"
+    },
+    "generatorTargets": {
+      "sourcePath": "eng/generators.targets",
+      "path": "source/generators.targets.raw",
+      "bytes": 6054,
+      "sha256": "ab59b6eea295f43e0526d8de235ab56f188d3101a72fbf83a8beb5289248c819"
+    }
+  },
+  "directPackageReferences": [
+    {
+      "project": "LibraryImportGenerator",
+      "package": "Microsoft.CodeAnalysis.CSharp.Workspaces",
+      "privateAssets": "all"
+    },
+    {
+      "project": "Microsoft.Interop.SourceGeneration",
+      "package": "Microsoft.CodeAnalysis",
+      "privateAssets": "all"
+    }
+  ],
+  "analyzerProjectReferences": [
+    {
+      "include": "$(LibrariesProjectRoot)System.Runtime.InteropServices\\gen\\Microsoft.Interop.SourceGeneration\\Microsoft.Interop.SourceGeneration.csproj",
+      "outputItemType": "Analyzer",
+      "referenceOutputAssembly": "false"
+    },
+    {
+      "include": "$(LibrariesProjectRoot)System.Runtime.InteropServices\\gen\\LibraryImportGenerator\\LibraryImportGenerator.csproj",
+      "outputItemType": "Analyzer",
+      "referenceOutputAssembly": "false"
+    }
+  ],
+  "libraryImportTargetPackageCount": 33,
+  "sourceGenerationTargetPackageCount": 36,
+  "unionPackageCount": 36,
+  "additionalPackages": [
+    {
+      "identity": "Microsoft.CodeAnalysis.VisualBasic.Workspaces/4.14.0",
+      "nuspec": {
+        "path": "additional-packages/microsoft.codeanalysis.visualbasic.workspaces/4.14.0/microsoft.codeanalysis.visualbasic.workspaces.nuspec",
+        "bytes": 5265,
+        "sha256": "8af77edf168ebad86d1101b5788c3a9a02d4c8cd36d54c831bd84f74efc14005"
+      },
+      "licenseType": "expression",
+      "licenseValue": "MIT",
+      "noticeLikeFiles": [
+        {
+          "path": "additional-packages/microsoft.codeanalysis.visualbasic.workspaces/4.14.0/ThirdPartyNotices.rtf",
+          "bytes": 2183,
+          "sha256": "ef4678850e7e3aaf9297f07e5c4060d477854e545ccf8e2ef8452d65a7b2efaf"
+        }
+      ],
+      "sha512FromAssets": "fT9lTVerQJRTeGcN5aDcK05XccuWeAyCa+hbMUnRYg2qdwNuBwYjZRdjOICQmiWgka7MOyF9DQeXosad5s1Jpg=="
+    },
+    {
+      "identity": "Microsoft.CodeAnalysis.VisualBasic/4.14.0",
+      "nuspec": {
+        "path": "additional-packages/microsoft.codeanalysis.visualbasic/4.14.0/microsoft.codeanalysis.visualbasic.nuspec",
+        "bytes": 3321,
+        "sha256": "a59d7dc643057ad867601e707e56092a32bc59b24ac506662c98280b29471bdf"
+      },
+      "licenseType": "expression",
+      "licenseValue": "MIT",
+      "noticeLikeFiles": [
+        {
+          "path": "additional-packages/microsoft.codeanalysis.visualbasic/4.14.0/ThirdPartyNotices.rtf",
+          "bytes": 2183,
+          "sha256": "ef4678850e7e3aaf9297f07e5c4060d477854e545ccf8e2ef8452d65a7b2efaf"
+        }
+      ],
+      "sha512FromAssets": "AVGOptT9LlETb6BjTkK58XHi1xx7XO8KLbtpPfpwjNckoYoCgdkFz/LS1LfhE1Sq/OTqToqpBUJ48FvVhdKHeA=="
+    },
+    {
+      "identity": "Microsoft.CodeAnalysis/4.14.0",
+      "nuspec": {
+        "path": "additional-packages/microsoft.codeanalysis/4.14.0/microsoft.codeanalysis.nuspec",
+        "bytes": 5104,
+        "sha256": "db009217f9a5afffe3fc0bd469697a6a005e29949f34ff1dde3e02fa94608da8"
+      },
+      "licenseType": "expression",
+      "licenseValue": "MIT",
+      "noticeLikeFiles": [
+        {
+          "path": "additional-packages/microsoft.codeanalysis/4.14.0/ThirdPartyNotices.rtf",
+          "bytes": 2183,
+          "sha256": "ef4678850e7e3aaf9297f07e5c4060d477854e545ccf8e2ef8452d65a7b2efaf"
+        }
+      ],
+      "sha512FromAssets": "T6TU+xURqfdaJKibiwI77hQqqoQTK2C9FtXD25qpNI6VZjQbqsyWLiuiISxrTGWq4TbB2DUSP6VOoRJkaF/lEw=="
+    }
+  ],
+  "noticeLikeFileCountAcrossUnion": 57,
+  "distinctNoticeLikeContentHashes": 15,
+  "generatedOutput": {
+    "priorEvidencePath": "../corelib-generated-v10.0.12/LibraryImport.LibraryImports.g.cs.raw",
+    "bytes": 645008,
+    "sha256": "094c3ccc4a4de9fe3a146af0964b784ca8c04542f32729b86786e0d644ae248b",
+    "firstLine": "// <auto-generated/>",
+    "boundedLiteralScanCounts": {
+      "copyright": 0,
+      "licen[sc]ed?": 0,
+      "third[- ]party": 0,
+      "Microsoft\\.CodeAnalysis": 0,
+      "Humanizer": 0,
+      "StyleCop": 0,
+      "Workspaces": 0
+    }
+  },
+  "artifactBoundaries": [
+    {
+      "scope": "Local C# oracle build",
+      "observation": "NuGet packages are in the isolated local cache; the pinned targets use LibraryImportGenerator and Microsoft.Interop.SourceGeneration as analyzer project references. This is build use, not proof of artifact inclusion."
+    },
+    {
+      "scope": "Committed planning evidence",
+      "observation": "The repository copies nuspec and notice-like files, plus the generated C# source, as evidence. Preserve the original texts and provenance while assessing any repository redistribution."
+    },
+    {
+      "scope": "Future .j product distribution",
+      "observation": "No .j runtime or SDK artifact manifest exists. Package inclusion and notice obligations for a future product cannot be determined from this build graph."
+    }
+  ],
+  "reviewFindings": [
+    "PrivateAssets=all limits PackageReference propagation; it does not determine rights in code that a generator emits or in separately copied evidence files.",
+    "The captured generated output has an auto-generated marker and no hit for the bounded license/package-name scan. This does not prove that no third-party text or templates contributed to it.",
+    "The root runtime MIT license and third-party notice are retained in earlier evidence; their file-level application to generated output and future adaptations remains open.",
+    "All 57 filename-selected package notice-like files are retained across the two manifests; the three added Roslyn packages declare MIT in their nuspecs. No package notice is assigned to generated output solely because its package appears in a restore graph."
+  ],
+  "unresolved": [
+    "Trace generator emission pathways and templates against a bounded sample of LibraryImports.g.cs before assigning copied-source provenance.",
+    "Determine the actual .j release artifact contents and notice bundle when an artifact exists.",
+    "Review legacy license URLs, embedded or differently named notices, and package-specific terms before any rights clearance or redistribution decision."
+  ],
+  "primaryReferences": [
+    "https://github.com/dotnet/runtime/blob/v10.0.12/LICENSE.TXT",
+    "https://github.com/dotnet/runtime/blob/v10.0.12/THIRD-PARTY-NOTICES.TXT",
+    "https://github.com/dotnet/runtime/blob/v10.0.12/docs/project/licensing-assets.md",
+    "https://learn.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files"
+  ]
+}
