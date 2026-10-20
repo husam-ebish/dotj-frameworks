@@ -20,6 +20,12 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String", true) != string) {
             throw new AssertionError("Selected GetType overload behavior changed");
         }
+        if (Type.GetType("System.String, System.Private.CoreLib") != string
+                || Type.GetType("System.Int32, System.Private.CoreLib") != integer
+                || Type.GetType("System.String, mscorlib") != string
+                || Type.GetType("System.String, NotAnAssembly") != null) {
+            throw new AssertionError("Selected assembly-qualified lookup changed");
+        }
         try {
             Type.GetType("System.Unknown", true, false);
             throw new AssertionError("Missing type accepted with throwOnError");

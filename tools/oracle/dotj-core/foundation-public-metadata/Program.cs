@@ -61,6 +61,11 @@ var result = new
         missing = ObserveGetType("System.Unknown", false, false),
         missingThrow = ObserveGetType("System.Unknown", true, false),
         nullName = ObserveGetType(null, false, false),
+        coreLibString = ObserveGetType("System.String, System.Private.CoreLib", false, false),
+        coreLibInt32 = ObserveGetType("System.Int32, System.Private.CoreLib", false, false),
+        legacyString = ObserveGetType("System.String, mscorlib", false, false),
+        unknownAssembly = ObserveGetType("System.String, NotAnAssembly", false, false),
+        unknownAssemblyThrow = ObserveGetType("System.String, NotAnAssembly", true, false),
     },
     types = selected.Select(type => new
     {
