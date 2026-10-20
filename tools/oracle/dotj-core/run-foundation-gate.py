@@ -3,11 +3,11 @@
 import hashlib
 import json
 import subprocess
+import argparse
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[3]
-SOURCE = Path("R:/")
 ORACLE = ROOT / "tools/oracle/dotj-core"
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence"
 CORELIB_HASH = "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678"
@@ -20,9 +20,9 @@ def run(*args, contains):
     return result.stdout
 
 
-def gate():
-    assert SOURCE.is_dir(), "Pinned source must be mapped to R:"
-    wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 12 Java fixtures and 5 .NET oracles")
+def gate(source):
+    assert source.is_dir(), "A pinned source root is required"
+    wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 13 Java fixtures and 5 .NET oracles")
     wp02 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-java-fixtures.ps1"), contains="PASS: 15 internal WP-02 Java fixtures")
     async_output = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-async-java-fixtures.ps1"),
                        contains="PASS: internal timed wait cases")
@@ -30,11 +30,11 @@ def gate():
     reference = json.loads(run("dotnet", "run", "--project", str(ORACLE / "cancellation-behavior/CancellationBehaviorOracle.csproj"), "--configuration", "Release", "--no-build", "--no-launch-profile", contains="\"runtimeVersion\""))
     assert reference["coreLibSha256"] == CORELIB_HASH and len(reference["cases"]) == 10
     assert reference == json.loads((EVIDENCE / "cancellation-behavior-v10.0.12/oracle-output.json").read_text(encoding="utf-8"))
-    run("python", str(ORACLE / "verify-selected-api-shapes.py"), "--source-root", str(SOURCE), contains="PASS")
-    run("python", str(ORACLE / "verify-wp02-api-shapes.py"), contains="PASS 7")
-    run("python", str(ORACLE / "verify-wp02-test-map.py"), contains="PASS 10")
+    run("python", str(ORACLE / "verify-selected-api-shapes.py"), "--source-root", str(source), contains="PASS")
+    run("python", str(ORACLE / "verify-wp02-api-shapes.py"), "--source-root", str(source), contains="PASS 7")
+    run("python", str(ORACLE / "verify-wp02-test-map.py"), "--source-root", str(source), contains="PASS 10")
     run("python", str(ORACLE / "verify-wp02-java-names.py"), contains="PASS 3")
-    run("python", str(ORACLE / "verify-task-family-arity.py"), "--source-root", str(SOURCE), contains="PASS 3 pinned async family arity pairs")
+    run("python", str(ORACLE / "verify-task-family-arity.py"), "--source-root", str(source), contains="PASS 3 pinned async family arity pairs")
     for family in ("Task", "TaskCompletionSource", "ValueTask"):
         run("python", str(ORACLE / "verify-async-java-name-collision.py"), family,
             contains=f"PASS expected Java name collision: {family}")
@@ -42,7 +42,7 @@ def gate():
         contains="PASS 57 selected Task/ValueTask reference cases on pinned CoreLib")
     task_reference = json.loads((EVIDENCE / "task-behavior-v10.0.12/oracle-output.json").read_text(encoding="utf-8"))
     assert task_reference["coreLibSha256"] == CORELIB_HASH and len(task_reference["cases"]) == 57
-    run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-upstream-tests.ps1"), "-SourceRoot", str(SOURCE), contains="Passed:    10")
+    run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-upstream-tests.ps1"), "-SourceRoot", str(source), contains="Passed:    10")
     upstream = json.loads((Path.home() / "AppData/Local/Temp/dotj-wp02-upstream-results/summary.json").read_text(encoding="utf-8-sig"))
     assert upstream["passed"] == 10 and upstream["sourceCommit"] == "4271d88e0aebf3d04f188f1334c2220d80555ef6"
     run("powershell", "-NoProfile", "-File", str(ORACLE / "build-internal-core.ps1"), contains="PASS: 12 internal sources and 12 classes")
@@ -55,7 +55,7 @@ def gate():
         "sourceCommit": upstream["sourceCommit"],
         "runtimeVersion": "10.0.12",
         "coreLibSha256": CORELIB_HASH,
-        "wp01JavaFixtures": 12,
+        "wp01JavaFixtures": 13,
         "wp01DotnetOracles": 5,
         "wp02InternalJavaFixtures": 15,
         "wp02ReferenceCases": 10,
@@ -72,12 +72,14 @@ def gate():
         "waitCancellationListenerCleanup": True,
         "internalJarSha256": jar_hash,
         "status": "BOUNDED_PASS; E01/E02/E03/N01 AND PUBLIC WP-01/WP-02 QUALIFICATION OPEN",
-        "limitations": ["The internal cancellation and async state prototypes do not cover full Task/ValueTask public semantics.", "The selected Task/ValueTask cases and five internal Java fixtures are bounded observations, not public Java parity or upstream xUnit tests.", "Timed waits use a private removable signal, daemon scheduler and Java TimeoutException; they do not implement .NET cancellation tokens, awaiters or public Task.WaitAsync.", "The three exact-name Java collisions leave public generic/non-generic representation unresolved.", "The coordinated races do not exhaust all interleavings or publication conditions.", "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.", "No public .j facade or product release is qualified."],
+        "limitations": ["The internal cancellation and async state prototypes do not cover full Task/ValueTask public semantics.", "The selected Task/ValueTask cases and five internal Java fixtures are bounded observations, not public Java parity or upstream xUnit tests.", "Timed waits use a private removable signal, daemon scheduler and Java TimeoutException; they do not implement .NET cancellation tokens, awaiters or public Task.WaitAsync.", "The three exact-name Java collisions leave public generic/non-generic representation unresolved.", "The coordinated races do not exhaust all interleavings or publication conditions.", "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.", "Only one public IDisposable candidate exists; full .j facade and product release are not qualified."],
     }
     output = EVIDENCE / "foundation-gate-v10.0.12.json"
     output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print("PASS bounded foundation gate: WP-01 12+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 57 reference cases + 5 Java fixtures")
+    print("PASS bounded foundation gate: WP-01 13+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 57 reference cases + 5 Java fixtures")
 
 
 if __name__ == "__main__":
-    gate()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--source-root", type=Path, default=Path("R:/"))
+    gate(parser.parse_args().source_root)

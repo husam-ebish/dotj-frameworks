@@ -7,11 +7,14 @@ $build = Join-Path $repoRoot 'dotj-core\dotj-core-01\build'
 $classes = Join-Path $build 'internal-core-classes-v1'
 $jarPath = Join-Path $build 'dotj-core-internal-v1.jar'
 $manifestPath = Join-Path $repoRoot 'planning\stage-2\repos\dotj-core\evidence\internal-core-jar-v1.json'
+$publicJar = Join-Path $repoRoot 'dotj-core\dotj-core-public\build\idisposable-v1\dotj-core-idisposable-v1.jar'
+& python (Join-Path $repoRoot 'tools\oracle\dotj-core\build-idisposable-product.py')
+if ($LASTEXITCODE -ne 0) { throw 'Public IDisposable dependency build failed.' }
 New-Item -ItemType Directory -Force -Path $classes | Out-Null
 
 $sources = @(Get-ChildItem -LiteralPath $main -Recurse -Filter '*.java' | Sort-Object FullName)
 if ($sources.Count -ne 12) { throw "Expected twelve internal Java source files, found $($sources.Count)." }
-& javac --release 21 -d $classes @($sources | ForEach-Object FullName)
+& javac --release 21 -classpath $publicJar -d $classes @($sources | ForEach-Object FullName)
 if ($LASTEXITCODE -ne 0) { throw 'Internal Java compilation failed.' }
 
 $classFiles = @(Get-ChildItem -LiteralPath $classes -Recurse -Filter '*.class')
