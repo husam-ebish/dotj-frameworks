@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-055",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "project": "src/libraries/System.Threading/tests/System.Threading.Tests.csproj",
+  "sourceFilesSha256": {
+    "src/libraries/System.Threading/tests/AsyncLocalTests.cs": "acf6f236c142e98a38c6a2f237585e6718deba5568d6593e543c6a1c7136c119",
+    "src/libraries/System.Threading/tests/ExecutionContextTests.cs": "6b3a4c92779fcadfdbea667d76a8cd380d60b896cac01fe65fa16445afb59477"
+  },
+  "filter": "FullyQualifiedName=System.Threading.Tests.AsyncLocalTests.CaptureAndRestore|FullyQualifiedName=System.Threading.Tests.ExecutionContextTests.FlowTest",
+  "properties": ["UseLocalTargetingRuntimePack=false", "UseDefaultTestHost=true", "RunSettingsDotNetHostPath=C:\\Program Files\\dotnet\\dotnet.exe"],
+  "runtime": "Installed Microsoft.NETCore.App 10.0.12",
+  "results": [
+    {"method": "System.Threading.Tests.AsyncLocalTests.CaptureAndRestore", "outcome": "Passed", "observedContract": "A captured AsyncLocal value is restored during ExecutionContext.Run and the outside value remains unchanged."},
+    {"method": "System.Threading.Tests.ExecutionContextTests.FlowTest", "outcome": "Passed", "observedContract": "ExecutionContext flow suppression and restoration are verified across background-thread executions."}
+  ],
+  "total": 2,
+  "passed": 2,
+  "failed": 0,
+  "skipped": 0,
+  "fixture": "DJ-001-F01-04",
+  "relationship": "Supporting upstream context behavior; neither test is an exact cross-request Java fixture.",
+  "qualification": "E03 remains IN PROGRESS."
+}
