@@ -1,0 +1,145 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "type": {
+    "name": "CancellationTokenRegistration",
+    "fullName": "System.Threading.CancellationTokenRegistration",
+    "isInterface": false,
+    "isValueType": true,
+    "isGenericTypeDefinition": false,
+    "baseType": "System.ValueType",
+    "genericParameters": [],
+    "interfaces": [
+      "System.IAsyncDisposable",
+      "System.IDisposable",
+      "System.IEquatable`1[System.Threading.CancellationTokenRegistration]"
+    ],
+    "constructors": [],
+    "methods": [
+      {
+        "Name": "Dispose",
+        "signature": "Void Dispose()",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "DisposeAsync",
+        "signature": "System.Threading.Tasks.ValueTask DisposeAsync()",
+        "returnType": "System.Threading.Tasks.ValueTask",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "Equals",
+        "signature": "Boolean Equals(System.Object)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "obj",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Equals",
+        "signature": "Boolean Equals(System.Threading.CancellationTokenRegistration)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "other",
+            "type": "System.Threading.CancellationTokenRegistration",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "get_Token",
+        "signature": "System.Threading.CancellationToken get_Token()",
+        "returnType": "System.Threading.CancellationToken",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "GetHashCode",
+        "signature": "Int32 GetHashCode()",
+        "returnType": "System.Int32",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "op_Equality",
+        "signature": "Boolean op_Equality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)",
+        "returnType": "System.Boolean",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "left",
+            "type": "System.Threading.CancellationTokenRegistration",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "right",
+            "type": "System.Threading.CancellationTokenRegistration",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "op_Inequality",
+        "signature": "Boolean op_Inequality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)",
+        "returnType": "System.Boolean",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "left",
+            "type": "System.Threading.CancellationTokenRegistration",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "right",
+            "type": "System.Threading.CancellationTokenRegistration",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Unregister",
+        "signature": "Boolean Unregister()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      }
+    ],
+    "properties": [
+      {
+        "Name": "Token",
+        "type": "System.Threading.CancellationToken",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      }
+    ],
+    "events": [],
+    "fields": []
+  }
+}
