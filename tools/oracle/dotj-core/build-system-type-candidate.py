@@ -15,6 +15,8 @@ SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
                      ("Exception", "SystemException", "ArgumentException", "ArgumentNullException")]
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
+CONCURRENCY_TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java"
+LOADER_FIXTURE = ROOT / "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java"
 EXTERNAL = ROOT / "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java"
 BUILD = ROOT / "dotj-core/dotj-core-public/build/type-identity-candidate-v2"
 CLASSES = BUILD / "product-classes"
@@ -58,7 +60,7 @@ def main():
         *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES]))
     assert not (CLASSES / "System/TypeCandidateFactory.class").exists()
     run("javac", "--release", "21", "-cp", str(CLASSES), "-d", str(TEST_CLASSES),
-        str(TEST), str(EXTERNAL))
+        str(TEST), str(CONCURRENCY_TEST), str(LOADER_FIXTURE), str(EXTERNAL))
     assert not (TEST_CLASSES / "System/TypeCandidateFactory.class").exists()
     public = run("javap", "-public", "-classpath", str(CLASSES), "System.Type")
     assert "public abstract class System.Type" in public
@@ -83,6 +85,9 @@ def main():
     assert result.startswith("PASS selected System.Type identity")
     external_result = run("java", "-cp", classpath, "consumer.ProductTypeIdentityConsumer").strip()
     assert external_result == "PASS external System.Type selected identity consumer"
+    concurrency_result = run("java", "-cp", classpath, "System.TypeIdentityConcurrencyTest",
+                             str(TEST_CLASSES / "fixture/LoadableType.class")).strip()
+    assert concurrency_result == "PASS System.Type isolated loader and 1600 concurrent canonical constructions"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "upstreamFullName": "System.Type",
@@ -97,13 +102,19 @@ def main():
         "testSha256": sha256(TEST),
         "externalConsumerPath": EXTERNAL.relative_to(ROOT).as_posix(),
         "externalConsumerSha256": sha256(EXTERNAL),
+        "concurrencyTestPath": CONCURRENCY_TEST.relative_to(ROOT).as_posix(),
+        "concurrencyTestSha256": sha256(CONCURRENCY_TEST),
+        "loaderFixturePath": LOADER_FIXTURE.relative_to(ROOT).as_posix(),
+        "loaderFixtureSha256": sha256(LOADER_FIXTURE),
         "publicMembers": members,
         "testResult": result,
         "externalConsumerResult": external_result,
+        "concurrencyResult": concurrency_result,
         "status": "SELECTED_IDENTITY_CANDIDATE; complete 181-method/70-property System.Type surface, MemberInfo inheritance, generic-parameter Types, public null/error mapping and release qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
     print(result)
     print(external_result)
+    print(concurrency_result)
 
 
 if __name__ == "__main__":
