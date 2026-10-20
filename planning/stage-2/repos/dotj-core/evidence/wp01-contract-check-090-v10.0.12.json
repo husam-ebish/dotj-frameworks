@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-090",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "ExecutionContext context-transfer anchors",
+  "assertionsPassed": [
+    "ExecutionContext context-transfer anchors passed"
+  ],
+  "observed": {
+    "methods": [
+      "Capture",
+      "CreateCopy",
+      "Dispose",
+      "GetObjectData",
+      "IsFlowSuppressed",
+      "Restore",
+      "RestoreFlow",
+      "Run",
+      "SuppressFlow"
+    ]
+  },
+  "openGaps": [
+    "Explicit ContextSnapshot cannot be presented as equivalent to ambient ExecutionContext."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
