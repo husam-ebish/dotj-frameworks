@@ -10,6 +10,7 @@ public final class OwnedResourcesBoundaryTest {
         emptyCloseIsIdempotent();
         nullOwnedRejected();
         nullBorrowedRejected();
+        borrowedStaysCallerOwned();
         // Next bounded case.
         System.out.println("PASS: internal ownership boundary checks");
     }
@@ -39,6 +40,13 @@ public final class OwnedResourcesBoundaryTest {
         try { scope.addBorrowed(null); throw new AssertionError("Null borrowed resource accepted"); }
         catch (NullPointerException expected) { }
         scope.close();
+    }
+
+    private static void borrowedStaysCallerOwned() throws Exception {
+        OwnedResources scope = new OwnedResources(); AtomicInteger calls = new AtomicInteger();
+        AutoCloseable borrowed = () -> calls.incrementAndGet(); scope.addBorrowed(borrowed); scope.close();
+        if (calls.get() != 0) throw new AssertionError("Borrowed resource closed by scope");
+        borrowed.close(); if (calls.get() != 1) throw new AssertionError("Caller could not close borrowed resource");
     }
 
     // Next bounded method.
