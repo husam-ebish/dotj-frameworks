@@ -13,6 +13,7 @@ EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
                      ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException")]
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException")]
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 BUILD = ROOT / "dotj-core/dotj-core-public/build/typeof-selected-v1"
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json"
 NAME = re.compile(r"System(?:\.[A-Za-z][A-Za-z0-9]*)+")

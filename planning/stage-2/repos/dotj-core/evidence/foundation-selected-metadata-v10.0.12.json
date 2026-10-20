@@ -312,6 +312,7 @@
       "baseType": null,
       "isInterface": true,
       "isAbstract": true,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 1,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [
@@ -330,6 +331,7 @@
       "baseType": "System.Reflection.MemberInfo",
       "isInterface": false,
       "isAbstract": true,
+      "nameGetterIsAbstract": true,
       "declaredPublicMethodCount": 109,
       "declaredPublicPropertyCount": 70,
       "selectedMethods": [
@@ -585,10 +587,40 @@
       "publicConstructors": []
     },
     {
+      "fullName": "System.Reflection.MemberInfo",
+      "baseType": "System.Object",
+      "isInterface": false,
+      "isAbstract": true,
+      "nameGetterIsAbstract": true,
+      "declaredPublicMethodCount": 7,
+      "declaredPublicPropertyCount": 8,
+      "selectedMethods": [
+        {
+          "name": "Equals",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.Object"
+            }
+          ]
+        }
+      ],
+      "selectedProperties": [
+        {
+          "name": "Name",
+          "type": "System.String"
+        }
+      ],
+      "publicConstructors": []
+    },
+    {
       "fullName": "System.Exception",
       "baseType": "System.Object",
       "isInterface": false,
       "isAbstract": false,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 4,
       "declaredPublicPropertyCount": 8,
       "selectedMethods": [
@@ -634,6 +666,7 @@
       "baseType": "System.Exception",
       "isInterface": false,
       "isAbstract": false,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 0,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -663,6 +696,7 @@
       "baseType": "System.SystemException",
       "isInterface": false,
       "isAbstract": false,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 3,
       "declaredPublicPropertyCount": 2,
       "selectedMethods": [],
@@ -725,6 +759,7 @@
       "baseType": "System.ArgumentException",
       "isInterface": false,
       "isAbstract": false,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 2,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -764,6 +799,7 @@
       "baseType": "System.SystemException",
       "isInterface": false,
       "isAbstract": false,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 1,
       "declaredPublicPropertyCount": 2,
       "selectedMethods": [],
@@ -798,6 +834,7 @@
       "baseType": "System.SystemException",
       "isInterface": false,
       "isAbstract": false,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 0,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -827,6 +864,7 @@
       "baseType": "System.SystemException",
       "isInterface": false,
       "isAbstract": false,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 0,
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [],
@@ -866,6 +904,7 @@
       "baseType": "System.IO.IOException",
       "isInterface": false,
       "isAbstract": false,
+      "nameGetterIsAbstract": null,
       "declaredPublicMethodCount": 2,
       "declaredPublicPropertyCount": 3,
       "selectedMethods": [],
@@ -920,6 +959,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "f9e112b78842cf353c794704a8b597493dccf6dde5d3da148d8a303d58b71987",
+  "oracleProgramSha256": "a3584c10664b1430e6ee4fa4482539ba7fabe6ce1a089e4b15a39849e1c0f1dd",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

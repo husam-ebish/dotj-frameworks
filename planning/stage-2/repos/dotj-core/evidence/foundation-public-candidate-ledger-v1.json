@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "1610f52081608247c812d90bd52b29e9e7a3900d107a13bee0bc4e43502731e5",
-  "typeCount": 10,
+  "candidateJarSha256": "e49683570e97782aa56904522ce6165041a832c25d6e77743ed4d171fed10d82",
+  "typeCount": 11,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -32,7 +32,7 @@
       "upstreamDeclaredProperties": 70,
       "upstreamPublicConstructors": 0,
       "javaPublicConstructors": 0,
-      "javaPublicHeader": "public abstract class System.Type {",
+      "javaPublicHeader": "public abstract class System.Type extends System.Reflection.MemberInfo {",
       "javaPublicDeclarations": [
         "public static System.Type GetType(java.lang.String);",
         "public static System.Type GetType(java.lang.String, boolean);",
@@ -45,7 +45,6 @@
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
         "public System.Type[] get_GenericTypeArguments();",
-        "public java.lang.String get_Name();",
         "public java.lang.String get_FullName();",
         "public java.lang.String get_Namespace();",
         "public boolean get_IsArray();",
@@ -59,7 +58,23 @@
         "public int get_GenericParameterPosition();",
         "public boolean Equals(System.Type);"
       ],
-      "disposition": "PARTIAL_PUBLIC_SURFACE; MemberInfo base, Java property lowering and semantics open",
+      "disposition": "PARTIAL_PUBLIC_SURFACE; MemberInfo base selected, other inherited members and semantics open",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Reflection.MemberInfo",
+      "upstreamBaseType": "System.Object",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": true,
+      "upstreamDeclaredNonAccessorMethods": 7,
+      "upstreamDeclaredProperties": 8,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public abstract class System.Reflection.MemberInfo {",
+      "javaPublicDeclarations": [
+        "public abstract java.lang.String get_Name();"
+      ],
+      "disposition": "PARTIAL_MEMBERINFO_SURFACE; selected abstract Name only",
       "qualified": false
     },
     {
