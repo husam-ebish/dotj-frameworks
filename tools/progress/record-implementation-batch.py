@@ -99,10 +99,7 @@ def record(args):
         "completedBatches": args.number,
         "remainingPlannedBatches": None if total_batches is None else total_batches - args.number,
         "outstandingAcceptanceItems": open_acceptance,
-        "requestedSeries": {"firstBatch": "Batch-701", "lastBatch": "Batch-1200", "completed": args.number - 700, "remaining": 1200 - args.number} if open_acceptance is not None else None,
-        "activeTranche": {"firstBatch": "Batch-706", "lastBatch": "Batch-755", "completed": args.number - 705, "remaining": 755 - args.number} if open_acceptance is not None and 706 <= args.number <= 755 else None,
-        "currentRequest": {"firstBatch": "Batch-707", "lastBatch": "Batch-716", "completed": args.number - 706, "remaining": 716 - args.number} if open_acceptance is not None and 707 <= args.number <= 716 else None,
-        "status": "Future batch count UNKNOWN; report accepted work and requested series separately" if open_acceptance is not None else "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes",
+        "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches" if open_acceptance is not None else "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes",
     }
     progress["nextProposedBatch"] = {
         "id": following,
@@ -119,16 +116,8 @@ def record(args):
     state = re.sub(r"Completed batches: `Batch-001` through `Batch-\d{3}`", f"Completed batches: `Batch-001` through `{current}`", state, count=1)
     state = re.sub(r"Implementation percentage: \*\*.*?\*\*\. .*?(?=\n- Batch tracking:)",
                    "Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.", state, count=1, flags=re.S)
-    tracking_line = (f"Batch tracking: {args.number:,} historical batches completed under `{plan['planVersion']}`; the exact number of future batches is unknown. "
-                     f"{open_acceptance:,} acceptance items remain; {1200 - args.number:,} batches remain in the earlier 500-batch request, "
-                     f"{755 - args.number:,} in the 50-batch tranche, and {716 - args.number:,} in the current 10-batch request. The next proposed batch is `{following}`."
-                     if open_acceptance is not None and 707 <= args.number <= 716 else
-                     f"Batch tracking: {args.number:,} historical batches completed under `{plan['planVersion']}`; the exact number of future batches is unknown. "
-                     f"{open_acceptance:,} acceptance items remain; {1200 - args.number:,} batches remain in the earlier 500-batch request"
-                     f" and {755 - args.number:,} in the current 50-batch tranche. The next proposed batch is `{following}`."
-                     if open_acceptance is not None and 706 <= args.number <= 755 else
-                     f"Batch tracking: {args.number:,} historical batches completed under `{plan['planVersion']}`; the exact number of future batches is unknown. "
-                     f"{open_acceptance:,} acceptance items remain; {1200 - args.number:,} batches remain in the current 500-batch request. The next proposed batch is `{following}`."
+    tracking_line = (f"Batch tracking: {args.number:,} total batches completed under `{plan['planVersion']}`; total planned and total remaining batches are unknown. "
+                     f"{open_acceptance:,} acceptance items remain; these are not a batch count. The next proposed batch is `{following}`."
                      if open_acceptance is not None else
                      f"Batch tracking: {args.number:,}/{total_batches:,} planned batches completed under `{plan['planVersion']}`; {total_batches - args.number:,} planned batches remain. This is a versioned scheduling estimate. The next proposed batch is `{following}`.")
     state = re.sub(r"Batch tracking: .*?The next proposed batch is `Batch-\d{3}`\.", tracking_line, state, count=1)
@@ -148,31 +137,13 @@ def record(args):
     report_path = STAGE / f"implementation/batches/{current}.md"
     assert not report_path.exists()
     changed = "\n".join(f"| `{path}` | {args.file_purpose} |" for path in args.files)
-    series_row = (f"| Requested 27-point series | **{args.number - 223} / 27 complete** (`Batch-224` through `Batch-250`) |\n"
-                  if plan["planVersion"] == "stage-2-batches-v3" and 224 <= args.number <= 250 else "")
-    if plan["planVersion"] == "stage-2-batches-v4" and 251 <= args.number <= 300:
-        series_row = f"| Requested 50-point series | **{args.number - 250} / 50 complete** (`Batch-251` through `Batch-300`) |\n"
-    if plan["planVersion"] == "stage-2-batches-v5" and 301 <= args.number <= 400:
-        series_row = f"| Requested 100-point series | **{args.number - 300} / 100 complete** (`Batch-301` through `Batch-400`) |\n"
-    if plan["planVersion"] == "stage-2-batches-v6" and 401 <= args.number <= 700:
-        series_row = f"| Requested 300-point series | **{args.number - 400} / 300 complete** (`Batch-401` through `Batch-700`) |\n"
-    if plan["planVersion"] == "stage-2-batches-v7":
-        series_row = f"| Requested 500-point series | **{args.number - 700} / 500 complete** (`Batch-701` through `Batch-1200`) |\n"
-        if 706 <= args.number <= 755:
-            series_row += f"| Current 50-point tranche | **{args.number - 705} / 50 complete** (`Batch-706` through `Batch-755`) |\n"
-        if 707 <= args.number <= 716:
-            series_row += f"| Current 10-point request | **{args.number - 706} / 10 complete** (`Batch-707` through `Batch-716`) |\n"
-    batch_row = (f"| Batches completed | **{args.number:,}**; future total unknown (`{plan['planVersion']}`) |\n"
+    batch_row = (f"| Batches completed, total | **{args.number:,}** |\n"
+                 f"| Batches planned, total | **Unknown**; no project-wide batch baseline |\n"
+                 f"| Batches remaining, total | **Unknown**; acceptance items are not batches |\n"
                  f"| Outstanding acceptance items | **{open_acceptance:,}**: 330 gates + 264 naming tasks + 1,092 implementation tasks, less accepted items |\n"
                  if open_acceptance is not None else
-                 f"| Batches completed / planned | **{args.number:,} / {total_batches:,} ({args.number / total_batches * 100:.2f}%)** (`{plan['planVersion']}`) |\n")
-    remaining_row = (f"| Batches still to do | **{716 - args.number:,} in the current 10-point request**; {755 - args.number:,} in the 50-point tranche; {1200 - args.number:,} in the earlier 500-point request; exact project total unknown |"
-                     if open_acceptance is not None and 707 <= args.number <= 716 else
-                     f"| Batches still to do | **{755 - args.number:,} in the current 50-point tranche**; {1200 - args.number:,} in the earlier 500-point request; exact project total unknown |"
-                     if open_acceptance is not None and 706 <= args.number <= 755 else
-                     f"| Batches still to do | **{1200 - args.number:,} in this request**; exact project total unknown |"
-                     if open_acceptance is not None else
-                     f"| Batches still to do | **{total_batches - args.number:,} planned**; revise the denominator in a new plan version when scope or batch granularity changes |")
+                 f"| Batches completed / planned, total | **{args.number:,} / {total_batches:,} ({args.number / total_batches * 100:.2f}%)** (`{plan['planVersion']}`) |\n"
+                 f"| Batches remaining, total | **{total_batches - args.number:,}** |\n")
     closing_line = ("**This batch is complete. The current request authorizes the next batch.**"
                     if open_acceptance is not None and args.number not in (716, 755) and args.number < 1200 else
                     "**STOPPED. Waiting for your CONTINUE signal before starting the next batch.**")
@@ -196,7 +167,7 @@ def record(args):
 | Remaining implementation tasks | **1,092 (100.00%)** |
 | Frameworks fully implemented and qualified | **0 / 66 (0.00%)** |
 | In-progress / not-started frameworks | **1 / 65** |
-{batch_row}{series_row}{remaining_row}
+{batch_row}
 | Next proposed batch | `{following}`: {args.next_outcome} |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
