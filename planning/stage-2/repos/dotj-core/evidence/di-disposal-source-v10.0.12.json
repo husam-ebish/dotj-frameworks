@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-033",
+  "evidenceKind": "bounded pinned-source inspection",
+  "archiveCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "archiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "source": {
+    "path": "src/libraries/Microsoft.Extensions.DependencyInjection/src/ServiceLookup/ServiceProviderEngineScope.cs",
+    "sha256": "819456c51dfa1765df1371c68b896d46595b0389ff2ea569e458ad0612bb2020",
+    "observations": [
+      "CaptureDisposable adds a disposable object to the scope list under a lock at lines 77-98; this method itself has no identity deduplication.",
+      "Dispose traverses the captured list in reverse at lines 120-137 and has no catch around each synchronous Dispose call, so a thrown exception stops this loop.",
+      "Dispose throws InvalidOperationException upon reaching an async-only object at lines 128-135.",
+      "BeginDispose marks the scope disposed before invoking customer disposal code at lines 199-229."
+    ]
+  },
+  "testSource": {
+    "path": "src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/ServiceProviderContainerTests.cs",
+    "sha256": "43883d7686636dcb84c4fa5a74386a67d29499f5b915033918bc55de2125968f",
+    "observations": [
+      "SingletonServiceCreatedFromInstanceIsNotDisposedWhenContainerIsDisposed at lines 1099-1112 asserts a supplied singleton remains undisposed.",
+      "ProviderDisposeThrowsWhenOnlyDisposeAsyncImplemented at lines 946-958 asserts a synchronous close error for an async-only transient."
+    ]
+  },
+  "contractDifference": "The internal Java OwnedResources helper continues closing after an Exception and suppresses subsequent failures. The pinned DI scope synchronous Dispose loop is fail-fast. These must not be described as the same behavior.",
+  "limits": [
+    "Static source inspection only; no upstream test was executed in this batch.",
+    "This DI scope is a selected ownership example, not the complete IDisposable contract or all runtime ownership semantics."
+  ]
+}
