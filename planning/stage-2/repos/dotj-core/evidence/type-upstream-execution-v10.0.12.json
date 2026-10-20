@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-060",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "project": "src/libraries/System.Runtime/tests/System.Reflection.Tests/System.Reflection.Tests.csproj",
+  "projectSha256": "2d317610db8dd5a81bc7c321b20ff627a01b11e34c410322ebfef5a48735328f",
+  "source": "src/libraries/System.Runtime/tests/System.Reflection.Tests/TypeInfoTests.cs",
+  "sourceSha256": "59d06a698129ff37e2e572dbebbedbea446eb9dcb8b208fdf043f2d15c44c991",
+  "filter": "FullyQualifiedName=System.Reflection.Tests.TypeInfoTests.UnderlyingSystemType|FullyQualifiedName=System.Reflection.Tests.TypeInfoTests.MakeGenericType",
+  "runtime": "Installed Microsoft.NETCore.App 10.0.12",
+  "results": [
+    {"method": "UnderlyingSystemType", "passed": 4, "relevantCase": "MakeGenericType(List<>, object) compares equal with typeof(List<object>)."},
+    {"method": "MakeGenericType", "passed": 1, "relevantCase": "MakeGenericType(List<>, string) is recognized as a generic type."}
+  ],
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "skipped": 0,
+  "invocation": "dotnet test on short R: source alias with net10.0 and exact OR filter; installed SDK root, default test host, and installed targeting pack overrides as in Batch-059",
+  "fixtureRelationships": {
+    "DJ-001-F01-01": "Supporting upstream equality observation; direct reference-identity assertion remains in the independent .NET oracle.",
+    "DJ-001-F01-02": "No selected upstream method directly distinguishes different generic arguments; independent .NET oracle remains the direct check."
+  },
+  "qualification": "Both designed type fixtures remain partial."
+}
