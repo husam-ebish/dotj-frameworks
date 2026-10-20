@@ -22,6 +22,7 @@ public final class TypeIdentityBoundaryTest<T> {
         differentGenericArgument();
         sameNestedParameterized();
         differentNestedArgument();
+        wildcardRejected();
         // Next bounded case.
         System.out.println("PASS: internal type-identity boundary checks");
     }
@@ -61,6 +62,11 @@ public final class TypeIdentityBoundaryTest<T> {
     private static void differentNestedArgument() throws Exception {
         if (identity("nestedFirst").equals(identity("nestedDifferent")))
             throw new AssertionError("Different nested arguments shared identity");
+    }
+
+    private static void wildcardRejected() throws Exception {
+        try { identity("wildcard"); throw new AssertionError("Wildcard accepted"); }
+        catch (IllegalArgumentException expected) { }
     }
 
     // Next bounded method.
