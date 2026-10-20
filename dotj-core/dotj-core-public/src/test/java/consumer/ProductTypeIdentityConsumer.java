@@ -140,6 +140,21 @@ public final class ProductTypeIdentityConsumer {
         } catch (TypeLoadException expected) {
             // Selected pinned error type.
         }
+        Type pointer = string.MakePointerType();
+        if (pointer != string.MakePointerType() || pointer != Type.GetType("System.String*")
+                || !pointer.get_IsPointer() || string.get_IsPointer()
+                || pointer.get_IsByRef() || pointer.GetElementType() != string
+                || pointer.MakePointerType() != pointer.MakePointerType()
+                || pointer.MakePointerType().GetElementType() != pointer
+                || integer.MakePointerType() != Type.GetType("System.Int32*")) {
+            throw new AssertionError("Selected pointer type identity changed");
+        }
+        try {
+            byReference.MakePointerType();
+            throw new AssertionError("Pointer from by-reference type accepted");
+        } catch (TypeLoadException expected) {
+            // Selected pinned error type.
+        }
         try {
             string.MakeArrayType(0);
             throw new AssertionError("Rank zero accepted");

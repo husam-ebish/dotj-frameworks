@@ -144,6 +144,16 @@
       "exception": null,
       "paramName": null
     },
+    "stringPointer": {
+      "result": "System.String*",
+      "exception": null,
+      "paramName": null
+    },
+    "intPointer": {
+      "result": "System.Int32*",
+      "exception": null,
+      "paramName": null
+    },
     "dictionarySimple": {
       "result": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
       "exception": null,
@@ -239,6 +249,15 @@
     "arrayName": "System.String[]&",
     "repeatSameIdentity": true,
     "doubleByRefError": "System.TypeLoadException"
+  },
+  "selectedPointerBehavior": {
+    "name": "System.String*",
+    "intName": "System.Int32*",
+    "isPointer": true,
+    "element": "System.String",
+    "repeatSameIdentity": true,
+    "pointerToPointer": "System.String**",
+    "byRefError": "System.TypeLoadException"
   },
   "types": [
     {
@@ -446,6 +465,12 @@
           ]
         },
         {
+          "name": "MakePointerType",
+          "isStatic": false,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
           "name": "Equals",
           "isStatic": false,
           "returnType": "System.Boolean",
@@ -475,6 +500,10 @@
         },
         {
           "name": "IsByRef",
+          "type": "System.Boolean"
+        },
+        {
+          "name": "IsPointer",
           "type": "System.Boolean"
         },
         {
@@ -836,6 +865,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "2afa19aad355177df8f0d9835ca002c1919aa3b2ea41e24c529213f38ac0d0d8",
+  "oracleProgramSha256": "3db7fa3c0474094dfc563a36dfa91382fdf65d0e1aa30d1bb5838f9724f82ed2",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
