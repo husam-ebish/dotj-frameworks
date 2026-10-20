@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "scope": "System.IDisposable public declaration only",
+  "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourcePath": "src/libraries/System.Private.CoreLib/src/System/IDisposable.cs",
+  "sourceSha256": "fcb8a99af86873e4c724c09f77002fd6770ea07c202fdb701c3432235e24beae",
+  "rootLicensePath": "LICENSE.TXT",
+  "rootLicenseSha256": "cfc21f5e8bd655ae997eec916138b707b1d290b83272c02a95c9f821b8c87310",
+  "observations": [
+    "The pinned source file carries the .NET Foundation MIT header.",
+    "The declaration has one public method, void Dispose(), and no source imports.",
+    "The repository MIT license requires retaining its copyright and permission notice for copies or substantial portions."
+  ],
+  "implementationApproach": "Use the compiled public metadata as the contract input and write an independent Java declaration; do not copy the C# commentary or implementation body.",
+  "productSourceCopied": false,
+  "selectedSliceStatus": "RESEARCH_ELIGIBLE; PUBLIC_RELEASE_BLOCKED",
+  "overallE01Status": "OPEN",
+  "openReleaseChecks": [
+    "Map applicable third-party notices to any shipped source, binaries, or generated outputs.",
+    "Record the selected artifact distribution and its retained notices.",
+    "Obtain the repository licensing review required by E01 before public release qualification."
+  ]
+}
