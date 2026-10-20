@@ -17,6 +17,7 @@ public final class CancellationBoundaryTest {
         doubleRegistrationClose();
         lateRegistrationOnce();
         lateFailure();
+        nestedLateRegistration();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -75,6 +76,12 @@ public final class CancellationBoundaryTest {
             throw new AssertionError("Late failure was swallowed"); }
         catch (IllegalStateException expected) { if (!"late".equals(expected.getMessage())) throw expected; }
         source.close();
+    }
+
+    private static void nestedLateRegistration() throws Exception {
+        CancellationSource source = new CancellationSource(); AtomicInteger calls = new AtomicInteger();
+        source.token().register(() -> { calls.incrementAndGet(); source.token().register(calls::incrementAndGet); });
+        source.cancel(); if (calls.get() != 2) throw new AssertionError("Nested callback missing"); source.close();
     }
 
     // Next bounded method.
