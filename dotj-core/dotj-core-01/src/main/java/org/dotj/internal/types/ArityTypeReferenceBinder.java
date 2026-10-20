@@ -72,17 +72,28 @@ final class ArityTypeReferenceBinder {
                 }
                 position++;
             }
+            int arrayDimensions = 0;
+            skipWhitespace();
+            while (!atEnd() && input.charAt(position) == '[') {
+                position++;
+                if (atEnd() || input.charAt(position) != ']') {
+                    throw new IllegalArgumentException("Expected closing array bracket at offset " + position);
+                }
+                position++;
+                arrayDimensions++;
+                skipWhitespace();
+            }
             int separator = name.lastIndexOf('.');
             String namespace = name.substring(0, separator);
             String simpleName = name.substring(separator + 1);
             if (namespace.equals("System.Threading.Tasks")) {
                 String backend = ArityNameMap.backendBinaryName(namespace, simpleName, generic ? 1 : 0);
-                return generic ? backend + "<" + argument + ">" : backend;
+                return (generic ? backend + "<" + argument + ">" : backend) + "[]".repeat(arrayDimensions);
             }
             if (generic) {
                 throw new IllegalArgumentException("Generic type is outside the bounded binder: " + name);
             }
-            return name;
+            return name + "[]".repeat(arrayDimensions);
         }
 
         private String parseQualifiedName() {
