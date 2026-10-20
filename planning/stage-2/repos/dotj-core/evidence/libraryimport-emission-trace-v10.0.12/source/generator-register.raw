@@ -1,0 +1,21 @@
+                {
+                    data.Left.Left.Syntax,
+                    data.Left.Left.Symbol,
+                    Environment = data.Left.Right,
+                    Options = data.Right,
+                })
+                .Select(
+                    static (data, ct) => CalculateStubInformation(data.Syntax, data.Symbol, data.Environment, data.Options, ct)
+                )
+                .WithTrackingName(StepNames.CalculateStubInformation)
+                .Combine(stubOptions)
+                .Select(
+                    static (data, ct) => GenerateSource(data.Left, data.Right)
+                )
+                .WithComparer(Comparers.GeneratedSyntax)
+                .WithTrackingName(StepNames.GenerateSingleStub);
+
+            context.RegisterDiagnostics(generateSingleStub.SelectMany((stubInfo, ct) => stubInfo.Item2));
+
+            context.RegisterConcatenatedSyntaxOutputs(generateSingleStub.Select((data, ct) => data.Item1), "LibraryImports.g.cs");
+        }

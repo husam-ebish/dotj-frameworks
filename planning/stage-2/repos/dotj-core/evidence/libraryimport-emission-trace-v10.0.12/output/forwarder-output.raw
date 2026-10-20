@@ -1,0 +1,8 @@
+namespace Internal
+{
+    internal static unsafe partial class VersionResilientHashCode
+    {
+        [global::System.Runtime.InteropServices.DllImportAttribute("QCall", EntryPoint = "VersionResilientHashCode_TypeHashCode", ExactSpelling = true)]
+        private static extern partial int TypeHashCode(global::System.Runtime.CompilerServices.QCallTypeHandle typeHandle);
+    }
+}

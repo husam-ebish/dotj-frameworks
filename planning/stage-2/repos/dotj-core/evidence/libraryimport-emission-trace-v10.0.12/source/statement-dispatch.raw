@@ -1,0 +1,13 @@
+        private static ImmutableArray<StatementSyntax> GenerateStatementsForStubContext(BoundGenerators marshallers, StubIdentifierContext context)
+        {
+            ImmutableArray<StatementSyntax>.Builder statementsToUpdate = ImmutableArray.CreateBuilder<StatementSyntax>();
+            foreach (IBoundMarshallingGenerator marshaller in marshallers.SignatureMarshallers)
+            {
+                statementsToUpdate.AddRange(marshaller.Generate(context));
+            }
+
+            if (statementsToUpdate.Count > 0)
+            {
+                // Comment separating each stage
+                SyntaxTriviaList newLeadingTrivia = GenerateStageTrivia(context.CurrentStage);
+                StatementSyntax firstStatementInStage = statementsToUpdate[0];

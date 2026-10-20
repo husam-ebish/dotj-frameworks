@@ -1,0 +1,20 @@
+namespace System
+{
+    public abstract unsafe partial class Array
+    {
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Interop.LibraryImportGenerator", "42.42.42.42")]
+        private static unsafe partial void InternalCreate(global::System.Runtime.CompilerServices.QCallTypeHandle type, int rank, int* pLengths, int* pLowerBounds, bool fromArrayType, global::System.Runtime.CompilerServices.ObjectHandleOnStack retArray)
+        {
+            int __fromArrayType_native;
+            // Marshal - Convert managed data to native data.
+            __fromArrayType_native = (int)(fromArrayType ? 1 : 0);
+            {
+                __PInvoke(type, rank, pLengths, pLowerBounds, __fromArrayType_native, retArray);
+            }
+
+            // Local P/Invoke
+            [global::System.Runtime.InteropServices.DllImportAttribute("QCall", EntryPoint = "Array_CreateInstance", ExactSpelling = true)]
+            static extern unsafe void __PInvoke(global::System.Runtime.CompilerServices.QCallTypeHandle __type_native, int __rank_native, int* __pLengths_native, int* __pLowerBounds_native, int __fromArrayType_native, global::System.Runtime.CompilerServices.ObjectHandleOnStack __retArray_native);
+        }
+    }
+}
