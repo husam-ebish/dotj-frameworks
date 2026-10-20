@@ -15,4 +15,8 @@ final class CancellationToken {
     boolean isCancellationRequested() {
         return source.isCancellationRequested();
     }
+
+    CancellationRegistration register(Runnable callback) {
+        return source.register(callback);
+    }
 }
