@@ -1,0 +1,63 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "type": {
+    "name": "AsyncLocal\u00601",
+    "fullName": "System.Threading.AsyncLocal\u00601",
+    "isInterface": false,
+    "isValueType": false,
+    "isGenericTypeDefinition": true,
+    "baseType": "System.Object",
+    "genericParameters": [
+      {
+        "Name": "T",
+        "attributes": "None",
+        "constraints": []
+      }
+    ],
+    "interfaces": [
+      "System.Threading.IAsyncLocal"
+    ],
+    "constructors": [
+      "Void .ctor()",
+      "Void .ctor(System.Action\u00601[System.Threading.AsyncLocalValueChangedArgs\u00601[T]])"
+    ],
+    "methods": [
+      {
+        "Name": "get_Value",
+        "signature": "T get_Value()",
+        "returnType": "T",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "set_Value",
+        "signature": "Void set_Value(T)",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "value",
+            "type": "T",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "Name": "Value",
+        "type": "T",
+        "hasPublicGet": true,
+        "hasPublicSet": true,
+        "indexParameters": []
+      }
+    ],
+    "events": [],
+    "fields": []
+  }
+}
