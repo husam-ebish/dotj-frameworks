@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "selectedInventorySha256": "ee49c766f67be8a4ed5b37593649f6faf06c6960f02e3ee11c3640c946a2eede",
+  "remainingInventorySha256": "d3798c17a7125562af97d58294f563ab6c5bdf091c7f22e1f0a400d50d6c5488",
+  "methodIdentities": 426,
+  "erasedOverloadGroups": 412,
+  "collisionGroups": 12,
+  "collidingMethodIdentities": 26,
+  "representativeJavacDiagnostic": "method FromException(Exception) is already defined in class Task",
+  "scope": "Static JVM-erasure projection of selected declared-public method metadata; candidate conflicts need a source-level API strategy and collective compilation",
+  "collisions": [
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "FromCanceled",
+      "erasedParameterTypes": [
+        "System.Threading.CancellationToken"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-421"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-421"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "FromException",
+      "erasedParameterTypes": [
+        "System.Exception"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task FromException(System.Exception)",
+          "sourceBatch": "Batch-320"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)",
+          "sourceBatch": "Batch-664"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "Run",
+      "erasedParameterTypes": [
+        "System.Func_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-423"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-424"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult])",
+          "sourceBatch": "Batch-425"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "Run",
+      "erasedParameterTypes": [
+        "System.Func_1",
+        "System.Threading.CancellationToken"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-423"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-424"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-425"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAll",
+      "erasedParameterTypes": [
+        "System.Collections.Generic.IEnumerable_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-679"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-682"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAll",
+      "erasedParameterTypes": [
+        "System.ReadOnlySpan_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-680"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-683"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAny",
+      "erasedParameterTypes": [
+        "System.Collections.Generic.IEnumerable_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-685"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-689"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAny",
+      "erasedParameterTypes": [
+        "System.ReadOnlySpan_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-686"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-690"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenEach",
+      "erasedParameterTypes": [
+        "System.Collections.Generic.IEnumerable_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-693"
+        },
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-696"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenEach",
+      "erasedParameterTypes": [
+        "System.ReadOnlySpan_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-694"
+        },
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-697"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "FromCanceled",
+      "erasedParameterTypes": [
+        "System.Threading.CancellationToken"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-632"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-633"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "FromException",
+      "erasedParameterTypes": [
+        "System.Exception"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask FromException(System.Exception)",
+          "sourceBatch": "Batch-634"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromException[TResult](System.Exception)",
+          "sourceBatch": "Batch-635"
+        }
+      ]
+    }
+  ]
+}
