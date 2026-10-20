@@ -417,6 +417,15 @@ Run("waitAsyncZeroTimeoutFaultWithToken", () =>
     Check(ReferenceEquals(waiting.Exception?.InnerException, failure), "combined zero timeout changed source fault");
 });
 
+Run("waitAsyncZeroTimeoutCancelWithToken", () =>
+{
+    Task<int> source = Task.FromCanceled<int>(new CancellationToken(canceled: true));
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.WaitAsync(TimeSpan.Zero, cancellation.Token);
+    CheckThrows<TaskCanceledException>(() => waiting.GetAwaiter().GetResult(), "source cancel before combined zero timeout");
+    Check(waiting.IsCanceled && source.IsCanceled, "combined zero timeout changed source cancellation");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
