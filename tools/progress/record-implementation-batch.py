@@ -69,17 +69,34 @@ def record(args):
     else:
         assert progress["baselineVersion"] == BASELINE
     progress["completedBatches"].append(current)
-    framework = progress["frameworks"][0]
-    framework["lastUpdatedBatch"] = current
-    for task in framework["tasks"]:
-        if task["id"] == args.task_id and task["status"] == "NOT STARTED":
-            task["status"] = "IN PROGRESS"
+    if args.task_id != "BATCH-PLAN":
+        framework = progress["frameworks"][0]
+        framework["lastUpdatedBatch"] = current
+        for task in framework["tasks"]:
+            if task["id"] == args.task_id and task["status"] == "NOT STARTED":
+                task["status"] = "IN PROGRESS"
+    plan_source = progress.get("batchPlan", {}).get("source", "planning/stage-2/implementation/BATCH-PLAN-v1.json")
+    plan = json.loads((ROOT / plan_source).read_text(encoding="utf-8"))
+    total_batches = plan["plannedTotalBatches"]
+    assert args.number <= total_batches, "Rebaseline the batch plan before exhausting it"
+    if args.number > 222 and plan["planVersion"] == "stage-2-batches-v1":
+        accepted = sum(task["status"] == "COMPLETE" for item in progress["frameworks"] for task in item["tasks"])
+        accepted += sum(status == "COMPLETE" for item in progress["frameworks"] for status in item["outstandingPreparationAndQualificationGates"].values())
+        assert accepted == args.number - 222, "Accepted items and post-baseline batches differ; rebaseline the plan"
+    progress["batchPlan"] = {
+        "version": plan["planVersion"],
+        "source": plan_source,
+        "plannedTotalBatches": total_batches,
+        "completedBatches": args.number,
+        "remainingPlannedBatches": total_batches - args.number,
+        "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes",
+    }
     progress["nextProposedBatch"] = {
         "id": following,
         "framework": "dotj-core",
         "planTaskIds": [args.next_task],
         "outcome": args.next_outcome,
-        "requiresContinue": args.number == 221,
+        "requiresContinue": True,
     }
     save_json(progress_path, progress)
 
@@ -89,12 +106,12 @@ def record(args):
     state = re.sub(r"Completed batches: `Batch-001` through `Batch-\d{3}`", f"Completed batches: `Batch-001` through `{current}`", state, count=1)
     state = re.sub(r"Implementation percentage: \*\*.*?\*\*\. .*?(?=\n- Batch tracking:)",
                    "Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.", state, count=1, flags=re.S)
-    state = re.sub(r"Batch tracking: \d+ completed;.*?The next proposed batch is `Batch-\d{3}`\.",
-                   f"Batch tracking: {args.number} completed; the total and remaining batch count are not baselined. At least 66 further batches are needed to address the 66 unqualified frameworks under the one-small-outcome-per-batch rule; this is a lower bound, not a countdown, and stays at 66 until a framework qualifies. The next proposed batch is `{following}`.", state, count=1)
+    state = re.sub(r"Batch tracking: .*?The next proposed batch is `Batch-\d{3}`\.",
+                   f"Batch tracking: {args.number}/{total_batches} planned batches completed under `{plan['planVersion']}`; {total_batches - args.number} planned batches remain. This is a versioned scheduling estimate. The next proposed batch is `{following}`.", state, count=1)
     state = re.sub(r"Proposed `Batch-\d{3}`:.*", f"Proposed `{following}`: {args.next_outcome}", state, count=1)
     state = re.sub(r"See \[Batch-\d{3}\]\(implementation/batches/Batch-\d{3}\.md\).*",
                    f"See [{current}](implementation/batches/{current}.md) for the latest validation record and limitations. " +
-                   ("A new CONTINUE signal is needed to start the next batch." if args.number == 221 else "The current request authorizes the next batch."), state, count=1)
+                   "A new CONTINUE signal is needed to start the next batch.", state, count=1)
     marker = "- E02, E03 and N01: **IN PROGRESS**"
     assert marker in state
     state = state.replace(marker, f"- {current}: {args.outcome} {args.limitation}\n{marker}", 1)
@@ -125,9 +142,8 @@ def record(args):
 | Remaining implementation tasks | **1,092 (100.00%)** |
 | Frameworks fully implemented and qualified | **0 / 66 (0.00%)** |
 | In-progress / not-started frameworks | **1 / 65** |
-| Batches completed | **{args.number}** (`Batch-001` through `{current}`) |
-| Total planned batches | **Not baselined**; no defensible cumulative `x/y` denominator exists yet |
-| Batches still to do | **Unknown**; lower bound: at least 66 to address 66 unqualified frameworks |
+| Batches completed / planned | **{args.number:,} / {total_batches:,} ({args.number / total_batches * 100:.2f}%)** (`{plan['planVersion']}`) |
+| Batches still to do | **{total_batches - args.number:,} planned**; revise the denominator in a new plan version when scope or batch granularity changes |
 | Next proposed batch | `{following}`: {args.next_outcome} |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
