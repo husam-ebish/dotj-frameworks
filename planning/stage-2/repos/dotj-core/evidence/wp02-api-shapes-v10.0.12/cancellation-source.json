@@ -1,0 +1,202 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "type": {
+    "name": "CancellationTokenSource",
+    "fullName": "System.Threading.CancellationTokenSource",
+    "isInterface": false,
+    "isValueType": false,
+    "isGenericTypeDefinition": false,
+    "baseType": "System.Object",
+    "genericParameters": [],
+    "interfaces": [
+      "System.IDisposable"
+    ],
+    "constructors": [
+      "Void .ctor()",
+      "Void .ctor(Int32)",
+      "Void .ctor(System.TimeSpan, System.TimeProvider)",
+      "Void .ctor(System.TimeSpan)"
+    ],
+    "methods": [
+      {
+        "Name": "Cancel",
+        "signature": "Void Cancel()",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "Cancel",
+        "signature": "Void Cancel(Boolean)",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "throwOnFirstException",
+            "type": "System.Boolean",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "CancelAfter",
+        "signature": "Void CancelAfter(Int32)",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "millisecondsDelay",
+            "type": "System.Int32",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "CancelAfter",
+        "signature": "Void CancelAfter(System.TimeSpan)",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "delay",
+            "type": "System.TimeSpan",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "CancelAsync",
+        "signature": "System.Threading.Tasks.Task CancelAsync()",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "CreateLinkedTokenSource",
+        "signature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.ReadOnlySpan`1[System.Threading.CancellationToken])",
+        "returnType": "System.Threading.CancellationTokenSource",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "tokens",
+            "type": "System.ReadOnlySpan`1[System.Threading.CancellationToken]",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "CreateLinkedTokenSource",
+        "signature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+        "returnType": "System.Threading.CancellationTokenSource",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "token1",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "token2",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "CreateLinkedTokenSource",
+        "signature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken)",
+        "returnType": "System.Threading.CancellationTokenSource",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "token",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "CreateLinkedTokenSource",
+        "signature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken[])",
+        "returnType": "System.Threading.CancellationTokenSource",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "tokens",
+            "type": "System.Threading.CancellationToken[]",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Dispose",
+        "signature": "Void Dispose()",
+        "returnType": "System.Void",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_IsCancellationRequested",
+        "signature": "Boolean get_IsCancellationRequested()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_Token",
+        "signature": "System.Threading.CancellationToken get_Token()",
+        "returnType": "System.Threading.CancellationToken",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "TryReset",
+        "signature": "Boolean TryReset()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      }
+    ],
+    "properties": [
+      {
+        "Name": "IsCancellationRequested",
+        "type": "System.Boolean",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "Token",
+        "type": "System.Threading.CancellationToken",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      }
+    ],
+    "events": [],
+    "fields": []
+  }
+}
