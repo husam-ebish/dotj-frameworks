@@ -38,6 +38,7 @@ public final class AsyncTimedWaitTest {
         externallyCanceled();
         resourceTransition("result");
         resourceTransition("fault");
+        resourceTransition("cancel");
         System.out.println("PASS: internal timed wait cases");
     }
 
