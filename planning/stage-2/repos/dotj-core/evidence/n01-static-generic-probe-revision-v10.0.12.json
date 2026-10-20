@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "previousLedgerSha256": {
+    "selected": "9eb5afc77da9ee016d1e9f2eb4e180a2cd397eb96f6bb9703383061dda55e496",
+    "remaining": "0bcc051a55614b817b1b6a11301eff1a550609ff2411ee9a1d4c0b25de6a2142"
+  },
+  "revisedLedgerSha256": {
+    "selected": "d0c7e4475be4cb191ad96baeb9d44fa8b1a16ca14ab8a9473ecf3ac3f21aa9ac",
+    "remaining": "b95a0f73bef8d85d10c33f837c03ed7c7975210d0dcf1cdd73286fb91ebe5682"
+  },
+  "scope": "Java static method type-parameter lifting is a compile-only backend candidate. It changes the Java generic method arity and does not qualify exact .NET public metadata or behavior.",
+  "revisions": [
+    {
+      "index": 27,
+      "sourceBatch": "Batch-327",
+      "probeBatch": "Batch-794",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.TaskFactory`1[TResult] get_Factory()",
+      "previousCompilerError": "non-static type variable TResult cannot be referenced from a static context",
+      "javaDeclaration": "public static <TResult> TaskFactory_1<TResult> get_Factory() { throw new UnsupportedOperationException(); }",
+      "sourceSha256": "06ce6d6ae9b3cefb7217343fb5abb7f44be6837fc4936581d26d1a41fed0920f"
+    },
+    {
+      "index": 256,
+      "sourceBatch": "Batch-628",
+      "probeBatch": "Batch-1125",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean op_Equality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+      "previousCompilerError": "non-static type variable TResult cannot be referenced from a static context",
+      "javaDeclaration": "public static <TResult> boolean op_Equality(ValueTask_1<TResult> left, ValueTask_1<TResult> right) { throw new UnsupportedOperationException(); }",
+      "sourceSha256": "f9a397b9f1e874b79d7617d42ef28784c597e885b66a608cdac78fc45811470a"
+    },
+    {
+      "index": 257,
+      "sourceBatch": "Batch-629",
+      "probeBatch": "Batch-1126",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean op_Inequality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+      "previousCompilerError": "non-static type variable TResult cannot be referenced from a static context",
+      "javaDeclaration": "public static <TResult> boolean op_Inequality(ValueTask_1<TResult> left, ValueTask_1<TResult> right) { throw new UnsupportedOperationException(); }",
+      "sourceSha256": "87cd1e87aca6b33402205ef69e24a8e4b752f5cdcdf5d8553b0538b1b970be10"
+    }
+  ]
+}
