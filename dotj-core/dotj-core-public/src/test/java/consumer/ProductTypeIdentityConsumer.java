@@ -84,6 +84,11 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]") != first) {
             throw new AssertionError("Selected array or generic type-name lookup changed");
         }
+        Type jagged = Type.GetType("System.String[][]");
+        if (jagged == null || jagged == Type.GetType("System.String[]")
+                || jagged != Type.GetType("system.string[][]", false, true)) {
+            throw new AssertionError("Selected jagged array identity changed");
+        }
         Type same = definition.MakeGenericType(new Type[] {string});
         Type different = definition.MakeGenericType(new Type[] {integer});
         if (first != same || !first.Equals(same) || first.Equals(different)
