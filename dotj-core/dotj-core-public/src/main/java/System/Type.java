@@ -113,6 +113,7 @@ public abstract class Type extends MemberInfo {
             case "System.ValueType" -> fromJavaClass(Number.class);
             case "System.Array" -> fromJavaClass(java.lang.reflect.Array.class);
             case "System.IDisposable" -> fromJavaClass(IDisposable.class);
+            case "System.IComparable" -> fromJavaClass(IComparable.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
@@ -146,6 +147,7 @@ public abstract class Type extends MemberInfo {
             case "system.valuetype" -> ignoreCase ? fromJavaClass(Number.class) : null;
             case "system.array" -> ignoreCase ? fromJavaClass(java.lang.reflect.Array.class) : null;
             case "system.idisposable" -> ignoreCase ? fromJavaClass(IDisposable.class) : null;
+            case "system.icomparable" -> ignoreCase ? fromJavaClass(IComparable.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
@@ -379,7 +381,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsInterface() {
-        return this.definition == IDisposable.class;
+        return this.definition == IDisposable.class || this.definition == IComparable.class;
     }
 
     public boolean get_IsEnum() {
@@ -398,6 +400,9 @@ public abstract class Type extends MemberInfo {
             return false;
         }
         if (this == candidate) {
+            return true;
+        }
+        if (this.definition == IComparable.class && candidate.definition == String.class) {
             return true;
         }
         if (candidate.get_IsByRef() || candidate.get_IsPointer()) {
@@ -449,6 +454,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Enum.class) {
             return value instanceof MemberTypes;
         }
+        if (this.definition == IComparable.class) {
+            return value instanceof String;
+        }
         if (this.definition == java.lang.reflect.Array.class) {
             return value.getClass().isArray();
         }
@@ -476,6 +484,15 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == Object.class || this.definition == IDisposable.class) {
             return null;
+        }
+        if (this.definition == String.class) {
+            if (fullname.equals("System.IComparable") || fullname.equals("IComparable")) {
+                return fromJavaClass(IComparable.class);
+            }
+            if (fullname.equals("system.icomparable") || fullname.equals("System.IDisposable")
+                    || fullname.isEmpty()) {
+                return null;
+            }
         }
         throw new UnsupportedOperationException("Interface lookup is not mapped for this candidate type");
     }

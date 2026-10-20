@@ -4,6 +4,7 @@ using System.Text.Json;
 
 Type[] selected = [
     typeof(IDisposable),
+    typeof(IComparable),
     typeof(Type),
     typeof(MemberInfo),
     typeof(MemberTypes),
@@ -301,6 +302,7 @@ var result = new
         (typeof(List<>), typeof(List<string>)),
         (typeof(List<string>), typeof(List<string>)),
         (typeof(string), null),
+        (typeof(IComparable), typeof(string)),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -341,6 +343,7 @@ var result = new
         (typeof(IDisposable), new System.IO.MemoryStream()),
         (typeof(List<>), new List<string>()),
         (typeof(string), null),
+        (typeof(IComparable), "text"),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -355,6 +358,12 @@ var result = new
         disposableSelf = ObserveInterface(typeof(IDisposable), "System.IDisposable", false),
         emptyName = ObserveInterface(typeof(IDisposable), "", false),
         nullName = ObserveInterface(typeof(IDisposable), null, false),
+        stringComparable = ObserveInterface(typeof(string), "System.IComparable", false),
+        stringComparableIgnoreCase = ObserveInterface(typeof(string), "System.IComparable", true),
+        stringComparableShort = ObserveInterface(typeof(string), "IComparable", false),
+        stringInsensitive = ObserveInterface(typeof(string), "system.icomparable", true),
+        stringSensitiveMiss = ObserveInterface(typeof(string), "system.icomparable", false),
+        stringDisposableMiss = ObserveInterface(typeof(string), "System.IDisposable", false),
     },
     types = selected.Select(type => new
     {
@@ -369,7 +378,7 @@ var result = new
         declaredPublicPropertyCount = type.GetProperties(declaredPublic).Length,
         selectedMethods = type.GetMethods(declaredPublic)
             .Where(method => !method.IsSpecialName && (
-                method.Name is "Dispose" or "Equals" or "GetType" or "MakeGenericType"
+                method.Name is "Dispose" or "CompareTo" or "Equals" or "GetType" or "MakeGenericType"
                     or "GetGenericArguments" or "GetGenericTypeDefinition"
                     or "GetElementType" or "GetArrayRank" or "MakeArrayType" or "MakeByRefType"
                     or "MakePointerType"))

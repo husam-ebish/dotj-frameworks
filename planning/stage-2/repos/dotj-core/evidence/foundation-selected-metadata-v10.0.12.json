@@ -616,6 +616,11 @@
       "target": "System.String",
       "candidate": null,
       "result": false
+    },
+    {
+      "target": "System.IComparable",
+      "candidate": "System.String",
+      "result": true
     }
   ],
   "selectedSubclassBehavior": [
@@ -780,6 +785,11 @@
       "target": "System.String",
       "valueType": null,
       "result": false
+    },
+    {
+      "target": "System.IComparable",
+      "valueType": "System.String",
+      "result": true
     }
   ],
   "selectedInterfaceBehavior": {
@@ -804,6 +814,36 @@
       "result": null,
       "exception": "System.ArgumentNullException",
       "paramName": "fullname"
+    },
+    "stringComparable": {
+      "result": "System.IComparable",
+      "exception": null,
+      "paramName": null
+    },
+    "stringComparableIgnoreCase": {
+      "result": "System.IComparable",
+      "exception": null,
+      "paramName": null
+    },
+    "stringComparableShort": {
+      "result": "System.IComparable",
+      "exception": null,
+      "paramName": null
+    },
+    "stringInsensitive": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "stringSensitiveMiss": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "stringDisposableMiss": {
+      "result": null,
+      "exception": null,
+      "paramName": null
     }
   },
   "types": [
@@ -823,6 +863,32 @@
           "isStatic": false,
           "returnType": "System.Void",
           "parameters": []
+        }
+      ],
+      "selectedProperties": [],
+      "publicConstructors": []
+    },
+    {
+      "fullName": "System.IComparable",
+      "baseType": null,
+      "isInterface": true,
+      "isAbstract": true,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 1,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [
+        {
+          "name": "CompareTo",
+          "isStatic": false,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "obj",
+              "type": "System.Object"
+            }
+          ]
         }
       ],
       "selectedProperties": [],
@@ -1539,6 +1605,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "b2e625c97bac7bb55974041cfc3d8d615c67f76d4c4c0f2f5b81da715ea85cf9",
+  "oracleProgramSha256": "8173e3bae153cc545b3455fe53a1e29938efedc8622418627ffd920b128b2dc2",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

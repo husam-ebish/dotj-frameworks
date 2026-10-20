@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
-    "IDisposable", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException")]
+    "IDisposable", "IComparable", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException")]
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException")]
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
@@ -28,6 +28,7 @@ EXPECTED_CLASSES = [
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
     "System/Exception.class",
+    "System/IComparable.class",
     "System/IDisposable.class",
     "System/IO/FileNotFoundException.class",
     "System/IO/IOException.class",
@@ -58,7 +59,7 @@ def run(*command):
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
-    assert type_evidence["sourceSha256"] == sha256(SOURCES[1])
+    assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 
     CLASSES.mkdir(parents=True, exist_ok=True)

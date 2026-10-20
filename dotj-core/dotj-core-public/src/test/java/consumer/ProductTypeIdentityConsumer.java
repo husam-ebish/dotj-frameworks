@@ -8,6 +8,7 @@ import System.IO.FileNotFoundException;
 import System.IO.IOException;
 import System.IndexOutOfRangeException;
 import System.IDisposable;
+import System.IComparable;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -298,6 +299,20 @@ public final class ProductTypeIdentityConsumer {
             if (!"fullname".equals(expected.get_ParamName())) {
                 throw new AssertionError("Interface lookup parameter changed", expected);
             }
+        }
+        IComparable comparable = other -> other == null ? 1 : 0;
+        Type comparableType = Type.GetType("System.IComparable");
+        if (comparable.CompareTo(null) != 1 || comparableType == null
+                || !comparableType.get_IsInterface()
+                || string.GetInterface("System.IComparable") != comparableType
+                || string.GetInterface("System.IComparable", true) != comparableType
+                || string.GetInterface("IComparable") != comparableType
+                || string.GetInterface("system.icomparable", true) != null
+                || string.GetInterface("system.icomparable") != null
+                || string.GetInterface("System.IDisposable") != null
+                || !comparableType.IsAssignableFrom(string)
+                || !comparableType.IsInstanceOfType("text")) {
+            throw new AssertionError("Selected IComparable contract changed");
         }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
