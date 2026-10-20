@@ -404,6 +404,21 @@
       "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
       "compilerError": "non-static type variable TResult cannot be referenced from a static context",
       "batch": "Batch-794"
+    },
+    {
+      "index": 28,
+      "sourceBatch": "Batch-328",
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Runtime.CompilerServices.TaskAwaiter`1[TResult] GetAwaiter()",
+      "backendOwner": "System.Threading.Tasks.Task_1",
+      "javaDeclaration": "public abstract TaskAwaiter_1<TResult> GetAwaiter();",
+      "generatedSourceSha256": "7275403c6a598ec3fc5a7df0d41d9313ec2c6032ba96fd525a98fb235268cafa",
+      "supportTypes": [
+        "System.Runtime.CompilerServices.TaskAwaiter_1"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-795"
     }
   ]
 }
