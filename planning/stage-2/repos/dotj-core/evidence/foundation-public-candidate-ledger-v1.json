@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "268738ba2f930be7f9159c7b8a5e406983f853af00f111fbc07d7a9d5cec6c76",
-  "typeCount": 13,
+  "candidateJarSha256": "0133903369dfff76f1286b0b15681fc54e286df9410c0cc23ebc55787923784e",
+  "typeCount": 15,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -37,6 +37,38 @@
         "public abstract int CompareTo(java.lang.Object);"
       ],
       "disposition": "SELECTED_INTERFACE_MEMBER; Java Object parameter and behavior unqualified",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.IFormattable",
+      "upstreamBaseType": null,
+      "upstreamIsInterface": true,
+      "upstreamIsAbstract": true,
+      "upstreamDeclaredNonAccessorMethods": 1,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public interface System.IFormattable {",
+      "javaPublicDeclarations": [
+        "public abstract java.lang.String ToString(java.lang.String, System.IFormatProvider);"
+      ],
+      "disposition": "SELECTED_INTERFACE_MEMBER; formatting behavior unqualified",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.IFormatProvider",
+      "upstreamBaseType": null,
+      "upstreamIsInterface": true,
+      "upstreamIsAbstract": true,
+      "upstreamDeclaredNonAccessorMethods": 1,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public interface System.IFormatProvider {",
+      "javaPublicDeclarations": [
+        "public abstract java.lang.Object GetFormat(System.Type);"
+      ],
+      "disposition": "SELECTED_INTERFACE_MEMBER; provider behavior unqualified",
       "qualified": false
     },
     {

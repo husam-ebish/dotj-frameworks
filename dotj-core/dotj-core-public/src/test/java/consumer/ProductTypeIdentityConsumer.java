@@ -9,6 +9,8 @@ import System.IO.IOException;
 import System.IndexOutOfRangeException;
 import System.IDisposable;
 import System.IComparable;
+import System.IFormattable;
+import System.IFormatProvider;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -313,6 +315,23 @@ public final class ProductTypeIdentityConsumer {
                 || !comparableType.IsAssignableFrom(string)
                 || !comparableType.IsInstanceOfType("text")) {
             throw new AssertionError("Selected IComparable contract changed");
+        }
+        IFormatProvider provider = formatType -> formatType == null ? null : "format";
+        IFormattable formattable = (format, formatProvider) ->
+                formatProvider == provider && "D".equals(format) ? "42" : null;
+        Type formattableType = Type.GetType("System.IFormattable");
+        Type providerType = Type.GetType("System.IFormatProvider");
+        if (!"42".equals(formattable.ToString("D", provider))
+                || !"format".equals(provider.GetFormat(formattableType))
+                || formattableType == null || providerType == null
+                || !formattableType.get_IsInterface() || !providerType.get_IsInterface()
+                || integer.GetInterface("System.IFormattable") != formattableType
+                || integer.GetInterface("IFormattable") != formattableType
+                || integer.GetInterface("system.iformattable", true) != null
+                || string.GetInterface("System.IFormattable") != null
+                || !formattableType.IsAssignableFrom(integer)
+                || !formattableType.IsInstanceOfType(42)) {
+            throw new AssertionError("Selected formatting interface contract changed");
         }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null

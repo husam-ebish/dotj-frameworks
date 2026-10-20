@@ -114,6 +114,8 @@ public abstract class Type extends MemberInfo {
             case "System.Array" -> fromJavaClass(java.lang.reflect.Array.class);
             case "System.IDisposable" -> fromJavaClass(IDisposable.class);
             case "System.IComparable" -> fromJavaClass(IComparable.class);
+            case "System.IFormattable" -> fromJavaClass(IFormattable.class);
+            case "System.IFormatProvider" -> fromJavaClass(IFormatProvider.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
@@ -148,6 +150,8 @@ public abstract class Type extends MemberInfo {
             case "system.array" -> ignoreCase ? fromJavaClass(java.lang.reflect.Array.class) : null;
             case "system.idisposable" -> ignoreCase ? fromJavaClass(IDisposable.class) : null;
             case "system.icomparable" -> ignoreCase ? fromJavaClass(IComparable.class) : null;
+            case "system.iformattable" -> ignoreCase ? fromJavaClass(IFormattable.class) : null;
+            case "system.iformatprovider" -> ignoreCase ? fromJavaClass(IFormatProvider.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
@@ -381,7 +385,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsInterface() {
-        return this.definition == IDisposable.class || this.definition == IComparable.class;
+        return this.definition == IDisposable.class || this.definition == IComparable.class
+                || this.definition == IFormattable.class || this.definition == IFormatProvider.class;
     }
 
     public boolean get_IsEnum() {
@@ -403,6 +408,9 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this.definition == IComparable.class && candidate.definition == String.class) {
+            return true;
+        }
+        if (this.definition == IFormattable.class && candidate.definition == Integer.class) {
             return true;
         }
         if (candidate.get_IsByRef() || candidate.get_IsPointer()) {
@@ -457,6 +465,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IComparable.class) {
             return value instanceof String;
         }
+        if (this.definition == IFormattable.class) {
+            return value instanceof Integer;
+        }
         if (this.definition == java.lang.reflect.Array.class) {
             return value.getClass().isArray();
         }
@@ -490,7 +501,16 @@ public abstract class Type extends MemberInfo {
                 return fromJavaClass(IComparable.class);
             }
             if (fullname.equals("system.icomparable") || fullname.equals("System.IDisposable")
+                    || fullname.equals("System.IFormattable")
                     || fullname.isEmpty()) {
+                return null;
+            }
+        }
+        if (this.definition == Integer.class) {
+            if (fullname.equals("System.IFormattable") || fullname.equals("IFormattable")) {
+                return fromJavaClass(IFormattable.class);
+            }
+            if (fullname.equals("system.iformattable")) {
                 return null;
             }
         }

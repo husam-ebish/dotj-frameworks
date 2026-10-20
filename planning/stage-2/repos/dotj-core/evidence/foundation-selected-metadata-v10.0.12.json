@@ -621,6 +621,11 @@
       "target": "System.IComparable",
       "candidate": "System.String",
       "result": true
+    },
+    {
+      "target": "System.IFormattable",
+      "candidate": "System.Int32",
+      "result": true
     }
   ],
   "selectedSubclassBehavior": [
@@ -790,6 +795,11 @@
       "target": "System.IComparable",
       "valueType": "System.String",
       "result": true
+    },
+    {
+      "target": "System.IFormattable",
+      "valueType": "System.Int32",
+      "result": true
     }
   ],
   "selectedInterfaceBehavior": {
@@ -844,6 +854,26 @@
       "result": null,
       "exception": null,
       "paramName": null
+    },
+    "intFormattable": {
+      "result": "System.IFormattable",
+      "exception": null,
+      "paramName": null
+    },
+    "intFormattableShort": {
+      "result": "System.IFormattable",
+      "exception": null,
+      "paramName": null
+    },
+    "intFormattableLower": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "stringFormattableMiss": {
+      "result": null,
+      "exception": null,
+      "paramName": null
     }
   },
   "types": [
@@ -887,6 +917,62 @@
             {
               "name": "obj",
               "type": "System.Object"
+            }
+          ]
+        }
+      ],
+      "selectedProperties": [],
+      "publicConstructors": []
+    },
+    {
+      "fullName": "System.IFormattable",
+      "baseType": null,
+      "isInterface": true,
+      "isAbstract": true,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 1,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String"
+            },
+            {
+              "name": "formatProvider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        }
+      ],
+      "selectedProperties": [],
+      "publicConstructors": []
+    },
+    {
+      "fullName": "System.IFormatProvider",
+      "baseType": null,
+      "isInterface": true,
+      "isAbstract": true,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 1,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [
+        {
+          "name": "GetFormat",
+          "isStatic": false,
+          "returnType": "System.Object",
+          "parameters": [
+            {
+              "name": "formatType",
+              "type": "System.Type"
             }
           ]
         }
@@ -1090,6 +1176,12 @@
           "parameters": []
         },
         {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
           "name": "Equals",
           "isStatic": false,
           "returnType": "System.Boolean",
@@ -1256,6 +1348,12 @@
       "declaredPublicMethodCount": 4,
       "declaredPublicPropertyCount": 8,
       "selectedMethods": [
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": []
+        },
         {
           "name": "GetType",
           "isStatic": false,
@@ -1553,7 +1651,14 @@
       "reflectedGetterIsAbstract": null,
       "declaredPublicMethodCount": 2,
       "declaredPublicPropertyCount": 3,
-      "selectedMethods": [],
+      "selectedMethods": [
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": []
+        }
+      ],
       "selectedProperties": [
         {
           "name": "Message",
@@ -1605,6 +1710,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "8173e3bae153cc545b3455fe53a1e29938efedc8622418627ffd920b128b2dc2",
+  "oracleProgramSha256": "9dbc86a7e5cfb8b8173bd55fc767e16dfdf1123ab5f483ca7b3b4a5caf82c409",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
