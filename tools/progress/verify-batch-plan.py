@@ -12,8 +12,10 @@ PLAN = STAGE / "implementation/BATCH-PLAN-v1.json"
 PLAN_V2 = STAGE / "implementation/BATCH-PLAN-v2.json"
 PLAN_V3 = STAGE / "implementation/BATCH-PLAN-v3.json"
 PLAN_V4 = STAGE / "implementation/BATCH-PLAN-v4.json"
+PLAN_V5 = STAGE / "implementation/BATCH-PLAN-v5.json"
 EVIDENCE_SCHEDULE = STAGE / "implementation/WAITASYNC-27-POINTS.json"
 TIMED_WAIT_SCHEDULE = STAGE / "implementation/TIMED-WAIT-50-POINTS.json"
+N01_SCHEDULE = STAGE / "implementation/N01-100-POINTS.json"
 GATES = ("E01", "E02", "E03", "N01", "Q01")
 
 
@@ -41,6 +43,7 @@ def main():
     parser.add_argument("--write-v2", action="store_true", help="Rebaseline after Batch 223's additional E03 evidence batch")
     parser.add_argument("--write-v3", action="store_true", help="Schedule the 27 requested WaitAsync evidence batches")
     parser.add_argument("--write-v4", action="store_true", help="Schedule the 50 requested internal timed-wait batches")
+    parser.add_argument("--write-v5", action="store_true", help="Schedule 99 selected N01 method checks and one audit")
     args = parser.parse_args()
 
     progress = json.loads(PROGRESS.read_text(encoding="utf-8"))
@@ -141,9 +144,31 @@ def main():
         print(f"CREATED {plan['planVersion']}: {plan['plannedTotalBatches']} planned batches")
         return
 
+    if args.write_v5:
+        assert not PLAN_V5.exists(), "Version 5 already exists; create a new version to rebaseline"
+        assert len(progress["completedBatches"]) == 300
+        old = json.loads(PLAN_V4.read_text(encoding="utf-8"))
+        schedule = json.loads(N01_SCHEDULE.read_text(encoding="utf-8"))["batches"]
+        assert [item["batch"] for item in schedule] == [f"Batch-{number:03d}" for number in range(301, 401)]
+        assert len({(item["declaringType"], item["signature"]) for item in schedule[:99]}) == 99
+        plan = dict(old)
+        plan.update({
+            "planVersion": "stage-2-batches-v5",
+            "supersedes": old["planVersion"],
+            "scheduledEvidenceBatchSlots": old["scheduledEvidenceBatchSlots"] + len(schedule),
+            "n01Schedule": "planning/stage-2/implementation/N01-100-POINTS.json",
+            "plannedTotalBatches": old["plannedTotalBatches"] + len(schedule),
+            "firstFutureBatch": "Batch-401",
+            "planningRule": "Retain batches 001-300 once; schedule 99 bounded N01 public method checks and one audit in batches 301-400; then reserve one acceptance batch for every still-open gate, naming task, and WP or SDK implementation task.",
+            "rebaselineReason": "The user requested 100 continuation points. These bounded public-contract inventory checks are additional to named N01 and implementation acceptance items still open.",
+        })
+        PLAN_V5.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"CREATED {plan['planVersion']}: {plan['plannedTotalBatches']} planned batches")
+        return
+
     plan_source = progress.get("batchPlan", {}).get("source", "planning/stage-2/implementation/BATCH-PLAN-v1.json")
     plan = json.loads((ROOT / plan_source).read_text(encoding="utf-8"))
-    assert plan["planVersion"] in ("stage-2-batches-v1", "stage-2-batches-v2", "stage-2-batches-v3", "stage-2-batches-v4")
+    assert plan["planVersion"] in ("stage-2-batches-v1", "stage-2-batches-v2", "stage-2-batches-v3", "stage-2-batches-v4", "stage-2-batches-v5")
     assert plan["frameworkSlots"] == rows, "Framework task inventory drift requires a new plan version"
     assert plan["reservedGateSlots"] == gate_count
     assert plan["reservedNamingTaskSlots"] == naming_count
@@ -179,6 +204,20 @@ def main():
         assert len({item["case"] for item in schedule}) == 50
         assert plan["scheduledEvidenceBatchSlots"] == previous["scheduledEvidenceBatchSlots"] + 50
         assert expected_total == previous["plannedTotalBatches"] + 50
+    if plan["planVersion"] == "stage-2-batches-v5":
+        previous = json.loads(PLAN_V4.read_text(encoding="utf-8"))
+        schedule = json.loads((ROOT / plan["n01Schedule"]).read_text(encoding="utf-8"))["batches"]
+        assert plan["supersedes"] == previous["planVersion"]
+        assert plan["frameworkSlots"] == previous["frameworkSlots"]
+        assert [item["batch"] for item in schedule] == [f"Batch-{number:03d}" for number in range(301, 401)]
+        assert len({(item["declaringType"], item["signature"]) for item in schedule[:99]}) == 99
+        assert plan["scheduledEvidenceBatchSlots"] == previous["scheduledEvidenceBatchSlots"] + 100
+        assert expected_total == previous["plannedTotalBatches"] + 100
+        ledger = json.loads((STAGE / "repos/dotj-core/evidence/n01-selected-methods-v10.0.12.json").read_text(encoding="utf-8"))
+        verified = max(0, min(len(progress["completedBatches"]) - 300, 99))
+        assert len(ledger["entries"]) == verified
+        assert [(entry["declaringType"], entry["signature"]) for entry in ledger["entries"]] == [
+            (item["declaringType"], item["signature"]) for item in schedule[:verified]]
     completed = progress["completedBatches"]
     assert completed == [f"Batch-{number:03d}" for number in range(1, len(completed) + 1)]
     assert len(completed) >= plan["historicalCompletedBatches"]

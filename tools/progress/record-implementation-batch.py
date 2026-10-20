@@ -127,6 +127,8 @@ def record(args):
                   if plan["planVersion"] == "stage-2-batches-v3" and 224 <= args.number <= 250 else "")
     if plan["planVersion"] == "stage-2-batches-v4" and 251 <= args.number <= 300:
         series_row = f"| Requested 50-point series | **{args.number - 250} / 50 complete** (`Batch-251` through `Batch-300`) |\n"
+    if plan["planVersion"] == "stage-2-batches-v5" and 301 <= args.number <= 400:
+        series_row = f"| Requested 100-point series | **{args.number - 300} / 100 complete** (`Batch-301` through `Batch-400`) |\n"
     report_path.write_text(f"""# {current} report
 
 | Field | Result |
