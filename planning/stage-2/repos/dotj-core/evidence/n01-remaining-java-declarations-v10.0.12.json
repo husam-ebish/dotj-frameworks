@@ -540,6 +540,21 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-900"
+    },
+    {
+      "index": 34,
+      "sourceBatch": "Batch-418",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Delay(Int32, System.Threading.CancellationToken)",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static Task Delay(int millisecondsDelay, CancellationToken cancellationToken) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "97158150bad60aa62cceb2e54bb9664935480d549a95678c293de8e361c02699",
+      "supportTypes": [
+        "System.Threading.CancellationToken"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-901"
     }
   ]
 }
