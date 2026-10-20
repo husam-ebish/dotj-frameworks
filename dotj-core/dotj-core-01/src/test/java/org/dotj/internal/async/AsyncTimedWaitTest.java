@@ -51,6 +51,7 @@ public final class AsyncTimedWaitTest {
         signalReuse();
         timeoutReuse();
         raceAgainstTimeout("result");
+        raceAgainstTimeout("fault");
         System.out.println("PASS: internal timed wait cases");
     }
 
