@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "0317d8eb1ca666bbf990369bb0d193e411d6d61a48b9b10192617db6023d0476",
-  "typeCount": 9,
+  "candidateJarSha256": "d2ace16cf1256f8cc929904b8a6dcbde0688d9cfef18941459d75354fec16260",
+  "typeCount": 10,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -38,6 +38,8 @@
         "public static System.Type GetType(java.lang.String, boolean);",
         "public static System.Type GetType(java.lang.String, boolean, boolean);",
         "public System.Type MakeGenericType(System.Type[]);",
+        "public System.Type MakeArrayType();",
+        "public System.Type MakeArrayType(int);",
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
         "public System.Type[] get_GenericTypeArguments();",
@@ -146,6 +148,24 @@
         "public System.TypeLoadException();",
         "public System.TypeLoadException(java.lang.String);",
         "public System.TypeLoadException(java.lang.String, System.Exception);"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.IndexOutOfRangeException",
+      "upstreamBaseType": "System.SystemException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 3,
+      "javaPublicConstructors": 3,
+      "javaPublicHeader": "public class System.IndexOutOfRangeException extends System.SystemException {",
+      "javaPublicDeclarations": [
+        "public System.IndexOutOfRangeException();",
+        "public System.IndexOutOfRangeException(java.lang.String);",
+        "public System.IndexOutOfRangeException(java.lang.String, System.Exception);"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false

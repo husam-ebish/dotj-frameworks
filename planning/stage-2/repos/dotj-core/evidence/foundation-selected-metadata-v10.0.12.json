@@ -129,6 +129,11 @@
       "exception": null,
       "paramName": null
     },
+    "rankOneNonVector": {
+      "result": "System.String[*]",
+      "exception": null,
+      "paramName": null
+    },
     "dictionarySimple": {
       "result": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
       "exception": null,
@@ -209,6 +214,14 @@
       "error": null
     }
   ],
+  "selectedMakeArrayBehavior": {
+    "vector": "System.String[]",
+    "rankOne": "System.String[*]",
+    "rankTwo": "System.String[,]",
+    "nestedVector": "System.String[][]",
+    "genericVector": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][]",
+    "rankZeroError": "System.IndexOutOfRangeException"
+  },
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -379,6 +392,23 @@
           "isStatic": false,
           "returnType": "System.Type[]",
           "parameters": []
+        },
+        {
+          "name": "MakeArrayType",
+          "isStatic": false,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "MakeArrayType",
+          "isStatic": false,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "rank",
+              "type": "System.Int32"
+            }
+          ]
         },
         {
           "name": "MakeGenericType",
@@ -652,6 +682,35 @@
       ]
     },
     {
+      "fullName": "System.IndexOutOfRangeException",
+      "baseType": "System.SystemException",
+      "isInterface": false,
+      "isAbstract": false,
+      "declaredPublicMethodCount": 0,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [],
+      "selectedProperties": [],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ]
+      ]
+    },
+    {
       "fullName": "System.IO.IOException",
       "baseType": "System.SystemException",
       "isInterface": false,
@@ -749,6 +808,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "2f7b43dcadd5732d71a5bbea427fd7e386cd98e8c6a21005fcbd376f8f72df06",
+  "oracleProgramSha256": "c0667b9a865e737b7a306ea4ab0c52229933f330406d761ec19169b4ac472675",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -1,4 +1,4 @@
-"""Compare nine compiled Java candidate types with pinned selected CoreLib metadata."""
+"""Compare ten compiled Java candidate types with pinned selected CoreLib metadata."""
 
 import hashlib
 import json
@@ -62,7 +62,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 9
+    assert len(records) == 10
     assert records[1]["upstreamDeclaredNonAccessorMethods"] == 109
     assert records[1]["upstreamDeclaredProperties"] == 70
     snapshot = json.loads((EVIDENCE / "api-shapes-v10.0.12/system-type.json").read_text(encoding="utf-8"))
@@ -80,7 +80,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS nine selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS ten selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":

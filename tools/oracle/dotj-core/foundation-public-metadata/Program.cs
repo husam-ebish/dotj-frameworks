@@ -10,6 +10,7 @@ Type[] selected = [
     typeof(ArgumentException),
     typeof(ArgumentNullException),
     typeof(TypeLoadException),
+    typeof(IndexOutOfRangeException),
     typeof(System.IO.IOException),
     typeof(System.IO.FileNotFoundException),
 ];
@@ -50,6 +51,18 @@ static object ObserveArray(string name)
         error = exception.GetType().FullName;
     }
     return new { name, type.IsArray, element = type.GetElementType()?.FullName, rank, error };
+}
+static string? ObserveRankZero()
+{
+    try
+    {
+        typeof(string).MakeArrayType(0);
+        return null;
+    }
+    catch (Exception exception)
+    {
+        return exception.GetType().FullName;
+    }
 }
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
@@ -96,6 +109,7 @@ var result = new
         stringArrayQualified = ObserveGetType("System.String[], System.Private.CoreLib", false, false),
         listStringSimple = ObserveGetType("System.Collections.Generic.List`1[System.String]", false, false),
         listStringQualified = ObserveGetType("System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]", false, false),
+        rankOneNonVector = ObserveGetType("System.String[*]", false, false),
         dictionarySimple = ObserveGetType("System.Collections.Generic.Dictionary`2[System.String,System.Int32]", false, false),
         dictionaryQualified = ObserveGetType("System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]", false, false),
         dictionarySwapped = ObserveGetType("System.Collections.Generic.Dictionary`2[System.Int32,System.String]", false, false),
@@ -109,6 +123,15 @@ var result = new
         "System.String", "System.String[]", "System.String[][]", "System.String[,]",
         "System.String[,,]", "System.Collections.Generic.List`1[System.String][]",
     }.Select(ObserveArray).ToArray(),
+    selectedMakeArrayBehavior = new
+    {
+        vector = typeof(string).MakeArrayType().FullName,
+        rankOne = typeof(string).MakeArrayType(1).FullName,
+        rankTwo = typeof(string).MakeArrayType(2).FullName,
+        nestedVector = typeof(string[]).MakeArrayType().FullName,
+        genericVector = typeof(List<string>).MakeArrayType().FullName,
+        rankZeroError = ObserveRankZero(),
+    },
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -121,7 +144,7 @@ var result = new
             .Where(method => !method.IsSpecialName && (
                 method.Name is "Dispose" or "Equals" or "GetType" or "MakeGenericType"
                     or "GetGenericArguments" or "GetGenericTypeDefinition"
-                    or "GetElementType" or "GetArrayRank"))
+                    or "GetElementType" or "GetArrayRank" or "MakeArrayType"))
             .Select(method => new
             {
                 name = method.Name,
