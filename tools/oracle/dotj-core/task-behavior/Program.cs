@@ -176,6 +176,13 @@ Run("defaultGenericValueTask", () =>
         "default generic ValueTask result");
 });
 
+Run("directGenericValueTaskResult", () =>
+{
+    ValueTask<int> value = new(42);
+    Check(value.IsCompletedSuccessfully && value.Result == 42,
+        "direct generic ValueTask result");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
