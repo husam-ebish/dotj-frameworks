@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-094",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "Combined local WP-01 fixture gate",
+  "assertionsPassed": [
+    "Combined local WP-01 fixture gate passed"
+  ],
+  "observed": {
+    "result": "PASS: 9 Java fixtures and 5 .NET oracles",
+    "evidenceRecords": 20
+  },
+  "openGaps": [
+    "E01 rights, complete E02/E03/N01 semantics, and public facade qualification remain open."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
