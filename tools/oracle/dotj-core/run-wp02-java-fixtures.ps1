@@ -28,6 +28,7 @@ $testNames = @(
     'CancellationTimerTest'
     'CancellationRaceTest'
     'CancellationDisposeTest'
+    'CancellationBoundaryTest'
 )
 foreach ($name in $testNames) {
     & java -cp $classes "org.dotj.internal.cancellation.$name"
