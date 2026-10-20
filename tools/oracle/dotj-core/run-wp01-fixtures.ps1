@@ -19,6 +19,7 @@ $sources = @(
     'src/test/java/org/dotj/internal/context/ContextSnapshotTest.java'
     'src/test/java/org/dotj/internal/context/ContextTransferTest.java'
     'src/test/java/org/dotj/internal/context/ContextIsolationTest.java'
+    'src/test/java/org/dotj/internal/context/ContextSnapshotBoundaryTest.java'
     'src/test/java/org/dotj/internal/types/LoadableType.java'
     'src/test/java/org/dotj/internal/types/TypeIdentityTest.java'
     'src/test/java/org/dotj/internal/types/TypeIdentityLoaderTest.java'
@@ -36,6 +37,7 @@ $javaTests = @(
     'org.dotj.internal.context.ContextSnapshotTest'
     'org.dotj.internal.context.ContextTransferTest'
     'org.dotj.internal.context.ContextIsolationTest'
+    'org.dotj.internal.context.ContextSnapshotBoundaryTest'
     'org.dotj.internal.types.TypeIdentityTest'
     'org.dotj.internal.types.TypeIdentityLoaderTest'
 )
