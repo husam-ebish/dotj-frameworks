@@ -1,0 +1,41 @@
+{
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "cases": {
+    "lateRegistration": {
+      "callbackCount": 1,
+      "sameCallerThread": true
+    },
+    "callbackOrder": [
+      3,
+      2,
+      1
+    ],
+    "aggregateException": [
+      "second",
+      "first"
+    ],
+    "stopOnFirstException": {
+      "message": "stop",
+      "reachedEarlier": false
+    },
+    "unregister": {
+      "result": true,
+      "callbackCount": 0
+    },
+    "cancelAsync": {
+      "pendingWhileCallbackBlocked": true,
+      "completedAfterRelease": true
+    },
+    "linked": true,
+    "retainedToken": {
+      "CanBeCanceled": true,
+      "IsCancellationRequested": false
+    },
+    "tryReset": {
+      "before": true,
+      "after": false
+    },
+    "cancelAfter": true
+  }
+}
