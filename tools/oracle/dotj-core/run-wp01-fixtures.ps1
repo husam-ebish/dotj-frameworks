@@ -15,6 +15,7 @@ $sources = @(
     'src/main/java/org/dotj/internal/types/ArityNameMap.java'
     'src/main/java/org/dotj/internal/types/ArityTypeReferenceBinder.java'
     'src/main/java/org/dotj/internal/types/ArityMethodSignatureBinder.java'
+    'src/main/java/org/dotj/internal/types/ArityJavaSourceRenderer.java'
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesTest.java'
     'src/test/java/org/dotj/internal/ownership/CallerOwnershipTest.java'
     'src/test/java/org/dotj/internal/ownership/OwnedResourcesRaceTest.java'

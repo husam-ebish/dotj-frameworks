@@ -2,9 +2,9 @@
     "schemaVersion":  1,
     "purpose":  "Internal development bootstrap artifact; not a public .j product package",
     "jdkVersion":  "javac 21.0.12.1",
-    "sourceCount":  15,
-    "classCount":  16,
-    "jarSha256":  "4e20e42d4e1b7e602ab526363d8686bf44295d7070f3fba68a8288754d795fff",
+    "sourceCount":  16,
+    "classCount":  18,
+    "jarSha256":  "6a93284b2d5baa2c6c4142bdfdc29b694243a6a55fd7fcfd5e0fe9e4099a77de",
     "entries":  [
                     "META-INF/",
                     "META-INF/MANIFEST.MF",
@@ -27,6 +27,8 @@
                     "org/dotj/internal/ownership/",
                     "org/dotj/internal/ownership/OwnedResources.class",
                     "org/dotj/internal/types/",
+                    "org/dotj/internal/types/ArityJavaSourceRenderer$BoundMethod.class",
+                    "org/dotj/internal/types/ArityJavaSourceRenderer.class",
                     "org/dotj/internal/types/ArityMethodSignatureBinder.class",
                     "org/dotj/internal/types/ArityNameMap.class",
                     "org/dotj/internal/types/ArityTypeReferenceBinder$Parser.class",
@@ -79,8 +81,12 @@
                              "sha256":  "f581a20f16e3bd45f42d8791137b02bb9789a5af80cb3bf8d314213c8fe741b4"
                          },
                          {
+                             "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/ArityJavaSourceRenderer.java",
+                             "sha256":  "1d9c74d79e93ef2fcdb61abd5af1cbd22df14e9240ee5d876ba991c8bca76e2d"
+                         },
+                         {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/ArityMethodSignatureBinder.java",
-                             "sha256":  "f376a5d51a5c7cdbf6e0a39292343f33f565ef382851d8752194f362a936cb13"
+                             "sha256":  "b46d28666c010b7d52070cf0c6cb35f7a95661ea6ffd8f0df067c1abebb86d14"
                          },
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/ArityNameMap.java",

@@ -35,6 +35,18 @@ public final class ArityMethodSignatureBinderTest {
     private static void verifyCompilableBackendDeclaration() throws Exception {
         String signature = ArityMethodSignatureBinder.lower(
                 "System.Threading.Tasks.Task<java.lang.String> ContinueWith(System.Threading.Tasks.Task antecedent)");
+        var rendered = ArityJavaSourceRenderer.renderMethod(
+                "System.Threading.Tasks.Task<java.lang.String> ContinueWith(System.Threading.Tasks.Task antecedent)");
+        if (!rendered.imports().equals(List.of("System.Threading.Tasks.Task", "System.Threading.Tasks.Task_1"))
+                || !rendered.declaration().equals("Task_1<java.lang.String> ContinueWith(Task antecedent)")) {
+            throw new AssertionError("Unexpected Task-family import rendering: " + rendered);
+        }
+        try {
+            ArityJavaSourceRenderer.renderMethod("System.A.Task Invoke(System.B.Task other)");
+            throw new AssertionError("Conflicting simple type names were accepted");
+        } catch (IllegalArgumentException expected) {
+            // Java imports cannot name two distinct Task types at once.
+        }
         Path output = Files.createTempDirectory("dotj-arity-signature-");
         try {
             var compiler = ToolProvider.getSystemJavaCompiler();
@@ -57,9 +69,9 @@ public final class ArityMethodSignatureBinderTest {
             List<JavaFileObject> sources = List.of(
                     source("System.Threading.Tasks.Task", "package System.Threading.Tasks; public class Task {}"),
                     source("System.Threading.Tasks.Task_1", "package System.Threading.Tasks; public class Task_1<T> {}"),
-                    source("fixture.Probe", "package fixture; import System.Threading.Tasks.Task; "
-                            + "import System.Threading.Tasks.Task_1; public abstract class Probe { public abstract "
-                            + signature.replace("System.Threading.Tasks.", "") + "; }"));
+                    source("fixture.Probe", "package fixture; "
+                            + String.join("", rendered.imports().stream().map(name -> "import " + name + "; ").toList())
+                            + "public abstract class Probe { public abstract " + rendered.declaration() + "; }"));
             Boolean passed = compiler.getTask(null, null, diagnostics,
                     List.of("--release", "21", "-d", output.toString()), null, sources).call();
             if (!Boolean.TRUE.equals(passed)) {
