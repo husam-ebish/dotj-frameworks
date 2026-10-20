@@ -58,7 +58,7 @@ def main():
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
-            "FullName", "Namespace"} <= properties
+            "FullName", "Namespace", "BaseType"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
         "exact": {"result": "System.String", "exception": None, "paramName": None},
@@ -145,6 +145,11 @@ def main():
                for index, item in enumerate(owners) if index != 3)
     assert owners[3]["name"] == "T"
     assert owners[3]["declaringType"] == owners[3]["reflectedType"] == "System.Collections.Generic.List`1"
+    bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
+    assert [item["baseType"] for item in bases] == [
+        None, "System.Object", "System.ValueType", "System.Object", "System.Object",
+        "System.Object", "System.Array", "System.Array", None, None,
+    ]
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -178,6 +183,7 @@ def main():
         "public java.lang.String get_Namespace();",
         "public System.Type get_DeclaringType();",
         "public System.Type get_ReflectedType();",
+        "public System.Type get_BaseType();",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",

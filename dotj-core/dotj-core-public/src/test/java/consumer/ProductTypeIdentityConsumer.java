@@ -186,6 +186,20 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("External Type identity call changed");
         }
         Type parameter = definition.GetGenericArguments()[0];
+        Type object = Type.GetType("System.Object");
+        Type valueType = Type.GetType("System.ValueType");
+        Type arrayBase = Type.GetType("System.Array");
+        if (object == null || valueType == null || arrayBase == null
+                || object.get_BaseType() != null || string.get_BaseType() != object
+                || integer.get_BaseType() != valueType
+                || valueType.get_BaseType() != object
+                || definition.get_BaseType() != object || first.get_BaseType() != object
+                || parameter.get_BaseType() != object
+                || Type.GetType("System.String[]").get_BaseType() != arrayBase
+                || rectangular.get_BaseType() != arrayBase
+                || byReference.get_BaseType() != null || pointer.get_BaseType() != null) {
+            throw new AssertionError("Selected BaseType projections changed");
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition

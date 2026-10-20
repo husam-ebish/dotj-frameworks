@@ -213,6 +213,16 @@ var result = new
         declaringType = type.DeclaringType?.FullName,
         reflectedType = type.ReflectedType?.FullName,
     }).ToArray(),
+    selectedBaseTypeBehavior = new[]
+    {
+        typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
+        typeof(List<>).GetGenericArguments()[0], typeof(string[]), typeof(string[,]),
+        typeof(string).MakeByRefType(), typeof(string).MakePointerType(),
+    }.Select(type => new
+    {
+        name = type.FullName ?? type.Name,
+        baseType = type.BaseType?.FullName,
+    }).ToArray(),
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -244,7 +254,7 @@ var result = new
                 or "IsConstructedGenericType" or "IsGenericParameter"
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
-                or "DeclaringType" or "ReflectedType")
+                or "DeclaringType" or "ReflectedType" or "BaseType")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)
