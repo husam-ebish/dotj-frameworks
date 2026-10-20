@@ -6,6 +6,7 @@ public final class ContextSnapshotBoundaryTest {
         emptySnapshot();
         copyOnWrite();
         entryLimitAndOverwrite();
+        nullKeyRejected();
         // Next bounded case.
         System.out.println("PASS: internal context boundary checks");
     }
@@ -30,6 +31,13 @@ public final class ContextSnapshotBoundaryTest {
         if (snapshot.size() != 32 || !"new".equals(snapshot.get("k0"))) throw new AssertionError("Overwrite changed capacity");
         try { snapshot.with("overflow", "x"); throw new AssertionError("Entry limit not enforced"); }
         catch (IllegalStateException expected) { }
+    }
+
+    private static void nullKeyRejected() throws Exception {
+        ContextSnapshot snapshot = ContextSnapshot.empty();
+        try { snapshot.with(null, "x"); throw new AssertionError("Null key accepted"); }
+        catch (NullPointerException expected) { }
+        if (snapshot.size() != 0) throw new AssertionError("Rejected update changed snapshot");
     }
 
     // Next bounded method.
