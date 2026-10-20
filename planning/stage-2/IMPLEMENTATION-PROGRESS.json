@@ -38,7 +38,8 @@
     "Batch-021",
     "Batch-022",
     "Batch-023",
-    "Batch-024"
+    "Batch-024",
+    "Batch-025"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -231,7 +232,7 @@
         "N01": "NOT STARTED",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-024",
+      "lastUpdatedBatch": "Batch-025",
       "blocked": false,
       "unclassifiedTaskIds": [
         "DJ-001-WP-01-T1",
@@ -9842,13 +9843,13 @@
   ],
   "measurementNote": "Null percentages mean Not yet measurable. The 1356 named tasks mix implementation and preparation. E01-E03 and Q01 are separate gates; N01 tasks are recorded as prerequisites. No preparation earns implementation credit.",
   "nextProposedBatch": {
-    "id": "Batch-025",
+    "id": "Batch-026",
     "framework": "dotj-core",
     "planTaskIds": [
       "E02",
-      "DJ-001-N01-T1"
+      "DJ-001-WP-01-T2"
     ],
-    "outcome": "Cross-check IDisposable and IAsyncDisposable signatures against installed .NET 10.0.12 CoreLib metadata.",
+    "outcome": "Map the pinned ValueTask dependency of IAsyncDisposable and record the exact-contract blocker.",
     "requiresContinue": false
   }
 }

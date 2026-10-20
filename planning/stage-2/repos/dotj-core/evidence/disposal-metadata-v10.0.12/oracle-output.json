@@ -1,0 +1,36 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblyVersion": "10.0.0.0",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "interfaces": [
+    {
+      "fullName": "System.IDisposable",
+      "isPublic": true,
+      "isInterface": true,
+      "methods": [
+        {
+          "name": "Dispose",
+          "returnType": "System.Void",
+          "isPublic": true,
+          "isAbstract": true,
+          "parameterTypes": []
+        }
+      ]
+    },
+    {
+      "fullName": "System.IAsyncDisposable",
+      "isPublic": true,
+      "isInterface": true,
+      "methods": [
+        {
+          "name": "DisposeAsync",
+          "returnType": "System.Threading.Tasks.ValueTask",
+          "isPublic": true,
+          "isAbstract": true,
+          "parameterTypes": []
+        }
+      ]
+    }
+  ]
+}
