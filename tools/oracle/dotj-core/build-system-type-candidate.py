@@ -51,6 +51,7 @@ def main():
         "System.Type[] GetGenericArguments()",
         "System.Type MakeGenericType(System.Type[])",
         "System.Type GetType(System.String)",
+        "System.Type GetEnumUnderlyingType()",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
     assert selected <= signatures
@@ -164,6 +165,11 @@ def main():
     ]
     assert [item["IsInterface"] for item in kind_flags] == [False] * 12 + [True, False]
     assert [item["IsEnum"] for item in kind_flags] == [False] * 13 + [True]
+    enum_base = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumBaseBehavior"]
+    assert enum_base == {
+        "enumBase": "System.Enum", "baseBase": "System.ValueType",
+        "underlying": "System.Int32", "nonEnumError": "System.ArgumentException",
+    }
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -202,6 +208,7 @@ def main():
         "public boolean get_IsClass();",
         "public boolean get_IsInterface();",
         "public boolean get_IsEnum();",
+        "public System.Type GetEnumUnderlyingType();",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",

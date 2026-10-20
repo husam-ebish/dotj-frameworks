@@ -90,6 +90,18 @@ static string? ObservePointerFromByRef()
         return exception.GetType().FullName;
     }
 }
+static string? ObserveNonEnumUnderlying()
+{
+    try
+    {
+        typeof(string).GetEnumUnderlyingType();
+        return null;
+    }
+    catch (Exception exception)
+    {
+        return exception.GetType().FullName;
+    }
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -238,6 +250,13 @@ var result = new
         type.IsInterface,
         type.IsEnum,
     }).ToArray(),
+    selectedEnumBaseBehavior = new
+    {
+        enumBase = typeof(MemberTypes).BaseType?.FullName,
+        baseBase = typeof(Enum).BaseType?.FullName,
+        underlying = typeof(MemberTypes).GetEnumUnderlyingType().FullName,
+        nonEnumError = ObserveNonEnumUnderlying(),
+    },
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -270,7 +289,7 @@ var result = new
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
                 or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType"
-                or "IsInterface" or "IsEnum")
+                or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)
