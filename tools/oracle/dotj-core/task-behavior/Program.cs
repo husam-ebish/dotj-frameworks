@@ -153,6 +153,14 @@ Run("valueTaskBackedSuccess", () =>
         "Task-backed ValueTask success");
 });
 
+Run("valueTaskBackedFault", () =>
+{
+    Task backing = Task.FromException(new InvalidOperationException("value fault"));
+    ValueTask value = new(backing);
+    Check(value.IsFaulted && ReferenceEquals(value.AsTask(), backing),
+        "Task-backed ValueTask fault");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
