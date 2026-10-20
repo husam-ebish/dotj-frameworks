@@ -106,7 +106,7 @@ def record(args):
         "framework": "dotj-core",
         "planTaskIds": [args.next_task],
         "outcome": args.next_outcome,
-        "requiresContinue": (args.number in (716, 766) or args.number >= 1200) if open_acceptance is not None else True,
+        "requiresContinue": (args.number in (716, 766, 866) or args.number >= 1200) if open_acceptance is not None else True,
     }
     save_json(progress_path, progress)
 
@@ -122,7 +122,7 @@ def record(args):
                      f"Batch tracking: {args.number:,}/{total_batches:,} planned batches completed under `{plan['planVersion']}`; {total_batches - args.number:,} planned batches remain. This is a versioned scheduling estimate. The next proposed batch is `{following}`.")
     state = re.sub(r"Batch tracking: .*?The next proposed batch is `Batch-\d{3}`\.", tracking_line, state, count=1)
     state = re.sub(r"Proposed `Batch-\d{3}`:.*", f"Proposed `{following}`: {args.next_outcome}", state, count=1)
-    continuation = ("The current request authorizes the next batch." if open_acceptance is not None and args.number not in (716, 766) and args.number < 1200
+    continuation = ("The current request authorizes the next batch." if open_acceptance is not None and args.number not in (716, 766, 866) and args.number < 1200
                     else "A new CONTINUE signal is needed to start the next batch.")
     state = re.sub(r"See \[Batch-\d{3}\]\(implementation/batches/Batch-\d{3}\.md\).*",
                    f"See [{current}](implementation/batches/{current}.md) for the latest validation record and limitations. " +
@@ -145,7 +145,7 @@ def record(args):
                  f"| Batches completed / planned, total | **{args.number:,} / {total_batches:,} ({args.number / total_batches * 100:.2f}%)** (`{plan['planVersion']}`) |\n"
                  f"| Batches remaining, total | **{total_batches - args.number:,}** |\n")
     closing_line = ("**This batch is complete. The current request authorizes the next batch.**"
-                    if open_acceptance is not None and args.number not in (716, 766) and args.number < 1200 else
+                    if open_acceptance is not None and args.number not in (716, 766, 866) and args.number < 1200 else
                     "**STOPPED. Waiting for your CONTINUE signal before starting the next batch.**")
     report_path.write_text(f"""# {current} report
 

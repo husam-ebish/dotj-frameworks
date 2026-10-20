@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-767",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "archiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "archiveBytes": 136239366,
+  "archiveFiles": 60838,
+  "localExtraction": "C:/Users/husam/AppData/Local/Temp/dotj-upstream-tests-v10/runtime-4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "tarExitCode": 1,
+  "missingFilesRepairedFromVerifiedZip": 3,
+  "recoveryVerifierRemainingMissingFiles": 0,
+  "boundedFoundationGate": "PASS",
+  "boundedGateScope": "WP-01 16 Java fixtures and 5 .NET oracles; WP-02 15 Java fixtures and 10 selected upstream tests; 57 selected Task/ValueTask oracle cases; 5 async Java fixtures; 17-source, 21-class internal JAR",
+  "limitations": [
+    "The source extraction is temporary; restore-pinned-source.py can reconstruct it from the verified ZIP.",
+    "The extraction verifier checks archive identity and file presence. The bounded gate checks hashes for its selected source files; it is not a whole-tree byte comparison.",
+    "The bounded gate does not complete E01/E02/E03/N01 or qualify public .j behavior."
+  ]
+}
