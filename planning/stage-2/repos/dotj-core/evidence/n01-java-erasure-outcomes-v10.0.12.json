@@ -1,0 +1,279 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "erasureAuditSha256": "b33596045cf9575213f54a1f0c2aa73a9da57c66097ad366102f4bca59e41f4b",
+  "selectedLedgerSha256": "9eb5afc77da9ee016d1e9f2eb4e180a2cd397eb96f6bb9703383061dda55e496",
+  "remainingLedgerSha256": "b2978b21615f2a39df9a7e15d596d7bef1bb0e71ce86598b7617c90f82199571",
+  "erasureCollisionGroups": 12,
+  "collidingMethodIdentities": 26,
+  "individuallyCompilableCollidingIdentities": 26,
+  "representativeCollectiveJavacDiagnostic": "method FromException(Exception) is already defined in class Task",
+  "qualification": "All 26 methods compile in isolation, while their twelve projected Java overload groups have erased signature conflicts; exact collective public API representation remains blocked",
+  "groups": [
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "FromCanceled",
+      "erasedParameterTypes": [
+        "System.Threading.CancellationToken"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-421",
+          "individualProbeBatch": "Batch-906",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-421",
+          "individualProbeBatch": "Batch-907",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "FromException",
+      "erasedParameterTypes": [
+        "System.Exception"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task FromException(System.Exception)",
+          "sourceBatch": "Batch-320",
+          "individualProbeBatch": "Batch-787",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)",
+          "sourceBatch": "Batch-664",
+          "individualProbeBatch": "Batch-1161",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "Run",
+      "erasedParameterTypes": [
+        "System.Func_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-423",
+          "individualProbeBatch": "Batch-910",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-424",
+          "individualProbeBatch": "Batch-912",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult])",
+          "sourceBatch": "Batch-425",
+          "individualProbeBatch": "Batch-914",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "Run",
+      "erasedParameterTypes": [
+        "System.Func_1",
+        "System.Threading.CancellationToken"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-423",
+          "individualProbeBatch": "Batch-911",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-424",
+          "individualProbeBatch": "Batch-913",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult], System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-425",
+          "individualProbeBatch": "Batch-915",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAll",
+      "erasedParameterTypes": [
+        "System.Collections.Generic.IEnumerable_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-679",
+          "individualProbeBatch": "Batch-1176",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-682",
+          "individualProbeBatch": "Batch-1179",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAll",
+      "erasedParameterTypes": [
+        "System.ReadOnlySpan_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-680",
+          "individualProbeBatch": "Batch-1177",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-683",
+          "individualProbeBatch": "Batch-1180",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAny",
+      "erasedParameterTypes": [
+        "System.Collections.Generic.IEnumerable_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-685",
+          "individualProbeBatch": "Batch-1182",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-689",
+          "individualProbeBatch": "Batch-1186",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenAny",
+      "erasedParameterTypes": [
+        "System.ReadOnlySpan_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-686",
+          "individualProbeBatch": "Batch-1183",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-690",
+          "individualProbeBatch": "Batch-1187",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenEach",
+      "erasedParameterTypes": [
+        "System.Collections.Generic.IEnumerable_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-693",
+          "individualProbeBatch": "Batch-1190",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-696",
+          "individualProbeBatch": "Batch-1193",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "method": "WhenEach",
+      "erasedParameterTypes": [
+        "System.ReadOnlySpan_1"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+          "sourceBatch": "Batch-694",
+          "individualProbeBatch": "Batch-1191",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+          "sourceBatch": "Batch-697",
+          "individualProbeBatch": "Batch-1194",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "FromCanceled",
+      "erasedParameterTypes": [
+        "System.Threading.CancellationToken"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-632",
+          "individualProbeBatch": "Batch-1129",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+          "sourceBatch": "Batch-633",
+          "individualProbeBatch": "Batch-1130",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "method": "FromException",
+      "erasedParameterTypes": [
+        "System.Exception"
+      ],
+      "members": [
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask FromException(System.Exception)",
+          "sourceBatch": "Batch-634",
+          "individualProbeBatch": "Batch-1131",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        },
+        {
+          "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromException[TResult](System.Exception)",
+          "sourceBatch": "Batch-635",
+          "individualProbeBatch": "Batch-1132",
+          "individualResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+        }
+      ]
+    }
+  ]
+}
