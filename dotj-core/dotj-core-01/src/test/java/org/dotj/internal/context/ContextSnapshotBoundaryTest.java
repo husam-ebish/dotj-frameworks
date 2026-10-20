@@ -9,6 +9,7 @@ public final class ContextSnapshotBoundaryTest {
         nullKeyRejected();
         nullValueRejected();
         emptyKeyRejected();
+        keyLengthBoundary();
         // Next bounded case.
         System.out.println("PASS: internal context boundary checks");
     }
@@ -51,6 +52,14 @@ public final class ContextSnapshotBoundaryTest {
 
     private static void emptyKeyRejected() throws Exception {
         try { ContextSnapshot.empty().with("", "x"); throw new AssertionError("Empty key accepted"); }
+        catch (IllegalArgumentException expected) { }
+    }
+
+    private static void keyLengthBoundary() throws Exception {
+        String allowed = "k".repeat(128), rejected = "k".repeat(129);
+        ContextSnapshot snapshot = ContextSnapshot.empty().with(allowed, "x");
+        if (!"x".equals(snapshot.get(allowed))) throw new AssertionError("Boundary key missing");
+        try { snapshot.with(rejected, "x"); throw new AssertionError("Oversize key accepted"); }
         catch (IllegalArgumentException expected) { }
     }
 
