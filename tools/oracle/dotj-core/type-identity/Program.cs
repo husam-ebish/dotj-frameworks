@@ -50,6 +50,18 @@ Check(typeof(ArgumentNullException).BaseType == typeof(ArgumentException), "argu
 Check(typeof(ArgumentException).BaseType == typeof(SystemException), "argument hierarchy");
 Check(typeof(SystemException).BaseType == typeof(Exception), "system exception hierarchy");
 
+Type listDefinition = typeof(List<>);
+Type[] listParameters = listDefinition.GetGenericArguments();
+Type[] dictionaryParameters = typeof(Dictionary<,>).GetGenericArguments();
+Check(listParameters.Length == 1 && dictionaryParameters.Length == 2, "open generic parameter counts");
+Check(listParameters[0].IsGenericParameter && listParameters[0].GenericParameterPosition == 0,
+    "list generic parameter position");
+Check(dictionaryParameters[0].GenericParameterPosition == 0
+    && dictionaryParameters[1].GenericParameterPosition == 1, "dictionary generic parameter positions");
+Check(ReferenceEquals(listParameters[0], listDefinition.GetGenericArguments()[0]),
+    "repeated generic parameter identity");
+Check(!ReferenceEquals(listParameters[0], dictionaryParameters[0]), "definition-specific generic parameter identity");
+
 Console.WriteLine("sameReference=" + ReferenceEquals(first, same));
 Console.WriteLine("runtimeVersion=" + Environment.Version);
 Console.WriteLine("constructedEqual=" + first.Equals(constructed));
@@ -60,6 +72,7 @@ Console.WriteLine("secondDefinitionDifferentArgumentsSameReference=" + Reference
 Console.WriteLine("nullTypeArgumentsParameter=" + nullTypeArgumentsParameter);
 Console.WriteLine("nullTypeNameParameter=" + nullTypeNameParameter);
 Console.WriteLine("argumentNullHierarchy=True");
+Console.WriteLine("genericParameterIdentity=True");
 Console.WriteLine("selectedTypeNameLookup=True");
 
 static void Check(bool condition, string label)

@@ -34,6 +34,7 @@ def main():
             assert values["nullTypeArgumentsParameter"] == oracle["observedParameter"]
             assert values["nullTypeNameParameter"] == oracle["observedNullTypeNameParameter"]
             assert values["argumentNullHierarchy"] == "True"
+            assert (values["genericParameterIdentity"] == "True") is oracle["genericParameterIdentity"]
             assert (values["selectedTypeNameLookup"] == "True") is oracle["selectedTypeNameLookup"]
         else:
             values = json.loads(output)

@@ -49,7 +49,8 @@ def main():
     assert any(method["signature"] == "System.Type GetType(System.String)" and method["isStatic"]
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
-    assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType"} <= properties
+    assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
+            "IsGenericParameter", "GenericParameterPosition"} <= properties
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
@@ -70,6 +71,8 @@ def main():
         "public System.Type[] get_GenericTypeArguments();",
         "public boolean get_IsGenericType();",
         "public boolean get_IsConstructedGenericType();",
+        "public boolean get_IsGenericParameter();",
+        "public int get_GenericParameterPosition();",
         "public boolean Equals(System.Type);",
     ], members
     null_exception = run("javap", "-public", "-classpath", str(CLASSES),

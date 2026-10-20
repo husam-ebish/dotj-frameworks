@@ -10,8 +10,8 @@
         "type-inequality-disposition-v10.0.12.json",
         "TypeIdentityTest and TypeIdentityBoundaryTest"
       ],
-      "observation": "Selected repeated closed types compare equal and selected different arguments compare unequal in the independent .NET oracle and internal Java fixtures.",
-      "remaining": "The internal Java helper is not a public System.Type representation; complete type forms and public identity behavior remain unmapped."
+      "observation": "Selected repeated closed types compare equal and different arguments compare unequal in the pinned .NET oracle and Java fixtures. Open List and Dictionary definitions return canonical generic parameter Type values with selected positions in both oracles and the Java product candidate.",
+      "remaining": "The product System.Type candidate is partial; constraints, names, declaring methods, complete type forms and broader identity behavior remain unmapped."
     },
     {
       "topic": "nullability",
