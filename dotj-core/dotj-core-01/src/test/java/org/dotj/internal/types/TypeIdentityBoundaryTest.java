@@ -23,6 +23,7 @@ public final class TypeIdentityBoundaryTest<T> {
         sameNestedParameterized();
         differentNestedArgument();
         wildcardRejected();
+        typeVariableRejected();
         // Next bounded case.
         System.out.println("PASS: internal type-identity boundary checks");
     }
@@ -66,6 +67,11 @@ public final class TypeIdentityBoundaryTest<T> {
 
     private static void wildcardRejected() throws Exception {
         try { identity("wildcard"); throw new AssertionError("Wildcard accepted"); }
+        catch (IllegalArgumentException expected) { }
+    }
+
+    private static void typeVariableRejected() throws Exception {
+        try { identity("variable"); throw new AssertionError("Type variable accepted"); }
         catch (IllegalArgumentException expected) { }
     }
 
