@@ -37,3 +37,4 @@ task-of-list	PASS	fixture	Probe	System.Threading.Tasks.Task<java.util.List<Syste
 task-of-map	PASS	fixture	Probe	System.Threading.Tasks.Task<java.util.Map<System.String, System.String>> Gather()	Task_1<java.util.Map<String, String>> Gather()
 task-overloads	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String> Overload(System.Threading.Tasks.Task value)~~System.Threading.Tasks.Task<System.String> Overload(System.Threading.Tasks.Task<System.String> value)	Overload(Task_1<String> value)
 task-array-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Run(System.Threading.Tasks.Task[] tasks)	Task[] tasks
+jagged-task-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Run(System.Threading.Tasks.Task[][] tasks)	Task[][] tasks
