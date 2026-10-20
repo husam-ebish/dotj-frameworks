@@ -2,9 +2,9 @@
     "schemaVersion":  1,
     "purpose":  "Internal development bootstrap artifact; not a public .j product package",
     "jdkVersion":  "javac 21.0.12.1",
-    "sourceCount":  11,
-    "classCount":  11,
-    "jarSha256":  "ca0c6911b1167b8d74046f4ded4f6842207779271a2265e25cbad36be8b7e295",
+    "sourceCount":  12,
+    "classCount":  12,
+    "jarSha256":  "9b01393dc20effe4e87c9e12493ac8901f751b3fc2712279f989ed7dbd1bcac9",
     "entries":  [
                     "META-INF/",
                     "META-INF/MANIFEST.MF",
@@ -15,6 +15,7 @@
                     "org/dotj/internal/async/AsyncCompletion.class",
                     "org/dotj/internal/async/AsyncState.class",
                     "org/dotj/internal/async/AsyncValue.class",
+                    "org/dotj/internal/async/WaitCancellationSignal.class",
                     "org/dotj/internal/cancellation/",
                     "org/dotj/internal/cancellation/CancellationCallbackException.class",
                     "org/dotj/internal/cancellation/CancellationRegistration.class",
@@ -31,7 +32,7 @@
     "sourceHashes":  [
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/async/AsyncCompletion.java",
-                             "sha256":  "84c25f078c29f350a77878908cc86dcb37894b2076ebdee52c5cab5fbaabc4f8"
+                             "sha256":  "fc5ee2b4112ffe86f717abaa311ff1829e40a8c18a1c47b8596de960aadf076d"
                          },
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/async/AsyncState.java",
@@ -40,6 +41,10 @@
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/async/AsyncValue.java",
                              "sha256":  "bbf4e1452706ad8ab4c5210337eda10af6947f68881db8aa3903e29e8a9220fa"
+                         },
+                         {
+                             "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/async/WaitCancellationSignal.java",
+                             "sha256":  "d26c46df1df076d7646b69f96dd5a641910262d044d8dff9bb2a24ddef9c16bd"
                          },
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/cancellation/CancellationCallbackException.java",

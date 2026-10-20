@@ -79,7 +79,7 @@ def record(args):
         "framework": "dotj-core",
         "planTaskIds": [args.next_task],
         "outcome": args.next_outcome,
-        "requiresContinue": args.number == 219,
+        "requiresContinue": args.number == 220,
     }
     save_json(progress_path, progress)
 
@@ -94,7 +94,7 @@ def record(args):
     state = re.sub(r"Proposed `Batch-\d{3}`:.*", f"Proposed `{following}`: {args.next_outcome}", state, count=1)
     state = re.sub(r"See \[Batch-\d{3}\]\(implementation/batches/Batch-\d{3}\.md\).*",
                    f"See [{current}](implementation/batches/{current}.md) for the latest validation record and limitations. " +
-                   ("A new CONTINUE signal is needed to start the next batch." if args.number == 219 else "The current request authorizes the next batch."), state, count=1)
+                   ("A new CONTINUE signal is needed to start the next batch." if args.number == 220 else "The current request authorizes the next batch."), state, count=1)
     marker = "- E02, E03 and N01: **IN PROGRESS**"
     assert marker in state
     state = state.replace(marker, f"- {current}: {args.outcome} {args.limitation}\n{marker}", 1)
