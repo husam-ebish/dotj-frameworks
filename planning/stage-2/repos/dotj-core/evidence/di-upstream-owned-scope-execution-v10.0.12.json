@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-057",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "testSourceSha256": "43883d7686636dcb84c4fa5a74386a67d29499f5b915033918bc55de2125968f",
+  "project": "src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/Microsoft.Extensions.DependencyInjection.Tests.csproj",
+  "runtime": "Installed Microsoft.NETCore.App 10.0.12",
+  "methodResults": [
+    {"sourceMethod": "DoesNotDisposeSingletonInstances", "passed": 4, "contract": "A supplied singleton instance stays undisposed after provider disposal."},
+    {"sourceMethod": "SingletonServiceCreatedFromFactoryIsDisposedWhenContainerIsDisposed", "passed": 4, "contract": "A singleton created by a provider factory is disposed with the provider."},
+    {"sourceMethod": "ProviderScopeDisposeAsyncCallsDisposeAsyncOnServices", "passed": 4, "contract": "Async scope disposal calls service DisposeAsync."},
+    {"sourceMethod": "ProviderScopeDisposePrefersServiceDispose", "passed": 4, "contract": "Sync scope disposal chooses service Dispose."}
+  ],
+  "providerVariants": ["Default", "Dynamic", "Expressions", "ILEmit"],
+  "total": 16,
+  "passed": 16,
+  "failed": 0,
+  "skipped": 0,
+  "invocation": "dotnet test on R: source alias, net10.0, filter OR of the four method-name substrings, UseLocalTargetingRuntimePack=false, UseDefaultTestHost=true, RunSettingsDotNetHostPath=installed dotnet.exe, NetCoreSdkRoot=installed SDK 10.0.401",
+  "fixture": "DJ-001-F01-03",
+  "qualification": "Execution distinguishes borrowed from container-created resources; Java OwnedResources remains an explicitly different internal cleanup policy."
+}
