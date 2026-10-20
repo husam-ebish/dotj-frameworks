@@ -6,11 +6,18 @@ import java.util.Objects;
 
 /** Binds a restricted, fully qualified method declaration without changing member names. */
 final class ArityMethodSignatureBinder {
+    private static final int MAX_SIGNATURE_LENGTH = 8192;
+    private static final int MAX_PARAMETERS = 32;
+
     private ArityMethodSignatureBinder() {
     }
 
     static String lower(String declaration) {
-        String source = Objects.requireNonNull(declaration, "declaration").trim();
+        Objects.requireNonNull(declaration, "declaration");
+        if (declaration.length() > MAX_SIGNATURE_LENGTH) {
+            throw new IllegalArgumentException("Method signature exceeds " + MAX_SIGNATURE_LENGTH + " characters");
+        }
+        String source = declaration.trim();
         int open = source.indexOf('(');
         int close = source.lastIndexOf(')');
         if (open < 0 || close < open || !source.substring(close + 1).trim().isEmpty()) {
@@ -42,6 +49,9 @@ final class ArityMethodSignatureBinder {
                 }
             } else if (current == ',' && depth == 0) {
                 lowered.add(lowerParameter(parameters.substring(start, index).trim()));
+                if (lowered.size() > MAX_PARAMETERS) {
+                    throw new IllegalArgumentException("Parameter count exceeds " + MAX_PARAMETERS);
+                }
                 start = index + 1;
             }
         }
