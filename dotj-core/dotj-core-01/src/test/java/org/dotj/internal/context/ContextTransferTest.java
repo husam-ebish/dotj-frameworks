@@ -3,6 +3,7 @@ package org.dotj.internal.context;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.concurrent.Executor;
+import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.atomic.AtomicReference;
 
 public final class ContextTransferTest {
@@ -23,6 +24,19 @@ public final class ContextTransferTest {
         if (!"A".equals(observed.get()) || !"B".equals(current.get("request"))) {
             throw new AssertionError("scheduled work lost its captured snapshot");
         }
-        System.out.println("PASS: explicit snapshot survives deferred executor dispatch");
+
+        AtomicReference<Boolean> invoked = new AtomicReference<>(false);
+        Executor rejecting = task -> {
+            throw new RejectedExecutionException("queue closed");
+        };
+        try {
+            ContextTransfer.execute(rejecting, current, snapshot -> invoked.set(true));
+            throw new AssertionError("executor rejection was swallowed");
+        } catch (RejectedExecutionException expected) {
+            if (!"queue closed".equals(expected.getMessage()) || invoked.get()) {
+                throw new AssertionError("rejected work ran or lost its error");
+            }
+        }
+        System.out.println("PASS: deferred context dispatch and rejection propagation");
     }
 }
