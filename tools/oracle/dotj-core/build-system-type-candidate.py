@@ -2,6 +2,7 @@
 
 import hashlib
 import json
+import os
 import subprocess
 from pathlib import Path
 
@@ -12,7 +13,11 @@ SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
-CLASSES = ROOT / "dotj-core/dotj-core-public/build/type-identity-candidate"
+FACTORY = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeCandidateFactory.java"
+EXTERNAL = ROOT / "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java"
+BUILD = ROOT / "dotj-core/dotj-core-public/build/type-identity-candidate"
+CLASSES = BUILD / "product-classes"
+TEST_CLASSES = BUILD / "test-classes"
 EVIDENCE = EVIDENCE_ROOT / "system-type-identity-candidate-v1.json"
 
 
@@ -43,7 +48,11 @@ def main():
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType"} <= properties
 
     CLASSES.mkdir(parents=True, exist_ok=True)
-    run("javac", "--release", "21", "-d", str(CLASSES), str(SOURCE), str(TEST))
+    TEST_CLASSES.mkdir(parents=True, exist_ok=True)
+    run("javac", "--release", "21", "-d", str(CLASSES), str(SOURCE))
+    assert not (CLASSES / "System/TypeCandidateFactory.class").exists()
+    run("javac", "--release", "21", "-cp", str(CLASSES), "-d", str(TEST_CLASSES),
+        str(FACTORY), str(TEST), str(EXTERNAL))
     public = run("javap", "-public", "-classpath", str(CLASSES), "System.Type")
     assert "public abstract class System.Type" in public
     members = [line.strip() for line in public.splitlines() if line.strip().endswith(";")]
@@ -56,8 +65,11 @@ def main():
         "public boolean get_IsConstructedGenericType();",
         "public boolean Equals(System.Type);",
     ], members
-    result = run("java", "-cp", str(CLASSES), "System.TypeIdentityCandidateTest").strip()
+    classpath = os.pathsep.join((str(CLASSES), str(TEST_CLASSES)))
+    result = run("java", "-cp", classpath, "System.TypeIdentityCandidateTest").strip()
     assert result.startswith("PASS selected System.Type identity")
+    external_result = run("java", "-cp", classpath, "consumer.ProductTypeIdentityConsumer").strip()
+    assert external_result == "PASS external System.Type selected identity consumer"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "upstreamFullName": "System.Type",
@@ -68,11 +80,17 @@ def main():
         "sourceSha256": sha256(SOURCE),
         "testPath": TEST.relative_to(ROOT).as_posix(),
         "testSha256": sha256(TEST),
+        "testFactoryPath": FACTORY.relative_to(ROOT).as_posix(),
+        "testFactorySha256": sha256(FACTORY),
+        "externalConsumerPath": EXTERNAL.relative_to(ROOT).as_posix(),
+        "externalConsumerSha256": sha256(EXTERNAL),
         "publicMembers": members,
         "testResult": result,
+        "externalConsumerResult": external_result,
         "status": "SELECTED_IDENTITY_CANDIDATE; complete 181-method/70-property System.Type surface, MemberInfo inheritance, generic-parameter Types, public null/error mapping and release qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
     print(result)
+    print(external_result)
 
 
 if __name__ == "__main__":
