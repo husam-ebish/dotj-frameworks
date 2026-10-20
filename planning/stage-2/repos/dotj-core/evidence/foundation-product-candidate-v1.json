@@ -7,7 +7,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "aab1a65ffbfaa226a7ec5321d60aa29ad2eed64c0bb8cb8e7fe2a12e16aec644"
+      "sha256": "218a40242f8b5e01aa52f116e7b7d5dbc67b23e0878442e84d76b8ee6487e19b"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -28,16 +28,26 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/TypeLoadException.java",
       "sha256": "0bd17a5b05dc60a776672610c2aece681dec0e514ddd2c93acba422b7b63452d"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/IO/IOException.java",
+      "sha256": "914db3ec09bf6aeadd4e224970c122e6d9b137dbf20bc8fb6cd2bdd47a54cc6c"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/IO/FileNotFoundException.java",
+      "sha256": "2ea33dd66fb04065b2c8e23ed1412baa0605966604907c1795067621e2320357"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "84c675a654db79430a2e8a4b4f09da88653faaa0825419622396d191894876c1",
+  "jarSha256": "1b3d89bc1be230c3320b18b2461b69f0baa0b31f56a2b18720ca1872135bdef3",
   "jarEntries": [
     "META-INF/MANIFEST.MF",
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
     "System/Exception.class",
     "System/IDisposable.class",
+    "System/IO/FileNotFoundException.class",
+    "System/IO/IOException.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -51,12 +61,14 @@
     "System/ArgumentNullException.class": "5205ae5f1bb78d022c4d07bc8de08db8a938537b6a5433c2b6243d949ce6dccf",
     "System/Exception.class": "ec46b472c6bd47b0cc155d3167f9b3218e611659182fe149ab479462757900f8",
     "System/IDisposable.class": "e308da2ce34102fc8c31e2d96beb0b54aba33b05aabe0e1e63196fb87ae5687b",
+    "System/IO/FileNotFoundException.class": "1e6716505d1a347d2f7501da47b593e69a843a7853096fec9bd1527eb8609b56",
+    "System/IO/IOException.class": "c3b343938bb9d1939fbecea41ce04cbf904876a36a36b218a56c83ed51cad8d8",
     "System/SystemException.class": "8a0ce898bd9a9a53c79f403b1685f06fd421a639e972bab3d2cb083581b3d169",
-    "System/Type$1.class": "ec9e43474d6406d664de377533ac66748d4a0c20b95f0897f203634d7023729a",
-    "System/Type$2.class": "d0e2be30a3886578aa48eceddc20ad36813ced25dfb67c00111a01b3ea9fabde",
-    "System/Type$GenericParameterType.class": "c6eed985e5ce0c90954fda0a065a7e73fd4c64691dd6ed4a8d7a02dc777d751a",
-    "System/Type$ResolvedType.class": "eeb24ad40855459daf0e1def1858f732d7ce3811e6ee59f0de26ded967bd2669",
-    "System/Type.class": "812bb629a70b5e491b6f51d520a7fc1751a2b4b8af019454125d5719395876fb",
+    "System/Type$1.class": "8471732f1880283913f1265b6b5b93653562ad5596bc1d43aee29786f6424eaf",
+    "System/Type$2.class": "7054af472f52435f03976ba73bf2f68e7ae0bf03eb0623d93f37fcaeb88ba550",
+    "System/Type$GenericParameterType.class": "6ef91cf9533dd5d4a5a571fa979fef2766d326eeb67404f9251ecfd79df8c238",
+    "System/Type$ResolvedType.class": "47ed9a85aa19b5e358dfb3bd11b594f57c613d519f27ef7586400c4eb63206e1",
+    "System/Type.class": "a806c86b620cc1ae706eb6fcd019ec062eceaa8c447db8534bc81b91bcbed3bb",
     "System/TypeLoadException.class": "5abf39d1265d20b8756e5215d23b19be75c13fb33def2c35f0736daf1ced4fac"
   },
   "disposalConsumer": "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation",

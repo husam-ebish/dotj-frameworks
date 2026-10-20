@@ -14,6 +14,8 @@ PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
                      ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException")]
+EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
+                      ("IOException", "FileNotFoundException")]
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
 CONCURRENCY_TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java"
 LOADER_FIXTURE = ROOT / "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java"

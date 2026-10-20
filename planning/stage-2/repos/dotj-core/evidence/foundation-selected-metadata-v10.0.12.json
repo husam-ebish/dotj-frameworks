@@ -490,8 +490,105 @@
           }
         ]
       ]
+    },
+    {
+      "fullName": "System.IO.IOException",
+      "baseType": "System.SystemException",
+      "isInterface": false,
+      "isAbstract": false,
+      "declaredPublicMethodCount": 0,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [],
+      "selectedProperties": [],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "hresult",
+            "type": "System.Int32"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ]
+      ]
+    },
+    {
+      "fullName": "System.IO.FileNotFoundException",
+      "baseType": "System.IO.IOException",
+      "isInterface": false,
+      "isAbstract": false,
+      "declaredPublicMethodCount": 2,
+      "declaredPublicPropertyCount": 3,
+      "selectedMethods": [],
+      "selectedProperties": [
+        {
+          "name": "Message",
+          "type": "System.String"
+        }
+      ],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "fileName",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "fileName",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ]
+      ]
     }
   ],
-  "oracleProgramSha256": "dcc637bafc112563ca9863bcc05f1cf29764415e1f937d4d12c9348676b0d69a",
+  "oracleProgramSha256": "a36c84d391bd3518565966068a32497974fafce120927e2c3b67b2e6a2303e50",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

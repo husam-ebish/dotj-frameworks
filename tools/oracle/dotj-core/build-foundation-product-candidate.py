@@ -12,6 +12,8 @@ ROOT = Path(__file__).resolve().parents[3]
 PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
     "IDisposable", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException")]
+SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
+            ("IOException", "FileNotFoundException")]
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
@@ -25,6 +27,8 @@ EXPECTED_CLASSES = [
     "System/ArgumentNullException.class",
     "System/Exception.class",
     "System/IDisposable.class",
+    "System/IO/FileNotFoundException.class",
+    "System/IO/IOException.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",

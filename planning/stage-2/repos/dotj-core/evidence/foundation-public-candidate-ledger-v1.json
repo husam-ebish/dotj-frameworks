@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "84c675a654db79430a2e8a4b4f09da88653faaa0825419622396d191894876c1",
-  "typeCount": 7,
+  "candidateJarSha256": "1b3d89bc1be230c3320b18b2461b69f0baa0b31f56a2b18720ca1872135bdef3",
+  "typeCount": 9,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -143,6 +143,46 @@
         "public System.TypeLoadException();",
         "public System.TypeLoadException(java.lang.String);",
         "public System.TypeLoadException(java.lang.String, System.Exception);"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.IO.IOException",
+      "upstreamBaseType": "System.SystemException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 4,
+      "javaPublicConstructors": 4,
+      "javaPublicHeader": "public class System.IO.IOException extends System.SystemException {",
+      "javaPublicDeclarations": [
+        "public System.IO.IOException();",
+        "public System.IO.IOException(java.lang.String);",
+        "public System.IO.IOException(java.lang.String, int);",
+        "public System.IO.IOException(java.lang.String, System.Exception);"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.IO.FileNotFoundException",
+      "upstreamBaseType": "System.IO.IOException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 2,
+      "upstreamDeclaredProperties": 3,
+      "upstreamPublicConstructors": 5,
+      "javaPublicConstructors": 5,
+      "javaPublicHeader": "public class System.IO.FileNotFoundException extends System.IO.IOException {",
+      "javaPublicDeclarations": [
+        "public System.IO.FileNotFoundException();",
+        "public System.IO.FileNotFoundException(java.lang.String);",
+        "public System.IO.FileNotFoundException(java.lang.String, System.Exception);",
+        "public System.IO.FileNotFoundException(java.lang.String, java.lang.String);",
+        "public System.IO.FileNotFoundException(java.lang.String, java.lang.String, System.Exception);",
+        "public java.lang.String get_FileName();"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false
