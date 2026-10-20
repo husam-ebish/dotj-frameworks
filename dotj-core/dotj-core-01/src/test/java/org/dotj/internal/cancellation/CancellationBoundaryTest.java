@@ -28,6 +28,7 @@ public final class CancellationBoundaryTest {
         zeroDelay();
         negativeDelay();
         rescheduledTimer();
+        closeCancelsTimer();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -159,6 +160,12 @@ public final class CancellationBoundaryTest {
         source.token().register(done::countDown); source.cancelAfter(Duration.ofSeconds(60));
         source.cancelAfter(Duration.ofMillis(10));
         if (!done.await(5, TimeUnit.SECONDS)) throw new AssertionError("Replacement timer did not fire"); source.close();
+    }
+
+    private static void closeCancelsTimer() throws Exception {
+        CancellationSource source = new CancellationSource(); CancellationToken token = source.token();
+        source.cancelAfter(Duration.ofMillis(100)); source.close(); Thread.sleep(250);
+        if (token.isCancellationRequested()) throw new AssertionError("Closed source timer fired");
     }
 
     // Next bounded method.
