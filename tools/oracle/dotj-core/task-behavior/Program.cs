@@ -343,6 +343,16 @@ Run("waitAsyncInfiniteTimeoutResult", () =>
     Check(waiting.GetAwaiter().GetResult() == 42 && waiting.IsCompletedSuccessfully, "infinite timeout lost result");
 });
 
+Run("waitAsyncInfiniteTimeoutFault", () =>
+{
+    TaskCompletionSource<int> source = new();
+    Task<int> waiting = source.Task.WaitAsync(Timeout.InfiniteTimeSpan);
+    Exception failure = new InvalidOperationException("infinite fault");
+    source.SetException(failure);
+    CheckThrows<InvalidOperationException>(() => waiting.GetAwaiter().GetResult(), "infinite timeout fault");
+    Check(ReferenceEquals(waiting.Exception?.InnerException, failure), "infinite timeout changed fault identity");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
