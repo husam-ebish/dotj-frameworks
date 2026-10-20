@@ -33,6 +33,7 @@ public final class CancellationBoundaryTest {
         resetCanceledSource();
         doubleCancelOnce();
         asyncWithoutCallbacks();
+        asyncFailure();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -194,6 +195,17 @@ public final class CancellationBoundaryTest {
         CancellationSource source = new CancellationSource(); CompletableFuture<Void> future = source.cancelAsync();
         if (!future.isDone() || source.isCancellationRequested() == false) throw new AssertionError("Empty async cancellation incomplete");
         future.join(); source.close();
+    }
+
+    private static void asyncFailure() throws Exception {
+        CancellationSource source = new CancellationSource();
+        source.token().register(() -> { throw new IllegalStateException("async"); });
+        CompletableFuture<Void> future = source.cancelAsync();
+        try { future.join(); throw new AssertionError("Async failure disappeared"); }
+        catch (java.util.concurrent.CompletionException expected) {
+            if (!(expected.getCause() instanceof CancellationCallbackException)) throw expected;
+        }
+        source.close();
     }
 
     // Next bounded method.
