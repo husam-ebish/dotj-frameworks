@@ -4704,6 +4704,22 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-1185"
+    },
+    {
+      "index": 317,
+      "sourceBatch": "Batch-689",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+      "backendOwner": "System.Threading.Tasks.Task",
+      "javaDeclaration": "public static <TResult> Task_1<Task_1<TResult>> WhenAny(IEnumerable_1<Task_1<TResult>> tasks) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "6633d2359748dceb1e214831b44fd57e23b92b731537119ef83752213694ed8c",
+      "supportTypes": [
+        "System.Collections.Generic.IEnumerable_1",
+        "System.Threading.Tasks.Task_1"
+      ],
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
+      "batch": "Batch-1186"
     }
   ]
 }
