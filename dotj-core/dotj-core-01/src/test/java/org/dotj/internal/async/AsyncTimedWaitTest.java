@@ -50,6 +50,7 @@ public final class AsyncTimedWaitTest {
         mixedDeadlineWaits();
         signalReuse();
         timeoutReuse();
+        raceAgainstTimeout("result");
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -270,6 +271,74 @@ public final class AsyncTimedWaitTest {
             assertOutcome("reused timeout " + index, waiting, "timeout", null);
             awaitCleanup(source, signal, "reused timeout " + index);
             check(source.state() == AsyncState.PENDING, "reused timeout changed source " + index);
+        }
+    }
+
+    private static void raceAgainstTimeout(String kind) throws Exception {
+        java.util.concurrent.ExecutorService workers = java.util.concurrent.Executors.newFixedThreadPool(2);
+        try {
+            for (int round = 0; round < 100; round++) {
+                AsyncCompletion<Integer> source = new AsyncCompletion<>();
+                WaitCancellationSignal signal = new WaitCancellationSignal();
+                Throwable fault = new IllegalStateException(kind + round);
+                CompletableFuture<Integer> waiting = source.waitAsync(1, signal);
+                java.util.concurrent.CountDownLatch ready = new java.util.concurrent.CountDownLatch(
+                        kind.equals("threeWay") ? 2 : 1);
+                java.util.concurrent.CountDownLatch start = new java.util.concurrent.CountDownLatch(1);
+                java.util.concurrent.Future<?> first = workers.submit(() -> {
+                    raceStart(ready, start);
+                    apply(kind.equals("threeWay") ? "result" : kind, source, signal, fault);
+                });
+                java.util.concurrent.Future<?> second = null;
+                if (kind.equals("threeWay")) {
+                    second = workers.submit(() -> {
+                        raceStart(ready, start);
+                        signal.signal();
+                    });
+                }
+                check(ready.await(5, TimeUnit.SECONDS), kind + " race workers not ready");
+                start.countDown();
+                first.get(5, TimeUnit.SECONDS);
+                if (second != null) {
+                    second.get(5, TimeUnit.SECONDS);
+                }
+                check(waiting.isDone(), kind + " race left wait pending");
+                if (waiting.isCancelled()) {
+                    check(kind.equals("signal") || kind.equals("cancel") || kind.equals("threeWay"),
+                            kind + " race unexpectedly canceled");
+                } else {
+                    try {
+                        int value = waiting.get(5, TimeUnit.SECONDS);
+                        check(value == 42 && (kind.equals("result") || kind.equals("threeWay")),
+                                kind + " race unexpectedly succeeded");
+                    } catch (ExecutionException error) {
+                        check(error.getCause() instanceof TimeoutException ||
+                                (kind.equals("fault") && error.getCause() == fault),
+                                kind + " race had invalid fault");
+                    }
+                }
+                check(source.state() == (kind.equals("signal") ? AsyncState.PENDING :
+                        kind.equals("fault") ? AsyncState.FAULTED :
+                        kind.equals("cancel") ? AsyncState.CANCELED : AsyncState.SUCCEEDED),
+                        kind + " race changed source state");
+                awaitCleanup(source, signal, kind + " race " + round);
+            }
+        } finally {
+            workers.shutdownNow();
+            check(workers.awaitTermination(5, TimeUnit.SECONDS), kind + " race workers did not stop");
+        }
+    }
+
+    private static void raceStart(java.util.concurrent.CountDownLatch ready,
+                                  java.util.concurrent.CountDownLatch start) {
+        ready.countDown();
+        try {
+            if (!start.await(5, TimeUnit.SECONDS)) {
+                throw new AssertionError("race gate was not released");
+            }
+        } catch (InterruptedException exception) {
+            Thread.currentThread().interrupt();
+            throw new AssertionError("race worker interrupted", exception);
         }
     }
 
