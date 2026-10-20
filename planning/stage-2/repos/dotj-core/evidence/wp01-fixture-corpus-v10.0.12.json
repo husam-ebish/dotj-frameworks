@@ -17,8 +17,8 @@
       "expectation": "different generic arguments do not share identity",
       "java": "TypeIdentityTest passed in Batch-040",
       "dotnetOracle": "type-identity oracle passed in Batch-041",
-      "upstreamTest": "not mapped or executed",
-      "status": "PARTIAL: one generic definition and its selected arguments"
+      "upstreamTest": "Batch-063 passed four supporting TypeInfoTests.GetGenericArguments cases; no direct selected upstream inequality assertion was identified in the bounded reflection-test search",
+      "status": "PARTIAL: direct assertion uses the independent .NET oracle, with supporting upstream generic-argument metadata; one generic definition and selected arguments only"
     },
     {
       "id": "DJ-001-F01-03",
