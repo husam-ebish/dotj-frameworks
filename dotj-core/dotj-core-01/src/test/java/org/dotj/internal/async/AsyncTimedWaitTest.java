@@ -33,6 +33,7 @@ public final class AsyncTimedWaitTest {
         scenario("infinite fault first", -1, "pending", false, "fault", "fault", "signal");
         scenario("infinite cancel first", -1, "pending", false, "cancel", "cancel", "signal");
         invalidTimeout(-2, true);
+        scenario("timeout then source", 10, "pending", false, "none", "timeout", "result");
         System.out.println("PASS: internal timed wait cases");
     }
 
