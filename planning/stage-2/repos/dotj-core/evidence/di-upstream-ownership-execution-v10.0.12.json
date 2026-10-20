@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-056",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "project": "src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/Microsoft.Extensions.DependencyInjection.Tests.csproj",
+  "testSourceSha256": "43883d7686636dcb84c4fa5a74386a67d29499f5b915033918bc55de2125968f",
+  "filter": "FullyQualifiedName~SingletonServiceCreatedFromInstanceIsNotDisposedWhenContainerIsDisposed|FullyQualifiedName~ProviderDisposeThrowsWhenOnlyDisposeAsyncImplemented",
+  "buildProperties": ["UseLocalTargetingRuntimePack=false", "UseDefaultTestHost=true", "RunSettingsDotNetHostPath=C:\\Program Files\\dotnet\\dotnet.exe", "NetCoreSdkRoot=C:/Program Files/dotnet/sdk/10.0.401"],
+  "pathAdjustment": "SUBST R: to the verified source root avoided the Windows long-path copy failure; no upstream source edits.",
+  "runtime": "Installed Microsoft.NETCore.App 10.0.12",
+  "derivedContainerImplementations": ["Default", "Dynamic", "Expressions", "ILEmit"],
+  "methodResults": [
+    {"sourceMethod": "SingletonServiceCreatedFromInstanceIsNotDisposedWhenContainerIsDisposed", "passed": 4, "assertion": "Externally supplied singleton is not disposed with its provider."},
+    {"sourceMethod": "ProviderDisposeThrowsWhenOnlyDisposeAsyncImplemented", "passed": 4, "assertion": "Synchronous provider disposal rejects an async-only disposable."}
+  ],
+  "total": 8,
+  "passed": 8,
+  "failed": 0,
+  "skipped": 0,
+  "fixture": "DJ-001-F01-03",
+  "qualification": "Supporting pinned upstream ownership behavior; broader ownership paths and Java public API remain open."
+}
