@@ -1,0 +1,3856 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "selectedLedgerSha256": "d0c7e4475be4cb191ad96baeb9d44fa8b1a16ca14ab8a9473ecf3ac3f21aa9ac",
+  "remainingLedgerSha256": "6ea2d25812d6941f4265d9e2a86942be69c731198352f4b0372a0f232b10107f",
+  "erasureCollisionSha256": "b33596045cf9575213f54a1f0c2aa73a9da57c66097ad366102f4bca59e41f4b",
+  "declarationsIndividuallyCompiled": 426,
+  "qualifiedPublicMethods": 0,
+  "knownStructuralPublicBlockers": 29,
+  "semanticAdaptationsPending": 5,
+  "dispositionCounts": {
+    "BACKEND_CANDIDATE_BOXED_GENERIC_SEMANTICS_UNVERIFIED": 4,
+    "BACKEND_CANDIDATE_OPTIONAL_DEFAULT_UNVERIFIED": 1,
+    "BACKEND_CANDIDATE_STATIC_GENERIC_SCOPE_CHANGE": 3,
+    "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE": 26,
+    "INDIVIDUAL_SYNTAX_ONLY": 392
+  },
+  "scope": "Selected declared-public methods only. Individual compilation is syntax evidence; no method receives public behavior or release qualification.",
+  "entries": [
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WaitAsync(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-301",
+      "probeBatch": "Batch-768",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WaitAsync(System.TimeSpan)",
+      "sourceBatch": "Batch-302",
+      "probeBatch": "Batch-769",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-303",
+      "probeBatch": "Batch-770",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.TimeProvider)",
+      "sourceBatch": "Batch-304",
+      "probeBatch": "Batch-771",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WaitAsync(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-305",
+      "probeBatch": "Batch-772",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Object get_AsyncState()",
+      "sourceBatch": "Batch-306",
+      "probeBatch": "Batch-773",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task get_CompletedTask()",
+      "sourceBatch": "Batch-307",
+      "probeBatch": "Batch-774",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.TaskCreationOptions get_CreationOptions()",
+      "sourceBatch": "Batch-308",
+      "probeBatch": "Batch-775",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.AggregateException get_Exception()",
+      "sourceBatch": "Batch-309",
+      "probeBatch": "Batch-776",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Int32 get_Id()",
+      "sourceBatch": "Batch-310",
+      "probeBatch": "Batch-777",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean get_IsCanceled()",
+      "sourceBatch": "Batch-311",
+      "probeBatch": "Batch-778",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean get_IsCompleted()",
+      "sourceBatch": "Batch-312",
+      "probeBatch": "Batch-779",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean get_IsCompletedSuccessfully()",
+      "sourceBatch": "Batch-313",
+      "probeBatch": "Batch-780",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean get_IsFaulted()",
+      "sourceBatch": "Batch-314",
+      "probeBatch": "Batch-781",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.TaskStatus get_Status()",
+      "sourceBatch": "Batch-315",
+      "probeBatch": "Batch-782",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Runtime.CompilerServices.TaskAwaiter GetAwaiter()",
+      "sourceBatch": "Batch-316",
+      "probeBatch": "Batch-783",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfigureAwait(Boolean)",
+      "sourceBatch": "Batch-317",
+      "probeBatch": "Batch-784",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable ConfigureAwait(System.Threading.Tasks.ConfigureAwaitOptions)",
+      "sourceBatch": "Batch-318",
+      "probeBatch": "Batch-785",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromResult[TResult](TResult)",
+      "sourceBatch": "Batch-319",
+      "probeBatch": "Batch-786",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task FromException(System.Exception)",
+      "sourceBatch": "Batch-320",
+      "probeBatch": "Batch-787",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-321",
+      "probeBatch": "Batch-788",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan)",
+      "sourceBatch": "Batch-322",
+      "probeBatch": "Batch-789",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-323",
+      "probeBatch": "Batch-790",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.TimeProvider)",
+      "sourceBatch": "Batch-324",
+      "probeBatch": "Batch-791",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] WaitAsync(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-325",
+      "probeBatch": "Batch-792",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "TResult get_Result()",
+      "sourceBatch": "Batch-326",
+      "probeBatch": "Batch-793",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.TaskFactory`1[TResult] get_Factory()",
+      "sourceBatch": "Batch-327",
+      "probeBatch": "Batch-794",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "BACKEND_CANDIDATE_STATIC_GENERIC_SCOPE_CHANGE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Runtime.CompilerServices.TaskAwaiter`1[TResult] GetAwaiter()",
+      "sourceBatch": "Batch-328",
+      "probeBatch": "Batch-795",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult] ConfigureAwait(Boolean)",
+      "sourceBatch": "Batch-329",
+      "probeBatch": "Batch-796",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Runtime.CompilerServices.ConfiguredTaskAwaitable`1[TResult] ConfigureAwait(System.Threading.Tasks.ConfigureAwaitOptions)",
+      "sourceBatch": "Batch-330",
+      "probeBatch": "Batch-797",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceBatch": "Batch-331",
+      "probeBatch": "Batch-798",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-332",
+      "probeBatch": "Batch-799",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-333",
+      "probeBatch": "Batch-800",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskContinuationOptions)",
+      "sourceBatch": "Batch-334",
+      "probeBatch": "Batch-801",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-335",
+      "probeBatch": "Batch-802",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "System.Threading.Tasks.Task get_Task()",
+      "sourceBatch": "Batch-336",
+      "probeBatch": "Batch-803",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Void SetCanceled()",
+      "sourceBatch": "Batch-337",
+      "probeBatch": "Batch-804",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Void SetCanceled(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-338",
+      "probeBatch": "Batch-805",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Void SetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+      "sourceBatch": "Batch-339",
+      "probeBatch": "Batch-806",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Void SetException(System.Exception)",
+      "sourceBatch": "Batch-340",
+      "probeBatch": "Batch-807",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Void SetFromTask(System.Threading.Tasks.Task)",
+      "sourceBatch": "Batch-341",
+      "probeBatch": "Batch-808",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Void SetResult()",
+      "sourceBatch": "Batch-342",
+      "probeBatch": "Batch-809",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Boolean TrySetCanceled()",
+      "sourceBatch": "Batch-343",
+      "probeBatch": "Batch-810",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Boolean TrySetCanceled(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-344",
+      "probeBatch": "Batch-811",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Boolean TrySetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+      "sourceBatch": "Batch-345",
+      "probeBatch": "Batch-812",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Boolean TrySetException(System.Exception)",
+      "sourceBatch": "Batch-346",
+      "probeBatch": "Batch-813",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Boolean TrySetFromTask(System.Threading.Tasks.Task)",
+      "sourceBatch": "Batch-347",
+      "probeBatch": "Batch-814",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource",
+      "metadataSignature": "Boolean TrySetResult()",
+      "sourceBatch": "Batch-348",
+      "probeBatch": "Batch-815",
+      "owningSourceSha256": "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] get_Task()",
+      "sourceBatch": "Batch-349",
+      "probeBatch": "Batch-816",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Void SetCanceled()",
+      "sourceBatch": "Batch-350",
+      "probeBatch": "Batch-817",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Void SetCanceled(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-351",
+      "probeBatch": "Batch-818",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Void SetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+      "sourceBatch": "Batch-352",
+      "probeBatch": "Batch-819",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Void SetException(System.Exception)",
+      "sourceBatch": "Batch-353",
+      "probeBatch": "Batch-820",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Void SetFromTask(System.Threading.Tasks.Task`1[TResult])",
+      "sourceBatch": "Batch-354",
+      "probeBatch": "Batch-821",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Void SetResult(TResult)",
+      "sourceBatch": "Batch-355",
+      "probeBatch": "Batch-822",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Boolean TrySetCanceled()",
+      "sourceBatch": "Batch-356",
+      "probeBatch": "Batch-823",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Boolean TrySetCanceled(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-357",
+      "probeBatch": "Batch-824",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Boolean TrySetException(System.Collections.Generic.IEnumerable`1[System.Exception])",
+      "sourceBatch": "Batch-358",
+      "probeBatch": "Batch-825",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Boolean TrySetException(System.Exception)",
+      "sourceBatch": "Batch-359",
+      "probeBatch": "Batch-826",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Boolean TrySetFromTask(System.Threading.Tasks.Task`1[TResult])",
+      "sourceBatch": "Batch-360",
+      "probeBatch": "Batch-827",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "metadataSignature": "Boolean TrySetResult(TResult)",
+      "sourceBatch": "Batch-361",
+      "probeBatch": "Batch-828",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.Task AsTask()",
+      "sourceBatch": "Batch-362",
+      "probeBatch": "Batch-829",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable ConfigureAwait(Boolean)",
+      "sourceBatch": "Batch-363",
+      "probeBatch": "Batch-830",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Runtime.CompilerServices.ValueTaskAwaiter GetAwaiter()",
+      "sourceBatch": "Batch-364",
+      "probeBatch": "Batch-831",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask Preserve()",
+      "sourceBatch": "Batch-365",
+      "probeBatch": "Batch-832",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean get_IsCanceled()",
+      "sourceBatch": "Batch-366",
+      "probeBatch": "Batch-833",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean get_IsCompleted()",
+      "sourceBatch": "Batch-367",
+      "probeBatch": "Batch-834",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean get_IsCompletedSuccessfully()",
+      "sourceBatch": "Batch-368",
+      "probeBatch": "Batch-835",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean get_IsFaulted()",
+      "sourceBatch": "Batch-369",
+      "probeBatch": "Batch-836",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask get_CompletedTask()",
+      "sourceBatch": "Batch-370",
+      "probeBatch": "Batch-837",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromResult[TResult](TResult)",
+      "sourceBatch": "Batch-371",
+      "probeBatch": "Batch-838",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] AsTask()",
+      "sourceBatch": "Batch-372",
+      "probeBatch": "Batch-839",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable`1[TResult] ConfigureAwait(Boolean)",
+      "sourceBatch": "Batch-373",
+      "probeBatch": "Batch-840",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "System.Runtime.CompilerServices.ValueTaskAwaiter`1[TResult] GetAwaiter()",
+      "sourceBatch": "Batch-374",
+      "probeBatch": "Batch-841",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] Preserve()",
+      "sourceBatch": "Batch-375",
+      "probeBatch": "Batch-842",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean get_IsCanceled()",
+      "sourceBatch": "Batch-376",
+      "probeBatch": "Batch-843",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean get_IsCompleted()",
+      "sourceBatch": "Batch-377",
+      "probeBatch": "Batch-844",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean get_IsCompletedSuccessfully()",
+      "sourceBatch": "Batch-378",
+      "probeBatch": "Batch-845",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean get_IsFaulted()",
+      "sourceBatch": "Batch-379",
+      "probeBatch": "Batch-846",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "TResult get_Result()",
+      "sourceBatch": "Batch-380",
+      "probeBatch": "Batch-847",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "System.String ToString()",
+      "sourceBatch": "Batch-381",
+      "probeBatch": "Batch-848",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "Boolean get_CanBeCanceled()",
+      "sourceBatch": "Batch-382",
+      "probeBatch": "Batch-849",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "Boolean get_IsCancellationRequested()",
+      "sourceBatch": "Batch-383",
+      "probeBatch": "Batch-850",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.CancellationToken get_None()",
+      "sourceBatch": "Batch-384",
+      "probeBatch": "Batch-851",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.WaitHandle get_WaitHandle()",
+      "sourceBatch": "Batch-385",
+      "probeBatch": "Batch-852",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "Void ThrowIfCancellationRequested()",
+      "sourceBatch": "Batch-386",
+      "probeBatch": "Batch-853",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.CancellationTokenRegistration Register(System.Action)",
+      "sourceBatch": "Batch-387",
+      "probeBatch": "Batch-854",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.CancellationTokenRegistration Register(System.Action, Boolean)",
+      "sourceBatch": "Batch-388",
+      "probeBatch": "Batch-855",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`1[System.Object], System.Object)",
+      "sourceBatch": "Batch-389",
+      "probeBatch": "Batch-856",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "Void Cancel()",
+      "sourceBatch": "Batch-390",
+      "probeBatch": "Batch-857",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "Void Cancel(Boolean)",
+      "sourceBatch": "Batch-391",
+      "probeBatch": "Batch-858",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "System.Threading.Tasks.Task CancelAsync()",
+      "sourceBatch": "Batch-392",
+      "probeBatch": "Batch-859",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "System.Threading.CancellationToken get_Token()",
+      "sourceBatch": "Batch-393",
+      "probeBatch": "Batch-860",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "Boolean TryReset()",
+      "sourceBatch": "Batch-394",
+      "probeBatch": "Batch-861",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "Void Dispose()",
+      "sourceBatch": "Batch-395",
+      "probeBatch": "Batch-862",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "Void Dispose()",
+      "sourceBatch": "Batch-396",
+      "probeBatch": "Batch-863",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "System.Threading.Tasks.ValueTask DisposeAsync()",
+      "sourceBatch": "Batch-397",
+      "probeBatch": "Batch-864",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "Boolean Unregister()",
+      "sourceBatch": "Batch-398",
+      "probeBatch": "Batch-865",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "System.Threading.CancellationToken get_Token()",
+      "sourceBatch": "Batch-399",
+      "probeBatch": "Batch-866",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "Boolean Equals(System.Object)",
+      "sourceBatch": "Batch-402",
+      "probeBatch": "Batch-868",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "Boolean Equals(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-402",
+      "probeBatch": "Batch-869",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.CancellationTokenRegistration Register(System.Action`1[System.Object], System.Object)",
+      "sourceBatch": "Batch-403",
+      "probeBatch": "Batch-870",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.CancellationTokenRegistration Register(System.Action`1[System.Object], System.Object, Boolean)",
+      "sourceBatch": "Batch-403",
+      "probeBatch": "Batch-871",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "Boolean Equals(System.Object)",
+      "sourceBatch": "Batch-404",
+      "probeBatch": "Batch-872",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "Boolean Equals(System.Threading.CancellationTokenRegistration)",
+      "sourceBatch": "Batch-404",
+      "probeBatch": "Batch-873",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "Void CancelAfter(Int32)",
+      "sourceBatch": "Batch-405",
+      "probeBatch": "Batch-874",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "Void CancelAfter(System.TimeSpan)",
+      "sourceBatch": "Batch-405",
+      "probeBatch": "Batch-875",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.ReadOnlySpan`1[System.Threading.CancellationToken])",
+      "sourceBatch": "Batch-406",
+      "probeBatch": "Batch-876",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-406",
+      "probeBatch": "Batch-877",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-407",
+      "probeBatch": "Batch-878",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "System.Threading.CancellationTokenSource CreateLinkedTokenSource(System.Threading.CancellationToken[])",
+      "sourceBatch": "Batch-407",
+      "probeBatch": "Batch-879",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-408",
+      "probeBatch": "Batch-880",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-408",
+      "probeBatch": "Batch-881",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-409",
+      "probeBatch": "Batch-882",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.Tasks.TaskContinuationOptions)",
+      "sourceBatch": "Batch-409",
+      "probeBatch": "Batch-883",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`1[System.Threading.Tasks.Task], System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-410",
+      "probeBatch": "Batch-884",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object)",
+      "sourceBatch": "Batch-410",
+      "probeBatch": "Batch-885",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-411",
+      "probeBatch": "Batch-886",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-411",
+      "probeBatch": "Batch-887",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+      "sourceBatch": "Batch-412",
+      "probeBatch": "Batch-888",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task,System.Object], System.Object, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-412",
+      "probeBatch": "Batch-889",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult])",
+      "sourceBatch": "Batch-413",
+      "probeBatch": "Batch-890",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-413",
+      "probeBatch": "Batch-891",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-414",
+      "probeBatch": "Batch-892",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.Tasks.TaskContinuationOptions)",
+      "sourceBatch": "Batch-414",
+      "probeBatch": "Batch-893",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`2[System.Threading.Tasks.Task,TResult], System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-415",
+      "probeBatch": "Batch-894",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object)",
+      "sourceBatch": "Batch-415",
+      "probeBatch": "Batch-895",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-416",
+      "probeBatch": "Batch-896",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-416",
+      "probeBatch": "Batch-897",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+      "sourceBatch": "Batch-417",
+      "probeBatch": "Batch-898",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] ContinueWith[TResult](System.Func`3[System.Threading.Tasks.Task,System.Object,TResult], System.Object, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-417",
+      "probeBatch": "Batch-899",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Delay(Int32)",
+      "sourceBatch": "Batch-418",
+      "probeBatch": "Batch-900",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Delay(Int32, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-418",
+      "probeBatch": "Batch-901",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Delay(System.TimeSpan)",
+      "sourceBatch": "Batch-419",
+      "probeBatch": "Batch-902",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Delay(System.TimeSpan, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-419",
+      "probeBatch": "Batch-903",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Delay(System.TimeSpan, System.TimeProvider)",
+      "sourceBatch": "Batch-420",
+      "probeBatch": "Batch-904",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Delay(System.TimeSpan, System.TimeProvider, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-420",
+      "probeBatch": "Batch-905",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-421",
+      "probeBatch": "Batch-906",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-421",
+      "probeBatch": "Batch-907",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Run(System.Action)",
+      "sourceBatch": "Batch-422",
+      "probeBatch": "Batch-908",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Run(System.Action, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-422",
+      "probeBatch": "Batch-909",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-423",
+      "probeBatch": "Batch-910",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-423",
+      "probeBatch": "Batch-911",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceBatch": "Batch-424",
+      "probeBatch": "Batch-912",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-424",
+      "probeBatch": "Batch-913",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult])",
+      "sourceBatch": "Batch-425",
+      "probeBatch": "Batch-914",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-425",
+      "probeBatch": "Batch-915",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void RunSynchronously()",
+      "sourceBatch": "Batch-426",
+      "probeBatch": "Batch-916",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void RunSynchronously(System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-426",
+      "probeBatch": "Batch-917",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void Start()",
+      "sourceBatch": "Batch-427",
+      "probeBatch": "Batch-918",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void Start(System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-427",
+      "probeBatch": "Batch-919",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean Wait(Int32)",
+      "sourceBatch": "Batch-428",
+      "probeBatch": "Batch-920",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean Wait(Int32, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-428",
+      "probeBatch": "Batch-921",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean Wait(System.TimeSpan)",
+      "sourceBatch": "Batch-429",
+      "probeBatch": "Batch-922",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean Wait(System.TimeSpan, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-429",
+      "probeBatch": "Batch-923",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void Wait()",
+      "sourceBatch": "Batch-430",
+      "probeBatch": "Batch-924",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void Wait(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-430",
+      "probeBatch": "Batch-925",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.AsyncLocal`1",
+      "metadataSignature": "T get_Value()",
+      "sourceBatch": "Batch-431",
+      "probeBatch": "Batch-926",
+      "owningSourceSha256": "ddf43175640a71d1594855242d8e1f9269d18e928daefe35912dfecca34d6fd1",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.AsyncLocal`1",
+      "metadataSignature": "Void set_Value(T)",
+      "sourceBatch": "Batch-432",
+      "probeBatch": "Batch-927",
+      "owningSourceSha256": "ddf43175640a71d1594855242d8e1f9269d18e928daefe35912dfecca34d6fd1",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "System.Threading.ExecutionContext Capture()",
+      "sourceBatch": "Batch-433",
+      "probeBatch": "Batch-928",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "System.Threading.ExecutionContext CreateCopy()",
+      "sourceBatch": "Batch-434",
+      "probeBatch": "Batch-929",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "Void Dispose()",
+      "sourceBatch": "Batch-435",
+      "probeBatch": "Batch-930",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "Void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)",
+      "sourceBatch": "Batch-436",
+      "probeBatch": "Batch-931",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "Boolean IsFlowSuppressed()",
+      "sourceBatch": "Batch-437",
+      "probeBatch": "Batch-932",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "Void Restore(System.Threading.ExecutionContext)",
+      "sourceBatch": "Batch-438",
+      "probeBatch": "Batch-933",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "Void RestoreFlow()",
+      "sourceBatch": "Batch-439",
+      "probeBatch": "Batch-934",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "Void Run(System.Threading.ExecutionContext, System.Threading.ContextCallback, System.Object)",
+      "sourceBatch": "Batch-440",
+      "probeBatch": "Batch-935",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.ExecutionContext",
+      "metadataSignature": "System.Threading.AsyncFlowControl SuppressFlow()",
+      "sourceBatch": "Batch-441",
+      "probeBatch": "Batch-936",
+      "owningSourceSha256": "d9c7027cdfa9b5b574cd1cf7982619392db38b8e95c074a019c03b7feb0a05e6",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.IAsyncDisposable",
+      "metadataSignature": "System.Threading.Tasks.ValueTask DisposeAsync()",
+      "sourceBatch": "Batch-442",
+      "probeBatch": "Batch-937",
+      "owningSourceSha256": "7d590f4f940af702f8d3797655412cdc64435a0cc6454985685e415ee5fe817f",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.IDisposable",
+      "metadataSignature": "Void Dispose()",
+      "sourceBatch": "Batch-443",
+      "probeBatch": "Batch-938",
+      "owningSourceSha256": "fcb8a99af86873e4c724c09f77002fd6770ea07c202fdb701c3432235e24beae",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean Equals(System.Object)",
+      "sourceBatch": "Batch-444",
+      "probeBatch": "Batch-939",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean Equals(System.Type)",
+      "sourceBatch": "Batch-445",
+      "probeBatch": "Batch-940",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] FindInterfaces(System.Reflection.TypeFilter, System.Object)",
+      "sourceBatch": "Batch-446",
+      "probeBatch": "Batch-941",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, System.Object)",
+      "sourceBatch": "Batch-447",
+      "probeBatch": "Batch-942",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.Assembly get_Assembly()",
+      "sourceBatch": "Batch-448",
+      "probeBatch": "Batch-943",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.String get_AssemblyQualifiedName()",
+      "sourceBatch": "Batch-449",
+      "probeBatch": "Batch-944",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.TypeAttributes get_Attributes()",
+      "sourceBatch": "Batch-450",
+      "probeBatch": "Batch-945",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type get_BaseType()",
+      "sourceBatch": "Batch-451",
+      "probeBatch": "Batch-946",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_ContainsGenericParameters()",
+      "sourceBatch": "Batch-452",
+      "probeBatch": "Batch-947",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodBase get_DeclaringMethod()",
+      "sourceBatch": "Batch-453",
+      "probeBatch": "Batch-948",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type get_DeclaringType()",
+      "sourceBatch": "Batch-454",
+      "probeBatch": "Batch-949",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.Binder get_DefaultBinder()",
+      "sourceBatch": "Batch-455",
+      "probeBatch": "Batch-950",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.String get_FullName()",
+      "sourceBatch": "Batch-456",
+      "probeBatch": "Batch-951",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.GenericParameterAttributes get_GenericParameterAttributes()",
+      "sourceBatch": "Batch-457",
+      "probeBatch": "Batch-952",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Int32 get_GenericParameterPosition()",
+      "sourceBatch": "Batch-458",
+      "probeBatch": "Batch-953",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] get_GenericTypeArguments()",
+      "sourceBatch": "Batch-459",
+      "probeBatch": "Batch-954",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Guid get_GUID()",
+      "sourceBatch": "Batch-460",
+      "probeBatch": "Batch-955",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_HasElementType()",
+      "sourceBatch": "Batch-461",
+      "probeBatch": "Batch-956",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsAbstract()",
+      "sourceBatch": "Batch-462",
+      "probeBatch": "Batch-957",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsAnsiClass()",
+      "sourceBatch": "Batch-463",
+      "probeBatch": "Batch-958",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsArray()",
+      "sourceBatch": "Batch-464",
+      "probeBatch": "Batch-959",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsAutoClass()",
+      "sourceBatch": "Batch-465",
+      "probeBatch": "Batch-960",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsAutoLayout()",
+      "sourceBatch": "Batch-466",
+      "probeBatch": "Batch-961",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsByRef()",
+      "sourceBatch": "Batch-467",
+      "probeBatch": "Batch-962",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsByRefLike()",
+      "sourceBatch": "Batch-468",
+      "probeBatch": "Batch-963",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsClass()",
+      "sourceBatch": "Batch-469",
+      "probeBatch": "Batch-964",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsCOMObject()",
+      "sourceBatch": "Batch-470",
+      "probeBatch": "Batch-965",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsConstructedGenericType()",
+      "sourceBatch": "Batch-471",
+      "probeBatch": "Batch-966",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsContextful()",
+      "sourceBatch": "Batch-472",
+      "probeBatch": "Batch-967",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsEnum()",
+      "sourceBatch": "Batch-473",
+      "probeBatch": "Batch-968",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsExplicitLayout()",
+      "sourceBatch": "Batch-474",
+      "probeBatch": "Batch-969",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsFunctionPointer()",
+      "sourceBatch": "Batch-475",
+      "probeBatch": "Batch-970",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsGenericMethodParameter()",
+      "sourceBatch": "Batch-476",
+      "probeBatch": "Batch-971",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsGenericParameter()",
+      "sourceBatch": "Batch-477",
+      "probeBatch": "Batch-972",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsGenericType()",
+      "sourceBatch": "Batch-478",
+      "probeBatch": "Batch-973",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsGenericTypeDefinition()",
+      "sourceBatch": "Batch-479",
+      "probeBatch": "Batch-974",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsGenericTypeParameter()",
+      "sourceBatch": "Batch-480",
+      "probeBatch": "Batch-975",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsImport()",
+      "sourceBatch": "Batch-481",
+      "probeBatch": "Batch-976",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsInterface()",
+      "sourceBatch": "Batch-482",
+      "probeBatch": "Batch-977",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsLayoutSequential()",
+      "sourceBatch": "Batch-483",
+      "probeBatch": "Batch-978",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsMarshalByRef()",
+      "sourceBatch": "Batch-484",
+      "probeBatch": "Batch-979",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsNested()",
+      "sourceBatch": "Batch-485",
+      "probeBatch": "Batch-980",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsNestedAssembly()",
+      "sourceBatch": "Batch-486",
+      "probeBatch": "Batch-981",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsNestedFamANDAssem()",
+      "sourceBatch": "Batch-487",
+      "probeBatch": "Batch-982",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsNestedFamily()",
+      "sourceBatch": "Batch-488",
+      "probeBatch": "Batch-983",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsNestedFamORAssem()",
+      "sourceBatch": "Batch-489",
+      "probeBatch": "Batch-984",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsNestedPrivate()",
+      "sourceBatch": "Batch-490",
+      "probeBatch": "Batch-985",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsNestedPublic()",
+      "sourceBatch": "Batch-491",
+      "probeBatch": "Batch-986",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsNotPublic()",
+      "sourceBatch": "Batch-492",
+      "probeBatch": "Batch-987",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsPointer()",
+      "sourceBatch": "Batch-493",
+      "probeBatch": "Batch-988",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsPrimitive()",
+      "sourceBatch": "Batch-494",
+      "probeBatch": "Batch-989",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsPublic()",
+      "sourceBatch": "Batch-495",
+      "probeBatch": "Batch-990",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsSealed()",
+      "sourceBatch": "Batch-496",
+      "probeBatch": "Batch-991",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsSecurityCritical()",
+      "sourceBatch": "Batch-497",
+      "probeBatch": "Batch-992",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsSecuritySafeCritical()",
+      "sourceBatch": "Batch-498",
+      "probeBatch": "Batch-993",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsSecurityTransparent()",
+      "sourceBatch": "Batch-499",
+      "probeBatch": "Batch-994",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsSerializable()",
+      "sourceBatch": "Batch-500",
+      "probeBatch": "Batch-995",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsSignatureType()",
+      "sourceBatch": "Batch-501",
+      "probeBatch": "Batch-996",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsSpecialName()",
+      "sourceBatch": "Batch-502",
+      "probeBatch": "Batch-997",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsSZArray()",
+      "sourceBatch": "Batch-503",
+      "probeBatch": "Batch-998",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsTypeDefinition()",
+      "sourceBatch": "Batch-504",
+      "probeBatch": "Batch-999",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsUnicodeClass()",
+      "sourceBatch": "Batch-505",
+      "probeBatch": "Batch-1002",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsUnmanagedFunctionPointer()",
+      "sourceBatch": "Batch-506",
+      "probeBatch": "Batch-1003",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsValueType()",
+      "sourceBatch": "Batch-507",
+      "probeBatch": "Batch-1004",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsVariableBoundArray()",
+      "sourceBatch": "Batch-508",
+      "probeBatch": "Batch-1005",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean get_IsVisible()",
+      "sourceBatch": "Batch-509",
+      "probeBatch": "Batch-1006",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberTypes get_MemberType()",
+      "sourceBatch": "Batch-510",
+      "probeBatch": "Batch-1007",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.Module get_Module()",
+      "sourceBatch": "Batch-511",
+      "probeBatch": "Batch-1008",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.String get_Namespace()",
+      "sourceBatch": "Batch-512",
+      "probeBatch": "Batch-1009",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type get_ReflectedType()",
+      "sourceBatch": "Batch-513",
+      "probeBatch": "Batch-1010",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Runtime.InteropServices.StructLayoutAttribute get_StructLayoutAttribute()",
+      "sourceBatch": "Batch-514",
+      "probeBatch": "Batch-1011",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.RuntimeTypeHandle get_TypeHandle()",
+      "sourceBatch": "Batch-515",
+      "probeBatch": "Batch-1012",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.ConstructorInfo get_TypeInitializer()",
+      "sourceBatch": "Batch-516",
+      "probeBatch": "Batch-1013",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type get_UnderlyingSystemType()",
+      "sourceBatch": "Batch-517",
+      "probeBatch": "Batch-1014",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Int32 GetArrayRank()",
+      "sourceBatch": "Batch-518",
+      "probeBatch": "Batch-1015",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-519",
+      "probeBatch": "Batch-1016",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-520",
+      "probeBatch": "Batch-1017",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Type[])",
+      "sourceBatch": "Batch-521",
+      "probeBatch": "Batch-1018",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.ConstructorInfo GetConstructor(System.Type[])",
+      "sourceBatch": "Batch-522",
+      "probeBatch": "Batch-1019",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.ConstructorInfo[] GetConstructors()",
+      "sourceBatch": "Batch-523",
+      "probeBatch": "Batch-1020",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-524",
+      "probeBatch": "Batch-1021",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberInfo[] GetDefaultMembers()",
+      "sourceBatch": "Batch-525",
+      "probeBatch": "Batch-1022",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetElementType()",
+      "sourceBatch": "Batch-526",
+      "probeBatch": "Batch-1023",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.String GetEnumName(System.Object)",
+      "sourceBatch": "Batch-527",
+      "probeBatch": "Batch-1024",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.String[] GetEnumNames()",
+      "sourceBatch": "Batch-528",
+      "probeBatch": "Batch-1025",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetEnumUnderlyingType()",
+      "sourceBatch": "Batch-529",
+      "probeBatch": "Batch-1026",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Array GetEnumValues()",
+      "sourceBatch": "Batch-530",
+      "probeBatch": "Batch-1027",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Array GetEnumValuesAsUnderlyingType()",
+      "sourceBatch": "Batch-531",
+      "probeBatch": "Batch-1028",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.EventInfo GetEvent(System.String, System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-532",
+      "probeBatch": "Batch-1029",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.EventInfo GetEvent(System.String)",
+      "sourceBatch": "Batch-533",
+      "probeBatch": "Batch-1030",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.EventInfo[] GetEvents()",
+      "sourceBatch": "Batch-534",
+      "probeBatch": "Batch-1031",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.EventInfo[] GetEvents(System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-535",
+      "probeBatch": "Batch-1032",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.FieldInfo GetField(System.String, System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-536",
+      "probeBatch": "Batch-1033",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.FieldInfo GetField(System.String)",
+      "sourceBatch": "Batch-537",
+      "probeBatch": "Batch-1034",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.FieldInfo[] GetFields()",
+      "sourceBatch": "Batch-538",
+      "probeBatch": "Batch-1035",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.FieldInfo[] GetFields(System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-539",
+      "probeBatch": "Batch-1036",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetFunctionPointerCallingConventions()",
+      "sourceBatch": "Batch-540",
+      "probeBatch": "Batch-1037",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetFunctionPointerParameterTypes()",
+      "sourceBatch": "Batch-541",
+      "probeBatch": "Batch-1038",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetFunctionPointerReturnType()",
+      "sourceBatch": "Batch-542",
+      "probeBatch": "Batch-1039",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetGenericArguments()",
+      "sourceBatch": "Batch-543",
+      "probeBatch": "Batch-1040",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetGenericParameterConstraints()",
+      "sourceBatch": "Batch-544",
+      "probeBatch": "Batch-1041",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetGenericTypeDefinition()",
+      "sourceBatch": "Batch-545",
+      "probeBatch": "Batch-1042",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Int32 GetHashCode()",
+      "sourceBatch": "Batch-546",
+      "probeBatch": "Batch-1043",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetInterface(System.String, Boolean)",
+      "sourceBatch": "Batch-547",
+      "probeBatch": "Batch-1044",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetInterface(System.String)",
+      "sourceBatch": "Batch-548",
+      "probeBatch": "Batch-1045",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.InterfaceMapping GetInterfaceMap(System.Type)",
+      "sourceBatch": "Batch-549",
+      "probeBatch": "Batch-1046",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetInterfaces()",
+      "sourceBatch": "Batch-550",
+      "probeBatch": "Batch-1047",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-551",
+      "probeBatch": "Batch-1048",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-552",
+      "probeBatch": "Batch-1049",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberInfo[] GetMember(System.String)",
+      "sourceBatch": "Batch-553",
+      "probeBatch": "Batch-1050",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberInfo[] GetMembers()",
+      "sourceBatch": "Batch-554",
+      "probeBatch": "Batch-1051",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-555",
+      "probeBatch": "Batch-1052",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MemberInfo GetMemberWithSameMetadataDefinitionAs(System.Reflection.MemberInfo)",
+      "sourceBatch": "Batch-556",
+      "probeBatch": "Batch-1053",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-557",
+      "probeBatch": "Batch-1054",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-558",
+      "probeBatch": "Batch-1055",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Type[])",
+      "sourceBatch": "Batch-559",
+      "probeBatch": "Batch-1056",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-560",
+      "probeBatch": "Batch-1057",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Type[])",
+      "sourceBatch": "Batch-561",
+      "probeBatch": "Batch-1058",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-562",
+      "probeBatch": "Batch-1059",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-563",
+      "probeBatch": "Batch-1060",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Type[])",
+      "sourceBatch": "Batch-564",
+      "probeBatch": "Batch-1061",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-565",
+      "probeBatch": "Batch-1062",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-566",
+      "probeBatch": "Batch-1063",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String, System.Type[])",
+      "sourceBatch": "Batch-567",
+      "probeBatch": "Batch-1064",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo GetMethod(System.String)",
+      "sourceBatch": "Batch-568",
+      "probeBatch": "Batch-1065",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo[] GetMethods()",
+      "sourceBatch": "Batch-569",
+      "probeBatch": "Batch-1066",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-570",
+      "probeBatch": "Batch-1067",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetNestedType(System.String, System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-571",
+      "probeBatch": "Batch-1068",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetNestedType(System.String)",
+      "sourceBatch": "Batch-572",
+      "probeBatch": "Batch-1069",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetNestedTypes()",
+      "sourceBatch": "Batch-573",
+      "probeBatch": "Batch-1070",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetNestedTypes(System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-574",
+      "probeBatch": "Batch-1071",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetOptionalCustomModifiers()",
+      "sourceBatch": "Batch-575",
+      "probeBatch": "Batch-1072",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo[] GetProperties()",
+      "sourceBatch": "Batch-576",
+      "probeBatch": "Batch-1073",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-577",
+      "probeBatch": "Batch-1074",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-578",
+      "probeBatch": "Batch-1075",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Reflection.BindingFlags)",
+      "sourceBatch": "Batch-579",
+      "probeBatch": "Batch-1076",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type, System.Type[], System.Reflection.ParameterModifier[])",
+      "sourceBatch": "Batch-580",
+      "probeBatch": "Batch-1077",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type, System.Type[])",
+      "sourceBatch": "Batch-581",
+      "probeBatch": "Batch-1078",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type)",
+      "sourceBatch": "Batch-582",
+      "probeBatch": "Batch-1079",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type[])",
+      "sourceBatch": "Batch-583",
+      "probeBatch": "Batch-1080",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Reflection.PropertyInfo GetProperty(System.String)",
+      "sourceBatch": "Batch-584",
+      "probeBatch": "Batch-1081",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetRequiredCustomModifiers()",
+      "sourceBatch": "Batch-585",
+      "probeBatch": "Batch-1082",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType()",
+      "sourceBatch": "Batch-586",
+      "probeBatch": "Batch-1083",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, Boolean, Boolean)",
+      "sourceBatch": "Batch-587",
+      "probeBatch": "Batch-1084",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, Boolean)",
+      "sourceBatch": "Batch-588",
+      "probeBatch": "Batch-1085",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean, Boolean)",
+      "sourceBatch": "Batch-589",
+      "probeBatch": "Batch-1086",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "BACKEND_CANDIDATE_BOXED_GENERIC_SEMANTICS_UNVERIFIED",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean)",
+      "sourceBatch": "Batch-590",
+      "probeBatch": "Batch-1087",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "BACKEND_CANDIDATE_BOXED_GENERIC_SEMANTICS_UNVERIFIED",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])",
+      "sourceBatch": "Batch-591",
+      "probeBatch": "Batch-1088",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "BACKEND_CANDIDATE_BOXED_GENERIC_SEMANTICS_UNVERIFIED",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String)",
+      "sourceBatch": "Batch-592",
+      "probeBatch": "Batch-1089",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type[] GetTypeArray(System.Object[])",
+      "sourceBatch": "Batch-593",
+      "probeBatch": "Batch-1090",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.TypeCode GetTypeCode(System.Type)",
+      "sourceBatch": "Batch-594",
+      "probeBatch": "Batch-1091",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromCLSID(System.Guid, Boolean)",
+      "sourceBatch": "Batch-595",
+      "probeBatch": "Batch-1092",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromCLSID(System.Guid, System.String, Boolean)",
+      "sourceBatch": "Batch-596",
+      "probeBatch": "Batch-1093",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromCLSID(System.Guid, System.String)",
+      "sourceBatch": "Batch-597",
+      "probeBatch": "Batch-1094",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromCLSID(System.Guid)",
+      "sourceBatch": "Batch-598",
+      "probeBatch": "Batch-1095",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromHandle(System.RuntimeTypeHandle)",
+      "sourceBatch": "Batch-599",
+      "probeBatch": "Batch-1096",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromProgID(System.String, Boolean)",
+      "sourceBatch": "Batch-600",
+      "probeBatch": "Batch-1097",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromProgID(System.String, System.String, Boolean)",
+      "sourceBatch": "Batch-601",
+      "probeBatch": "Batch-1098",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromProgID(System.String, System.String)",
+      "sourceBatch": "Batch-602",
+      "probeBatch": "Batch-1099",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetTypeFromProgID(System.String)",
+      "sourceBatch": "Batch-603",
+      "probeBatch": "Batch-1100",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.RuntimeTypeHandle GetTypeHandle(System.Object)",
+      "sourceBatch": "Batch-604",
+      "probeBatch": "Batch-1101",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Globalization.CultureInfo)",
+      "sourceBatch": "Batch-605",
+      "probeBatch": "Batch-1102",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[])",
+      "sourceBatch": "Batch-606",
+      "probeBatch": "Batch-1103",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[])",
+      "sourceBatch": "Batch-607",
+      "probeBatch": "Batch-1104",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean IsAssignableFrom(System.Type)",
+      "sourceBatch": "Batch-608",
+      "probeBatch": "Batch-1105",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean IsAssignableTo(System.Type)",
+      "sourceBatch": "Batch-609",
+      "probeBatch": "Batch-1106",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean IsEnumDefined(System.Object)",
+      "sourceBatch": "Batch-610",
+      "probeBatch": "Batch-1107",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean IsEquivalentTo(System.Type)",
+      "sourceBatch": "Batch-611",
+      "probeBatch": "Batch-1108",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean IsInstanceOfType(System.Object)",
+      "sourceBatch": "Batch-612",
+      "probeBatch": "Batch-1109",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean IsSubclassOf(System.Type)",
+      "sourceBatch": "Batch-613",
+      "probeBatch": "Batch-1110",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type MakeArrayType()",
+      "sourceBatch": "Batch-614",
+      "probeBatch": "Batch-1111",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type MakeArrayType(Int32)",
+      "sourceBatch": "Batch-615",
+      "probeBatch": "Batch-1112",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type MakeByRefType()",
+      "sourceBatch": "Batch-616",
+      "probeBatch": "Batch-1113",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type MakeGenericMethodParameter(Int32)",
+      "sourceBatch": "Batch-617",
+      "probeBatch": "Batch-1114",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type MakeGenericSignatureType(System.Type, System.Type[])",
+      "sourceBatch": "Batch-618",
+      "probeBatch": "Batch-1115",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type MakeGenericType(System.Type[])",
+      "sourceBatch": "Batch-619",
+      "probeBatch": "Batch-1116",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type MakePointerType()",
+      "sourceBatch": "Batch-620",
+      "probeBatch": "Batch-1117",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean op_Equality(System.Type, System.Type)",
+      "sourceBatch": "Batch-621",
+      "probeBatch": "Batch-1118",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "Boolean op_Inequality(System.Type, System.Type)",
+      "sourceBatch": "Batch-622",
+      "probeBatch": "Batch-1119",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type ReflectionOnlyGetType(System.String, Boolean, Boolean)",
+      "sourceBatch": "Batch-623",
+      "probeBatch": "Batch-1120",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Type",
+      "metadataSignature": "System.String ToString()",
+      "sourceBatch": "Batch-624",
+      "probeBatch": "Batch-1121",
+      "owningSourceSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean Equals(System.Object)",
+      "sourceBatch": "Batch-625",
+      "probeBatch": "Batch-1122",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean Equals(System.Threading.Tasks.ValueTask`1[TResult])",
+      "sourceBatch": "Batch-626",
+      "probeBatch": "Batch-1123",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Int32 GetHashCode()",
+      "sourceBatch": "Batch-627",
+      "probeBatch": "Batch-1124",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean op_Equality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+      "sourceBatch": "Batch-628",
+      "probeBatch": "Batch-1125",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "BACKEND_CANDIDATE_STATIC_GENERIC_SCOPE_CHANGE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean op_Inequality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+      "sourceBatch": "Batch-629",
+      "probeBatch": "Batch-1126",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "BACKEND_CANDIDATE_STATIC_GENERIC_SCOPE_CHANGE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean Equals(System.Object)",
+      "sourceBatch": "Batch-630",
+      "probeBatch": "Batch-1127",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean Equals(System.Threading.Tasks.ValueTask)",
+      "sourceBatch": "Batch-631",
+      "probeBatch": "Batch-1128",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-632",
+      "probeBatch": "Batch-1129",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-633",
+      "probeBatch": "Batch-1130",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask FromException(System.Exception)",
+      "sourceBatch": "Batch-634",
+      "probeBatch": "Batch-1131",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromException[TResult](System.Exception)",
+      "sourceBatch": "Batch-635",
+      "probeBatch": "Batch-1132",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Int32 GetHashCode()",
+      "sourceBatch": "Batch-636",
+      "probeBatch": "Batch-1133",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean op_Equality(System.Threading.Tasks.ValueTask, System.Threading.Tasks.ValueTask)",
+      "sourceBatch": "Batch-637",
+      "probeBatch": "Batch-1134",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "Boolean op_Inequality(System.Threading.Tasks.ValueTask, System.Threading.Tasks.ValueTask)",
+      "sourceBatch": "Batch-638",
+      "probeBatch": "Batch-1135",
+      "owningSourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "Int32 GetHashCode()",
+      "sourceBatch": "Batch-639",
+      "probeBatch": "Batch-1136",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "Boolean op_Equality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)",
+      "sourceBatch": "Batch-640",
+      "probeBatch": "Batch-1137",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenRegistration",
+      "metadataSignature": "Boolean op_Inequality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)",
+      "sourceBatch": "Batch-641",
+      "probeBatch": "Batch-1138",
+      "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationTokenSource",
+      "metadataSignature": "Boolean get_IsCancellationRequested()",
+      "sourceBatch": "Batch-642",
+      "probeBatch": "Batch-1139",
+      "owningSourceSha256": "4a00a64db628014b35fa85e5ef490265c47f3c3284175ba8f0b6405bdaee7d30",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "Int32 GetHashCode()",
+      "sourceBatch": "Batch-643",
+      "probeBatch": "Batch-1140",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "Boolean op_Equality(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-644",
+      "probeBatch": "Batch-1141",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "Boolean op_Inequality(System.Threading.CancellationToken, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-645",
+      "probeBatch": "Batch-1142",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.CancellationTokenRegistration Register(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object)",
+      "sourceBatch": "Batch-646",
+      "probeBatch": "Batch-1143",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.CancellationToken",
+      "metadataSignature": "System.Threading.CancellationTokenRegistration UnsafeRegister(System.Action`2[System.Object,System.Threading.CancellationToken], System.Object)",
+      "sourceBatch": "Batch-647",
+      "probeBatch": "Batch-1144",
+      "owningSourceSha256": "3c32b6774a69464667352a9e2602bc924c57674f811c382e29abe8dbe3639f4c",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-648",
+      "probeBatch": "Batch-1145",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-649",
+      "probeBatch": "Batch-1146",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+      "sourceBatch": "Batch-650",
+      "probeBatch": "Batch-1147",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-651",
+      "probeBatch": "Batch-1148",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task ContinueWith(System.Action`2[System.Threading.Tasks.Task`1[TResult],System.Object], System.Object)",
+      "sourceBatch": "Batch-652",
+      "probeBatch": "Batch-1149",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-653",
+      "probeBatch": "Batch-1150",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-654",
+      "probeBatch": "Batch-1151",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskContinuationOptions)",
+      "sourceBatch": "Batch-655",
+      "probeBatch": "Batch-1152",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult], System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-656",
+      "probeBatch": "Batch-1153",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`2[System.Threading.Tasks.Task`1[TResult],TNewResult])",
+      "sourceBatch": "Batch-657",
+      "probeBatch": "Batch-1154",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken, System.Threading.Tasks.TaskContinuationOptions, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-658",
+      "probeBatch": "Batch-1155",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-659",
+      "probeBatch": "Batch-1156",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.Tasks.TaskContinuationOptions)",
+      "sourceBatch": "Batch-660",
+      "probeBatch": "Batch-1157",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object, System.Threading.Tasks.TaskScheduler)",
+      "sourceBatch": "Batch-661",
+      "probeBatch": "Batch-1158",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task`1",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TNewResult] ContinueWith[TNewResult](System.Func`3[System.Threading.Tasks.Task`1[TResult],System.Object,TNewResult], System.Object)",
+      "sourceBatch": "Batch-662",
+      "probeBatch": "Batch-1159",
+      "owningSourceSha256": "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void Dispose()",
+      "sourceBatch": "Batch-663",
+      "probeBatch": "Batch-1160",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)",
+      "sourceBatch": "Batch-664",
+      "probeBatch": "Batch-1161",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Nullable`1[System.Int32] get_CurrentId()",
+      "sourceBatch": "Batch-665",
+      "probeBatch": "Batch-1162",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BACKEND_CANDIDATE_BOXED_GENERIC_SEMANTICS_UNVERIFIED",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.TaskFactory get_Factory()",
+      "sourceBatch": "Batch-666",
+      "probeBatch": "Batch-1163",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean WaitAll(System.Threading.Tasks.Task[], Int32, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-667",
+      "probeBatch": "Batch-1164",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean WaitAll(System.Threading.Tasks.Task[], Int32)",
+      "sourceBatch": "Batch-668",
+      "probeBatch": "Batch-1165",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Boolean WaitAll(System.Threading.Tasks.Task[], System.TimeSpan)",
+      "sourceBatch": "Batch-669",
+      "probeBatch": "Batch-1166",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void WaitAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-670",
+      "probeBatch": "Batch-1167",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BACKEND_CANDIDATE_OPTIONAL_DEFAULT_UNVERIFIED",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void WaitAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-671",
+      "probeBatch": "Batch-1168",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void WaitAll(System.Threading.Tasks.Task[], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-672",
+      "probeBatch": "Batch-1169",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Void WaitAll(System.Threading.Tasks.Task[])",
+      "sourceBatch": "Batch-673",
+      "probeBatch": "Batch-1170",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Int32 WaitAny(System.Threading.Tasks.Task[], Int32, System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-674",
+      "probeBatch": "Batch-1171",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Int32 WaitAny(System.Threading.Tasks.Task[], Int32)",
+      "sourceBatch": "Batch-675",
+      "probeBatch": "Batch-1172",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Int32 WaitAny(System.Threading.Tasks.Task[], System.Threading.CancellationToken)",
+      "sourceBatch": "Batch-676",
+      "probeBatch": "Batch-1173",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Int32 WaitAny(System.Threading.Tasks.Task[], System.TimeSpan)",
+      "sourceBatch": "Batch-677",
+      "probeBatch": "Batch-1174",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "Int32 WaitAny(System.Threading.Tasks.Task[])",
+      "sourceBatch": "Batch-678",
+      "probeBatch": "Batch-1175",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-679",
+      "probeBatch": "Batch-1176",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-680",
+      "probeBatch": "Batch-1177",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.Threading.Tasks.Task[])",
+      "sourceBatch": "Batch-681",
+      "probeBatch": "Batch-1178",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceBatch": "Batch-682",
+      "probeBatch": "Batch-1179",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceBatch": "Batch-683",
+      "probeBatch": "Batch-1180",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Threading.Tasks.Task`1[TResult][])",
+      "sourceBatch": "Batch-684",
+      "probeBatch": "Batch-1181",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-685",
+      "probeBatch": "Batch-1182",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-686",
+      "probeBatch": "Batch-1183",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Threading.Tasks.Task, System.Threading.Tasks.Task)",
+      "sourceBatch": "Batch-687",
+      "probeBatch": "Batch-1184",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Threading.Tasks.Task[])",
+      "sourceBatch": "Batch-688",
+      "probeBatch": "Batch-1185",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceBatch": "Batch-689",
+      "probeBatch": "Batch-1186",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceBatch": "Batch-690",
+      "probeBatch": "Batch-1187",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Threading.Tasks.Task`1[TResult], System.Threading.Tasks.Task`1[TResult])",
+      "sourceBatch": "Batch-691",
+      "probeBatch": "Batch-1188",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Threading.Tasks.Task`1[TResult][])",
+      "sourceBatch": "Batch-692",
+      "probeBatch": "Batch-1189",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-693",
+      "probeBatch": "Batch-1190",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+      "sourceBatch": "Batch-694",
+      "probeBatch": "Batch-1191",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Threading.Tasks.Task[])",
+      "sourceBatch": "Batch-695",
+      "probeBatch": "Batch-1192",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceBatch": "Batch-696",
+      "probeBatch": "Batch-1193",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceBatch": "Batch-697",
+      "probeBatch": "Batch-1194",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "BLOCKED_PUBLIC_EXACT_NAME_JVM_ERASURE",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Threading.Tasks.Task`1[TResult][])",
+      "sourceBatch": "Batch-698",
+      "probeBatch": "Batch-1195",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Runtime.CompilerServices.YieldAwaitable Yield()",
+      "sourceBatch": "Batch-699",
+      "probeBatch": "Batch-1196",
+      "owningSourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "disposition": "INDIVIDUAL_SYNTAX_ONLY",
+      "publicBehaviorQualified": false
+    }
+  ]
+}
