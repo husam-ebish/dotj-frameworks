@@ -311,6 +311,14 @@ Run("waitAsyncZeroTimeoutFaulted", () =>
     Check(waiting.IsFaulted && ReferenceEquals(waiting.Exception?.InnerException, failure), "source fault identity changed");
 });
 
+Run("waitAsyncZeroTimeoutCanceled", () =>
+{
+    Task<int> source = Task.FromCanceled<int>(new CancellationToken(canceled: true));
+    Task<int> waiting = source.WaitAsync(TimeSpan.Zero);
+    CheckThrows<TaskCanceledException>(() => waiting.GetAwaiter().GetResult(), "source cancellation before zero timeout");
+    Check(waiting.IsCanceled && source.IsCanceled, "source cancellation changed");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
