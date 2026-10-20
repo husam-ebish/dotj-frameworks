@@ -30,6 +30,7 @@ public final class CancellationBoundaryTest {
         rescheduledTimer();
         closeCancelsTimer();
         resetRemovesCallbacks();
+        resetCanceledSource();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -174,6 +175,11 @@ public final class CancellationBoundaryTest {
         source.token().register(calls::incrementAndGet);
         if (!source.tryReset()) throw new AssertionError("Reset rejected"); source.cancel();
         if (calls.get() != 0) throw new AssertionError("Stale callback ran"); source.close();
+    }
+
+    private static void resetCanceledSource() throws Exception {
+        CancellationSource source = new CancellationSource(); source.cancel();
+        if (source.tryReset()) throw new AssertionError("Canceled source reset"); source.close();
     }
 
     // Next bounded method.
