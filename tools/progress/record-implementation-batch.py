@@ -78,9 +78,17 @@ def record(args):
     plan_source = args.plan_source or progress.get("batchPlan", {}).get("source", "planning/stage-2/implementation/BATCH-PLAN-v1.json")
     plan = json.loads((ROOT / plan_source).read_text(encoding="utf-8"))
     total_batches = plan["plannedTotalBatches"]
-    assert args.number <= total_batches, "Rebaseline the batch plan before exhausting it"
+    open_acceptance = None
+    if plan["planVersion"] == "stage-2-batches-v7":
+        assert 701 <= args.number <= 1200, "The current request ends at Batch-1200"
+        accepted = sum(task["status"] == "COMPLETE" for item in progress["frameworks"] for task in item["tasks"])
+        accepted += sum(status == "COMPLETE" for item in progress["frameworks"] for status in item["outstandingPreparationAndQualificationGates"].values())
+        open_acceptance = plan["reservedAcceptanceSlots"] - accepted
+        assert open_acceptance >= 0
+    else:
+        assert args.number <= total_batches, "Rebaseline the batch plan before exhausting it"
     acceptance_start = plan["historicalCompletedBatches"] + plan["baselineBatchSlots"] + plan.get("scheduledEvidenceBatchSlots", 0)
-    if args.number > acceptance_start:
+    if plan["planVersion"] != "stage-2-batches-v7" and args.number > acceptance_start:
         accepted = sum(task["status"] == "COMPLETE" for item in progress["frameworks"] for task in item["tasks"])
         accepted += sum(status == "COMPLETE" for item in progress["frameworks"] for status in item["outstandingPreparationAndQualificationGates"].values())
         assert accepted - plan.get("acceptedItemsAtBaseline", 0) == args.number - acceptance_start, "Accepted items and post-baseline batches differ; rebaseline the plan"
@@ -89,15 +97,17 @@ def record(args):
         "source": plan_source,
         "plannedTotalBatches": total_batches,
         "completedBatches": args.number,
-        "remainingPlannedBatches": total_batches - args.number,
-        "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes",
+        "remainingPlannedBatches": None if total_batches is None else total_batches - args.number,
+        "outstandingAcceptanceItems": open_acceptance,
+        "requestedSeries": {"firstBatch": "Batch-701", "lastBatch": "Batch-1200", "completed": args.number - 700, "remaining": 1200 - args.number} if open_acceptance is not None else None,
+        "status": "Future batch count UNKNOWN; report accepted work and requested series separately" if open_acceptance is not None else "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes",
     }
     progress["nextProposedBatch"] = {
         "id": following,
         "framework": "dotj-core",
         "planTaskIds": [args.next_task],
         "outcome": args.next_outcome,
-        "requiresContinue": True,
+        "requiresContinue": args.number >= 1200 if open_acceptance is not None else True,
     }
     save_json(progress_path, progress)
 
@@ -107,12 +117,17 @@ def record(args):
     state = re.sub(r"Completed batches: `Batch-001` through `Batch-\d{3}`", f"Completed batches: `Batch-001` through `{current}`", state, count=1)
     state = re.sub(r"Implementation percentage: \*\*.*?\*\*\. .*?(?=\n- Batch tracking:)",
                    "Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.", state, count=1, flags=re.S)
-    state = re.sub(r"Batch tracking: .*?The next proposed batch is `Batch-\d{3}`\.",
-                   f"Batch tracking: {args.number:,}/{total_batches:,} planned batches completed under `{plan['planVersion']}`; {total_batches - args.number:,} planned batches remain. This is a versioned scheduling estimate. The next proposed batch is `{following}`.", state, count=1)
+    tracking_line = (f"Batch tracking: {args.number:,} historical batches completed under `{plan['planVersion']}`; the exact number of future batches is unknown. "
+                     f"{open_acceptance:,} acceptance items remain; {1200 - args.number:,} batches remain in the current 500-batch request. The next proposed batch is `{following}`."
+                     if open_acceptance is not None else
+                     f"Batch tracking: {args.number:,}/{total_batches:,} planned batches completed under `{plan['planVersion']}`; {total_batches - args.number:,} planned batches remain. This is a versioned scheduling estimate. The next proposed batch is `{following}`.")
+    state = re.sub(r"Batch tracking: .*?The next proposed batch is `Batch-\d{3}`\.", tracking_line, state, count=1)
     state = re.sub(r"Proposed `Batch-\d{3}`:.*", f"Proposed `{following}`: {args.next_outcome}", state, count=1)
+    continuation = ("The current 500-batch request authorizes the next batch." if open_acceptance is not None and args.number < 1200
+                    else "A new CONTINUE signal is needed to start the next batch.")
     state = re.sub(r"See \[Batch-\d{3}\]\(implementation/batches/Batch-\d{3}\.md\).*",
                    f"See [{current}](implementation/batches/{current}.md) for the latest validation record and limitations. " +
-                   "A new CONTINUE signal is needed to start the next batch.", state, count=1)
+                   continuation, state, count=1)
     marker = "- E02, E03 and N01: **IN PROGRESS**"
     assert marker in state
     state = state.replace(marker, f"- {current}: {args.outcome} {args.limitation}\n{marker}", 1)
@@ -131,6 +146,18 @@ def record(args):
         series_row = f"| Requested 100-point series | **{args.number - 300} / 100 complete** (`Batch-301` through `Batch-400`) |\n"
     if plan["planVersion"] == "stage-2-batches-v6" and 401 <= args.number <= 700:
         series_row = f"| Requested 300-point series | **{args.number - 400} / 300 complete** (`Batch-401` through `Batch-700`) |\n"
+    if plan["planVersion"] == "stage-2-batches-v7":
+        series_row = f"| Requested 500-point series | **{args.number - 700} / 500 complete** (`Batch-701` through `Batch-1200`) |\n"
+    batch_row = (f"| Batches completed | **{args.number:,}**; future total unknown (`{plan['planVersion']}`) |\n"
+                 f"| Outstanding acceptance items | **{open_acceptance:,}**: 330 gates + 264 naming tasks + 1,092 implementation tasks, less accepted items |\n"
+                 if open_acceptance is not None else
+                 f"| Batches completed / planned | **{args.number:,} / {total_batches:,} ({args.number / total_batches * 100:.2f}%)** (`{plan['planVersion']}`) |\n")
+    remaining_row = (f"| Batches still to do | **{1200 - args.number:,} in this request**; exact project total unknown |"
+                     if open_acceptance is not None else
+                     f"| Batches still to do | **{total_batches - args.number:,} planned**; revise the denominator in a new plan version when scope or batch granularity changes |")
+    closing_line = ("**This batch is complete. The current 500-batch request authorizes the next batch.**"
+                    if open_acceptance is not None and args.number < 1200 else
+                    "**STOPPED. Waiting for your CONTINUE signal before starting the next batch.**")
     report_path.write_text(f"""# {current} report
 
 | Field | Result |
@@ -151,8 +178,7 @@ def record(args):
 | Remaining implementation tasks | **1,092 (100.00%)** |
 | Frameworks fully implemented and qualified | **0 / 66 (0.00%)** |
 | In-progress / not-started frameworks | **1 / 65** |
-| Batches completed / planned | **{args.number:,} / {total_batches:,} ({args.number / total_batches * 100:.2f}%)** (`{plan['planVersion']}`) |
-{series_row}| Batches still to do | **{total_batches - args.number:,} planned**; revise the denominator in a new plan version when scope or batch granularity changes |
+{batch_row}{series_row}{remaining_row}
 | Next proposed batch | `{following}`: {args.next_outcome} |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
@@ -164,7 +190,7 @@ def record(args):
 | `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Continuity and counts. |
 | `planning/stage-2/implementation/batches/{current}.md` | This report. |
 
-**STOPPED. Waiting for your CONTINUE signal before starting the next batch.**
+{closing_line}
 """, encoding="utf-8")
 
 

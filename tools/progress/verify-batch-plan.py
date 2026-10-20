@@ -14,6 +14,7 @@ PLAN_V3 = STAGE / "implementation/BATCH-PLAN-v3.json"
 PLAN_V4 = STAGE / "implementation/BATCH-PLAN-v4.json"
 PLAN_V5 = STAGE / "implementation/BATCH-PLAN-v5.json"
 PLAN_V6 = STAGE / "implementation/BATCH-PLAN-v6.json"
+PLAN_V7 = STAGE / "implementation/BATCH-PLAN-v7.json"
 EVIDENCE_SCHEDULE = STAGE / "implementation/WAITASYNC-27-POINTS.json"
 TIMED_WAIT_SCHEDULE = STAGE / "implementation/TIMED-WAIT-50-POINTS.json"
 N01_SCHEDULE = STAGE / "implementation/N01-100-POINTS.json"
@@ -47,6 +48,7 @@ def main():
     parser.add_argument("--write-v4", action="store_true", help="Schedule the 50 requested internal timed-wait batches")
     parser.add_argument("--write-v5", action="store_true", help="Schedule 99 selected N01 method checks and one audit")
     parser.add_argument("--write-v6", action="store_true", help="Schedule 327 remaining N01 methods, arity candidate, and audit")
+    parser.add_argument("--write-v7", action="store_true", help="Separate completed batches from open acceptance items")
     args = parser.parse_args()
 
     progress = json.loads(PROGRESS.read_text(encoding="utf-8"))
@@ -191,16 +193,46 @@ def main():
         print(f"CREATED {plan['planVersion']}: {plan['plannedTotalBatches']} planned batches")
         return
 
+    if args.write_v7:
+        assert not PLAN_V7.exists(), "Version 7 already exists; create a new version to revise it"
+        assert len(progress["completedBatches"]) == 700
+        old = json.loads(PLAN_V6.read_text(encoding="utf-8"))
+        plan = dict(old)
+        plan.update({
+            "planVersion": "stage-2-batches-v7",
+            "supersedes": old["planVersion"],
+            "historicalCompletedBatches": 700,
+            "baselineBatch": "Batch-700",
+            "baselineBatchSlots": 0,
+            "scheduledEvidenceBatchSlots": 0,
+            "acceptedItemsAtBaseline": 0,
+            "plannedTotalBatches": None,
+            "firstFutureBatch": "Batch-701",
+            "requestedSeries": {"firstBatch": "Batch-701", "lastBatch": "Batch-1200", "batchCount": 500},
+            "planningRule": "Count completed batches as history, the requested 500-batch series as a separate request, and the 1,686 open acceptance items as work. No exact future batch total is inferred from work items.",
+            "rebaselineReason": "Previous versions added evidence batches to an assumed one-batch-per-acceptance forecast, making the total rise while implementation stayed at zero. The exact future batch count is unknown; preserve the 1,092-task implementation denominator.",
+        })
+        PLAN_V7.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print("CREATED stage-2-batches-v7: 700 historical batches, 1,686 open acceptance items, future batch total unknown")
+        return
+
     plan_source = progress.get("batchPlan", {}).get("source", "planning/stage-2/implementation/BATCH-PLAN-v1.json")
     plan = json.loads((ROOT / plan_source).read_text(encoding="utf-8"))
-    assert plan["planVersion"] in ("stage-2-batches-v1", "stage-2-batches-v2", "stage-2-batches-v3", "stage-2-batches-v4", "stage-2-batches-v5", "stage-2-batches-v6")
+    assert plan["planVersion"] in ("stage-2-batches-v1", "stage-2-batches-v2", "stage-2-batches-v3", "stage-2-batches-v4", "stage-2-batches-v5", "stage-2-batches-v6", "stage-2-batches-v7")
     assert plan["frameworkSlots"] == rows, "Framework task inventory drift requires a new plan version"
     assert plan["reservedGateSlots"] == gate_count
     assert plan["reservedNamingTaskSlots"] == naming_count
     assert plan["reservedImplementationTaskSlots"] == implementation_count
     assert plan["reservedAcceptanceSlots"] == reserved
     expected_total = plan["historicalCompletedBatches"] + plan["baselineBatchSlots"] + plan.get("scheduledEvidenceBatchSlots", 0) + reserved
-    assert plan["plannedTotalBatches"] == expected_total
+    if plan["planVersion"] == "stage-2-batches-v7":
+        assert plan["plannedTotalBatches"] is None
+        assert plan["historicalCompletedBatches"] == 700
+        assert plan["scheduledEvidenceBatchSlots"] == 0
+        assert plan["supersedes"] == "stage-2-batches-v6"
+        assert plan["requestedSeries"] == {"firstBatch": "Batch-701", "lastBatch": "Batch-1200", "batchCount": 500}
+    else:
+        assert plan["plannedTotalBatches"] == expected_total
     if plan["planVersion"] == "stage-2-batches-v2":
         previous = json.loads(PLAN.read_text(encoding="utf-8"))
         assert plan["supersedes"] == previous["planVersion"]
@@ -261,19 +293,32 @@ def main():
     completed = progress["completedBatches"]
     assert completed == [f"Batch-{number:03d}" for number in range(1, len(completed) + 1)]
     assert len(completed) >= plan["historicalCompletedBatches"]
-    assert len(completed) <= expected_total, "Rebaseline before exhausting planned slots"
+    if plan["planVersion"] != "stage-2-batches-v7":
+        assert len(completed) <= expected_total, "Rebaseline before exhausting planned slots"
     acceptance_start = plan["historicalCompletedBatches"] + plan["baselineBatchSlots"] + plan.get("scheduledEvidenceBatchSlots", 0)
-    if len(completed) > acceptance_start:
+    if plan["planVersion"] != "stage-2-batches-v7" and len(completed) > acceptance_start:
         accepted = sum(task["status"] == "COMPLETE" for framework in progress["frameworks"] for task in framework["tasks"])
         accepted += sum(status == "COMPLETE" for framework in progress["frameworks"] for status in framework["outstandingPreparationAndQualificationGates"].values())
         assert accepted - plan.get("acceptedItemsAtBaseline", 0) == len(completed) - acceptance_start, "Accepted items and post-baseline batches differ; rebaseline the plan"
     if "batchPlan" in progress:
         tracking = progress["batchPlan"]
         assert tracking["version"] == plan["planVersion"]
-        assert tracking["plannedTotalBatches"] == expected_total
+        assert tracking["plannedTotalBatches"] == plan["plannedTotalBatches"]
         assert tracking["completedBatches"] == len(completed)
-        assert tracking["remainingPlannedBatches"] == expected_total - len(completed)
-    print(f"PASS {plan['planVersion']}: {len(completed)}/{expected_total} planned batches; {expected_total - len(completed)} remaining")
+        if plan["planVersion"] == "stage-2-batches-v7":
+            assert tracking["remainingPlannedBatches"] is None
+            accepted = sum(task["status"] == "COMPLETE" for framework in progress["frameworks"] for task in framework["tasks"])
+            accepted += sum(status == "COMPLETE" for framework in progress["frameworks"] for status in framework["outstandingPreparationAndQualificationGates"].values())
+            assert tracking["outstandingAcceptanceItems"] == reserved - accepted
+            assert tracking["requestedSeries"]["completed"] == len(completed) - 700
+            assert tracking["requestedSeries"]["remaining"] == 1200 - len(completed)
+            assert progress["nextProposedBatch"]["requiresContinue"] == (len(completed) >= 1200)
+        else:
+            assert tracking["remainingPlannedBatches"] == expected_total - len(completed)
+    if plan["planVersion"] == "stage-2-batches-v7":
+        print(f"PASS stage-2-batches-v7: {len(completed)} completed; future total unknown; {tracking['requestedSeries']['remaining']} requested batches remaining")
+    else:
+        print(f"PASS {plan['planVersion']}: {len(completed)}/{expected_total} planned batches; {expected_total - len(completed)} remaining")
     print(f"Accepted slots: {gate_count} gates + {naming_count} naming tasks + {implementation_count} implementation tasks = {reserved}")
 
 
