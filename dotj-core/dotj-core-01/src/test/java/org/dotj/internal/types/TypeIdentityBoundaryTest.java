@@ -21,6 +21,7 @@ public final class TypeIdentityBoundaryTest<T> {
         sameParameterizedIdentity();
         differentGenericArgument();
         sameNestedParameterized();
+        differentNestedArgument();
         // Next bounded case.
         System.out.println("PASS: internal type-identity boundary checks");
     }
@@ -55,6 +56,11 @@ public final class TypeIdentityBoundaryTest<T> {
     private static void sameNestedParameterized() throws Exception {
         if (!identity("nestedFirst").equals(identity("nestedSame")))
             throw new AssertionError("Equal nested parameterizations differ");
+    }
+
+    private static void differentNestedArgument() throws Exception {
+        if (identity("nestedFirst").equals(identity("nestedDifferent")))
+            throw new AssertionError("Different nested arguments shared identity");
     }
 
     // Next bounded method.
