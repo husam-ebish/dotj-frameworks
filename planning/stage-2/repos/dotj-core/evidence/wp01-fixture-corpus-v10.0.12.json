@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-042",
+  "profile": ".NET 10.0.12 / Java JDK 21 bounded WP-01 slice",
+  "designedFixturesAreUpstreamTests": false,
+  "fixtures": [
+    {
+      "id": "DJ-001-F01-01",
+      "expectation": "equal closed parameterized types share identity",
+      "java": "TypeIdentityTest passed in Batch-040",
+      "dotnetOracle": "type-identity oracle passed in Batch-041",
+      "upstreamTest": "not mapped or executed",
+      "status": "PARTIAL: one generic definition and its selected arguments"
+    },
+    {
+      "id": "DJ-001-F01-02",
+      "expectation": "different generic arguments do not share identity",
+      "java": "TypeIdentityTest passed in Batch-040",
+      "dotnetOracle": "type-identity oracle passed in Batch-041",
+      "upstreamTest": "not mapped or executed",
+      "status": "PARTIAL: one generic definition and its selected arguments"
+    },
+    {
+      "id": "DJ-001-F01-03",
+      "expectation": "supplied resources are never closed implicitly",
+      "java": "CallerOwnershipTest passed in Batch-032",
+      "dotnetOracle": "DI ownership oracle passed in Batch-034",
+      "upstreamTest": "SingletonServiceCreatedFromInstanceIsNotDisposedWhenContainerIsDisposed source-inspected, not executed",
+      "status": "PARTIAL: supplied DI singleton and internal borrowed-resource example; broader ownership paths open"
+    },
+    {
+      "id": "DJ-001-F01-04",
+      "expectation": "context values do not leak between requests",
+      "java": "ContextIsolationTest passed in Batch-038",
+      "dotnetOracle": "not yet run",
+      "upstreamTest": "not mapped or executed",
+      "status": "PARTIAL: explicit Java context adaptation; CLR ambient behavior still needs a paired oracle"
+    }
+  ],
+  "qualification": "E03 IN PROGRESS; none of the four designed fixtures qualifies full WP-01 or a public .j API",
+  "nextGap": "Run a bounded .NET AsyncLocal/ExecutionContext oracle and record the intentional explicit-context adaptation."
+}
