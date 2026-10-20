@@ -1,0 +1,195 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "selectedLedgerSha256": "d0c7e4475be4cb191ad96baeb9d44fa8b1a16ca14ab8a9473ecf3ac3f21aa9ac",
+  "remainingLedgerSha256": "6ea2d25812d6941f4265d9e2a86942be69c731198352f4b0372a0f232b10107f",
+  "erasureLoweringSha256": "70d1f5c735205fc942230837b0779e78ac46824c652e9f85c9b47faee4f04b06",
+  "collisionGroups": 12,
+  "sourceCallsCompiled": 26,
+  "consumerCompilation": "PASS: javac --release 21",
+  "scope": "Exact-type fixture selection and combined backend-call syntax only; no general .j overload resolution, Task/ValueTask behavior, or public API qualification.",
+  "calls": [
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken)",
+      "sourceCall": "Task.FromCanceled(arg0_0)",
+      "loweredCall": "Task.FromCanceled__dotj_ee6f7cb6dc24(arg0_0)",
+      "backendName": "FromCanceled__dotj_ee6f7cb6dc24"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+      "sourceCall": "Task.<String>FromCanceled(arg1_0)",
+      "loweredCall": "Task.<String>FromCanceled__dotj_2cf294bc7360(arg1_0)",
+      "backendName": "FromCanceled__dotj_2cf294bc7360"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task FromException(System.Exception)",
+      "sourceCall": "Task.FromException(arg2_0)",
+      "loweredCall": "Task.FromException__dotj_c42000a95d67(arg2_0)",
+      "backendName": "FromException__dotj_c42000a95d67"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)",
+      "sourceCall": "Task.<String>FromException(arg3_0)",
+      "loweredCall": "Task.<String>FromException__dotj_d8530b802ffd(arg3_0)",
+      "backendName": "FromException__dotj_d8530b802ffd"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task])",
+      "sourceCall": "Task.Run(arg4_0)",
+      "loweredCall": "Task.Run__dotj_ef4ab638723f(arg4_0)",
+      "backendName": "Run__dotj_ef4ab638723f"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceCall": "Task.<String>Run(arg5_0)",
+      "loweredCall": "Task.<String>Run__dotj_e9b71511f06c(arg5_0)",
+      "backendName": "Run__dotj_e9b71511f06c"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult])",
+      "sourceCall": "Task.<String>Run(arg6_0)",
+      "loweredCall": "Task.<String>Run__dotj_a4f9050d7e6c(arg6_0)",
+      "backendName": "Run__dotj_a4f9050d7e6c"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task Run(System.Func`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+      "sourceCall": "Task.Run(arg7_0, arg7_1)",
+      "loweredCall": "Task.Run__dotj_7df1e3eca7ae(arg7_0, arg7_1)",
+      "backendName": "Run__dotj_7df1e3eca7ae"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[System.Threading.Tasks.Task`1[TResult]], System.Threading.CancellationToken)",
+      "sourceCall": "Task.<String>Run(arg8_0, arg8_1)",
+      "loweredCall": "Task.<String>Run__dotj_8108b8b5df99(arg8_0, arg8_1)",
+      "backendName": "Run__dotj_8108b8b5df99"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] Run[TResult](System.Func`1[TResult], System.Threading.CancellationToken)",
+      "sourceCall": "Task.<String>Run(arg9_0, arg9_1)",
+      "loweredCall": "Task.<String>Run__dotj_cf6040964744(arg9_0, arg9_1)",
+      "backendName": "Run__dotj_cf6040964744"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+      "sourceCall": "Task.WhenAll(arg10_0)",
+      "loweredCall": "Task.WhenAll__dotj_50deaf164f40(arg10_0)",
+      "backendName": "WhenAll__dotj_50deaf164f40"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceCall": "Task.<String>WhenAll(arg11_0)",
+      "loweredCall": "Task.<String>WhenAll__dotj_c4c603cba569(arg11_0)",
+      "backendName": "WhenAll__dotj_c4c603cba569"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task WhenAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+      "sourceCall": "Task.WhenAll(arg12_0)",
+      "loweredCall": "Task.WhenAll__dotj_779180b2fe81(arg12_0)",
+      "backendName": "WhenAll__dotj_779180b2fe81"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult[]] WhenAll[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceCall": "Task.<String>WhenAll(arg13_0)",
+      "loweredCall": "Task.<String>WhenAll__dotj_6b3c126513bf(arg13_0)",
+      "backendName": "WhenAll__dotj_6b3c126513bf"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+      "sourceCall": "Task.WhenAny(arg14_0)",
+      "loweredCall": "Task.WhenAny__dotj_511969068ecd(arg14_0)",
+      "backendName": "WhenAny__dotj_511969068ecd"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceCall": "Task.<String>WhenAny(arg15_0)",
+      "loweredCall": "Task.<String>WhenAny__dotj_d4be534a6609(arg15_0)",
+      "backendName": "WhenAny__dotj_d4be534a6609"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task] WhenAny(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+      "sourceCall": "Task.WhenAny(arg16_0)",
+      "loweredCall": "Task.WhenAny__dotj_08ef65768441(arg16_0)",
+      "backendName": "WhenAny__dotj_08ef65768441"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Threading.Tasks.Task`1[System.Threading.Tasks.Task`1[TResult]] WhenAny[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceCall": "Task.<String>WhenAny(arg17_0)",
+      "loweredCall": "Task.<String>WhenAny__dotj_64c01c841f84(arg17_0)",
+      "backendName": "WhenAny__dotj_64c01c841f84"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task])",
+      "sourceCall": "Task.WhenEach(arg18_0)",
+      "loweredCall": "Task.WhenEach__dotj_ed809ab2c6d2(arg18_0)",
+      "backendName": "WhenEach__dotj_ed809ab2c6d2"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceCall": "Task.<String>WhenEach(arg19_0)",
+      "loweredCall": "Task.<String>WhenEach__dotj_40ec14d14122(arg19_0)",
+      "backendName": "WhenEach__dotj_40ec14d14122"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task] WhenEach(System.ReadOnlySpan`1[System.Threading.Tasks.Task])",
+      "sourceCall": "Task.WhenEach(arg20_0)",
+      "loweredCall": "Task.WhenEach__dotj_9550ad1d43d6(arg20_0)",
+      "backendName": "WhenEach__dotj_9550ad1d43d6"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Collections.Generic.IAsyncEnumerable`1[System.Threading.Tasks.Task`1[TResult]] WhenEach[TResult](System.ReadOnlySpan`1[System.Threading.Tasks.Task`1[TResult]])",
+      "sourceCall": "Task.<String>WhenEach(arg21_0)",
+      "loweredCall": "Task.<String>WhenEach__dotj_19fe53cc12b7(arg21_0)",
+      "backendName": "WhenEach__dotj_19fe53cc12b7"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)",
+      "sourceCall": "ValueTask.FromCanceled(arg22_0)",
+      "loweredCall": "ValueTask.FromCanceled__dotj_2e253a2b93d4(arg22_0)",
+      "backendName": "FromCanceled__dotj_2e253a2b93d4"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+      "sourceCall": "ValueTask.<String>FromCanceled(arg23_0)",
+      "loweredCall": "ValueTask.<String>FromCanceled__dotj_c8fded448b4e(arg23_0)",
+      "backendName": "FromCanceled__dotj_c8fded448b4e"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask FromException(System.Exception)",
+      "sourceCall": "ValueTask.FromException(arg24_0)",
+      "loweredCall": "ValueTask.FromException__dotj_28017c972fe7(arg24_0)",
+      "backendName": "FromException__dotj_28017c972fe7"
+    },
+    {
+      "declaringType": "System.Threading.Tasks.ValueTask",
+      "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromException[TResult](System.Exception)",
+      "sourceCall": "ValueTask.<String>FromException(arg25_0)",
+      "loweredCall": "ValueTask.<String>FromException__dotj_fca4a2515b45(arg25_0)",
+      "backendName": "FromException__dotj_fca4a2515b45"
+    }
+  ]
+}
