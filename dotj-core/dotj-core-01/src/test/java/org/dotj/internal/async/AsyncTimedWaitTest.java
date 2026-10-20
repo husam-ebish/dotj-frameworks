@@ -23,6 +23,7 @@ public final class AsyncTimedWaitTest {
         scenario("zero presignaled", 0, "pending", true, "none", "cancel", "none");
         scenario("zero completed presignaled", 0, "result", true, "none", "result", "none");
         scenario("zero fault signal", 0, "fault", false, "none", "fault", "signal");
+        scenario("zero cancel signal", 0, "cancel", false, "none", "cancel", "signal");
         System.out.println("PASS: internal timed wait cases");
     }
 
