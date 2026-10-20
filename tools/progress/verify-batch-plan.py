@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[2]
 STAGE = ROOT / "planning/stage-2"
 PROGRESS = STAGE / "IMPLEMENTATION-PROGRESS.json"
 PLAN = STAGE / "implementation/BATCH-PLAN-v1.json"
+PLAN_V2 = STAGE / "implementation/BATCH-PLAN-v2.json"
 GATES = ("E01", "E02", "E03", "N01", "Q01")
 
 
@@ -33,6 +34,7 @@ def expected_rows(progress):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--write", action="store_true", help="Create the initial versioned plan")
+    parser.add_argument("--write-v2", action="store_true", help="Rebaseline after Batch 223's additional E03 evidence batch")
     args = parser.parse_args()
 
     progress = json.loads(PROGRESS.read_text(encoding="utf-8"))
@@ -67,22 +69,54 @@ def main():
         }
         PLAN.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
 
-    plan = json.loads(PLAN.read_text(encoding="utf-8"))
-    assert plan["planVersion"] == "stage-2-batches-v1"
+    if args.write_v2:
+        assert not PLAN_V2.exists(), "Version 2 already exists; create a new version to rebaseline"
+        assert len(progress["completedBatches"]) == 222
+        old = json.loads(PLAN.read_text(encoding="utf-8"))
+        assert old["frameworkSlots"] == rows and old["reservedAcceptanceSlots"] == reserved
+        plan = dict(old)
+        plan.update({
+            "planVersion": "stage-2-batches-v2",
+            "supersedes": old["planVersion"],
+            "historicalCompletedBatches": 223,
+            "baselineBatch": "Batch-223",
+            "baselineBatchSlots": 0,
+            "acceptedItemsAtBaseline": 0,
+            "plannedTotalBatches": 223 + reserved,
+            "firstFutureBatch": "Batch-224",
+            "planningRule": "Retain batches 001-223 once; reserve one future acceptance batch for each still-open E01/E02/E03/N01/Q01 gate, N01 naming task, and WP or SDK implementation task.",
+            "rebaselineReason": "Batch-223 added five bounded WaitAsync reference observations but closed no named E03 gate or implementation task; v1's one-acceptance-item-per-future-batch assumption needs one additional slot.",
+        })
+        PLAN_V2.write_text(json.dumps(plan, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+        print(f"CREATED {plan['planVersion']}: {plan['plannedTotalBatches']} planned batches")
+        return
+
+    plan_source = progress.get("batchPlan", {}).get("source", "planning/stage-2/implementation/BATCH-PLAN-v1.json")
+    plan = json.loads((ROOT / plan_source).read_text(encoding="utf-8"))
+    assert plan["planVersion"] in ("stage-2-batches-v1", "stage-2-batches-v2")
     assert plan["frameworkSlots"] == rows, "Framework task inventory drift requires a new plan version"
     assert plan["reservedGateSlots"] == gate_count
     assert plan["reservedNamingTaskSlots"] == naming_count
     assert plan["reservedImplementationTaskSlots"] == implementation_count
     assert plan["reservedAcceptanceSlots"] == reserved
+    expected_total = plan["historicalCompletedBatches"] + plan["baselineBatchSlots"] + reserved
     assert plan["plannedTotalBatches"] == expected_total
+    if plan["planVersion"] == "stage-2-batches-v2":
+        previous = json.loads(PLAN.read_text(encoding="utf-8"))
+        assert plan["supersedes"] == previous["planVersion"]
+        assert plan["historicalCompletedBatches"] == 223 and plan["baselineBatchSlots"] == 0
+        assert plan["frameworkSlots"] == previous["frameworkSlots"]
+        assert expected_total == previous["plannedTotalBatches"] + 1
+        assert plan["rebaselineReason"]
     completed = progress["completedBatches"]
     assert completed == [f"Batch-{number:03d}" for number in range(1, len(completed) + 1)]
     assert len(completed) >= plan["historicalCompletedBatches"]
     assert len(completed) <= expected_total, "Rebaseline before exhausting planned slots"
-    if len(completed) > 222:
+    acceptance_start = plan["historicalCompletedBatches"] + plan["baselineBatchSlots"]
+    if len(completed) > acceptance_start:
         accepted = sum(task["status"] == "COMPLETE" for framework in progress["frameworks"] for task in framework["tasks"])
         accepted += sum(status == "COMPLETE" for framework in progress["frameworks"] for status in framework["outstandingPreparationAndQualificationGates"].values())
-        assert accepted == len(completed) - 222, "Accepted items and post-baseline batches differ; rebaseline the plan"
+        assert accepted - plan.get("acceptedItemsAtBaseline", 0) == len(completed) - acceptance_start, "Accepted items and post-baseline batches differ; rebaseline the plan"
     if "batchPlan" in progress:
         tracking = progress["batchPlan"]
         assert tracking["version"] == plan["planVersion"]

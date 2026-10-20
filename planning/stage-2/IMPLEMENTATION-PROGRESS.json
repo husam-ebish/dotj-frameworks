@@ -236,7 +236,8 @@
     "Batch-219",
     "Batch-220",
     "Batch-221",
-    "Batch-222"
+    "Batch-222",
+    "Batch-223"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -429,7 +430,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-221",
+      "lastUpdatedBatch": "Batch-223",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -10040,19 +10041,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-223",
+    "id": "Batch-224",
     "framework": "dotj-core",
     "planTaskIds": [
       "E03"
     ],
-    "outcome": "Continue dotj-core WP-01/WP-02 E03 acceptance work and reconcile the plan if the gate remains open.",
+    "outcome": "Probe .NET WaitAsync timeout behavior and record the corresponding internal adapter gap.",
     "requiresContinue": true
   },
   "batchPlan": {
-    "version": "stage-2-batches-v1",
-    "source": "planning/stage-2/implementation/BATCH-PLAN-v1.json",
-    "plannedTotalBatches": 1908,
-    "completedBatches": 222,
+    "version": "stage-2-batches-v2",
+    "source": "planning/stage-2/implementation/BATCH-PLAN-v2.json",
+    "plannedTotalBatches": 1909,
+    "completedBatches": 223,
     "remainingPlannedBatches": 1686,
     "status": "PLANNING ESTIMATE; rebaseline with a new version when acceptance slots split or scope changes"
   }

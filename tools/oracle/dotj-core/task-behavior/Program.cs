@@ -225,7 +225,67 @@ Run("waitAsyncCancellationIndependence", () =>
     source.SetResult();
 });
 
-// Next bounded case.
+Run("waitAsyncSourceFirstResult", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.Task.WaitAsync(cancellation.Token);
+    source.SetResult(42);
+    Check(waiting.GetAwaiter().GetResult() == 42, "source-first wait result");
+    cancellation.Cancel();
+    Check(waiting.IsCompletedSuccessfully && waiting.Result == 42,
+        "late cancellation changed a successful wait");
+});
+
+Run("waitAsyncSourceFirstFault", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.Task.WaitAsync(cancellation.Token);
+    Exception failure = new InvalidOperationException("source fault");
+    source.SetException(failure);
+    CheckThrows<InvalidOperationException>(() => waiting.GetAwaiter().GetResult(), "source-first wait fault");
+    cancellation.Cancel();
+    Check(waiting.IsFaulted && ReferenceEquals(waiting.Exception?.InnerException, failure),
+        "late cancellation changed a faulted wait");
+});
+
+Run("waitAsyncSourceFirstCancel", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.Task.WaitAsync(cancellation.Token);
+    source.SetCanceled();
+    CheckThrows<TaskCanceledException>(() => waiting.GetAwaiter().GetResult(), "source-first canceled wait");
+    cancellation.Cancel();
+    Check(waiting.IsCanceled && source.Task.IsCanceled,
+        "late cancellation changed a source-canceled wait");
+});
+
+Run("waitAsyncCancellationFirst", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.Task.WaitAsync(cancellation.Token);
+    cancellation.Cancel();
+    CheckThrows<TaskCanceledException>(() => waiting.GetAwaiter().GetResult(), "cancellation-first wait");
+    Check(waiting.IsCanceled && !source.Task.IsCompleted,
+        "wait cancellation changed the pending source");
+    source.SetResult(42);
+    Check(waiting.IsCanceled && source.Task.Result == 42,
+        "later source completion changed the canceled wait");
+});
+
+Run("waitAsyncPresignaledCancellation", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    cancellation.Cancel();
+    Task<int> waiting = source.Task.WaitAsync(cancellation.Token);
+    CheckThrows<TaskCanceledException>(() => waiting.GetAwaiter().GetResult(), "presignaled wait");
+    Check(waiting.IsCanceled && !source.Task.IsCompleted,
+        "presignaled wait changed the source");
+});
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();

@@ -75,14 +75,15 @@ def record(args):
         for task in framework["tasks"]:
             if task["id"] == args.task_id and task["status"] == "NOT STARTED":
                 task["status"] = "IN PROGRESS"
-    plan_source = progress.get("batchPlan", {}).get("source", "planning/stage-2/implementation/BATCH-PLAN-v1.json")
+    plan_source = args.plan_source or progress.get("batchPlan", {}).get("source", "planning/stage-2/implementation/BATCH-PLAN-v1.json")
     plan = json.loads((ROOT / plan_source).read_text(encoding="utf-8"))
     total_batches = plan["plannedTotalBatches"]
     assert args.number <= total_batches, "Rebaseline the batch plan before exhausting it"
-    if args.number > 222 and plan["planVersion"] == "stage-2-batches-v1":
+    acceptance_start = plan["historicalCompletedBatches"] + plan["baselineBatchSlots"]
+    if args.number > acceptance_start:
         accepted = sum(task["status"] == "COMPLETE" for item in progress["frameworks"] for task in item["tasks"])
         accepted += sum(status == "COMPLETE" for item in progress["frameworks"] for status in item["outstandingPreparationAndQualificationGates"].values())
-        assert accepted == args.number - 222, "Accepted items and post-baseline batches differ; rebaseline the plan"
+        assert accepted - plan.get("acceptedItemsAtBaseline", 0) == args.number - acceptance_start, "Accepted items and post-baseline batches differ; rebaseline the plan"
     progress["batchPlan"] = {
         "version": plan["planVersion"],
         "source": plan_source,
@@ -107,7 +108,7 @@ def record(args):
     state = re.sub(r"Implementation percentage: \*\*.*?\*\*\. .*?(?=\n- Batch tracking:)",
                    "Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.", state, count=1, flags=re.S)
     state = re.sub(r"Batch tracking: .*?The next proposed batch is `Batch-\d{3}`\.",
-                   f"Batch tracking: {args.number}/{total_batches} planned batches completed under `{plan['planVersion']}`; {total_batches - args.number} planned batches remain. This is a versioned scheduling estimate. The next proposed batch is `{following}`.", state, count=1)
+                   f"Batch tracking: {args.number:,}/{total_batches:,} planned batches completed under `{plan['planVersion']}`; {total_batches - args.number:,} planned batches remain. This is a versioned scheduling estimate. The next proposed batch is `{following}`.", state, count=1)
     state = re.sub(r"Proposed `Batch-\d{3}`:.*", f"Proposed `{following}`: {args.next_outcome}", state, count=1)
     state = re.sub(r"See \[Batch-\d{3}\]\(implementation/batches/Batch-\d{3}\.md\).*",
                    f"See [{current}](implementation/batches/{current}.md) for the latest validation record and limitations. " +
@@ -162,6 +163,7 @@ def record(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("number", type=int)
+    parser.add_argument("--plan-source")
     parser.add_argument("task_id")
     parser.add_argument("outcome")
     parser.add_argument("validation")
