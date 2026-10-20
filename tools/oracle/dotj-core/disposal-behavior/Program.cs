@@ -31,8 +31,12 @@ internal static class Program
             bodyFailureObserved = exception.Message;
         }
 
-        CountingDisposable disposeFailure = new(() => throw new InvalidOperationException("dispose"));
+        InvalidOperationException disposeCause = new("cause");
+        InvalidOperationException disposeError = new("dispose", disposeCause);
+        CountingDisposable disposeFailure = new(() => throw disposeError);
         string? disposeFailureObserved = null;
+        bool disposeFailureSameReference = false;
+        bool disposeCauseSameReference = false;
         try
         {
             using (disposeFailure)
@@ -43,6 +47,8 @@ internal static class Program
         catch (InvalidOperationException exception)
         {
             disposeFailureObserved = exception.Message;
+            disposeFailureSameReference = ReferenceEquals(exception, disposeError);
+            disposeCauseSameReference = ReferenceEquals(exception.InnerException, disposeCause);
         }
 
         CountingDisposable repeated = new();
@@ -51,7 +57,8 @@ internal static class Program
         CountingDisposable untouched = new();
 
         if (direct.Count != 1 || normal.Count != 1 || bodyFailure.Count != 1 || bodyFailureObserved != "body"
-            || disposeFailure.Count != 1 || disposeFailureObserved != "dispose" || repeated.Count != 2
+            || disposeFailure.Count != 1 || disposeFailureObserved != "dispose"
+            || !disposeFailureSameReference || !disposeCauseSameReference || repeated.Count != 2
             || untouched.Count != 0)
         {
             throw new InvalidOperationException("The disposal oracle observations changed.");
@@ -68,6 +75,8 @@ internal static class Program
             bodyFailureObserved,
             disposeFailureDisposeCount = disposeFailure.Count,
             disposeFailureObserved,
+            disposeFailureSameReference,
+            disposeCauseSameReference,
             repeatedExplicitDisposeCount = repeated.Count,
             untouchedDisposeCount = untouched.Count,
         };

@@ -18,6 +18,18 @@ Check(ReferenceEquals(listOfInt, reconstructedListOfInt), "second generic defini
 Check(!ReferenceEquals(listOfInt, listOfLong), "second generic definition different argument identity");
 Check(listOfInt.GetGenericTypeDefinition() == listOfLong.GetGenericTypeDefinition(), "second generic definition shared definition");
 
+string? nullTypeArgumentsParameter = null;
+try
+{
+    typeof(List<>).MakeGenericType((Type[])null!);
+    throw new Exception("Null type arguments were accepted.");
+}
+catch (ArgumentNullException exception)
+{
+    nullTypeArgumentsParameter = exception.ParamName;
+}
+Check(nullTypeArgumentsParameter == "typeArguments", "null type argument parameter identity");
+
 Console.WriteLine("sameReference=" + ReferenceEquals(first, same));
 Console.WriteLine("runtimeVersion=" + Environment.Version);
 Console.WriteLine("constructedEqual=" + first.Equals(constructed));
@@ -25,6 +37,7 @@ Console.WriteLine("differentArgumentEqual=" + first.Equals(different));
 Console.WriteLine("sameGenericDefinition=" + (first.GetGenericTypeDefinition() == different.GetGenericTypeDefinition()));
 Console.WriteLine("secondDefinitionCanonical=" + ReferenceEquals(listOfInt, reconstructedListOfInt));
 Console.WriteLine("secondDefinitionDifferentArgumentsSameReference=" + ReferenceEquals(listOfInt, listOfLong));
+Console.WriteLine("nullTypeArgumentsParameter=" + nullTypeArgumentsParameter);
 
 static void Check(bool condition, string label)
 {
