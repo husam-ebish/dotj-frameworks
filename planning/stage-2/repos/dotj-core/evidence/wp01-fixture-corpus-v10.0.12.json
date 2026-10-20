@@ -25,8 +25,8 @@
       "expectation": "supplied resources are never closed implicitly",
       "java": "CallerOwnershipTest passed in Batch-032",
       "dotnetOracle": "DI ownership oracle passed in Batch-034",
-      "upstreamTest": "SingletonServiceCreatedFromInstanceIsNotDisposedWhenContainerIsDisposed source-inspected, not executed",
-      "status": "PARTIAL: supplied DI singleton and internal borrowed-resource example; broader ownership paths open"
+      "upstreamTest": "SingletonServiceCreatedFromInstanceIsNotDisposedWhenContainerIsDisposed passed in four DI provider variants in Batch-056; async-only synchronous-disposal rejection passed in four variants",
+      "status": "PARTIAL: supplied DI singleton and internal borrowed-resource example supported by executed upstream tests; broader ownership paths open"
     },
     {
       "id": "DJ-001-F01-04",
