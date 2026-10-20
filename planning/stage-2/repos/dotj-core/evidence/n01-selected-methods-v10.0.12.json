@@ -1106,6 +1106,28 @@
       "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource_T.cs",
       "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
       "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+    },
+    {
+      "batch": "Batch-354",
+      "declaringType": "System.Threading.Tasks.TaskCompletionSource`1",
+      "name": "SetFromTask",
+      "signature": "Void SetFromTask(System.Threading.Tasks.Task`1[TResult])",
+      "returnType": "System.Void",
+      "isStatic": false,
+      "genericArity": 0,
+      "parameters": [
+        {
+          "Name": "completedTask",
+          "type": "System.Threading.Tasks.Task`1[TResult]",
+          "IsOptional": false,
+          "IsOut": false
+        }
+      ],
+      "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/task-completion-source-generic.json",
+      "snapshotSha256": "2a5cfe9cc94f72f5da5d531b9feeb048163f6a0eebb5e7faef666a59e0a96a31",
+      "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource_T.cs",
+      "owningSourceSha256": "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369",
+      "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
     }
   ]
 }
