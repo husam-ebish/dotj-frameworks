@@ -35,6 +35,7 @@ public final class AsyncTimedWaitTest {
         invalidTimeout(-2, true);
         scenario("timeout then source", 10, "pending", false, "none", "timeout", "result");
         timeoutSibling();
+        externallyCanceled();
         System.out.println("PASS: internal timed wait cases");
     }
 
@@ -143,6 +144,28 @@ public final class AsyncTimedWaitTest {
         source.setResult(42);
         check(sibling.get(5, TimeUnit.SECONDS) == 42, "sibling lost source result");
         assertOutcome("timed sibling after", timed, "timeout", null);
+    }
+
+    private static void externallyCanceled() throws Exception {
+        AsyncCompletion<Integer> source = new AsyncCompletion<>();
+        WaitCancellationSignal signal = new WaitCancellationSignal();
+        CompletableFuture<Integer> waiting = source.waitAsync(30_000, signal);
+        check(source.waiterCount() == 1 && signal.listenerCount() == 1 &&
+                AsyncCompletion.timerQueueSize() == 1, "external cancel setup was incomplete");
+        check(waiting.cancel(false), "external cancel did not win");
+        awaitCleanup(source, signal, "external cancel");
+        check(source.state() == AsyncState.PENDING, "external cancel changed source");
+    }
+
+    private static void awaitCleanup(AsyncCompletion<Integer> source,
+                                     WaitCancellationSignal signal, String name) {
+        long deadline = System.nanoTime() + TimeUnit.SECONDS.toNanos(2);
+        while ((source.waiterCount() != 0 || signal.listenerCount() != 0 ||
+                AsyncCompletion.timerQueueSize() != 0) && System.nanoTime() < deadline) {
+            Thread.onSpinWait();
+        }
+        check(source.waiterCount() == 0 && signal.listenerCount() == 0 &&
+                AsyncCompletion.timerQueueSize() == 0, name + " retained waiter, listener or timer");
     }
 
     private static void check(boolean condition, String message) {

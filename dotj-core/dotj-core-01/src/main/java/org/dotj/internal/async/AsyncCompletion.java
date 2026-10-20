@@ -190,6 +190,10 @@ final class AsyncCompletion<T> {
         }
     }
 
+    synchronized int waiterCount() {
+        return waiters.size();
+    }
+
     static int timerQueueSize() {
         return TIMER.getQueue().size();
     }
