@@ -46,6 +46,13 @@ Run("faultedTask", () =>
         ReferenceEquals(task.Exception?.InnerException, fault), "faulted task state");
 });
 
+Run("canceledTask", () =>
+{
+    Task task = Task.FromCanceled(new CancellationToken(canceled: true));
+    Check(task.IsCanceled && task.Status == TaskStatus.Canceled && !task.IsCompletedSuccessfully,
+        "canceled task state");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
