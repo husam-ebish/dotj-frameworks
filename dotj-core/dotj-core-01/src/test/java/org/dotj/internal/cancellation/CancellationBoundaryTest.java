@@ -15,6 +15,7 @@ public final class CancellationBoundaryTest {
         closedRegistration();
         doubleUnregister();
         doubleRegistrationClose();
+        lateRegistrationOnce();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -59,6 +60,12 @@ public final class CancellationBoundaryTest {
         CancellationRegistration registration = source.token().register(calls::incrementAndGet);
         registration.close(); registration.close(); source.cancel();
         if (calls.get() != 0) throw new AssertionError("Closed registration ran"); source.close();
+    }
+
+    private static void lateRegistrationOnce() throws Exception {
+        CancellationSource source = new CancellationSource(); source.cancel(); AtomicInteger calls = new AtomicInteger();
+        CancellationRegistration registration = source.token().register(calls::incrementAndGet);
+        if (calls.get() != 1 || registration.unregister()) throw new AssertionError("Late callback state incorrect"); source.close();
     }
 
     // Next bounded method.
