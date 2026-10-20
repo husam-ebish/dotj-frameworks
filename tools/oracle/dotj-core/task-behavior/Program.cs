@@ -362,6 +362,14 @@ Run("waitAsyncInfiniteTimeoutCancel", () =>
     Check(waiting.IsCanceled && source.Task.IsCanceled, "infinite timeout changed cancellation");
 });
 
+Run("waitAsyncNegativeTimeout", () =>
+{
+    TaskCompletionSource<int> source = new();
+    CheckThrows<ArgumentOutOfRangeException>(() => source.Task.WaitAsync(TimeSpan.FromMilliseconds(-2)),
+        "negative timeout argument");
+    Check(!source.Task.IsCompleted, "invalid timeout completed source");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
