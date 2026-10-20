@@ -18,6 +18,7 @@ public final class CancellationBoundaryTest {
         lateRegistrationOnce();
         lateFailure();
         nestedLateRegistration();
+        removeOlderDuringCancel();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -82,6 +83,13 @@ public final class CancellationBoundaryTest {
         CancellationSource source = new CancellationSource(); AtomicInteger calls = new AtomicInteger();
         source.token().register(() -> { calls.incrementAndGet(); source.token().register(calls::incrementAndGet); });
         source.cancel(); if (calls.get() != 2) throw new AssertionError("Nested callback missing"); source.close();
+    }
+
+    private static void removeOlderDuringCancel() throws Exception {
+        CancellationSource source = new CancellationSource(); AtomicInteger calls = new AtomicInteger();
+        CancellationRegistration older = source.token().register(calls::incrementAndGet);
+        source.token().register(older::close); source.cancel();
+        if (calls.get() != 0) throw new AssertionError("Removed older callback ran"); source.close();
     }
 
     // Next bounded method.
