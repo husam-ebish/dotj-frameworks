@@ -5,9 +5,13 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "snapshotSha256": "798309af37ad61a2b7f311dc0d18bc3df25e3904d86ea8c0a43d598110909637",
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "15ee4a7663807d4d622d19e988b1971844960b8895aa810c63dd34cf904ff211",
+  "sourceSha256": "2c95c063a77e46b12b8dfa9ded96066e85f9d68079a7259a8390d032b92e4d49",
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
-  "testSha256": "772ec7dd8a2b2e012faa0aa34a697d0293e979df0b9390ae74b163a3b4bb72a7",
+  "testSha256": "7023b5d998baa3effd867a6eb784c11026524e862393289bc8ec13a08060b70c",
+  "testFactoryPath": "dotj-core/dotj-core-public/src/test/java/System/TypeCandidateFactory.java",
+  "testFactorySha256": "91955fd90260d1e1c7799dc2e888ccd95736357602692eaeb43e6940cb1d1a88",
+  "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
+  "externalConsumerSha256": "7ec32388005104b3ce113978677b58767724b657324994c1afe78ddf0ed6dd30",
   "publicMembers": [
     "public System.Type MakeGenericType(System.Type[]);",
     "public System.Type GetGenericTypeDefinition();",
@@ -18,5 +22,6 @@
     "public boolean Equals(System.Type);"
   ],
   "testResult": "PASS selected System.Type identity, nested arguments, defensive copies and null boundary",
+  "externalConsumerResult": "PASS external System.Type selected identity consumer",
   "status": "SELECTED_IDENTITY_CANDIDATE; complete 181-method/70-property System.Type surface, MemberInfo inheritance, generic-parameter Types, public null/error mapping and release qualification OPEN"
 }
