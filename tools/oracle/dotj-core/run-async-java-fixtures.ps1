@@ -16,3 +16,5 @@ if ($LASTEXITCODE -ne 0) { throw 'Internal async Java compilation failed.' }
 if ($LASTEXITCODE -ne 0) { throw 'Internal async Java fixture failed.' }
 & java -cp $classes 'org.dotj.internal.async.AsyncCompletionRaceTest'
 if ($LASTEXITCODE -ne 0) { throw 'Internal async race fixture failed.' }
+& java -cp $classes 'org.dotj.internal.async.AsyncWaitTest'
+if ($LASTEXITCODE -ne 0) { throw 'Internal async wait fixture failed.' }
