@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-041",
+  "oracleProject": "tools/oracle/dotj-core/type-identity/TypeIdentityOracle.csproj",
+  "execution": "dotnet run --project tools/oracle/dotj-core/type-identity/TypeIdentityOracle.csproj --configuration Release --no-launch-profile",
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "installedRuntime": {
+    "version": "10.0.12",
+    "System.Private.CoreLib.dll.sha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678"
+  },
+  "observations": {
+    "sameClosedTypeReference": true,
+    "reflectionConstructedTypeEqual": true,
+    "differentTypeArgumentEqual": false,
+    "sameGenericDefinition": true
+  },
+  "comparison": "The bounded Java TypeIdentity fixture agrees on equality for repeated concrete parameterizations and inequality for different type arguments. Java object-reference identity, full System.Type behavior, CLR reified generics, type loading and public API mapping remain unverified.",
+  "limits": [
+    "Independent oracle, not an upstream xUnit test.",
+    "Only one generic definition and two closed argument combinations were exercised.",
+    "The Java helper is internal and rejects wildcard/type-variable forms."
+  ]
+}
