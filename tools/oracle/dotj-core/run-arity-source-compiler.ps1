@@ -14,7 +14,8 @@ try {
     ) | ForEach-Object { Join-Path $source $_ }
     & javac --release 21 -d $output @files
     if ($LASTEXITCODE -ne 0) { throw 'javac failed' }
-    & java -cp $output org.dotj.internal.types.AritySourceCompilerTest
+    $fixtures = Join-Path $source 'test/resources/task-signature-compilation.tsv'
+    & java -cp $output org.dotj.internal.types.AritySourceCompilerTest $fixtures @args
     if ($LASTEXITCODE -ne 0) { throw 'Task source compiler fixture failed' }
 } finally {
     Remove-Item -LiteralPath $output -Recurse -Force
