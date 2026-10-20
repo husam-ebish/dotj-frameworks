@@ -124,6 +124,22 @@ public final class ProductTypeIdentityConsumer {
                 || first.MakeArrayType() != listArray) {
             throw new AssertionError("Selected MakeArrayType behavior changed");
         }
+        Type byReference = string.MakeByRefType();
+        if (byReference != string.MakeByRefType()
+                || byReference != Type.GetType("System.String&")
+                || byReference != Type.GetType("system.string&", false, true)
+                || !byReference.get_IsByRef() || string.get_IsByRef()
+                || byReference.get_IsArray() || byReference.GetElementType() != string
+                || Type.GetType("System.String[]").MakeByRefType()
+                    != Type.GetType("System.String[]&")) {
+            throw new AssertionError("Selected by-reference identity changed");
+        }
+        try {
+            byReference.MakeByRefType();
+            throw new AssertionError("Double by-reference type accepted");
+        } catch (TypeLoadException expected) {
+            // Selected pinned error type.
+        }
         try {
             string.MakeArrayType(0);
             throw new AssertionError("Rank zero accepted");

@@ -27,6 +27,7 @@ public abstract class Type {
         }
     };
     private static final ConcurrentHashMap<List<Object>, Type> arrayShapes = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<Type, Type> byReferences = new ConcurrentHashMap<>();
 
     private final Class<?> definition;
     private final List<Type> arguments;
@@ -112,6 +113,8 @@ public abstract class Type {
             case "System.String[,]" -> arrayOf(fromJavaClass(String.class), 2);
             case "System.String[,,]" -> arrayOf(fromJavaClass(String.class), 3);
             case "System.String[*]" -> arrayOf(fromJavaClass(String.class), 1, false);
+            case "System.String&" -> fromJavaClass(String.class).MakeByRefType();
+            case "System.String[]&" -> fromJavaClass(String[].class).MakeByRefType();
             case "System.Int32[]" -> fromJavaClass(int[].class);
             case "System.Collections.Generic.List`1[System.String]",
                     "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]" ->
@@ -135,6 +138,8 @@ public abstract class Type {
             case "system.string[,]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 2) : null;
             case "system.string[,,]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 3) : null;
             case "system.string[*]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 1, false) : null;
+            case "system.string&" -> ignoreCase ? fromJavaClass(String.class).MakeByRefType() : null;
+            case "system.string[]&" -> ignoreCase ? fromJavaClass(String[].class).MakeByRefType() : null;
             case "system.int32[]" -> ignoreCase ? fromJavaClass(int[].class) : null;
             case "system.collections.generic.list`1[system.string]",
                     "system.collections.generic.list`1[[system.string, system.private.corelib]]" ->
@@ -188,6 +193,13 @@ public abstract class Type {
         return arrayOf(this, rank, false);
     }
 
+    public Type MakeByRefType() {
+        if (this.get_IsByRef()) {
+            throw new TypeLoadException("Cannot make a by-reference type from a by-reference type");
+        }
+        return byReferences.computeIfAbsent(this, ByRefType::new);
+    }
+
     public Type GetGenericTypeDefinition() {
         if (this.parameterIndex >= 0 || this.definition.getTypeParameters().length == 0) {
             throw new IllegalStateException("Not a generic type");
@@ -211,6 +223,10 @@ public abstract class Type {
 
     public boolean get_IsArray() {
         return this.definition.isArray();
+    }
+
+    public boolean get_IsByRef() {
+        return false;
     }
 
     public Type GetElementType() {
@@ -283,6 +299,25 @@ public abstract class Type {
         @Override
         public int GetArrayRank() {
             return this.rank;
+        }
+    }
+
+    private static final class ByRefType extends Type {
+        private final Type elementType;
+
+        private ByRefType(Type elementType) {
+            super(Object.class, List.of());
+            this.elementType = elementType;
+        }
+
+        @Override
+        public boolean get_IsByRef() {
+            return true;
+        }
+
+        @Override
+        public Type GetElementType() {
+            return this.elementType;
         }
     }
 }
