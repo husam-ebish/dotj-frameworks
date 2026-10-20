@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-054",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "archiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "extractedFileCount": 60838,
+  "missingFilesAfterRepair": 0,
+  "extractionNote": "Windows tar reported three Unicode-named files as unreadable; all three were copied from the pinned ZIP and a full archive-entry presence audit then found zero missing files.",
+  "verifiedSourceHashes": {
+    "src/libraries/System.Threading/tests/System.Threading.Tests.csproj": "5dcea5725804cfb93c1e4683fb8c9ec64818919eae365231e0097a3e0c2b1ca3",
+    "src/libraries/System.Threading/tests/AsyncLocalTests.cs": "acf6f236c142e98a38c6a2f237585e6718deba5568d6593e543c6a1c7136c119",
+    "src/libraries/System.Threading/tests/ExecutionContextTests.cs": "6b3a4c92779fcadfdbea667d76a8cd380d60b896cac01fe65fa16445afb59477",
+    "src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/Microsoft.Extensions.DependencyInjection.Tests.csproj": "5aa0a1a77db15d3086866e97802b532b5a33b7297986e979d1566d187835d98c"
+  },
+  "testRun": {
+    "project": "src/libraries/System.Threading/tests/System.Threading.Tests.csproj",
+    "framework": "net10.0",
+    "filter": "FullyQualifiedName~AsyncLocalTests.CaptureAndRestore",
+    "msbuildProperties": {
+      "UseLocalTargetingRuntimePack": "false",
+      "UseDefaultTestHost": "true",
+      "RunSettingsDotNetHostPath": "C:\\Program Files\\dotnet\\dotnet.exe"
+    },
+    "exitCode": 0,
+    "passed": 42,
+    "failed": 0,
+    "skipped": 0,
+    "includes": "CaptureAndRestore, CaptureAndRestoreEmptyContext, and 40 CaptureAndRestoreNullAsyncLocals theory cases because the filter is a substring match",
+    "runtime": "Installed .NET 10.0.12, not a locally built runtime",
+    "limitation": "These tests validate upstream behavior on the installed runtime; they do not establish Java implementation equivalence or complete WP-01 E03."
+  }
+}
