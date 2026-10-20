@@ -32,6 +32,7 @@ public final class CancellationBoundaryTest {
         resetRemovesCallbacks();
         resetCanceledSource();
         doubleCancelOnce();
+        asyncWithoutCallbacks();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -187,6 +188,12 @@ public final class CancellationBoundaryTest {
         CancellationSource source = new CancellationSource(); AtomicInteger calls = new AtomicInteger();
         source.token().register(calls::incrementAndGet); source.cancel(); source.cancel();
         if (calls.get() != 1) throw new AssertionError("Callback invoked more than once"); source.close();
+    }
+
+    private static void asyncWithoutCallbacks() throws Exception {
+        CancellationSource source = new CancellationSource(); CompletableFuture<Void> future = source.cancelAsync();
+        if (!future.isDone() || source.isCancellationRequested() == false) throw new AssertionError("Empty async cancellation incomplete");
+        future.join(); source.close();
     }
 
     // Next bounded method.
