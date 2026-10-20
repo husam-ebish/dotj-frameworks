@@ -12,6 +12,7 @@ public final class OwnedResourcesBoundaryTest {
         nullBorrowedRejected();
         borrowedStaysCallerOwned();
         duplicateOwnedIdentity();
+        equalDistinctResources();
         // Next bounded case.
         System.out.println("PASS: internal ownership boundary checks");
     }
@@ -54,6 +55,12 @@ public final class OwnedResourcesBoundaryTest {
         OwnedResources scope = new OwnedResources(); AtomicInteger calls = new AtomicInteger();
         AutoCloseable shared = () -> calls.incrementAndGet(); scope.addOwned(shared); scope.addOwned(shared);
         scope.close(); if (calls.get() != 1) throw new AssertionError("Shared identity closed more than once");
+    }
+
+    private static void equalDistinctResources() throws Exception {
+        OwnedResources scope = new OwnedResources(); AtomicInteger calls = new AtomicInteger();
+        scope.addOwned(new EqualResource(calls)); scope.addOwned(new EqualResource(calls)); scope.close();
+        if (calls.get() != 2) throw new AssertionError("Equality incorrectly deduplicated resources");
     }
 
     // Next bounded method.
