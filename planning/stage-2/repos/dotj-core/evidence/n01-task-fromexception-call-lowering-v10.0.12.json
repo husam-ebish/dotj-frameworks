@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "erasureMappingSha256": "70d1f5c735205fc942230837b0779e78ac46824c652e9f85c9b47faee4f04b06",
+  "sourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+  "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+  "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315",
+  "sourceCalls": [
+    {
+      "source": "Task.FromException(exception)",
+      "lowered": "Task.FromException__dotj_c42000a95d67(exception)"
+    },
+    {
+      "source": "Task.<String>FromException(exception)",
+      "lowered": "Task.<String>FromException__dotj_d8530b802ffd(exception)"
+    }
+  ],
+  "invalidCallsRejected": 3,
+  "consumerCompilation": "PASS: javac --release 21",
+  "scope": "Bounded syntax proof for two Task.FromException calls after method generic arity is known. No .j compiler, general overload resolution, Task behavior, or public API qualification."
+}
