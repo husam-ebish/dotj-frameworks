@@ -21,6 +21,8 @@ public final class ArityTypeReferenceBinderTest {
         expectInvalid("System.Threading.Tasks.Unknown<System.String>");
         expectInvalid("System..Threading.Tasks.Task");
         expectInvalid("System.Threading.Tasks.Task trailing");
+        expectInvalid("System.class.Task");
+        expectInvalid("System.Threading.void.Task");
         java.lang.System.out.println("PASS: bounded source type references bind Task-family arities without JVM collisions");
     }
 

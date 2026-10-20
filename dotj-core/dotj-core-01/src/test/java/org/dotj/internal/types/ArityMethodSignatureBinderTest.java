@@ -29,6 +29,8 @@ public final class ArityMethodSignatureBinderTest {
         expectInvalid("System.Threading.Tasks.Task Run(System.String value))");
         expectInvalid("System.Threading.Tasks.Task Run(System.Threading.Tasks.Task<System.String, System.String> value)");
         expectInvalid("System.Threading.Tasks.Task run-name()");
+        expectInvalid("System.Threading.Tasks.Task class()");
+        expectInvalid("System.Threading.Tasks.Task Run(System.String switch)");
         verifyCompilableBackendDeclaration();
         java.lang.System.out.println("PASS: bounded Task-family method signature binding");
     }

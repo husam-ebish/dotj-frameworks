@@ -1,9 +1,19 @@
 package org.dotj.internal.types;
 
 import java.util.Objects;
+import java.util.Set;
 
 /** Bounded type-reference binder for the pinned Task-family arity pairs. */
 final class ArityTypeReferenceBinder {
+    private static final Set<String> RESERVED = Set.of(
+            "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class",
+            "const", "continue", "default", "do", "double", "else", "enum", "extends", "final",
+            "finally", "float", "for", "goto", "if", "implements", "import", "instanceof", "int",
+            "interface", "long", "native", "new", "package", "private", "protected", "public",
+            "return", "short", "static", "strictfp", "super", "switch", "synchronized", "this",
+            "throw", "throws", "transient", "try", "void", "volatile", "while", "_", "true",
+            "false", "null", "record", "var", "yield", "sealed", "permits");
+
     private ArityTypeReferenceBinder() {
     }
 
@@ -15,6 +25,18 @@ final class ArityTypeReferenceBinder {
             throw new IllegalArgumentException("Unexpected suffix at offset " + parser.position);
         }
         return result;
+    }
+
+    static boolean isSourceIdentifier(String value) {
+        if (value.isEmpty() || RESERVED.contains(value) || !Character.isJavaIdentifierStart(value.charAt(0))) {
+            return false;
+        }
+        for (int index = 1; index < value.length(); index++) {
+            if (!Character.isJavaIdentifierPart(value.charAt(index))) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static final class Parser {
@@ -88,6 +110,11 @@ final class ArityTypeReferenceBinder {
             }
             if (needSegment || name.indexOf(".") <= 0) {
                 throw new IllegalArgumentException("A qualified type name is required at offset " + position);
+            }
+            for (String segment : name.toString().split("\\.")) {
+                if (!isSourceIdentifier(segment)) {
+                    throw new IllegalArgumentException("Type name is not a Java 21 qualified name: " + name);
+                }
             }
             return name.toString();
         }
