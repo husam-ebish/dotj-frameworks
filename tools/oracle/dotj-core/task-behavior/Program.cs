@@ -82,6 +82,15 @@ Run("nonGenericDuplicateResult", () =>
     CheckThrows<InvalidOperationException>(() => source.SetResult(), "duplicate non-generic result");
 });
 
+Run("nonGenericSourceFault", () =>
+{
+    TaskCompletionSource source = new();
+    Exception failure = new ArgumentException("source fault");
+    source.SetException(failure);
+    Check(source.Task.IsFaulted && ReferenceEquals(source.Task.Exception?.InnerException, failure),
+        "non-generic source fault");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
