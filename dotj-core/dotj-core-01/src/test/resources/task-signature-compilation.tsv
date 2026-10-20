@@ -2,3 +2,4 @@
 two-methods	PASS	fixture	TwoMethods	System.Threading.Tasks.Task First()~~System.Threading.Tasks.Task<System.String> Second()	Task_1<String> Second()
 task-return	PASS	fixture	Probe	System.Threading.Tasks.Task Run()	Task Run()
 generic-task-return	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String> Fetch()	Task_1<String> Fetch()
+valuetask-return	PASS	fixture	Probe	System.Threading.Tasks.ValueTask FlushAsync()	ValueTask FlushAsync()
