@@ -10,6 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 public final class CancellationBoundaryTest {
     public static void main(String[] args) throws Exception {
         retainedTokenAfterClose();
+        closedFreshToken();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -21,6 +22,12 @@ public final class CancellationBoundaryTest {
         if (!retained.canBeCanceled() || retained.isCancellationRequested()) {
             throw new AssertionError("Retained token lost its uncanceled state");
         }
+    }
+
+    private static void closedFreshToken() throws Exception {
+        CancellationSource source = new CancellationSource(); source.close();
+        try { source.token(); throw new AssertionError("Closed source returned a token"); }
+        catch (IllegalStateException expected) { }
     }
 
     // Next bounded method.
