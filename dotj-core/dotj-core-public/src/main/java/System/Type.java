@@ -436,6 +436,29 @@ public abstract class Type extends MemberInfo {
         return false;
     }
 
+    public boolean IsInstanceOfType(Object value) {
+        if (value == null || this.get_IsByRef() || this.get_IsPointer()) {
+            return false;
+        }
+        if (this.definition == Object.class) {
+            return true;
+        }
+        if (this.definition == Number.class) {
+            return value instanceof Integer || value instanceof MemberTypes;
+        }
+        if (this.definition == Enum.class) {
+            return value instanceof MemberTypes;
+        }
+        if (this.definition == java.lang.reflect.Array.class) {
+            return value.getClass().isArray();
+        }
+        if (this instanceof ArrayType || this.definition == java.util.List.class
+                || this.definition == java.util.Map.class) {
+            return false;
+        }
+        return this.definition.isInstance(value);
+    }
+
     private static String arraySuffix(int rank, boolean vector) {
         if (rank == 1) {
             return vector ? "[]" : "[*]";
