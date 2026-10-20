@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-080",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "Internal ownership fixture",
+  "assertionsPassed": [
+    "Internal ownership fixture passed"
+  ],
+  "observed": {
+    "result": "PASS: borrowed lifetime, reverse close, one-shot close, failure continuation, identity aliases"
+  },
+  "openGaps": [
+    "This check does not close the full public API, behavior, or release gates."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
