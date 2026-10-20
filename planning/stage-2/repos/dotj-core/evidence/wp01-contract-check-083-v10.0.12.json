@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-083",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "IAsyncDisposable exact metadata contract",
+  "assertionsPassed": [
+    "IAsyncDisposable exact metadata contract passed"
+  ],
+  "observed": {
+    "type": "System.IAsyncDisposable",
+    "method": {
+      "Name": "DisposeAsync",
+      "signature": "System.Threading.Tasks.ValueTask DisposeAsync()",
+      "returnType": "System.Threading.Tasks.ValueTask",
+      "isStatic": false,
+      "genericArity": 0,
+      "parameters": []
+    }
+  },
+  "openGaps": [
+    "This check does not close the full public API, behavior, or release gates."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
