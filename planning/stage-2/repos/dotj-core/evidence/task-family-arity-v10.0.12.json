@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "families": [
+    {
+      "family": "Task",
+      "nonGeneric": "System.Threading.Tasks.Task",
+      "generic": "System.Threading.Tasks.Task`1",
+      "genericParameter": "TResult",
+      "valueType": false,
+      "sourcePaths": [
+        "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Task.cs",
+        "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/Future.cs"
+      ],
+      "sourceSha256": [
+        "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+        "17f34aef46fe23ca1c6f44b67c20e5513d854f2000f520b070efd46a60c65994"
+      ],
+      "javaCollision": "Two independent Java top-level types with this package and simple name would share one binary name"
+    },
+    {
+      "family": "TaskCompletionSource",
+      "nonGeneric": "System.Threading.Tasks.TaskCompletionSource",
+      "generic": "System.Threading.Tasks.TaskCompletionSource`1",
+      "genericParameter": "TResult",
+      "valueType": false,
+      "sourcePaths": [
+        "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource.cs",
+        "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskCompletionSource_T.cs"
+      ],
+      "sourceSha256": [
+        "f2e62b5b0dc67fdd2715c49acc5c9474db77c61c47bf5cd88edcab76e27a3e55",
+        "069571daddeffd14ed006b8e552b3541e61b7c79ba7e6a142037e59eadae1369"
+      ],
+      "javaCollision": "Two independent Java top-level types with this package and simple name would share one binary name"
+    },
+    {
+      "family": "ValueTask",
+      "nonGeneric": "System.Threading.Tasks.ValueTask",
+      "generic": "System.Threading.Tasks.ValueTask`1",
+      "genericParameter": "TResult",
+      "valueType": true,
+      "sourcePaths": [
+        "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs",
+        "src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/ValueTask.cs"
+      ],
+      "sourceSha256": [
+        "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+        "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3"
+      ],
+      "javaCollision": "Two independent Java top-level types with this package and simple name would share one binary name"
+    }
+  ],
+  "decision": "Exact-name Java representation unresolved; one raw/generic Java class would collapse two source identities",
+  "limits": [
+    "Selected declared-public metadata and source hashes, not full Task/ValueTask semantics.",
+    "No public Java Task, TaskCompletionSource, or ValueTask declaration is qualified."
+  ]
+}
