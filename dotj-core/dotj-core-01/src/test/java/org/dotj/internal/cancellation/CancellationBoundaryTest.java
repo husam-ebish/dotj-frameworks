@@ -34,6 +34,7 @@ public final class CancellationBoundaryTest {
         doubleCancelOnce();
         asyncWithoutCallbacks();
         asyncFailure();
+        asyncThenSyncOnce();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -206,6 +207,12 @@ public final class CancellationBoundaryTest {
             if (!(expected.getCause() instanceof CancellationCallbackException)) throw expected;
         }
         source.close();
+    }
+
+    private static void asyncThenSyncOnce() throws Exception {
+        CancellationSource source = new CancellationSource(); AtomicInteger calls = new AtomicInteger();
+        source.token().register(calls::incrementAndGet); source.cancelAsync().join(); source.cancel();
+        if (calls.get() != 1) throw new AssertionError("Async callback replayed"); source.close();
     }
 
     // Next bounded method.
