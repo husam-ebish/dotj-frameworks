@@ -3,7 +3,9 @@
 import argparse
 import json
 import re
+from datetime import datetime
 from pathlib import Path
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -119,7 +121,9 @@ def record(args):
 
     state_path = STAGE / "IMPLEMENTATION-STATE.md"
     state = state_path.read_text(encoding="utf-8")
-    state = re.sub(r"Updated: .*? Baseline: `[^`]+`\.", f"Updated: 2026-10-20. Baseline: `{BASELINE}`.", state, count=1)
+    current_date = datetime.now(ZoneInfo("Europe/Zurich")).date().isoformat()
+    state = replace_once(r"Updated: .*? Baseline: `[^`]+`\.",
+                         f"Updated: {current_date}. Baseline: `{BASELINE}`.", state)
     state = replace_once(r"Completed batches: `Batch-001` through `Batch-\d+`", f"Completed batches: `Batch-001` through `{current}`", state)
     state = re.sub(r"Implementation percentage: \*\*.*?\*\*\. .*?(?=\n- Batch tracking:)",
                    "Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.", state, count=1, flags=re.S)

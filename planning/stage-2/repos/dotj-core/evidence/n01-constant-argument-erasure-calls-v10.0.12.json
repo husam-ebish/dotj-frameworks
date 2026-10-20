@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "erasureMappingSha256": "70d1f5c735205fc942230837b0779e78ac46824c652e9f85c9b47faee4f04b06",
+  "groups": 4,
+  "identities": [
+    {
+      "metadataSignature": "System.Threading.Tasks.Task FromCanceled(System.Threading.CancellationToken)",
+      "backendName": "FromCanceled__dotj_ee6f7cb6dc24",
+      "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+    },
+    {
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+      "backendName": "FromCanceled__dotj_2cf294bc7360",
+      "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+    },
+    {
+      "metadataSignature": "System.Threading.Tasks.Task FromException(System.Exception)",
+      "backendName": "FromException__dotj_c42000a95d67",
+      "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+    },
+    {
+      "metadataSignature": "System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)",
+      "backendName": "FromException__dotj_d8530b802ffd",
+      "sourceSha256": "5b0d6892267269233dcf5c6191f357b0ba6c4257d1e757ca4d2fe93272b29d9b",
+      "snapshotSha256": "c03df64535bcea6b0ba79f63e04a8e9a5ac11447a0067f670af17fbd93cf3315"
+    },
+    {
+      "metadataSignature": "System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)",
+      "backendName": "FromCanceled__dotj_2e253a2b93d4",
+      "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13"
+    },
+    {
+      "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+      "backendName": "FromCanceled__dotj_c8fded448b4e",
+      "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13"
+    },
+    {
+      "metadataSignature": "System.Threading.Tasks.ValueTask FromException(System.Exception)",
+      "backendName": "FromException__dotj_28017c972fe7",
+      "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13"
+    },
+    {
+      "metadataSignature": "System.Threading.Tasks.ValueTask`1[TResult] FromException[TResult](System.Exception)",
+      "backendName": "FromException__dotj_fca4a2515b45",
+      "sourceSha256": "c6af16cde689ee7920c565b9c5df245662d24471bf8eef27a08b99542f4188f3",
+      "snapshotSha256": "f71aa1a0d4b29f40e41861b89a64d0ad465bf39b58a374c48a85f5ad74f08f13"
+    }
+  ],
+  "sourceCalls": [
+    {
+      "source": "Task.FromException(exception)",
+      "lowered": "Task.FromException__dotj_c42000a95d67(exception)",
+      "resultType": "Task"
+    },
+    {
+      "source": "Task.<String>FromException(exception)",
+      "lowered": "Task.<String>FromException__dotj_d8530b802ffd(exception)",
+      "resultType": "Task_1<String>"
+    },
+    {
+      "source": "Task.FromCanceled(token)",
+      "lowered": "Task.FromCanceled__dotj_ee6f7cb6dc24(token)",
+      "resultType": "Task"
+    },
+    {
+      "source": "Task.<String>FromCanceled(token)",
+      "lowered": "Task.<String>FromCanceled__dotj_2cf294bc7360(token)",
+      "resultType": "Task_1<String>"
+    },
+    {
+      "source": "ValueTask.FromException(exception)",
+      "lowered": "ValueTask.FromException__dotj_28017c972fe7(exception)",
+      "resultType": "ValueTask"
+    },
+    {
+      "source": "ValueTask.<String>FromException(exception)",
+      "lowered": "ValueTask.<String>FromException__dotj_fca4a2515b45(exception)",
+      "resultType": "ValueTask_1<String>"
+    },
+    {
+      "source": "ValueTask.FromCanceled(token)",
+      "lowered": "ValueTask.FromCanceled__dotj_2e253a2b93d4(token)",
+      "resultType": "ValueTask"
+    },
+    {
+      "source": "ValueTask.<String>FromCanceled(token)",
+      "lowered": "ValueTask.<String>FromCanceled__dotj_c8fded448b4e(token)",
+      "resultType": "ValueTask_1<String>"
+    }
+  ],
+  "mistypedCallsRejected": 4,
+  "consumerCompilation": "PASS: javac --release 21",
+  "scope": "Eight bounded call-shape compilations after generic arity is known. No production .j compiler, general overload resolution, behavior, or public API qualification."
+}
