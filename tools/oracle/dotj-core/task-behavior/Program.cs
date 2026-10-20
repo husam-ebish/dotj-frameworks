@@ -302,6 +302,15 @@ Run("waitAsyncZeroTimeoutCompleted", () =>
     Check(waiting.IsCompletedSuccessfully && waiting.Result == 42, "completed source lost to zero timeout");
 });
 
+Run("waitAsyncZeroTimeoutFaulted", () =>
+{
+    Exception failure = new InvalidOperationException("fault before wait");
+    Task<int> source = Task.FromException<int>(failure);
+    Task<int> waiting = source.WaitAsync(TimeSpan.Zero);
+    CheckThrows<InvalidOperationException>(() => waiting.GetAwaiter().GetResult(), "fault before zero timeout");
+    Check(waiting.IsFaulted && ReferenceEquals(waiting.Exception?.InnerException, failure), "source fault identity changed");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
