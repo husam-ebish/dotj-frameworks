@@ -26,3 +26,4 @@ mixed-task-valuetask	PASS	fixture	Probe	System.Threading.Tasks.Task Mix(System.T
 six-family-imports	PASS	fixture	Probe	System.Threading.Tasks.Task A()~~System.Threading.Tasks.Task<System.String> B()~~System.Threading.Tasks.ValueTask C()~~System.Threading.Tasks.ValueTask<System.String> D()~~System.Threading.Tasks.TaskCompletionSource E()~~System.Threading.Tasks.TaskCompletionSource<System.String> F()	TaskCompletionSource_1<String> F()
 duplicate-import	PASS	fixture	Probe	System.Threading.Tasks.Task First()~~System.Threading.Tasks.Task Second()	import System.Threading.Tasks.Task;
 separate-package	PASS	examples.asyncs	Probe	System.Threading.Tasks.Task Run()	package examples.asyncs;
+unicode-method	PASS	fixture	Probe	System.Threading.Tasks.Task Météo()	Météo()
