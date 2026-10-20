@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
+import System.IO.FileNotFoundException;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
 public abstract class Type {
@@ -68,6 +69,8 @@ public abstract class Type {
             String assembly = typeName.substring(assemblySeparator + 1).trim();
             if (assembly.equals("System.Private.CoreLib") || assembly.equals("mscorlib")) {
                 name = typeName.substring(0, assemblySeparator).trim();
+            } else if (throwOnError) {
+                throw new FileNotFoundException("Could not load assembly: " + assembly);
             }
         }
         String key = ignoreCase ? name.toLowerCase(Locale.ROOT) : name;

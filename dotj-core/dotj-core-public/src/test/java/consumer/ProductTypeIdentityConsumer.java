@@ -3,6 +3,8 @@ package consumer;
 import System.Type;
 import System.ArgumentNullException;
 import System.TypeLoadException;
+import System.IO.FileNotFoundException;
+import System.IO.IOException;
 
 /** Calls the candidate's public members from outside the System package. */
 public final class ProductTypeIdentityConsumer {
@@ -25,6 +27,14 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, mscorlib") != string
                 || Type.GetType("System.String, NotAnAssembly") != null) {
             throw new AssertionError("Selected assembly-qualified lookup changed");
+        }
+        try {
+            Type.GetType("System.String, NotAnAssembly", true);
+            throw new AssertionError("Missing assembly accepted with throwOnError");
+        } catch (FileNotFoundException expected) {
+            if (!(expected instanceof IOException)) {
+                throw new AssertionError("Missing assembly exception hierarchy changed", expected);
+            }
         }
         try {
             Type.GetType("System.Unknown", true, false);

@@ -10,6 +10,8 @@ Type[] selected = [
     typeof(ArgumentException),
     typeof(ArgumentNullException),
     typeof(TypeLoadException),
+    typeof(System.IO.IOException),
+    typeof(System.IO.FileNotFoundException),
 ];
 
 BindingFlags declaredPublic = BindingFlags.Public | BindingFlags.DeclaredOnly
