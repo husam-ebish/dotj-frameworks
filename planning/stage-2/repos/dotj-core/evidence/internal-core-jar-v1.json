@@ -2,9 +2,9 @@
     "schemaVersion":  1,
     "purpose":  "Internal development bootstrap artifact; not a public .j product package",
     "jdkVersion":  "javac 21.0.12.1",
-    "sourceCount":  14,
-    "classCount":  15,
-    "jarSha256":  "3d65a67bcfe7eb4ac916e70680117f65cc31648685d4553884e62aa5885c04ee",
+    "sourceCount":  15,
+    "classCount":  16,
+    "jarSha256":  "4e20e42d4e1b7e602ab526363d8686bf44295d7070f3fba68a8288754d795fff",
     "entries":  [
                     "META-INF/",
                     "META-INF/MANIFEST.MF",
@@ -27,6 +27,7 @@
                     "org/dotj/internal/ownership/",
                     "org/dotj/internal/ownership/OwnedResources.class",
                     "org/dotj/internal/types/",
+                    "org/dotj/internal/types/ArityMethodSignatureBinder.class",
                     "org/dotj/internal/types/ArityNameMap.class",
                     "org/dotj/internal/types/ArityTypeReferenceBinder$Parser.class",
                     "org/dotj/internal/types/ArityTypeReferenceBinder.class",
@@ -78,12 +79,16 @@
                              "sha256":  "f581a20f16e3bd45f42d8791137b02bb9789a5af80cb3bf8d314213c8fe741b4"
                          },
                          {
+                             "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/ArityMethodSignatureBinder.java",
+                             "sha256":  "f376a5d51a5c7cdbf6e0a39292343f33f565ef382851d8752194f362a936cb13"
+                         },
+                         {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/ArityNameMap.java",
                              "sha256":  "0ec3ea0425dcba39cba553d8c5cbea7a7228522b1291a9f5665bb1337bbeb5dc"
                          },
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/ArityTypeReferenceBinder.java",
-                             "sha256":  "812b405de3642b2d531041613fbf4e8be3901b66fd787bae409ea3b3d0837e85"
+                             "sha256":  "39186536816562ea4a8eb11b6f255c838453359e8dce427a0808bf4f8c2a5dff"
                          },
                          {
                              "path":  "dotj-core/dotj-core-01/src/main/java/org/dotj/internal/types/TypeIdentity.java",

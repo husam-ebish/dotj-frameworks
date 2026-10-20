@@ -316,7 +316,11 @@ def main():
                 assert tracking["activeTranche"] == {"firstBatch": "Batch-706", "lastBatch": "Batch-755", "completed": len(completed) - 705, "remaining": 755 - len(completed)}
             else:
                 assert tracking["activeTranche"] is None
-            assert progress["nextProposedBatch"]["requiresContinue"] == (len(completed) == 755 or len(completed) >= 1200)
+            if 707 <= len(completed) <= 716:
+                assert tracking["currentRequest"] == {"firstBatch": "Batch-707", "lastBatch": "Batch-716", "completed": len(completed) - 706, "remaining": 716 - len(completed)}
+            else:
+                assert tracking.get("currentRequest") is None
+            assert progress["nextProposedBatch"]["requiresContinue"] == (len(completed) in (716, 755) or len(completed) >= 1200)
         else:
             assert tracking["remainingPlannedBatches"] == expected_total - len(completed)
     if plan["planVersion"] == "stage-2-batches-v7":
