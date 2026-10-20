@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-053",
+  "sourceArchiveCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "localGate": "wp01-local-gate-v10.0.12.json: nine Java fixtures and five independent .NET oracles pass",
+  "upstreamProjects": [
+    {
+      "path": "src/libraries/System.Threading/tests/System.Threading.Tests.csproj",
+      "sha256": "5dcea5725804cfb93c1e4683fb8c9ec64818919eae365231e0097a3e0c2b1ca3",
+      "selectedMethods": ["System.Threading.Tests.AsyncLocalTests.CaptureAndRestore", "System.Threading.Tests.ExecutionContextTests.FlowTest"]
+    },
+    {
+      "path": "src/libraries/Microsoft.Extensions.DependencyInjection/tests/DI.Tests/Microsoft.Extensions.DependencyInjection.Tests.csproj",
+      "sha256": "5aa0a1a77db15d3086866e97802b532b5a33b7297986e979d1566d187835d98c",
+      "selectedMethods": ["SingletonServiceCreatedFromInstanceIsNotDisposedWhenContainerIsDisposed", "ProviderDisposeThrowsWhenOnlyDisposeAsyncImplemented"]
+    }
+  ],
+  "fixtureGaps": [
+    "F01-01/F01-02: bounded independent CLR type oracle passes, but no pinned upstream test has been mapped or executed and the public System.Type surface remains unmapped.",
+    "F01-03: selected DI source test is identified but unexecuted; broader borrowed and async ownership paths remain open.",
+    "F01-04: two supporting context source tests are identified but unexecuted; neither is an exact cross-request case. Explicit Java context is a declared adaptation."
+  ],
+  "publicApiGates": ["E01 rights/release qualification open", "E02 complete semantic/public API inventory open", "N01 compiled exact public API and language-gap review open", "Q01 qualification open"],
+  "nextAction": "Stage the pinned source and attempt filtered upstream test execution with explicit toolchain and failure evidence.",
+  "status": "E03 IN PROGRESS; no WP-01 task completion credit"
+}
