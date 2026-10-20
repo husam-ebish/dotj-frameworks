@@ -3,14 +3,14 @@
   "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "selectedLedgerSha256": "9eb5afc77da9ee016d1e9f2eb4e180a2cd397eb96f6bb9703383061dda55e496",
-  "remainingLedgerSha256": "b2978b21615f2a39df9a7e15d596d7bef1bb0e71ce86598b7617c90f82199571",
+  "remainingLedgerSha256": "0bcc051a55614b817b1b6a11301eff1a550609ff2411ee9a1d4c0b25de6a2142",
   "selectedMethodsProbed": 99,
   "remainingMethodsInventoried": 327,
   "remainingMethodsRecorded": 327,
   "remainingMethodsWithoutCompilerResult": 1,
   "distinctMethodsRecorded": 426,
-  "javaDeclarationsCompiled": 418,
-  "javaDeclarationsBlocked": 7,
+  "javaDeclarationsCompiled": 422,
+  "javaDeclarationsBlocked": 3,
   "javaProbesUnsupported": 1,
   "blockedIdentities": [
     {
@@ -19,27 +19,6 @@
       "compilerError": "non-static type variable TResult cannot be referenced from a static context",
       "sourceBatch": "Batch-327",
       "probeBatch": "Batch-794"
-    },
-    {
-      "declaringType": "System.Type",
-      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean, Boolean)",
-      "compilerError": "unexpected type",
-      "sourceBatch": "Batch-589",
-      "probeBatch": "Batch-1086"
-    },
-    {
-      "declaringType": "System.Type",
-      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean)",
-      "compilerError": "unexpected type",
-      "sourceBatch": "Batch-590",
-      "probeBatch": "Batch-1087"
-    },
-    {
-      "declaringType": "System.Type",
-      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])",
-      "compilerError": "unexpected type",
-      "sourceBatch": "Batch-591",
-      "probeBatch": "Batch-1088"
     },
     {
       "declaringType": "System.Threading.Tasks.ValueTask`1",
@@ -54,13 +33,6 @@
       "compilerError": "non-static type variable TResult cannot be referenced from a static context",
       "sourceBatch": "Batch-629",
       "probeBatch": "Batch-1126"
-    },
-    {
-      "declaringType": "System.Threading.Tasks.Task",
-      "metadataSignature": "System.Nullable`1[System.Int32] get_CurrentId()",
-      "compilerError": "unexpected type",
-      "sourceBatch": "Batch-665",
-      "probeBatch": "Batch-1162"
     }
   ],
   "unsupportedIdentities": [

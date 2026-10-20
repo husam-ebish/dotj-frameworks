@@ -40,10 +40,13 @@ def split_arguments(text):
     return [part.strip() for part in parts]
 
 
-def convert_type(metadata, type_parameters, support):
+def convert_type(metadata, type_parameters, support, generic_argument=False):
     if metadata.endswith("[]"):
         return convert_type(metadata[:-2], type_parameters, support) + "[]"
     if metadata in PRIMITIVES:
+        if generic_argument and metadata != "System.Void":
+            support[metadata] = 0
+            return metadata.rsplit(".", 1)[-1]
         return PRIMITIVES[metadata]
     if metadata in type_parameters:
         return metadata
@@ -59,7 +62,7 @@ def convert_type(metadata, type_parameters, support):
     support[backend] = arity
     simple = backend.rsplit(".", 1)[-1]
     if arguments:
-        simple += "<" + ", ".join(convert_type(arg, type_parameters, support) for arg in arguments) + ">"
+        simple += "<" + ", ".join(convert_type(arg, type_parameters, support, True) for arg in arguments) + ">"
     return simple
 
 
