@@ -100,6 +100,21 @@ final class CancellationSource implements AutoCloseable {
         }
     }
 
+    boolean tryReset() {
+        List<CancellationRegistration> stale;
+        synchronized (lock) {
+            if (closed || cancellationRequested) {
+                return false;
+            }
+            stale = new ArrayList<>(registrations);
+            registrations.clear();
+        }
+        for (CancellationRegistration registration : stale) {
+            registration.unregister();
+        }
+        return true;
+    }
+
     @Override
     public void close() {
         synchronized (lock) {
