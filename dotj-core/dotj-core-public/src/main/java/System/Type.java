@@ -33,7 +33,7 @@ public abstract class Type {
     /** Selected CoreLib names only; broader lookup and assembly resolution remain open. */
     public static Type GetType(String typeName) {
         if (typeName == null) {
-            throw new NullPointerException("typeName");
+            throw new ArgumentNullException("typeName");
         }
         return switch (typeName) {
             case "System.String" -> fromJavaClass(String.class);
@@ -46,7 +46,7 @@ public abstract class Type {
 
     public Type MakeGenericType(Type[] typeArguments) {
         if (typeArguments == null) {
-            throw new NullPointerException("typeArguments");
+            throw new ArgumentNullException("typeArguments");
         }
         if (!this.arguments.isEmpty() || this.definition.getTypeParameters().length == 0) {
             throw new IllegalStateException("Not a generic type definition");

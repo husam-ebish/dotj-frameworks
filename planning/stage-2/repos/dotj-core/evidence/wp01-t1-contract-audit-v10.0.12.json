@@ -16,8 +16,8 @@
     {
       "topic": "nullability",
       "evidence": ["TypeIdentityBoundaryTest", "wp01-t1-null-exception-oracle-v10.0.12.json"],
-      "observation": "The internal helper rejects a null Type with a Java NullPointerException naming type. The pinned .NET Type.MakeGenericType null-array case throws ArgumentNullException naming typeArguments.",
-      "remaining": "These are different operations; the public nullability and exception mapping has not been specified or qualified."
+      "observation": "The internal helper rejects null with Java NullPointerException. The pinned .NET Type.MakeGenericType and Type.GetType null cases throw ArgumentNullException naming typeArguments and typeName; the selected Java System.Type candidate now uses the same exception and parameter names.",
+      "remaining": "The selected Java exception carrier and four-class inheritance chain do not establish complete System.Exception semantics, message localization, or broader public nullability parity."
     },
     {
       "topic": "exception cause and identity",

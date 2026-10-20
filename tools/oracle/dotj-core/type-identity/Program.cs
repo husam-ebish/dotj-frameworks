@@ -35,6 +35,21 @@ catch (ArgumentNullException exception)
 }
 Check(nullTypeArgumentsParameter == "typeArguments", "null type argument parameter identity");
 
+string? nullTypeNameParameter = null;
+try
+{
+    Type.GetType(null!);
+    throw new Exception("Null type name was accepted.");
+}
+catch (ArgumentNullException exception)
+{
+    nullTypeNameParameter = exception.ParamName;
+}
+Check(nullTypeNameParameter == "typeName", "null type-name parameter identity");
+Check(typeof(ArgumentNullException).BaseType == typeof(ArgumentException), "argument null hierarchy");
+Check(typeof(ArgumentException).BaseType == typeof(SystemException), "argument hierarchy");
+Check(typeof(SystemException).BaseType == typeof(Exception), "system exception hierarchy");
+
 Console.WriteLine("sameReference=" + ReferenceEquals(first, same));
 Console.WriteLine("runtimeVersion=" + Environment.Version);
 Console.WriteLine("constructedEqual=" + first.Equals(constructed));
@@ -43,6 +58,8 @@ Console.WriteLine("sameGenericDefinition=" + (first.GetGenericTypeDefinition() =
 Console.WriteLine("secondDefinitionCanonical=" + ReferenceEquals(listOfInt, reconstructedListOfInt));
 Console.WriteLine("secondDefinitionDifferentArgumentsSameReference=" + ReferenceEquals(listOfInt, listOfLong));
 Console.WriteLine("nullTypeArgumentsParameter=" + nullTypeArgumentsParameter);
+Console.WriteLine("nullTypeNameParameter=" + nullTypeNameParameter);
+Console.WriteLine("argumentNullHierarchy=True");
 Console.WriteLine("selectedTypeNameLookup=True");
 
 static void Check(bool condition, string label)

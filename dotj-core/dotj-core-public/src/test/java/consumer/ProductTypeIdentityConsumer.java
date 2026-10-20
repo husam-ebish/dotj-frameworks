@@ -1,6 +1,7 @@
 package consumer;
 
 import System.Type;
+import System.ArgumentNullException;
 
 /** Calls the candidate's public members from outside the System package. */
 public final class ProductTypeIdentityConsumer {
@@ -11,6 +12,14 @@ public final class ProductTypeIdentityConsumer {
         if (definition == null || string == null || integer == null
                 || Type.GetType("System.Unknown") != null) {
             throw new AssertionError("Selected type-name lookup changed");
+        }
+        try {
+            Type.GetType(null);
+            throw new AssertionError("Null type name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"typeName".equals(expected.get_ParamName())) {
+                throw new AssertionError("Public exception parameter changed", expected);
+            }
         }
         Type first = definition.MakeGenericType(new Type[] {string});
         Type same = definition.MakeGenericType(new Type[] {string});
