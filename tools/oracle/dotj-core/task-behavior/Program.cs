@@ -130,6 +130,14 @@ Run("genericSourceFault", () =>
         "generic source fault");
 });
 
+Run("genericSourceCancel", () =>
+{
+    TaskCompletionSource<int> source = new();
+    source.SetCanceled();
+    Check(source.Task.IsCanceled && source.Task.Status == TaskStatus.Canceled,
+        "generic source cancel");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
