@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-061",
+  "project": "tools/oracle/dotj-core/context-flow/ContextFlowOracle.csproj",
+  "sourceSha256": "f9570b4296aee3697637ea252283dba5b1e1ae36fdb4d889fb564456b5e6bab3",
+  "runtime": "Installed Microsoft.NETCore.App 10.0.12",
+  "baseline": "The existing oracle passed before the change: first=A, second=B, suppressed=<null>, caller=B.",
+  "build": "Release build succeeded with zero warnings and zero errors.",
+  "execution": "dotnet run --project tools/oracle/dotj-core/context-flow/ContextFlowOracle.csproj --configuration Release --no-launch-profile",
+  "observations": {
+    "firstCapturedAsyncLocal": "A",
+    "secondCapturedAsyncLocal": "B",
+    "suppressedFlowAsyncLocal": null,
+    "callerAfterTaskDispatch": "B",
+    "firstRequestOnDedicatedWorker": "A",
+    "secondRequestOnSameWorker": "B",
+    "workerRestoredItsPriorAmbientValueAfterEachRequest": true,
+    "callerAfterRequestDispatch": null
+  },
+  "fixture": "DJ-001-F01-04",
+  "comparison": "The CLR oracle uses captured ExecutionContext.Run on one dedicated reused thread; the Java helper transports selected explicit values. Both bounded tests observe A then B without A leaking into request B.",
+  "limits": ["Independent oracle, not an upstream cross-request test.", "The Java helper does not capture arbitrary CLR-style ambient context.", "No public ExecutionContext facade or WP-01 qualification is claimed."]
+}
