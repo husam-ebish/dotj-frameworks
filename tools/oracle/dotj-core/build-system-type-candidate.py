@@ -19,6 +19,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 IDISPOSABLE_SOURCE = SOURCE.with_name("IDisposable.java")
+ICOMPARABLE_SOURCE = SOURCE.with_name("IComparable.java")
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
 CONCURRENCY_TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java"
 LOADER_FIXTURE = ROOT / "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java"
@@ -179,7 +180,7 @@ def main():
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,
-        True, False, False, True, False,
+        True, False, False, True, False, True,
     ]
     subclass = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSubclassBehavior"]
     assert [item["observation"]["result"] for item in subclass] == [
@@ -190,7 +191,7 @@ def main():
     instances = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInstanceBehavior"]
     assert [item["result"] for item in instances] == [
         True, True, False, True, False, True, False, True, True, True, True,
-        True, False, False,
+        True, False, False, True,
     ]
     interfaces = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInterfaceBehavior"]
     assert interfaces["objectInterfaces"] == interfaces["disposableInterfaces"] == []
@@ -199,6 +200,11 @@ def main():
     assert interfaces["nullName"] == {
         "result": None, "exception": "System.ArgumentNullException", "paramName": "fullname",
     }
+    assert interfaces["stringComparable"]["result"] == "System.IComparable"
+    assert interfaces["stringComparableIgnoreCase"]["result"] == "System.IComparable"
+    assert interfaces["stringComparableShort"]["result"] == "System.IComparable"
+    assert all(interfaces[key]["result"] is None for key in
+               ("stringInsensitive", "stringSensitiveMiss", "stringDisposableMiss"))
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -208,7 +214,7 @@ def main():
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
     run("javac", "--release", "21", "-d", str(CLASSES),
-        *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES, IDISPOSABLE_SOURCE]))
+        *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES, IDISPOSABLE_SOURCE, ICOMPARABLE_SOURCE]))
     assert not (CLASSES / "System/TypeCandidateFactory.class").exists()
     run("javac", "--release", "21", "-cp", str(CLASSES), "-d", str(TEST_CLASSES),
         str(TEST), str(CONCURRENCY_TEST), str(LOADER_FIXTURE), str(EXTERNAL))
@@ -276,6 +282,7 @@ def main():
         "sourcePath": SOURCE.relative_to(ROOT).as_posix(),
         "sourceSha256": sha256(SOURCE),
         "idisposableSourceSha256": sha256(IDISPOSABLE_SOURCE),
+        "icomparableSourceSha256": sha256(ICOMPARABLE_SOURCE),
         "exceptionSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)}
                              for path in EXCEPTION_SOURCES],
         "testPath": TEST.relative_to(ROOT).as_posix(),

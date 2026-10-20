@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "68d7acab6616a63661d0958e87f77a87bb9eab877efbd8eb8110937d25685bf1",
-  "typeCount": 12,
+  "candidateJarSha256": "268738ba2f930be7f9159c7b8a5e406983f853af00f111fbc07d7a9d5cec6c76",
+  "typeCount": 13,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -21,6 +21,22 @@
         "public abstract void Dispose();"
       ],
       "disposition": "EXACT_SELECTED_INTERFACE_MEMBER; behavior and release unqualified",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.IComparable",
+      "upstreamBaseType": null,
+      "upstreamIsInterface": true,
+      "upstreamIsAbstract": true,
+      "upstreamDeclaredNonAccessorMethods": 1,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public interface System.IComparable {",
+      "javaPublicDeclarations": [
+        "public abstract int CompareTo(java.lang.Object);"
+      ],
+      "disposition": "SELECTED_INTERFACE_MEMBER; Java Object parameter and behavior unqualified",
       "qualified": false
     },
     {
