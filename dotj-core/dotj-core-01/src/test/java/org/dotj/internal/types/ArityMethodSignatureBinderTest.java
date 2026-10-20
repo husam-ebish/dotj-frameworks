@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import javax.tools.DiagnosticCollector;
 import javax.tools.JavaFileObject;
 import javax.tools.SimpleJavaFileObject;
@@ -46,6 +47,12 @@ public final class ArityMethodSignatureBinderTest {
             throw new AssertionError("Conflicting simple type names were accepted");
         } catch (IllegalArgumentException expected) {
             // Java imports cannot name two distinct Task types at once.
+        }
+        try {
+            ArityJavaSourceRenderer.renderMethod("System.Threading.Tasks.Task Run()", Set.of("Task"));
+            throw new AssertionError("Declaration-scope type collision was accepted");
+        } catch (IllegalArgumentException expected) {
+            // A generated Task declaration cannot import another simple Task name.
         }
         Path output = Files.createTempDirectory("dotj-arity-signature-");
         try {
