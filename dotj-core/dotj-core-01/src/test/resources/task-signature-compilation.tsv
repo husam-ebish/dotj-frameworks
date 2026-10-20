@@ -1,2 +1,3 @@
 # id<TAB>expectation<TAB>package<TAB>class<TAB>signature(s) separated by ~~<TAB>expected source or error fragment
 two-methods	PASS	fixture	TwoMethods	System.Threading.Tasks.Task First()~~System.Threading.Tasks.Task<System.String> Second()	Task_1<String> Second()
+task-return	PASS	fixture	Probe	System.Threading.Tasks.Task Run()	Task Run()
