@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-076",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "Java exact-name syntax probe",
+  "assertionsPassed": [
+    "Java exact-name syntax probe passed"
+  ],
+  "observed": {
+    "source": "tools\\oracle\\dotj-core\\java-probes\\System\\IDisposable.java",
+    "compiled": true
+  },
+  "openGaps": [
+    "This check does not close the full public API, behavior, or release gates."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
