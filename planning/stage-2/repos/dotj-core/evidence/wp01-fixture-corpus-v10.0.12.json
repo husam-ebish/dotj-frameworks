@@ -8,7 +8,7 @@
       "id": "DJ-001-F01-01",
       "expectation": "equal closed parameterized types share identity",
       "java": "TypeIdentityTest passed in Batch-040",
-      "dotnetOracle": "type-identity oracle passed in Batch-041",
+      "dotnetOracle": "type-identity oracle passed in Batch-041; second generic definition and canonical List<int> identity passed in Batch-064",
       "upstreamTest": "Batch-060 passed TypeInfoTests.UnderlyingSystemType and MakeGenericType; they support constructed-generic equality and classification, while direct reference identity is checked by the independent oracle",
       "status": "PARTIAL: one generic definition and selected arguments, with supporting upstream tests but no public System.Type mapping"
     },
@@ -16,7 +16,7 @@
       "id": "DJ-001-F01-02",
       "expectation": "different generic arguments do not share identity",
       "java": "TypeIdentityTest passed in Batch-040",
-      "dotnetOracle": "type-identity oracle passed in Batch-041",
+      "dotnetOracle": "type-identity oracle passed in Batch-041; List<int> versus List<long> reference inequality passed in Batch-064",
       "upstreamTest": "Batch-063 passed four supporting TypeInfoTests.GetGenericArguments cases; no direct selected upstream inequality assertion was identified in the bounded reflection-test search",
       "status": "PARTIAL: direct assertion uses the independent .NET oracle, with supporting upstream generic-argument metadata; one generic definition and selected arguments only"
     },
