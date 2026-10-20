@@ -45,12 +45,49 @@ public final class OwnedResourcesTest {
         assertEquals(List.of("second", "first"), failures, "cleanup continues after failure");
         failing.close();
 
-        System.out.println("PASS: borrowed lifetime, reverse close, one-shot close, failure continuation");
+        List<String> aliases = new ArrayList<>();
+        OwnedResources identityScope = new OwnedResources();
+        AutoCloseable shared = () -> aliases.add("shared");
+        identityScope.addBorrowed(shared);
+        identityScope.addOwned(shared);
+        identityScope.addOwned(shared);
+        identityScope.addOwned(new EqualCloseable("equal-1", aliases));
+        identityScope.addOwned(new EqualCloseable("equal-2", aliases));
+        identityScope.close();
+        assertEquals(List.of("equal-2", "equal-1", "shared"), aliases,
+                "owned aliases close once, distinct equal resources close separately");
+
+        System.out.println("PASS: borrowed lifetime, reverse close, one-shot close, failure continuation, identity aliases");
     }
 
     private static void assertEquals(Object expected, Object actual, String label) {
         if (!expected.equals(actual)) {
             throw new AssertionError(label + ": expected " + expected + ", got " + actual);
+        }
+    }
+
+    private static final class EqualCloseable implements AutoCloseable {
+        private final String name;
+        private final List<String> events;
+
+        private EqualCloseable(String name, List<String> events) {
+            this.name = name;
+            this.events = events;
+        }
+
+        @Override
+        public void close() {
+            events.add(name);
+        }
+
+        @Override
+        public boolean equals(Object other) {
+            return other instanceof EqualCloseable;
+        }
+
+        @Override
+        public int hashCode() {
+            return 1;
         }
     }
 }

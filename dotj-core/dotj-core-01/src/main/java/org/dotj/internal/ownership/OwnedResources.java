@@ -1,17 +1,22 @@
 package org.dotj.internal.ownership;
 
 import java.util.ArrayList;
+import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Objects;
 
 /** Tracks resources created for one internal scope. */
 final class OwnedResources implements AutoCloseable {
     private final List<AutoCloseable> owned = new ArrayList<>();
+    private final IdentityHashMap<AutoCloseable, Boolean> ownedIdentities = new IdentityHashMap<>();
     private boolean closed;
 
     void addOwned(AutoCloseable resource) {
         requireOpen();
-        owned.add(Objects.requireNonNull(resource));
+        Objects.requireNonNull(resource);
+        if (ownedIdentities.putIfAbsent(resource, Boolean.TRUE) == null) {
+            owned.add(resource);
+        }
     }
 
     void addBorrowed(AutoCloseable resource) {
@@ -45,6 +50,7 @@ final class OwnedResources implements AutoCloseable {
             }
         }
         owned.clear();
+        ownedIdentities.clear();
         if (failure != null) {
             throw failure;
         }
