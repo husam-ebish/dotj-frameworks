@@ -1180,7 +1180,8 @@
     "Batch-1163",
     "Batch-1164",
     "Batch-1165",
-    "Batch-1166"
+    "Batch-1166",
+    "Batch-1167"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -1373,7 +1374,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-1166",
+      "lastUpdatedBatch": "Batch-1167",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -10984,19 +10985,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-1167",
+    "id": "Batch-1168",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Check pinned remaining method 298: System.Threading.Tasks.Task.Void WaitAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task], System.Threading.CancellationToken).",
+    "outcome": "Check pinned remaining method 299: System.Threading.Tasks.Task.Void WaitAll(System.ReadOnlySpan`1[System.Threading.Tasks.Task]).",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 1166,
+    "completedBatches": 1167,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
