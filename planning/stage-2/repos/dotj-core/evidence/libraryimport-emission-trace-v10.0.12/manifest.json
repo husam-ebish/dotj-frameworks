@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 1,
+  "recordedDate": "2026-10-20",
+  "scope": "Two bounded static source-to-output traces within pinned CoreLib LibraryImports.g.cs",
+  "status": "TWO_STUBS_TRACED_STATICALLY; FILE_TO_NOTICE_APPLICABILITY_OPEN",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "generatedOutput": {
+    "priorEvidencePath": "../corelib-generated-v10.0.12/LibraryImport.LibraryImports.g.cs.raw",
+    "bytes": 645008,
+    "sha256": "094c3ccc4a4de9fe3a146af0964b784ca8c04542f32729b86786e0d644ae248b"
+  },
+  "sourceWindows": [
+    {
+      "label": "forwarder-input",
+      "sourcePath": "src/coreclr/System.Private.CoreLib/src/Internal/VersionResilientHashCode.CoreCLR.cs",
+      "sourceSha256": "707c0f683924837b03f25504ee2448a2033d97cb2c2f7310d66017d01c4945c0",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/forwarder-input.raw",
+        "lineStart": 1,
+        "lineEnd": 18,
+        "bytes": 642,
+        "sha256": "6384af96127dae0aa39f029f9822908b047bb04f105768546a765569a2c16e45"
+      }
+    },
+    {
+      "label": "bool-input",
+      "sourcePath": "src/coreclr/System.Private.CoreLib/src/System/Array.CoreCLR.cs",
+      "sourceSha256": "25df8e8b93aca34d704e98738af690d22f90ed02dbc87818d30b90c64bed3ea3",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/bool-input.raw",
+        "lineStart": 1,
+        "lineEnd": 21,
+        "bytes": 998,
+        "sha256": "0f477a7430ad818bd9f3451ac6fc7ed003fe5325d8c8a9e210ccd384956a9a50"
+      }
+    },
+    {
+      "label": "generator-register",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "sourceSha256": "40f6c47bd8b15b5d167e0e6968ad7b9df05e54b0f48a1638361766866887d15d",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/generator-register.raw",
+        "lineStart": 90,
+        "lineEnd": 110,
+        "bytes": 988,
+        "sha256": "36a5f4b29aa7044a25adcf0670a64906a7e57025ac8723b6c626bd0b2de3f92d"
+      }
+    },
+    {
+      "label": "generator-source-choice",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "sourceSha256": "40f6c47bd8b15b5d167e0e6968ad7b9df05e54b0f48a1638361766866887d15d",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/generator-source-choice.raw",
+        "lineStart": 326,
+        "lineEnd": 379,
+        "bytes": 3212,
+        "sha256": "490c03d22824393f3f72f064ad00f534a0bb78c79ddb8dd26769be244bb0fd18"
+      }
+    },
+    {
+      "label": "generator-forwarder",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "sourceSha256": "40f6c47bd8b15b5d167e0e6968ad7b9df05e54b0f48a1638361766866887d15d",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/generator-forwarder.raw",
+        "lineStart": 382,
+        "lineEnd": 431,
+        "bytes": 2932,
+        "sha256": "bdcee1892cb30ae546e70d89bd4121300c3f5fbd6393e380365f0261ccd78434"
+      }
+    },
+    {
+      "label": "generator-local-import",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/LibraryImportGenerator/LibraryImportGenerator.cs",
+      "sourceSha256": "40f6c47bd8b15b5d167e0e6968ad7b9df05e54b0f48a1638361766866887d15d",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/generator-local-import.raw",
+        "lineStart": 432,
+        "lineEnd": 475,
+        "bytes": 2941,
+        "sha256": "56b6cbd3339fdbb9387b7890701cd8880f0a61b60b1d2ad9437cb896cd26784c"
+      }
+    },
+    {
+      "label": "generator-concatenate",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/IncrementalGeneratorInitializationContextExtensions.cs",
+      "sourceSha256": "c74d30854640ecbe7589fa332e89322387258992d83b3c105e378474c40a6eaa",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/generator-concatenate.raw",
+        "lineStart": 69,
+        "lineEnd": 98,
+        "bytes": 1563,
+        "sha256": "fb0bb3ecfbf118e8fe10d1e2f5cf3dca114cc17ed0fd1fad5838b7e9116b7995"
+      }
+    },
+    {
+      "label": "body-compose",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/ManagedToNativeStubGenerator.cs",
+      "sourceSha256": "f4eabbc3e73e03b9429fce642445d6d27bbbbffaaea6f0856c464ab7b03f4bfe",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/body-compose.raw",
+        "lineStart": 109,
+        "lineEnd": 175,
+        "bytes": 3458,
+        "sha256": "3b31e909dd3a088a85d4d63cf689c013de14a48ac6be79947c81efb56f28a9e1"
+      }
+    },
+    {
+      "label": "resolver-compose",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/Marshalling/DefaultMarshallingGeneratorResolver.cs",
+      "sourceSha256": "e42362ba1229adb5a66744843418668ed7d480ec578513e793f2d9d8b1397540",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/resolver-compose.raw",
+        "lineStart": 23,
+        "lineEnd": 36,
+        "bytes": 849,
+        "sha256": "6c6bc44b953d63aaa2aaeb68b1ce5b48cbb1b35474373dfe61027edef6a5e28c"
+      }
+    },
+    {
+      "label": "resolver-bool",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/Marshalling/MarshalAsMarshallingGeneratorResolver.cs",
+      "sourceSha256": "5bc83e073b9b912da49905573eba760203cdd46b01be07b9dba551278af0c33f",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/resolver-bool.raw",
+        "lineStart": 75,
+        "lineEnd": 85,
+        "bytes": 1287,
+        "sha256": "7967e785585138a16a24c03bb0d3aad2cdcf77c639adf7772a00a0a66fc764e2"
+      }
+    },
+    {
+      "label": "bool-expression",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/Marshalling/BoolMarshaller.cs",
+      "sourceSha256": "1241a6b893e93f575305fb863a581e36f1ff44c66688d31b86dec6c01cdb2cb0",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/bool-expression.raw",
+        "lineStart": 51,
+        "lineEnd": 82,
+        "bytes": 2055,
+        "sha256": "79a14739f467e961990730c6e9a7bbe666439e8e35957042b5528bd18c673fbd"
+      }
+    },
+    {
+      "label": "bool-values",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/Marshalling/BoolMarshaller.cs",
+      "sourceSha256": "1241a6b893e93f575305fb863a581e36f1ff44c66688d31b86dec6c01cdb2cb0",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/bool-values.raw",
+        "lineStart": 132,
+        "lineEnd": 143,
+        "bytes": 471,
+        "sha256": "38a92b3f71e56d1453c8e86fa1052494920b351772d9d9fdd132e76b847aea4f"
+      }
+    },
+    {
+      "label": "statement-stages",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/GeneratedStatements.cs",
+      "sourceSha256": "6f48c8df6201093c02ca44c3efc6e319c7eb41fb59eed02d59111cbe27604e06",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/statement-stages.raw",
+        "lineStart": 29,
+        "lineEnd": 43,
+        "bytes": 1841,
+        "sha256": "0b2fde088016adb1c357db26531c4d25e6fe8719688abc39e283b0dbe0318137"
+      }
+    },
+    {
+      "label": "statement-dispatch",
+      "sourcePath": "src/libraries/System.Runtime.InteropServices/gen/Microsoft.Interop.SourceGeneration/GeneratedStatements.cs",
+      "sourceSha256": "6f48c8df6201093c02ca44c3efc6e319c7eb41fb59eed02d59111cbe27604e06",
+      "hasNetFoundationMitHeader": true,
+      "excerpt": {
+        "path": "source/statement-dispatch.raw",
+        "lineStart": 72,
+        "lineEnd": 84,
+        "bytes": 763,
+        "sha256": "33524e1f7329502e80f918890ae0de25e10f754e5e2f09d2518d2a72e7c96c24"
+      }
+    }
+  ],
+  "outputWindows": [
+    {
+      "label": "forwarder-output",
+      "excerpt": {
+        "path": "output/forwarder-output.raw",
+        "lineStart": 2,
+        "lineEnd": 9,
+        "bytes": 386,
+        "sha256": "e6e2fc29637cebc26e00705788a4b23bdffe52961f28c8b9e4c2467cfffa4502"
+      }
+    },
+    {
+      "label": "bool-output",
+      "excerpt": {
+        "path": "output/bool-output.raw",
+        "lineStart": 90,
+        "lineEnd": 109,
+        "bytes": 1261,
+        "sha256": "2be48e270fff60fa34072a422c7eb77f642fffd554acd5d356cad8de6a2d1adc"
+      }
+    }
+  ],
+  "anchorChecks": {
+    "forwarderInput": true,
+    "forwarderOutput": true,
+    "boolInput": true,
+    "boolOutput": true,
+    "forwarderRoute": true,
+    "boolRoute": true,
+    "commonEmitter": true,
+    "outputNoticeMarkersAbsent": true
+  },
+  "traces": [
+    {
+      "sample": "Internal.VersionResilientHashCode.TypeHashCode",
+      "kind": "extern forwarder",
+      "input": "forwarder-input",
+      "output": "forwarder-output",
+      "observedCorrespondence": "The declared method, QCall entry point and parameter type appear in the emitted extern DllImport form.",
+      "staticRoute": [
+        "generator-register",
+        "generator-source-choice",
+        "generator-forwarder",
+        "generator-concatenate"
+      ],
+      "contentClassification": "Input-derived names/signature and generator-constructed C# syntax; no inline notice marker found in this excerpt.",
+      "routeLimit": "The output form matches PrintForwarderStub, but this static trace does not prove which of its two caller branches executed."
+    },
+    {
+      "sample": "System.Array.InternalCreate",
+      "kind": "marshalled wrapper with local P/Invoke",
+      "input": "bool-input",
+      "output": "bool-output",
+      "observedCorrespondence": "The input MarshalAs(UnmanagedType.Bool) parameter and Array_CreateInstance entry point correspond to the emitted int temporary, 1/0 conversion and local DllImport.",
+      "staticRoute": [
+        "generator-register",
+        "generator-source-choice",
+        "resolver-compose",
+        "resolver-bool",
+        "bool-values",
+        "bool-expression",
+        "statement-stages",
+        "statement-dispatch",
+        "body-compose",
+        "generator-local-import",
+        "generator-concatenate"
+      ],
+      "contentClassification": "Input-derived identifiers and entry point plus generator-constructed marshalling syntax; no inline notice marker found in this excerpt.",
+      "routeLimit": "Static source/output correspondence, not an instrumented generator execution or exhaustive template provenance review."
+    }
+  ],
+  "noticeCandidates": [
+    "The two selected upstream CoreLib declarations and all sampled generator source files have .NET Foundation MIT headers; see sourceWindows and pinned root LICENSE.TXT.",
+    "The output excerpt has no inline license header. Source and generator provenance remains relevant even when the emitted file begins only with an auto-generated marker.",
+    "The 36-package build-chain graph records build dependencies, but this two-stub trace finds no inline notice marker in either excerpt. It cannot waive or assign package notices for the full output or any future .j artifact."
+  ],
+  "limits": [
+    "Only two generated stubs and selected source windows were traced; the remaining 645,008-byte generated file was not classified.",
+    "The static route is inferred from pinned source and output anchors; no instrumented source-generator execution was performed.",
+    "No legal redistribution clearance or .j implementation/API compatibility is claimed."
+  ],
+  "relatedEvidence": [
+    "../libraryimport-notice-scope-v10.0.12/manifest.json",
+    "../generated-rights-v10.0.12/manifest.json"
+  ],
+  "primaryLicense": "https://github.com/dotnet/runtime/blob/v10.0.12/LICENSE.TXT"
+}

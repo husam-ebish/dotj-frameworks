@@ -1,0 +1,11 @@
+                case { ManagedType: SpecialTypeInfo { SpecialType: SpecialType.System_Boolean }, MarshallingAttributeInfo: MarshalAsInfo(UnmanagedType.U1, _) }:
+                    return ResolvedGenerator.Resolved(s_byteBool.Bind(info, context));
+                case { ManagedType: SpecialTypeInfo { SpecialType: SpecialType.System_Boolean }, MarshallingAttributeInfo: MarshalAsInfo(UnmanagedType.I1, _) }:
+                    return ResolvedGenerator.Resolved(s_signed_byteBool.Bind(info, context));
+                case { ManagedType: SpecialTypeInfo { SpecialType: SpecialType.System_Boolean }, MarshallingAttributeInfo: MarshalAsInfo(UnmanagedType.U4, _) }:
+                    return ResolvedGenerator.Resolved(s_winBool.Bind(info, context));
+                case { ManagedType: SpecialTypeInfo { SpecialType: SpecialType.System_Boolean }, MarshallingAttributeInfo: MarshalAsInfo(UnmanagedType.I4 or UnmanagedType.Bool, _) }:
+                    return ResolvedGenerator.Resolved(s_signed_winBool.Bind(info, context));
+                case { ManagedType: SpecialTypeInfo { SpecialType: SpecialType.System_Boolean }, MarshallingAttributeInfo: MarshalAsInfo(UnmanagedType.VariantBool, _) }:
+                    return ResolvedGenerator.Resolved(s_variantBool.Bind(info, context));
+

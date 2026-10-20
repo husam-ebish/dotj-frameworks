@@ -1,0 +1,50 @@
+        private static MemberDeclarationSyntax PrintForwarderStub(ContainingSyntax userDeclaredMethod, bool explicitForwarding, IncrementalStubGenerationContext stub, GeneratorDiagnosticsBag diagnostics)
+        {
+            LibraryImportData pinvokeData = stub.LibraryImportData with { EntryPoint = stub.LibraryImportData.EntryPoint ?? userDeclaredMethod.Identifier.ValueText };
+
+            if (pinvokeData.IsUserDefined.HasFlag(InteropAttributeMember.StringMarshalling)
+                && pinvokeData.StringMarshalling != StringMarshalling.Utf16)
+            {
+                // Report a diagnostic when forwarding explicitly. Otherwise, StringMarshalling can just be omitted
+                if (explicitForwarding)
+                {
+                    diagnostics.ReportCannotForwardToDllImport(
+                        stub.DiagnosticLocation,
+                        $"{nameof(TypeNames.LibraryImportAttribute)}{Type.Delimiter}{nameof(StringMarshalling)}",
+                        $"{nameof(StringMarshalling)}{Type.Delimiter}{pinvokeData.StringMarshalling}");
+                }
+
+                pinvokeData = pinvokeData with { IsUserDefined = pinvokeData.IsUserDefined & ~InteropAttributeMember.StringMarshalling };
+            }
+
+            if (pinvokeData.IsUserDefined.HasFlag(InteropAttributeMember.StringMarshallingCustomType))
+            {
+                // Report a diagnostic when forwarding explicitly. Otherwise, StringMarshalling can just be omitted
+                if (explicitForwarding)
+                {
+                    diagnostics.ReportCannotForwardToDllImport(
+                        stub.DiagnosticLocation,
+                        $"{nameof(TypeNames.LibraryImportAttribute)}{Type.Delimiter}{nameof(InteropAttributeMember.StringMarshallingCustomType)}");
+                }
+
+                pinvokeData = pinvokeData with { IsUserDefined = pinvokeData.IsUserDefined & ~InteropAttributeMember.StringMarshallingCustomType };
+            }
+
+            SyntaxTokenList modifiers = StripTriviaFromModifiers(userDeclaredMethod.Modifiers);
+            modifiers = modifiers.AddToModifiers(SyntaxKind.ExternKeyword);
+            // Create stub function
+            MethodDeclarationSyntax stubMethod = MethodDeclaration(stub.SignatureContext.StubReturnType, userDeclaredMethod.Identifier)
+                .WithModifiers(modifiers)
+                .WithParameterList(ParameterList(SeparatedList(stub.SignatureContext.StubParameters)))
+                .WithSemicolonToken(Token(SyntaxKind.SemicolonToken))
+                .AddModifiers()
+                .AddAttributeLists(
+                    AttributeList(
+                        SingletonSeparatedList(
+                            CreateForwarderDllImport(pinvokeData))));
+
+            MemberDeclarationSyntax toPrint = stub.ContainingSyntaxContext.WrapMemberInContainingSyntaxWithUnsafeModifier(stubMethod);
+
+            return toPrint;
+        }
+

@@ -1,0 +1,67 @@
+        public BlockSyntax GenerateStubBody(string targetIdentifier)
+        {
+            GeneratedStatements statements = GeneratedStatements.Create(_marshallers, StubCodeContext.DefaultManagedToNativeStub, _context, IdentifierName(targetIdentifier));
+            bool shouldInitializeVariables = !statements.GuaranteedUnmarshal.IsEmpty || !statements.CleanupCallerAllocated.IsEmpty || !statements.CleanupCalleeAllocated.IsEmpty;
+            VariableDeclarations declarations = VariableDeclarations.GenerateDeclarationsForManagedToUnmanaged(_marshallers, _context, shouldInitializeVariables);
+
+            List<StatementSyntax> setupStatements = [];
+
+            if (_setLastError)
+            {
+                // Declare variable for last error
+                setupStatements.Add(Declare(
+                    PredefinedType(Token(SyntaxKind.IntKeyword)),
+                    LastErrorIdentifier,
+                    initializeToDefault: false));
+            }
+
+            if (!(statements.GuaranteedUnmarshal.IsEmpty && statements.CleanupCalleeAllocated.IsEmpty))
+            {
+                setupStatements.Add(Declare(PredefinedType(Token(SyntaxKind.BoolKeyword)), InvokeSucceededIdentifier, initializeToDefault: true));
+            }
+
+            setupStatements.AddRange(declarations.Initializations);
+            setupStatements.AddRange(declarations.Variables);
+            setupStatements.AddRange(statements.Setup);
+
+            List<StatementSyntax> tryStatements = [.. statements.Marshal];
+
+            BlockSyntax fixedBlock = Block(statements.PinnedMarshal);
+            if (_setLastError)
+            {
+                StatementSyntax clearLastError = MarshallerHelpers.CreateClearLastSystemErrorStatement(SuccessErrorCode);
+
+                StatementSyntax getLastError = MarshallerHelpers.CreateGetLastSystemErrorStatement(LastErrorIdentifier);
+
+                fixedBlock = fixedBlock.AddStatements(clearLastError, statements.InvokeStatement, getLastError);
+            }
+            else
+            {
+                fixedBlock = fixedBlock.AddStatements(statements.InvokeStatement);
+            }
+            tryStatements.Add(statements.Pin.NestFixedStatements(fixedBlock));
+
+            tryStatements.AddRange(statements.NotifyForSuccessfulInvoke);
+
+            // <invokeSucceeded> = true;
+            if (!(statements.GuaranteedUnmarshal.IsEmpty && statements.CleanupCalleeAllocated.IsEmpty))
+            {
+                tryStatements.Add(ExpressionStatement(AssignmentExpression(SyntaxKind.SimpleAssignmentExpression,
+                    IdentifierName(InvokeSucceededIdentifier),
+                    LiteralExpression(SyntaxKind.TrueLiteralExpression))));
+            }
+
+            tryStatements.AddRange(statements.Unmarshal);
+
+            List<StatementSyntax> allStatements = setupStatements;
+            List<StatementSyntax> finallyStatements = [];
+            if (!(statements.GuaranteedUnmarshal.IsEmpty && statements.CleanupCalleeAllocated.IsEmpty))
+            {
+                finallyStatements.Add(IfStatement(IdentifierName(InvokeSucceededIdentifier), Block(statements.GuaranteedUnmarshal.Concat(statements.CleanupCalleeAllocated))));
+            }
+
+            finallyStatements.AddRange(statements.CleanupCallerAllocated);
+            if (finallyStatements.Count > 0)
+            {
+                // Add try-finally block if there are any statements in the finally block
+                allStatements.Add(

@@ -1,0 +1,32 @@
+        {
+            MarshalDirection elementMarshalDirection = MarshallerHelpers.GetMarshalDirection(info, codeContext);
+            (string managedIdentifier, string nativeIdentifier) = context.GetIdentifiers(info);
+            switch (context.CurrentStage)
+            {
+                case StubIdentifierContext.Stage.Setup:
+                    break;
+                case StubIdentifierContext.Stage.Marshal:
+                    // <nativeIdentifier> = (<nativeType>)(<managedIdentifier> ? _trueValue : _falseValue);
+                    if (elementMarshalDirection is MarshalDirection.ManagedToUnmanaged or MarshalDirection.Bidirectional)
+                    {
+                        yield return ExpressionStatement(
+                            AssignmentExpression(
+                                SyntaxKind.SimpleAssignmentExpression,
+                                IdentifierName(nativeIdentifier),
+                                CastExpression(
+                                    AsNativeType(info).Syntax,
+                                    ParenthesizedExpression(
+                                        ConditionalExpression(IdentifierName(managedIdentifier),
+                                            LiteralExpression(SyntaxKind.NumericLiteralExpression, Literal(_trueValue)),
+                                            LiteralExpression(SyntaxKind.NumericLiteralExpression, Literal(_falseValue)))))));
+                    }
+
+                    break;
+                case StubIdentifierContext.Stage.Unmarshal:
+                    if (elementMarshalDirection is MarshalDirection.UnmanagedToManaged or MarshalDirection.Bidirectional)
+                    {
+                        // <managedIdentifier> = <nativeIdentifier> == _trueValue;
+                        //   or
+                        // <managedIdentifier> = <nativeIdentifier> != _falseValue;
+                        (SyntaxKind binaryOp, int comparand) = _compareToTrue ? (SyntaxKind.EqualsExpression, _trueValue) : (SyntaxKind.NotEqualsExpression, _falseValue);
+
