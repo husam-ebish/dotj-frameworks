@@ -66,6 +66,14 @@ public final class ProductTypeIdentityConsumer {
             }
         }
         Type first = definition.MakeGenericType(new Type[] {string});
+        if (Type.GetType("System.String[]") == null
+                || Type.GetType("System.String[]") != Type.GetType("system.string[]", false, true)
+                || Type.GetType("System.String[], System.Private.CoreLib") != Type.GetType("System.String[]")
+                || Type.GetType("System.Int32[]") == null
+                || Type.GetType("System.Collections.Generic.List`1[System.String]") != first
+                || Type.GetType("System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]") != first) {
+            throw new AssertionError("Selected array or generic type-name lookup changed");
+        }
         Type same = definition.MakeGenericType(new Type[] {string});
         Type different = definition.MakeGenericType(new Type[] {integer});
         if (first != same || !first.Equals(same) || first.Equals(different)

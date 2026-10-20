@@ -75,6 +75,12 @@ var result = new
         qualifierSpace = ObserveGetType("System.String , System.Private.CoreLib", false, false),
         emptyAssembly = ObserveGetType("System.String, ", false, false),
         emptyAssemblyThrow = ObserveGetType("System.String, ", true, false),
+        stringArray = ObserveGetType("System.String[]", false, false),
+        intArray = ObserveGetType("System.Int32[]", false, false),
+        stringArrayInsensitive = ObserveGetType("system.string[]", false, true),
+        stringArrayQualified = ObserveGetType("System.String[], System.Private.CoreLib", false, false),
+        listStringSimple = ObserveGetType("System.Collections.Generic.List`1[System.String]", false, false),
+        listStringQualified = ObserveGetType("System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]", false, false),
     },
     types = selected.Select(type => new
     {

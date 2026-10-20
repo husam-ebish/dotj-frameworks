@@ -64,7 +64,19 @@ public abstract class Type {
             throw new ArgumentNullException("typeName");
         }
         String name = typeName.stripLeading();
-        int assemblySeparator = typeName.indexOf(',');
+        int assemblySeparator = -1;
+        int bracketDepth = 0;
+        for (int index = 0; index < typeName.length(); index++) {
+            char character = typeName.charAt(index);
+            if (character == '[') {
+                bracketDepth++;
+            } else if (character == ']') {
+                bracketDepth--;
+            } else if (character == ',' && bracketDepth == 0) {
+                assemblySeparator = index;
+                break;
+            }
+        }
         if (assemblySeparator >= 0) {
             String assembly = typeName.substring(assemblySeparator + 1).trim();
             if (assembly.isEmpty()) {
@@ -85,10 +97,21 @@ public abstract class Type {
             case "System.Int32" -> fromJavaClass(Integer.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
+            case "System.String[]" -> fromJavaClass(String[].class);
+            case "System.Int32[]" -> fromJavaClass(int[].class);
+            case "System.Collections.Generic.List`1[System.String]",
+                    "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]" ->
+                    fromJavaClass(java.util.List.class).MakeGenericType(new Type[] {fromJavaClass(String.class)});
             case "system.string" -> ignoreCase ? fromJavaClass(String.class) : null;
             case "system.int32" -> ignoreCase ? fromJavaClass(Integer.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
             case "system.collections.generic.dictionary`2" -> ignoreCase ? fromJavaClass(java.util.Map.class) : null;
+            case "system.string[]" -> ignoreCase ? fromJavaClass(String[].class) : null;
+            case "system.int32[]" -> ignoreCase ? fromJavaClass(int[].class) : null;
+            case "system.collections.generic.list`1[system.string]",
+                    "system.collections.generic.list`1[[system.string, system.private.corelib]]" ->
+                    ignoreCase ? fromJavaClass(java.util.List.class)
+                            .MakeGenericType(new Type[] {fromJavaClass(String.class)}) : null;
             default -> null;
         };
         if (resolved == null && throwOnError) {
