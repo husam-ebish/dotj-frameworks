@@ -388,6 +388,48 @@
       "reflectedType": null
     }
   ],
+  "selectedBaseTypeBehavior": [
+    {
+      "name": "System.Object",
+      "baseType": null
+    },
+    {
+      "name": "System.String",
+      "baseType": "System.Object"
+    },
+    {
+      "name": "System.Int32",
+      "baseType": "System.ValueType"
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "baseType": "System.Object"
+    },
+    {
+      "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "baseType": "System.Object"
+    },
+    {
+      "name": "T",
+      "baseType": "System.Object"
+    },
+    {
+      "name": "System.String[]",
+      "baseType": "System.Array"
+    },
+    {
+      "name": "System.String[,]",
+      "baseType": "System.Array"
+    },
+    {
+      "name": "System.String&",
+      "baseType": null
+    },
+    {
+      "name": "System.String*",
+      "baseType": null
+    }
+  ],
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -680,6 +722,10 @@
         {
           "name": "GenericParameterPosition",
           "type": "System.Int32"
+        },
+        {
+          "name": "BaseType",
+          "type": "System.Type"
         }
       ],
       "publicConstructors": []
@@ -1101,6 +1147,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "1afdc39729e8c36a3b097faa6210480acc0af1f9af32baf10d9201c02717e0b7",
+  "oracleProgramSha256": "63b1faee05b48d63db9d64ca1a8fb8cb7d526f1d4296d31061ea19bf5ecfc06c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
