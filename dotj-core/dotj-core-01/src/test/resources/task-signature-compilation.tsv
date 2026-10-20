@@ -33,3 +33,4 @@ completion-array	PASS	fixture	Probe	System.Threading.Tasks.TaskCompletionSource<
 task-of-valuetask	PASS	fixture	Probe	System.Threading.Tasks.Task<System.Threading.Tasks.ValueTask<System.String>> Chain()	Task_1<ValueTask_1<String>> Chain()
 valuetask-of-task	PASS	fixture	Probe	System.Threading.Tasks.ValueTask<System.Threading.Tasks.Task<System.String>> Chain()	ValueTask_1<Task_1<String>> Chain()
 completion-of-task	PASS	fixture	Probe	System.Threading.Tasks.TaskCompletionSource<System.Threading.Tasks.Task<System.String>> Chain()	TaskCompletionSource_1<Task_1<String>> Chain()
+task-of-list	PASS	fixture	Probe	System.Threading.Tasks.Task<java.util.List<System.String>> Gather()	Task_1<java.util.List<String>> Gather()
