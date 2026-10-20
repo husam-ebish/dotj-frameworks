@@ -1,0 +1,296 @@
+{
+  "runtimeVersion": "10.0.12",
+  "assemblyName": "System.Private.CoreLib",
+  "assemblySha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "type": {
+    "name": "ValueTask",
+    "fullName": "System.Threading.Tasks.ValueTask",
+    "isInterface": false,
+    "isValueType": true,
+    "isGenericTypeDefinition": false,
+    "baseType": "System.ValueType",
+    "genericParameters": [],
+    "interfaces": [
+      "System.IEquatable\u00601[System.Threading.Tasks.ValueTask]"
+    ],
+    "constructors": [
+      "Void .ctor(System.Threading.Tasks.Sources.IValueTaskSource, Int16)",
+      "Void .ctor(System.Threading.Tasks.Task)"
+    ],
+    "methods": [
+      {
+        "Name": "AsTask",
+        "signature": "System.Threading.Tasks.Task AsTask()",
+        "returnType": "System.Threading.Tasks.Task",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "ConfigureAwait",
+        "signature": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable ConfigureAwait(Boolean)",
+        "returnType": "System.Runtime.CompilerServices.ConfiguredValueTaskAwaitable",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "continueOnCapturedContext",
+            "type": "System.Boolean",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Equals",
+        "signature": "Boolean Equals(System.Object)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "obj",
+            "type": "System.Object",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Equals",
+        "signature": "Boolean Equals(System.Threading.Tasks.ValueTask)",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "other",
+            "type": "System.Threading.Tasks.ValueTask",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "FromCanceled",
+        "signature": "System.Threading.Tasks.ValueTask FromCanceled(System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.ValueTask",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "FromCanceled",
+        "signature": "System.Threading.Tasks.ValueTask\u00601[TResult] FromCanceled[TResult](System.Threading.CancellationToken)",
+        "returnType": "System.Threading.Tasks.ValueTask\u00601[TResult]",
+        "isStatic": true,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "cancellationToken",
+            "type": "System.Threading.CancellationToken",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "FromException",
+        "signature": "System.Threading.Tasks.ValueTask FromException(System.Exception)",
+        "returnType": "System.Threading.Tasks.ValueTask",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "exception",
+            "type": "System.Exception",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "FromException",
+        "signature": "System.Threading.Tasks.ValueTask\u00601[TResult] FromException[TResult](System.Exception)",
+        "returnType": "System.Threading.Tasks.ValueTask\u00601[TResult]",
+        "isStatic": true,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "exception",
+            "type": "System.Exception",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "FromResult",
+        "signature": "System.Threading.Tasks.ValueTask\u00601[TResult] FromResult[TResult](TResult)",
+        "returnType": "System.Threading.Tasks.ValueTask\u00601[TResult]",
+        "isStatic": true,
+        "genericArity": 1,
+        "parameters": [
+          {
+            "Name": "result",
+            "type": "TResult",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "get_CompletedTask",
+        "signature": "System.Threading.Tasks.ValueTask get_CompletedTask()",
+        "returnType": "System.Threading.Tasks.ValueTask",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_IsCanceled",
+        "signature": "Boolean get_IsCanceled()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_IsCompleted",
+        "signature": "Boolean get_IsCompleted()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_IsCompletedSuccessfully",
+        "signature": "Boolean get_IsCompletedSuccessfully()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "get_IsFaulted",
+        "signature": "Boolean get_IsFaulted()",
+        "returnType": "System.Boolean",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "GetAwaiter",
+        "signature": "System.Runtime.CompilerServices.ValueTaskAwaiter GetAwaiter()",
+        "returnType": "System.Runtime.CompilerServices.ValueTaskAwaiter",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "GetHashCode",
+        "signature": "Int32 GetHashCode()",
+        "returnType": "System.Int32",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      },
+      {
+        "Name": "op_Equality",
+        "signature": "Boolean op_Equality(System.Threading.Tasks.ValueTask, System.Threading.Tasks.ValueTask)",
+        "returnType": "System.Boolean",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "left",
+            "type": "System.Threading.Tasks.ValueTask",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "right",
+            "type": "System.Threading.Tasks.ValueTask",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "op_Inequality",
+        "signature": "Boolean op_Inequality(System.Threading.Tasks.ValueTask, System.Threading.Tasks.ValueTask)",
+        "returnType": "System.Boolean",
+        "isStatic": true,
+        "genericArity": 0,
+        "parameters": [
+          {
+            "Name": "left",
+            "type": "System.Threading.Tasks.ValueTask",
+            "IsOptional": false,
+            "IsOut": false
+          },
+          {
+            "Name": "right",
+            "type": "System.Threading.Tasks.ValueTask",
+            "IsOptional": false,
+            "IsOut": false
+          }
+        ]
+      },
+      {
+        "Name": "Preserve",
+        "signature": "System.Threading.Tasks.ValueTask Preserve()",
+        "returnType": "System.Threading.Tasks.ValueTask",
+        "isStatic": false,
+        "genericArity": 0,
+        "parameters": []
+      }
+    ],
+    "properties": [
+      {
+        "Name": "CompletedTask",
+        "type": "System.Threading.Tasks.ValueTask",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "IsCanceled",
+        "type": "System.Boolean",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "IsCompleted",
+        "type": "System.Boolean",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "IsCompletedSuccessfully",
+        "type": "System.Boolean",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      },
+      {
+        "Name": "IsFaulted",
+        "type": "System.Boolean",
+        "hasPublicGet": true,
+        "hasPublicSet": false,
+        "indexParameters": []
+      }
+    ],
+    "events": [],
+    "fields": []
+  }
+}
