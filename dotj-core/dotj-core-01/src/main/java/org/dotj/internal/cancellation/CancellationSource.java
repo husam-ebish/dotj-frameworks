@@ -28,6 +28,10 @@ final class CancellationSource implements AutoCloseable {
     }
 
     void cancel() {
+        cancel(false);
+    }
+
+    void cancel(boolean throwOnFirstException) {
         List<CancellationRegistration> callbacks;
         synchronized (lock) {
             if (closed) {
@@ -40,8 +44,19 @@ final class CancellationSource implements AutoCloseable {
             callbacks = new ArrayList<>(registrations);
             registrations.clear();
         }
+        List<RuntimeException> failures = new ArrayList<>();
         for (int index = callbacks.size() - 1; index >= 0; index--) {
-            callbacks.get(index).invoke();
+            try {
+                callbacks.get(index).invoke();
+            } catch (RuntimeException exception) {
+                if (throwOnFirstException) {
+                    throw exception;
+                }
+                failures.add(exception);
+            }
+        }
+        if (!failures.isEmpty()) {
+            throw new CancellationCallbackException(failures);
         }
     }
 
