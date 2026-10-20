@@ -19,6 +19,7 @@ public final class TypeIdentityBoundaryTest<T> {
         sameClassIdentity();
         differentClassIdentity();
         sameParameterizedIdentity();
+        differentGenericArgument();
         // Next bounded case.
         System.out.println("PASS: internal type-identity boundary checks");
     }
@@ -43,6 +44,11 @@ public final class TypeIdentityBoundaryTest<T> {
         TypeIdentity first = identity("first"), same = identity("same");
         if (!first.equals(same) || first.hashCode() != same.hashCode())
             throw new AssertionError("Equal parameterizations differ");
+    }
+
+    private static void differentGenericArgument() throws Exception {
+        if (identity("first").equals(identity("different")))
+            throw new AssertionError("Different generic arguments shared identity");
     }
 
     // Next bounded method.
