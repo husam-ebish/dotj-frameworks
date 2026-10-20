@@ -514,6 +514,15 @@ Run("waitAsyncInfiniteSourceCancelFirst", () =>
     Check(waiting.IsCanceled && source.Task.IsCanceled, "late token changed infinite cancellation");
 });
 
+Run("waitAsyncNegativeTimeoutWithToken", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    CheckThrows<ArgumentOutOfRangeException>(() => source.Task.WaitAsync(TimeSpan.FromMilliseconds(-2), cancellation.Token),
+        "negative timeout with token");
+    Check(!source.Task.IsCompleted, "negative combined timeout completed source");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
