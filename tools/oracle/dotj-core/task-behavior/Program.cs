@@ -91,6 +91,14 @@ Run("nonGenericSourceFault", () =>
         "non-generic source fault");
 });
 
+Run("nonGenericSourceCancel", () =>
+{
+    TaskCompletionSource source = new();
+    source.SetCanceled();
+    Check(source.Task.IsCanceled && source.Task.Status == TaskStatus.Canceled,
+        "non-generic source cancel");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
