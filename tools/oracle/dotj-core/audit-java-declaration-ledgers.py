@@ -45,8 +45,7 @@ def main():
     compiled = [entry for entry in a + b if entry["result"] == "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"]
     blocked = [entry for entry in a + b if entry["result"] == "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED"]
     unsupported = [entry for entry in a + b if entry["result"] == "PROBE_UNSUPPORTED; BEHAVIOR_UNVERIFIED"]
-    if (len(compiled) != 425 or len(blocked) != 0 or len(unsupported) != 1 or
-            unsupported[0]["batch"] != "Batch-1167"):
+    if len(compiled) != 426 or blocked or unsupported:
         raise ValueError("Unexpected declaration result counts")
     audit = {
         "schemaVersion": 1,
@@ -76,10 +75,10 @@ def main():
             "sourceBatch": entry["sourceBatch"],
             "probeBatch": entry["batch"],
         } for entry in unsupported],
-        "scope": "Independent syntax probes with temporary support types; three generic-owner static members lift TResult to Java method scope. No exact metadata identity, collective overload, behavior, public facade, or release qualification",
+        "scope": "Independent syntax probes with temporary support types; three generic-owner static members lift TResult to Java method scope, and optional WaitAll uses a Java overload. No exact metadata identity, collective overload, behavior, public facade, or release qualification",
     }
     OUTPUT.write_text(json.dumps(audit, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print("PASS: 426 distinct pinned method records; 425 compile, no individual Java blocker, one probe limitation")
+    print("PASS: 426 distinct pinned method records; all 426 individual declarations compile")
 
 
 if __name__ == "__main__":

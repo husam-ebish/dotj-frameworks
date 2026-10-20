@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "index": 298,
+  "previousLedgerSha256": "b95a0f73bef8d85d10c33f837c03ed7c7975210d0dcf1cdd73286fb91ebe5682",
+  "revisedLedgerSha256": "6ea2d25812d6941f4265d9e2a86942be69c731198352f4b0372a0f232b10107f",
+  "historicalProbeError": "By-reference or optional parameter needs separate representation",
+  "metadataSignature": "Void WaitAll(System.Collections.Generic.IEnumerable`1[System.Threading.Tasks.Task], System.Threading.CancellationToken)",
+  "javaDeclaration": "public static void WaitAll(IEnumerable_1<Task> tasks, CancellationToken cancellationToken) { throw new UnsupportedOperationException(); }\n    public static void WaitAll(IEnumerable_1<Task> tasks) { WaitAll(tasks, new CancellationToken()); }",
+  "scope": "Compile-only overload candidate. The stub token constructor does not establish .NET default-value behavior or qualify the public API."
+}

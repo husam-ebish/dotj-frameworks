@@ -96,9 +96,17 @@ def build_probe(entry):
     support = {}
     return_type = convert_type(entry["returnType"], all_parameters, support)
     arguments = []
+    optional_token = False
     for parameter in entry["parameters"]:
-        if parameter["IsOut"] or parameter["IsOptional"]:
-            raise ValueError("By-reference or optional parameter needs separate representation")
+        if parameter["IsOut"]:
+            raise ValueError("By-reference parameter needs separate representation")
+        if parameter["IsOptional"]:
+            if (entry["declaringType"], entry["name"], parameter["Name"], parameter["type"]) != (
+                    "System.Threading.Tasks.Task", "WaitAll", "cancellationToken", "System.Threading.CancellationToken"):
+                raise ValueError("Optional parameter needs separate representation")
+            if parameter is not entry["parameters"][-1] or optional_token:
+                raise ValueError("Optional token must be the only trailing optional parameter")
+            optional_token = True
         name = parameter["Name"]
         if not IDENTIFIER.fullmatch(name):
             raise ValueError("Unsupported parameter name: " + repr(name))
@@ -122,6 +130,12 @@ def build_probe(entry):
     declaration = ("public static " if entry["isStatic"] else "public abstract ") + generic_prefix + return_type
     declaration += " " + entry["name"] + "(" + ", ".join(arguments) + ")"
     declaration += " { throw new UnsupportedOperationException(); }" if entry["isStatic"] else ";"
+    if optional_token:
+        required = arguments[:-1]
+        names = [parameter["Name"] for parameter in entry["parameters"][:-1]]
+        overload = "public static void WaitAll(" + ", ".join(required) + ")"
+        overload += " { WaitAll(" + ", ".join(names + ["new CancellationToken()"] ) + "); }"
+        declaration += "\n    " + overload
     class_suffix = "<" + class_parameters[0] + ">" if owner_arity else ""
     source = "package " + owner_package + ";\n"
     source += "".join("import " + name + ";\n" for name in imported)
