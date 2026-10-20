@@ -7,6 +7,8 @@ import java.util.Set;
 
 /** Bounded type-reference binder for the pinned Task-family arity pairs. */
 final class ArityTypeReferenceBinder {
+    private static final int MAX_GENERIC_NESTING = 32;
+    private static final int MAX_REFERENCE_LENGTH = 4096;
     private static final Set<String> RESERVED = Set.of(
             "abstract", "assert", "boolean", "break", "byte", "case", "catch", "char", "class",
             "const", "continue", "default", "do", "double", "else", "enum", "extends", "final",
@@ -20,7 +22,11 @@ final class ArityTypeReferenceBinder {
     }
 
     static String lower(String sourceTypeReference) {
-        Parser parser = new Parser(Objects.requireNonNull(sourceTypeReference, "sourceTypeReference"));
+        Objects.requireNonNull(sourceTypeReference, "sourceTypeReference");
+        if (sourceTypeReference.length() > MAX_REFERENCE_LENGTH) {
+            throw new IllegalArgumentException("Type reference exceeds " + MAX_REFERENCE_LENGTH + " characters");
+        }
+        Parser parser = new Parser(sourceTypeReference);
         String result = parser.parseType();
         parser.skipWhitespace();
         if (!parser.atEnd()) {
@@ -60,6 +66,13 @@ final class ArityTypeReferenceBinder {
         }
 
         private String parseType() {
+            return parseType(0);
+        }
+
+        private String parseType(int genericNesting) {
+            if (genericNesting > MAX_GENERIC_NESTING) {
+                throw new IllegalArgumentException("Generic nesting exceeds " + MAX_GENERIC_NESTING);
+            }
             skipWhitespace();
             String name = parseQualifiedName();
             skipWhitespace();
@@ -67,11 +80,11 @@ final class ArityTypeReferenceBinder {
             List<String> arguments = new ArrayList<>();
             if (generic) {
                 position++;
-                arguments.add(parseType());
+                arguments.add(parseType(genericNesting + 1));
                 skipWhitespace();
                 while (!atEnd() && input.charAt(position) == ',') {
                     position++;
-                    arguments.add(parseType());
+                    arguments.add(parseType(genericNesting + 1));
                     skipWhitespace();
                 }
                 if (atEnd() || input.charAt(position) != '>') {
