@@ -22,3 +22,4 @@ two-task-parameters	PASS	fixture	Probe	System.Threading.Tasks.Task Merge(System.
 exact-waitasync-name	PASS	fixture	Probe	System.Threading.Tasks.Task WaitAsync()	WaitAsync()
 signature-whitespace	PASS	fixture	Probe	  System.Threading.Tasks.Task   Run()  	Task Run()
 array-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Merge(System.Threading.Tasks.Task<System.String>[] tasks)	Task_1<String>[] tasks
+mixed-task-valuetask	PASS	fixture	Probe	System.Threading.Tasks.Task Mix(System.Threading.Tasks.ValueTask value, System.Threading.Tasks.Task task)	Mix(ValueTask value, Task task)
