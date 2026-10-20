@@ -618,6 +618,98 @@
       "result": false
     }
   ],
+  "selectedSubclassBehavior": [
+    {
+      "type": "System.String",
+      "parent": "System.Object",
+      "observation": {
+        "result": true,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.Int32",
+      "parent": "System.ValueType",
+      "observation": {
+        "result": true,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.Int32",
+      "parent": "System.Object",
+      "observation": {
+        "result": true,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.Reflection.MemberTypes",
+      "parent": "System.Enum",
+      "observation": {
+        "result": true,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.Reflection.MemberTypes",
+      "parent": "System.ValueType",
+      "observation": {
+        "result": true,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.String[]",
+      "parent": "System.Array",
+      "observation": {
+        "result": true,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.IDisposable",
+      "parent": "System.Object",
+      "observation": {
+        "result": true,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "parent": "System.Collections.Generic.List`1",
+      "observation": {
+        "result": false,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.String",
+      "parent": "System.String",
+      "observation": {
+        "result": false,
+        "exception": null,
+        "paramName": null
+      }
+    },
+    {
+      "type": "System.String",
+      "parent": null,
+      "observation": {
+        "result": null,
+        "exception": "System.ArgumentNullException",
+        "paramName": "type"
+      }
+    }
+  ],
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -1351,6 +1443,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "f88d8c1d8d8a0bb036e79f0810b99d7798af821c0e960d0d5a0e3cbbf111f8f6",
+  "oracleProgramSha256": "bbcfade7a733662e4a8b401caec3ea0f73bba555ba5be9f745b3e9556d91d78a",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
