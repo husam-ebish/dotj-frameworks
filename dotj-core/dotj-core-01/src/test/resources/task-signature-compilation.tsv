@@ -16,3 +16,4 @@ cancellation-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task WaitAsync(
 nested-task	PASS	fixture	Probe	System.Threading.Tasks.Task<System.Threading.Tasks.Task<System.String>> Chain()	Task_1<Task_1<String>> Chain()
 generic-task-array	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String>[] Batch()	Task_1<String>[] Batch()
 jagged-task-array	PASS	fixture	Probe	System.Threading.Tasks.Task<System.String>[][] Batch()	Task_1<String>[][] Batch()
+list-of-task	PASS	fixture	Probe	java.util.List<System.Threading.Tasks.Task<System.String>> Batch()	java.util.List<Task_1<String>> Batch()
