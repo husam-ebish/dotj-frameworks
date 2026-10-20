@@ -32,11 +32,11 @@
       "id": "DJ-001-F01-04",
       "expectation": "context values do not leak between requests",
       "java": "ContextIsolationTest passed in Batch-038",
-      "dotnetOracle": "not yet run",
+      "dotnetOracle": "independent AsyncLocal/ExecutionContext flow oracle passed in Batch-043",
       "upstreamTest": "not mapped or executed",
-      "status": "PARTIAL: explicit Java context adaptation; CLR ambient behavior still needs a paired oracle"
+      "status": "PARTIAL: paired independent observations exist, but explicit Java context is a declared adaptation rather than CLR ambient parity"
     }
   ],
   "qualification": "E03 IN PROGRESS; none of the four designed fixtures qualifies full WP-01 or a public .j API",
-  "nextGap": "Run a bounded .NET AsyncLocal/ExecutionContext oracle and record the intentional explicit-context adaptation."
+  "nextGap": "Review the context adaptation and unresolved upstream test mapping before accepting the E03 fixture."
 }
