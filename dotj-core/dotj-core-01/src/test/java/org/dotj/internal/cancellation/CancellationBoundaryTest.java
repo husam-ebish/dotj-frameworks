@@ -26,6 +26,7 @@ public final class CancellationBoundaryTest {
         linkedAlreadyCanceled();
         linkedChildClose();
         zeroDelay();
+        negativeDelay();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -143,6 +144,13 @@ public final class CancellationBoundaryTest {
         source.token().register(done::countDown); source.cancelAfter(Duration.ZERO);
         if (!done.await(10, TimeUnit.SECONDS) || !source.isCancellationRequested()) throw new AssertionError("Zero delay did not cancel");
         source.close();
+    }
+
+    private static void negativeDelay() throws Exception {
+        CancellationSource source = new CancellationSource();
+        try { source.cancelAfter(Duration.ofMillis(-1)); throw new AssertionError("Negative delay accepted"); }
+        catch (IllegalArgumentException expected) { }
+        if (source.isCancellationRequested()) throw new AssertionError("Rejected timer canceled source"); source.close();
     }
 
     // Next bounded method.
