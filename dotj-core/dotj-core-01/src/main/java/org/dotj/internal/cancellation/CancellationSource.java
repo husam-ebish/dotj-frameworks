@@ -4,15 +4,31 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 /** Internal state prototype; not a public System.Threading API. */
 final class CancellationSource implements AutoCloseable {
+    private static final ScheduledThreadPoolExecutor TIMER = createTimer();
     private final Object lock = new Object();
     private final CancellationToken token = new CancellationToken(this);
     private final List<CancellationRegistration> registrations = new ArrayList<>();
     private final List<CancellationRegistration> parentLinks = new ArrayList<>();
     private boolean cancellationRequested;
     private boolean closed;
+    private ScheduledFuture<?> scheduledCancellation;
+
+    private static ScheduledThreadPoolExecutor createTimer() {
+        ScheduledThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(1, task -> {
+            Thread thread = new Thread(task, "dotj-internal-cancellation-timer");
+            thread.setDaemon(true);
+            return thread;
+        });
+        executor.setRemoveOnCancelPolicy(true);
+        return executor;
+    }
 
     CancellationToken token() {
         synchronized (lock) {
@@ -37,6 +53,30 @@ final class CancellationSource implements AutoCloseable {
             child.parentLinks.add(link);
         }
         return child;
+    }
+
+    void cancelAfter(Duration delay) {
+        Objects.requireNonNull(delay, "delay");
+        if (delay.isNegative()) {
+            throw new IllegalArgumentException("delay must be nonnegative");
+        }
+        synchronized (lock) {
+            if (closed) {
+                throw new IllegalStateException("Cancellation source is closed");
+            }
+            if (cancellationRequested) {
+                return;
+            }
+            cancelTimer();
+            scheduledCancellation = TIMER.schedule(() -> cancel(), delay.toMillis(), TimeUnit.MILLISECONDS);
+        }
+    }
+
+    private void cancelTimer() {
+        if (scheduledCancellation != null) {
+            scheduledCancellation.cancel(false);
+            scheduledCancellation = null;
+        }
     }
 
     void cancel() {
@@ -65,6 +105,7 @@ final class CancellationSource implements AutoCloseable {
                 return List.of();
             }
             cancellationRequested = true;
+            cancelTimer();
             List<CancellationRegistration> callbacks = new ArrayList<>(registrations);
             registrations.clear();
             return callbacks;
@@ -119,6 +160,7 @@ final class CancellationSource implements AutoCloseable {
             }
             stale = new ArrayList<>(registrations);
             registrations.clear();
+            cancelTimer();
         }
         for (CancellationRegistration registration : stale) {
             registration.unregister();
@@ -135,6 +177,7 @@ final class CancellationSource implements AutoCloseable {
                 return;
             }
             closed = true;
+            cancelTimer();
             stale = new ArrayList<>(registrations);
             registrations.clear();
             links = new ArrayList<>(parentLinks);
