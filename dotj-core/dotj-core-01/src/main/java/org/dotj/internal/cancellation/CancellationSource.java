@@ -10,6 +10,7 @@ final class CancellationSource implements AutoCloseable {
     private final Object lock = new Object();
     private final CancellationToken token = new CancellationToken(this);
     private final List<CancellationRegistration> registrations = new ArrayList<>();
+    private final List<CancellationRegistration> parentLinks = new ArrayList<>();
     private boolean cancellationRequested;
     private boolean closed;
 
@@ -26,6 +27,16 @@ final class CancellationSource implements AutoCloseable {
         synchronized (lock) {
             return cancellationRequested;
         }
+    }
+
+    static CancellationSource linked(CancellationToken... parents) {
+        Objects.requireNonNull(parents, "parents");
+        CancellationSource child = new CancellationSource();
+        for (CancellationToken parent : parents) {
+            CancellationRegistration link = Objects.requireNonNull(parent, "parent").register(child::cancel);
+            child.parentLinks.add(link);
+        }
+        return child;
     }
 
     void cancel() {
@@ -117,9 +128,23 @@ final class CancellationSource implements AutoCloseable {
 
     @Override
     public void close() {
+        List<CancellationRegistration> stale;
+        List<CancellationRegistration> links;
         synchronized (lock) {
+            if (closed) {
+                return;
+            }
             closed = true;
+            stale = new ArrayList<>(registrations);
             registrations.clear();
+            links = new ArrayList<>(parentLinks);
+            parentLinks.clear();
+        }
+        for (CancellationRegistration registration : stale) {
+            registration.unregister();
+        }
+        for (CancellationRegistration link : links) {
+            link.close();
         }
     }
 }
