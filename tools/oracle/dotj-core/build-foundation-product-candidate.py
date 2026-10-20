@@ -32,6 +32,7 @@ EXPECTED_CLASSES = [
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",
+    "System/Type$ArrayType.class",
     "System/Type$GenericParameterType.class",
     "System/Type$ResolvedType.class",
     "System/Type.class",
