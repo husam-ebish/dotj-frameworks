@@ -285,6 +285,20 @@ public final class ProductTypeIdentityConsumer {
                 || string.IsInstanceOfType(null)) {
             throw new AssertionError("Selected instance-of-type behavior changed");
         }
+        if (object.GetInterfaces().length != 0 || disposalType.GetInterfaces().length != 0
+                || object.GetInterface("System.IDisposable") != null
+                || disposalType.GetInterface("System.IDisposable") != null
+                || disposalType.GetInterface("") != null) {
+            throw new AssertionError("Selected empty interface queries changed");
+        }
+        try {
+            disposalType.GetInterface(null);
+            throw new AssertionError("Null interface name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"fullname".equals(expected.get_ParamName())) {
+                throw new AssertionError("Interface lookup parameter changed", expected);
+            }
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition

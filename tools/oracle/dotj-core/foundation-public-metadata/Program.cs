@@ -115,6 +115,19 @@ static object ObserveSubclass(Type type, Type? parent)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveInterface(Type type, string? name, bool ignoreCase)
+{
+    try
+    {
+        return new { result = type.GetInterface(name!, ignoreCase)?.FullName,
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -334,6 +347,15 @@ var result = new
         valueType = pair.Value?.GetType().FullName,
         result = pair.Target.IsInstanceOfType(pair.Value),
     }).ToArray(),
+    selectedInterfaceBehavior = new
+    {
+        objectInterfaces = typeof(object).GetInterfaces().Select(type => type.FullName).ToArray(),
+        disposableInterfaces = typeof(IDisposable).GetInterfaces().Select(type => type.FullName).ToArray(),
+        objectMiss = ObserveInterface(typeof(object), "System.IDisposable", false),
+        disposableSelf = ObserveInterface(typeof(IDisposable), "System.IDisposable", false),
+        emptyName = ObserveInterface(typeof(IDisposable), "", false),
+        nullName = ObserveInterface(typeof(IDisposable), null, false),
+    },
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -367,7 +389,7 @@ var result = new
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
                 or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType"
                 or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType" or "IsAssignableFrom"
-                or "IsSubclassOf" or "IsInstanceOfType")
+                or "IsSubclassOf" or "IsInstanceOfType" or "GetInterfaces" or "GetInterface")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)
