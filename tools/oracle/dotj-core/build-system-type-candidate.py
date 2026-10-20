@@ -17,6 +17,7 @@ EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
 CONCURRENCY_TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java"
 LOADER_FIXTURE = ROOT / "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java"
@@ -127,6 +128,17 @@ def main():
     ]
     assert names[-1]["FullName"] is None
     assert names[3]["FullName"] == observed["listStringSimple"]["result"]
+    member_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberTypeBehavior"]
+    assert member_type["enumValues"] == [
+        {"name": name, "value": value} for name, value in (
+            ("Constructor", 1), ("Event", 2), ("Field", 4), ("Method", 8),
+            ("Property", 16), ("TypeInfo", 32), ("Custom", 64),
+            ("NestedType", 128), ("All", 191),
+        )
+    ]
+    assert all(member_type[key] == "TypeInfo" for key in
+               ("stringType", "arrayType", "openGeneric", "genericParameter"))
+    assert member_type["memberTypeGetterAbstract"]
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),

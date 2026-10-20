@@ -7,7 +7,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "344f0f27a581fe9f619f08b294e672b3d7c192262dd0e8c80c6e748ba20d4912"
+      "sha256": "b0b55b9461c41a14a9de56b59ace382c3cfa9549c78a0cffb280d8b56ae6b0a8"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -43,11 +43,15 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberInfo.java",
-      "sha256": "4e183fc2bb55f968efc5f869e8617ab784e814fe844568502afd689b493c730e"
+      "sha256": "61d86885e413a910d02ea4bb5b20cb58757e03285554f6a792cce1e96d482078"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberTypes.java",
+      "sha256": "0a524b53dce37b35e763bebb6bf37ecaf905e59c22a70e30eaedaf277684e568"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "e49683570e97782aa56904522ce6165041a832c25d6e77743ed4d171fed10d82",
+  "jarSha256": "3bc59f6b144e8c37aa70a04421bb00961bfc618d3d48c4fc358199c84fa3e5ca",
   "jarEntries": [
     "META-INF/MANIFEST.MF",
     "System/ArgumentException.class",
@@ -58,6 +62,7 @@
     "System/IO/IOException.class",
     "System/IndexOutOfRangeException.class",
     "System/Reflection/MemberInfo.class",
+    "System/Reflection/MemberTypes.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -77,16 +82,17 @@
     "System/IO/FileNotFoundException.class": "1e6716505d1a347d2f7501da47b593e69a843a7853096fec9bd1527eb8609b56",
     "System/IO/IOException.class": "c3b343938bb9d1939fbecea41ce04cbf904876a36a36b218a56c83ed51cad8d8",
     "System/IndexOutOfRangeException.class": "df1fbc228b3042da2a59c09598bce065e79166ba1c8907bc3e85e2bd31bf5453",
-    "System/Reflection/MemberInfo.class": "65dac85a8dc24bf382e115f89cb48eba78b03d4a5b8e28ebeed040a272643649",
+    "System/Reflection/MemberInfo.class": "e85e54b1cde396bd82befe4107b0df3147bdf7106bf7a9eafd7a543bb67409d5",
+    "System/Reflection/MemberTypes.class": "421e8baa1735442a3fda0dc6fb5325f9ae1d434a708da7552a9f5f04ce8b747b",
     "System/SystemException.class": "8a0ce898bd9a9a53c79f403b1685f06fd421a639e972bab3d2cb083581b3d169",
-    "System/Type$1.class": "33e40a6a8061afdd454fe2e793f75e22916d5e8ce8df77811ce63ccd3b68be64",
-    "System/Type$2.class": "63091fbeccab7a298b0c5b3b8589404750bea20ffa1a64eb0f73ba402cd11d17",
-    "System/Type$ArrayType.class": "db81393e2f7eb3d71f4a10cb25420c763ae4fcb871a3cd419111c5baabd0d190",
-    "System/Type$ByRefType.class": "0588399b59492872722e1361c08b7f20fee789f5b7640bd976814e9bf4a3cf73",
-    "System/Type$GenericParameterType.class": "b624add52116866b6bf14c8949b5e14388b76c23f8be3feaec4669989ad9a960",
-    "System/Type$PointerType.class": "8855d42aee5679366128f57e4d65580aeeed9f14731a49303088bf7eca10c26f",
-    "System/Type$ResolvedType.class": "70ea15e27ddd9f4d2b63b7019b218959ffcbcb9c68787b7ef16e6826297593ef",
-    "System/Type.class": "4978c5f42fdd251fe15a40cb348b121c62376ce007acde15f8d228d374f6cb0d",
+    "System/Type$1.class": "4f5977e37914e696b854d5e2bb796fee8dbdafcb06c7b7be0e8ed55682345021",
+    "System/Type$2.class": "eefcfdd001453aa8c7547d0955b107a4c4a58ef3174f5bc8855cfd3bf35441da",
+    "System/Type$ArrayType.class": "55ae68075f8eb03fcda0d02f71b2be076b03c51e534154031f592081e13e4673",
+    "System/Type$ByRefType.class": "ae085ccec9cd0c35ce7497645b92fb741a671cb403a6d3415045b0c31d320e34",
+    "System/Type$GenericParameterType.class": "2887b3f3d1dc97719ea829cacca1c69c8c2b2feba5888f5d940e8beec0c3efa2",
+    "System/Type$PointerType.class": "854fb08c6aa326f9dc0e1104207cee9be7b77fc460d4ff5b953a0db9ceb6c4cc",
+    "System/Type$ResolvedType.class": "ea826d82ce1000df63c055054b8d840791e92ab161e0a7945569168712693d30",
+    "System/Type.class": "84c317a46bfa5f50112cc8553d28457b8a2252069aea1b12c2dd5840088db930",
     "System/TypeLoadException.class": "5abf39d1265d20b8756e5215d23b19be75c13fb33def2c35f0736daf1ced4fac"
   },
   "disposalConsumer": "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation",

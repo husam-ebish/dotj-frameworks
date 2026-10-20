@@ -6,6 +6,7 @@ Type[] selected = [
     typeof(IDisposable),
     typeof(Type),
     typeof(MemberInfo),
+    typeof(MemberTypes),
     typeof(Exception),
     typeof(SystemException),
     typeof(ArgumentException),
@@ -191,6 +192,16 @@ var result = new
         type.FullName,
         type.Namespace,
     }).ToArray(),
+    selectedMemberTypeBehavior = new
+    {
+        enumValues = Enum.GetValues<MemberTypes>()
+            .Select(value => new { name = value.ToString(), value = (int)value }).ToArray(),
+        stringType = typeof(string).MemberType.ToString(),
+        arrayType = typeof(string[]).MemberType.ToString(),
+        openGeneric = typeof(List<>).MemberType.ToString(),
+        genericParameter = typeof(List<>).GetGenericArguments()[0].MemberType.ToString(),
+        memberTypeGetterAbstract = typeof(MemberInfo).GetProperty("MemberType")?.GetMethod?.IsAbstract,
+    },
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -219,7 +230,7 @@ var result = new
             .Where(property => property.Name is "ParamName" or "Message" or "InnerException" or "IsGenericType"
                 or "IsConstructedGenericType" or "IsGenericParameter"
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
-                or "IsPointer" or "Name" or "FullName" or "Namespace")
+                or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)

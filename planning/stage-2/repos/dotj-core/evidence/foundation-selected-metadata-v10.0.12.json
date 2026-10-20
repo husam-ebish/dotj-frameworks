@@ -306,6 +306,51 @@
       "Namespace": "System.Collections.Generic"
     }
   ],
+  "selectedMemberTypeBehavior": {
+    "enumValues": [
+      {
+        "name": "Constructor",
+        "value": 1
+      },
+      {
+        "name": "Event",
+        "value": 2
+      },
+      {
+        "name": "Field",
+        "value": 4
+      },
+      {
+        "name": "Method",
+        "value": 8
+      },
+      {
+        "name": "Property",
+        "value": 16
+      },
+      {
+        "name": "TypeInfo",
+        "value": 32
+      },
+      {
+        "name": "Custom",
+        "value": 64
+      },
+      {
+        "name": "NestedType",
+        "value": 128
+      },
+      {
+        "name": "All",
+        "value": 191
+      }
+    ],
+    "stringType": "TypeInfo",
+    "arrayType": "TypeInfo",
+    "openGeneric": "TypeInfo",
+    "genericParameter": "TypeInfo",
+    "memberTypeGetterAbstract": true
+  },
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -544,6 +589,10 @@
       ],
       "selectedProperties": [
         {
+          "name": "MemberType",
+          "type": "System.Reflection.MemberTypes"
+        },
+        {
           "name": "Namespace",
           "type": "System.String"
         },
@@ -609,10 +658,26 @@
       ],
       "selectedProperties": [
         {
+          "name": "MemberType",
+          "type": "System.Reflection.MemberTypes"
+        },
+        {
           "name": "Name",
           "type": "System.String"
         }
       ],
+      "publicConstructors": []
+    },
+    {
+      "fullName": "System.Reflection.MemberTypes",
+      "baseType": "System.Enum",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaredPublicMethodCount": 0,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [],
+      "selectedProperties": [],
       "publicConstructors": []
     },
     {
@@ -959,6 +1024,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "a3584c10664b1430e6ee4fa4482539ba7fabe6ce1a089e4b15a39849e1c0f1dd",
+  "oracleProgramSha256": "74177b1dd2d093a397bceda062e7737b8a11a79fc0667d239477a959620a5809",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

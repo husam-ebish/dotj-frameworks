@@ -1,4 +1,4 @@
-"""Compare eleven compiled Java candidate types with pinned selected CoreLib metadata."""
+"""Compare twelve compiled Java candidate types with pinned selected CoreLib metadata."""
 
 import hashlib
 import json
@@ -42,9 +42,14 @@ def main():
             disposition = "PARTIAL_PUBLIC_SURFACE; MemberInfo base selected, other inherited members and semantics open"
         elif name == "System.Reflection.MemberInfo":
             assert header == "public abstract class System.Reflection.MemberInfo {"
-            assert declarations == ["public abstract java.lang.String get_Name();"]
+            assert declarations == ["public abstract java.lang.String get_Name();",
+                                    "public abstract System.Reflection.MemberTypes get_MemberType();"]
             assert upstream["nameGetterIsAbstract"]
-            disposition = "PARTIAL_MEMBERINFO_SURFACE; selected abstract Name only"
+            disposition = "PARTIAL_MEMBERINFO_SURFACE; selected abstract Name and MemberType"
+        elif name == "System.Reflection.MemberTypes":
+            assert "extends java.lang.Enum<System.Reflection.MemberTypes>" in header
+            assert "public int get_Value();" in declarations
+            disposition = "PARTIAL_ENUM_SURFACE; selected values only, Java enum differs from CLR Enum"
         else:
             assert header.startswith("public class " + name)
             if name == "System.Exception":
@@ -67,7 +72,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 11
+    assert len(records) == 12
     assert records[1]["upstreamDeclaredNonAccessorMethods"] == 109
     assert records[1]["upstreamDeclaredProperties"] == 70
     snapshot = json.loads((EVIDENCE / "api-shapes-v10.0.12/system-type.json").read_text(encoding="utf-8"))
@@ -85,7 +90,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS eleven selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS twelve selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":
