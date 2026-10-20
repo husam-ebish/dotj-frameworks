@@ -7012,6 +7012,38 @@
           "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
         }
       ]
+    },
+    {
+      "batch": "Batch-641",
+      "members": [
+        {
+          "declaringType": "System.Threading.CancellationTokenRegistration",
+          "method": "op_Inequality",
+          "signature": "Boolean op_Inequality(System.Threading.CancellationTokenRegistration, System.Threading.CancellationTokenRegistration)",
+          "snapshot": "planning/stage-2/repos/dotj-core/evidence/wp02-api-shapes-v10.0.12/cancellation-registration.json",
+          "returnType": "System.Boolean",
+          "isStatic": true,
+          "genericArity": 0,
+          "parameters": [
+            {
+              "Name": "left",
+              "type": "System.Threading.CancellationTokenRegistration",
+              "IsOptional": false,
+              "IsOut": false
+            },
+            {
+              "Name": "right",
+              "type": "System.Threading.CancellationTokenRegistration",
+              "IsOptional": false,
+              "IsOut": false
+            }
+          ],
+          "snapshotSha256": "b26a5c2084feac02fc99c1129a7a1791238cf781549e4b3f0bb7a5ff12f97a33",
+          "owningSourcePath": "src/libraries/System.Private.CoreLib/src/System/Threading/CancellationTokenRegistration.cs",
+          "owningSourceSha256": "2acd2f509646eab07cdab33350bdc4d9100b2200872f3e651db539f0e0df776d",
+          "qualification": "BOUNDED_METADATA_ONLY; public Java representation and behavior not qualified"
+        }
+      ]
     }
   ]
 }
