@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourcePath": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/CancellationTokenTests.cs",
+  "sourceSha256": "dcbd3e37b3bd1f1243d468016757df610c84e7c949961ca3e528a27992226d8d",
+  "projectPath": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/System.Threading.Tasks.Tests.csproj",
+  "projectSha256": "acdec2f8c5538d740f8ab2efba1aa4a147ecb37e6d2c346eadad012ff66f4ae5",
+  "class": "System.Threading.Tasks.Tests.CancellationTokenTests",
+  "cases": [
+    {"oracleCase": "lateRegistration", "upstreamMethod": "CancellationTokenLateEnlistment", "mapping": "RELATED; upstream late enlistment has broader assertions"},
+    {"oracleCase": "callbackOrder", "upstreamMethod": "CallbacksOrderIsLifo", "mapping": "DIRECT"},
+    {"oracleCase": "aggregateException", "upstreamMethod": "Cancel_DontThrowOnFirstException", "mapping": "DIRECT"},
+    {"oracleCase": "stopOnFirstException", "upstreamMethod": "Cancel_ThrowOnFirstException", "mapping": "DIRECT"},
+    {"oracleCase": "unregister", "upstreamMethod": "CancellationTokenRegistration_UnregisterRemovesDelegate", "mapping": "DIRECT"},
+    {"oracleCase": "cancelAsync", "upstreamMethod": "CancellationTokenSource_CancelAsync_CallbacksInvokedAsynchronously", "mapping": "DIRECT"},
+    {"oracleCase": "linked", "upstreamMethod": "CreateLinkedTokenSource_Simple_TwoToken", "mapping": "DIRECT"},
+    {"oracleCase": "retainedToken", "upstreamMethod": "TokenSourceDispose_Negative", "mapping": "RELATED; upstream focuses on post-dispose operations"},
+    {"oracleCase": "tryReset", "upstreamMethod": "CancellationTokenSource_TryReset_ReturnsFalseIfAlreadyCanceled", "mapping": "PARTIAL; pre-cancel true is local oracle"},
+    {"oracleCase": "cancelAfter", "upstreamMethod": "CancellationTokenSourceWithTimer", "mapping": "RELATED; upstream timer sequence is broader"}
+  ],
+  "limits": ["Method discovery is source-based; execution is recorded separately.", "These are selected regressions, not full WP-02 coverage."]
+}
