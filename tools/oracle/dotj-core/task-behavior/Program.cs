@@ -378,6 +378,16 @@ Run("waitAsyncExcessiveTimeout", () =>
     Check(!source.Task.IsCompleted, "excessive timeout completed source");
 });
 
+Run("waitAsyncZeroTimeoutWithToken", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.Task.WaitAsync(TimeSpan.Zero, cancellation.Token);
+    CheckThrows<TimeoutException>(() => waiting.GetAwaiter().GetResult(), "zero timeout with active token");
+    Check(waiting.IsFaulted && !source.Task.IsCompleted && !cancellation.IsCancellationRequested,
+        "zero timeout changed token or source");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
