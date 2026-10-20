@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-043",
+  "oracleProject": "tools/oracle/dotj-core/context-flow/ContextFlowOracle.csproj",
+  "execution": "dotnet run --project tools/oracle/dotj-core/context-flow/ContextFlowOracle.csproj --configuration Release --no-build --no-launch-profile",
+  "build": {
+    "configuration": "Release",
+    "warnings": 0,
+    "errors": 0
+  },
+  "installedRuntime": {
+    "version": "10.0.12",
+    "System.Private.CoreLib.dll.sha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678"
+  },
+  "observations": {
+    "firstCapturedAsyncLocal": "A",
+    "secondCapturedAsyncLocal": "B",
+    "suppressedFlowAsyncLocal": null,
+    "callerAfterDispatch": "B"
+  },
+  "comparison": "The CLR flows AsyncLocal through Task.Run by default and honors ExecutionContext.SuppressFlow. The Java ContextTransfer helper passes only an explicit ContextSnapshot; ambient CLR flow is outside its claim.",
+  "limits": [
+    "Independent oracle, not an upstream test.",
+    "Only Task.Run and one AsyncLocal key were exercised; broader ExecutionContext and SynchronizationContext semantics remain open.",
+    "This does not make the internal Java context helper a public .NET-compatible API."
+  ]
+}

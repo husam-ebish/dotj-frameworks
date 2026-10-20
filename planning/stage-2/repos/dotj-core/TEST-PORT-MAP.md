@@ -25,7 +25,7 @@ Source method rows below are lexical candidates from retrieved files. They are n
 | DJ-001-F01-01 | WP-01 | Equal parameterized types share identity | Independent Java and .NET oracle cases passed for one bounded shape; upstream test unmapped. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
 | DJ-001-F01-02 | WP-01 | different generic arguments do not | Independent Java and .NET oracle cases passed for one bounded shape; upstream test unmapped. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
 | DJ-001-F01-03 | WP-01 | supplied resources are never closed implicitly | Independent Java and .NET DI oracle cases passed; selected upstream test source-inspected, not executed. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
-| DJ-001-F01-04 | WP-01 | context values do not leak between requests | Java explicit-context fixture passed; .NET oracle and upstream test mapping open. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
+| DJ-001-F01-04 | WP-01 | context values do not leak between requests | Java explicit-context fixture and independent .NET AsyncLocal oracle passed; the semantics differ and upstream test mapping remains open. [Corpus](evidence/wp01-fixture-corpus-v10.0.12.json) |
 | DJ-001-F02-01 | WP-02 | Late registration runs synchronously | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-001-F02-02 | WP-02 | sequential callbacks use the declared LIFO profile | Designed; map actual upstream case or specify independent oracle in E03 |
 | DJ-001-F02-03 | WP-02 | self-close cannot deadlock | Designed; map actual upstream case or specify independent oracle in E03 |
