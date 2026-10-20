@@ -14,6 +14,7 @@ public final class CancellationBoundaryTest {
         closedCancel();
         closedRegistration();
         doubleUnregister();
+        doubleRegistrationClose();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -51,6 +52,13 @@ public final class CancellationBoundaryTest {
         CancellationRegistration registration = source.token().register(calls::incrementAndGet);
         if (!registration.unregister() || registration.unregister()) throw new AssertionError("Unregister state changed unexpectedly");
         source.cancel(); if (calls.get() != 0) throw new AssertionError("Removed callback ran"); source.close();
+    }
+
+    private static void doubleRegistrationClose() throws Exception {
+        CancellationSource source = new CancellationSource(); AtomicInteger calls = new AtomicInteger();
+        CancellationRegistration registration = source.token().register(calls::incrementAndGet);
+        registration.close(); registration.close(); source.cancel();
+        if (calls.get() != 0) throw new AssertionError("Closed registration ran"); source.close();
     }
 
     // Next bounded method.
