@@ -724,7 +724,8 @@
     "Batch-707",
     "Batch-708",
     "Batch-709",
-    "Batch-710"
+    "Batch-710",
+    "Batch-711"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -917,7 +918,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-710",
+      "lastUpdatedBatch": "Batch-711",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -10528,38 +10529,38 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-711",
+    "id": "Batch-712",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-N01-T2"
     ],
-    "outcome": "Make import rendering deterministic and reject Java keyword or malformed qualified-name segments.",
+    "outcome": "Support array-valued Task-family type references with explicit backend-name lowering.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 710,
+    "completedBatches": 711,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "requestedSeries": {
       "firstBatch": "Batch-701",
       "lastBatch": "Batch-1200",
-      "completed": 10,
-      "remaining": 490
+      "completed": 11,
+      "remaining": 489
     },
     "activeTranche": {
       "firstBatch": "Batch-706",
       "lastBatch": "Batch-755",
-      "completed": 5,
-      "remaining": 45
+      "completed": 6,
+      "remaining": 44
     },
     "currentRequest": {
       "firstBatch": "Batch-707",
       "lastBatch": "Batch-716",
-      "completed": 4,
-      "remaining": 6
+      "completed": 5,
+      "remaining": 5
     },
     "status": "Future batch count UNKNOWN; report accepted work and requested series separately"
   }

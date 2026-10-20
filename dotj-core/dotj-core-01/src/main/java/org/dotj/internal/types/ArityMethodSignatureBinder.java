@@ -62,13 +62,8 @@ final class ArityMethodSignatureBinder {
     }
 
     private static void requireIdentifier(String value) {
-        if (value.isEmpty() || !Character.isJavaIdentifierStart(value.charAt(0))) {
+        if (!ArityTypeReferenceBinder.isSourceIdentifier(value)) {
             throw new IllegalArgumentException("Expected Java identifier: " + value);
-        }
-        for (int index = 1; index < value.length(); index++) {
-            if (!Character.isJavaIdentifierPart(value.charAt(index))) {
-                throw new IllegalArgumentException("Expected Java identifier: " + value);
-            }
         }
     }
 }
