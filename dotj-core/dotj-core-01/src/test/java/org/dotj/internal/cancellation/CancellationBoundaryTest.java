@@ -24,6 +24,7 @@ public final class CancellationBoundaryTest {
         linkedNullArray();
         linkedNullElementNoLeak();
         linkedAlreadyCanceled();
+        linkedChildClose();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -128,6 +129,12 @@ public final class CancellationBoundaryTest {
         CancellationSource child = CancellationSource.linked(parent.token());
         if (!child.isCancellationRequested()) throw new AssertionError("Linked child missed parent state");
         child.close(); parent.close();
+    }
+
+    private static void linkedChildClose() throws Exception {
+        CancellationSource parent = new CancellationSource(); CancellationSource child = CancellationSource.linked(parent.token());
+        CancellationToken retained = child.token(); child.close(); parent.cancel();
+        if (retained.isCancellationRequested()) throw new AssertionError("Closed child was canceled"); parent.close();
     }
 
     // Next bounded method.
