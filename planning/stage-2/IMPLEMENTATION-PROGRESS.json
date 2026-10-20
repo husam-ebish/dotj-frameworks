@@ -147,7 +147,8 @@
     "Batch-130",
     "Batch-131",
     "Batch-132",
-    "Batch-133"
+    "Batch-133",
+    "Batch-134"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -340,7 +341,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-133",
+      "lastUpdatedBatch": "Batch-134",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -9951,12 +9952,12 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-134",
+    "id": "Batch-135",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-WP-02-T1"
     ],
-    "outcome": "Unregister succeeds only once.",
+    "outcome": "Registration close is idempotent.",
     "requiresContinue": false
   }
 }
