@@ -46,3 +46,4 @@ package-keyword	REJECT	fixture.class	Probe	System.Threading.Tasks.Task Run()	Inv
 method-keyword	REJECT	fixture	Probe	System.Threading.Tasks.Task class()	Expected Java identifier
 parameter-keyword	REJECT	fixture	Probe	System.Threading.Tasks.Task Run(System.String switch)	Expected Java identifier
 unsupported-arity	REJECT	fixture	Probe	System.Threading.Tasks.Task<System.String, System.String> Run()	Unsupported generic arity
+malformed-generic	REJECT	fixture	Probe	System.Threading.Tasks.Task<System.String Run()	Expected one closing >
