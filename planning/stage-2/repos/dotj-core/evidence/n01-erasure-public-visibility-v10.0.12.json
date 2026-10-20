@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "erasureLoweringSha256": "70d1f5c735205fc942230837b0779e78ac46824c652e9f85c9b47faee4f04b06",
+  "representativeOverloads": [
+    "System.Threading.Tasks.Task FromException(System.Exception)",
+    "System.Threading.Tasks.Task`1[TResult] FromException[TResult](System.Exception)"
+  ],
+  "unchangedExactNamePair": "REJECTED: duplicate erased Java method signature",
+  "packagePrivateBackendConsumer": "REJECTED: inaccessible from another package",
+  "publicBackendConsumer": "COMPILED",
+  "publicBackendVisibleToJavap": "FromException__dotj_c42000a95d67",
+  "disposition": "BLOCKED_PUBLIC_EXACT_NAME: a compiler or backend visibility strategy is needed before the mapped pair can be a qualified public .j contract",
+  "scope": "Representative javac and javap feasibility check; not a general .j compiler implementation or behavior proof."
+}
