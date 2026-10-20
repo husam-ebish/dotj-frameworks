@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-064",
+  "oracleSource": "tools/oracle/dotj-core/type-identity/Program.cs",
+  "oracleSourceSha256": "b9d1e4424cd15a3f759f16844e1dd5193da2eb7ef30ce197629011c8290288b5",
+  "runtime": "Installed Microsoft.NETCore.App 10.0.12",
+  "baseline": "Existing Dictionary<string,int> versus Dictionary<string,long> oracle passed before modification.",
+  "build": "Release build: 0 warnings, 0 errors.",
+  "observations": {
+    "ListIntReferenceEqualsMakeGenericTypeInt": true,
+    "ListIntReferenceEqualsListLong": false,
+    "ListIntAndListLongShareGenericDefinition": true
+  },
+  "javaComparison": "Existing TypeIdentityTest covers List<String>/List<Integer> and nested Map<String,List<Integer>>/Map<String,List<Long>> shapes; Java TypeIdentity is an internal structural value, not CLR Type reference identity.",
+  "status": "F01-01/F01-02 remain PARTIAL pending public System.Type mapping and wider type forms."
+}
