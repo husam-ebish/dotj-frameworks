@@ -62,7 +62,15 @@ public abstract class Type {
         if (typeName == null) {
             throw new ArgumentNullException("typeName");
         }
-        String key = ignoreCase ? typeName.toLowerCase(Locale.ROOT) : typeName;
+        String name = typeName;
+        int assemblySeparator = typeName.indexOf(',');
+        if (assemblySeparator >= 0) {
+            String assembly = typeName.substring(assemblySeparator + 1).trim();
+            if (assembly.equals("System.Private.CoreLib") || assembly.equals("mscorlib")) {
+                name = typeName.substring(0, assemblySeparator).trim();
+            }
+        }
+        String key = ignoreCase ? name.toLowerCase(Locale.ROOT) : name;
         Type resolved = switch (key) {
             case "System.String" -> fromJavaClass(String.class);
             case "System.Int32" -> fromJavaClass(Integer.class);

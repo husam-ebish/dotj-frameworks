@@ -34,10 +34,35 @@
       "result": null,
       "exception": "System.ArgumentNullException",
       "paramName": "typeName"
+    },
+    "coreLibString": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "coreLibInt32": {
+      "result": "System.Int32",
+      "exception": null,
+      "paramName": null
+    },
+    "legacyString": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "unknownAssembly": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "unknownAssemblyThrow": {
+      "result": null,
+      "exception": "System.IO.FileNotFoundException",
+      "paramName": null
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "15807ee487fd79631859e2c70be5c82cef8befdd64396704f607c39899527ce2",
+  "sourceSha256": "aab1a65ffbfaa226a7ec5321d60aa29ad2eed64c0bb8cb8e7fe2a12e16aec644",
   "exceptionSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -57,13 +82,13 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/TypeLoadException.java",
-      "sha256": "e5efca376e1efd5d002106ecbb1833c1153048ed923d3d116ad1ff240b596791"
+      "sha256": "0bd17a5b05dc60a776672610c2aece681dec0e514ddd2c93acba422b7b63452d"
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
   "testSha256": "12a935a158b3bb41c4fac98c03d0b44196f4244157d0a08d17a86b0754c824e3",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
-  "externalConsumerSha256": "46620eface33292b26b590009b3306a8e4cd02859a6003f4fe59018fabc2d833",
+  "externalConsumerSha256": "669f10fcf55b086ac7d89cebd39cad4b0370025fd6459339fbe0090e40363845",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
   "concurrencyTestSha256": "400b29826a163847549aaa6afcd65b9ddf5f3ccd8b0d82d8b5cb8140381844ad",
   "loaderFixturePath": "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java",

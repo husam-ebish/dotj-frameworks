@@ -55,7 +55,7 @@ def main():
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
-    assert observed == {
+    expected = {
         "exact": {"result": "System.String", "exception": None, "paramName": None},
         "insensitive": {"result": "System.String", "exception": None, "paramName": None},
         "sensitiveMiss": {"result": None, "exception": None, "paramName": None},
@@ -63,6 +63,12 @@ def main():
         "missingThrow": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
         "nullName": {"result": None, "exception": "System.ArgumentNullException", "paramName": "typeName"},
     }
+    assert {name: observed[name] for name in expected} == expected
+    assert observed["coreLibString"]["result"] == "System.String"
+    assert observed["coreLibInt32"]["result"] == "System.Int32"
+    assert observed["legacyString"]["result"] == "System.String"
+    assert observed["unknownAssembly"]["result"] is None
+    assert observed["unknownAssemblyThrow"]["exception"] == "System.IO.FileNotFoundException"
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
