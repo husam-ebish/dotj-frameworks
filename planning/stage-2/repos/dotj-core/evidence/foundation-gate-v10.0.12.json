@@ -9,10 +9,15 @@
   "wp02ReferenceCases": 10,
   "wp02SelectedUpstreamTestsPassed": 10,
   "selectedApiShapePairs": 14,
+  "asyncFamilyArityPairs": 3,
+  "asyncJavaNameCollisions": 3,
+  "selectedTaskValueTaskReferenceCases": 25,
   "internalJarSha256": "6d6b3ff49a6c4146c3f8f5bfe36e4c1c9ff6f7b5431ab978a94d94bed11a1f9d",
   "status": "BOUNDED_PASS; E01/E02/E03/N01 AND PUBLIC WP-01/WP-02 QUALIFICATION OPEN",
   "limitations": [
     "The internal cancellation implementation does not cover the full Task/ValueTask public semantics.",
+    "The selected Task/ValueTask cases are reference observations, not Java parity or upstream xUnit tests.",
+    "The three exact-name Java collisions leave public generic/non-generic representation unresolved.",
     "Selected upstream tests and fixtures are not exhaustive concurrency or platform validation.",
     "No public .j facade or product release is qualified."
   ]
