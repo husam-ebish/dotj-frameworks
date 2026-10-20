@@ -138,6 +138,13 @@ Run("genericSourceCancel", () =>
         "generic source cancel");
 });
 
+Run("defaultValueTask", () =>
+{
+    ValueTask value = default;
+    Check(value.IsCompleted && value.IsCompletedSuccessfully && !value.IsFaulted,
+        "default ValueTask state");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
