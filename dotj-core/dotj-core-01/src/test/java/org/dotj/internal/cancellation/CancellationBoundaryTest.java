@@ -25,6 +25,7 @@ public final class CancellationBoundaryTest {
         linkedNullElementNoLeak();
         linkedAlreadyCanceled();
         linkedChildClose();
+        zeroDelay();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -135,6 +136,13 @@ public final class CancellationBoundaryTest {
         CancellationSource parent = new CancellationSource(); CancellationSource child = CancellationSource.linked(parent.token());
         CancellationToken retained = child.token(); child.close(); parent.cancel();
         if (retained.isCancellationRequested()) throw new AssertionError("Closed child was canceled"); parent.close();
+    }
+
+    private static void zeroDelay() throws Exception {
+        CancellationSource source = new CancellationSource(); CountDownLatch done = new CountDownLatch(1);
+        source.token().register(done::countDown); source.cancelAfter(Duration.ZERO);
+        if (!done.await(10, TimeUnit.SECONDS) || !source.isCancellationRequested()) throw new AssertionError("Zero delay did not cancel");
+        source.close();
     }
 
     // Next bounded method.
