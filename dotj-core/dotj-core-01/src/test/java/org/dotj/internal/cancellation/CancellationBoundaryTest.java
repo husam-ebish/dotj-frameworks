@@ -31,6 +31,7 @@ public final class CancellationBoundaryTest {
         closeCancelsTimer();
         resetRemovesCallbacks();
         resetCanceledSource();
+        doubleCancelOnce();
         // Next bounded case.
         System.out.println("PASS: internal cancellation boundary checks");
     }
@@ -180,6 +181,12 @@ public final class CancellationBoundaryTest {
     private static void resetCanceledSource() throws Exception {
         CancellationSource source = new CancellationSource(); source.cancel();
         if (source.tryReset()) throw new AssertionError("Canceled source reset"); source.close();
+    }
+
+    private static void doubleCancelOnce() throws Exception {
+        CancellationSource source = new CancellationSource(); AtomicInteger calls = new AtomicInteger();
+        source.token().register(calls::incrementAndGet); source.cancel(); source.cancel();
+        if (calls.get() != 1) throw new AssertionError("Callback invoked more than once"); source.close();
     }
 
     // Next bounded method.
