@@ -42,6 +42,9 @@ public final class ArityTypeReferenceBinderTest {
         ArityTypeReferenceBinder.lower(nested);
         expectInvalid("System.Threading.Tasks.Task<" + nested + ">");
         expectInvalid("System." + "A".repeat(4097));
+        assertLower("System.Threading.Tasks.Task<System.String>" + "[]".repeat(32),
+                "System.Threading.Tasks.Task_1<System.String>" + "[]".repeat(32));
+        expectInvalid("System.Threading.Tasks.Task<System.String>" + "[]".repeat(33));
         java.lang.System.out.println("PASS: bounded source type references bind Task-family arities without JVM collisions");
     }
 
