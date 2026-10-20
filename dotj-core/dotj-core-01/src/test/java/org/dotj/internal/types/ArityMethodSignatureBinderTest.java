@@ -25,6 +25,8 @@ public final class ArityMethodSignatureBinderTest {
                 "System.Threading.Tasks.Task_1<System.Threading.Tasks.Task_1<System.String>> Unwrap(System.Threading.Tasks.ValueTask_1<System.String> value)");
         assertLower("System.Threading.Tasks.Task<System.String>[] Batch(System.Threading.Tasks.Task<System.String>[] items)",
                 "System.Threading.Tasks.Task_1<System.String>[] Batch(System.Threading.Tasks.Task_1<System.String>[] items)");
+        assertLower("System.Threading.Tasks.Task Batch(java.util.List<System.Threading.Tasks.Task<System.String>> items)",
+                "System.Threading.Tasks.Task Batch(java.util.List<System.Threading.Tasks.Task_1<System.String>> items)");
         expectInvalid("System.Threading.Tasks.Task Run(System.String)");
         expectInvalid("System.Threading.Tasks.Task Run(System.String value,)");
         expectInvalid("System.Threading.Tasks.Task Run(System.String value");

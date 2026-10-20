@@ -1,5 +1,7 @@
 package org.dotj.internal.types;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -62,11 +64,16 @@ final class ArityTypeReferenceBinder {
             String name = parseQualifiedName();
             skipWhitespace();
             boolean generic = !atEnd() && input.charAt(position) == '<';
-            String argument = null;
+            List<String> arguments = new ArrayList<>();
             if (generic) {
                 position++;
-                argument = parseType();
+                arguments.add(parseType());
                 skipWhitespace();
+                while (!atEnd() && input.charAt(position) == ',') {
+                    position++;
+                    arguments.add(parseType());
+                    skipWhitespace();
+                }
                 if (atEnd() || input.charAt(position) != '>') {
                     throw new IllegalArgumentException("Expected one closing > at offset " + position);
                 }
@@ -87,13 +94,12 @@ final class ArityTypeReferenceBinder {
             String namespace = name.substring(0, separator);
             String simpleName = name.substring(separator + 1);
             if (namespace.equals("System.Threading.Tasks")) {
-                String backend = ArityNameMap.backendBinaryName(namespace, simpleName, generic ? 1 : 0);
-                return (generic ? backend + "<" + argument + ">" : backend) + "[]".repeat(arrayDimensions);
+                String backend = ArityNameMap.backendBinaryName(namespace, simpleName, arguments.size());
+                return (generic ? backend + "<" + String.join(", ", arguments) + ">" : backend)
+                        + "[]".repeat(arrayDimensions);
             }
-            if (generic) {
-                throw new IllegalArgumentException("Generic type is outside the bounded binder: " + name);
-            }
-            return name + "[]".repeat(arrayDimensions);
+            return (generic ? name + "<" + String.join(", ", arguments) + ">" : name)
+                    + "[]".repeat(arrayDimensions);
         }
 
         private String parseQualifiedName() {
