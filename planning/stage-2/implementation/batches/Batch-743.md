@@ -22,7 +22,6 @@
 | Batches planned, total | **Unknown**; no project-wide batch baseline |
 | Batches remaining, total | **Unknown**; acceptance items are not batches |
 | Outstanding acceptance items | **1,686**: 330 gates + 264 naming tasks + 1,092 implementation tasks, less accepted items |
-
 | Next proposed batch | `Batch-744`: Verify restricted Task source compilation case separate-package. |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
