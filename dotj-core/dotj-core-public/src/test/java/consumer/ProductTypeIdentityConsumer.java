@@ -31,6 +31,11 @@ public final class ProductTypeIdentityConsumer {
                 || !first.get_IsConstructedGenericType() || !definition.get_IsGenericType()) {
             throw new AssertionError("External Type identity call changed");
         }
+        Type parameter = definition.GetGenericArguments()[0];
+        if (!parameter.get_IsGenericParameter() || parameter.get_GenericParameterPosition() != 0
+                || parameter != definition.GetGenericArguments()[0]) {
+            throw new AssertionError("External generic parameter identity changed");
+        }
         java.lang.System.out.println("PASS external System.Type selected identity consumer");
     }
 }

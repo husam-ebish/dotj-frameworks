@@ -27,6 +27,22 @@ public final class TypeIdentityCandidateTest {
             throw new AssertionError("Generic arguments escaped by reference");
         }
         Type map = Type.fromJavaClass(Map.class);
+        Type[] listParameters = list.GetGenericArguments();
+        Type[] mapParameters = map.GetGenericArguments();
+        if (listParameters.length != 1 || mapParameters.length != 2
+                || !listParameters[0].get_IsGenericParameter()
+                || listParameters[0].get_GenericParameterPosition() != 0
+                || mapParameters[0].get_GenericParameterPosition() != 0
+                || mapParameters[1].get_GenericParameterPosition() != 1
+                || listParameters[0] != list.GetGenericArguments()[0]
+                || mapParameters[0] == listParameters[0]
+                || listParameters[0].get_IsGenericType()) {
+            throw new AssertionError("Generic parameter Type identity changed");
+        }
+        listParameters[0] = string;
+        if (!list.GetGenericArguments()[0].get_IsGenericParameter()) {
+            throw new AssertionError("Generic parameter array escaped by reference");
+        }
         Type nested = map.MakeGenericType(new Type[] {string, first});
         if (nested != map.MakeGenericType(new Type[] {string, same})
                 || nested == map.MakeGenericType(new Type[] {string, different})) {
@@ -55,12 +71,6 @@ public final class TypeIdentityCandidateTest {
             if (!"typeArguments[0]".equals(expected.getMessage())) {
                 throw new AssertionError("Null element identity changed", expected);
             }
-        }
-        try {
-            list.GetGenericArguments();
-            throw new AssertionError("Unimplemented generic parameter Type accepted");
-        } catch (UnsupportedOperationException expected) {
-            // The unimplemented shape stays explicit.
         }
         java.lang.System.out.println("PASS selected System.Type identity, nested arguments, defensive copies and null boundary");
     }

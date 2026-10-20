@@ -5,29 +5,29 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "snapshotSha256": "798309af37ad61a2b7f311dc0d18bc3df25e3904d86ea8c0a43d598110909637",
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "05ffb93056382eab2c1c81b2280027fa506c7d5bdfadf8f848e7df2ae8597a70",
+  "sourceSha256": "7ebf55f62283142be8e278bc73976f1d325d056740cb287e5d80e6b92cf44049",
   "exceptionSources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
-      "sha256": "b845b6acafdb9ba7435f4b5beb8dd144e5446f49d5b5f7a9700e76c176ec6539"
+      "sha256": "5dd9a40656392f19f29360a8da8a9fd621ad2a0276ae3c0b096982083c6654b7"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/SystemException.java",
-      "sha256": "1f70bf974820842fa16a68183e600a9e33c5da9327f276b7095f73d416ae91fd"
+      "sha256": "1a7ef755128e727478ffb22956c06deef638537b6003089cd5755d36bd6f6494"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentException.java",
-      "sha256": "acf4f1ac5b7df823dec924c0a1cd95382d627b203f8215ab6bebcd44ca0a7b80"
+      "sha256": "7a51c1eb2749fa809efe2a1b11f3a5bf615a0aeb367f9db2b74ada538ed20b9d"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentNullException.java",
-      "sha256": "d0da4d53057c9148fa052f488e0fb419c6b787488d7afb1c2d435086f5524608"
+      "sha256": "9487ad51b8ab949340d997f4fa1f84271a4940f71b8647bd282ca729a03fb330"
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
-  "testSha256": "23ff69b438c5248e73b64bb53cefd9cba7e26f2b44501ea71e142ceff9c93e72",
+  "testSha256": "12a935a158b3bb41c4fac98c03d0b44196f4244157d0a08d17a86b0754c824e3",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
-  "externalConsumerSha256": "55e3c9c8b933f92434cd1f0ae39005de157401f8ac6521673239d74b51c20635",
+  "externalConsumerSha256": "d663a17ca161acad7a3c8286ac91bda2071d6610331dedb499c14860a6f79a9b",
   "publicMembers": [
     "public static System.Type GetType(java.lang.String);",
     "public System.Type MakeGenericType(System.Type[]);",
@@ -36,6 +36,8 @@
     "public System.Type[] get_GenericTypeArguments();",
     "public boolean get_IsGenericType();",
     "public boolean get_IsConstructedGenericType();",
+    "public boolean get_IsGenericParameter();",
+    "public int get_GenericParameterPosition();",
     "public boolean Equals(System.Type);"
   ],
   "testResult": "PASS selected System.Type identity, nested arguments, defensive copies and null boundary",

@@ -13,13 +13,30 @@ public abstract class Type {
                     return new ConcurrentHashMap<>();
                 }
             };
+    private static final ClassValue<Type[]> genericParameters = new ClassValue<>() {
+        @Override
+        protected Type[] computeValue(Class<?> definition) {
+            var variables = definition.getTypeParameters();
+            Type[] result = new Type[variables.length];
+            for (int index = 0; index < variables.length; index++) {
+                result[index] = new GenericParameterType(definition, index);
+            }
+            return result;
+        }
+    };
 
     private final Class<?> definition;
     private final List<Type> arguments;
+    private final int parameterIndex;
 
     private Type(Class<?> definition, List<Type> arguments) {
+        this(definition, arguments, -1);
+    }
+
+    private Type(Class<?> definition, List<Type> arguments, int parameterIndex) {
         this.definition = definition;
         this.arguments = arguments;
+        this.parameterIndex = parameterIndex;
     }
 
     // A future .j typeof operation may lower to this package-internal entry point.
@@ -48,7 +65,8 @@ public abstract class Type {
         if (typeArguments == null) {
             throw new ArgumentNullException("typeArguments");
         }
-        if (!this.arguments.isEmpty() || this.definition.getTypeParameters().length == 0) {
+        if (this.parameterIndex >= 0 || !this.arguments.isEmpty()
+                || this.definition.getTypeParameters().length == 0) {
             throw new IllegalStateException("Not a generic type definition");
         }
         if (typeArguments.length != this.definition.getTypeParameters().length) {
@@ -64,15 +82,18 @@ public abstract class Type {
     }
 
     public Type GetGenericTypeDefinition() {
-        if (this.definition.getTypeParameters().length == 0) {
+        if (this.parameterIndex >= 0 || this.definition.getTypeParameters().length == 0) {
             throw new IllegalStateException("Not a generic type");
         }
         return fromJavaClass(this.definition);
     }
 
     public Type[] GetGenericArguments() {
-        if (this.arguments.isEmpty() && this.definition.getTypeParameters().length != 0) {
-            throw new UnsupportedOperationException("Generic parameter Type values are not implemented");
+        if (this.parameterIndex >= 0) {
+            return new Type[0];
+        }
+        if (this.arguments.isEmpty()) {
+            return genericParameters.get(this.definition).clone();
         }
         return this.arguments.toArray(Type[]::new);
     }
@@ -82,11 +103,22 @@ public abstract class Type {
     }
 
     public boolean get_IsGenericType() {
-        return this.definition.getTypeParameters().length != 0;
+        return this.parameterIndex < 0 && this.definition.getTypeParameters().length != 0;
     }
 
     public boolean get_IsConstructedGenericType() {
-        return !this.arguments.isEmpty();
+        return this.parameterIndex < 0 && !this.arguments.isEmpty();
+    }
+
+    public boolean get_IsGenericParameter() {
+        return this.parameterIndex >= 0;
+    }
+
+    public int get_GenericParameterPosition() {
+        if (this.parameterIndex < 0) {
+            throw new IllegalStateException("Not a generic parameter");
+        }
+        return this.parameterIndex;
     }
 
     public boolean Equals(Type other) {
@@ -96,6 +128,12 @@ public abstract class Type {
     private static final class ResolvedType extends Type {
         private ResolvedType(Class<?> definition, List<Type> arguments) {
             super(definition, arguments);
+        }
+    }
+
+    private static final class GenericParameterType extends Type {
+        private GenericParameterType(Class<?> definition, int index) {
+            super(definition, List.of(), index);
         }
     }
 }
