@@ -447,6 +447,18 @@ Run("waitAsyncFiniteSourceResultFirst", () =>
     Check(waiting.IsCompletedSuccessfully && waiting.Result == 42, "late token changed finite source result");
 });
 
+Run("waitAsyncFiniteSourceFaultFirst", () =>
+{
+    TaskCompletionSource<int> source = new();
+    using CancellationTokenSource cancellation = new();
+    Task<int> waiting = source.Task.WaitAsync(TimeSpan.FromSeconds(30), cancellation.Token);
+    Exception failure = new InvalidOperationException("finite source fault");
+    source.SetException(failure);
+    CheckThrows<InvalidOperationException>(() => waiting.GetAwaiter().GetResult(), "source fault before finite timeout");
+    cancellation.Cancel();
+    Check(ReferenceEquals(waiting.Exception?.InnerException, failure), "late token changed finite source fault");
+});
+
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
     .ToLowerInvariant();
 Console.WriteLine(JsonSerializer.Serialize(new
