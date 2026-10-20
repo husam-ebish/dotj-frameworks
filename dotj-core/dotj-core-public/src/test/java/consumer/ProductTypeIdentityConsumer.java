@@ -2,6 +2,7 @@ package consumer;
 
 import System.Type;
 import System.ArgumentNullException;
+import System.TypeLoadException;
 
 /** Calls the candidate's public members from outside the System package. */
 public final class ProductTypeIdentityConsumer {
@@ -12,6 +13,18 @@ public final class ProductTypeIdentityConsumer {
         if (definition == null || string == null || integer == null
                 || Type.GetType("System.Unknown") != null) {
             throw new AssertionError("Selected type-name lookup changed");
+        }
+        if (Type.GetType("system.string", false, true) != string
+                || Type.GetType("system.string", false) != null
+                || Type.GetType("System.Unknown", false, true) != null
+                || Type.GetType("System.String", true) != string) {
+            throw new AssertionError("Selected GetType overload behavior changed");
+        }
+        try {
+            Type.GetType("System.Unknown", true, false);
+            throw new AssertionError("Missing type accepted with throwOnError");
+        } catch (TypeLoadException expected) {
+            // Selected error type observed from pinned CoreLib.
         }
         try {
             Type.GetType(null);

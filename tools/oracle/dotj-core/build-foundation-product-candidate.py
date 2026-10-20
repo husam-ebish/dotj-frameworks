@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
-    "IDisposable", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException")]
+    "IDisposable", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException")]
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
@@ -31,6 +31,7 @@ EXPECTED_CLASSES = [
     "System/Type$GenericParameterType.class",
     "System/Type$ResolvedType.class",
     "System/Type.class",
+    "System/TypeLoadException.class",
 ]
 
 

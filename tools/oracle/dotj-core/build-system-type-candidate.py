@@ -13,7 +13,7 @@ SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
-                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException")]
+                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException")]
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
 CONCURRENCY_TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java"
 LOADER_FIXTURE = ROOT / "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java"
@@ -22,6 +22,7 @@ BUILD = ROOT / "dotj-core/dotj-core-public/build/type-identity-candidate-v2"
 CLASSES = BUILD / "product-classes"
 TEST_CLASSES = BUILD / "test-classes"
 EVIDENCE = EVIDENCE_ROOT / "system-type-identity-candidate-v1.json"
+FOUNDATION_METADATA = EVIDENCE_ROOT / "foundation-selected-metadata-v10.0.12.json"
 
 
 def sha256(path):
@@ -53,6 +54,15 @@ def main():
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition"} <= properties
+    observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
+    assert observed == {
+        "exact": {"result": "System.String", "exception": None, "paramName": None},
+        "insensitive": {"result": "System.String", "exception": None, "paramName": None},
+        "sensitiveMiss": {"result": None, "exception": None, "paramName": None},
+        "missing": {"result": None, "exception": None, "paramName": None},
+        "missingThrow": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
+        "nullName": {"result": None, "exception": "System.ArgumentNullException", "paramName": "typeName"},
+    }
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
@@ -67,6 +77,8 @@ def main():
     members = [line.strip() for line in public.splitlines() if line.strip().endswith(";")]
     assert members == [
         "public static System.Type GetType(java.lang.String);",
+        "public static System.Type GetType(java.lang.String, boolean);",
+        "public static System.Type GetType(java.lang.String, boolean, boolean);",
         "public System.Type MakeGenericType(System.Type[]);",
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
@@ -94,6 +106,7 @@ def main():
         "sourceCommit": provenance["sourceCommit"],
         "coreLibSha256": snapshot["assemblySha256"],
         "snapshotSha256": sha256(SNAPSHOT),
+        "selectedGetTypeBehavior": observed,
         "sourcePath": SOURCE.relative_to(ROOT).as_posix(),
         "sourceSha256": sha256(SOURCE),
         "exceptionSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)}
