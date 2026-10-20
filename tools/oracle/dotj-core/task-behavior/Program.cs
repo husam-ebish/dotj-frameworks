@@ -38,6 +38,14 @@ Run("completedTask", () =>
         "completed task state");
 });
 
+Run("faultedTask", () =>
+{
+    Exception fault = new InvalidOperationException("fault");
+    Task task = Task.FromException(fault);
+    Check(task.IsFaulted && task.Status == TaskStatus.Faulted &&
+        ReferenceEquals(task.Exception?.InnerException, fault), "faulted task state");
+});
+
 // Next bounded case.
 
 string coreLibSha256 = Convert.ToHexString(SHA256.HashData(File.ReadAllBytes(typeof(object).Assembly.Location)))
