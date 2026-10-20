@@ -112,6 +112,8 @@ public abstract class Type extends MemberInfo {
             case "System.Object" -> fromJavaClass(Object.class);
             case "System.ValueType" -> fromJavaClass(Number.class);
             case "System.Array" -> fromJavaClass(java.lang.reflect.Array.class);
+            case "System.IDisposable" -> fromJavaClass(IDisposable.class);
+            case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
             case "System.String[]" -> fromJavaClass(String[].class);
@@ -142,6 +144,8 @@ public abstract class Type extends MemberInfo {
             case "system.object" -> ignoreCase ? fromJavaClass(Object.class) : null;
             case "system.valuetype" -> ignoreCase ? fromJavaClass(Number.class) : null;
             case "system.array" -> ignoreCase ? fromJavaClass(java.lang.reflect.Array.class) : null;
+            case "system.idisposable" -> ignoreCase ? fromJavaClass(IDisposable.class) : null;
+            case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
             case "system.collections.generic.dictionary`2" -> ignoreCase ? fromJavaClass(java.util.Map.class) : null;
             case "system.string[]" -> ignoreCase ? fromJavaClass(String[].class) : null;
@@ -357,11 +361,20 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsValueType() {
-        return this.parameterIndex < 0 && this.definition == Integer.class;
+        return this.parameterIndex < 0
+                && (this.definition == Integer.class || this.definition == MemberTypes.class);
     }
 
     public boolean get_IsClass() {
-        return !this.get_IsValueType();
+        return !this.get_IsValueType() && !this.get_IsInterface();
+    }
+
+    public boolean get_IsInterface() {
+        return this.definition == IDisposable.class;
+    }
+
+    public boolean get_IsEnum() {
+        return this.definition == MemberTypes.class;
     }
 
     private static String arraySuffix(int rank, boolean vector) {

@@ -229,11 +229,14 @@ var result = new
         typeof(List<>), typeof(List<string>), typeof(List<>).GetGenericArguments()[0],
         typeof(string[]), typeof(string[,]), typeof(string).MakeByRefType(),
         typeof(string).MakePointerType(),
+        typeof(IDisposable), typeof(MemberTypes),
     }.Select(type => new
     {
         name = type.FullName ?? type.Name,
         type.IsClass,
         type.IsValueType,
+        type.IsInterface,
+        type.IsEnum,
     }).ToArray(),
     types = selected.Select(type => new
     {
@@ -266,7 +269,8 @@ var result = new
                 or "IsConstructedGenericType" or "IsGenericParameter"
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
-                or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType")
+                or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType"
+                or "IsInterface" or "IsEnum")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)

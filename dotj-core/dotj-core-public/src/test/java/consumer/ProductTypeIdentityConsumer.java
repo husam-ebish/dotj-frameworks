@@ -210,6 +210,16 @@ public final class ProductTypeIdentityConsumer {
                 || !pointer.get_IsClass()) {
             throw new AssertionError("Selected class and value-type flags changed");
         }
+        Type disposalType = Type.GetType("System.IDisposable");
+        Type memberTypesType = Type.GetType("System.Reflection.MemberTypes");
+        if (disposalType == null || memberTypesType == null
+                || !disposalType.get_IsInterface() || disposalType.get_IsClass()
+                || disposalType.get_IsValueType() || disposalType.get_IsEnum()
+                || !memberTypesType.get_IsEnum() || !memberTypesType.get_IsValueType()
+                || memberTypesType.get_IsClass() || memberTypesType.get_IsInterface()
+                || string.get_IsInterface() || integer.get_IsEnum()) {
+            throw new AssertionError("Selected interface and enum flags changed");
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition

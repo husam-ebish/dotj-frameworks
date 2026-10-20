@@ -434,62 +434,100 @@
     {
       "name": "System.Object",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.String",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.Int32",
       "IsClass": false,
-      "IsValueType": true
+      "IsValueType": true,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.ValueType",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.Array",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.Collections.Generic.List`1",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "T",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.String[]",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.String[,]",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.String&",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
     },
     {
       "name": "System.String*",
       "IsClass": true,
-      "IsValueType": false
+      "IsValueType": false,
+      "IsInterface": false,
+      "IsEnum": false
+    },
+    {
+      "name": "System.IDisposable",
+      "IsClass": false,
+      "IsValueType": false,
+      "IsInterface": true,
+      "IsEnum": false
+    },
+    {
+      "name": "System.Reflection.MemberTypes",
+      "IsClass": false,
+      "IsValueType": true,
+      "IsInterface": false,
+      "IsEnum": true
     }
   ],
   "types": [
@@ -746,6 +784,10 @@
           "type": "System.String"
         },
         {
+          "name": "IsInterface",
+          "type": "System.Boolean"
+        },
+        {
           "name": "DeclaringType",
           "type": "System.Type"
         },
@@ -787,6 +829,10 @@
         },
         {
           "name": "IsClass",
+          "type": "System.Boolean"
+        },
+        {
+          "name": "IsEnum",
           "type": "System.Boolean"
         },
         {
@@ -1217,6 +1263,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "c80aeb400670ecc23c34f6f36dd8df23cd08e936ed7adf989f7b044abd02a95e",
+  "oracleProgramSha256": "f4e92b16dc6b84e2338a709f75bd4daeb03d0b7aa04c559b0ab44b3bf2459f93",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

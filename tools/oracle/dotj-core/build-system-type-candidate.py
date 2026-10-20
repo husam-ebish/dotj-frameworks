@@ -18,6 +18,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
+IDISPOSABLE_SOURCE = SOURCE.with_name("IDisposable.java")
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
 CONCURRENCY_TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java"
 LOADER_FIXTURE = ROOT / "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java"
@@ -58,7 +59,8 @@ def main():
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
-            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType"} <= properties
+            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType",
+            "IsInterface", "IsEnum"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
         "exact": {"result": "System.String", "exception": None, "paramName": None},
@@ -151,13 +153,17 @@ def main():
         "System.Object", "System.Array", "System.Array", None, None,
     ]
     kind_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedKindFlags"]
-    assert len(kind_flags) == 12
+    assert len(kind_flags) == 14
     assert [item["IsClass"] for item in kind_flags] == [
         True, True, False, True, True, True, True, True, True, True, True, True,
+        False, False,
     ]
     assert [item["IsValueType"] for item in kind_flags] == [
         False, False, True, False, False, False, False, False, False, False, False, False,
+        False, True,
     ]
+    assert [item["IsInterface"] for item in kind_flags] == [False] * 12 + [True, False]
+    assert [item["IsEnum"] for item in kind_flags] == [False] * 13 + [True]
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -167,7 +173,7 @@ def main():
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
     run("javac", "--release", "21", "-d", str(CLASSES),
-        *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES]))
+        *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES, IDISPOSABLE_SOURCE]))
     assert not (CLASSES / "System/TypeCandidateFactory.class").exists()
     run("javac", "--release", "21", "-cp", str(CLASSES), "-d", str(TEST_CLASSES),
         str(TEST), str(CONCURRENCY_TEST), str(LOADER_FIXTURE), str(EXTERNAL))
@@ -194,6 +200,8 @@ def main():
         "public System.Type get_BaseType();",
         "public boolean get_IsValueType();",
         "public boolean get_IsClass();",
+        "public boolean get_IsInterface();",
+        "public boolean get_IsEnum();",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",
@@ -225,6 +233,7 @@ def main():
         "selectedGetTypeBehavior": observed,
         "sourcePath": SOURCE.relative_to(ROOT).as_posix(),
         "sourceSha256": sha256(SOURCE),
+        "idisposableSourceSha256": sha256(IDISPOSABLE_SOURCE),
         "exceptionSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)}
                              for path in EXCEPTION_SOURCES],
         "testPath": TEST.relative_to(ROOT).as_posix(),

@@ -15,6 +15,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
+IDISPOSABLE_SOURCE = SOURCE.with_name("IDisposable.java")
 BUILD = ROOT / "dotj-core/dotj-core-public/build/typeof-selected-v1"
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json"
 NAME = re.compile(r"System(?:\.[A-Za-z][A-Za-z0-9]*)+")
@@ -129,7 +130,7 @@ def main():
     ])
     generated.write_text("\n".join(lines) + "\n", encoding="utf-8")
     subprocess.run(["javac", "--release", "21", "-d", str(product_classes),
-                    *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES])], check=True)
+                    *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES, IDISPOSABLE_SOURCE])], check=True)
     subprocess.run(["javac", "--release", "21", "-cp", str(product_classes), "-d",
                     str(consumer_classes), str(generated)], check=True)
     import os
