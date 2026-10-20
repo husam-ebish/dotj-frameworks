@@ -37,7 +37,8 @@
     "Batch-020",
     "Batch-021",
     "Batch-022",
-    "Batch-023"
+    "Batch-023",
+    "Batch-024"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -225,12 +226,12 @@
       "completionEvidence": [],
       "outstandingPreparationAndQualificationGates": {
         "E01": "IN PROGRESS",
-        "E02": "NOT STARTED",
+        "E02": "IN PROGRESS",
         "E03": "NOT STARTED",
         "N01": "NOT STARTED",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-023",
+      "lastUpdatedBatch": "Batch-024",
       "blocked": false,
       "unclassifiedTaskIds": [
         "DJ-001-WP-01-T1",
@@ -9841,13 +9842,13 @@
   ],
   "measurementNote": "Null percentages mean Not yet measurable. The 1356 named tasks mix implementation and preparation. E01-E03 and Q01 are separate gates; N01 tasks are recorded as prerequisites. No preparation earns implementation credit.",
   "nextProposedBatch": {
-    "id": "Batch-024",
+    "id": "Batch-025",
     "framework": "dotj-core",
     "planTaskIds": [
       "E02",
-      "DJ-001-WP-01-T2"
+      "DJ-001-N01-T1"
     ],
-    "outcome": "Inventory pinned IDisposable and IAsyncDisposable source declarations and conditional inclusion for the WP-01 ownership slice.",
+    "outcome": "Cross-check IDisposable and IAsyncDisposable signatures against installed .NET 10.0.12 CoreLib metadata.",
     "requiresContinue": false
   }
 }

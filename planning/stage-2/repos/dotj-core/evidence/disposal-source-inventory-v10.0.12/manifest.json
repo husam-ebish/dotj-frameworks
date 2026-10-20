@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "sourceTag": "v10.0.12",
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "scope": "Bounded WP-01 disposal interface source identity and direct CoreLib shared project inclusion",
+  "coreclrProject": {
+    "path": "src/coreclr/System.Private.CoreLib/System.Private.CoreLib.csproj",
+    "sha256": "3cbb9c5281f0082d76beb24935066fb1a9678e9ab95f7fbbd210d9802e0a6f24",
+    "sharedImport": {
+      "Project": "$(LibrariesProjectRoot)\\System.Private.CoreLib\\src\\System.Private.CoreLib.Shared.projitems",
+      "Label": "Shared"
+    }
+  },
+  "sharedProject": {
+    "path": "src/libraries/System.Private.CoreLib/src/System.Private.CoreLib.Shared.projitems",
+    "sha256": "f4235874ab414596562b74ffed7b7083811059f8fcdb31b0041f5cffa82b86c8"
+  },
+  "interfaces": [
+    {
+      "type": "System.IDisposable",
+      "sourcePath": "src/libraries/System.Private.CoreLib/src/System/IDisposable.cs",
+      "sourceBytes": 3116,
+      "sourceSha256": "fcb8a99af86873e4c724c09f77002fd6770ea07c202fdb701c3432235e24beae",
+      "namespace": "System",
+      "declaration": "public interface IDisposable",
+      "memberDeclaration": "void Dispose();",
+      "sharedCompileInclude": "$(MSBuildThisFileDirectory)System\\IDisposable.cs",
+      "sharedCompileCondition": null,
+      "sharedItemGroupCondition": null
+    },
+    {
+      "type": "System.IAsyncDisposable",
+      "sourcePath": "src/libraries/System.Private.CoreLib/src/System/IAsyncDisposable.cs",
+      "sourceBytes": 561,
+      "sourceSha256": "7d590f4f940af702f8d3797655412cdc64435a0cc6454985685e415ee5fe817f",
+      "namespace": "System",
+      "declaration": "public interface IAsyncDisposable",
+      "memberDeclaration": "ValueTask DisposeAsync();",
+      "sharedCompileInclude": "$(MSBuildThisFileDirectory)System\\IAsyncDisposable.cs",
+      "sharedCompileCondition": null,
+      "sharedItemGroupCondition": null
+    }
+  ],
+  "limits": [
+    "Source declarations and immediate XML inclusion are verified; effective evaluated compiler inputs, reference-assembly metadata and generated or forwarded symbols remain open.",
+    "IDisposable comments describe guidance, not a runtime-enforced idempotence or nonthrowing guarantee for all implementations.",
+    "IAsyncDisposable's ValueTask dependency and Java representation require separate E02/N01 analysis."
+  ]
+}
