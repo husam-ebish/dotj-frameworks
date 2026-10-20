@@ -313,6 +313,16 @@ public abstract class Type extends MemberInfo {
         return this.definition.getPackageName();
     }
 
+    @Override
+    public Type get_DeclaringType() {
+        return this.parameterIndex < 0 ? null : fromJavaClass(this.definition);
+    }
+
+    @Override
+    public Type get_ReflectedType() {
+        return this.parameterIndex < 0 ? null : fromJavaClass(this.definition);
+    }
+
     private static String arraySuffix(int rank, boolean vector) {
         if (rank == 1) {
             return vector ? "[]" : "[*]";

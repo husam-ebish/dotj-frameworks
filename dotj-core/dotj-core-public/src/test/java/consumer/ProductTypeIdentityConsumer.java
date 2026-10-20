@@ -186,6 +186,13 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("External Type identity call changed");
         }
         Type parameter = definition.GetGenericArguments()[0];
+        MemberInfo parameterMember = parameter;
+        if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
+                || parameterMember.get_DeclaringType() != definition
+                || parameterMember.get_ReflectedType() != definition
+                || first.get_DeclaringType() != null || first.get_ReflectedType() != null) {
+            throw new AssertionError("Selected MemberInfo owner type changed");
+        }
         if (!"String".equals(string.get_Name()) || !"System.String".equals(string.get_FullName())
                 || !"System".equals(string.get_Namespace())
                 || !"Int32".equals(integer.get_Name())
