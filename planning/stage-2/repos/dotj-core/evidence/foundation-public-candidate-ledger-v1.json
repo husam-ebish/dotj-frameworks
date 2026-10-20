@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 1,
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
+  "candidateEvidence": "foundation-product-candidate-v1.json",
+  "candidateJarSha256": "5becf044bf8842d9f56909623b6ca695bbf6bcbb86af286a3a5a8576f03cce3e",
+  "typeCount": 6,
+  "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
+  "types": [
+    {
+      "upstreamFullName": "System.IDisposable",
+      "upstreamBaseType": null,
+      "upstreamIsInterface": true,
+      "upstreamIsAbstract": true,
+      "upstreamDeclaredNonAccessorMethods": 1,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicHeader": "public interface System.IDisposable {",
+      "javaPublicDeclarations": [
+        "public abstract void Dispose();"
+      ],
+      "disposition": "EXACT_SELECTED_INTERFACE_MEMBER; behavior and release unqualified",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Type",
+      "upstreamBaseType": "System.Reflection.MemberInfo",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": true,
+      "upstreamDeclaredNonAccessorMethods": 109,
+      "upstreamDeclaredProperties": 70,
+      "upstreamPublicConstructors": 0,
+      "javaPublicHeader": "public abstract class System.Type {",
+      "javaPublicDeclarations": [
+        "public static System.Type GetType(java.lang.String);",
+        "public System.Type MakeGenericType(System.Type[]);",
+        "public System.Type GetGenericTypeDefinition();",
+        "public System.Type[] GetGenericArguments();",
+        "public System.Type[] get_GenericTypeArguments();",
+        "public boolean get_IsGenericType();",
+        "public boolean get_IsConstructedGenericType();",
+        "public boolean get_IsGenericParameter();",
+        "public int get_GenericParameterPosition();",
+        "public boolean Equals(System.Type);"
+      ],
+      "disposition": "PARTIAL_PUBLIC_SURFACE; MemberInfo base, Java property lowering and semantics open",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Exception",
+      "upstreamBaseType": "System.Object",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 4,
+      "upstreamDeclaredProperties": 8,
+      "upstreamPublicConstructors": 3,
+      "javaPublicHeader": "public class System.Exception extends java.lang.RuntimeException {",
+      "javaPublicDeclarations": [
+        "public System.Exception(java.lang.String);",
+        "public System.Exception(java.lang.String, java.lang.Throwable);"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.SystemException",
+      "upstreamBaseType": "System.Exception",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 3,
+      "javaPublicHeader": "public class System.SystemException extends System.Exception {",
+      "javaPublicDeclarations": [
+        "public System.SystemException(java.lang.String);"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.ArgumentException",
+      "upstreamBaseType": "System.SystemException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 3,
+      "upstreamDeclaredProperties": 2,
+      "upstreamPublicConstructors": 5,
+      "javaPublicHeader": "public class System.ArgumentException extends System.SystemException {",
+      "javaPublicDeclarations": [
+        "public System.ArgumentException(java.lang.String, java.lang.String);",
+        "public java.lang.String get_ParamName();"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.ArgumentNullException",
+      "upstreamBaseType": "System.ArgumentException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 2,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 4,
+      "javaPublicHeader": "public class System.ArgumentNullException extends System.ArgumentException {",
+      "javaPublicDeclarations": [
+        "public System.ArgumentNullException(java.lang.String);"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    }
+  ],
+  "acceptedN01TaskCredit": false,
+  "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN"
+}
