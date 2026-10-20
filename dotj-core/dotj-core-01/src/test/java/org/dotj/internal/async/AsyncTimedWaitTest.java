@@ -21,6 +21,7 @@ public final class AsyncTimedWaitTest {
         invalidTimeout(4_294_967_295L, false);
         scenario("zero late signal", 0, "pending", false, "none", "timeout", "signal");
         scenario("zero presignaled", 0, "pending", true, "none", "cancel", "none");
+        scenario("zero completed presignaled", 0, "result", true, "none", "result", "none");
         System.out.println("PASS: internal timed wait cases");
     }
 
