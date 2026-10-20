@@ -59,10 +59,14 @@ The **overall implementation percentage is not yet measurable** because the 1,35
 | .j behavior and API compatibility | NOT RUN | E02/E03/N01 remain untouched. |
 | Evidence and ledger | PASS | Manifest and 66-framework ledger parse; no implementation credit added. |
 | Independent Batch-019 audit | PASS | Compared the manifest against the raw assets graph and restored package cache: identities, dependency ranges, nuspec declarations, 54 selected notice paths, 88 snapshot hashes and source assets bytes matched. |
+| Committed snapshot byte integrity | PASS after correction | A later audit found Git line-ending conversion in 82 of 88 committed snapshots, despite all 88 Windows working-tree copies matching the manifest. The evidence directory now disables text conversion for the assets file and package snapshots; all 88 staged blobs match the recorded SHA-256 hashes and byte counts. |
+
+The byte-integrity correction changes the committed representation of the same captured evidence, not the package inventory or any .j behavior. It does not count as another implementation batch. The independent audit also rechecked 33 package identities and dependency ranges, 54 selected notice copies, nuspec license metadata, and the pinned source assets bytes.
 
 ### Files changed
 
 - `planning/stage-2/repos/dotj-core/evidence/libraryimport-package-graph-v10.0.12/`: assets and package snapshots, capture script and manifest.
+- `planning/stage-2/repos/dotj-core/evidence/libraryimport-package-graph-v10.0.12/.gitattributes`: later byte-integrity correction prevents Git from converting the 88 captured assets/package snapshots.
 - `planning/stage-2/repos/dotj-core/evidence/baseline-lock.json`: records the bounded graph evidence.
 - `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json`: Batch-019 handoff with zero implementation credit.
 - `planning/stage-2/implementation/batches/Batch-019.md`: this report.
