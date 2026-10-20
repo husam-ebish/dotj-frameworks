@@ -200,6 +200,16 @@ public final class ProductTypeIdentityConsumer {
                 || byReference.get_BaseType() != null || pointer.get_BaseType() != null) {
             throw new AssertionError("Selected BaseType projections changed");
         }
+        if (!object.get_IsClass() || object.get_IsValueType()
+                || !string.get_IsClass() || string.get_IsValueType()
+                || integer.get_IsClass() || !integer.get_IsValueType()
+                || !valueType.get_IsClass() || valueType.get_IsValueType()
+                || !arrayBase.get_IsClass() || !definition.get_IsClass()
+                || !first.get_IsClass() || !parameter.get_IsClass()
+                || !rectangular.get_IsClass() || !byReference.get_IsClass()
+                || !pointer.get_IsClass()) {
+            throw new AssertionError("Selected class and value-type flags changed");
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition

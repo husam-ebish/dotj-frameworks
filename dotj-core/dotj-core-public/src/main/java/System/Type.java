@@ -356,6 +356,14 @@ public abstract class Type extends MemberInfo {
         return parent == null ? null : fromJavaClass(parent);
     }
 
+    public boolean get_IsValueType() {
+        return this.parameterIndex < 0 && this.definition == Integer.class;
+    }
+
+    public boolean get_IsClass() {
+        return !this.get_IsValueType();
+    }
+
     private static String arraySuffix(int rank, boolean vector) {
         if (rank == 1) {
             return vector ? "[]" : "[*]";

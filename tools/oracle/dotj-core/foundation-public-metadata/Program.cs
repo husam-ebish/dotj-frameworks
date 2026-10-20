@@ -223,6 +223,18 @@ var result = new
         name = type.FullName ?? type.Name,
         baseType = type.BaseType?.FullName,
     }).ToArray(),
+    selectedKindFlags = new[]
+    {
+        typeof(object), typeof(string), typeof(int), typeof(ValueType), typeof(Array),
+        typeof(List<>), typeof(List<string>), typeof(List<>).GetGenericArguments()[0],
+        typeof(string[]), typeof(string[,]), typeof(string).MakeByRefType(),
+        typeof(string).MakePointerType(),
+    }.Select(type => new
+    {
+        name = type.FullName ?? type.Name,
+        type.IsClass,
+        type.IsValueType,
+    }).ToArray(),
     types = selected.Select(type => new
     {
         fullName = type.FullName,
@@ -254,7 +266,7 @@ var result = new
                 or "IsConstructedGenericType" or "IsGenericParameter"
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
-                or "DeclaringType" or "ReflectedType" or "BaseType")
+                or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
             .ToArray(),
         publicConstructors = type.GetConstructors(declaredPublic)

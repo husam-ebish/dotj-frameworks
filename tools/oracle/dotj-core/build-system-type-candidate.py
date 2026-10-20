@@ -58,7 +58,7 @@ def main():
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
-            "FullName", "Namespace", "BaseType"} <= properties
+            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
         "exact": {"result": "System.String", "exception": None, "paramName": None},
@@ -150,6 +150,14 @@ def main():
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
         "System.Object", "System.Array", "System.Array", None, None,
     ]
+    kind_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedKindFlags"]
+    assert len(kind_flags) == 12
+    assert [item["IsClass"] for item in kind_flags] == [
+        True, True, False, True, True, True, True, True, True, True, True, True,
+    ]
+    assert [item["IsValueType"] for item in kind_flags] == [
+        False, False, True, False, False, False, False, False, False, False, False, False,
+    ]
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -184,6 +192,8 @@ def main():
         "public System.Type get_DeclaringType();",
         "public System.Type get_ReflectedType();",
         "public System.Type get_BaseType();",
+        "public boolean get_IsValueType();",
+        "public boolean get_IsClass();",
         "public boolean get_IsArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",
