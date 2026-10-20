@@ -66,6 +66,16 @@ public final class ProductTypeIdentityConsumer {
             }
         }
         Type first = definition.MakeGenericType(new Type[] {string});
+        Type dictionary = Type.GetType("System.Collections.Generic.Dictionary`2");
+        Type dictionaryStringInt = dictionary.MakeGenericType(new Type[] {string, integer});
+        if (Type.GetType("System.Collections.Generic.Dictionary`2[System.String,System.Int32]")
+                    != dictionaryStringInt
+                || Type.GetType("System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]")
+                    != dictionaryStringInt
+                || Type.GetType("System.Collections.Generic.Dictionary`2[System.Int32,System.String]")
+                    != dictionary.MakeGenericType(new Type[] {integer, string})) {
+            throw new AssertionError("Selected Dictionary name lookup changed");
+        }
         if (Type.GetType("System.String[]") == null
                 || Type.GetType("System.String[]") != Type.GetType("system.string[]", false, true)
                 || Type.GetType("System.String[], System.Private.CoreLib") != Type.GetType("System.String[]")

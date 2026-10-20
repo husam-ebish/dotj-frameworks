@@ -81,6 +81,9 @@ var result = new
         stringArrayQualified = ObserveGetType("System.String[], System.Private.CoreLib", false, false),
         listStringSimple = ObserveGetType("System.Collections.Generic.List`1[System.String]", false, false),
         listStringQualified = ObserveGetType("System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]", false, false),
+        dictionarySimple = ObserveGetType("System.Collections.Generic.Dictionary`2[System.String,System.Int32]", false, false),
+        dictionaryQualified = ObserveGetType("System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]", false, false),
+        dictionarySwapped = ObserveGetType("System.Collections.Generic.Dictionary`2[System.Int32,System.String]", false, false),
     },
     types = selected.Select(type => new
     {

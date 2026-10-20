@@ -85,6 +85,9 @@ def main():
     assert observed["stringArrayQualified"]["result"] == "System.String[]"
     assert observed["listStringSimple"]["result"] == observed["listStringQualified"]["result"]
     assert observed["listStringSimple"]["result"].startswith("System.Collections.Generic.List`1[[System.String,")
+    assert observed["dictionarySimple"]["result"] == observed["dictionaryQualified"]["result"]
+    assert observed["dictionarySimple"]["result"].startswith("System.Collections.Generic.Dictionary`2[[System.String,")
+    assert observed["dictionarySwapped"]["result"] != observed["dictionarySimple"]["result"]
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)

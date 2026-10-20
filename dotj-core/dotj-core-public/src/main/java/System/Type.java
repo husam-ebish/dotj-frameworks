@@ -102,6 +102,13 @@ public abstract class Type {
             case "System.Collections.Generic.List`1[System.String]",
                     "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]" ->
                     fromJavaClass(java.util.List.class).MakeGenericType(new Type[] {fromJavaClass(String.class)});
+            case "System.Collections.Generic.Dictionary`2[System.String,System.Int32]",
+                    "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]" ->
+                    fromJavaClass(java.util.Map.class).MakeGenericType(
+                            new Type[] {fromJavaClass(String.class), fromJavaClass(Integer.class)});
+            case "System.Collections.Generic.Dictionary`2[System.Int32,System.String]" ->
+                    fromJavaClass(java.util.Map.class).MakeGenericType(
+                            new Type[] {fromJavaClass(Integer.class), fromJavaClass(String.class)});
             case "system.string" -> ignoreCase ? fromJavaClass(String.class) : null;
             case "system.int32" -> ignoreCase ? fromJavaClass(Integer.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
