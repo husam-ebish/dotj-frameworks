@@ -21,3 +21,4 @@ map-of-task	PASS	fixture	Probe	java.util.Map<System.String, System.Threading.Tas
 two-task-parameters	PASS	fixture	Probe	System.Threading.Tasks.Task Merge(System.Threading.Tasks.Task first, System.Threading.Tasks.Task second)	Merge(Task first, Task second)
 exact-waitasync-name	PASS	fixture	Probe	System.Threading.Tasks.Task WaitAsync()	WaitAsync()
 signature-whitespace	PASS	fixture	Probe	  System.Threading.Tasks.Task   Run()  	Task Run()
+array-parameter	PASS	fixture	Probe	System.Threading.Tasks.Task Merge(System.Threading.Tasks.Task<System.String>[] tasks)	Task_1<String>[] tasks
