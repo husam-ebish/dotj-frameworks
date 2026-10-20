@@ -311,7 +311,7 @@ def main():
             accepted += sum(status == "COMPLETE" for framework in progress["frameworks"] for status in framework["outstandingPreparationAndQualificationGates"].values())
             assert tracking["outstandingAcceptanceItems"] == reserved - accepted
             assert all(key not in tracking for key in ("requestedSeries", "activeTranche", "currentRequest"))
-            assert progress["nextProposedBatch"]["requiresContinue"] == (len(completed) in (716, 766, 866, 1000) or len(completed) >= 1200)
+            assert progress["nextProposedBatch"]["requiresContinue"] == (tracking["outstandingAcceptanceItems"] == 0)
         else:
             assert tracking["remainingPlannedBatches"] == expected_total - len(completed)
     if plan["planVersion"] == "stage-2-batches-v7":

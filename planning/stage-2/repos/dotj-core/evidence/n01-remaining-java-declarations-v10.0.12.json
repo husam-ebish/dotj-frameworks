@@ -3214,17 +3214,18 @@
       "declaringType": "System.Type",
       "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean, Boolean)",
       "backendOwner": "System.Type",
-      "javaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, boolean, Type> typeResolver, boolean throwOnError, boolean ignoreCase) { throw new UnsupportedOperationException(); }",
-      "generatedSourceSha256": "e4a0c0f787cd34618f52142f6aaf98af221714310e44ed153d0a1334c1b2b559",
+      "javaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, Boolean, Type> typeResolver, boolean throwOnError, boolean ignoreCase) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "34cff267120f0388b0097866ae7cd4393a2ba562a1e00232d6b6eaf70254cb73",
       "supportTypes": [
+        "System.Boolean",
         "System.Func_2",
         "System.Func_4",
         "System.Reflection.Assembly",
         "System.Reflection.AssemblyName",
         "System.String"
       ],
-      "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
-      "compilerError": "unexpected type",
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
       "batch": "Batch-1086"
     },
     {
@@ -3233,17 +3234,18 @@
       "declaringType": "System.Type",
       "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean)",
       "backendOwner": "System.Type",
-      "javaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, boolean, Type> typeResolver, boolean throwOnError) { throw new UnsupportedOperationException(); }",
-      "generatedSourceSha256": "f87d544130896ab98b6106564e569a58b9d661f9ae98ed355b416a675b07581f",
+      "javaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, Boolean, Type> typeResolver, boolean throwOnError) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "062fcc073f01c5771d723a104f9c8807bf145cc181d0f6328cbb23b1a3d8db34",
       "supportTypes": [
+        "System.Boolean",
         "System.Func_2",
         "System.Func_4",
         "System.Reflection.Assembly",
         "System.Reflection.AssemblyName",
         "System.String"
       ],
-      "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
-      "compilerError": "unexpected type",
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
       "batch": "Batch-1087"
     },
     {
@@ -3252,17 +3254,18 @@
       "declaringType": "System.Type",
       "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])",
       "backendOwner": "System.Type",
-      "javaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, boolean, Type> typeResolver) { throw new UnsupportedOperationException(); }",
-      "generatedSourceSha256": "d2afc59d4c76f8cabeabc8c485b8b700e933a9346ed5bbd7c012ab326aafa8d0",
+      "javaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, Boolean, Type> typeResolver) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "c8fc7ad6670976da90dac4606831f028454aaa677c2c731b3ec1bacef4ceec8c",
       "supportTypes": [
+        "System.Boolean",
         "System.Func_2",
         "System.Func_4",
         "System.Reflection.Assembly",
         "System.Reflection.AssemblyName",
         "System.String"
       ],
-      "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
-      "compilerError": "unexpected type",
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
       "batch": "Batch-1088"
     },
     {
@@ -4363,13 +4366,14 @@
       "declaringType": "System.Threading.Tasks.Task",
       "metadataSignature": "System.Nullable`1[System.Int32] get_CurrentId()",
       "backendOwner": "System.Threading.Tasks.Task",
-      "javaDeclaration": "public static Nullable_1<int> get_CurrentId() { throw new UnsupportedOperationException(); }",
-      "generatedSourceSha256": "5093d05b5228b987a79d11cf06fddfe083b16b80aed16f01239cce88264fc0d3",
+      "javaDeclaration": "public static Nullable_1<Int32> get_CurrentId() { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "46dc112cff2255ea28f2b2a7345345cc6038feb2151acee6af766295d5953079",
       "supportTypes": [
+        "System.Int32",
         "System.Nullable_1"
       ],
-      "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
-      "compilerError": "unexpected type",
+      "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
+      "compilerError": null,
       "batch": "Batch-1162"
     },
     {

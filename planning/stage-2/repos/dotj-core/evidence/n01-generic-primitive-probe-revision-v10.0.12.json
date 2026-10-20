@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "previousLedgerSha256": "b2978b21615f2a39df9a7e15d596d7bef1bb0e71ce86598b7617c90f82199571",
+  "revisedLedgerSha256": "0bcc051a55614b817b1b6a11301eff1a550609ff2411ee9a1d4c0b25de6a2142",
+  "reason": "Java generic arguments must be reference types; the original temporary syntax probe incorrectly emitted primitive boolean or int in four generic type arguments",
+  "scope": "Compile-only correction to four evidence records; no behavior or public facade qualification",
+  "revisions": [
+    {
+      "index": 217,
+      "originalProbeBatch": "Batch-1086",
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean, Boolean)",
+      "previousCompilerError": "unexpected type",
+      "newJavaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, Boolean, Type> typeResolver, boolean throwOnError, boolean ignoreCase) { throw new UnsupportedOperationException(); }",
+      "newResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+    },
+    {
+      "index": 218,
+      "originalProbeBatch": "Batch-1087",
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean)",
+      "previousCompilerError": "unexpected type",
+      "newJavaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, Boolean, Type> typeResolver, boolean throwOnError) { throw new UnsupportedOperationException(); }",
+      "newResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+    },
+    {
+      "index": 219,
+      "originalProbeBatch": "Batch-1088",
+      "declaringType": "System.Type",
+      "metadataSignature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])",
+      "previousCompilerError": "unexpected type",
+      "newJavaDeclaration": "public static Type GetType(String typeName, Func_2<AssemblyName, Assembly> assemblyResolver, Func_4<Assembly, String, Boolean, Type> typeResolver) { throw new UnsupportedOperationException(); }",
+      "newResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+    },
+    {
+      "index": 293,
+      "originalProbeBatch": "Batch-1162",
+      "declaringType": "System.Threading.Tasks.Task",
+      "metadataSignature": "System.Nullable`1[System.Int32] get_CurrentId()",
+      "previousCompilerError": "unexpected type",
+      "newJavaDeclaration": "public static Nullable_1<Int32> get_CurrentId() { throw new UnsupportedOperationException(); }",
+      "newResult": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED"
+    }
+  ]
+}
