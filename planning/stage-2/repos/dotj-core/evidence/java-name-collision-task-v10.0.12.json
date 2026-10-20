@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "upstreamNonGeneric": "System.Threading.Tasks.Task",
+  "upstreamGeneric": "System.Threading.Tasks.Task`1",
+  "javaPackage": "System.Threading.Tasks",
+  "javaSimpleName": "Task",
+  "javacExitCode": 1,
+  "expectedDiagnostic": "duplicate class: System.Threading.Tasks.Task",
+  "conclusion": "Two separate exact-name top-level Java declarations cannot coexist in one package",
+  "scope": "Syntax feasibility probe only; no public representation or behavioral equivalence selected"
+}
