@@ -88,6 +88,10 @@ def main():
     assert observed["dictionarySimple"]["result"] == observed["dictionaryQualified"]["result"]
     assert observed["dictionarySimple"]["result"].startswith("System.Collections.Generic.Dictionary`2[[System.String,")
     assert observed["dictionarySwapped"]["result"] != observed["dictionarySimple"]["result"]
+    assert observed["jaggedString"]["result"] == "System.String[][]"
+    assert observed["rectangularString"]["result"] == "System.String[,]"
+    assert observed["rankThreeString"]["result"] == "System.String[,,]"
+    assert observed["arrayOfListString"]["result"].endswith("]]" + "[]")
 
     CLASSES.mkdir(parents=True, exist_ok=True)
     TEST_CLASSES.mkdir(parents=True, exist_ok=True)
