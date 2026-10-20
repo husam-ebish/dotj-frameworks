@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "selectedSnapshotCount": 14,
+  "distinctDeclaredPublicMethods": 426,
+  "previousLedgerMethods": 99,
+  "newLedgerMethods": 327,
+  "methodCountsByType": {
+    "System.IAsyncDisposable": 1,
+    "System.IDisposable": 1,
+    "System.Threading.AsyncLocal`1": 2,
+    "System.Threading.CancellationToken": 17,
+    "System.Threading.CancellationTokenRegistration": 9,
+    "System.Threading.CancellationTokenSource": 13,
+    "System.Threading.ExecutionContext": 9,
+    "System.Threading.Tasks.Task": 103,
+    "System.Threading.Tasks.TaskCompletionSource": 13,
+    "System.Threading.Tasks.TaskCompletionSource`1": 13,
+    "System.Threading.Tasks.Task`1": 30,
+    "System.Threading.Tasks.ValueTask": 19,
+    "System.Threading.Tasks.ValueTask`1": 15,
+    "System.Type": 181
+  },
+  "verifiedFeatureMergesThrough": "Batch-699",
+  "qualification": "BOUNDED_METADATA_ONLY",
+  "openGaps": [
+    "Constructors, properties, inherited and conditional APIs are outside this selected method inventory.",
+    "Owning source files are hash verified; individual method source attribution is not established.",
+    "Public .j generic-arity representation and exact cross-language facade comparison remain open.",
+    "Behavioral equivalence and named E01/E02/E03/N01/Q01 gate acceptance remain open."
+  ]
+}
