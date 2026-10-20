@@ -3789,6 +3789,19 @@
       "result": "JAVA_DECLARATION_COMPILED; BEHAVIOR_UNVERIFIED",
       "compilerError": null,
       "batch": "Batch-1124"
+    },
+    {
+      "index": 256,
+      "sourceBatch": "Batch-628",
+      "declaringType": "System.Threading.Tasks.ValueTask`1",
+      "metadataSignature": "Boolean op_Equality(System.Threading.Tasks.ValueTask`1[TResult], System.Threading.Tasks.ValueTask`1[TResult])",
+      "backendOwner": "System.Threading.Tasks.ValueTask_1",
+      "javaDeclaration": "public static boolean op_Equality(ValueTask_1<TResult> left, ValueTask_1<TResult> right) { throw new UnsupportedOperationException(); }",
+      "generatedSourceSha256": "14f17d78cbb9333204f661a270ae97926a95603790f1e4ba65ff8d7b649f6b6d",
+      "supportTypes": [],
+      "result": "BLOCKED_JAVA_DECLARATION; BEHAVIOR_UNVERIFIED",
+      "compilerError": "non-static type variable TResult cannot be referenced from a static context",
+      "batch": "Batch-1125"
     }
   ]
 }
