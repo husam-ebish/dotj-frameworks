@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "sourceCalls": [
+    {
+      "source": "typeof(System.Collections.Generic.List<System.String>)",
+      "lowered": "Type.GetType(\"System.Collections.Generic.List`1\").MakeGenericType(new Type[] {Type.GetType(\"System.String\")})"
+    },
+    {
+      "source": "typeof(System.Collections.Generic.List<System.String>)",
+      "lowered": "Type.GetType(\"System.Collections.Generic.List`1\").MakeGenericType(new Type[] {Type.GetType(\"System.String\")})"
+    },
+    {
+      "source": "typeof(System.Collections.Generic.List<System.Int32>)",
+      "lowered": "Type.GetType(\"System.Collections.Generic.List`1\").MakeGenericType(new Type[] {Type.GetType(\"System.Int32\")})"
+    },
+    {
+      "source": "typeof(System.Collections.Generic.Dictionary<System.String,System.Int32>)",
+      "lowered": "Type.GetType(\"System.Collections.Generic.Dictionary`2\").MakeGenericType(new Type[] {Type.GetType(\"System.String\"), Type.GetType(\"System.Int32\")})"
+    }
+  ],
+  "unsupportedFormsRejected": 6,
+  "productSourceSha256": "b2a4f4370aa246ca33eeb437b87045d7d5c0bf9b815300a1b3ff77f161a54b07",
+  "generatedConsumerSha256": "1f362724b8b19af60d7c1123b463c0bceb93cb2e58574c11e43dce450e517b5d",
+  "result": "PASS selected typeof lowering consumer",
+  "qualification": "BOUNDED_LOWERING_PROTOTYPE; no general .j parser/compiler, complete System.Type, or public behavior qualification"
+}
