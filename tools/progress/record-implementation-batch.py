@@ -167,8 +167,7 @@ def record(args):
 | Remaining implementation tasks | **1,092 (100.00%)** |
 | Frameworks fully implemented and qualified | **0 / 66 (0.00%)** |
 | In-progress / not-started frameworks | **1 / 65** |
-{batch_row}
-| Next proposed batch | `{following}`: {args.next_outcome} |
+{batch_row}| Next proposed batch | `{following}`: {args.next_outcome} |
 | Progress measure | Equal-weight WP and SDK integration task completions; prerequisite gates excluded; partials receive zero credit. |
 
 ## Files changed
