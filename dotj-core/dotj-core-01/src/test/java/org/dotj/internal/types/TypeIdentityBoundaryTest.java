@@ -22,6 +22,7 @@ public final class TypeIdentityBoundaryTest<T> {
         differentGenericArgument();
         sameNestedParameterized();
         differentNestedArgument();
+        nullRejected();
         wildcardRejected();
         typeVariableRejected();
         // Next bounded case.
@@ -63,6 +64,17 @@ public final class TypeIdentityBoundaryTest<T> {
     private static void differentNestedArgument() throws Exception {
         if (identity("nestedFirst").equals(identity("nestedDifferent")))
             throw new AssertionError("Different nested arguments shared identity");
+    }
+
+    private static void nullRejected() {
+        try {
+            TypeIdentity.of(null);
+            throw new AssertionError("Null type accepted");
+        } catch (NullPointerException expected) {
+            if (!"type".equals(expected.getMessage())) {
+                throw new AssertionError("Null rejection lost its parameter identity", expected);
+            }
+        }
     }
 
     private static void wildcardRejected() throws Exception {
