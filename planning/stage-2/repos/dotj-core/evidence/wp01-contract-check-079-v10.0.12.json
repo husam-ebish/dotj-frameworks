@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "batch": "Batch-079",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "subject": "IDisposable runtime dispatch and repeated calls",
+  "assertionsPassed": [
+    "IDisposable runtime dispatch and repeated calls passed"
+  ],
+  "observed": {
+    "runtimeVersion": "10.0.12",
+    "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+    "directInterfaceDispatchCount": 1,
+    "normalUsingDisposeCount": 1,
+    "bodyFailureDisposeCount": 1,
+    "bodyFailureObserved": "body",
+    "disposeFailureDisposeCount": 1,
+    "disposeFailureObserved": "dispose",
+    "repeatedExplicitDisposeCount": 2,
+    "untouchedDisposeCount": 0
+  },
+  "openGaps": [
+    "This check does not close the full public API, behavior, or release gates."
+  ],
+  "qualification": "BOUNDED_EVIDENCE_ONLY; E01/E02/E03/N01 AND WP-01 REMAIN OPEN"
+}
