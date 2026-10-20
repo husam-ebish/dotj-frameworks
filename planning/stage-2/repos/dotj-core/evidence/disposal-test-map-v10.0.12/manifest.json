@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "sourceCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "sourceArchiveSha256": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+  "scope": "Selected pinned upstream disposal tests relevant to WP-01 oracle planning",
+  "files": [
+    {
+      "path": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/System.Runtime.CompilerServices/ConfiguredAsyncDisposable.cs",
+      "bytes": 2700,
+      "sha256": "d55774636c8645cc0c669598849d2a5e7b69aa642d0f3230b20f1a5abcb35f55"
+    },
+    {
+      "path": "src/libraries/System.Runtime/tests/System.IO.Tests/Stream/Stream.DisposeAsync.cs",
+      "bytes": 970,
+      "sha256": "07bbc4420ebb47940753e179c253249ee7fff7c45f9195211c5055736c9418b4"
+    }
+  ],
+  "testMethods": [
+    {
+      "sourcePath": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/System.Runtime.CompilerServices/ConfiguredAsyncDisposable.cs",
+      "method": "Default_GetAsyncEnumerator_Throws",
+      "line": 13,
+      "attribute": "Fact",
+      "declaredCaseCount": 1,
+      "relationToDesignedFixtures": "Supplemental default-wrapper failure; no direct F01 case"
+    },
+    {
+      "sourcePath": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/System.Runtime.CompilerServices/ConfiguredAsyncDisposable.cs",
+      "method": "DisposeAsync_InvokesUnderlyingDisposeAsync",
+      "line": 22,
+      "attribute": "Theory",
+      "declaredCaseCount": 2,
+      "relationToDesignedFixtures": "Supplemental async dispatch; does not establish caller-owned resource rule F01-03"
+    },
+    {
+      "sourcePath": "src/libraries/System.Runtime/tests/System.Threading.Tasks.Tests/System.Runtime.CompilerServices/ConfiguredAsyncDisposable.cs",
+      "method": "DisposeAsync_ContinuesOnCapturedContextIfExpected",
+      "line": 41,
+      "attribute": "Theory",
+      "declaredCaseCount": 2,
+      "relationToDesignedFixtures": "Related to context scheduling, but does not establish F01-04 cross-request isolation"
+    },
+    {
+      "sourcePath": "src/libraries/System.Runtime/tests/System.IO.Tests/Stream/Stream.DisposeAsync.cs",
+      "method": "DisposeAsync_MultipleDisposalSuccessful",
+      "line": 12,
+      "attribute": "Fact",
+      "declaredCaseCount": 1,
+      "relationToDesignedFixtures": "Stream-specific repeat-disposal; not a guarantee of IAsyncDisposable implementations"
+    },
+    {
+      "sourcePath": "src/libraries/System.Runtime/tests/System.IO.Tests/Stream/Stream.DisposeAsync.cs",
+      "method": "DisposeAsync_InvokesDisposeSynchronously",
+      "line": 20,
+      "attribute": "Fact",
+      "declaredCaseCount": 1,
+      "relationToDesignedFixtures": "Stream-specific default behavior; not general interface behavior"
+    }
+  ],
+  "testMethodCount": 5,
+  "declaredCaseCount": 7,
+  "directCoverageOfDesignedF01Cases": [],
+  "executionStatus": "NOT RUN",
+  "limits": [
+    "These are source-verified test method IDs and declared theory rows, not runtime discovery or executed results.",
+    "The selected tests do not directly prove ownership of caller-supplied resources or cross-request context isolation.",
+    "This is a bounded mapping, not a complete upstream disposal-test census."
+  ]
+}
