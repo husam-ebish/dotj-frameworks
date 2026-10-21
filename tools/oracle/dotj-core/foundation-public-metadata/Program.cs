@@ -883,6 +883,35 @@ static object ObserveInt32CombinedStyles()
             ["4:2e1", "420e~1", "~4:2e1", " 42", "4:2e0", "42", "12_345"], provider),
     };
 }
+static object ObserveInt32MoreCombinedStyles()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = ":",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    var signExponent = System.Globalization.NumberStyles.AllowLeadingSign
+        | System.Globalization.NumberStyles.AllowExponent;
+    var paddedDecimal = System.Globalization.NumberStyles.AllowLeadingWhite
+        | System.Globalization.NumberStyles.AllowTrailingWhite
+        | System.Globalization.NumberStyles.AllowDecimalPoint;
+    var signDecimalExponent = System.Globalization.NumberStyles.AllowLeadingSign
+        | System.Globalization.NumberStyles.AllowDecimalPoint
+        | System.Globalization.NumberStyles.AllowExponent;
+    return new
+    {
+        signExponentValue = (int)signExponent,
+        signExponent = ObserveInt32SingleStyle(signExponent,
+            ["~42e1", "42e~1", "42:0", " 42", "plus42e1"], provider),
+        paddedDecimalValue = (int)paddedDecimal,
+        paddedDecimal = ObserveInt32SingleStyle(paddedDecimal,
+            [" 42:00 ", "42:5", "~42", "4:2e1", "42"], provider),
+        signDecimalExponentValue = (int)signDecimalExponent,
+        signDecimalExponent = ObserveInt32SingleStyle(signDecimalExponent,
+            ["~4:2e1", "plus4:2e1", " 4:2e1", "4:2e~1", "42"], provider),
+    };
+}
 static object ObserveInt32SingleStyle(System.Globalization.NumberStyles style,
     string[] texts, System.Globalization.NumberFormatInfo provider)
 {
@@ -5286,6 +5315,7 @@ var result = new
     selectedInt32CurrencyStyle = ObserveInt32CurrencyStyle(),
     selectedInt32AnyStyle = ObserveInt32AnyStyle(),
     selectedInt32CombinedStyles = ObserveInt32CombinedStyles(),
+    selectedInt32MoreCombinedStyles = ObserveInt32MoreCombinedStyles(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",

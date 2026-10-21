@@ -88,8 +88,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (style == NumberStyles.Number) {
             return selectedParseNumber(text, provider);
         }
-        if (style == NumberStyles.Float || style == NumberStyles.AllowDecimalPoint
-                || style == NumberStyles.AllowExponent || style.get_Value() == 160) {
+        if (style.get_Value() != 0 && (style.get_Value() & ~167) == 0) {
             return selectedParseFloat(text, provider, style);
         }
         if (style == NumberStyles.AllowThousands || style.get_Value() == 68
