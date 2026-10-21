@@ -345,6 +345,10 @@ def main():
     assert [row["parameters"][-1]["position"] for row in parameter_flags] == [-1] * 4
     assert all(not parameter["isOptional"] and not parameter["hasDefaultValue"]
                for row in parameter_flags for parameter in row["parameters"])
+    parameter_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterModifierBehavior"]
+    assert [len(row["parameters"]) for row in parameter_modifiers] == [1, 2, 3, 2]
+    assert all(parameter["optional"] == [] and parameter["required"] == []
+               for row in parameter_modifiers for parameter in row["parameters"])
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

@@ -1025,6 +1025,19 @@ var result = new
             .Select(parameter => new { position = parameter.Position,
                 isOptional = parameter.IsOptional, hasDefaultValue = parameter.HasDefaultValue })
             .ToArray() }).ToArray(),
+    selectedParameterModifierBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        parameters = item.Item1.GetMethod(item.Item2)!.GetParameters()
+            .Append(item.Item1.GetMethod(item.Item2)!.ReturnParameter)
+            .Select(parameter => new { position = parameter.Position,
+                optional = parameter.GetOptionalCustomModifiers()
+                    .Select(type => type.FullName).ToArray(),
+                required = parameter.GetRequiredCustomModifiers()
+                    .Select(type => type.FullName).ToArray() })
+            .ToArray() }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
