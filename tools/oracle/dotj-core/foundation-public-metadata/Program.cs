@@ -481,6 +481,20 @@ var result = new
         negative = ((IFormattable)(-42)).ToString("G5",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32BinaryFormatBehavior = new
+    {
+        binary = ((IFormattable)42).ToString("B",
+            System.Globalization.CultureInfo.InvariantCulture),
+        binary8 = ((IFormattable)42).ToString("B8",
+            System.Globalization.CultureInfo.InvariantCulture),
+        lowerCase = ((IFormattable)42).ToString("b8",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-1)).ToString("B",
+            System.Globalization.CultureInfo.InvariantCulture),
+        roundTripError = ObserveInt32FormatError("R"),
+        roundTripResult = ((IFormattable)42).ToString("R",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

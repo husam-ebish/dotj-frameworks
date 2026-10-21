@@ -192,6 +192,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format.matches("[gG][0-9]*")) {
             return Integer.toString(this.value);
         }
+        if (format.equals("R")) {
+            return Integer.toString(this.value);
+        }
         if (format.matches("[dD][0-9]+")) {
             int precision;
             try {
@@ -219,6 +222,19 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String digits = Integer.toHexString(this.value);
             String value = "0".repeat(Math.max(0, precision - digits.length())) + digits;
             return format.charAt(0) == 'X' ? value.toUpperCase(java.util.Locale.ROOT) : value;
+        }
+        if (format.matches("[bB][0-9]*")) {
+            int precision;
+            try {
+                precision = format.length() == 1 ? 0 : Integer.parseInt(format.substring(1));
+            } catch (NumberFormatException expected) {
+                throw new FormatException("Format precision is invalid");
+            }
+            if (precision > 1000) {
+                throw new UnsupportedOperationException("Int32 precision is not mapped");
+            }
+            String digits = Integer.toBinaryString(this.value);
+            return "0".repeat(Math.max(0, precision - digits.length())) + digits;
         }
         if (format.matches("[nN][0-9]*")) {
             int precision;
