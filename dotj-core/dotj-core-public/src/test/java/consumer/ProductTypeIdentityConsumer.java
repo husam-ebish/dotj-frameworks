@@ -1750,6 +1750,10 @@ public final class ProductTypeIdentityConsumer {
             if (!(selected.get_FullName() + corelibIdentity).equals(selected.get_AssemblyQualifiedName())) {
                 throw new AssertionError("Selected assembly-qualified type name changed: " + selected.get_Name());
             }
+            if (Type.GetType(selected.get_AssemblyQualifiedName()) != selected) {
+                throw new AssertionError("Assembly-qualified name failed identity round-trip: "
+                        + selected.get_Name());
+            }
         }
         if (parameter.get_AssemblyQualifiedName() != null) {
             throw new AssertionError("Generic parameter gained an assembly-qualified name");

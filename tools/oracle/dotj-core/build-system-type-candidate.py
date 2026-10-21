@@ -155,6 +155,7 @@ def main():
         None if item["FullName"] is None else item["FullName"] + corelib_identity
         for item in names
     ]
+    assert [item["roundTripSameReference"] for item in names] == [True] * 8 + [False]
     member_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberTypeBehavior"]
     assert member_type["enumValues"] == [
         {"name": name, "value": value} for name, value in (

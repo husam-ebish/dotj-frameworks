@@ -386,6 +386,8 @@ var result = new
         type.Name,
         type.FullName,
         type.AssemblyQualifiedName,
+        roundTripSameReference = type.AssemblyQualifiedName is string assemblyQualifiedName
+            && ReferenceEquals(Type.GetType(assemblyQualifiedName), type),
         type.Namespace,
     }).ToArray(),
     selectedMemberTypeBehavior = new
