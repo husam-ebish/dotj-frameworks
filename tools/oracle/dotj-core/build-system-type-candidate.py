@@ -730,6 +730,18 @@ def main():
         ],
         "argumentOutOfRangeHResult": -2146233086,
     }
+    assert json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArgumentOutOfRangeConstructors"] == [
+        {"paramName": None, "message": "Specified argument was out of the range of valid values.",
+         "actualValue": None, "innerSame": False, "hResult": -2146233086},
+        {"paramName": "index", "message": "Specified argument was out of the range of valid values. (Parameter 'index')",
+         "actualValue": None, "innerSame": False, "hResult": -2146233086},
+        {"paramName": "index", "message": "custom (Parameter 'index')",
+         "actualValue": None, "innerSame": False, "hResult": -2146233086},
+        {"paramName": None, "message": "custom", "actualValue": None,
+         "innerSame": True, "hResult": -2146233086},
+        {"paramName": "index", "message": "custom (Parameter 'index')\r\nActual value was 42.",
+         "actualValue": 42, "innerSame": False, "hResult": -2146233086},
+    ]
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

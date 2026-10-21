@@ -2094,6 +2094,26 @@ static object ObserveExceptionDataCopyToBoundaries()
         argumentOutOfRangeHResult = new ArgumentOutOfRangeException("index").HResult,
     };
 }
+static object ObserveArgumentOutOfRangeConstructors()
+{
+    var inner = new Exception("inner");
+    ArgumentOutOfRangeException[] values =
+    [
+        new(),
+        new("index"),
+        new("index", "custom"),
+        new("custom", inner),
+        new("index", 42, "custom"),
+    ];
+    return values.Select(value => new
+    {
+        paramName = value.ParamName,
+        message = value.Message,
+        actualValue = value.ActualValue,
+        innerSame = ReferenceEquals(value.InnerException, inner),
+        hResult = value.HResult,
+    }).ToArray();
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2293,6 +2313,7 @@ var result = new
     selectedExceptionDataViewEnumeration = ObserveExceptionDataViewEnumeration(),
     selectedExceptionDataViewProperties = ObserveExceptionDataViewProperties(),
     selectedExceptionDataCopyToBoundaries = ObserveExceptionDataCopyToBoundaries(),
+    selectedArgumentOutOfRangeConstructors = ObserveArgumentOutOfRangeConstructors(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
