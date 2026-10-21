@@ -598,6 +598,13 @@ def main():
     assert decimal_grouping == {
         "grouped": "1234.50", "negativeGrouped": "-1234.50",
     }
+    int32_none = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32NoneStyleBehavior"]
+    assert int32_none == {
+        "digits": 42, "leadingSign": "System.FormatException",
+        "leadingSpace": "System.FormatException",
+        "trailingSpace": "System.FormatException",
+        "tryLeadingSign": False,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
