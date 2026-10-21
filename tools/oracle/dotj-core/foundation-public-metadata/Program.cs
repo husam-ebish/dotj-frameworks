@@ -1021,6 +1021,30 @@ static object ObservePrimitiveConversionErrors()
         nullDoubleParameter = ObserveMethodArgumentName(() => converter.ToDouble(null!)),
     };
 }
+static object ObserveSerializationInfoObjectMembers()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    object marker = new();
+    info.AddValue("item", marker);
+    info.AddValue("empty", (object?)null);
+    info.AddValue("typedEmpty", null, typeof(string));
+    var cursor = info.GetEnumerator();
+    var types = new List<string>();
+    while (cursor.MoveNext())
+    {
+        types.Add(cursor.ObjectType.FullName!);
+    }
+    return new
+    {
+        count = info.MemberCount,
+        markerSame = ReferenceEquals(info.GetValue("item", typeof(object)), marker),
+        emptyObject = info.GetValue("empty", typeof(object)),
+        emptyString = info.GetValue("empty", typeof(string)),
+        typedEmptyString = info.GetString("typedEmpty"),
+        types,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1165,6 +1189,7 @@ var result = new
     selectedSerializationInfoPrimitiveMembersBehavior = ObserveSerializationInfoPrimitiveMembers(),
     selectedSerializationInfoPrimitiveConversionsBehavior = ObserveSerializationInfoPrimitiveConversions(),
     selectedPrimitiveConversionErrorsBehavior = ObservePrimitiveConversionErrors(),
+    selectedSerializationInfoObjectMembersBehavior = ObserveSerializationInfoObjectMembers(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
