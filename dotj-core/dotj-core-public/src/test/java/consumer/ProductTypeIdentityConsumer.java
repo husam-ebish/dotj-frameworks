@@ -49,6 +49,20 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String", true) != string) {
             throw new AssertionError("Selected GetType overload behavior changed");
         }
+        if (Type.GetType("system.type", false, true) != Type.GetType("System.Type")
+                || Type.GetType("system.type", false, false) != null
+                || Type.GetType("system.invalidoperationexception", false, true)
+                    != Type.GetType("System.InvalidOperationException")
+                || Type.GetType("system.invalidoperationexception", false, false) != null
+                || Type.GetType("system.string&[]", false, false) != null) {
+            throw new AssertionError("Selected case-sensitive type boundaries changed");
+        }
+        try {
+            Type.GetType("system.string&[]", false, true);
+            throw new AssertionError("Insensitive invalid nested type accepted");
+        } catch (TypeLoadException expected) {
+            // Selected pinned error type.
+        }
         if (Type.GetType("System.String, System.Private.CoreLib") != string
                 || Type.GetType("System.Int32, System.Private.CoreLib") != integer
                 || Type.GetType("System.String, mscorlib") != string

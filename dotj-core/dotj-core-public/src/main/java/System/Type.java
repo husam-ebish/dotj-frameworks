@@ -175,10 +175,13 @@ public abstract class Type extends MemberInfo {
             case "system.iformatprovider" -> ignoreCase ? fromJavaClass(IFormatProvider.class) : null;
             case "system.iconvertible" -> ignoreCase ? fromJavaClass(IConvertible.class) : null;
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
+            case "system.type" -> ignoreCase ? fromJavaClass(Type.class) : null;
             case "system.decimal" -> ignoreCase ? fromJavaClass(Decimal.class) : null;
             case "system.datetime" -> ignoreCase ? fromJavaClass(DateTime.class) : null;
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
             case "system.invalidcastexception" -> ignoreCase ? fromJavaClass(InvalidCastException.class) : null;
+            case "system.invalidoperationexception" -> ignoreCase
+                    ? fromJavaClass(InvalidOperationException.class) : null;
             case "system.formatexception" -> ignoreCase ? fromJavaClass(FormatException.class) : null;
             case "system.globalization.numberstyles" -> ignoreCase ? fromJavaClass(NumberStyles.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;

@@ -1052,6 +1052,38 @@
       "paramName": null
     }
   },
+  "selectedCaseBoundaryBehavior": {
+    "typeInsensitive": {
+      "result": "System.Type",
+      "exception": null,
+      "paramName": null
+    },
+    "typeSensitive": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "operationInsensitive": {
+      "result": "System.InvalidOperationException",
+      "exception": null,
+      "paramName": null
+    },
+    "operationSensitive": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "invalidNestedInsensitive": {
+      "result": null,
+      "exception": "System.TypeLoadException",
+      "paramName": null
+    },
+    "invalidNestedSensitive": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -4307,6 +4339,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "26fadc65591c679222f126facf83e90ad8c58bcabe36880ab98c00f859d18c3c",
+  "oracleProgramSha256": "8d79fb1958dfeb5ca2697c81e78dcd62fc968ceb67d4912719b406939fa9ca4f",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
