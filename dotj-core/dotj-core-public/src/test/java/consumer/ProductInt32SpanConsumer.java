@@ -134,6 +134,18 @@ public final class ProductInt32SpanConsumer {
         checkProviderVector(new Int32(-42), "g2", "~42", customSign);
         checkProviderVector(new Int32(-42), "G5", "~42", customSign);
         checkProviderVector(new Int32(-42), "R", "~42", customSign);
+        NumberFormatInfo currency = new NumberFormatInfo();
+        currency.set_CurrencySymbol("USD");
+        currency.set_CurrencyGroupSeparator("_");
+        currency.set_CurrencyDecimalSeparator(":");
+        currency.set_CurrencyDecimalDigits(3);
+        currency.set_CurrencyNegativePattern(1);
+        currency.set_NegativeSign("~");
+        checkProviderVector(new Int32(-12345), "C2", "~USD12_345:00", currency);
+        currency.set_CurrencyNegativePattern(0);
+        checkProviderVector(new Int32(12345), "C", "USD12_345:000", currency);
+        checkProviderVector(new Int32(12345), "C0", "USD12_345", currency);
+        checkProviderVector(new Int32(-12345), "C2", "(USD12_345:00)", currency);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,

@@ -46,6 +46,8 @@ The selected provider also carries a custom negative sign. The pinned .NET oracl
 
 The same pinned provider also yields `~42` for `D` and `ToString(provider)`, and `~00042` for `D5`. The packaged consumer checks both format strings through the Char and UTF-8 Byte span carrier. Currency, percent and other provider-sensitive formats remain open.
 
-The selected custom negative sign now also reaches `G`, `g2`, `G5` and `R`, all pinned as `~42` by the .NET oracle. The packaged consumer checks ordinary and Char/UTF-8 span formatting for these cases. Currency, percent and broader culture behavior remain open.
+The selected custom negative sign now also reaches `G`, `g2`, `G5` and `R`, all pinned as `~42` by the .NET oracle. The packaged consumer checks ordinary and Char/UTF-8 span formatting for these cases. Percent and broader culture behavior remain open.
+
+The `C` format now consumes selected currency symbol, group separator, decimal separator, default precision and negative pattern settings from `NumberFormatInfo`. The pinned .NET oracle and packaged Char/UTF-8 consumers agree for `USD12_345:000`, `USD12_345`, `~USD12_345:00` and `(USD12_345:00)`. Other currency patterns, variable group sizes, percent and broader culture behavior remain open.
 
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

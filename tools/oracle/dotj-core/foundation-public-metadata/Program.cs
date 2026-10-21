@@ -582,6 +582,27 @@ static object ObserveInt32NegativeSign()
         roundTrip = ((IFormattable)(-42)).ToString("R", provider),
     };
 }
+static object ObserveInt32CurrencyProvider()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        CurrencySymbol = "USD",
+        CurrencyGroupSeparator = "_",
+        CurrencyDecimalSeparator = ":",
+        CurrencyDecimalDigits = 3,
+        CurrencyNegativePattern = 1,
+        NegativeSign = "~",
+    };
+    string negativeWithSign = ((IFormattable)(-12345)).ToString("C2", provider);
+    provider.CurrencyNegativePattern = 0;
+    return new
+    {
+        defaultPrecision = ((IFormattable)12345).ToString("C", provider),
+        zeroPrecision = ((IFormattable)12345).ToString("C0", provider),
+        negativeWithSign,
+        negativeParentheses = ((IFormattable)(-12345)).ToString("C2", provider),
+    };
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -4960,6 +4981,7 @@ var result = new
         small = ((IFormattable)42).ToString("C",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32CurrencyProviderBehavior = ObserveInt32CurrencyProvider(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",

@@ -170,6 +170,11 @@ def main():
         "generalFormat": "~42", "lowerGeneral": "~42",
         "generalPrecision": "~42", "roundTrip": "~42",
     }
+    assert metadata["selectedInt32CurrencyProviderBehavior"] == {
+        "defaultPrecision": "USD12_345:000", "zeroPrecision": "USD12_345",
+        "negativeWithSign": "~USD12_345:00",
+        "negativeParentheses": "(USD12_345:00)",
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
