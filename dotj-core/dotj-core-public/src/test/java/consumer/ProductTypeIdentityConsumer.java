@@ -243,6 +243,22 @@ public final class ProductTypeIdentityConsumer {
         } catch (FileLoadException expected) {
             // Selected pinned separator error.
         }
+        for (String architecture : new String[] {"MSIL", "X86", "Amd64"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, ProcessorArchitecture=" + architecture)
+                    != string) {
+                throw new AssertionError("Selected processor architecture rejected: " + architecture);
+            }
+        }
+        for (String invalidArchitecture : new String[] {
+                "ProcessorArchitecture=None", "ProcessorArchitecture=xyz",
+                "ProcessorArchitecture=MSIL, ProcessorArchitecture=X86"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalidArchitecture);
+                throw new AssertionError("Invalid processor architecture accepted: " + invalidArchitecture);
+            } catch (FileLoadException expected) {
+                // Selected pinned identity error.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
