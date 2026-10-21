@@ -80,6 +80,15 @@ public final class ProductExceptionContractConsumer {
         if (withSource.get_Source() != null) {
             throw new AssertionError("Selected Source reset changed");
         }
+        if (!"System.Exception: message".equals(new Exception("message").ToString())
+                || !"System.Exception: Exception of type 'System.Exception' was thrown."
+                        .equals(new Exception().ToString())
+                || !"System.ArgumentException: invalid (Parameter 'value')"
+                        .equals(new ArgumentException("invalid", "value").ToString())
+                || !"System.InvalidOperationException: invalid"
+                        .equals(new InvalidOperationException("invalid").ToString())) {
+            throw new AssertionError("Selected exception ToString output changed");
+        }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5

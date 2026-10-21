@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "41099ee3f8a7663d3ea2def43aabdb407ee9c223b1d8d30289c0ae91b53e4994",
+  "oracleEvidenceSha256": "3b1af45e4aa14ff7df8ef1f09a06d1f322e96cdf50ce75993886d0decc3680f6",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "df236c0abbd9d4928c8b884852151d35c12ca31ec2344e48d08bd8d72c20d0fc",
+  "javaCandidateEvidenceSha256": "3ce193299966ba0e17587cdeef16cb69076f413af96ac63ff665efa87655ca77",
   "types": [
     {
       "fullName": "System.Type",
@@ -3938,7 +3938,8 @@
         "public java.lang.String get_HelpLink();",
         "public void set_HelpLink(java.lang.String);",
         "public java.lang.String get_Source();",
-        "public void set_Source(java.lang.String);"
+        "public void set_Source(java.lang.String);",
+        "public java.lang.String ToString();"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -3949,6 +3950,7 @@
         },
         "javaCandidateDeclaredMethodOverloads": {
           "GetBaseException": 1,
+          "ToString": 1,
           "get_Data": 1,
           "get_HResult": 1,
           "get_HelpLink": 1,
@@ -3960,8 +3962,7 @@
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "GetObjectData",
-          "GetType",
-          "ToString"
+          "GetType"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
           "StackTrace",
