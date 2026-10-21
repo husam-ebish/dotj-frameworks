@@ -391,6 +391,21 @@
     "fullExplicitAfterErrors": true,
     "assemblyExplicitAfterErrors": true
   },
+  "selectedSerializationInfoSetTypeResetBehavior": {
+    "sameType": {
+      "fullName": "custom.Record",
+      "assemblyName": "custom.assembly",
+      "fullExplicit": true,
+      "assemblyExplicit": true
+    },
+    "differentType": {
+      "objectType": "System.String",
+      "fullName": "System.String",
+      "assemblyName": "System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "fullExplicit": false,
+      "assemblyExplicit": false
+    }
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15833,6 +15848,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "222ca21f8136019b2ff8a604fb463c9ec1eff4d35f1e556b7690365aae34c4f0",
+  "oracleProgramSha256": "005d5a5e53ebf8674492f152cbcebb243f3d1aa703bca61006500f2c6a42a6f7",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

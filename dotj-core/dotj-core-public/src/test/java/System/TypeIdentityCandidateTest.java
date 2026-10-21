@@ -301,6 +301,24 @@ public final class TypeIdentityCandidateTest {
                 || !names.get_IsAssemblyNameSetExplicit()) {
             throw new AssertionError("Empty serialization names changed");
         }
+        SerializationInfo typeReset = new SerializationInfo(dbnullType, selectedConverter);
+        typeReset.set_FullTypeName("custom.Record");
+        typeReset.set_AssemblyName("custom.assembly");
+        typeReset.SetType(dbnullType);
+        if (!"custom.Record".equals(typeReset.get_FullTypeName())
+                || !"custom.assembly".equals(typeReset.get_AssemblyName())
+                || !typeReset.get_IsFullTypeNameSetExplicit()
+                || !typeReset.get_IsAssemblyNameSetExplicit()) {
+            throw new AssertionError("Same-type serialization metadata changed");
+        }
+        typeReset.SetType(Type.GetType("System.String"));
+        if (!"System.String".equals(typeReset.get_ObjectType().get_FullName())
+                || !"System.String".equals(typeReset.get_FullTypeName())
+                || !corelibName.equals(typeReset.get_AssemblyName())
+                || typeReset.get_IsFullTypeNameSetExplicit()
+                || typeReset.get_IsAssemblyNameSetExplicit()) {
+            throw new AssertionError("Different-type serialization metadata reset changed");
+        }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
         StreamingContext defaultContext = new StreamingContext();
         StreamingContext processContext = new StreamingContext(StreamingContextStates.CrossProcess);

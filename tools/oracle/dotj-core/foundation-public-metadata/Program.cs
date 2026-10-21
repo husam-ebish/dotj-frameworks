@@ -874,6 +874,28 @@ static object ObserveSerializationInfoNameValidation()
         assemblyExplicitAfterErrors = info.IsAssemblyNameSetExplicit,
     };
 }
+static object ObserveSerializationInfoSetTypeReset()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.FullTypeName = "custom.Record";
+    info.AssemblyName = "custom.assembly";
+    info.SetType(typeof(DBNull));
+    var sameType = new { fullName = info.FullTypeName,
+        assemblyName = info.AssemblyName,
+        fullExplicit = info.IsFullTypeNameSetExplicit,
+        assemblyExplicit = info.IsAssemblyNameSetExplicit };
+    info.SetType(typeof(string));
+    return new
+    {
+        sameType,
+        differentType = new { objectType = info.ObjectType.FullName,
+            fullName = info.FullTypeName,
+            assemblyName = info.AssemblyName,
+            fullExplicit = info.IsFullTypeNameSetExplicit,
+            assemblyExplicit = info.IsAssemblyNameSetExplicit },
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1011,6 +1033,7 @@ var result = new
     selectedSerializationInfoConversionBoundariesBehavior = ObserveSerializationInfoConversionBoundaries(),
     selectedSerializationInfoTypeMetadataBehavior = ObserveSerializationInfoTypeMetadata(),
     selectedSerializationInfoNameValidationBehavior = ObserveSerializationInfoNameValidation(),
+    selectedSerializationInfoSetTypeResetBehavior = ObserveSerializationInfoSetTypeReset(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
