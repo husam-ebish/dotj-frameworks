@@ -28,8 +28,8 @@ def main():
     assert artifact["licensePath"] == mapping["productLicensePath"] == "dotj-core/LICENSE"
     assert artifact["licenseEntry"] == mapping["productLicenseEntry"] == "META-INF/LICENSE"
     assert rights["jarNoticeEntries"] == ["META-INF/LICENSE"]
-    assert queue["sourceCount"] == rights["productSourceCount"] == 31
-    assert queue["directNameMatchedCount"] == 30
+    assert queue["sourceCount"] == rights["productSourceCount"] == 32
+    assert queue["directNameMatchedCount"] == 31
     assert queue["directNameMissingCount"] == 1
     assert all(row["mitSpdxHeaderObserved"] and
                row["noticeApplicabilityDecision"] == "REVIEW_REQUIRED"
