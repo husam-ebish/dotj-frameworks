@@ -193,6 +193,12 @@ def main():
         "positiveExponent": "4.2Eplus001",
         "negativeExponent": "~4.2Eplus001",
     }
+    assert metadata["selectedInt32NumberStyleProviderBehavior"] == {
+        "grouped": 12345, "decimalZero": 12345, "negative": -12345,
+        "positive": 12345, "trailingNegative": -12345,
+        "fractionalSuccess": False, "fractionalValue": 0,
+        "standardSignSuccess": False, "standardSignValue": 0,
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

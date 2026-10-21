@@ -84,6 +84,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             return Parse(text);
         }
+        if (style == NumberStyles.Number) {
+            return selectedParseNumber(text, provider);
+        }
         if (style == NumberStyles.BinaryNumber) {
             if (text == null) {
                 throw new ArgumentNullException("s");
@@ -120,6 +123,60 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         Object supplied = provider.GetFormat(
                 Type.GetType("System.Globalization.NumberFormatInfo"));
         return supplied instanceof NumberFormatInfo info ? info : null;
+    }
+
+    private static Int32 selectedParseNumber(String text, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("s");
+        NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+        String groupSeparator = numberFormat == null ? ","
+                : numberFormat.get_NumberGroupSeparator();
+        String decimalSeparator = numberFormat == null ? "."
+                : numberFormat.get_NumberDecimalSeparator();
+        String negativeSign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+        String positiveSign = numberFormat == null ? "+" : numberFormat.get_PositiveSign();
+        String number = text.strip();
+        boolean negative = false;
+        boolean signed = false;
+        if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
+            number = number.substring(negativeSign.length());
+            negative = signed = true;
+        } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
+            number = number.substring(positiveSign.length());
+            signed = true;
+        }
+        if (!negativeSign.isEmpty() && number.endsWith(negativeSign)) {
+            if (signed) throw new FormatException("Input string was not in a correct format");
+            number = number.substring(0, number.length() - negativeSign.length());
+            negative = signed = true;
+        } else if (!positiveSign.isEmpty() && number.endsWith(positiveSign)) {
+            if (signed) throw new FormatException("Input string was not in a correct format");
+            number = number.substring(0, number.length() - positiveSign.length());
+        }
+        if (!groupSeparator.isEmpty()) number = number.replace(groupSeparator, "");
+        if (!decimalSeparator.isEmpty()) {
+            int separator = number.indexOf(decimalSeparator);
+            if (separator >= 0) {
+                if (number.indexOf(decimalSeparator, separator + decimalSeparator.length()) >= 0) {
+                    throw new FormatException("Input string was not in a correct format");
+                }
+                String fraction = number.substring(separator + decimalSeparator.length());
+                if (!fraction.matches("[0-9]*")) {
+                    throw new FormatException("Input string was not in a correct format");
+                }
+                if (!fraction.matches("0*")) throw new OverflowException();
+                number = number.substring(0, separator);
+            }
+        }
+        if (!number.matches("[0-9]+")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        BigInteger parsed = new BigInteger(number);
+        if (negative) parsed = parsed.negate();
+        if (parsed.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                || parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+            throw new OverflowException();
+        }
+        return new Int32(parsed.intValue());
     }
 
     public static boolean TryParse(String text, Int32[] result) {

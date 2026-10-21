@@ -676,6 +676,32 @@ static object ObserveInt32PositiveSign()
         negativeExponent = ((IFormattable)(-42)).ToString("E1", provider),
     };
 }
+static object ObserveInt32NumberStyleProvider()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = ":",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    bool fractionalSuccess = int.TryParse("42:5", System.Globalization.NumberStyles.Number,
+        provider, out int fractionalValue);
+    bool standardSignSuccess = int.TryParse("+42", System.Globalization.NumberStyles.Number,
+        provider, out int standardSignValue);
+    return new
+    {
+        grouped = int.Parse("12_345", System.Globalization.NumberStyles.Number, provider),
+        decimalZero = int.Parse("12_345:00", System.Globalization.NumberStyles.Number, provider),
+        negative = int.Parse("~12_345:00", System.Globalization.NumberStyles.Number, provider),
+        positive = int.Parse("plus12_345:00", System.Globalization.NumberStyles.Number, provider),
+        trailingNegative = int.Parse("12_345:00~", System.Globalization.NumberStyles.Number, provider),
+        fractionalSuccess,
+        fractionalValue,
+        standardSignSuccess,
+        standardSignValue,
+    };
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -5059,6 +5085,7 @@ var result = new
     selectedInt32FixedProviderBehavior = ObserveInt32FixedProvider(),
     selectedInt32ExponentialProviderBehavior = ObserveInt32ExponentialProvider(),
     selectedInt32PositiveSignBehavior = ObserveInt32PositiveSign(),
+    selectedInt32NumberStyleProviderBehavior = ObserveInt32NumberStyleProvider(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",
