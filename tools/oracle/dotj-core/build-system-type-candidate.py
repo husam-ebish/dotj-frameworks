@@ -164,6 +164,15 @@ def main():
         ],
         "afterReset": "age",
     }
+    typed_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoTypedValuesBehavior"]
+    assert typed_members == {
+        "count": 2, "parsed": 17, "parsedByType": 17, "typedValue": 42,
+        "firstType": "System.String", "secondType": "System.Object",
+        "nullAddTypeError": "System.ArgumentNullException",
+        "nullAddTypeParameter": "type",
+        "nullGetTypeError": "System.ArgumentNullException",
+        "nullGetTypeParameter": "type",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
