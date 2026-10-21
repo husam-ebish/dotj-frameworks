@@ -123,6 +123,7 @@ public abstract class Type extends MemberInfo {
             case "System.IFormatProvider" -> fromJavaClass(IFormatProvider.class);
             case "System.IConvertible" -> fromJavaClass(IConvertible.class);
             case "System.TypeCode" -> fromJavaClass(TypeCode.class);
+            case "System.Type" -> fromJavaClass(Type.class);
             case "System.Decimal" -> fromJavaClass(Decimal.class);
             case "System.DateTime" -> fromJavaClass(DateTime.class);
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
@@ -412,6 +413,12 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsPrimitive() {
         return this.definition == Int32.class;
+    }
+
+    public boolean get_IsAbstract() {
+        return this.definition == Type.class || this.definition == Number.class
+                || this.definition == Enum.class || this.definition == java.lang.reflect.Array.class
+                || this.get_IsInterface();
     }
 
     public boolean get_IsClass() {
