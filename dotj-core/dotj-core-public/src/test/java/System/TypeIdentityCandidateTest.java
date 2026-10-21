@@ -260,6 +260,12 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Selected typed method-name lookup changed");
             }
             ParameterInfo returnParameter = namedMethod.get_ReturnParameter();
+            if (namedMethod.GetCustomAttributes(false).length != 0
+                    || namedMethod.GetCustomAttributes(true).length != 0
+                    || namedMethod.GetCustomAttributes(false)
+                        == namedMethod.GetCustomAttributes(false)) {
+                throw new AssertionError("Selected method custom attributes changed");
+            }
             Object[] returnAttributes = returnParameter.GetCustomAttributes(false);
             Object[] inheritedReturnAttributes = returnParameter.GetCustomAttributes(true);
             Object[] filteredReturnAttributes = returnParameter.GetCustomAttributes(

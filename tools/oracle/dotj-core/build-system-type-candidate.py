@@ -494,6 +494,13 @@ def main():
          "System.String ToString(System.String, System.IFormatProvider)"),
         ("System.IFormatProvider", "GetFormat", "System.Object GetFormat(System.Type)"),
     ]
+    method_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodCustomAttributeBehavior"]
+    assert [(row["owner"], row["name"]) for row in method_attributes] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(row["direct"] == [] and row["inherited"] == []
+               for row in method_attributes)
     nongeneric_errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNongenericMethodErrorBehavior"]
     assert [(row["owner"], row["name"]) for row in nongeneric_errors] == [
         ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
