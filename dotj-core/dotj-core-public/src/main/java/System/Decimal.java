@@ -40,6 +40,17 @@ public final class Decimal implements IConvertible {
         this.negativeZero = negative && coefficient.signum() == 0;
     }
 
+    public Decimal(int lo, int mid, int hi, boolean isNegative, int scale) {
+        this(assembleBits(lo, mid, hi, isNegative, scale));
+    }
+
+    private static int[] assembleBits(int lo, int mid, int hi, boolean isNegative, int scale) {
+        if (scale < 0 || scale > 28) {
+            throw new ArgumentOutOfRangeException("scale");
+        }
+        return new int[] {lo, mid, hi, (scale << 16) | (isNegative ? 0x80000000 : 0)};
+    }
+
     private Decimal(BigDecimal value, boolean negativeZero) {
         this.value = value;
         this.negativeZero = negativeZero;

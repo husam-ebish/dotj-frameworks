@@ -2,6 +2,7 @@ package consumer;
 
 import System.ArgumentException;
 import System.ArgumentNullException;
+import System.ArgumentOutOfRangeException;
 import System.Decimal;
 import java.util.Arrays;
 
@@ -61,6 +62,32 @@ public final class ProductDecimalBitsConsumer {
             } catch (ArgumentException caught) {
                 if (caught.get_ParamName() != null) {
                     throw new AssertionError("Invalid bits parameter changed");
+                }
+            }
+        }
+        int[][] words = {
+            {42, 0, 0, 0, 0}, {12345, 0, 0, 0, 2},
+            {12345, 0, 0, 1, 2}, {0, 0, 0, 1, 0},
+            {0, 0, 0, 1, 2}, {-1, -1, -1, 0, 0},
+            {-1, -1, -1, 1, 0}, {1, 0, 0, 0, 28},
+            {-1, -1, -1, 1, 28},
+        };
+        for (int index = 0; index < words.length; index++) {
+            int[] row = words[index];
+            int[] expected = {row[0], row[1], row[2],
+                (row[4] << 16) | (row[3] == 1 ? 0x80000000 : 0)};
+            if (!Arrays.equals(Decimal.GetBits(new Decimal(row[0], row[1], row[2],
+                    row[3] == 1, row[4])), expected)) {
+                throw new AssertionError("Decimal word constructor changed: " + index);
+            }
+        }
+        for (int scale : new int[] {-1, 29, 255}) {
+            try {
+                new Decimal(1, 0, 0, false, scale);
+                throw new AssertionError("Invalid Decimal scale accepted");
+            } catch (ArgumentOutOfRangeException caught) {
+                if (!"scale".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Invalid scale parameter changed");
                 }
             }
         }

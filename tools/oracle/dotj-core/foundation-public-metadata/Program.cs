@@ -1144,6 +1144,32 @@ static object ObserveDecimalBitPatterns()
         },
     };
 }
+static object ObserveDecimalWordConstructor()
+{
+    var inputs = new (int lo, int mid, int hi, bool negative, byte scale)[]
+    {
+        (42, 0, 0, false, 0),
+        (12345, 0, 0, false, 2),
+        (12345, 0, 0, true, 2),
+        (0, 0, 0, true, 0),
+        (0, 0, 0, true, 2),
+        (-1, -1, -1, false, 0),
+        (-1, -1, -1, true, 0),
+        (1, 0, 0, false, 28),
+        (-1, -1, -1, true, 28),
+    };
+    return new
+    {
+        valid = inputs.Select(input => new
+        {
+            input = new object[] { input.lo, input.mid, input.hi, input.negative, input.scale },
+            bits = decimal.GetBits(new decimal(input.lo, input.mid, input.hi,
+                input.negative, input.scale)),
+        }).ToArray(),
+        scale29 = ObserveInt32StyleError(() => new decimal(1, 0, 0, false, 29)),
+        scale255 = ObserveInt32StyleError(() => new decimal(1, 0, 0, true, 255)),
+    };
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5611,6 +5637,7 @@ var result = new
     selectedInt32StyleValidationPrecedence = ObserveInt32StyleValidationPrecedence(),
     selectedInt32ExponentLimits = ObserveInt32ExponentLimits(),
     selectedDecimalBitPatterns = ObserveDecimalBitPatterns(),
+    selectedDecimalWordConstructor = ObserveDecimalWordConstructor(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

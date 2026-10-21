@@ -24311,6 +24311,153 @@
       }
     }
   },
+  "selectedDecimalWordConstructor": {
+    "valid": [
+      {
+        "input": [
+          42,
+          0,
+          0,
+          false,
+          0
+        ],
+        "bits": [
+          42,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          12345,
+          0,
+          0,
+          false,
+          2
+        ],
+        "bits": [
+          12345,
+          0,
+          0,
+          131072
+        ]
+      },
+      {
+        "input": [
+          12345,
+          0,
+          0,
+          true,
+          2
+        ],
+        "bits": [
+          12345,
+          0,
+          0,
+          -2147352576
+        ]
+      },
+      {
+        "input": [
+          0,
+          0,
+          0,
+          true,
+          0
+        ],
+        "bits": [
+          0,
+          0,
+          0,
+          -2147483648
+        ]
+      },
+      {
+        "input": [
+          0,
+          0,
+          0,
+          true,
+          2
+        ],
+        "bits": [
+          0,
+          0,
+          0,
+          -2147352576
+        ]
+      },
+      {
+        "input": [
+          -1,
+          -1,
+          -1,
+          false,
+          0
+        ],
+        "bits": [
+          -1,
+          -1,
+          -1,
+          0
+        ]
+      },
+      {
+        "input": [
+          -1,
+          -1,
+          -1,
+          true,
+          0
+        ],
+        "bits": [
+          -1,
+          -1,
+          -1,
+          -2147483648
+        ]
+      },
+      {
+        "input": [
+          1,
+          0,
+          0,
+          false,
+          28
+        ],
+        "bits": [
+          1,
+          0,
+          0,
+          1835008
+        ]
+      },
+      {
+        "input": [
+          -1,
+          -1,
+          -1,
+          true,
+          28
+        ],
+        "bits": [
+          -1,
+          -1,
+          -1,
+          -2145648640
+        ]
+      }
+    ],
+    "scale29": {
+      "type": "System.ArgumentOutOfRangeException",
+      "paramName": "scale"
+    },
+    "scale255": {
+      "type": "System.ArgumentOutOfRangeException",
+      "paramName": "scale"
+    }
+  },
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -27807,6 +27954,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "376110fef0596313d7a00a2ebd5617dbfeb9781af4e1ca72ff6e78acc526c428",
+  "oracleProgramSha256": "fe7cf2b6af72c63e62feffab4248e7d950363196656366d3837d26f66f97df8a",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

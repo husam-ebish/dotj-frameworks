@@ -34,7 +34,8 @@ def main():
         constructors = [line for line in declarations if line.startswith("public " + name + "(")]
         if name == "System.Decimal":
             assert constructors == ["public System.Decimal(int);", "public System.Decimal(long);",
-                                    "public System.Decimal(int[]);"]
+                                    "public System.Decimal(int[]);",
+                                    "public System.Decimal(int, int, int, boolean, int);"]
             assert len(upstream["publicConstructors"]) == 9
         elif name == "System.DateTime":
             assert constructors == ["public System.DateTime(int, int, int);",
@@ -138,6 +139,7 @@ def main():
             assert header == "public final class System.Decimal implements System.IConvertible {"
             assert declarations == ["public System.Decimal(int);", "public System.Decimal(long);",
                                     "public System.Decimal(int[]);",
+                                    "public System.Decimal(int, int, int, boolean, int);",
                                     "public static int[] GetBits(System.Decimal);",
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);",
