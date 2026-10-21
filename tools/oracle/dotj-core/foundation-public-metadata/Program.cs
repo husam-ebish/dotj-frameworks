@@ -992,6 +992,21 @@ var result = new
         }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
             returnType = item.Item1.GetMethod(item.Item2)!.ReturnType.FullName }).ToArray(),
     },
+    selectedParameterInfoBehavior = new
+    {
+        type = new { name = typeof(ParameterInfo).FullName,
+            parent = typeof(ParameterInfo).BaseType?.FullName,
+            isAbstract = typeof(ParameterInfo).IsAbstract },
+        methods = new[]
+        {
+            (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+            (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+        }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+            parameters = item.Item1.GetMethod(item.Item2)!.GetParameters()
+                .Select(parameter => new { name = parameter.Name,
+                    type = parameter.ParameterType.FullName, position = parameter.Position })
+                .ToArray() }).ToArray(),
+    },
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

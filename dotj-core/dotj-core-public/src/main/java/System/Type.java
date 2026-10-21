@@ -12,6 +12,7 @@ import System.IO.IOException;
 import System.Reflection.MemberInfo;
 import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
+import System.Reflection.ParameterInfo;
 import System.Reflection.MemberTypes;
 import System.Reflection.BindingFlags;
 import System.Reflection.GenericParameterAttributes;
@@ -407,6 +408,7 @@ public abstract class Type extends MemberInfo {
             case "System.Reflection.MemberInfo" -> fromJavaClass(MemberInfo.class);
             case "System.Reflection.MethodBase" -> fromJavaClass(MethodBase.class);
             case "System.Reflection.MethodInfo" -> fromJavaClass(MethodInfo.class);
+            case "System.Reflection.ParameterInfo" -> fromJavaClass(ParameterInfo.class);
             case "System.Void" -> fromJavaClass(Void.class);
             case "System.Exception" -> fromJavaClass(Exception.class);
             case "System.SystemException" -> fromJavaClass(SystemException.class);
@@ -515,6 +517,7 @@ public abstract class Type extends MemberInfo {
             case "system.reflection.memberinfo" -> ignoreCase ? fromJavaClass(MemberInfo.class) : null;
             case "system.reflection.methodbase" -> ignoreCase ? fromJavaClass(MethodBase.class) : null;
             case "system.reflection.methodinfo" -> ignoreCase ? fromJavaClass(MethodInfo.class) : null;
+            case "system.reflection.parameterinfo" -> ignoreCase ? fromJavaClass(ParameterInfo.class) : null;
             case "system.void" -> ignoreCase ? fromJavaClass(Void.class) : null;
             case "system.exception" -> ignoreCase ? fromJavaClass(Exception.class) : null;
             case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
@@ -1894,6 +1897,21 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public ParameterInfo[] GetParameters() {
+            return switch (this.name) {
+                case "Dispose" -> new ParameterInfo[0];
+                case "CompareTo" -> new ParameterInfo[] {
+                    new DefaultParameterInfo("obj", fromJavaClass(Object.class), 0)};
+                case "ToString" -> new ParameterInfo[] {
+                    new DefaultParameterInfo("format", fromJavaClass(String.class), 0),
+                    new DefaultParameterInfo("formatProvider", fromJavaClass(IFormatProvider.class), 1)};
+                case "GetFormat" -> new ParameterInfo[] {
+                    new DefaultParameterInfo("formatType", fromJavaClass(Type.class), 0)};
+                default -> throw new UnsupportedOperationException("Method parameters are not mapped");
+            };
+        }
+
+        @Override
         public Type get_DeclaringType() {
             return this.owner;
         }
@@ -1901,6 +1919,12 @@ public abstract class Type extends MemberInfo {
         @Override
         public Type get_ReflectedType() {
             return this.owner;
+        }
+    }
+
+    private static final class DefaultParameterInfo extends ParameterInfo {
+        private DefaultParameterInfo(String name, Type parameterType, int position) {
+            super(name, parameterType, position);
         }
     }
 

@@ -16,6 +16,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBase.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodInfo.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/ParameterInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")

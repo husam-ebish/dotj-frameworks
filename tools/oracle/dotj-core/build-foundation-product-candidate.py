@@ -19,6 +19,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundExce
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodInfo.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/ParameterInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/BindingFlags.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/GenericParameterAttributes.java")
@@ -62,12 +63,14 @@ EXPECTED_CLASSES = [
     "System/Reflection/MemberTypes.class",
     "System/Reflection/MethodBase.class",
     "System/Reflection/MethodInfo.class",
+    "System/Reflection/ParameterInfo.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",
     "System/Type$ArrayType.class",
     "System/Type$ByRefType.class",
     "System/Type$DefaultMethodMember.class",
+    "System/Type$DefaultParameterInfo.class",
     "System/Type$DefaultPropertyMember.class",
     "System/Type$GenericParameterType.class",
     "System/Type$PointerType.class",

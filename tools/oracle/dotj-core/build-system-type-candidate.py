@@ -19,6 +19,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBase.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodInfo.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/ParameterInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")
@@ -316,6 +317,20 @@ def main():
         ("System.IComparable", "CompareTo", "System.Int32"),
         ("System.IFormattable", "ToString", "System.String"),
         ("System.IFormatProvider", "GetFormat", "System.Object"),
+    ]
+    parameter_info = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterInfoBehavior"]
+    assert parameter_info["type"] == {"name": "System.Reflection.ParameterInfo",
+        "parent": "System.Object", "isAbstract": False}
+    assert [(row["owner"], row["name"], row["parameters"])
+            for row in parameter_info["methods"]] == [
+        ("System.IDisposable", "Dispose", []),
+        ("System.IComparable", "CompareTo", [
+            {"name": "obj", "type": "System.Object", "position": 0}]),
+        ("System.IFormattable", "ToString", [
+            {"name": "format", "type": "System.String", "position": 0},
+            {"name": "formatProvider", "type": "System.IFormatProvider", "position": 1}]),
+        ("System.IFormatProvider", "GetFormat", [
+            {"name": "formatType", "type": "System.Type", "position": 0}]),
     ]
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
