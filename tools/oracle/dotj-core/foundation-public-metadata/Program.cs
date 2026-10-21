@@ -1116,6 +1116,12 @@ var result = new
             text = item.Item1.GetMethod(item.Item2)!.GetMethodImplementationFlags().ToString() })
             .ToArray(),
     },
+    selectedMethodSignatureTextBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        text = item.Item1.GetMethod(item.Item2)!.ToString() }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

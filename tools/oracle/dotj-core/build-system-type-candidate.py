@@ -415,6 +415,14 @@ def main():
     ]
     assert all(row["value"] == 0 and row["text"] == "IL"
                for row in implementations["methods"])
+    method_texts = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodSignatureTextBehavior"]
+    assert [(row["owner"], row["name"], row["text"]) for row in method_texts] == [
+        ("System.IDisposable", "Dispose", "Void Dispose()"),
+        ("System.IComparable", "CompareTo", "Int32 CompareTo(System.Object)"),
+        ("System.IFormattable", "ToString",
+         "System.String ToString(System.String, System.IFormatProvider)"),
+        ("System.IFormatProvider", "GetFormat", "System.Object GetFormat(System.Type)"),
+    ]
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [
