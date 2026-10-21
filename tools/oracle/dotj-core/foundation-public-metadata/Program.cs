@@ -1272,6 +1272,28 @@ static object ObserveSerializationInfoNumericOverloads()
         unsignedTypeCode = Type.GetTypeCode(typeof(ulong)).ToString(),
     };
 }
+static object ObserveSerializationInfoUnsignedMembers()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("u16", (ushort)60000);
+    info.AddValue("u32", (uint)4000000000);
+    var cursor = info.GetEnumerator();
+    var types = new List<string>();
+    while (cursor.MoveNext())
+    {
+        types.Add(cursor.ObjectType.FullName!);
+    }
+    return new
+    {
+        count = info.MemberCount,
+        u16 = info.GetUInt16("u16"),
+        u32 = info.GetUInt32("u32"),
+        types,
+        u16TypeCode = Type.GetTypeCode(typeof(ushort)).ToString(),
+        u32TypeCode = Type.GetTypeCode(typeof(uint)).ToString(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1428,6 +1450,7 @@ var result = new
     selectedSerializationInfoDuplicateStateBehavior = ObserveSerializationInfoDuplicateState(),
     selectedSerializationInfoValueOverloadsBehavior = ObserveSerializationInfoValueOverloads(),
     selectedSerializationInfoNumericOverloadsBehavior = ObserveSerializationInfoNumericOverloads(),
+    selectedSerializationInfoUnsignedMembersBehavior = ObserveSerializationInfoUnsignedMembers(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

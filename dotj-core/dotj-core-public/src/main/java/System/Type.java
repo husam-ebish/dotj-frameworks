@@ -110,6 +110,8 @@ public abstract class Type extends MemberInfo {
         if (type.definition == Int32.class) return TypeCode.Int32;
         if (type.definition == Long.class || type.definition == long.class) return TypeCode.Int64;
         if (type.definition == BigInteger.class) return TypeCode.UInt64;
+        if (type.definition == UInt16.class) return TypeCode.UInt16;
+        if (type.definition == UInt32.class) return TypeCode.UInt32;
         if (type.definition == Float.class || type.definition == float.class) return TypeCode.Single;
         if (type.definition == Double.class || type.definition == double.class) return TypeCode.Double;
         if (type.definition == Decimal.class) return TypeCode.Decimal;
@@ -407,6 +409,8 @@ public abstract class Type extends MemberInfo {
             case "System.Int16" -> fromJavaClass(Short.class);
             case "System.Int64" -> fromJavaClass(Long.class);
             case "System.UInt64" -> fromJavaClass(BigInteger.class);
+            case "System.UInt16" -> fromJavaClass(UInt16.class);
+            case "System.UInt32" -> fromJavaClass(UInt32.class);
             case "System.Single" -> fromJavaClass(Float.class);
             case "System.Double" -> fromJavaClass(Double.class);
             case "System.Byte" -> fromJavaClass(Byte.class);
@@ -543,6 +547,8 @@ public abstract class Type extends MemberInfo {
             case "system.int16" -> ignoreCase ? fromJavaClass(Short.class) : null;
             case "system.int64" -> ignoreCase ? fromJavaClass(Long.class) : null;
             case "system.uint64" -> ignoreCase ? fromJavaClass(BigInteger.class) : null;
+            case "system.uint16" -> ignoreCase ? fromJavaClass(UInt16.class) : null;
+            case "system.uint32" -> ignoreCase ? fromJavaClass(UInt32.class) : null;
             case "system.single" -> ignoreCase ? fromJavaClass(Float.class) : null;
             case "system.double" -> ignoreCase ? fromJavaClass(Double.class) : null;
             case "system.int32" -> ignoreCase ? fromJavaClass(Int32.class) : null;
@@ -802,6 +808,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Short.class) return "Int16";
         if (this.definition == Long.class) return "Int64";
         if (this.definition == BigInteger.class) return "UInt64";
+        if (this.definition == UInt16.class) return "UInt16";
+        if (this.definition == UInt32.class) return "UInt32";
         if (this.definition == Float.class) return "Single";
         if (this.definition == Double.class) return "Double";
         if (this.definition == Byte.class) return "Byte";
@@ -916,6 +924,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Boolean.class
                 || this.definition == Character.class || this.definition == Short.class
                 || this.definition == Long.class || this.definition == BigInteger.class
+                || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Float.class
                 || this.definition == Double.class || this.definition == Byte.class) {
             return fromJavaClass(Number.class);
@@ -959,6 +968,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == Short.class
                         || this.definition == Long.class
                         || this.definition == BigInteger.class
+                        || this.definition == UInt16.class || this.definition == UInt32.class
                         || this.definition == Float.class
                         || this.definition == Double.class
                         || this.definition == Byte.class
@@ -981,6 +991,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Boolean.class
                 || this.definition == Character.class || this.definition == Short.class
                 || this.definition == Long.class || this.definition == BigInteger.class
+                || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Float.class
                 || this.definition == Double.class || this.definition == Byte.class;
     }

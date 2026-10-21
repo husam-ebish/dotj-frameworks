@@ -311,6 +311,21 @@ public final class TypeIdentityCandidateTest {
                 || numericCursor.get_ObjectType() != uint64Type) {
             throw new AssertionError("Selected numeric serialization overloads changed");
         }
+        SerializationInfo unsignedMembers = new SerializationInfo(dbnullType, selectedConverter);
+        unsignedMembers.AddValue("u16", new UInt16(60000));
+        unsignedMembers.AddValue("u32", new UInt32(4000000000L));
+        SerializationInfoEnumerator unsignedCursor = unsignedMembers.GetEnumerator();
+        if (unsignedMembers.get_MemberCount() != 2
+                || unsignedMembers.GetUInt16("u16") != 60000
+                || unsignedMembers.GetUInt32("u32") != 4000000000L
+                || Type.GetTypeCode(Type.GetType("System.UInt16")) != TypeCode.UInt16
+                || Type.GetTypeCode(Type.GetType("System.UInt32")) != TypeCode.UInt32
+                || !unsignedCursor.MoveNext()
+                || !"System.UInt16".equals(unsignedCursor.get_ObjectType().get_FullName())
+                || !unsignedCursor.MoveNext()
+                || !"System.UInt32".equals(unsignedCursor.get_ObjectType().get_FullName())) {
+            throw new AssertionError("Selected unsigned serialization members changed");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")
