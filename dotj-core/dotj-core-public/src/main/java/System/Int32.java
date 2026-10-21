@@ -482,7 +482,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public String ToString(IFormatProvider provider) {
-        return Integer.toString(this.value);
+        return this.ToString("D", provider);
     }
 
     public String ToString() {
@@ -496,7 +496,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public String ToString(String format, IFormatProvider provider) {
         if (format == null || format.isEmpty() || format.equals("D")) {
-            return Integer.toString(this.value);
+            if (this.value >= 0) return Integer.toString(this.value);
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+            return sign + BigInteger.valueOf(this.value).abs();
         }
         if (format.equals("D-1") || format.equals("X-1")) {
             return format;
@@ -640,7 +643,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 throw new UnsupportedOperationException("Int32 precision is not mapped");
             }
             String digits = BigInteger.valueOf(this.value).abs().toString();
-            String sign = this.value < 0 ? "-" : "";
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
             return sign + "0".repeat(Math.max(0, precision - digits.length())) + digits;
         }
         if (format.matches("[xX][0-9]*")) {

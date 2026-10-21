@@ -573,6 +573,9 @@ static object ObserveInt32NegativeSign()
         standardSuccess,
         standardValue,
         negativeFormat = ((IFormattable)(-42)).ToString("N2", provider),
+        decimalFormat = ((IFormattable)(-42)).ToString("D", provider),
+        paddedDecimalFormat = ((IFormattable)(-42)).ToString("D5", provider),
+        providerText = (-42).ToString(provider),
     };
 }
 static string? ObserveInt32Error(Action operation)

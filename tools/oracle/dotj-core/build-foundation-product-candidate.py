@@ -165,6 +165,8 @@ def main():
         "customParse": -42, "customSuccess": True, "customValue": -42,
         "standardSuccess": False, "standardValue": 0,
         "negativeFormat": "~42.00",
+        "decimalFormat": "~42", "paddedDecimalFormat": "~00042",
+        "providerText": "~42",
     }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
