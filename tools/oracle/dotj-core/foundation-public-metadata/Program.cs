@@ -777,6 +777,16 @@ var result = new
         unknownAssemblyInvalidVersionThrow = ObserveGetType("System.String, Missing.Assembly, Version=banana", true, false),
         invalidContentFirst = ObserveGetType("System.String, System.Private.CoreLib, ContentType=Default, Version=banana", false, false),
     },
+    selectedUnknownAssemblyAttributeBehavior = new
+    {
+        validVersion = ObserveGetType("System.String, Missing.Assembly, Version=10.0.0.0", false, false),
+        validVersionThrow = ObserveGetType("System.String, Missing.Assembly, Version=10.0.0.0", true, false),
+        invalidCulture = ObserveGetType("System.String, Missing.Assembly, Culture=123", false, false),
+        invalidToken = ObserveGetType("System.String, Missing.Assembly, PublicKeyToken=xyz", false, false),
+        unknownAttribute = ObserveGetType("System.String, Missing.Assembly, UnknownAttr=foo", false, false),
+        unknownAttributeThrow = ObserveGetType("System.String, Missing.Assembly, UnknownAttr=foo", true, false),
+        duplicateVersion = ObserveGetType("System.String, Missing.Assembly, Version=1.2.3.4, Version=2.3.4.5", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

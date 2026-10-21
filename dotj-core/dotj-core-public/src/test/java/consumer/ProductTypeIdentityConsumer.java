@@ -309,6 +309,36 @@ public final class ProductTypeIdentityConsumer {
         } catch (FileLoadException expected) {
             // Selected malformed-attribute precedence.
         }
+        if (Type.GetType("System.String, Missing.Assembly, Version=10.0.0.0") != null
+                || Type.GetType("System.String, Missing.Assembly, UnknownAttr=foo") != null) {
+            throw new AssertionError("Unknown assembly with valid attributes resolved");
+        }
+        for (String missingWithValidAttribute : new String[] {
+                "Version=10.0.0.0", "UnknownAttr=foo"}) {
+            try {
+                Type.GetType("System.String, Missing.Assembly, " + missingWithValidAttribute, true);
+                throw new AssertionError("Missing assembly accepted with attribute");
+            } catch (FileNotFoundException expected) {
+                // Selected missing-assembly result after valid attribute parsing.
+            }
+        }
+        for (String invalidUnknownAssembly : new String[] {
+                "PublicKeyToken=xyz", "Version=1.2.3.4, Version=2.3.4.5"}) {
+            try {
+                Type.GetType("System.String, Missing.Assembly, " + invalidUnknownAssembly);
+                throw new AssertionError("Malformed unknown-assembly identity accepted");
+            } catch (FileLoadException expected) {
+                // Selected malformed-attribute result precedes missing assembly.
+            }
+        }
+        try {
+            Type.GetType("System.String, Missing.Assembly, Culture=123");
+            throw new AssertionError("Numeric culture accepted under missing assembly");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Missing-assembly culture parameter changed", expected);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
