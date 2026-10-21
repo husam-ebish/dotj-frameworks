@@ -8,6 +8,9 @@ public final class TypeIdentityCandidateTest {
     static final class NestedAssemblyFixture {
     }
 
+    private static final class NestedPrivateFixture {
+    }
+
     public static void main(String[] args) {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
@@ -54,6 +57,12 @@ public final class TypeIdentityCandidateTest {
                 || nestedEntry.get_IsNestedAssembly() || !nestedAssembly.get_IsNestedAssembly()
                 || !nestedAssembly.get_IsNested() || nestedAssembly.get_IsNestedPublic()) {
             throw new AssertionError("Selected nested assembly visibility changed");
+        }
+        Type nestedPrivate = Type.fromJavaClass(NestedPrivateFixture.class);
+        if (string.get_IsNestedPrivate() || list.GetGenericArguments()[0].get_IsNestedPrivate()
+                || nestedEntry.get_IsNestedPrivate() || nestedAssembly.get_IsNestedPrivate()
+                || !nestedPrivate.get_IsNestedPrivate() || !nestedPrivate.get_IsNested()) {
+            throw new AssertionError("Selected nested private visibility changed");
         }
         Type[] listParameters = list.GetGenericArguments();
         Type[] mapParameters = map.GetGenericArguments();

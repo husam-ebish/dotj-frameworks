@@ -1134,6 +1134,11 @@ public abstract class Type extends MemberInfo {
                 && !java.lang.reflect.Modifier.isProtected(modifiers);
     }
 
+    public boolean get_IsNestedPrivate() {
+        return this.parameterIndex < 0 && this.get_IsNested()
+                && java.lang.reflect.Modifier.isPrivate(this.definition.getModifiers());
+    }
+
     public boolean get_ContainsGenericParameters() {
         if (this.get_IsGenericParameter() || this.get_IsGenericTypeDefinition()) {
             return true;
