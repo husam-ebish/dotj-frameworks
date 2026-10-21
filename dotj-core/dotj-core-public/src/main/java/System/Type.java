@@ -178,7 +178,8 @@ public abstract class Type extends MemberInfo {
                     }
                     if (key.equals("version")) {
                         for (String component : value.split("\\.")) {
-                            if (component.length() > 5 || Integer.parseInt(component) > 65534) {
+                            String significant = component.replaceFirst("^0+(?!$)", "");
+                            if (significant.length() > 5 || Integer.parseInt(significant) > 65534) {
                                 throw new FileLoadException("Invalid assembly version: " + assembly);
                             }
                         }

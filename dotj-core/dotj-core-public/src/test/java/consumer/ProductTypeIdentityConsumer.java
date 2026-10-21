@@ -426,6 +426,20 @@ public final class ProductTypeIdentityConsumer {
                 }
             }
         }
+        for (String acceptedVersion : new String[] {
+                "0001.0002", "0.0", "65534.65534", "0000001.0"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, Version=" + acceptedVersion) != string) {
+                throw new AssertionError("Selected Version components rejected: " + acceptedVersion);
+            }
+        }
+        for (String invalidVersion : new String[] {"65535.0", "2147483648.0"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, Version=" + invalidVersion);
+                throw new AssertionError("Invalid Version component accepted: " + invalidVersion);
+            } catch (FileLoadException expected) {
+                // Selected pinned component overflow.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
