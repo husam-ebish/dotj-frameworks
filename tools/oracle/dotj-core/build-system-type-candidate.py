@@ -664,6 +664,15 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("quotedThree", "unquotedThree")},
     }
+    missing_assembly_precedence = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEscapedMissingAssemblyAttributePrecedence"]
+    assert missing_assembly_precedence == {
+        **{key: {"result": None, "exception": None, "paramName": None}
+           for key in ("quotedValid", "escapedCommaValid")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("quotedInvalidVersion", "escapedCommaInvalidVersion", "evenBackslashInvalidVersion")},
+        "evenBackslashInvalidCulture": {
+            "result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

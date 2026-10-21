@@ -2643,6 +2643,38 @@
       "paramName": null
     }
   },
+  "selectedEscapedMissingAssemblyAttributePrecedence": {
+    "quotedValid": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "quotedInvalidVersion": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "escapedCommaValid": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "escapedCommaInvalidVersion": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "evenBackslashInvalidVersion": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "evenBackslashInvalidCulture": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -6069,6 +6101,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "d96bed898d826dc0172e6c59972341c5470966b711d1af0937b1e9e627ea9bd7",
+  "oracleProgramSha256": "ece981ee5ddd3b01a1e784aa2009be2083b0d68d794e41d4ca9678595fe48720",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
