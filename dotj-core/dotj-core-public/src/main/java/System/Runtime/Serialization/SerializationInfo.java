@@ -7,6 +7,8 @@ import System.Type;
 import System.Decimal;
 import System.DateTime;
 import System.OverflowException;
+import System.UInt16;
+import System.UInt32;
 import java.math.BigInteger;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -109,6 +111,8 @@ public class SerializationInfo {
                 : value instanceof Decimal ? Type.GetType("System.Decimal")
                 : value instanceof DateTime ? Type.GetType("System.DateTime")
                 : value instanceof BigInteger ? Type.GetType("System.UInt64")
+                : value instanceof UInt16 ? Type.GetType("System.UInt16")
+                : value instanceof UInt32 ? Type.GetType("System.UInt32")
                 : Type.GetType("System.Object");
         this.AddValue(name, value, type);
     }
@@ -158,6 +162,14 @@ public class SerializationInfo {
         if (value != null && (value.signum() < 0 || value.bitLength() > 64)) {
             throw new OverflowException("Value was outside the range of UInt64");
         }
+        this.AddValue(name, (Object) value);
+    }
+
+    public void AddValue(String name, UInt16 value) {
+        this.AddValue(name, (Object) value);
+    }
+
+    public void AddValue(String name, UInt32 value) {
         this.AddValue(name, (Object) value);
     }
 
@@ -237,6 +249,18 @@ public class SerializationInfo {
     public BigInteger GetUInt64(String name) {
         Object value = this.member(name).get_Value();
         return value instanceof BigInteger number ? number : this.converter.ToUInt64(value);
+    }
+
+    public int GetUInt16(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof UInt16 number ? number.get_Value()
+                : this.converter.ToUInt16(value);
+    }
+
+    public long GetUInt32(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof UInt32 number ? number.get_Value()
+                : this.converter.ToUInt32(value);
     }
 
     public SerializationInfoEnumerator GetEnumerator() {

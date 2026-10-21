@@ -38,6 +38,8 @@ EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("UInt16.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("UInt32.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/NumberStyles.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/CultureNotFoundException.java")
 EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/throwing/ThrowSite.java")
@@ -343,6 +345,12 @@ def main():
         "unsignedText": "18446744073709551615",
         "types": ["System.Int16", "System.UInt64"],
         "unsignedTypeCode": "UInt64",
+    }
+    unsigned_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoUnsignedMembersBehavior"]
+    assert unsigned_members == {
+        "count": 2, "u16": 60000, "u32": 4000000000,
+        "types": ["System.UInt16", "System.UInt32"],
+        "u16TypeCode": "UInt16", "u32TypeCode": "UInt32",
     }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
