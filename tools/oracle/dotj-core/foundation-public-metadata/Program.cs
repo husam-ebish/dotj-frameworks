@@ -2302,6 +2302,26 @@ static object ObserveInt32CreateFromDouble()
         truncated = int.CreateTruncating(value),
     }).ToArray();
 }
+static int? ObserveInt32CreateCheckedFromSingle(float value)
+{
+    try { return int.CreateChecked(value); }
+    catch (OverflowException) { return null; }
+}
+static object ObserveInt32CreateFromSingle()
+{
+    float[] values = [float.NegativeInfinity, float.MinValue,
+        -2147483904f, -2147483648f, -3.9f, -0.5f, 0f,
+        0.5f, 3.9f, 2147483520f, 2147483648f,
+        float.MaxValue, float.PositiveInfinity, float.NaN];
+    return values.Select(value => new
+    {
+        value = value.ToString("R", System.Globalization.CultureInfo.InvariantCulture),
+        checkedValue = ObserveInt32CreateCheckedFromSingle(value),
+        checkedError = ObserveMethodError(() => { _ = int.CreateChecked(value); }),
+        saturated = int.CreateSaturating(value),
+        truncated = int.CreateTruncating(value),
+    }).ToArray();
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2509,6 +2529,7 @@ var result = new
     selectedInt32CreateFromInt64 = ObserveInt32CreateFromInt64(),
     selectedInt32CreateFromBigInteger = ObserveInt32CreateFromBigInteger(),
     selectedInt32CreateFromDouble = ObserveInt32CreateFromDouble(),
+    selectedInt32CreateFromSingle = ObserveInt32CreateFromSingle(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

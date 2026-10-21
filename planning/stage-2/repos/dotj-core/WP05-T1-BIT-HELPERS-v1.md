@@ -16,6 +16,8 @@ The selected generic `CreateChecked`, `CreateSaturating` and `CreateTruncating` 
 
 The same three methods also cover nine pinned `BigInteger` inputs, including values beyond `Int64` range. The packaged consumer verifies checked overflow, clamping and low-bit truncation for the Java `BigInteger` carrier.
 
-Fourteen pinned `Double` inputs cover fractions around both `Int32` bounds, infinities and `NaN`. Checked creation accepts values whose truncated result fits, while saturating and truncating creation follow the pinned `Double` clamping behavior. The packaged consumer checks all fourteen outcomes. `Single`, decimal and other numeric sources remain open.
+Fourteen pinned `Double` inputs cover fractions around both `Int32` bounds, infinities and `NaN`. Checked creation accepts values whose truncated result fits, while saturating and truncating creation follow the pinned `Double` clamping behavior. The packaged consumer checks all fourteen outcomes.
+
+Fourteen pinned `Single` inputs cover representable values around both `Int32` bounds, extrema, fractions, infinities and `NaN`. The packaged consumer checks the CLR observed checked, saturated and truncated results. Decimal and other numeric sources remain open.
 
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
