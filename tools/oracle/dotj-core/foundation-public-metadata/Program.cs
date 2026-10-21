@@ -319,6 +319,23 @@ static object ObserveEnumName(Type type, object? value)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveEnumValues(Type type)
+{
+    try
+    {
+        Array values = type.GetEnumValues();
+        return new { arrayType = values.GetType().FullName,
+            names = values.Cast<object>().Select(value => value.ToString()).ToArray(),
+            values = values.Cast<object>().Select(Convert.ToInt32).ToArray(),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { arrayType = (string?)null, names = (string?[]?)null,
+            values = (int[]?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -1151,6 +1168,13 @@ var result = new
         wrongEnumType = ObserveEnumName(typeof(MemberTypes), TypeCode.Empty),
         nullValue = ObserveEnumName(typeof(TypeCode), null),
         nonEnumOwner = ObserveEnumName(typeof(int), 0),
+    },
+    selectedEnumValuesBehavior = new
+    {
+        typeCode = ObserveEnumValues(typeof(TypeCode)),
+        memberTypes = ObserveEnumValues(typeof(MemberTypes)),
+        numberStyles = ObserveEnumValues(typeof(System.Globalization.NumberStyles)),
+        nonEnum = ObserveEnumValues(typeof(int)),
     },
     selectedNestedEnumerationBehavior = new[]
     {

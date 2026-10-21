@@ -68,6 +68,7 @@ def main():
         "System.Type GetType(System.String)",
         "System.Type GetEnumUnderlyingType()",
         "System.String[] GetEnumNames()",
+        "System.Array GetEnumValues()",
         "Boolean IsEnumDefined(System.Object)",
         "System.String GetEnumName(System.Object)",
         "Boolean IsAssignableFrom(System.Type)",
@@ -272,6 +273,19 @@ def main():
     assert enum_name["stringValue"] == {"result": None, "exception": "System.ArgumentException", "paramName": "value"}
     assert enum_name["nullValue"] == {"result": None, "exception": "System.ArgumentNullException", "paramName": "value"}
     assert enum_name["nonEnumOwner"] == {"result": None, "exception": "System.ArgumentException", "paramName": "enumType"}
+    enum_values = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumValuesBehavior"]
+    for key, array_type, numeric_values in (
+            ("typeCode", "System.TypeCode[]", list(range(17)) + [18]),
+            ("memberTypes", "System.Reflection.MemberTypes[]", [1, 2, 4, 8, 16, 32, 64, 128, 191]),
+            ("numberStyles", "System.Globalization.NumberStyles[]", [row["value"] for row in number_style_values])):
+        assert enum_values[key] == {
+            "arrayType": array_type, "names": enum_names[key]["names"],
+            "values": numeric_values, "exception": None, "paramName": None,
+        }
+    assert enum_values["nonEnum"] == {
+        "arrayType": None, "names": None, "values": None,
+        "exception": "System.ArgumentException", "paramName": "enumType",
+    }
     assert enum_names == {
         "typeCode": {"names": ["Empty", "Object", "DBNull", "Boolean", "Char", "SByte", "Byte",
                                "Int16", "UInt16", "Int32", "UInt32", "Int64", "UInt64", "Single",
@@ -1390,6 +1404,7 @@ def main():
         "public boolean get_IsEnum();",
         "public System.Type GetEnumUnderlyingType();",
         "public java.lang.String[] GetEnumNames();",
+        "public java.lang.Object[] GetEnumValues();",
         "public boolean IsEnumDefined(java.lang.Object);",
         "public java.lang.String GetEnumName(java.lang.Object);",
         "public boolean IsAssignableTo(System.Type);",

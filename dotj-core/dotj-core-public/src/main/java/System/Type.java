@@ -951,6 +951,13 @@ public abstract class Type extends MemberInfo {
         return names;
     }
 
+    public Object[] GetEnumValues() {
+        if (!this.get_IsEnum()) {
+            throw new ArgumentException("Type must be an enum", "enumType");
+        }
+        return this.definition.getEnumConstants();
+    }
+
     public boolean IsEnumDefined(Object value) {
         if (!this.get_IsEnum()) {
             throw new ArgumentException("Type must be an enum", "enumType");

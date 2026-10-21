@@ -52,6 +52,27 @@ public final class TypeIdentityCandidateTest {
         if (!"Empty".equals(typeCodeEnum.GetEnumNames()[0])) {
             throw new AssertionError("Enum name array escaped by reference");
         }
+        Object[] typeCodeValues = typeCodeEnum.GetEnumValues();
+        if (typeCodeValues.getClass() != TypeCode[].class
+                || typeCodeValues.length != 18
+                || typeCodeValues[0] != TypeCode.Empty
+                || typeCodeValues[17] != TypeCode.String
+                || memberTypesEnum.GetEnumValues().getClass() != MemberTypes[].class
+                || Type.fromJavaClass(NumberStyles.class).GetEnumValues().length != 19) {
+            throw new AssertionError("Selected enum value array changed");
+        }
+        typeCodeValues[0] = TypeCode.Object;
+        if (typeCodeEnum.GetEnumValues()[0] != TypeCode.Empty) {
+            throw new AssertionError("Enum value array escaped by reference");
+        }
+        try {
+            integer.GetEnumValues();
+            throw new AssertionError("Non-enum owner accepted value enumeration");
+        } catch (ArgumentException expected) {
+            if (!"enumType".equals(expected.get_ParamName())) {
+                throw new AssertionError("Non-enum value enumeration parameter changed", expected);
+            }
+        }
         if (!typeCodeEnum.IsEnumDefined(TypeCode.Empty)
                 || !typeCodeEnum.IsEnumDefined(0)
                 || !typeCodeEnum.IsEnumDefined("Empty")
