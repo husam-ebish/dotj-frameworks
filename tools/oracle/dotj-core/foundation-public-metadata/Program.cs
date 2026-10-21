@@ -1015,6 +1015,15 @@ var result = new
         quotedCommaTwo = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\\,b\", Version=1.2", false, false),
         quotedCommaThree = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\\\\,b\", Version=1.2", false, false),
     },
+    selectedEscapedMissingAssemblyAttributePrecedence = new
+    {
+        quotedValid = ObserveGetType("System.String, \"Missing\\\"Assembly\", Version=1.2", false, false),
+        quotedInvalidVersion = ObserveGetType("System.String, \"Missing\\\"Assembly\", Version=banana", false, false),
+        escapedCommaValid = ObserveGetType("System.String, Missing\\,Assembly, Version=1.2", false, false),
+        escapedCommaInvalidVersion = ObserveGetType("System.String, Missing\\,Assembly, Version=banana", false, false),
+        evenBackslashInvalidVersion = ObserveGetType("System.String, Missing\\\\, Version=banana", false, false),
+        evenBackslashInvalidCulture = ObserveGetType("System.String, Missing\\\\, Culture=123", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

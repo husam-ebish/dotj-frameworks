@@ -703,6 +703,32 @@ public final class ProductTypeIdentityConsumer {
                 // Selected quote or separator escape parity.
             }
         }
+        for (String unresolvedName : new String[] {
+                "\"Missing\\\"Assembly\", Version=1.2",
+                "Missing\\,Assembly, Version=1.2"}) {
+            if (Type.GetType("System.String, " + unresolvedName) != null) {
+                throw new AssertionError("Missing escaped assembly resolved: " + unresolvedName);
+            }
+        }
+        for (String invalidMissingName : new String[] {
+                "\"Missing\\\"Assembly\", Version=banana",
+                "Missing\\,Assembly, Version=banana",
+                "Missing\\\\, Version=banana"}) {
+            try {
+                Type.GetType("System.String, " + invalidMissingName);
+                throw new AssertionError("Invalid attribute ignored for missing assembly: " + invalidMissingName);
+            } catch (FileLoadException expected) {
+                // Attribute validation precedes selected assembly resolution.
+            }
+        }
+        try {
+            Type.GetType("System.String, Missing\\\\, Culture=123");
+            throw new AssertionError("Invalid culture ignored for missing assembly");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Missing-assembly culture parameter changed", expected);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
