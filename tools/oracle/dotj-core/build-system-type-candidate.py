@@ -232,6 +232,10 @@ def main():
         "emptyCurrentError": "System.InvalidOperationException",
         "memberCount": 1, "freshMove": True, "freshName": "added",
     }
+    primitive_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoPrimitiveMembersBehavior"]
+    assert primitive_members == {"count": 3, "flag": True, "large": 5000000000,
+                                 "ratio": 1.5,
+                                 "types": ["System.Boolean", "System.Int64", "System.Double"]}
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

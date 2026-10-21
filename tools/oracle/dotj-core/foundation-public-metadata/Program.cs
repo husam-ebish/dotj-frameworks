@@ -965,6 +965,28 @@ static object ObserveEmptySerializationInfoEnumeration()
         freshName = fresh.Name,
     };
 }
+static object ObserveSerializationInfoPrimitiveMembers()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("flag", true);
+    info.AddValue("large", 5000000000L);
+    info.AddValue("ratio", 1.5d);
+    var cursor = info.GetEnumerator();
+    var types = new List<string>();
+    while (cursor.MoveNext())
+    {
+        types.Add(cursor.ObjectType.FullName!);
+    }
+    return new
+    {
+        count = info.MemberCount,
+        flag = info.GetBoolean("flag"),
+        large = info.GetInt64("large"),
+        ratio = info.GetDouble("ratio"),
+        types,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1106,6 +1128,7 @@ var result = new
     selectedSerializationInfoEnumeratorBoundariesBehavior = ObserveSerializationInfoEnumeratorBoundaries(),
     selectedSerializationInfoEnumeratorMutationBehavior = ObserveSerializationInfoEnumeratorMutation(),
     selectedEmptySerializationInfoEnumerationBehavior = ObserveEmptySerializationInfoEnumeration(),
+    selectedSerializationInfoPrimitiveMembersBehavior = ObserveSerializationInfoPrimitiveMembers(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
