@@ -320,6 +320,10 @@ def main():
     assert len(nested_ignore_case) == 1
     assert nested_ignore_case[0]["exactMiss"]
     assert nested_ignore_case[0]["insensitiveSameReference"]
+    nested_qualified_ignore = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedQualifiedIgnoreCaseBehavior"]
+    assert len(nested_qualified_ignore) == 1
+    assert nested_qualified_ignore[0]["exactMiss"]
+    assert nested_qualified_ignore[0]["insensitiveSameReference"]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
