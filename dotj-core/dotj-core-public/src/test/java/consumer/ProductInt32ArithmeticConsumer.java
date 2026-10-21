@@ -177,6 +177,26 @@ public final class ProductInt32ArithmeticConsumer {
                 throw new AssertionError("Int32.Create BigInteger conversion changed");
             }
         }
+        double[] floatingValues = {Double.NEGATIVE_INFINITY, -2147483649.0,
+                -2147483648.75, -2147483648.0, -3.9, -0.5, 0.0, 0.5, 3.9,
+                2147483647.0, 2147483647.75, 2147483648.0,
+                Double.POSITIVE_INFINITY, Double.NaN};
+        int[] floatingResults = {Integer.MIN_VALUE, Integer.MIN_VALUE,
+                Integer.MIN_VALUE, Integer.MIN_VALUE, -3, 0, 0, 0, 3,
+                Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE,
+                Integer.MAX_VALUE, 0};
+        for (int index = 0; index < floatingValues.length; index++) {
+            double source = floatingValues[index];
+            if (index < 2 || index > 10) {
+                expectOverflow(() -> Int32.CreateChecked(source));
+            } else if (Int32.CreateChecked(source).get_Value() != floatingResults[index]) {
+                throw new AssertionError("Int32.CreateChecked Double changed");
+            }
+            if (Int32.CreateSaturating(source).get_Value() != floatingResults[index]
+                    || Int32.CreateTruncating(source).get_Value() != floatingResults[index]) {
+                throw new AssertionError("Int32.Create Double conversion changed");
+            }
+        }
         java.lang.System.out.println("PASS external selected Int32 signed arithmetic");
     }
 
