@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected Int32 ReadOnlySpan overloads and extra Java public declarations",
+  "signatureAudit": "int32-declared-signature-audit-v1.json",
+  "signatureAuditSha256": "5f355a09ba4df250c69f8b5b9ef0c7995a8732439b8878c04243c48ed2124c54",
+  "javacErasureProof": {
+    "javacRejected": true,
+    "diagnostic": "name clash: same erasure"
+  },
+  "clrOverloadCount": 10,
+  "javaCarrierMethodCount": 5,
+  "overloadMappings": [
+    {
+      "clrCharSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+      "clrByteSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+      "javaCarrierDeclaration": "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider);",
+      "requiredResolution": "Select the CLR overload from the source span element type before lowering to this JVM method"
+    },
+    {
+      "clrCharSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+      "clrByteSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+      "javaCarrierDeclaration": "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
+      "requiredResolution": "Select the CLR overload from the source span element type before lowering to this JVM method"
+    },
+    {
+      "clrCharSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, Int32 ByRef)",
+      "clrByteSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, Int32 ByRef)",
+      "javaCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider, System.Int32[]);",
+      "requiredResolution": "Select the CLR overload from the source span element type before lowering to this JVM method"
+    },
+    {
+      "clrCharSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, Int32 ByRef)",
+      "clrByteSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, Int32 ByRef)",
+      "javaCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Int32[]);",
+      "requiredResolution": "Select the CLR overload from the source span element type before lowering to this JVM method"
+    },
+    {
+      "clrCharSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], Int32 ByRef)",
+      "clrByteSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], Int32 ByRef)",
+      "javaCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Int32[]);",
+      "requiredResolution": "Select the CLR overload from the source span element type before lowering to this JVM method"
+    }
+  ],
+  "extraJavaPublicMethodCount": 18,
+  "extraJavaPublicMethods": [
+    {
+      "declaration": "public int get_Value();",
+      "disposition": "BOXED_VALUE_CARRIER_ACCESSOR; no CLR Int32 public Value property"
+    },
+    {
+      "declaration": "public boolean ToBoolean(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public char ToChar(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public byte ToSByte(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public short ToByte(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public short ToInt16(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public int ToUInt16(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public int ToInt32(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public long ToUInt32(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public long ToInt64(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public float ToSingle(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public double ToDouble(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public System.Decimal ToDecimal(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public System.DateTime ToDateTime(System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+      "disposition": "JAVA_PUBLIC_INTERFACE_BRIDGE; CLR IConvertible member is explicit"
+    },
+    {
+      "declaration": "public boolean equals(java.lang.Object);",
+      "disposition": "JAVA_OBJECT_INTEROP_BRIDGE; not a declared CLR Int32 method"
+    },
+    {
+      "declaration": "public int hashCode();",
+      "disposition": "JAVA_OBJECT_INTEROP_BRIDGE; not a declared CLR Int32 method"
+    }
+  ],
+  "status": "FRONTEND_TYPE_DIRECTED_LOWERING_AND_PUBLIC_BRIDGE_POLICY_REQUIRED; N01 OPEN",
+  "limitation": "This verifies a mapping contract and a javac rejection. No .j compiler consumes the mapping; it does not establish exact overload dispatch or hide extra Java public members."
+}

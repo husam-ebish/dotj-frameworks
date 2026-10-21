@@ -32,4 +32,6 @@ The [compiled `Int32` signature audit](evidence/int32-declared-signature-audit-v
 
 A selected `ReadOnlySpan<T>` carrier now supports character and UTF-8 byte views for the four `Parse` and six `TryParse` CLR span paths. The pinned oracle and packaged consumer check numeric, hexadecimal and invalid inputs. Java erasure collapses those ten distinct CLR overloads into five generic candidate declarations, so the audit still records ten missing one-to-one projected signatures and five collapsed carrier groups. The carrier is a heap object, unlike CLR's byref-like span; arbitrary slicing, lifetime constraints, full UTF-8 error behavior and exact overload identity remain open.
 
+The [erasure contract](evidence/int32-erasure-contract-v1.json) reruns a javac name-clash probe, links each byte/char CLR pair to its single Java carrier, and classifies all 18 extra public Java methods. A future `.j` frontend must resolve the source span element type before backend lowering and keep interface/carrier bridges out of the exact public contract. No compiler consumes this contract yet.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
