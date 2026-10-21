@@ -129,6 +129,12 @@ def main():
                       "\r\n   --- End of inner exception stack trace ---"
                       "\r\n   --- End of inner exception stack trace ---",
     }
+    assert metadata["selectedExceptionRuntimeTypeBehavior"] == {
+        "baseType": "System.Exception",
+        "argumentType": "System.ArgumentException",
+        "invalidOperationType": "System.InvalidOperationException",
+        "repeatedReference": True,
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 

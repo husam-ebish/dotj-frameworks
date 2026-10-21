@@ -54,6 +54,12 @@
     "twoLevel": "System.Exception: outer\r\n ---> System.Exception: inner\r\n   --- End of inner exception stack trace ---",
     "threeLevel": "System.ArgumentException: outer (Parameter 'value')\r\n ---> System.Exception: middle\r\n ---> System.InvalidOperationException: root\r\n   --- End of inner exception stack trace ---\r\n   --- End of inner exception stack trace ---"
   },
+  "selectedExceptionRuntimeTypeBehavior": {
+    "baseType": "System.Exception",
+    "argumentType": "System.ArgumentException",
+    "invalidOperationType": "System.InvalidOperationException",
+    "repeatedReference": true
+  },
   "selectedGetTypeBehavior": {
     "exact": {
       "result": "System.String",
@@ -11276,6 +11282,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "a5b4709ffea4e0d2ad1f8f9655135b9d5f6f5746ea02da63c84cc1cbd1d9109d",
+  "oracleProgramSha256": "6ca9d7b0d14cd8c5ffc2af5f426ddedf283aea3b7cf32f0dca493f49a3186444",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
