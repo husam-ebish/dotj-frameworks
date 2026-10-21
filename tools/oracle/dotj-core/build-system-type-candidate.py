@@ -290,6 +290,15 @@ def main():
     ]
     assert [item["hasElementType"] for item in elements] == [False] * 4 + [True] * 5
     assert [item["elementType"] for item in elements] == [None] * 4 + ["System.String"] * 5
+    construction = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedTypeConstructionBoundaryBehavior"]
+    assert construction == {
+        "byRefVector": {"result": None, "exception": "System.TypeLoadException"},
+        "byRefRankTwo": {"result": None, "exception": "System.TypeLoadException"},
+        "pointerVector": {"result": "System.String*[]", "exception": None},
+        "pointerByRef": {"result": "System.String*&", "exception": None},
+        "arrayByRef": {"result": "System.String[]&", "exception": None},
+        "byRefPointer": {"result": None, "exception": "System.TypeLoadException"},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

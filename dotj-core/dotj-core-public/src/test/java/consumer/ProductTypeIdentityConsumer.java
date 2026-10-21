@@ -203,6 +203,24 @@ public final class ProductTypeIdentityConsumer {
                 || pointer.GetElementType() != string) {
             throw new AssertionError("Selected element type flags changed");
         }
+        for (int rank : new int[] {1, 2}) {
+            try {
+                if (rank == 1) {
+                    byReference.MakeArrayType();
+                } else {
+                    byReference.MakeArrayType(rank);
+                }
+                throw new AssertionError("Array of by-reference type accepted");
+            } catch (TypeLoadException expected) {
+                // Selected pinned error type.
+            }
+        }
+        if (!"System.String*[]".equals(pointer.MakeArrayType().get_FullName())
+                || !"System.String*&".equals(pointer.MakeByRefType().get_FullName())
+                || Type.GetType("System.String[]").MakeByRefType()
+                    != Type.GetType("System.String[]&")) {
+            throw new AssertionError("Selected pointer/array construction changed");
+        }
         try {
             byReference.MakePointerType();
             throw new AssertionError("Pointer from by-reference type accepted");

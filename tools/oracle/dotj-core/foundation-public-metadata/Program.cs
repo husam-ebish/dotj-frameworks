@@ -168,6 +168,17 @@ static object ObserveGenericParameterConstraints(Type type)
             exception = exception.GetType().FullName };
     }
 }
+static object ObserveTypeConstruction(Func<Type> operation)
+{
+    try
+    {
+        return new { result = operation().FullName, exception = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?)null, exception = exception.GetType().FullName };
+    }
+}
 static object ObserveSubclass(Type type, Type? parent)
 {
     try
@@ -532,6 +543,15 @@ var result = new
         hasElementType = type.HasElementType,
         elementType = type.GetElementType()?.FullName,
     }).ToArray(),
+    selectedTypeConstructionBoundaryBehavior = new
+    {
+        byRefVector = ObserveTypeConstruction(() => typeof(string).MakeByRefType().MakeArrayType()),
+        byRefRankTwo = ObserveTypeConstruction(() => typeof(string).MakeByRefType().MakeArrayType(2)),
+        pointerVector = ObserveTypeConstruction(() => typeof(string).MakePointerType().MakeArrayType()),
+        pointerByRef = ObserveTypeConstruction(() => typeof(string).MakePointerType().MakeByRefType()),
+        arrayByRef = ObserveTypeConstruction(() => typeof(string[]).MakeByRefType()),
+        byRefPointer = ObserveTypeConstruction(() => typeof(string).MakeByRefType().MakePointerType()),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
