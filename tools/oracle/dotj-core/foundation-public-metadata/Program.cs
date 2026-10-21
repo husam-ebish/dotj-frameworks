@@ -968,6 +968,15 @@ var result = new
         missing = ObserveMethodFlags(typeof(IDisposable), "Missing", BindingFlags.Public | BindingFlags.Instance),
         nullName = ObserveMethodFlags(typeof(IDisposable), null, BindingFlags.Public | BindingFlags.Instance),
     },
+    selectedMethodEnumerationBehavior = new[]
+    {
+        typeof(IDisposable), typeof(IComparable), typeof(IFormattable), typeof(IFormatProvider),
+    }.Select(type => new { owner = type.FullName,
+        methods = type.GetMethods().Select(method => new
+        {
+            name = method.Name, kind = method.MemberType.ToString(),
+            declaring = method.DeclaringType?.FullName,
+        }).ToArray() }).ToArray(),
     selectedNestedTypeFlagsBehavior = new
     {
         publicChild = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PublicChild", BindingFlags.Public),

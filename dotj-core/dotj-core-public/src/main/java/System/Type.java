@@ -1419,6 +1419,10 @@ public abstract class Type extends MemberInfo {
         throw new UnsupportedOperationException("Flagged method enumeration is not mapped for this candidate type");
     }
 
+    public MethodInfo[] GetMethods() {
+        return this.GetMethods(BindingFlags.Public.or(BindingFlags.Instance));
+    }
+
     public MethodInfo GetMethod(String name) {
         if (name == null) {
             throw new ArgumentNullException("name");

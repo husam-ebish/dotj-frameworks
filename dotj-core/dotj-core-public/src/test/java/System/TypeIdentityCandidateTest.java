@@ -119,6 +119,14 @@ public final class TypeIdentityCandidateTest {
                     || owner.GetMethods(BindingFlags.NonPublic.or(BindingFlags.Instance)).length != 0) {
                 throw new AssertionError("Selected flagged interface method inventory changed");
             }
+            MethodInfo[] defaultMethods = owner.GetMethods();
+            if (defaultMethods.length != 1
+                    || !interfaceMethodNames[index].equals(defaultMethods[0].get_Name())
+                    || defaultMethods[0].get_MemberType() != MemberTypes.Method
+                    || defaultMethods[0].get_DeclaringType() != owner
+                    || defaultMethods == owner.GetMethods()) {
+                throw new AssertionError("Selected default interface method inventory changed");
+            }
             MethodInfo namedMethod = owner.GetMethod(interfaceMethodNames[index]);
             if (namedMethod == null
                     || !interfaceMethodNames[index].equals(namedMethod.get_Name())
