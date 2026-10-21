@@ -27,6 +27,7 @@ Type[] selected = [
     typeof(System.IO.FileNotFoundException),
     typeof(OverflowException),
     typeof(InvalidCastException),
+    typeof(InvalidOperationException),
     typeof(FormatException),
     typeof(System.Globalization.NumberStyles),
 ];
@@ -109,6 +110,18 @@ static string? ObserveNonEnumUnderlying()
     try
     {
         typeof(string).GetEnumUnderlyingType();
+        return null;
+    }
+    catch (Exception exception)
+    {
+        return exception.GetType().FullName;
+    }
+}
+static string? ObserveGenericDefinitionError(Type type)
+{
+    try
+    {
+        type.GetGenericTypeDefinition();
         return null;
     }
     catch (Exception exception)
@@ -430,6 +443,13 @@ var result = new
         name = type.FullName ?? type.Name,
         isGenericTypeDefinition = type.IsGenericTypeDefinition,
     }).ToArray(),
+    selectedGenericDefinitionErrorBehavior = new
+    {
+        objectType = ObserveGenericDefinitionError(typeof(object)),
+        stringType = ObserveGenericDefinitionError(typeof(string)),
+        parameter = ObserveGenericDefinitionError(typeof(List<>).GetGenericArguments()[0]),
+        array = ObserveGenericDefinitionError(typeof(string[])),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

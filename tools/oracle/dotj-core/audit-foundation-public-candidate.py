@@ -157,6 +157,10 @@ def main():
             assert header == "public class System.InvalidCastException extends System.SystemException {"
             assert len(constructors) == 4
             disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; errorCode/HRESULT semantics open"
+        elif name == "System.InvalidOperationException":
+            assert header == "public class System.InvalidOperationException extends System.SystemException {"
+            assert len(constructors) == 3
+            disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open"
         elif name == "System.FormatException":
             assert header == "public class System.FormatException extends System.SystemException {"
             assert len(constructors) == 3
@@ -188,7 +192,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 26
+    assert len(records) == 27
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -207,7 +211,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS twenty-six selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS twenty-seven selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":

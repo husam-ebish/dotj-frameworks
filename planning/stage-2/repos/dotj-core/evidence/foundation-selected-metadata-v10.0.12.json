@@ -789,6 +789,12 @@
       "isGenericTypeDefinition": false
     }
   ],
+  "selectedGenericDefinitionErrorBehavior": {
+    "objectType": "System.InvalidOperationException",
+    "stringType": "System.InvalidOperationException",
+    "parameter": "System.InvalidOperationException",
+    "array": "System.InvalidOperationException"
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -3948,6 +3954,38 @@
       ]
     },
     {
+      "fullName": "System.InvalidOperationException",
+      "baseType": "System.SystemException",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 0,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [],
+      "selectedProperties": [],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ]
+      ]
+    },
+    {
       "fullName": "System.FormatException",
       "baseType": "System.SystemException",
       "isInterface": false,
@@ -3994,6 +4032,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "159f0aac1200d28fe2c66e742096f12b782b733d0dea7a089c79b9800598810b",
+  "oracleProgramSha256": "91ec43ee1eb701db27bc505aae791634d96cc28f32bc29f302f3cd482404931e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

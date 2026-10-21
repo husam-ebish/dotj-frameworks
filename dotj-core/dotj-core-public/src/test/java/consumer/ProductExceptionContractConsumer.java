@@ -4,6 +4,7 @@ import System.ArgumentException;
 import System.ArgumentNullException;
 import System.Exception;
 import System.SystemException;
+import System.InvalidOperationException;
 
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
@@ -26,7 +27,10 @@ public final class ProductExceptionContractConsumer {
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5
-                || ArgumentNullException.class.getConstructors().length != 4) {
+                || ArgumentNullException.class.getConstructors().length != 4
+                || InvalidOperationException.class.getConstructors().length != 3
+                || !(new InvalidOperationException("invalid", inner) instanceof SystemException)
+                || new InvalidOperationException("invalid", inner).get_InnerException() != inner) {
             throw new AssertionError("Selected exception constructor counts changed");
         }
         java.lang.System.out.println("PASS external selected Exception constructors and inner identity");

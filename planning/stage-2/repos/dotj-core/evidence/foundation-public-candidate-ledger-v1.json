@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "74d23d6bc72be69a4a50d200d45fc6753fc4e0f7e213b4e6da890a8116567820",
-  "typeCount": 26,
+  "candidateJarSha256": "1d544fde0eabb352ca674e9dbe4b9cdea4f73f3f9d3007d4004d14fad65e7413",
+  "typeCount": 27,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -547,6 +547,24 @@
         "public System.InvalidCastException(java.lang.String, int);"
       ],
       "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; errorCode/HRESULT semantics open",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.InvalidOperationException",
+      "upstreamBaseType": "System.SystemException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 3,
+      "javaPublicConstructors": 3,
+      "javaPublicHeader": "public class System.InvalidOperationException extends System.SystemException {",
+      "javaPublicDeclarations": [
+        "public System.InvalidOperationException();",
+        "public System.InvalidOperationException(java.lang.String);",
+        "public System.InvalidOperationException(java.lang.String, System.Exception);"
+      ],
+      "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open",
       "qualified": false
     },
     {
