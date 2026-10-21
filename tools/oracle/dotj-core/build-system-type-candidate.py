@@ -224,6 +224,12 @@ def main():
                               "lowerCase": "12,345.00",
                               "negative": "-12,345.00",
                               "defaultPrecision": "42.00"}
+    currency_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32CurrencyFormatBehavior"]
+    assert currency_formats == {"defaultPrecision": "\u00a412,345.00",
+                                "zeroPrecision": "\u00a412,345",
+                                "lowerCase": "\u00a412,345.00",
+                                "negative": "(\u00a412,345.00)",
+                                "small": "\u00a442.00"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

@@ -429,6 +429,19 @@ var result = new
         defaultPrecision = ((IFormattable)42).ToString("N",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32CurrencyFormatBehavior = new
+    {
+        defaultPrecision = ((IFormattable)12345).ToString("C",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zeroPrecision = ((IFormattable)12345).ToString("C0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        lowerCase = ((IFormattable)12345).ToString("c2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-12345)).ToString("C2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        small = ((IFormattable)42).ToString("C",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
