@@ -28,6 +28,18 @@ public final class TypeIdentityCandidateTest {
         Type integer = Type.fromJavaClass(Integer.class);
         Type typeCodeEnum = Type.fromJavaClass(TypeCode.class);
         Type memberTypesEnum = Type.fromJavaClass(MemberTypes.class);
+        if (typeCodeEnum.GetEnumUnderlyingType() != integer
+                || memberTypesEnum.GetEnumUnderlyingType() != integer) {
+            throw new AssertionError("Selected enum underlying Type identity changed");
+        }
+        try {
+            integer.GetEnumUnderlyingType();
+            throw new AssertionError("Non-enum underlying Type accepted");
+        } catch (ArgumentException expected) {
+            if (!"enumType".equals(expected.get_ParamName())) {
+                throw new AssertionError("Non-enum underlying Type parameter changed", expected);
+            }
+        }
         String[] typeCodeNames = typeCodeEnum.GetEnumNames();
         if (typeCodeNames.length != 18 || !"Empty".equals(typeCodeNames[0])
                 || !"String".equals(typeCodeNames[17])

@@ -299,6 +299,12 @@ def main():
         "arrayType": None, "values": None,
         "exception": "System.ArgumentException", "paramName": "enumType",
     }
+    underlying_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumUnderlyingTypeBehavior"]
+    for key in ("typeCode", "memberTypes"):
+        assert underlying_type[key] == {"result": "System.Int32", "exception": None, "paramName": None}
+    assert underlying_type["nonEnum"] == {
+        "result": None, "exception": "System.ArgumentException", "paramName": "enumType",
+    }
     assert enum_names == {
         "typeCode": {"names": ["Empty", "Object", "DBNull", "Boolean", "Char", "SByte", "Byte",
                                "Int16", "UInt16", "Int32", "UInt32", "Int64", "UInt64", "Single",
