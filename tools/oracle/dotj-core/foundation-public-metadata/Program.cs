@@ -657,6 +657,13 @@ var result = new
         typeof(string[]), typeof(string[,]), typeof(string).MakeByRefType(),
         typeof(string).MakePointerType(), typeof(System.Collections.Generic.List<>).MakeArrayType(),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsTypeDefinition }).ToArray(),
+    selectedByRefLikeBehavior = new[]
+    {
+        typeof(string), typeof(int), typeof(string[]), typeof(string).MakeByRefType(),
+        typeof(System.Collections.Generic.List<string>),
+        typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
+        typeof(Span<int>), typeof(ReadOnlySpan<char>),
+    }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
     selectedNestedTypeToStringBehavior = new[]
     {
         typeof(System.Collections.Generic.List<string>[]),

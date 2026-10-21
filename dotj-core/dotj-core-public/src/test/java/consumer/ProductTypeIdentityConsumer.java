@@ -2041,6 +2041,12 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected IsTypeDefinition changed at " + index);
             }
         }
+        for (Type selected : new Type[] {string, integer, Type.GetType("System.String[]"),
+                string.MakeByRefType(), first, parameter}) {
+            if (selected.get_IsByRefLike()) {
+                throw new AssertionError("Represented Type became by-ref-like: " + selected.get_Name());
+            }
+        }
         int[] attributeValues = {0, 1, 2, 3, 4, 8, 16, 28, 32};
         GenericParameterAttributes[] attributes = GenericParameterAttributes.values();
         if (attributes.length != attributeValues.length) {
