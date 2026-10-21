@@ -27,6 +27,10 @@ public abstract class MethodBase extends MemberInfo {
 
     public abstract boolean get_IsFamily();
 
+    public abstract boolean get_IsFamilyAndAssembly();
+
+    public abstract boolean get_IsFamilyOrAssembly();
+
     public abstract boolean get_IsAssembly();
 
     public abstract boolean get_IsHideBySig();

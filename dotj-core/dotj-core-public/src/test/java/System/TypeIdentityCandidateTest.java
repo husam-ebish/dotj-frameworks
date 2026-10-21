@@ -205,6 +205,8 @@ public final class TypeIdentityCandidateTest {
                     || namedMethod.get_IsConstructor()
                     || namedMethod.get_IsPrivate()
                     || namedMethod.get_IsFamily()
+                    || namedMethod.get_IsFamilyAndAssembly()
+                    || namedMethod.get_IsFamilyOrAssembly()
                     || namedMethod.get_IsAssembly()
                     || !namedMethod.get_IsHideBySig()
                     || !namedMethod.get_CallingConvention().equals(standardInstance)
