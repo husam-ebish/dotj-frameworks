@@ -265,6 +265,29 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String fraction = precision == 0 ? "" : "." + "0".repeat(precision);
             return Integer.toString(this.value) + fraction;
         }
+        if (format.matches("[pP][0-9]*")) {
+            int precision;
+            try {
+                precision = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+            } catch (NumberFormatException expected) {
+                throw new FormatException("Format precision is invalid");
+            }
+            if (precision > 1000) {
+                throw new UnsupportedOperationException("Int32 precision is not mapped");
+            }
+            String digits = BigInteger.valueOf(this.value).abs()
+                    .multiply(BigInteger.valueOf(100)).toString();
+            StringBuilder grouped = new StringBuilder();
+            for (int index = 0; index < digits.length(); index++) {
+                if (index > 0 && (digits.length() - index) % 3 == 0) {
+                    grouped.append(',');
+                }
+                grouped.append(digits.charAt(index));
+            }
+            String sign = this.value < 0 ? "-" : "";
+            String fraction = precision == 0 ? "" : "." + "0".repeat(precision);
+            return sign + grouped + fraction + " %";
+        }
         if (format.equals("Q")) {
             throw new FormatException("Format specifier was invalid");
         }
