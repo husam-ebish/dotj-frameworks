@@ -54,6 +54,15 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetTypeCode(definition) != TypeCode.Object) {
             throw new AssertionError("Selected Type.GetTypeCode values changed");
         }
+        Object[] primitiveValues = {true, 'x', (byte) 2, (short) 3, 4L, 5.0f, 6.0d};
+        TypeCode[] primitiveCodes = {TypeCode.Boolean, TypeCode.Char, TypeCode.Byte,
+                TypeCode.Int16, TypeCode.Int64, TypeCode.Single, TypeCode.Double};
+        Type[] primitiveTypes = Type.GetTypeArray(primitiveValues);
+        for (int index = 0; index < primitiveCodes.length; index++) {
+            if (Type.GetTypeCode(primitiveTypes[index]) != primitiveCodes[index]) {
+                throw new AssertionError("Selected primitive TypeCode changed at " + index);
+            }
+        }
         Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
         if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
                 || mixedTypes[2] != Type.GetType("System.Exception")

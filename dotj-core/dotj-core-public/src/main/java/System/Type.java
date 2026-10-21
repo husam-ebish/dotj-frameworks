@@ -81,7 +81,14 @@ public abstract class Type extends MemberInfo {
             return GetTypeCode(type.GetEnumUnderlyingType());
         }
         if (type.definition == String.class) return TypeCode.String;
+        if (type.definition == Boolean.class || type.definition == boolean.class) return TypeCode.Boolean;
+        if (type.definition == Character.class || type.definition == char.class) return TypeCode.Char;
+        if (type.definition == Byte.class || type.definition == byte.class) return TypeCode.Byte;
+        if (type.definition == Short.class || type.definition == short.class) return TypeCode.Int16;
         if (type.definition == Int32.class) return TypeCode.Int32;
+        if (type.definition == Long.class || type.definition == long.class) return TypeCode.Int64;
+        if (type.definition == Float.class || type.definition == float.class) return TypeCode.Single;
+        if (type.definition == Double.class || type.definition == double.class) return TypeCode.Double;
         if (type.definition == Decimal.class) return TypeCode.Decimal;
         if (type.definition == DateTime.class) return TypeCode.DateTime;
         return TypeCode.Object;
