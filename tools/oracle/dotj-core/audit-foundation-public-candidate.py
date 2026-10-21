@@ -32,7 +32,11 @@ def main():
         header = next(line for line in lines if line.startswith("public ") and line.endswith("{"))
         declarations = [line for line in lines if line.startswith("public ") and line.endswith(";")]
         constructors = [line for line in declarations if line.startswith("public " + name + "(")]
-        assert len(constructors) == len(upstream["publicConstructors"])
+        if name == "System.Decimal":
+            assert constructors == ["public System.Decimal(int);"]
+            assert len(upstream["publicConstructors"]) == 9
+        else:
+            assert len(constructors) == len(upstream["publicConstructors"])
         if name == "System.IDisposable":
             assert declarations == ["public abstract void Dispose();"]
             disposition = "EXACT_SELECTED_INTERFACE_MEMBER; behavior and release unqualified"
@@ -64,7 +68,7 @@ def main():
                 "public abstract java.math.BigInteger ToUInt64(System.IFormatProvider);",
                 "public abstract float ToSingle(System.IFormatProvider);",
                 "public abstract double ToDouble(System.IFormatProvider);",
-                "public abstract java.math.BigDecimal ToDecimal(System.IFormatProvider);",
+                "public abstract System.Decimal ToDecimal(System.IFormatProvider);",
                 "public abstract java.time.LocalDateTime ToDateTime(System.IFormatProvider);",
                 "public abstract java.lang.String ToString(System.IFormatProvider);",
                 "public abstract java.lang.Object ToType(System.Type, System.IFormatProvider);",
@@ -99,6 +103,12 @@ def main():
             assert "public int get_Value();" in declarations
             assert upstream["declaredPublicMethodCount"] == 0
             disposition = "SELECTED_ENUM_VALUES; Java enum differs from CLR Enum"
+        elif name == "System.Decimal":
+            assert header == "public final class System.Decimal {"
+            assert declarations == ["public System.Decimal(int);",
+                                    "public java.lang.String ToString(System.IFormatProvider);"]
+            assert upstream["declaredPublicMethodCount"] == 78
+            disposition = "PARTIAL_VALUE_SURFACE; integer construction and invariant text only"
         else:
             assert header.startswith("public class " + name)
             if name == "System.Exception":
@@ -121,7 +131,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 17
+    assert len(records) == 18
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -140,7 +150,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS seventeen selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS eighteen selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":

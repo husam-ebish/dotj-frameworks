@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "6769faabdb28b98842be7dbd38781bc5086573b390acbfe4265f106a813ebf65",
-  "typeCount": 17,
+  "candidateJarSha256": "cafc964a0b7ae711b4855a34e94427bffd084c06cac6e2fdd9a730b0512582cc",
+  "typeCount": 18,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -95,7 +95,7 @@
         "public abstract java.math.BigInteger ToUInt64(System.IFormatProvider);",
         "public abstract float ToSingle(System.IFormatProvider);",
         "public abstract double ToDouble(System.IFormatProvider);",
-        "public abstract java.math.BigDecimal ToDecimal(System.IFormatProvider);",
+        "public abstract System.Decimal ToDecimal(System.IFormatProvider);",
         "public abstract java.time.LocalDateTime ToDateTime(System.IFormatProvider);",
         "public abstract java.lang.String ToString(System.IFormatProvider);",
         "public abstract java.lang.Object ToType(System.Type, System.IFormatProvider);"
@@ -137,6 +137,23 @@
         "public int get_Value();"
       ],
       "disposition": "SELECTED_ENUM_VALUES; Java enum differs from CLR Enum",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Decimal",
+      "upstreamBaseType": "System.ValueType",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 78,
+      "upstreamDeclaredProperties": 1,
+      "upstreamPublicConstructors": 9,
+      "javaPublicConstructors": 1,
+      "javaPublicHeader": "public final class System.Decimal {",
+      "javaPublicDeclarations": [
+        "public System.Decimal(int);",
+        "public java.lang.String ToString(System.IFormatProvider);"
+      ],
+      "disposition": "PARTIAL_VALUE_SURFACE; integer construction and invariant text only",
       "qualified": false
     },
     {

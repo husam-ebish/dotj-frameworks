@@ -19,6 +19,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 IDISPOSABLE_SOURCE = SOURCE.with_name("IDisposable.java")
 ICOMPARABLE_SOURCE = SOURCE.with_name("IComparable.java")
 IFORMATTABLE_SOURCE = SOURCE.with_name("IFormattable.java")
@@ -188,6 +189,10 @@ def main():
         ("UInt32", 10), ("Int64", 11), ("UInt64", 12), ("Single", 13),
         ("Double", 14), ("Decimal", 15), ("DateTime", 16), ("String", 18),
     ]
+    decimal = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDecimalBehavior"]
+    assert decimal == {"intText": "42", "fractionalText": "4.2",
+                       "intBits": [42, 0, 0, 0], "isValueType": True,
+                       "baseType": "System.ValueType"}
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,

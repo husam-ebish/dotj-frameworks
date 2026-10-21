@@ -610,6 +610,18 @@
       "number": 18
     }
   ],
+  "selectedDecimalBehavior": {
+    "intText": "42",
+    "fractionalText": "4.2",
+    "intBits": [
+      42,
+      0,
+      0,
+      0
+    ],
+    "isValueType": true,
+    "baseType": "System.ValueType"
+  },
   "selectedAssignability": [
     {
       "target": "System.Object",
@@ -1298,6 +1310,205 @@
       "selectedMethods": [],
       "selectedProperties": [],
       "publicConstructors": []
+    },
+    {
+      "fullName": "System.Decimal",
+      "baseType": "System.ValueType",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 78,
+      "declaredPublicPropertyCount": 1,
+      "selectedMethods": [
+        {
+          "name": "CompareTo",
+          "isStatic": false,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object"
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "isStatic": false,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Decimal"
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object"
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Decimal"
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "isStatic": true,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "d1",
+              "type": "System.Decimal"
+            },
+            {
+              "name": "d2",
+              "type": "System.Decimal"
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String"
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToInt32",
+          "isStatic": true,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "d",
+              "type": "System.Decimal"
+            }
+          ]
+        }
+      ],
+      "selectedProperties": [],
+      "publicConstructors": [
+        [
+          {
+            "name": "value",
+            "type": "System.Int32"
+          }
+        ],
+        [
+          {
+            "name": "value",
+            "type": "System.UInt32"
+          }
+        ],
+        [
+          {
+            "name": "value",
+            "type": "System.Int64"
+          }
+        ],
+        [
+          {
+            "name": "value",
+            "type": "System.UInt64"
+          }
+        ],
+        [
+          {
+            "name": "value",
+            "type": "System.Single"
+          }
+        ],
+        [
+          {
+            "name": "value",
+            "type": "System.Double"
+          }
+        ],
+        [
+          {
+            "name": "bits",
+            "type": "System.Int32[]"
+          }
+        ],
+        [
+          {
+            "name": "bits",
+            "type": "System.ReadOnlySpan`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+          }
+        ],
+        [
+          {
+            "name": "lo",
+            "type": "System.Int32"
+          },
+          {
+            "name": "mid",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hi",
+            "type": "System.Int32"
+          },
+          {
+            "name": "isNegative",
+            "type": "System.Boolean"
+          },
+          {
+            "name": "scale",
+            "type": "System.Byte"
+          }
+        ]
+      ]
     },
     {
       "fullName": "System.Type",
@@ -2029,6 +2240,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "e81a0317e5c8f26550667b2e2820129d5a6d1a3fc7e2c928a253380710b2f156",
+  "oracleProgramSha256": "2921377987fef6d6ce492d04228dec17878da98c7c11c6e54d7e94da78c7ab14",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

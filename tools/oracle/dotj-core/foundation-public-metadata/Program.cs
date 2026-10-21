@@ -9,6 +9,7 @@ Type[] selected = [
     typeof(IFormatProvider),
     typeof(IConvertible),
     typeof(TypeCode),
+    typeof(decimal),
     typeof(Type),
     typeof(MemberInfo),
     typeof(MemberTypes),
@@ -290,6 +291,15 @@ var result = new
     },
     selectedTypeCodeValues = Enum.GetValues<TypeCode>()
         .Select(value => new { name = value.ToString(), number = (int)value }).ToArray(),
+    selectedDecimalBehavior = new
+    {
+        intText = new decimal(42).ToString(System.Globalization.CultureInfo.InvariantCulture),
+        fractionalText = new decimal(42, 0, 0, false, 1)
+            .ToString(System.Globalization.CultureInfo.InvariantCulture),
+        intBits = decimal.GetBits(new decimal(42)),
+        isValueType = typeof(decimal).IsValueType,
+        baseType = typeof(decimal).BaseType?.FullName,
+    },
     selectedAssignability = new (Type Target, Type? Candidate)[]
     {
         (typeof(object), typeof(string)),
