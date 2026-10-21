@@ -543,6 +543,18 @@ var result = new
         isAssignableToValueType = typeof(double).IsAssignableTo(typeof(ValueType)),
         typeCode = Type.GetTypeCode(typeof(double)).ToString(),
     },
+    selectedByteTypeIdentityBehavior = new
+    {
+        name = typeof(byte).Name,
+        fullName = typeof(byte).FullName,
+        baseType = typeof(byte).BaseType?.FullName,
+        isPrimitive = typeof(byte).IsPrimitive,
+        isValueType = typeof(byte).IsValueType,
+        isSealed = typeof(byte).IsSealed,
+        isClass = typeof(byte).IsClass,
+        isAssignableToValueType = typeof(byte).IsAssignableTo(typeof(ValueType)),
+        typeCode = Type.GetTypeCode(typeof(byte)).ToString(),
+    },
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),

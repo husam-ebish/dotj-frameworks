@@ -129,6 +129,17 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetTypeCode(doubleType) != TypeCode.Double) {
             throw new AssertionError("Selected Double Type identity changed");
         }
+        Type byteType = Type.GetType("System.Byte");
+        if (byteType == null || byteType != primitiveTypes[2]
+                || !"Byte".equals(byteType.get_Name())
+                || !"System.Byte".equals(byteType.get_FullName())
+                || !"System.ValueType".equals(byteType.get_BaseType().get_FullName())
+                || !byteType.get_IsPrimitive() || !byteType.get_IsValueType()
+                || !byteType.get_IsSealed() || byteType.get_IsClass()
+                || !byteType.IsAssignableTo(Type.GetType("System.ValueType"))
+                || Type.GetTypeCode(byteType) != TypeCode.Byte) {
+            throw new AssertionError("Selected Byte Type identity changed");
+        }
         Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
         if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
                 || mixedTypes[2] != Type.GetType("System.Exception")
