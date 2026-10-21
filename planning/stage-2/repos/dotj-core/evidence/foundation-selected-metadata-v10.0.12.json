@@ -656,6 +656,48 @@
       "isSealed": false
     }
   ],
+  "selectedPublicBehavior": [
+    {
+      "name": "System.Object",
+      "isPublic": true
+    },
+    {
+      "name": "System.String",
+      "isPublic": true
+    },
+    {
+      "name": "System.Int32",
+      "isPublic": true
+    },
+    {
+      "name": "System.ValueType",
+      "isPublic": true
+    },
+    {
+      "name": "System.Array",
+      "isPublic": true
+    },
+    {
+      "name": "System.IComparable",
+      "isPublic": true
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "isPublic": true
+    },
+    {
+      "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "isPublic": true
+    },
+    {
+      "name": "System.String[]",
+      "isPublic": true
+    },
+    {
+      "name": "System.String&",
+      "isPublic": true
+    }
+  ],
   "selectedEnumBaseBehavior": {
     "enumBase": "System.Enum",
     "baseBase": "System.ValueType",
@@ -3243,6 +3285,10 @@
           "type": "System.Boolean"
         },
         {
+          "name": "IsPublic",
+          "type": "System.Boolean"
+        },
+        {
           "name": "IsEnum",
           "type": "System.Boolean"
         },
@@ -3811,6 +3857,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "07d2dcdd6be58584ade2aae43801c3dd80b6ba6c5ff170ab7738f45c90fbbeb4",
+  "oracleProgramSha256": "580dc5852d207e6037b1dbafcf0d72dc9ae075678d70d56da804697a120b5dc1",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
