@@ -852,6 +852,27 @@ public final class TypeIdentityCandidateTest {
         } catch (OverflowException expected) {
             // Pinned CLR failure type.
         }
+        if (selectedConverter.ToByte(42L) != 42
+                || selectedConverter.ToSByte(42L) != 42
+                || selectedConverter.ToInt16(42L) != 42
+                || selectedConverter.ToUInt16(42L) != 42
+                || selectedConverter.ToUInt32(42L) != 42L) {
+            throw new AssertionError("Selected Int64 narrowing values changed");
+        }
+        try {
+            selectedConverter.ToByte(5000000000L);
+            throw new AssertionError("Int64 to Byte overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        for (long value : new long[] {5000000000L, -1L}) {
+            try {
+                selectedConverter.ToUInt32(value);
+                throw new AssertionError("Int64 to UInt32 overflow accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
         for (Object value : new Object[] {"256", -1}) {
             try {
                 selectedConverter.ToByte(value);

@@ -169,6 +169,9 @@ public final class FormatterConverter implements IFormatterConverter {
             }
             return unsigned.shortValue();
         }
+        if (value instanceof Long number) {
+            return (short) checkedLong(number, 0, 255, "Byte");
+        }
         return convertible(value).ToByte(null);
     }
 
@@ -237,6 +240,9 @@ public final class FormatterConverter implements IFormatterConverter {
             }
             return parsed.shortValue();
         }
+        if (value instanceof Long number) {
+            return (short) checkedLong(number, Short.MIN_VALUE, Short.MAX_VALUE, "Int16");
+        }
         return convertible(value).ToInt16(null);
     }
 
@@ -300,6 +306,9 @@ public final class FormatterConverter implements IFormatterConverter {
             }
             return parsed.byteValue();
         }
+        if (value instanceof Long number) {
+            return (byte) checkedLong(number, -128, 127, "SByte");
+        }
         return convertible(value).ToSByte(null);
     }
 
@@ -356,6 +365,9 @@ public final class FormatterConverter implements IFormatterConverter {
             }
             return unsigned.intValue();
         }
+        if (value instanceof Long number) {
+            return (int) checkedLong(number, 0, 65535, "UInt16");
+        }
         return convertible(value).ToUInt16(null);
     }
 
@@ -375,7 +387,17 @@ public final class FormatterConverter implements IFormatterConverter {
             }
             return unsigned.longValue();
         }
+        if (value instanceof Long number) {
+            return checkedLong(number, 0, 4294967295L, "UInt32");
+        }
         return convertible(value).ToUInt32(null);
+    }
+
+    private static long checkedLong(long value, long minimum, long maximum, String target) {
+        if (value < minimum || value > maximum) {
+            throw new OverflowException("Value was outside the range of " + target);
+        }
+        return value;
     }
 
     private java.math.BigInteger checkedUInt64(java.math.BigInteger value) {

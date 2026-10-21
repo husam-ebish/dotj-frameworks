@@ -846,6 +846,16 @@
     "byteMax": "System.OverflowException",
     "u16Max": "System.OverflowException"
   },
+  "selectedInt64NarrowingConversionsBehavior": {
+    "byteSmall": 42,
+    "sbyteSmall": 42,
+    "int16Small": 42,
+    "u16Small": 42,
+    "u32Small": 42,
+    "byteLarge": "System.OverflowException",
+    "u32Large": "System.OverflowException",
+    "negativeU32": "System.OverflowException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16288,6 +16298,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "9cae2f6bbb9b868ddde7c933f4abe80944bbc76e8160c9e5d47f3ff526e3e0b0",
+  "oracleProgramSha256": "a3b037192041de63f051d4057e810056eb21d93a3607304e52eecbaa5b301663",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
