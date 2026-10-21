@@ -83,6 +83,12 @@ def main():
     assert dbnull_conversions["toTypeSelfSameReference"]
     assert dbnull_conversions["toTypeNull"] == "System.ArgumentNullException"
     assert dbnull_conversions["toTypeNullParameter"] == "targetType"
+    dbnull_interfaces = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDBNullInterfaceBehavior"]
+    assert dbnull_interfaces == {
+        "interfaces": ["System.Runtime.Serialization.ISerializable", "System.IConvertible"],
+        "convertibleAssignable": True, "convertibleInstance": True,
+        "convertibleInterface": "System.IConvertible",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

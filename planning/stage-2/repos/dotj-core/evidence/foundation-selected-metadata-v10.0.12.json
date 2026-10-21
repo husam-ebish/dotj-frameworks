@@ -74,6 +74,15 @@
     "toTypeNull": "System.ArgumentNullException",
     "toTypeNullParameter": "targetType"
   },
+  "selectedDBNullInterfaceBehavior": {
+    "interfaces": [
+      "System.Runtime.Serialization.ISerializable",
+      "System.IConvertible"
+    ],
+    "convertibleAssignable": true,
+    "convertibleInstance": true,
+    "convertibleInterface": "System.IConvertible"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15516,6 +15525,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "51655a2be12870db3b26da4fc09bbdb20961c6d5aaaba1dec255d79ce03ad89f",
+  "oracleProgramSha256": "a170df6809e645a4d3243226393c5ff28436e935a0705bc9020bfe1011e225f0",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
