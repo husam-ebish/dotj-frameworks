@@ -11,15 +11,19 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/IFormattable.java",
-      "sha256": "17c53a4344b717f22534fd0bac517383b480a0c2def730368c00bd86dd0ecb6c"
+      "sha256": "d02de917b861b6e7d8d4b9da968a9866d5ebcacca8634256753a24851de43a5a"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/IFormatProvider.java",
-      "sha256": "d44e3f684f9f896800432590b7556145324b84b96c2951b8c73a43b1ae5d4147"
+      "sha256": "f84dfc156c1c2468c7718dad3b755f1242800b3abda81079a8402b856bdd7a6e"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/IConvertible.java",
+      "sha256": "fbb10419abf2aaa88df3105dde5a6c21db4f395e5bdc5d78c31c042d87804ba8"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "6507bec34c753f8cbe91b9de1b5047c40ec64c2fd18a8ef1eaec1fdf4dd83b5f"
+      "sha256": "6870fdcd32521149e63ca05d2bd0ea708db33e9bf7891f536f7edd4938f10940"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -63,13 +67,14 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "0133903369dfff76f1286b0b15681fc54e286df9410c0cc23ebc55787923784e",
+  "jarSha256": "30937d7d3e1cb1b2eec0462531167526a8f69b99cb9c6baaea0e5a011ee3df6a",
   "jarEntries": [
     "META-INF/MANIFEST.MF",
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
     "System/Exception.class",
     "System/IComparable.class",
+    "System/IConvertible.class",
     "System/IDisposable.class",
     "System/IFormatProvider.class",
     "System/IFormattable.class",
@@ -94,6 +99,7 @@
     "System/ArgumentNullException.class": "5205ae5f1bb78d022c4d07bc8de08db8a938537b6a5433c2b6243d949ce6dccf",
     "System/Exception.class": "ec46b472c6bd47b0cc155d3167f9b3218e611659182fe149ab479462757900f8",
     "System/IComparable.class": "a3790e8568a32d4ea4d40c4c2f3bd2e3198cbf07ddcd8f25d994f716c62de227",
+    "System/IConvertible.class": "ab5d14e53df825fc387c7663772ac4b2a8052fee511a23c12683fd783c30a915",
     "System/IDisposable.class": "e308da2ce34102fc8c31e2d96beb0b54aba33b05aabe0e1e63196fb87ae5687b",
     "System/IFormatProvider.class": "8a9414053ba96284aafa6b6c25ca98792d85498b40bf046aa503c9bf1fc590e9",
     "System/IFormattable.class": "b3ca1e61f164d79774bafe705513ff85078977eba9fc6a189a817928300a1f05",
@@ -105,12 +111,12 @@
     "System/SystemException.class": "8a0ce898bd9a9a53c79f403b1685f06fd421a639e972bab3d2cb083581b3d169",
     "System/Type$1.class": "4f5977e37914e696b854d5e2bb796fee8dbdafcb06c7b7be0e8ed55682345021",
     "System/Type$2.class": "eefcfdd001453aa8c7547d0955b107a4c4a58ef3174f5bc8855cfd3bf35441da",
-    "System/Type$ArrayType.class": "dc968f30cb92009bc92d4805a0a7a2fe624ed131c5fd72a7f0ab0710d1007628",
-    "System/Type$ByRefType.class": "6b2360c631bd47ec430132ea21f6ecc2331918bcaacec943ed949eba22e10671",
-    "System/Type$GenericParameterType.class": "bd2e86e95a07d942d7b9d1cf7d162209a83a90ecd1d4417faf111d8a472ff346",
-    "System/Type$PointerType.class": "068a6bed745fbca4f949f3907687ed3c20f44291db388069364e580351bceca3",
-    "System/Type$ResolvedType.class": "c8d3895ea491e321610df42158e03c1222b3f752892b52eb3d9393606b3055dc",
-    "System/Type.class": "4d1625aef3886a367bf2699ab67c9ad3cd6f044076ce4a516d768882e1f28c5d",
+    "System/Type$ArrayType.class": "7507b78c3c5f791e392d5e3f9ae0092c5c50ca10af17784ff8073df4f139f9fd",
+    "System/Type$ByRefType.class": "3dc232f31a83f371ddf4bae4fbeb917be633dabc16499f8bc6d33553c0a6928f",
+    "System/Type$GenericParameterType.class": "42302c20dc92158cf6d585869dde6615d0b666f0d12631b47fd00727718c4f47",
+    "System/Type$PointerType.class": "10d6423851362616c8e67138e0d8aa29371ff45b136c7fbb93a64ab38df064a3",
+    "System/Type$ResolvedType.class": "a275b35aafc7ebb8163b7bf33324d75790e1f37c6261e20bab920a944fdd007c",
+    "System/Type.class": "9c8392e02579c4276fa5ef54afaf799c10446670b388bf703102b3c0712b37d5",
     "System/TypeLoadException.class": "5abf39d1265d20b8756e5215d23b19be75c13fb33def2c35f0736daf1ced4fac"
   },
   "disposalConsumer": "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation",

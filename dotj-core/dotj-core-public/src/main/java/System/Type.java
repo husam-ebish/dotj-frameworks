@@ -116,6 +116,7 @@ public abstract class Type extends MemberInfo {
             case "System.IComparable" -> fromJavaClass(IComparable.class);
             case "System.IFormattable" -> fromJavaClass(IFormattable.class);
             case "System.IFormatProvider" -> fromJavaClass(IFormatProvider.class);
+            case "System.IConvertible" -> fromJavaClass(IConvertible.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
@@ -152,6 +153,7 @@ public abstract class Type extends MemberInfo {
             case "system.icomparable" -> ignoreCase ? fromJavaClass(IComparable.class) : null;
             case "system.iformattable" -> ignoreCase ? fromJavaClass(IFormattable.class) : null;
             case "system.iformatprovider" -> ignoreCase ? fromJavaClass(IFormatProvider.class) : null;
+            case "system.iconvertible" -> ignoreCase ? fromJavaClass(IConvertible.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
@@ -386,7 +388,8 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsInterface() {
         return this.definition == IDisposable.class || this.definition == IComparable.class
-                || this.definition == IFormattable.class || this.definition == IFormatProvider.class;
+                || this.definition == IFormattable.class || this.definition == IFormatProvider.class
+                || this.definition == IConvertible.class;
     }
 
     public boolean get_IsEnum() {
@@ -411,6 +414,9 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this.definition == IFormattable.class && candidate.definition == Integer.class) {
+            return true;
+        }
+        if (this.definition == IConvertible.class && candidate.definition == Integer.class) {
             return true;
         }
         if (candidate.get_IsByRef() || candidate.get_IsPointer()) {
@@ -468,6 +474,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IFormattable.class) {
             return value instanceof Integer;
         }
+        if (this.definition == IConvertible.class) {
+            return value instanceof Integer;
+        }
         if (this.definition == java.lang.reflect.Array.class) {
             return value.getClass().isArray();
         }
@@ -511,6 +520,12 @@ public abstract class Type extends MemberInfo {
                 return fromJavaClass(IFormattable.class);
             }
             if (fullname.equals("system.iformattable")) {
+                return null;
+            }
+            if (fullname.equals("System.IConvertible") || fullname.equals("IConvertible")) {
+                return fromJavaClass(IConvertible.class);
+            }
+            if (fullname.equals("system.iconvertible")) {
                 return null;
             }
         }
