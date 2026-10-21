@@ -19,6 +19,7 @@ import System.Reflection.MemberTypes;
 import System.Collections.IDictionary;
 import System.Collections.ICollection;
 import System.Collections.IEnumerable;
+import System.Collections.IEnumerator;
 import System.Collections.IDictionaryEnumerator;
 import System.Collections.DictionaryEntry;
 
@@ -128,6 +129,12 @@ public final class ProductExceptionContractConsumer {
         verifyEnumeratorMutation(value -> value.set_Item("second", 20));
         verifyEnumeratorMutation(value -> value.Remove("second"));
         verifyEnumeratorMutation(IDictionary::Clear);
+        for (boolean keys : new boolean[]{true, false}) {
+            verifyViewEnumeratorMutation(keys, value -> value.Add("third", 3), 3);
+            verifyViewEnumeratorMutation(keys, value -> value.set_Item("second", 20), 2);
+            verifyViewEnumeratorMutation(keys, value -> value.Remove("second"), 1);
+            verifyViewEnumeratorMutation(keys, IDictionary::Clear, 0);
+        }
         while (boundaryEnumerator.MoveNext()) {
             // Advance beyond the final entry.
         }
@@ -303,6 +310,27 @@ public final class ProductExceptionContractConsumer {
         mutation.accept(value);
         if (!"first".equals(enumerator.get_Entry().get_Key())) {
             throw new AssertionError("Enumerator current entry changed after mutation");
+        }
+        expectInvalidEnumerator(() -> enumerator.MoveNext());
+        expectInvalidEnumerator(enumerator::Reset);
+    }
+
+    private static void verifyViewEnumeratorMutation(boolean keys,
+            java.util.function.Consumer<IDictionary> mutation, int expectedCount) {
+        IDictionary value = new Exception("views").get_Data();
+        value.Add("first", 1);
+        value.Add("second", 2);
+        ICollection view = keys ? value.get_Keys() : value.get_Values();
+        IEnumerator enumerator = view.GetEnumerator();
+        if (!enumerator.MoveNext()) {
+            throw new AssertionError("Dictionary view enumerator did not move");
+        }
+        Object first = enumerator.get_Current();
+        mutation.accept(value);
+        if (!java.util.Objects.equals(first, enumerator.get_Current())
+                || !java.util.Objects.equals(first, keys ? "first" : 1)
+                || view.get_Count() != expectedCount) {
+            throw new AssertionError("Dictionary view current or live count changed");
         }
         expectInvalidEnumerator(() -> enumerator.MoveNext());
         expectInvalidEnumerator(enumerator::Reset);
