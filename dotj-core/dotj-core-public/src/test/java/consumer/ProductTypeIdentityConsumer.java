@@ -129,6 +129,30 @@ public final class ProductTypeIdentityConsumer {
         if (Type.GetType("System.String, System.Private.CoreLib, UnknownAttr=foo", true) != string) {
             throw new AssertionError("Unknown assembly attribute rejected with throwOnError");
         }
+        for (String validWhitespace : new String[] {
+                "Version= 10.0.0.0 ", "Culture= neutral ",
+                "PublicKeyToken= 7cec85d7bea7798e ", "UnknownAttr=foo bar"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + validWhitespace) != string) {
+                throw new AssertionError("Selected outer/value whitespace rejected: " + validWhitespace);
+            }
+        }
+        for (String invalidWhitespace : new String[] {
+                "Version=10.0 .0.0", "PublicKeyToken=7cec85d7 bea7798e"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalidWhitespace);
+                throw new AssertionError("Invalid inner whitespace accepted: " + invalidWhitespace);
+            } catch (FileLoadException expected) {
+                // Selected pinned malformed value.
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, Culture=en US");
+            throw new AssertionError("Invalid inner culture space accepted");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Invalid culture parameter changed", expected);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

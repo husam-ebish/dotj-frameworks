@@ -147,7 +147,7 @@ public abstract class Type extends MemberInfo {
                             }
                         }
                     }
-                    if (key.equals("culture") && value.matches("[0-9]+")) {
+                    if (key.equals("culture") && (value.matches("[0-9]+") || value.contains(" "))) {
                         throw new CultureNotFoundException("name", value, "Culture is not supported");
                     }
                 }

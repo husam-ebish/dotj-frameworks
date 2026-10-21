@@ -408,6 +408,14 @@ def main():
         "numericCultureThrow": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
         "acceptedUnknownThrow": {"result": "System.String", "exception": None, "paramName": None},
     }
+    value_whitespace = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyValueWhitespaceBehavior"]
+    assert value_whitespace == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("versionOuterSpaces", "cultureOuterSpaces", "tokenOuterSpaces", "unknownInnerSpace")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("versionInnerSpace", "tokenInnerSpace")},
+        "cultureInnerSpace": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

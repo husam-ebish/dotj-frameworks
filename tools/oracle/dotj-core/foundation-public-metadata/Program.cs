@@ -688,6 +688,16 @@ var result = new
         numericCultureThrow = ObserveGetType("System.String, System.Private.CoreLib, Culture=123", true, false),
         acceptedUnknownThrow = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo", true, false),
     },
+    selectedAssemblyValueWhitespaceBehavior = new
+    {
+        versionOuterSpaces = ObserveGetType("System.String, System.Private.CoreLib, Version= 10.0.0.0 ", false, false),
+        versionInnerSpace = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0 .0.0", false, false),
+        cultureOuterSpaces = ObserveGetType("System.String, System.Private.CoreLib, Culture= neutral ", false, false),
+        cultureInnerSpace = ObserveGetType("System.String, System.Private.CoreLib, Culture=en US", false, false),
+        tokenOuterSpaces = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken= 7cec85d7bea7798e ", false, false),
+        tokenInnerSpace = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=7cec85d7 bea7798e", false, false),
+        unknownInnerSpace = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo bar", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
