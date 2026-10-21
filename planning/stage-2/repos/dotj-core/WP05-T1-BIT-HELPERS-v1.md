@@ -84,4 +84,6 @@ Selected trailing-sign parsing now works alone and with grouping, whitespace and
 
 Selected parentheses, grouped-decimal and grouped-exponent flag combinations now parse through a shared noncurrency path. Twenty-one pinned .NET 10 vectors cover sign and whitespace rejection, grouping confined to the integer part, exact fractional results and overflow across packaged string and both span carriers. Broader combinations and culture behavior remain open.
 
+Selected `AllowCurrencySymbol` compositions now route through the flag parser with provider currency separators when the symbol is present. Twenty-five pinned .NET 10 vectors cover symbol placement, forbidden whitespace, grouping, decimal, exponent and custom exponent-sign behavior across packaged string and both span carriers. Broader currency patterns and cultures remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

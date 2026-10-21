@@ -23577,6 +23577,170 @@
       }
     ]
   },
+  "selectedInt32CurrencyFlagStyles": {
+    "symbolValue": 256,
+    "symbol": [
+      {
+        "text": "USD42",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "42USD",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "USD 42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": " USD42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "~USD42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "USD42:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "42",
+        "success": true,
+        "value": 42,
+        "error": null
+      }
+    ],
+    "symbolGroupValue": 320,
+    "symbolGroup": [
+      {
+        "text": "USD12_345",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "12_345USD",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "USD_42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "USD12.345",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "  USD12_345",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "USD12_345:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ],
+    "symbolDecimalValue": 288,
+    "symbolDecimal": [
+      {
+        "text": "USD42:00",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "42:00USD",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "USD42:5",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      },
+      {
+        "text": "USD42=00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "USD12_345:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "42",
+        "success": true,
+        "value": 42,
+        "error": null
+      }
+    ],
+    "symbolExponentValue": 384,
+    "symbolExponent": [
+      {
+        "text": "USD42e1",
+        "success": true,
+        "value": 420,
+        "error": null
+      },
+      {
+        "text": "42e1USD",
+        "success": true,
+        "value": 420,
+        "error": null
+      },
+      {
+        "text": "USD42eplus1",
+        "success": true,
+        "value": 420,
+        "error": null
+      },
+      {
+        "text": "USD42:0e1",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "~USD42e1",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "USD42e~1",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      }
+    ]
+  },
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -26912,6 +27076,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "3086a1148514ae99c477f4332ab15a8d049ee7aeb7cd1ffa759ab097f189cad6",
+  "oracleProgramSha256": "2e83974d876849dbef93f06fef57b10d715485db6fb893f9947e3cd1cf4f7b54",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

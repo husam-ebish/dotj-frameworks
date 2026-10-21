@@ -282,6 +282,52 @@ public final class ProductInt32SpanConsumer {
         checkMoreCombinedStyles();
         checkTrailingSignStyles();
         checkGroupedDecimalStyles();
+        checkCurrencyFlagStyles();
+    }
+
+    private static void checkCurrencyFlagStyles() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        provider.set_CurrencySymbol("USD");
+        provider.set_CurrencyGroupSeparator("_");
+        provider.set_CurrencyDecimalSeparator(":");
+        provider.set_NumberGroupSeparator(".");
+        provider.set_NumberDecimalSeparator("=");
+        provider.set_PositiveSign("plus");
+        provider.set_NegativeSign("~");
+        NumberStyles symbolGroup = NumberStyles.AllowCurrencySymbol.Or(
+                NumberStyles.AllowThousands);
+        NumberStyles symbolDecimal = NumberStyles.AllowCurrencySymbol.Or(
+                NumberStyles.AllowDecimalPoint);
+        NumberStyles symbolExponent = NumberStyles.AllowCurrencySymbol.Or(
+                NumberStyles.AllowExponent);
+        if (symbolGroup.get_Value() != 320 || symbolDecimal.get_Value() != 288
+                || symbolExponent.get_Value() != 384) {
+            throw new AssertionError("Currency flag values changed");
+        }
+        checkSingleStyleVectors(NumberStyles.AllowCurrencySymbol, provider,
+                new String[] {"USD42", "42USD", "USD 42", " USD42", "~USD42",
+                        "USD42:00", "42"},
+                new int[] {42, 42, 0, 0, 0, 0, 42},
+                new Class<?>[] {null, null, FormatException.class, FormatException.class,
+                        FormatException.class, FormatException.class, null});
+        checkSingleStyleVectors(symbolGroup, provider,
+                new String[] {"USD12_345", "12_345USD", "USD_42", "USD12.345",
+                        "  USD12_345", "USD12_345:00"},
+                new int[] {12345, 12345, 0, 0, 0, 0},
+                new Class<?>[] {null, null, FormatException.class, FormatException.class,
+                        FormatException.class, FormatException.class});
+        checkSingleStyleVectors(symbolDecimal, provider,
+                new String[] {"USD42:00", "42:00USD", "USD42:5", "USD42=00",
+                        "USD12_345:00", "42"},
+                new int[] {42, 42, 0, 0, 0, 42},
+                new Class<?>[] {null, null, OverflowException.class,
+                        FormatException.class, FormatException.class, null});
+        checkSingleStyleVectors(symbolExponent, provider,
+                new String[] {"USD42e1", "42e1USD", "USD42eplus1", "USD42:0e1",
+                        "~USD42e1", "USD42e~1"},
+                new int[] {420, 420, 420, 0, 0, 0},
+                new Class<?>[] {null, null, null, FormatException.class,
+                        FormatException.class, OverflowException.class});
     }
 
     private static void checkGroupedDecimalStyles() {

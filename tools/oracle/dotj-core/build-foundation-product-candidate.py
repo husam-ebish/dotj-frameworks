@@ -392,6 +392,36 @@ def main():
             ]),
         )
     }
+    currency_flag_styles = {
+        "symbol": (256, ["USD42", "42USD", "USD 42", " USD42", "~USD42",
+                         "USD42:00", "42"],
+                   [42, 42, 0, 0, 0, 0, 42],
+                   [None, None, "Format", "Format", "Format", "Format", None]),
+        "symbolGroup": (320, ["USD12_345", "12_345USD", "USD_42",
+                              "USD12.345", "  USD12_345", "USD12_345:00"],
+                        [12345, 12345, 0, 0, 0, 0],
+                        [None, None, "Format", "Format", "Format", "Format"]),
+        "symbolDecimal": (288, ["USD42:00", "42:00USD", "USD42:5",
+                                "USD42=00", "USD12_345:00", "42"],
+                          [42, 42, 0, 0, 0, 42],
+                          [None, None, "Overflow", "Format", "Format", None]),
+        "symbolExponent": (384, ["USD42e1", "42e1USD", "USD42eplus1",
+                                 "USD42:0e1", "~USD42e1", "USD42e~1"],
+                           [420, 420, 420, 0, 0, 0],
+                           [None, None, None, "Format", "Format", "Overflow"]),
+    }
+    assert metadata["selectedInt32CurrencyFlagStyles"] == {
+        key: value
+        for name, (flags, texts, values, errors) in currency_flag_styles.items()
+        for key, value in (
+            (name + "Value", flags),
+            (name, [
+                {"text": text, "success": error is None, "value": value,
+                 "error": None if error is None else f"System.{error}Exception"}
+                for text, value, error in zip(texts, values, errors)
+            ]),
+        )
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
