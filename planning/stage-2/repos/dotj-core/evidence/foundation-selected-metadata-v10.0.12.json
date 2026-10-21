@@ -22753,6 +22753,152 @@
       "error": "System.OverflowException"
     }
   ],
+  "selectedInt32SingleStyles": {
+    "thousands": [
+      {
+        "text": "12_345",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "_123",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "123_",
+        "success": true,
+        "value": 123,
+        "error": null
+      },
+      {
+        "text": " 123",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "~123",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "123:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12__345",
+        "success": true,
+        "value": 12345,
+        "error": null
+      }
+    ],
+    "decimalPoint": [
+      {
+        "text": "42:00",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "42:5",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      },
+      {
+        "text": ":0",
+        "success": true,
+        "value": 0,
+        "error": null
+      },
+      {
+        "text": "42:",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "12_345",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": " 42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "~42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ],
+    "exponent": [
+      {
+        "text": "42e1",
+        "success": true,
+        "value": 420,
+        "error": null
+      },
+      {
+        "text": "420e~1",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "4:2e1",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "42",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": " 42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "~42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "42eplus1",
+        "success": true,
+        "value": 420,
+        "error": null
+      },
+      {
+        "text": "42e1plus",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "42e~1",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      }
+    ]
+  },
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -26088,6 +26234,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "66a3516e34fa7cd34c16b6e58feb171f6dd8a96368f9642c4db6db91496770ab",
+  "oracleProgramSha256": "593988d04b885d5c869115e2a8092b23020661bd5decf65a5e2332cc02448711",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -275,6 +275,67 @@ public final class ProductInt32SpanConsumer {
         }
         checkNumberBoundaries(numberStyle);
         checkFloatStyle(numberStyle);
+        checkSingleStyles(numberStyle);
+    }
+
+    private static void checkSingleStyles(NumberFormatInfo provider) {
+        checkSingleStyleVectors(NumberStyles.AllowThousands, provider,
+                new String[] {"12_345", "_123", "123_", " 123", "~123", "123:00", "12__345"},
+                new int[] {12345, 0, 123, 0, 0, 0, 12345},
+                new Class<?>[] {null, FormatException.class, null, FormatException.class,
+                        FormatException.class, FormatException.class, null});
+        checkSingleStyleVectors(NumberStyles.AllowDecimalPoint, provider,
+                new String[] {"42:00", "42:5", ":0", "42:", "12_345", " 42", "~42"},
+                new int[] {42, 0, 0, 42, 0, 0, 0},
+                new Class<?>[] {null, OverflowException.class, null, null,
+                        FormatException.class, FormatException.class, FormatException.class});
+        checkSingleStyleVectors(NumberStyles.AllowExponent, provider,
+                new String[] {"42e1", "420e~1", "4:2e1", "42", " 42", "~42",
+                        "42eplus1", "42e1plus", "42e~1"},
+                new int[] {420, 42, 0, 42, 0, 0, 420, 0, 0},
+                new Class<?>[] {null, null, FormatException.class, null,
+                        FormatException.class, FormatException.class, null,
+                        FormatException.class, OverflowException.class});
+    }
+
+    private static void checkSingleStyleVectors(NumberStyles style, NumberFormatInfo provider,
+            String[] texts, int[] values, Class<?>[] errors) {
+        for (int index = 0; index < texts.length; index++) {
+            String text = texts[index];
+            boolean success = errors[index] == null;
+            Int32[] result = new Int32[1];
+            if (Int32.TryParse(text, style, provider, result) != success
+                    || result[0].get_Value() != values[index]
+                    || Int32.TryParse(ReadOnlySpan.OfChars(text.toCharArray()),
+                    style, provider, result) != success
+                    || result[0].get_Value() != values[index]
+                    || Int32.TryParse(ReadOnlySpan.OfUtf8Bytes(
+                    text.getBytes(StandardCharsets.UTF_8)),
+                    style, provider, result) != success
+                    || result[0].get_Value() != values[index]) {
+                throw new AssertionError("Single NumberStyles TryParse changed: " + text);
+            }
+            if (success) {
+                if (Int32.Parse(text, style, provider).get_Value() != values[index]
+                        || Int32.Parse(ReadOnlySpan.OfChars(text.toCharArray()),
+                        style, provider).get_Value() != values[index]
+                        || Int32.Parse(ReadOnlySpan.OfUtf8Bytes(
+                        text.getBytes(StandardCharsets.UTF_8)),
+                        style, provider).get_Value() != values[index]) {
+                    throw new AssertionError("Single NumberStyles Parse changed: " + text);
+                }
+            } else {
+                try {
+                    Int32.Parse(text, style, provider);
+                    throw new AssertionError("Expected single NumberStyles error: " + text);
+                } catch (RuntimeException failure) {
+                    if (failure.getClass() != errors[index]) {
+                        throw new AssertionError("Wrong single NumberStyles error: " + text,
+                                failure);
+                    }
+                }
+            }
+        }
     }
 
     private static void checkFloatStyle(NumberFormatInfo provider) {

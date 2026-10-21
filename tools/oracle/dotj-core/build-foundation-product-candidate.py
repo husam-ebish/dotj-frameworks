@@ -239,6 +239,30 @@ def main():
         {"text": text, "success": error is None, "value": value, "error": error}
         for text, value, error in zip(float_texts, float_values, float_errors)
     ]
+    single_styles = {
+        "thousands": (
+            ["12_345", "_123", "123_", " 123", "~123", "123:00", "12__345"],
+            [12345, 0, 123, 0, 0, 0, 12345],
+            [None, "Format", None, "Format", "Format", "Format", None]),
+        "decimalPoint": (
+            ["42:00", "42:5", ":0", "42:", "12_345", " 42", "~42"],
+            [42, 0, 0, 42, 0, 0, 0],
+            [None, "Overflow", None, None, "Format", "Format", "Format"]),
+        "exponent": (
+            ["42e1", "420e~1", "4:2e1", "42", " 42", "~42",
+             "42eplus1", "42e1plus", "42e~1"],
+            [420, 42, 0, 42, 0, 0, 420, 0, 0],
+            [None, None, "Format", None, "Format", "Format", None,
+             "Format", "Overflow"]),
+    }
+    assert metadata["selectedInt32SingleStyles"] == {
+        name: [
+            {"text": text, "success": error is None, "value": value,
+             "error": None if error is None else f"System.{error}Exception"}
+            for text, value, error in zip(texts, values, errors)
+        ]
+        for name, (texts, values, errors) in single_styles.items()
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

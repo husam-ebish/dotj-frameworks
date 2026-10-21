@@ -798,6 +798,36 @@ static object ObserveInt32FloatStyle()
         return new { text, success, value, error };
     }).ToArray();
 }
+static object ObserveInt32SingleStyles()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = ":",
+        NumberGroupSeparator = "_",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    return new
+    {
+        thousands = ObserveInt32SingleStyle(System.Globalization.NumberStyles.AllowThousands,
+            ["12_345", "_123", "123_", " 123", "~123", "123:00", "12__345"], provider),
+        decimalPoint = ObserveInt32SingleStyle(System.Globalization.NumberStyles.AllowDecimalPoint,
+            ["42:00", "42:5", ":0", "42:", "12_345", " 42", "~42"], provider),
+        exponent = ObserveInt32SingleStyle(System.Globalization.NumberStyles.AllowExponent,
+            ["42e1", "420e~1", "4:2e1", "42", " 42", "~42", "42eplus1",
+                "42e1plus", "42e~1"], provider),
+    };
+}
+static object ObserveInt32SingleStyle(System.Globalization.NumberStyles style,
+    string[] texts, System.Globalization.NumberFormatInfo provider)
+{
+    return texts.Select(text =>
+    {
+        bool success = int.TryParse(text, style, provider, out int value);
+        string? error = ObserveInt32Error(() => int.Parse(text, style, provider));
+        return new { text, success, value, error };
+    }).ToArray();
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -5187,6 +5217,7 @@ var result = new
     selectedInt32NumberStyleProviderBehavior = ObserveInt32NumberStyleProvider(),
     selectedInt32NumberStyleBoundaries = ObserveInt32NumberStyleBoundaries(),
     selectedInt32FloatStyle = ObserveInt32FloatStyle(),
+    selectedInt32SingleStyles = ObserveInt32SingleStyles(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",
