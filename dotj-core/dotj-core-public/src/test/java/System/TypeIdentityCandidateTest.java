@@ -26,6 +26,19 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        Type[] characterSetTypes = {string, integer, Type.fromJavaClass(TypeCode.class),
+                Type.fromJavaClass(IDisposable.class), Type.fromJavaClass(List.class),
+                Type.fromJavaClass(List.class).MakeGenericType(new Type[] {string}),
+                Type.fromJavaClass(List.class).GetGenericArguments()[0],
+                string.MakeArrayType(), string.MakeByRefType(),
+                Type.fromJavaClass(Map.Entry.class)};
+        for (Type characterSetType : characterSetTypes) {
+            if (!characterSetType.get_IsAnsiClass()
+                    || characterSetType.get_IsUnicodeClass()
+                    || characterSetType.get_IsAutoClass()) {
+                throw new AssertionError("Selected Type character-set flags changed");
+            }
+        }
         if (string.get_IsSpecialName()
                 || Type.fromJavaClass(TypeCode.class).get_IsSpecialName()
                 || Type.fromJavaClass(List.class).get_IsSpecialName()

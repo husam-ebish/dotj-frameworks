@@ -762,6 +762,16 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedCharacterSetBehavior = new[]
+    {
+        typeof(string), typeof(int), typeof(TypeCode), typeof(IDisposable),
+        typeof(List<>), typeof(List<string>),
+        typeof(List<>).GetGenericArguments()[0], typeof(string[]),
+        typeof(string).MakeByRefType(),
+        typeof(System.Collections.Generic.Dictionary<string, int>.KeyCollection),
+    }.Select(type => new { name = type.FullName ?? type.Name,
+        isAnsiClass = type.IsAnsiClass, isUnicodeClass = type.IsUnicodeClass,
+        isAutoClass = type.IsAutoClass }).ToArray(),
     selectedSpecialNameBehavior = new[]
     {
         typeof(string), typeof(TypeCode), typeof(List<>),
