@@ -281,6 +281,10 @@ public final class TypeIdentityCandidateTest {
             if (index == 2) {
                 if (returnParameter.GetCustomAttributes(
                         Type.fromJavaClass(NullableAttribute.class), true).length != 1
+                        || !returnParameter.IsDefined(Type.fromJavaClass(Attribute.class), false)
+                        || !returnParameter.IsDefined(Type.fromJavaClass(NullableAttribute.class), true)
+                        || namedMethod.GetParameters()[0].IsDefined(
+                            Type.fromJavaClass(Attribute.class), false)
                         || namedMethod.GetParameters()[0].GetCustomAttributes(
                             Type.fromJavaClass(Attribute.class), false).length != 0) {
                     throw new AssertionError("Selected attribute type filtering changed");
@@ -291,6 +295,14 @@ public final class TypeIdentityCandidateTest {
                 } catch (ArgumentNullException expected) {
                     if (!"attributeType".equals(expected.get_ParamName())) {
                         throw new AssertionError("Null attribute type parameter changed");
+                    }
+                }
+                try {
+                    returnParameter.IsDefined(null, false);
+                    throw new AssertionError("Null IsDefined attribute type was accepted");
+                } catch (ArgumentNullException expected) {
+                    if (!"attributeType".equals(expected.get_ParamName())) {
+                        throw new AssertionError("Null IsDefined parameter changed");
                     }
                 }
             }

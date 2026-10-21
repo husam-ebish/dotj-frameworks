@@ -404,6 +404,11 @@ def main():
         "inputBase": [], "nullError": "System.ArgumentNullException",
         "nullParameter": "attributeType",
     }
+    attribute_defined = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterIsDefinedBehavior"]
+    assert attribute_defined == {
+        "returnBase": True, "returnExact": True, "inputBase": False,
+        "nullError": "System.ArgumentNullException", "nullParameter": "attributeType",
+    }
     parameter_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterModifierBehavior"]
     assert [len(row["parameters"]) for row in parameter_modifiers] == [1, 2, 3, 2]
     assert all(parameter["optional"] == [] and parameter["required"] == []
