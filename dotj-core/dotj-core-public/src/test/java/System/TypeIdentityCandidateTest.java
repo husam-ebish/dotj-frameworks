@@ -341,6 +341,51 @@ public final class TypeIdentityCandidateTest {
                 || !"System.SByte".equals(byteCursor.get_ObjectType().get_FullName())) {
             throw new AssertionError("Selected byte serialization members changed");
         }
+        SerializationInfo byteConversions = new SerializationInfo(dbnullType, selectedConverter);
+        byteConversions.AddValue("byteText", "255");
+        byteConversions.AddValue("sbyteText", "-128");
+        if (byteConversions.GetByte("byteText") != 255
+                || byteConversions.GetSByte("sbyteText") != -128
+                || selectedConverter.ToByte(200) != 200
+                || selectedConverter.ToSByte(-5) != -5
+                || !Short.valueOf((short) 200).equals(selectedConverter.Convert("200", Type.GetType("System.Byte")))
+                || !java.lang.Byte.valueOf((byte) -5).equals(selectedConverter.Convert("-5", TypeCode.SByte))) {
+            throw new AssertionError("Selected byte conversions changed");
+        }
+        for (Object value : new Object[] {"256", -1}) {
+            try {
+                selectedConverter.ToByte(value);
+                throw new AssertionError("Byte overflow accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        for (Object value : new Object[] {"128", -129}) {
+            try {
+                selectedConverter.ToSByte(value);
+                throw new AssertionError("SByte overflow accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToByte("bad");
+            throw new AssertionError("Invalid Byte text accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToSByte("bad");
+            throw new AssertionError("Invalid SByte text accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToByte(null);
+            throw new AssertionError("Null Byte value accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")

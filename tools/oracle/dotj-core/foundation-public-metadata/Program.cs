@@ -1316,6 +1316,29 @@ static object ObserveSerializationInfoByteMembers()
         sbyteTypeCode = Type.GetTypeCode(typeof(sbyte)).ToString(),
     };
 }
+static object ObserveSerializationInfoByteConversions()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("byteText", "255");
+    info.AddValue("sbyteText", "-128");
+    return new
+    {
+        byteText = info.GetByte("byteText"),
+        sbyteText = info.GetSByte("sbyteText"),
+        byteInteger = converter.ToByte(200),
+        sbyteInteger = converter.ToSByte(-5),
+        byteType = converter.Convert("200", typeof(byte)),
+        sbyteTypeCode = converter.Convert("-5", TypeCode.SByte),
+        byteOverflowHigh = ObserveMethodError(() => converter.ToByte("256")),
+        byteOverflowLow = ObserveMethodError(() => converter.ToByte(-1)),
+        sbyteOverflowHigh = ObserveMethodError(() => converter.ToSByte("128")),
+        sbyteOverflowLow = ObserveMethodError(() => converter.ToSByte(-129)),
+        byteFormat = ObserveMethodError(() => converter.ToByte("bad")),
+        sbyteFormat = ObserveMethodError(() => converter.ToSByte("bad")),
+        byteNull = ObserveMethodError(() => converter.ToByte(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1474,6 +1497,7 @@ var result = new
     selectedSerializationInfoNumericOverloadsBehavior = ObserveSerializationInfoNumericOverloads(),
     selectedSerializationInfoUnsignedMembersBehavior = ObserveSerializationInfoUnsignedMembers(),
     selectedSerializationInfoByteMembersBehavior = ObserveSerializationInfoByteMembers(),
+    selectedSerializationInfoByteConversionsBehavior = ObserveSerializationInfoByteConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
