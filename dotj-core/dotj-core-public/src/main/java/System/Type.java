@@ -663,6 +663,10 @@ public abstract class Type extends MemberInfo {
         return this.definition.isArray();
     }
 
+    public boolean get_IsVariableBoundArray() {
+        return this.get_IsArray() && !this.get_IsSZArray();
+    }
+
     public boolean get_IsByRef() {
         return false;
     }

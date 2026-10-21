@@ -77,7 +77,7 @@ def main():
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsGenericTypeDefinition", "ContainsGenericParameters", "IsConstructedGenericType",
-            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsSZArray", "IsByRef", "IsPointer",
+            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsSZArray", "IsVariableBoundArray", "IsByRef", "IsPointer",
             "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed", "IsPublic", "IsVisible",
             "IsInterface", "IsEnum"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
@@ -273,6 +273,11 @@ def main():
     assert sz_arrays[6]["name"].endswith("]][]")
     assert [item["isSzArray"] for item in sz_arrays] == [
         False, True, True, False, False, False, True,
+    ]
+    variable_arrays = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedVariableBoundArrayBehavior"]
+    assert [item["name"] for item in variable_arrays] == [item["name"] for item in sz_arrays]
+    assert [item["isVariableBoundArray"] for item in variable_arrays] == [
+        False, False, False, True, True, True, False,
     ]
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
@@ -561,6 +566,7 @@ def main():
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
         "public boolean get_IsSZArray();",
+        "public boolean get_IsVariableBoundArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",
         "public System.Type GetElementType();",

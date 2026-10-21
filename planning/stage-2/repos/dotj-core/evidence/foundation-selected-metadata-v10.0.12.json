@@ -885,6 +885,36 @@
       "isSzArray": true
     }
   ],
+  "selectedVariableBoundArrayBehavior": [
+    {
+      "name": "System.Object",
+      "isVariableBoundArray": false
+    },
+    {
+      "name": "System.String[]",
+      "isVariableBoundArray": false
+    },
+    {
+      "name": "System.String[][]",
+      "isVariableBoundArray": false
+    },
+    {
+      "name": "System.String[*]",
+      "isVariableBoundArray": true
+    },
+    {
+      "name": "System.String[,]",
+      "isVariableBoundArray": true
+    },
+    {
+      "name": "System.String[,,]",
+      "isVariableBoundArray": true
+    },
+    {
+      "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][]",
+      "isVariableBoundArray": false
+    }
+  ],
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -3500,6 +3530,10 @@
           "type": "System.Boolean"
         },
         {
+          "name": "IsVariableBoundArray",
+          "type": "System.Boolean"
+        },
+        {
           "name": "GenericTypeArguments",
           "type": "System.Type[]"
         },
@@ -4132,6 +4166,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "9463792ba95855d447931019547eba96480c01e5a1db10f1dfa41e7729ffc438",
+  "oracleProgramSha256": "436d3cac40c20a3e33c7800aa5f63cc2977ae2468b314188f18e3284ab7fd495",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
