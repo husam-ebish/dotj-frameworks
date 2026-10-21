@@ -1006,6 +1006,21 @@ static object ObserveSerializationInfoPrimitiveConversions()
             .Convert("1.5", TypeCode.Double),
     };
 }
+static object ObservePrimitiveConversionErrors()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    return new
+    {
+        malformedLong = ObserveMethodError(() => converter.ToInt64("oops")),
+        overflowLong = ObserveMethodError(() => converter.ToInt64("9223372036854775808")),
+        overflowInt = ObserveMethodError(() => converter.ToInt32(5000000000L)),
+        malformedDouble = ObserveMethodError(() => converter.ToDouble("oops")),
+        nullLong = ObserveMethodError(() => converter.ToInt64(null!)),
+        nullLongParameter = ObserveMethodArgumentName(() => converter.ToInt64(null!)),
+        nullDouble = ObserveMethodError(() => converter.ToDouble(null!)),
+        nullDoubleParameter = ObserveMethodArgumentName(() => converter.ToDouble(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1149,6 +1164,7 @@ var result = new
     selectedEmptySerializationInfoEnumerationBehavior = ObserveEmptySerializationInfoEnumeration(),
     selectedSerializationInfoPrimitiveMembersBehavior = ObserveSerializationInfoPrimitiveMembers(),
     selectedSerializationInfoPrimitiveConversionsBehavior = ObserveSerializationInfoPrimitiveConversions(),
+    selectedPrimitiveConversionErrorsBehavior = ObservePrimitiveConversionErrors(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

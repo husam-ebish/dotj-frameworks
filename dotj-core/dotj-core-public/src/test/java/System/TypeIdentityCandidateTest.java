@@ -257,6 +257,46 @@ public final class TypeIdentityCandidateTest {
                 || !Double.valueOf(1.5d).equals(selectedConverter.Convert("1.5", TypeCode.Double))) {
             throw new AssertionError("Selected primitive serialization conversions changed");
         }
+        try {
+            selectedConverter.ToInt64("oops");
+            throw new AssertionError("Malformed Int64 conversion was accepted");
+        } catch (FormatException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            selectedConverter.ToInt64("9223372036854775808");
+            throw new AssertionError("Overflowing Int64 conversion was accepted");
+        } catch (OverflowException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            selectedConverter.ToInt32(5000000000L);
+            throw new AssertionError("Overflowing Int32 conversion was accepted");
+        } catch (OverflowException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            selectedConverter.ToDouble("oops");
+            throw new AssertionError("Malformed Double conversion was accepted");
+        } catch (FormatException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            selectedConverter.ToInt64(null);
+            throw new AssertionError("Null Int64 conversion was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null Int64 parameter changed");
+            }
+        }
+        try {
+            selectedConverter.ToDouble(null);
+            throw new AssertionError("Null Double conversion was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null Double parameter changed");
+            }
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }

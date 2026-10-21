@@ -242,6 +242,15 @@ def main():
         "decimalTextAsDouble": 1.5, "longAsInt": 5,
         "integerTextByType": 17, "decimalTextByTypeCode": 1.5,
     }
+    primitive_errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveConversionErrorsBehavior"]
+    assert primitive_errors == {
+        "malformedLong": "System.FormatException",
+        "overflowLong": "System.OverflowException",
+        "overflowInt": "System.OverflowException",
+        "malformedDouble": "System.FormatException",
+        "nullLong": "System.ArgumentNullException", "nullLongParameter": "value",
+        "nullDouble": "System.ArgumentNullException", "nullDoubleParameter": "value",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
