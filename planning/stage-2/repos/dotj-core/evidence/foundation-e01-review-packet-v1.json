@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "scope": "Current built dotj-core foundation candidate only; no release decision",
+  "candidateJarSha256": "1329c0bed0af26dd766e5c7ee6745a8925b5a40b0460d641f54f4f777d4d9687",
+  "candidateJarEvidence": "foundation-product-candidate-v1.json",
+  "referenceProfile": {
+    "release": "10.0.12",
+    "tagCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+    "baselineStatus": "PARTIAL"
+  },
+  "jdkToolchain": {
+    "distribution": "Microsoft OpenJDK",
+    "version": "21.0.12.1+1-LTS",
+    "binaryHashesSha256": {
+      "bin/java.exe": "1f41cc782de7ddd8824376568f9011413d710cf225047906106d2a01a0e3f7a9",
+      "bin/javac.exe": "00ff52b49ba8cb2de4718fade93f411549d704eb869641eaa69986608a452a26",
+      "bin/jar.exe": "cb2ac2389d5689d9930e997be4a33c564906d5d8afa9cf2b115c1be5654a7584"
+    }
+  },
+  "productLicense": {
+    "identifier": "MIT",
+    "sourceFile": "dotj-core/LICENSE",
+    "sourceSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
+    "jarEntry": "META-INF/LICENSE",
+    "javaSourcesWithIdentifier": 31
+  },
+  "boundedSourceScreen": {
+    "productSources": 31,
+    "directNameMatchedPinnedFiles": 30,
+    "missingDirectNamePath": 1,
+    "throwSiteAdjacentFilesCompared": 2,
+    "reviewQueueEvidence": "foundation-notice-review-queue-v1.json",
+    "throwSiteEvidence": "throw-site-upstream-adjacency-v1.json"
+  },
+  "upstreamReferenceNoticesNotInJar": [
+    "planning/stage-2/repos/dotj-core/evidence/notices/LICENSE.TXT",
+    "planning/stage-2/repos/dotj-core/evidence/notices/THIRD-PARTY-NOTICES.TXT"
+  ],
+  "openDecisions": [
+    {
+      "id": "SOURCE_AND_NOTICE_APPLICABILITY",
+      "status": "OPEN",
+      "evidence": "foundation-notice-review-queue-v1.json",
+      "question": "Which pinned upstream or third-party notices, if any, apply to the 31 Java source files and compiled classes?"
+    },
+    {
+      "id": "REFERENCE_AND_DEPENDENCY_RIGHTS",
+      "status": "OPEN",
+      "evidence": "baseline-lock.json",
+      "question": "Are the selected reference, generated-output and dependency rights sufficient for the intended distribution profile?"
+    },
+    {
+      "id": "RELEASE_REVIEW",
+      "status": "OPEN",
+      "evidence": "foundation-rights-inputs-v1.json",
+      "question": "Has the required repository licensing review approved this exact candidate and its distribution notices?"
+    }
+  ],
+  "qualification": "E01_OPEN; NOT_RELEASE_QUALIFIED",
+  "limitation": "License labels, archive contents, local Git history and bounded source comparisons are technical inputs, not a rights determination."
+}
