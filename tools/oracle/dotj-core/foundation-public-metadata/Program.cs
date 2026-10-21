@@ -1726,6 +1726,19 @@ static object ObserveFloatingTextConversions()
         negativeInfinityText = converter.ToString(double.NegativeInfinity),
     };
 }
+static object ObserveBooleanTextConversions()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    return new
+    {
+        paddedTrue = converter.ToBoolean("  True  "),
+        mixedCaseFalse = converter.ToBoolean("fAlSe"),
+        tabbedTrue = converter.ToBoolean("\ttrue\r\n"),
+        numericText = ObserveMethodError(() => converter.ToBoolean("1")),
+        emptyText = ObserveMethodError(() => converter.ToBoolean("")),
+        nullValue = ObserveMethodError(() => converter.ToBoolean(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1909,6 +1922,7 @@ var result = new
     selectedFloatingFormatterConversionsBehavior = ObserveFloatingFormatterConversions(),
     selectedFloatingExceptionalBoundariesBehavior = ObserveFloatingExceptionalBoundaries(),
     selectedFloatingTextConversionsBehavior = ObserveFloatingTextConversions(),
+    selectedBooleanTextConversionsBehavior = ObserveBooleanTextConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

@@ -139,10 +139,11 @@ public final class FormatterConverter implements IFormatterConverter {
     @Override
     public boolean ToBoolean(Object value) {
         if (value instanceof String text) {
-            if (text.equalsIgnoreCase("true")) {
+            String trimmed = text.trim();
+            if (trimmed.equalsIgnoreCase("true")) {
                 return true;
             }
-            if (text.equalsIgnoreCase("false")) {
+            if (trimmed.equalsIgnoreCase("false")) {
                 return false;
             }
             throw new FormatException("Input string was not in a correct format");
