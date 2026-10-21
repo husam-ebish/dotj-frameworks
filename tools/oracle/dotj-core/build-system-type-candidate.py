@@ -307,6 +307,11 @@ def main():
     assert nested_pointer_lookup[0]["name"].endswith("]]*")
     assert nested_pointer_lookup[0]["fullNameSameReference"]
     assert nested_pointer_lookup[0]["qualifiedSameReference"]
+    nested_composite_lookup = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedCompositeLookupBehavior"]
+    assert len(nested_composite_lookup) == 1
+    assert nested_composite_lookup[0]["name"].endswith("]][]&")
+    assert nested_composite_lookup[0]["fullNameSameReference"]
+    assert nested_composite_lookup[0]["qualifiedSameReference"]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
