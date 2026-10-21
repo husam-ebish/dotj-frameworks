@@ -26,6 +26,7 @@ Type[] selected = [
     typeof(System.IO.IOException),
     typeof(System.IO.FileNotFoundException),
     typeof(System.IO.FileLoadException),
+    typeof(System.Globalization.CultureNotFoundException),
     typeof(OverflowException),
     typeof(InvalidCastException),
     typeof(InvalidOperationException),

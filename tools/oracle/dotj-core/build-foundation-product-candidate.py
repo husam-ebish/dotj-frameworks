@@ -15,6 +15,7 @@ SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException", "FileLoadException")]
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
@@ -32,6 +33,7 @@ EXPECTED_CLASSES = [
     "System/Decimal.class",
     "System/Exception.class",
     "System/FormatException.class",
+    "System/Globalization/CultureNotFoundException.class",
     "System/Globalization/NumberStyles.class",
     "System/IComparable.class",
     "System/IConvertible.class",

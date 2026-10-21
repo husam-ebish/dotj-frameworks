@@ -9,6 +9,7 @@ import System.IO.FileLoadException;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 import System.Globalization.NumberStyles;
+import System.Globalization.CultureNotFoundException;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
 public abstract class Type extends MemberInfo {
@@ -132,6 +133,9 @@ public abstract class Type extends MemberInfo {
                             }
                         }
                     }
+                    if (key.equals("culture") && value.matches("[0-9]+")) {
+                        throw new CultureNotFoundException("name", value, "Culture is not supported");
+                    }
                 }
                 name = typeName.substring(0, assemblySeparator).stripLeading();
             } else if (throwOnError) {
@@ -162,6 +166,7 @@ public abstract class Type extends MemberInfo {
             case "System.IO.FileLoadException" -> fromJavaClass(FileLoadException.class);
             case "System.FormatException" -> fromJavaClass(FormatException.class);
             case "System.Globalization.NumberStyles" -> fromJavaClass(NumberStyles.class);
+            case "System.Globalization.CultureNotFoundException" -> fromJavaClass(CultureNotFoundException.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
@@ -216,6 +221,8 @@ public abstract class Type extends MemberInfo {
             case "system.io.fileloadexception" -> ignoreCase ? fromJavaClass(FileLoadException.class) : null;
             case "system.formatexception" -> ignoreCase ? fromJavaClass(FormatException.class) : null;
             case "system.globalization.numberstyles" -> ignoreCase ? fromJavaClass(NumberStyles.class) : null;
+            case "system.globalization.culturenotfoundexception" -> ignoreCase
+                    ? fromJavaClass(CultureNotFoundException.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
