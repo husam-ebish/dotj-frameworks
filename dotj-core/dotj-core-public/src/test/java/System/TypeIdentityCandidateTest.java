@@ -371,6 +371,38 @@ public final class TypeIdentityCandidateTest {
         } catch (InvalidCastException expected) {
             // Pinned CLR failure type.
         }
+        if (byteConvertible.ToType(Type.GetType("System.Byte"), null) != byteConvertible
+                || sbyteConvertible.ToType(Type.GetType("System.SByte"), null) != sbyteConvertible
+                || !Integer.valueOf(200).equals(((Int32) byteConvertible.ToType(
+                    Type.GetType("System.Int32"), null)).get_Value())
+                || !Integer.valueOf(-5).equals(((Int32) sbyteConvertible.ToType(
+                    Type.GetType("System.Int32"), null)).get_Value())
+                || !"200".equals(byteConvertible.ToType(Type.GetType("System.String"), null))
+                || !"-5".equals(sbyteConvertible.ToType(Type.GetType("System.String"), null))
+                || !"200".equals(((Decimal) byteConvertible.ToType(
+                    Type.GetType("System.Decimal"), null)).ToString(null))
+                || !"-5".equals(((Decimal) sbyteConvertible.ToType(
+                    Type.GetType("System.Decimal"), null)).ToString(null))) {
+            throw new AssertionError("Selected Byte/SByte ToType values changed");
+        }
+        try {
+            byteConvertible.ToType(Type.GetType("System.SByte"), null);
+            throw new AssertionError("Byte ToType overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            sbyteConvertible.ToType(Type.GetType("System.Byte"), null);
+            throw new AssertionError("SByte ToType overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            byteConvertible.ToType(null, null);
+            throw new AssertionError("Null Byte conversion target accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteConversions = new SerializationInfo(dbnullType, selectedConverter);
         byteConversions.AddValue("byteText", "255");
         byteConversions.AddValue("sbyteText", "-128");

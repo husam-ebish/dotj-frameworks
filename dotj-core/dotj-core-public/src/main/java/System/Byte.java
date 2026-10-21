@@ -103,11 +103,21 @@ public final class Byte implements IConvertible {
 
     @Override
     public Object ToType(Type conversionType, IFormatProvider provider) {
+        if (conversionType == null) {
+            throw new ArgumentNullException("conversionType");
+        }
         if (conversionType == Type.GetType("System.Byte")) {
             return this;
         }
+        if (conversionType == Type.GetType("System.SByte")) {
+            return new SByte(this.ToSByte(provider));
+        }
+        if (conversionType == Type.GetType("System.String")) {
+            return this.ToString(provider);
+        }
         return new Int32(this.value).ToType(conversionType, provider);
     }
+
     @Override
     public String toString() {
         return this.ToString();

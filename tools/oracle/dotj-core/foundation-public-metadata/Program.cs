@@ -1358,6 +1358,25 @@ static object ObserveByteConvertibleContract()
         byteToDateTime = ObserveMethodError(() => unsigned.ToDateTime(null)),
     };
 }
+static object ObserveByteToTypeContract()
+{
+    IConvertible unsigned = (byte)200;
+    IConvertible signed = (sbyte)-5;
+    return new
+    {
+        byteSelf = unsigned.ToType(typeof(byte), null).GetType().FullName,
+        sbyteSelf = signed.ToType(typeof(sbyte), null).GetType().FullName,
+        byteInt = unsigned.ToType(typeof(int), null),
+        sbyteInt = signed.ToType(typeof(int), null),
+        byteString = unsigned.ToType(typeof(string), null),
+        sbyteString = signed.ToType(typeof(string), null),
+        byteDecimal = unsigned.ToType(typeof(decimal), null).ToString(),
+        sbyteDecimal = signed.ToType(typeof(decimal), null).ToString(),
+        byteToSByte = ObserveMethodError(() => unsigned.ToType(typeof(sbyte), null)),
+        sbyteToByte = ObserveMethodError(() => signed.ToType(typeof(byte), null)),
+        byteNull = ObserveMethodError(() => unsigned.ToType(null!, null)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1518,6 +1537,7 @@ var result = new
     selectedSerializationInfoByteMembersBehavior = ObserveSerializationInfoByteMembers(),
     selectedSerializationInfoByteConversionsBehavior = ObserveSerializationInfoByteConversions(),
     selectedByteConvertibleContractBehavior = ObserveByteConvertibleContract(),
+    selectedByteToTypeContractBehavior = ObserveByteToTypeContract(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
