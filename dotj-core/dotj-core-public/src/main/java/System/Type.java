@@ -747,12 +747,16 @@ public abstract class Type extends MemberInfo {
 
     @Override
     public Type get_DeclaringType() {
-        return this.parameterIndex < 0 ? null : fromJavaClass(this.definition);
+        if (this.parameterIndex >= 0) {
+            return fromJavaClass(this.definition);
+        }
+        Class<?> declaring = this.get_HasElementType() ? null : this.definition.getDeclaringClass();
+        return declaring == null ? null : fromJavaClass(declaring);
     }
 
     @Override
     public Type get_ReflectedType() {
-        return this.parameterIndex < 0 ? null : fromJavaClass(this.definition);
+        return this.get_DeclaringType();
     }
 
     public Type get_BaseType() {

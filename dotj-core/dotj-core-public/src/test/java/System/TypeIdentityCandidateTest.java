@@ -48,6 +48,11 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        if (nestedEntry.get_DeclaringType() != map || nestedEntry.get_ReflectedType() != map
+                || string.get_DeclaringType() != null || string.get_ReflectedType() != null
+                || nestedEntry.MakeArrayType().get_DeclaringType() != null) {
+            throw new AssertionError("Selected nested Type owner changed");
+        }
         if (string.get_IsNested() || string.get_IsNestedPublic()
                 || list.get_IsNested() || list.get_IsNestedPublic()
                 || !list.GetGenericArguments()[0].get_IsNested()

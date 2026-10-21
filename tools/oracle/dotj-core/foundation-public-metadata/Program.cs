@@ -1017,6 +1017,18 @@ var result = new
         declaringType = type.DeclaringType?.FullName,
         reflectedType = type.ReflectedType?.FullName,
     }).ToArray(),
+    selectedNestedOwnerBehavior = new[]
+    {
+        typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
+        typeof(System.Collections.Generic.Dictionary<string, int>.KeyCollection),
+        typeof(System.Collections.Generic.List<int>.Enumerator),
+        typeof(System.Collections.Generic.List<int>.Enumerator[]),
+    }.Select(type => new
+    {
+        name = type.FullName ?? type.Name,
+        declaringType = type.DeclaringType?.FullName,
+        reflectedType = type.ReflectedType?.FullName,
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
