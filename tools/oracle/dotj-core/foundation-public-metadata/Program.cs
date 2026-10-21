@@ -1244,6 +1244,36 @@ static object ObserveDecimalFloorCeiling()
         ceiling = decimal.GetBits(decimal.Ceiling(new decimal(bits))),
     }).ToArray();
 }
+static object ObserveDecimalRound()
+{
+    var inputs = new (int[] bits, int decimals)[]
+    {
+        ([125, 0, 0, 0x00020000], 1),
+        ([135, 0, 0, 0x00020000], 1),
+        ([125, 0, 0, unchecked((int)0x80020000)], 1),
+        ([5, 0, 0, 0x00010000], 0),
+        ([5, 0, 0, unchecked((int)0x80010000)], 0),
+        ([12345, 0, 0, 0x00020000], 0),
+        ([12345, 0, 0, 0x00020000], 1),
+        ([12345, 0, 0, 0x00020000], 2),
+        ([12345, 0, 0, 0x00020000], 3),
+        ([-1, -1, -1, 0], 2),
+        ([1, 0, 0, 0x001c0000], 27),
+        ([6, 0, 0, 0x001c0000], 27),
+    };
+    return new
+    {
+        valid = inputs.Select(input => new
+        {
+            input = input.bits,
+            decimals = input.decimals,
+            result = decimal.GetBits(decimal.Round(new decimal(input.bits),
+                input.decimals)),
+        }).ToArray(),
+        negativeDigits = ObserveInt32StyleError(() => decimal.Round(1.25m, -1)),
+        over28Digits = ObserveInt32StyleError(() => decimal.Round(1.25m, 29)),
+    };
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5715,6 +5745,7 @@ var result = new
     selectedDecimalParseBounds = ObserveDecimalParseBounds(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
+    selectedDecimalRound = ObserveDecimalRound(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

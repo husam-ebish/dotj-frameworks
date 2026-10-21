@@ -24924,6 +24924,198 @@
       ]
     }
   ],
+  "selectedDecimalRound": {
+    "valid": [
+      {
+        "input": [
+          125,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "result": [
+          12,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          135,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "result": [
+          14,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "result": [
+          12,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          5,
+          0,
+          0,
+          65536
+        ],
+        "decimals": 0,
+        "result": [
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          5,
+          0,
+          0,
+          -2147418112
+        ],
+        "decimals": 0,
+        "result": [
+          0,
+          0,
+          0,
+          -2147483648
+        ]
+      },
+      {
+        "input": [
+          12345,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 0,
+        "result": [
+          123,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          12345,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "result": [
+          1234,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          12345,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 2,
+        "result": [
+          12345,
+          0,
+          0,
+          131072
+        ]
+      },
+      {
+        "input": [
+          12345,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 3,
+        "result": [
+          12345,
+          0,
+          0,
+          131072
+        ]
+      },
+      {
+        "input": [
+          -1,
+          -1,
+          -1,
+          0
+        ],
+        "decimals": 2,
+        "result": [
+          -1,
+          -1,
+          -1,
+          0
+        ]
+      },
+      {
+        "input": [
+          1,
+          0,
+          0,
+          1835008
+        ],
+        "decimals": 27,
+        "result": [
+          0,
+          0,
+          0,
+          1769472
+        ]
+      },
+      {
+        "input": [
+          6,
+          0,
+          0,
+          1835008
+        ],
+        "decimals": 27,
+        "result": [
+          1,
+          0,
+          0,
+          1769472
+        ]
+      }
+    ],
+    "negativeDigits": {
+      "type": "System.ArgumentOutOfRangeException",
+      "paramName": "decimals"
+    },
+    "over28Digits": {
+      "type": "System.ArgumentOutOfRangeException",
+      "paramName": "decimals"
+    }
+  },
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -28420,6 +28612,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "8bb020b4b4713cb97010155f31eb24e9155ea5065e988303238ada2ed4cae189",
+  "oracleProgramSha256": "53b993b788c8ae65d66d4e1bbd973b81c97301e3b15bfcd484e373ccf33255ec",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
