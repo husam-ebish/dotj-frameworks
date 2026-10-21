@@ -186,6 +186,22 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected primitive rectangular identity changed: " + rectangularName);
             }
         }
+        for (int index = 0; index < selectedPrimitiveNames.length; index++) {
+            Type element = primitiveTypes[index];
+            String rankThreeName = selectedPrimitiveNames[index] + "[,,]";
+            Type rankThree = Type.GetType(rankThreeName);
+            if (rankThree == null || rankThree != element.MakeArrayType(3)
+                    || rankThree.GetElementType() != element
+                    || rankThree.get_IsSZArray() || !rankThree.get_IsVariableBoundArray()
+                    || rankThree.GetArrayRank() != 3 || Type.GetTypeCode(rankThree) != TypeCode.Object
+                    || !(element.get_Name() + "[,,]").equals(rankThree.get_Name())
+                    || !rankThreeName.equals(rankThree.get_FullName())
+                    || Type.GetType(rankThree.get_AssemblyQualifiedName()) != rankThree
+                    || Type.GetType(rankThreeName.toLowerCase(java.util.Locale.ROOT), false, true)
+                            != rankThree) {
+                throw new AssertionError("Selected primitive rank-three identity changed: " + rankThreeName);
+            }
+        }
         Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
         if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
                 || mixedTypes[2] != Type.GetType("System.Exception")
