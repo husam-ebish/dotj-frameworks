@@ -920,6 +920,25 @@ public final class TypeIdentityCandidateTest {
                 || !Double.isNaN(selectedConverter.ToDouble(Float.NaN))) {
             throw new AssertionError("Selected exceptional floating values changed");
         }
+        if (!selectedConverter.ToBoolean("  True  ")
+                || selectedConverter.ToBoolean("fAlSe")
+                || !selectedConverter.ToBoolean("\ttrue\r\n")) {
+            throw new AssertionError("Selected Boolean text conversions changed");
+        }
+        for (String text : new String[] {"1", ""}) {
+            try {
+                selectedConverter.ToBoolean(text);
+                throw new AssertionError("Invalid Boolean text accepted");
+            } catch (FormatException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToBoolean(null);
+            throw new AssertionError("Null Boolean value accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         if (!Float.isNaN(selectedConverter.ToSingle("NaN"))
                 || !Double.isNaN(selectedConverter.ToDouble("NaN"))
                 || !Float.isInfinite(selectedConverter.ToSingle("Infinity"))
