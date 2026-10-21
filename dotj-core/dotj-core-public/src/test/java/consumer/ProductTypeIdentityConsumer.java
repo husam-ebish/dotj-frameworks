@@ -236,6 +236,14 @@ public final class ProductTypeIdentityConsumer {
                 || definition.get_IsPrimitive()) {
             throw new AssertionError("Selected primitive type flags changed");
         }
+        if (object.get_IsAbstract() || string.get_IsAbstract() || integer.get_IsAbstract()
+                || !Type.GetType("System.Type").get_IsAbstract()
+                || !valueType.get_IsAbstract() || !Type.GetType("System.Enum").get_IsAbstract()
+                || !arrayBase.get_IsAbstract() || !disposalType.get_IsAbstract()
+                || !Type.GetType("System.IComparable").get_IsAbstract()
+                || definition.get_IsAbstract()) {
+            throw new AssertionError("Selected abstract type flags changed");
+        }
         if (disposalType == null || memberTypesType == null
                 || !disposalType.get_IsInterface() || disposalType.get_IsClass()
                 || disposalType.get_IsValueType() || disposalType.get_IsEnum()
