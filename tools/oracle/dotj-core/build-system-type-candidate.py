@@ -217,6 +217,12 @@ def main():
                for index, item in enumerate(owners) if index != 3)
     assert owners[3]["name"] == "T"
     assert owners[3]["declaringType"] == owners[3]["reflectedType"] == "System.Collections.Generic.List`1"
+    nested_owners = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedOwnerBehavior"]
+    assert [row["declaringType"] for row in nested_owners] == [
+        None, "System.Collections.Generic.List`1", "System.Collections.Generic.Dictionary`2",
+        "System.Collections.Generic.List`1", None,
+    ]
+    assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
