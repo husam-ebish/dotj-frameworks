@@ -33,9 +33,9 @@ The following are declarations retrieved from source metadata, not a fully resto
 
 ## License evidence and eligibility gate
 
-Observed metadata hint: `MIT`.
+The project owner selected **MIT** for dotj-core source and binary distribution. The product [LICENSE](../../../../dotj-core/LICENSE) uses the [SPDX MIT text](https://spdx.org/licenses/MIT), credits dotj Frameworks contributors, and is embedded in the candidate JAR as `META-INF/LICENSE`.
 
-The built foundation candidate has a separate [technical rights-input inventory](evidence/foundation-rights-inputs-v1.json): 30 hashed product Java sources compile into the candidate JAR, `java.base` is the observed JDK module dependency, and no product LICENSE/NOTICE file exists at the candidate roots or in the JAR. The upstream license and notice copies are retained as reference evidence outside the JAR. The dotj-core product license, notice applicability, and release approval require an owner review; this inventory does not grant clearance.
+The built foundation candidate has a separate [technical rights-input inventory](evidence/foundation-rights-inputs-v1.json): 30 hashed product Java sources compile into the candidate JAR, `java.base` is the observed JDK module dependency, and the product MIT license is packaged in source and binary form. The upstream license and third-party notice copies remain reference evidence outside the JAR. File-level upstream notice applicability, transitive rights and release approval still require review; this inventory does not grant release clearance.
 
 Observed root metadata/license text is evidence, not a completed eligibility review. Resolve conditional/transitive dependencies, embedded assets, generated inputs and redistributable binaries before source reuse or release.
 

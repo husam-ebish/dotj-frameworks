@@ -2,7 +2,10 @@
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR only; technical inputs for a licensing decision, not clearance",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "ada7c1917d681938a63c077825e0543a767b7cbbe18c8ee589979a4a0185f074",
+  "jarSha256": "cfd05fd5110c9cbe1d53f646ca607661f66d5120f7ecaeb2099437d474e911b3",
+  "selectedProductLicense": "MIT",
+  "licensePath": "dotj-core/LICENSE",
+  "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "productSourceCount": 30,
   "productSources": [
     {
@@ -246,8 +249,12 @@
       "headerNamesDotNetFoundation": false
     }
   ],
-  "productLicenseFilesAtCandidateRoots": [],
-  "jarNoticeEntries": [],
+  "productLicenseFilesAtCandidateRoots": [
+    "dotj-core/LICENSE"
+  ],
+  "jarNoticeEntries": [
+    "META-INF/LICENSE"
+  ],
   "observedJdkModuleDependencies": [
     "java.base"
   ],
@@ -256,9 +263,8 @@
     "planning/stage-2/repos/dotj-core/evidence/notices/THIRD-PARTY-NOTICES.TXT"
   ],
   "decisionInputs": [
-    "Choose and record the dotj-core product license and artifact notice placement.",
     "Review file-level upstream notice applicability to the independently authored selected Java sources and generated classes.",
     "Obtain the repository licensing review required by E01 before public release qualification."
   ],
-  "status": "TECHNICAL_INPUTS_CAPTURED; E01_RELEASE_REVIEW_OPEN"
+  "status": "MIT_PRODUCT_LICENSE_PACKAGED; E01_UPSTREAM_APPLICABILITY_AND_RELEASE_REVIEW_OPEN"
 }

@@ -25,6 +25,7 @@ BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
 JAR = BUILD / "dotj-core-foundation-v1.jar"
+LICENSE = ROOT / "dotj-core/LICENSE"
 EVIDENCE_ROOT = ROOT / "planning/stage-2/repos/dotj-core/evidence"
 EVIDENCE = EVIDENCE_ROOT / "foundation-product-candidate-v1.json"
 EXPECTED_CLASSES = [
@@ -210,7 +211,8 @@ def main():
 
     manifest = b"Manifest-Version: 1.0\r\nCreated-By: dotj-core foundation candidate\r\n\r\n"
     with zipfile.ZipFile(JAR, "w") as archive:
-        for name, data in [("META-INF/MANIFEST.MF", manifest), *[
+        for name, data in [("META-INF/MANIFEST.MF", manifest),
+                           ("META-INF/LICENSE", LICENSE.read_bytes()), *[
             (name, (CLASSES / name).read_bytes()) for name in class_files]]:
             entry = zipfile.ZipInfo(name, date_time=(2026, 10, 21, 0, 0, 0))
             entry.compress_type = zipfile.ZIP_STORED
@@ -218,7 +220,8 @@ def main():
             entry.external_attr = 0
             archive.writestr(entry, data)
     with zipfile.ZipFile(JAR) as archive:
-        assert archive.namelist() == ["META-INF/MANIFEST.MF", *class_files]
+        assert archive.namelist() == ["META-INF/MANIFEST.MF", "META-INF/LICENSE", *class_files]
+        assert archive.read("META-INF/LICENSE") == LICENSE.read_bytes()
 
     run("javac", "--release", "21", "-cp", str(JAR), "-d", str(CONSUMER_CLASSES),
         *(str(path) for path in CONSUMERS))
@@ -234,7 +237,10 @@ def main():
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
         "jarPath": JAR.relative_to(ROOT).as_posix(),
         "jarSha256": sha256(JAR),
-        "jarEntries": ["META-INF/MANIFEST.MF", *class_files],
+        "licensePath": LICENSE.relative_to(ROOT).as_posix(),
+        "licenseSha256": sha256(LICENSE),
+        "licenseEntry": "META-INF/LICENSE",
+        "jarEntries": ["META-INF/MANIFEST.MF", "META-INF/LICENSE", *class_files],
         "classSha256": {name: sha256(CLASSES / name) for name in class_files},
         "disposalConsumer": disposal_result,
         "typeConsumer": type_result,
