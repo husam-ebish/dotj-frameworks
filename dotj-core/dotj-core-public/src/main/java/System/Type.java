@@ -143,6 +143,10 @@ public abstract class Type extends MemberInfo {
             case "System.String&" -> fromJavaClass(String.class).MakeByRefType();
             case "System.String[]&" -> fromJavaClass(String[].class).MakeByRefType();
             case "System.String*" -> fromJavaClass(String.class).MakePointerType();
+            case "System.String*[]" -> fromJavaClass(String.class).MakePointerType().MakeArrayType();
+            case "System.String*&" -> fromJavaClass(String.class).MakePointerType().MakeByRefType();
+            case "System.String**" -> fromJavaClass(String.class).MakePointerType().MakePointerType();
+            case "System.String&[]" -> throw new TypeLoadException("Array element cannot be by-reference");
             case "System.Int32*" -> fromJavaClass(Int32.class).MakePointerType();
             case "System.Int32[]" -> fromJavaClass(int[].class);
             case "System.Collections.Generic.List`1[System.String]",

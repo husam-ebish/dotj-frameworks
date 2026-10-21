@@ -552,6 +552,15 @@ var result = new
         arrayByRef = ObserveTypeConstruction(() => typeof(string[]).MakeByRefType()),
         byRefPointer = ObserveTypeConstruction(() => typeof(string).MakeByRefType().MakePointerType()),
     },
+    selectedNestedTypeNameBehavior = new
+    {
+        pointerArray = ObserveGetType("System.String*[]", false, false),
+        pointerByRef = ObserveGetType("System.String*&", false, false),
+        arrayByRef = ObserveGetType("System.String[]&", false, false),
+        doublePointer = ObserveGetType("System.String**", false, false),
+        byRefArray = ObserveGetType("System.String&[]", false, false),
+        byRefArrayThrow = ObserveGetType("System.String&[]", true, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

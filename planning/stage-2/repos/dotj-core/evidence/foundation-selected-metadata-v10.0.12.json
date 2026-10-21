@@ -988,6 +988,38 @@
       "exception": "System.TypeLoadException"
     }
   },
+  "selectedNestedTypeNameBehavior": {
+    "pointerArray": {
+      "result": "System.String*[]",
+      "exception": null,
+      "paramName": null
+    },
+    "pointerByRef": {
+      "result": "System.String*&",
+      "exception": null,
+      "paramName": null
+    },
+    "arrayByRef": {
+      "result": "System.String[]&",
+      "exception": null,
+      "paramName": null
+    },
+    "doublePointer": {
+      "result": "System.String**",
+      "exception": null,
+      "paramName": null
+    },
+    "byRefArray": {
+      "result": null,
+      "exception": "System.TypeLoadException",
+      "paramName": null
+    },
+    "byRefArrayThrow": {
+      "result": null,
+      "exception": "System.TypeLoadException",
+      "paramName": null
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -4243,6 +4275,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "ab3744f8dc085762820907c99a4716d814f02f614e95c94e3aecdf3ce16b6137",
+  "oracleProgramSha256": "ddedf780a2600cc387ad2e9987764549401aab00745d007cff4e03730106edcf",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

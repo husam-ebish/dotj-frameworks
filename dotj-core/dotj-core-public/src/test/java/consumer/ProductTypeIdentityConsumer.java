@@ -221,6 +221,21 @@ public final class ProductTypeIdentityConsumer {
                     != Type.GetType("System.String[]&")) {
             throw new AssertionError("Selected pointer/array construction changed");
         }
+        if (Type.GetType("System.String*[]") != pointer.MakeArrayType()
+                || Type.GetType("System.String*&") != pointer.MakeByRefType()
+                || Type.GetType("System.String[]&")
+                    != Type.GetType("System.String[]").MakeByRefType()
+                || Type.GetType("System.String**") != pointer.MakePointerType()) {
+            throw new AssertionError("Selected nested type-name lookup changed");
+        }
+        for (boolean throwOnError : new boolean[] {false, true}) {
+            try {
+                Type.GetType("System.String&[]", throwOnError);
+                throw new AssertionError("By-reference array type name accepted");
+            } catch (TypeLoadException expected) {
+                // Selected pinned error type for both overload choices.
+            }
+        }
         try {
             byReference.MakePointerType();
             throw new AssertionError("Pointer from by-reference type accepted");
