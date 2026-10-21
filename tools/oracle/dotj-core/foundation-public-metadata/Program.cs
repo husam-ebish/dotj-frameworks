@@ -452,6 +452,21 @@ static object ObserveMethodName(Type type, string? name)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveMethodFlags(Type type, string? name, BindingFlags flags)
+{
+    try
+    {
+        MethodInfo? method = type.GetMethod(name!, flags);
+        return new { result = method?.Name, kind = method?.MemberType.ToString(),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?)null, kind = (string?)null,
+            exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -943,6 +958,16 @@ var result = new
         (typeof(IDisposable), (string?)null),
     }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
         query = ObserveMethodName(item.Item1, item.Item2) }).ToArray(),
+    selectedMethodFlagsBehavior = new
+    {
+        positive = ObserveMethodFlags(typeof(IDisposable), "Dispose", BindingFlags.Public | BindingFlags.Instance),
+        publicOnly = ObserveMethodFlags(typeof(IDisposable), "Dispose", BindingFlags.Public),
+        nonPublic = ObserveMethodFlags(typeof(IDisposable), "Dispose", BindingFlags.NonPublic | BindingFlags.Instance),
+        ignoreCase = ObserveMethodFlags(typeof(IDisposable), "dispose",
+            BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase),
+        missing = ObserveMethodFlags(typeof(IDisposable), "Missing", BindingFlags.Public | BindingFlags.Instance),
+        nullName = ObserveMethodFlags(typeof(IDisposable), null, BindingFlags.Public | BindingFlags.Instance),
+    },
     selectedNestedTypeFlagsBehavior = new
     {
         publicChild = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PublicChild", BindingFlags.Public),

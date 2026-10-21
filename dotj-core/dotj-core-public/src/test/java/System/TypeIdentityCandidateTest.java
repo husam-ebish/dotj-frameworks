@@ -129,6 +129,17 @@ public final class TypeIdentityCandidateTest {
                     || owner.GetMethod("Missing") != null) {
                 throw new AssertionError("Selected typed method-name lookup changed");
             }
+            if (!interfaceMethodNames[index].equals(
+                    owner.GetMethod(interfaceMethodNames[index], publicInstance).get_Name())
+                    || owner.GetMethod(interfaceMethodNames[index], BindingFlags.Public) != null
+                    || owner.GetMethod(interfaceMethodNames[index],
+                        BindingFlags.NonPublic.or(BindingFlags.Instance)) != null
+                    || owner.GetMethod("Missing", publicInstance) != null
+                    || !interfaceMethodNames[index].equals(owner.GetMethod(
+                        interfaceMethodNames[index].toLowerCase(java.util.Locale.ROOT),
+                        publicInstance.or(BindingFlags.IgnoreCase)).get_Name())) {
+                throw new AssertionError("Selected flagged typed method lookup changed");
+            }
         }
         try {
             interfaceOwners[0].GetMethod(null);
@@ -136,6 +147,14 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             if (!"name".equals(expected.get_ParamName())) {
                 throw new AssertionError("Null typed method name parameter changed", expected);
+            }
+        }
+        try {
+            interfaceOwners[0].GetMethod(null, publicInstance);
+            throw new AssertionError("Null flagged typed method name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null flagged typed method name parameter changed", expected);
             }
         }
         if (string.GetMember("Chars").length != 1
