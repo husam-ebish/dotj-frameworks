@@ -511,6 +511,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"-12.35".equals(new Int32(-12345).ToString("0,.##", provider))) {
             throw new AssertionError("Selected Int32 optional fraction changed");
         }
+        if (!"item 42".equals(int32Value.ToString("'item '0", provider))
+                || !"42 units".equals(int32Value.ToString("0' units'", provider))
+                || !"[42]".equals(int32Value.ToString("'['0']'", provider))
+                || !"-item 42".equals(new Int32(-42).ToString("'item '0", provider))
+                || !"item 0".equals(new Int32(0).ToString("'item '0", provider))) {
+            throw new AssertionError("Selected Int32 quoted literals changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

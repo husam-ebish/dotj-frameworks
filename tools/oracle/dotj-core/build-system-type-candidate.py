@@ -285,6 +285,9 @@ def main():
     optional_fraction = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32OptionalFractionBehavior"]
     assert optional_fraction == {"integer": "42", "scaled": "12.35", "exact": "12",
                                  "grouped": "1,234.57", "negative": "-12.35"}
+    quoted_literal = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32QuotedLiteralBehavior"]
+    assert quoted_literal == {"prefix": "item 42", "suffix": "42 units", "both": "[42]",
+                              "negative": "-item 42", "zero": "item 0"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
