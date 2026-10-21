@@ -791,6 +791,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             throw new UnsupportedOperationException("Percent pattern is not mapped");
         }
         if (format.matches("[eE][0-9]*")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             int precision;
             try {
                 precision = format.length() == 1 ? 6 : Integer.parseInt(format.substring(1));
@@ -807,11 +808,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String digits = rounded.unscaledValue().abs().toString();
             digits += "0".repeat(Math.max(0, precision + 1 - digits.length()));
             String mantissa = digits.substring(0, 1)
-                    + (precision == 0 ? "" : "." + digits.substring(1, precision + 1));
+                    + (precision == 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator())
+                    + digits.substring(1, precision + 1));
             String exponentDigits = Integer.toString(exponent);
             String paddedExponent = "0".repeat(Math.max(0, 3 - exponentDigits.length()))
                     + exponentDigits;
-            String sign = this.value < 0 ? "-" : "";
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
             char marker = format.charAt(0);
             return sign + mantissa + marker + "+" + paddedExponent;
         }

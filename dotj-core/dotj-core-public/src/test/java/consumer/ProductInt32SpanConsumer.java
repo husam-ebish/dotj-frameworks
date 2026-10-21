@@ -165,6 +165,12 @@ public final class ProductInt32SpanConsumer {
         checkProviderVector(new Int32(-42), "F", "~42:000", fixed);
         checkProviderVector(new Int32(-42), "f1", "~42:0", fixed);
         checkProviderVector(new Int32(-42), "F0", "~42", fixed);
+        NumberFormatInfo exponential = new NumberFormatInfo();
+        exponential.set_NumberDecimalSeparator(":");
+        exponential.set_NegativeSign("~");
+        checkProviderVector(new Int32(-42), "E2", "~4:20E+001", exponential);
+        checkProviderVector(new Int32(42), "e1", "4:2e+001", exponential);
+        checkProviderVector(new Int32(-42), "E0", "~4E+001", exponential);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,

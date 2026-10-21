@@ -640,6 +640,20 @@ static object ObserveInt32FixedProvider()
         zeroPrecision = ((IFormattable)(-42)).ToString("F0", provider),
     };
 }
+static object ObserveInt32ExponentialProvider()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = ":",
+        NegativeSign = "~",
+    };
+    return new
+    {
+        upper = ((IFormattable)(-42)).ToString("E2", provider),
+        lower = ((IFormattable)42).ToString("e1", provider),
+        zeroPrecision = ((IFormattable)(-42)).ToString("E0", provider),
+    };
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -5021,6 +5035,7 @@ var result = new
     selectedInt32CurrencyProviderBehavior = ObserveInt32CurrencyProvider(),
     selectedInt32PercentProviderBehavior = ObserveInt32PercentProvider(),
     selectedInt32FixedProviderBehavior = ObserveInt32FixedProvider(),
+    selectedInt32ExponentialProviderBehavior = ObserveInt32ExponentialProvider(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",
