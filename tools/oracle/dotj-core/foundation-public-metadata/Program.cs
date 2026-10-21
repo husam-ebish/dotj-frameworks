@@ -927,6 +927,15 @@ var result = new
         unicodeThenVersion = ObserveGetType("System.String, System.Private.CoreLib, Versıon=banana, Version=1.2", false, false),
         versionThenUnicode = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2, VERSİON=banana", false, false),
     },
+    selectedAssemblyAttributeUnicodeValueBehavior = new
+    {
+        accentedRetargetable = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=Yés", false, false),
+        dottedArchitecture = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=MSİL", false, false),
+        dotlessContent = ObserveGetType("System.String, System.Private.CoreLib, ContentType=WındowsRuntime", false, false),
+        accentedTokenNull = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=nüll", false, false),
+        asciiContent = ObserveGetType("System.String, System.Private.CoreLib, ContentType=WINDOWSRUNTIME", false, false),
+        unicodeUnknown = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=é", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

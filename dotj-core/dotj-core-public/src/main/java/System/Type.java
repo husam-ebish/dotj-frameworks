@@ -170,6 +170,8 @@ public abstract class Type extends MemberInfo {
                             || value.contains("\"\"")
                             || !quotedValue && value.indexOf('"') >= 0
                             || recognized && !seen.add(key)
+                            || recognized && !key.equals("culture")
+                                    && !value.chars().allMatch(character -> character < 128)
                             || key.equals("publickey") && seen.contains("publickeytoken")
                             || key.equals("publickeytoken") && seen.contains("publickey")
                             || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
