@@ -3,7 +3,8 @@ package System;
 import java.math.BigInteger;
 
 /** Bounded immutable Int32 value and conversion candidate. */
-public final class Int32 implements IConvertible, ISpanFormattable, IComparable {
+public final class Int32 implements IConvertible, ISpanFormattable,
+        IUtf8SpanFormattable, IComparable {
     private final int value;
 
     public Int32(int value) {
@@ -133,6 +134,20 @@ public final class Int32 implements IConvertible, ISpanFormattable, IComparable 
         }
         text.getChars(0, text.length(), destination, 0);
         charsWritten[0] = text.length();
+        return true;
+    }
+
+    @Override
+    public boolean TryFormat(byte[] destination, int[] bytesWritten, String format,
+                             IFormatProvider provider) {
+        byte[] text = this.ToString(format, provider)
+                .getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        if (destination.length < text.length) {
+            bytesWritten[0] = 0;
+            return false;
+        }
+        java.lang.System.arraycopy(text, 0, destination, 0, text.length);
+        bytesWritten[0] = text.length;
         return true;
     }
 

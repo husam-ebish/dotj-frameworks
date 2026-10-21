@@ -24,6 +24,7 @@ ICOMPARABLE_SOURCE = SOURCE.with_name("IComparable.java")
 IFORMATTABLE_SOURCE = SOURCE.with_name("IFormattable.java")
 IFORMATPROVIDER_SOURCE = SOURCE.with_name("IFormatProvider.java")
 ISPANFORMATTABLE_SOURCE = SOURCE.with_name("ISpanFormattable.java")
+IUTF8SPANFORMATTABLE_SOURCE = SOURCE.with_name("IUtf8SpanFormattable.java")
 ICONVERTIBLE_SOURCE = SOURCE.with_name("IConvertible.java")
 BUILD = ROOT / "dotj-core/dotj-core-public/build/typeof-selected-v1"
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json"
@@ -142,7 +143,8 @@ def main():
                     *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES, IDISPOSABLE_SOURCE,
                                              ICOMPARABLE_SOURCE, IFORMATTABLE_SOURCE,
                                              IFORMATPROVIDER_SOURCE, ICONVERTIBLE_SOURCE,
-                                             ISPANFORMATTABLE_SOURCE])], check=True)
+                                             ISPANFORMATTABLE_SOURCE,
+                                             IUTF8SPANFORMATTABLE_SOURCE])], check=True)
     subprocess.run(["javac", "--release", "21", "-cp", str(product_classes), "-d",
                     str(consumer_classes), str(generated)], check=True)
     import os

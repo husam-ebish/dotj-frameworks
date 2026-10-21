@@ -17,6 +17,7 @@ import System.Decimal;
 import System.DateTime;
 import System.Int32;
 import System.ISpanFormattable;
+import System.IUtf8SpanFormattable;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -408,6 +409,25 @@ public final class ProductTypeIdentityConsumer {
                 || !enoughResult || charsWritten[0] != 2 || !"42".equals(new String(enough))
                 || shortResult || shortWritten[0] != 0) {
             throw new AssertionError("Selected Int32 span formatting changed");
+        }
+        IUtf8SpanFormattable utf8Formattable = int32Value;
+        Type utf8Type = Type.GetType("System.IUtf8SpanFormattable");
+        byte[] utf8Enough = new byte[2];
+        int[] utf8Written = new int[1];
+        boolean utf8EnoughResult = utf8Formattable.TryFormat(utf8Enough, utf8Written, "D", provider);
+        byte[] utf8Short = new byte[1];
+        int[] utf8ShortWritten = new int[1];
+        boolean utf8ShortResult = utf8Formattable.TryFormat(utf8Short, utf8ShortWritten, "D", provider);
+        if (utf8Type == null || !utf8Type.get_IsInterface()
+                || utf8Type.GetInterfaces().length != 0
+                || integer.GetInterface("System.IUtf8SpanFormattable") != utf8Type
+                || integer.GetInterface("IUtf8SpanFormattable") != utf8Type
+                || integer.GetInterface("system.iutf8spanformattable", true) != null
+                || !utf8Type.IsAssignableFrom(integer) || !utf8Type.IsInstanceOfType(42)
+                || !utf8EnoughResult || utf8Written[0] != 2
+                || !"42".equals(new String(utf8Enough, java.nio.charset.StandardCharsets.UTF_8))
+                || utf8ShortResult || utf8ShortWritten[0] != 0) {
+            throw new AssertionError("Selected Int32 UTF-8 formatting changed");
         }
         if (convertible.GetTypeCode() != TypeCode.Int32
                 || TypeCode.Int32.get_Value() != 9 || TypeCode.String.get_Value() != 18

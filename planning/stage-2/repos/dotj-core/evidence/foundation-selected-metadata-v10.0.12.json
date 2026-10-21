@@ -652,6 +652,18 @@
       "text": ""
     }
   },
+  "selectedUtf8SpanFormattingBehavior": {
+    "enough": {
+      "success": true,
+      "bytesWritten": 2,
+      "text": "42"
+    },
+    "shortBuffer": {
+      "success": false,
+      "bytesWritten": 0,
+      "text": ""
+    }
+  },
   "selectedAssignability": [
     {
       "target": "System.Object",
@@ -755,6 +767,11 @@
     },
     {
       "target": "System.ISpanFormattable",
+      "candidate": "System.Int32",
+      "result": true
+    },
+    {
+      "target": "System.IUtf8SpanFormattable",
       "candidate": "System.Int32",
       "result": true
     }
@@ -946,6 +963,11 @@
       "target": "System.ISpanFormattable",
       "valueType": "System.Int32",
       "result": true
+    },
+    {
+      "target": "System.IUtf8SpanFormattable",
+      "valueType": "System.Int32",
+      "result": true
     }
   ],
   "selectedInterfaceBehavior": {
@@ -988,6 +1010,7 @@
     "spanFormattableInterfaces": [
       "System.IFormattable"
     ],
+    "utf8SpanFormattableInterfaces": [],
     "objectMiss": {
       "result": null,
       "exception": null,
@@ -1107,6 +1130,21 @@
       "result": null,
       "exception": null,
       "paramName": null
+    },
+    "intUtf8SpanFormattable": {
+      "result": "System.IUtf8SpanFormattable",
+      "exception": null,
+      "paramName": null
+    },
+    "intUtf8SpanFormattableShort": {
+      "result": "System.IUtf8SpanFormattable",
+      "exception": null,
+      "paramName": null
+    },
+    "intUtf8SpanFormattableLower": {
+      "result": null,
+      "exception": null,
+      "paramName": null
     }
   },
   "types": [
@@ -1209,6 +1247,44 @@
             },
             {
               "name": "charsWritten",
+              "type": "System.Int32&"
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        }
+      ],
+      "selectedProperties": [],
+      "publicConstructors": []
+    },
+    {
+      "fullName": "System.IUtf8SpanFormattable",
+      "baseType": null,
+      "isInterface": true,
+      "isAbstract": true,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 1,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [
+        {
+          "name": "TryFormat",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Destination",
+              "type": "System.Span`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "bytesWritten",
               "type": "System.Int32&"
             },
             {
@@ -3199,6 +3275,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "185e7e825e7f327c828bb95290435fae390d2609a91ddc35f5b59685035f1ac6",
+  "oracleProgramSha256": "8d62ce6866819031197d6be6a0354cac1d96bc50d44e368b8062b2ceb77b3ff0",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
