@@ -619,6 +619,19 @@ var result = new
         zero = ((IFormattable)0).ToString("'item '0",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32QuotedSectionBehavior = new
+    {
+        positive = ((IFormattable)42).ToString("0;[0];'none'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-42)).ToString("0;[0];'none'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zero = ((IFormattable)0).ToString("0;[0];'none'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        unsignedNegative = ((IFormattable)(-42)).ToString("0;0;'zero'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        labeledNegative = ((IFormattable)(-42)).ToString("0;'minus '0;'zero'",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
