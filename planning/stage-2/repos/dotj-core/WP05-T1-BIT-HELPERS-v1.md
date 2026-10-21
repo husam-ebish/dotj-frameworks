@@ -78,6 +78,8 @@ The named `NumberStyles.Any` path now combines selected currency and number sepa
 
 The `NumberStyles` Java carrier now represents unnamed bitwise combinations through `Or`, while retaining the named values and the selected `System.Type` enum projection. Three composed styles with flag values 68, 67 and 160 have seventeen pinned .NET 10 parse vectors across packaged string and both span carriers. Other flag combinations and the complete CLR enum ABI remain open.
 
-The numeric parser now dispatches combinations drawn from leading and trailing whitespace, leading sign, decimal point, and exponent flags by their bit mask. Three additional combinations (132, 35 and 164) have fifteen pinned .NET 10 vectors across packaged string and both span carriers. Trailing sign, parentheses, grouping and currency composition remain open.
+The numeric parser now dispatches combinations drawn from leading and trailing whitespace, leading sign, decimal point, and exponent flags by their bit mask. Three additional combinations (132, 35 and 164) have fifteen pinned .NET 10 vectors across packaged string and both span carriers. Parentheses, grouping with decimal or exponent, and currency composition remain open.
+
+Selected trailing-sign parsing now works alone and with grouping, whitespace and leading-sign flags. Eighteen pinned .NET 10 vectors cover custom trailing signs, double-sign rejection and whitespace permissions in packaged string and both span carriers. Parentheses, decimal and currency compositions remain open.
 
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

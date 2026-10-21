@@ -91,8 +91,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (style.get_Value() != 0 && (style.get_Value() & ~167) == 0) {
             return selectedParseFloat(text, provider, style);
         }
-        if (style == NumberStyles.AllowThousands || style.get_Value() == 68
-                || style.get_Value() == 67) {
+        if ((style.get_Value() & (8 | 64)) != 0
+                && (style.get_Value() & ~79) == 0) {
             return selectedParseThousands(text, provider, style);
         }
         if (style == NumberStyles.Currency) {
@@ -226,22 +226,32 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                                                 NumberStyles style) {
         if (text == null) throw new ArgumentNullException("s");
         NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
-        String separator = numberFormat == null ? ","
-                : numberFormat.get_NumberGroupSeparator();
         int flags = style.get_Value();
+        String separator = (flags & 64) == 0 ? "" : numberFormat == null ? ","
+                : numberFormat.get_NumberGroupSeparator();
         String number = (flags & 1) != 0 ? text.stripLeading() : text;
         if ((flags & 2) != 0) number = number.stripTrailing();
         boolean negative = false;
+        boolean signed = false;
+        String negativeSign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+        String positiveSign = numberFormat == null ? "+" : numberFormat.get_PositiveSign();
         if ((flags & 4) != 0) {
-            String negativeSign = numberFormat == null ? "-"
-                    : numberFormat.get_NegativeSign();
-            String positiveSign = numberFormat == null ? "+"
-                    : numberFormat.get_PositiveSign();
             if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
                 number = number.substring(negativeSign.length());
-                negative = true;
+                negative = signed = true;
             } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
                 number = number.substring(positiveSign.length());
+                signed = true;
+            }
+        }
+        if ((flags & 8) != 0) {
+            if (!negativeSign.isEmpty() && number.endsWith(negativeSign)) {
+                if (signed) throw new FormatException("Input string was not in a correct format");
+                number = number.substring(0, number.length() - negativeSign.length());
+                negative = true;
+            } else if (!positiveSign.isEmpty() && number.endsWith(positiveSign)) {
+                if (signed) throw new FormatException("Input string was not in a correct format");
+                number = number.substring(0, number.length() - positiveSign.length());
             }
         }
         if (!separator.isEmpty() && number.startsWith(separator)) {

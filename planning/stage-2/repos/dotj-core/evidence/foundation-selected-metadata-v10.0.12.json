@@ -23315,6 +23315,128 @@
       }
     ]
   },
+  "selectedInt32TrailingSignStyles": {
+    "trailingValue": 8,
+    "trailing": [
+      {
+        "text": "42~",
+        "success": true,
+        "value": -42,
+        "error": null
+      },
+      {
+        "text": "42plus",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "~42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ],
+    "groupedTrailingValue": 72,
+    "groupedTrailing": [
+      {
+        "text": "12_345~",
+        "success": true,
+        "value": -12345,
+        "error": null
+      },
+      {
+        "text": "12_345plus",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "~12_345",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": " 12_345~",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12_345:00~",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12__345~",
+        "success": true,
+        "value": -12345,
+        "error": null
+      }
+    ],
+    "paddedTrailingValue": 75,
+    "paddedTrailing": [
+      {
+        "text": " 12_345~ ",
+        "success": true,
+        "value": -12345,
+        "error": null
+      },
+      {
+        "text": "12_345plus",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "~12_345",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12_345:00~",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ],
+    "bothSignsValue": 76,
+    "bothSigns": [
+      {
+        "text": "~12_345",
+        "success": true,
+        "value": -12345,
+        "error": null
+      },
+      {
+        "text": "12_345~",
+        "success": true,
+        "value": -12345,
+        "error": null
+      },
+      {
+        "text": "~12_345~",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "plus12_345~",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12_345plus",
+        "success": true,
+        "value": 12345,
+        "error": null
+      }
+    ]
+  },
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -26650,6 +26772,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "7dea7a8059ccc597740cdf707e7516bf10c6ea97f0a78c405ac2d84d260fb728",
+  "oracleProgramSha256": "82c439fceba748a00eecd744d2b2e278994aecc3a90f078c9e589728190d5072",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
