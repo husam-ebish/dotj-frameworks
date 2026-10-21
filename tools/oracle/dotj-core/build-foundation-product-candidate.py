@@ -467,6 +467,19 @@ def main():
         "validNullSuccess": False,
         "validNullValue": 0,
     }
+    exponent_texts = ["0e1001", "0e999999999", "0e2147483647", "0e2147483648",
+                      "1e1001", "1e999999999", "1e~1001", "0e~1001",
+                      "0e~999999999", "0e~2147483648", "2147483647",
+                      "~2147483648", "2147483648", "~2147483649",
+                      "214748364:7e1", "214748364:8e1"]
+    exponent_values = [0] * 10 + [2147483647, -2147483648, 0, 0, 2147483647, 0]
+    exponent_errors = [None] * 4 + ["Overflow"] * 3 + [None] * 3 \
+        + [None] * 2 + ["Overflow"] * 2 + [None, "Overflow"]
+    assert metadata["selectedInt32ExponentLimits"] == [
+        {"text": text, "success": error is None, "value": value,
+         "error": None if error is None else f"System.{error}Exception"}
+        for text, value, error in zip(exponent_texts, exponent_values, exponent_errors)
+    ]
     general_styles = {
         "signDecimal": (44, ["~42:00", "42:00~", "~42:00~", "42:5", "42"],
                         [-42, -42, 0, 0, 42],

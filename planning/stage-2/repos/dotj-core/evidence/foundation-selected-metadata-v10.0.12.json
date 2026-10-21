@@ -24007,6 +24007,104 @@
     "validNullSuccess": false,
     "validNullValue": 0
   },
+  "selectedInt32ExponentLimits": [
+    {
+      "text": "0e1001",
+      "success": true,
+      "value": 0,
+      "error": null
+    },
+    {
+      "text": "0e999999999",
+      "success": true,
+      "value": 0,
+      "error": null
+    },
+    {
+      "text": "0e2147483647",
+      "success": true,
+      "value": 0,
+      "error": null
+    },
+    {
+      "text": "0e2147483648",
+      "success": true,
+      "value": 0,
+      "error": null
+    },
+    {
+      "text": "1e1001",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "1e999999999",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "1e~1001",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "0e~1001",
+      "success": true,
+      "value": 0,
+      "error": null
+    },
+    {
+      "text": "0e~999999999",
+      "success": true,
+      "value": 0,
+      "error": null
+    },
+    {
+      "text": "0e~2147483648",
+      "success": true,
+      "value": 0,
+      "error": null
+    },
+    {
+      "text": "2147483647",
+      "success": true,
+      "value": 2147483647,
+      "error": null
+    },
+    {
+      "text": "~2147483648",
+      "success": true,
+      "value": -2147483648,
+      "error": null
+    },
+    {
+      "text": "2147483648",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "~2147483649",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "214748364:7e1",
+      "success": true,
+      "value": 2147483647,
+      "error": null
+    },
+    {
+      "text": "214748364:8e1",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    }
+  ],
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -27503,6 +27601,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "7b853a13e58f0504e863cbbfec49dbf58a369d8f45d7a11211585c7268d6bfae",
+  "oracleProgramSha256": "97ea3c2c24e79e763e2913580bc519040eb7dc6c4675bd6492c5b279f838247f",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

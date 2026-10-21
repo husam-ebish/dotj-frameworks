@@ -92,4 +92,6 @@ The shared noncurrency parser now receives remaining valid flag masks instead of
 
 Selected invalid radix-style masks now preserve the pinned error order and parameter identity: Parse with null input reports `ArgumentNullException(s)` first, while TryParse validates the style and reports `ArgumentException(style)` even for null input; invalid masks also take precedence over out-of-range text. A valid radix style retains false/zero TryParse behavior for null. Other overload and error-message details remain open.
 
+The Float and extended numeric parsers now evaluate exponents as arbitrary-size integers against the decimal coefficient before constructing a bounded `Int32`. Sixteen pinned .NET 10 vectors cover zero with very large positive or negative exponents, nonzero overflow, and exact signed `Int32` limits in packaged string and both span carriers. Other grammar and culture edges remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

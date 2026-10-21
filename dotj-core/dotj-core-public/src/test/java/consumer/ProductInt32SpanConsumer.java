@@ -285,6 +285,26 @@ public final class ProductInt32SpanConsumer {
         checkCurrencyFlagStyles();
         checkRadixFlagStyles();
         checkGeneralFlagStyles();
+        checkExponentLimits();
+    }
+
+    private static void checkExponentLimits() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        provider.set_NumberDecimalSeparator(":");
+        provider.set_PositiveSign("plus");
+        provider.set_NegativeSign("~");
+        checkSingleStyleVectors(NumberStyles.Float, provider,
+                new String[] {"0e1001", "0e999999999", "0e2147483647", "0e2147483648",
+                        "1e1001", "1e999999999", "1e~1001", "0e~1001",
+                        "0e~999999999", "0e~2147483648", "2147483647",
+                        "~2147483648", "2147483648", "~2147483649",
+                        "214748364:7e1", "214748364:8e1"},
+                new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, Integer.MAX_VALUE,
+                        Integer.MIN_VALUE, 0, 0, Integer.MAX_VALUE, 0},
+                new Class<?>[] {null, null, null, null, OverflowException.class,
+                        OverflowException.class, OverflowException.class, null, null, null,
+                        null, null, OverflowException.class, OverflowException.class,
+                        null, OverflowException.class});
     }
 
     private static void checkGeneralFlagStyles() {
