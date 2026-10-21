@@ -5,6 +5,22 @@ import java.math.BigInteger;
 /** Bounded immutable Int32 value and conversion candidate. */
 public final class Int32 implements IConvertible, ISpanFormattable,
         IUtf8SpanFormattable, IComparable {
+    public static Int32 Parse(String text) {
+        if (text == null) {
+            throw new ArgumentNullException("s");
+        }
+        String trimmed = text.strip();
+        if (!trimmed.matches("[+-]?[0-9]+")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        BigInteger parsed = new BigInteger(trimmed);
+        if (parsed.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                || parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+            throw new OverflowException("Value was outside the range of Int32");
+        }
+        return new Int32(parsed.intValue());
+    }
+
     private final int value;
 
     public Int32(int value) {

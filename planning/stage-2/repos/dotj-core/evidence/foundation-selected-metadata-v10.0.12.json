@@ -646,6 +646,33 @@
     "charOverflow": "System.OverflowException",
     "invalidDateTime": "System.InvalidCastException"
   },
+  "selectedInt32ParseBehavior": {
+    "number": {
+      "result": 42,
+      "exception": null,
+      "paramName": null
+    },
+    "padded": {
+      "result": 42,
+      "exception": null,
+      "paramName": null
+    },
+    "invalid": {
+      "result": null,
+      "exception": "System.FormatException",
+      "paramName": null
+    },
+    "overflow": {
+      "result": null,
+      "exception": "System.OverflowException",
+      "paramName": null
+    },
+    "nullValue": {
+      "result": null,
+      "exception": "System.ArgumentNullException",
+      "paramName": "s"
+    }
+  },
   "selectedSpanFormattingBehavior": {
     "enough": {
       "success": true,
@@ -3353,8 +3380,40 @@
           }
         ]
       ]
+    },
+    {
+      "fullName": "System.FormatException",
+      "baseType": "System.SystemException",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 0,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [],
+      "selectedProperties": [],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ]
+      ]
     }
   ],
-  "oracleProgramSha256": "560e93023e86b9fd696d292d090501968bd0c492ac787d24e74b32902ef7f7d3",
+  "oracleProgramSha256": "5d6b566a323c404047f973b629def7c8a8723655436901b57e3e08d7fd46ab62",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

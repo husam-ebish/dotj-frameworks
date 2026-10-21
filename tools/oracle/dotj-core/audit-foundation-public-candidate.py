@@ -143,6 +143,7 @@ def main():
             assert "public int ToInt32(System.IFormatProvider);" in declarations
             assert "public System.Decimal ToDecimal(System.IFormatProvider);" in declarations
             assert "public int CompareTo(java.lang.Object);" in declarations
+            assert "public static System.Int32 Parse(java.lang.String);" in declarations
             assert upstream["declaredPublicMethodCount"] == 53
             disposition = "PARTIAL_VALUE_SURFACE; selected conversion and comparison behavior only"
         elif name == "System.OverflowException":
@@ -153,6 +154,10 @@ def main():
             assert header == "public class System.InvalidCastException extends System.SystemException {"
             assert len(constructors) == 4
             disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; errorCode/HRESULT semantics open"
+        elif name == "System.FormatException":
+            assert header == "public class System.FormatException extends System.SystemException {"
+            assert len(constructors) == 3
+            disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open"
         else:
             assert header.startswith("public class " + name)
             if name == "System.Exception":
@@ -175,7 +180,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 24
+    assert len(records) == 25
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -194,7 +199,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS twenty-four selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS twenty-five selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":

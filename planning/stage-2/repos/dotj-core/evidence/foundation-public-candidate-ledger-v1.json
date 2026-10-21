@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "08e253b6ae5d86030492426cd59940fc3d0e0b5419a578760c31a0d13771b622",
-  "typeCount": 24,
+  "candidateJarSha256": "4dfc2b62a78ee1187f4dafdb92be59724ddf3fcea63c01a722810cc0321bdb79",
+  "typeCount": 25,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -219,6 +219,7 @@
       "javaPublicConstructors": 1,
       "javaPublicHeader": "public final class System.Int32 implements System.IConvertible,System.ISpanFormattable,System.IUtf8SpanFormattable,System.IComparable {",
       "javaPublicDeclarations": [
+        "public static System.Int32 Parse(java.lang.String);",
         "public System.Int32(int);",
         "public int get_Value();",
         "public System.TypeCode GetTypeCode();",
@@ -536,6 +537,24 @@
         "public System.InvalidCastException(java.lang.String, int);"
       ],
       "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; errorCode/HRESULT semantics open",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.FormatException",
+      "upstreamBaseType": "System.SystemException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 3,
+      "javaPublicConstructors": 3,
+      "javaPublicHeader": "public class System.FormatException extends System.SystemException {",
+      "javaPublicDeclarations": [
+        "public System.FormatException();",
+        "public System.FormatException(java.lang.String);",
+        "public System.FormatException(java.lang.String, System.Exception);"
+      ],
+      "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open",
       "qualified": false
     }
   ],

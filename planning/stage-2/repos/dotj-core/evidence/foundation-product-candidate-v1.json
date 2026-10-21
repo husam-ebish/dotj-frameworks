@@ -43,11 +43,11 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Int32.java",
-      "sha256": "b4c86eec155bcb471ffc145071248535116439e796ea2c935c41f15d24810e13"
+      "sha256": "aab22f2a387458fe602debb319638bf1c094e7c07d0f59126b3b606782ec48b8"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "781262f880c2937cb1497853bff66e3d3b3e0d3c57c87d979a9902b17c17b9d7"
+      "sha256": "6d498dcdcdc224b21385b1275202abf840dbf5d7aa4adbf082852d5d99eb5c9a"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -75,11 +75,15 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/OverflowException.java",
-      "sha256": "9619b7e4139a3cb0773760f1aa38e291b4b870b3e6ca05582eb80f53fa8d0fe7"
+      "sha256": "c6862389e925024db8e20b649831256048a876289c1e5f24ed5e0235be2385c0"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/InvalidCastException.java",
-      "sha256": "9897f7d8d503c6ad782095d88aae4983a836166ea17c1bc99f488730fb05bf27"
+      "sha256": "851e6439304a2678c7dcdb39914d8c4724125e5725f419142b569f9f151ab063"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/FormatException.java",
+      "sha256": "53888b244de5743c0adc1f971d4ae5a5ecd1c3e29fa8d78b5944dd1b55c55638"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/IO/IOException.java",
@@ -99,7 +103,7 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "08e253b6ae5d86030492426cd59940fc3d0e0b5419a578760c31a0d13771b622",
+  "jarSha256": "4dfc2b62a78ee1187f4dafdb92be59724ddf3fcea63c01a722810cc0321bdb79",
   "jarEntries": [
     "META-INF/MANIFEST.MF",
     "System/ArgumentException.class",
@@ -107,6 +111,7 @@
     "System/DateTime.class",
     "System/Decimal.class",
     "System/Exception.class",
+    "System/FormatException.class",
     "System/IComparable.class",
     "System/IConvertible.class",
     "System/IDisposable.class",
@@ -140,6 +145,7 @@
     "System/DateTime.class": "725039727b42fef409a4bee6b22890a6e14f85008f39b9aa206a7de1cbf3ce80",
     "System/Decimal.class": "f072d7710d862a6a8c2d5f1aeb266853b2aca3344a99a5ff7f5a7cb288bbfdd1",
     "System/Exception.class": "ec46b472c6bd47b0cc155d3167f9b3218e611659182fe149ab479462757900f8",
+    "System/FormatException.class": "9cf13468f8b1e9ac2d0d12da9909970118538710db1dbad619f098cfe3761045",
     "System/IComparable.class": "a3790e8568a32d4ea4d40c4c2f3bd2e3198cbf07ddcd8f25d994f716c62de227",
     "System/IConvertible.class": "8e3639c71f8a42a3194756d1721afaa40293957e868cfe74c6da7f71264acce2",
     "System/IDisposable.class": "e308da2ce34102fc8c31e2d96beb0b54aba33b05aabe0e1e63196fb87ae5687b",
@@ -150,7 +156,7 @@
     "System/ISpanFormattable.class": "77611d584c6a1f1df5d716e7b922aa0fa428924e74eacfd35e52a0fa0e531152",
     "System/IUtf8SpanFormattable.class": "c4b20062e25c355b98474850bb31f2ad6760f088fb935a22d5d60ea277aae96a",
     "System/IndexOutOfRangeException.class": "df1fbc228b3042da2a59c09598bce065e79166ba1c8907bc3e85e2bd31bf5453",
-    "System/Int32.class": "75ba9a910f21cd3d1b642f5a9c48a02a67145af7ebef379ff35d0a89bbeaf489",
+    "System/Int32.class": "1faee4f262107b408f23a9c14c72a0f26b4dd8ad928b6f37e1a124e9ea934201",
     "System/InvalidCastException.class": "7cf12c5f59e39f4568d44af315fc9e4724cf1b7bb838e1773a6948b8e64bc937",
     "System/OverflowException.class": "993fac808a41a070c5b6b00c5871a0eb6430d15ccc2f7a9585a56be38de0f55c",
     "System/Reflection/MemberInfo.class": "40fc2ab14507b46d13cdc1146e9777ec18e5e685501520a155c28949a9ae29ba",
@@ -158,12 +164,12 @@
     "System/SystemException.class": "8a0ce898bd9a9a53c79f403b1685f06fd421a639e972bab3d2cb083581b3d169",
     "System/Type$1.class": "4f5977e37914e696b854d5e2bb796fee8dbdafcb06c7b7be0e8ed55682345021",
     "System/Type$2.class": "eefcfdd001453aa8c7547d0955b107a4c4a58ef3174f5bc8855cfd3bf35441da",
-    "System/Type$ArrayType.class": "b49a3c9c3450466357bad956b05bb4a1b4c673ef483f501f17a6a2376c0ad557",
-    "System/Type$ByRefType.class": "c0c2c985bf02bdd66ca714e0129223fe6884281eb90af09d7284fb899e75777f",
-    "System/Type$GenericParameterType.class": "2792e826ea23cff4cb98f36eea8ccff327ee0a5f9b73b6111ecbd608e8f5ade9",
-    "System/Type$PointerType.class": "3b9a56a6c99374174b18b0e09da45a4d734d2b0f610b4f0ffcb1c8e5c0f665df",
-    "System/Type$ResolvedType.class": "1846d4d1d0b5a4369261657931cb8117b6fd346d11a499cf7bb6119be70a39f1",
-    "System/Type.class": "2b079dc3074b414a4c7351b31493253b37e97254aa7b046c8fb09874ce01fefa",
+    "System/Type$ArrayType.class": "58703779bbccd6b088d2b32b7828ee8b45796e6efd61682aea1fd78395c45068",
+    "System/Type$ByRefType.class": "9aa776d18c6988b26d7e36f46f914c66ea3d6cecc76570e58b7d5b1371066efd",
+    "System/Type$GenericParameterType.class": "cbcbdf2f8dd4be3dad11e5269305e9cae337d4dea4f5fc9086fd049ceb7d55a8",
+    "System/Type$PointerType.class": "c148fb121281182b7e3ae6136e5100dd203c1ffc7a6e4fcac82002343ab6e0bd",
+    "System/Type$ResolvedType.class": "0b7b67a200cc11ea5bdd81a63465d25d4691666d1d0c628d68ae81b48836c2a6",
+    "System/Type.class": "8cfa8374ed99beb286fe17ac1908837c56cbe2c65bb241154dfc9ae5ba97c61a",
     "System/TypeCode.class": "c752b76fce1df9da0441528ef7b8d2806e034a2a94741544ceaa1378b8a7f595",
     "System/TypeLoadException.class": "5abf39d1265d20b8756e5215d23b19be75c13fb33def2c35f0736daf1ced4fac"
   },
