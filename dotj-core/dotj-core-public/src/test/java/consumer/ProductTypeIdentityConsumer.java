@@ -484,6 +484,12 @@ public final class ProductTypeIdentityConsumer {
                 || !"-4200%".equals(new Int32(-42).ToString("0%", provider))) {
             throw new AssertionError("Selected Int32 escaped percent changed");
         }
+        if (!"42\u2030".equals(int32Value.ToString("0\\\u2030", provider))
+                || !"42000\u2030".equals(int32Value.ToString("0\u2030", provider))
+                || !"-42\u2030".equals(new Int32(-42).ToString("0\\\u2030", provider))
+                || !"-42000\u2030".equals(new Int32(-42).ToString("0\u2030", provider))) {
+            throw new AssertionError("Selected Int32 per-mille formatting changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

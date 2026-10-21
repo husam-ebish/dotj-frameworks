@@ -556,6 +556,17 @@ var result = new
         negativeActive = ((IFormattable)(-42)).ToString("0%",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32PerMilleBehavior = new
+    {
+        escaped = ((IFormattable)42).ToString(@"0\‰",
+            System.Globalization.CultureInfo.InvariantCulture),
+        active = ((IFormattable)42).ToString("0‰",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeEscaped = ((IFormattable)(-42)).ToString(@"0\‰",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeActive = ((IFormattable)(-42)).ToString("0‰",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

@@ -273,6 +273,9 @@ def main():
     escaped_percent = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32EscapedPercentBehavior"]
     assert escaped_percent == {"escaped": "42%", "active": "4200%",
                                "negativeEscaped": "-42%", "negativeActive": "-4200%"}
+    per_mille = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32PerMilleBehavior"]
+    assert per_mille == {"escaped": "42\u2030", "active": "42000\u2030",
+                         "negativeEscaped": "-42\u2030", "negativeActive": "-42000\u2030"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
