@@ -302,6 +302,11 @@ def main():
     assert nested_byref_lookup[0]["name"].endswith("]]&")
     assert nested_byref_lookup[0]["fullNameSameReference"]
     assert nested_byref_lookup[0]["qualifiedSameReference"]
+    nested_pointer_lookup = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedConstructedPointerLookupBehavior"]
+    assert len(nested_pointer_lookup) == 1
+    assert nested_pointer_lookup[0]["name"].endswith("]]*")
+    assert nested_pointer_lookup[0]["fullNameSameReference"]
+    assert nested_pointer_lookup[0]["qualifiedSameReference"]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
