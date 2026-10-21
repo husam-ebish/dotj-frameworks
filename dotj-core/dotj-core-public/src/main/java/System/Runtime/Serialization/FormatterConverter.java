@@ -1,0 +1,159 @@
+// SPDX-License-Identifier: MIT
+
+package System.Runtime.Serialization;
+
+import System.ArgumentNullException;
+import System.DateTime;
+import System.Decimal;
+import System.FormatException;
+import System.IConvertible;
+import System.Int32;
+import System.InvalidCastException;
+import System.Type;
+import System.TypeCode;
+
+/** Selected invariant conversions used by serialization metadata. */
+public final class FormatterConverter implements IFormatterConverter {
+    private static IConvertible convertible(Object value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        if (value instanceof IConvertible candidate) {
+            return candidate;
+        }
+        if (value instanceof Integer number) {
+            return new Int32(number);
+        }
+        throw new InvalidCastException("Value cannot be converted by this candidate");
+    }
+
+    @Override
+    public Object Convert(Object value, Type type) {
+        if (type == null) {
+            throw new ArgumentNullException("type");
+        }
+        String name = type.get_FullName();
+        if ("System.Object".equals(name)) {
+            return value;
+        }
+        if ("System.Int32".equals(name)) {
+            return ToInt32(value);
+        }
+        if ("System.String".equals(name)) {
+            return ToString(value);
+        }
+        if ("System.Boolean".equals(name)) {
+            return ToBoolean(value);
+        }
+        throw new InvalidCastException("Target type is outside the selected conversions");
+    }
+
+    @Override
+    public Object Convert(Object value, TypeCode typeCode) {
+        if (typeCode == null) {
+            throw new InvalidCastException("TypeCode is required");
+        }
+        return switch (typeCode) {
+            case Int32 -> ToInt32(value);
+            case String -> ToString(value);
+            case Boolean -> ToBoolean(value);
+            default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
+        };
+    }
+
+    @Override
+    public boolean ToBoolean(Object value) {
+        if (value instanceof String text) {
+            if (text.equalsIgnoreCase("true")) {
+                return true;
+            }
+            if (text.equalsIgnoreCase("false")) {
+                return false;
+            }
+            throw new FormatException("Input string was not in a correct format");
+        }
+        if (value instanceof Boolean flag) {
+            return flag;
+        }
+        return convertible(value).ToBoolean(null);
+    }
+
+    @Override
+    public short ToByte(Object value) {
+        return convertible(value).ToByte(null);
+    }
+
+    @Override
+    public char ToChar(Object value) {
+        return convertible(value).ToChar(null);
+    }
+
+    @Override
+    public DateTime ToDateTime(Object value) {
+        return convertible(value).ToDateTime(null);
+    }
+
+    @Override
+    public Decimal ToDecimal(Object value) {
+        return convertible(value).ToDecimal(null);
+    }
+
+    @Override
+    public double ToDouble(Object value) {
+        return convertible(value).ToDouble(null);
+    }
+
+    @Override
+    public short ToInt16(Object value) {
+        return convertible(value).ToInt16(null);
+    }
+
+    @Override
+    public int ToInt32(Object value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        if (value instanceof String text) {
+            return Int32.Parse(text).get_Value();
+        }
+        return convertible(value).ToInt32(null);
+    }
+
+    @Override
+    public long ToInt64(Object value) {
+        return convertible(value).ToInt64(null);
+    }
+
+    @Override
+    public byte ToSByte(Object value) {
+        return convertible(value).ToSByte(null);
+    }
+
+    @Override
+    public float ToSingle(Object value) {
+        return convertible(value).ToSingle(null);
+    }
+
+    @Override
+    public String ToString(Object value) {
+        if (value instanceof String text) {
+            return text;
+        }
+        return convertible(value).ToString(null);
+    }
+
+    @Override
+    public int ToUInt16(Object value) {
+        return convertible(value).ToUInt16(null);
+    }
+
+    @Override
+    public long ToUInt32(Object value) {
+        return convertible(value).ToUInt32(null);
+    }
+
+    @Override
+    public java.math.BigInteger ToUInt64(Object value) {
+        return convertible(value).ToUInt64(null);
+    }
+}
