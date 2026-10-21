@@ -1301,6 +1301,28 @@ static object ObserveDecimalRoundModes()
             (MidpointRounding)5)),
     };
 }
+static object ObserveDecimalRoundOverloads()
+{
+    int[][] inputs =
+    [
+        [150, 0, 0, 0x00020000],
+        [250, 0, 0, 0x00020000],
+        [150, 0, 0, unchecked((int)0x80020000)],
+        [250, 0, 0, unchecked((int)0x80020000)],
+        [50, 0, 0, 0x00020000],
+        [50, 0, 0, unchecked((int)0x80020000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+    ];
+    var modes = Enum.GetValues<MidpointRounding>();
+    return inputs.Select(bits => new
+    {
+        input = bits,
+        defaultBits = decimal.GetBits(decimal.Round(new decimal(bits))),
+        modeBits = modes.Select(mode => decimal.GetBits(decimal.Round(
+            new decimal(bits), mode))).ToArray(),
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5774,6 +5796,7 @@ var result = new
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
     selectedDecimalRoundModes = ObserveDecimalRoundModes(),
+    selectedDecimalRoundOverloads = ObserveDecimalRoundOverloads(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

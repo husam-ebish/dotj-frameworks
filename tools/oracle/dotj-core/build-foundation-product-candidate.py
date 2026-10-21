@@ -268,6 +268,23 @@ def main():
     assert round_modes["invalidNegative"] == {
         "type": "System.ArgumentException", "paramName": "mode"}
     assert round_modes["invalidFive"] == round_modes["invalidNegative"]
+    round_overloads = metadata["selectedDecimalRoundOverloads"]
+    overload_inputs = ([150, 0, 0, 131072], [250, 0, 0, 131072],
+                       [150, 0, 0, -2147352576], [250, 0, 0, -2147352576],
+                       [50, 0, 0, 131072], [50, 0, 0, -2147352576],
+                       [-1, -1, -1, 0], [-1, -1, -1, -2147483648])
+    overload_results = ((2, 2, 1, 1, 2), (2, 3, 2, 2, 3),
+                        (2, 2, 1, 2, 1), (2, 3, 2, 3, 2),
+                        (0, 1, 0, 0, 1), (0, 1, 0, 1, 0))
+    expected_overloads = []
+    for index, bits in enumerate(overload_inputs):
+        expected_modes = ([result, 0, 0,
+                           -2147483648 if bits[3] < 0 else 0]
+                          for result in overload_results[index]) if index < 6 else (bits for _ in range(5))
+        mode_bits = list(expected_modes)
+        expected_overloads.append((bits, mode_bits[0], mode_bits))
+    assert [(entry["input"], entry["defaultBits"], entry["modeBits"])
+            for entry in round_overloads] == expected_overloads
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},

@@ -238,6 +238,38 @@ public final class ProductDecimalBitsConsumer {
                 }
             }
         }
+        int[][] overloadInputs = {
+            {150, 0, 0, 0x00020000}, {250, 0, 0, 0x00020000},
+            {150, 0, 0, 0x80020000}, {250, 0, 0, 0x80020000},
+            {50, 0, 0, 0x00020000}, {50, 0, 0, 0x80020000},
+            {-1, -1, -1, 0}, {-1, -1, -1, 0x80000000},
+        };
+        int[][] overloadCoefficients = {
+            {2, 2, 1, 1, 2}, {2, 3, 2, 2, 3},
+            {2, 2, 1, 2, 1}, {2, 3, 2, 3, 2},
+            {0, 1, 0, 0, 1}, {0, 1, 0, 1, 0},
+        };
+        for (int index = 0; index < overloadInputs.length; index++) {
+            Decimal value = new Decimal(overloadInputs[index]);
+            int[] defaultExpected = index < overloadCoefficients.length
+                    ? new int[] {overloadCoefficients[index][0], 0, 0,
+                        overloadInputs[index][3] < 0 ? 0x80000000 : 0}
+                    : overloadInputs[index];
+            if (!Arrays.equals(Decimal.GetBits(Decimal.Round(value)), defaultExpected)) {
+                throw new AssertionError("Default Decimal.Round changed: " + index);
+            }
+            for (int modeValue = 0; modeValue < 5; modeValue++) {
+                int[] expected = index < overloadCoefficients.length
+                        ? new int[] {overloadCoefficients[index][modeValue], 0, 0,
+                            overloadInputs[index][3] < 0 ? 0x80000000 : 0}
+                        : overloadInputs[index];
+                if (!Arrays.equals(Decimal.GetBits(Decimal.Round(value,
+                        MidpointRounding.FromValue(modeValue))), expected)) {
+                    throw new AssertionError("Default-precision mode changed: "
+                        + index + ", " + modeValue);
+                }
+            }
+        }
         java.lang.System.out.println("PASS external selected Decimal bits");
     }
 }
