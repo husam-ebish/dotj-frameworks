@@ -587,6 +587,27 @@ public final class ProductTypeIdentityConsumer {
         } catch (FileLoadException expected) {
             // Selected pinned malformed identity error.
         }
+        for (String quotedPunctuation : new String[] {
+                "'System.Private.CoreLib,Extra'",
+                "\"System.Private.CoreLib,Extra\", UnknownAttr=foo",
+                "\"System.Private.CoreLib,Extra\", PublicKeyToken=null"}) {
+            if (Type.GetType("System.String, " + quotedPunctuation) != string) {
+                throw new AssertionError("Selected quoted punctuation rejected: " + quotedPunctuation);
+            }
+        }
+        for (String missingQuotedPunctuation : new String[] {
+                "\"System.Private.CoreLib=Extra\", Version=1.2",
+                "'System.Private.CoreLib=Extra'"}) {
+            if (Type.GetType("System.String, " + missingQuotedPunctuation) != null) {
+                throw new AssertionError("Selected quoted equals resolved: " + missingQuotedPunctuation);
+            }
+        }
+        try {
+            Type.GetType("System.String, \"System.Private.CoreLib,Extra\", Version=banana");
+            throw new AssertionError("Malformed Version after quoted comma accepted");
+        } catch (FileLoadException expected) {
+            // Selected pinned malformed attribute error.
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

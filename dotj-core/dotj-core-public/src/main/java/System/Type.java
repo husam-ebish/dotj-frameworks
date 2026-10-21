@@ -116,8 +116,9 @@ public abstract class Type extends MemberInfo {
                 }
             }
             String assemblyName = assembly.substring(0, nameEnd).trim();
-            if (assemblyName.equalsIgnoreCase("\"System.Private.CoreLib,Extra\"")) {
-                assemblyName = "\"System.Private.CoreLib\"";
+            if (assemblyName.equalsIgnoreCase("\"System.Private.CoreLib,Extra\"")
+                    || assemblyName.equalsIgnoreCase("'System.Private.CoreLib,Extra'")) {
+                assemblyName = "System.Private.CoreLib";
             }
             if (assemblyName.isEmpty() && assembly.indexOf(',') >= 0) {
                 if (throwOnError) {
@@ -148,13 +149,14 @@ public abstract class Type extends MemberInfo {
                             || assemblyName.equalsIgnoreCase("mscorlib"));
                 java.util.ArrayList<String> attributes = new java.util.ArrayList<>();
                 StringBuilder attributeText = new StringBuilder();
-                boolean insideQuotes = false;
+                char attributeQuote = 0;
                 for (int offset = 0; offset < assembly.length(); offset++) {
                     char character = assembly.charAt(offset);
-                    if (character == '"') {
-                        insideQuotes = !insideQuotes;
+                    if ((character == '"' || character == '\'')
+                            && (attributeQuote == 0 || attributeQuote == character)) {
+                        attributeQuote = attributeQuote == 0 ? character : 0;
                     }
-                    if (character == ',' && !insideQuotes) {
+                    if (character == ',' && attributeQuote == 0) {
                         attributes.add(attributeText.toString());
                         attributeText.setLength(0);
                     } else {
