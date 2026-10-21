@@ -5,7 +5,7 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "f706aeacb5112145499748aeca63a71c4779bc95d03d23aa3ce9b1f4f4a197c9",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "966f6ffa54125eeaab2cac64c18e7256dadcebb24215b56f6c47e5ba9479cb4c",
+  "javaCandidateEvidenceSha256": "dfce2bcdd9b365ae485946535b3e8b79d1c623cb3446cca3ba45f700e6a0819f",
   "types": [
     {
       "fullName": "System.Type",
@@ -3429,6 +3429,7 @@
         "public boolean get_IsSealed();",
         "public boolean get_IsPublic();",
         "public boolean get_IsNotPublic();",
+        "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",
         "public boolean get_IsInterface();",
@@ -3608,6 +3609,7 @@
           "get_IsValueType": 1,
           "get_IsVariableBoundArray": 1,
           "get_IsVisible": 1,
+          "get_MemberType": 1,
           "get_Namespace": 1,
           "get_ReflectedType": 1,
           "get_UnderlyingSystemType": 1,
@@ -3671,7 +3673,6 @@
           "IsSpecialName",
           "IsUnicodeClass",
           "IsUnmanagedFunctionPointer",
-          "MemberType",
           "Module",
           "StructLayoutAttribute",
           "TypeHandle",
