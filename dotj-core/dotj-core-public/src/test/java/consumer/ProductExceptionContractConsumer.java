@@ -2,9 +2,11 @@ package consumer;
 
 import System.ArgumentException;
 import System.ArgumentNullException;
+import System.ArgumentOutOfRangeException;
 import System.Exception;
 import System.SystemException;
 import System.InvalidOperationException;
+import System.InvalidCastException;
 import System.Type;
 import org.dotj.internal.throwing.ThrowSite;
 import System.IO.FileLoadException;
@@ -150,6 +152,30 @@ public final class ProductExceptionContractConsumer {
             verifyViewEnumeratorMutation(keys, value -> value.Remove("second"), 1);
             verifyViewEnumeratorMutation(keys, IDictionary::Clear, 0);
         }
+        IDictionary copyDictionary = new Exception("copy").get_Data();
+        copyDictionary.Add("key", 7);
+        DictionaryEntry[] offsetEntries = new DictionaryEntry[2];
+        Object[] offsetKeys = new Object[2];
+        Object[] offsetValues = new Object[2];
+        copyDictionary.CopyTo(offsetEntries, 1);
+        copyDictionary.get_Keys().CopyTo(offsetKeys, 1);
+        copyDictionary.get_Values().CopyTo(offsetValues, 1);
+        if (!"key".equals(offsetEntries[1].get_Key())
+                || !Integer.valueOf(7).equals(offsetEntries[1].get_Value())
+                || !"key".equals(offsetKeys[1]) || !Integer.valueOf(7).equals(offsetValues[1])
+                || Type.GetType("System.ArgumentOutOfRangeException").get_BaseType()
+                        != Type.GetType("System.ArgumentException")
+                || ArgumentOutOfRangeException.class.getConstructors().length != 5
+                || new ArgumentOutOfRangeException("index").get_HResult() != -2146233086) {
+            throw new AssertionError("Selected CopyTo success or out-of-range identity changed");
+        }
+        expectCopyError(() -> copyDictionary.CopyTo(null, 0), ArgumentNullException.class, "array");
+        expectCopyError(() -> copyDictionary.CopyTo(new Object[1], -1),
+                ArgumentOutOfRangeException.class, "index");
+        expectCopyError(() -> copyDictionary.CopyTo(new Object[1], 1), ArgumentException.class, "index");
+        expectCopyError(() -> copyDictionary.CopyTo(new Object[0], 0), ArgumentException.class, "index");
+        expectCopyError(() -> copyDictionary.CopyTo(new String[1], 0), InvalidCastException.class, null);
+        expectCopyError(() -> copyDictionary.CopyTo(new Object[1][1], 0), ArgumentException.class, null);
         while (boundaryEnumerator.MoveNext()) {
             // Advance beyond the final entry.
         }
@@ -349,5 +375,19 @@ public final class ProductExceptionContractConsumer {
         }
         expectInvalidEnumerator(() -> enumerator.MoveNext());
         expectInvalidEnumerator(enumerator::Reset);
+    }
+
+    private static void expectCopyError(Runnable operation, Class<? extends Throwable> expectedType,
+            String parameterName) {
+        try {
+            operation.run();
+            throw new AssertionError("Invalid dictionary CopyTo accepted");
+        } catch (Exception caught) {
+            if (caught.getClass() != expectedType
+                    || (caught instanceof ArgumentException argument
+                            && !java.util.Objects.equals(argument.get_ParamName(), parameterName))) {
+                throw new AssertionError("Dictionary CopyTo error type or parameter changed", caught);
+            }
+        }
     }
 }

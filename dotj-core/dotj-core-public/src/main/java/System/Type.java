@@ -487,6 +487,7 @@ public abstract class Type extends MemberInfo {
             case "System.SystemException" -> fromJavaClass(SystemException.class);
             case "System.ArgumentException" -> fromJavaClass(ArgumentException.class);
             case "System.ArgumentNullException" -> fromJavaClass(ArgumentNullException.class);
+            case "System.ArgumentOutOfRangeException" -> fromJavaClass(ArgumentOutOfRangeException.class);
             case "System.TypeLoadException" -> fromJavaClass(TypeLoadException.class);
             case "System.IndexOutOfRangeException" -> fromJavaClass(IndexOutOfRangeException.class);
             case "System.IO.IOException" -> fromJavaClass(IOException.class);
@@ -640,6 +641,8 @@ public abstract class Type extends MemberInfo {
             case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
             case "system.argumentexception" -> ignoreCase ? fromJavaClass(ArgumentException.class) : null;
             case "system.argumentnullexception" -> ignoreCase ? fromJavaClass(ArgumentNullException.class) : null;
+            case "system.argumentoutofrangeexception" -> ignoreCase
+                    ? fromJavaClass(ArgumentOutOfRangeException.class) : null;
             case "system.typeloadexception" -> ignoreCase ? fromJavaClass(TypeLoadException.class) : null;
             case "system.indexoutofrangeexception" -> ignoreCase ? fromJavaClass(IndexOutOfRangeException.class) : null;
             case "system.io.ioexception" -> ignoreCase ? fromJavaClass(IOException.class) : null;

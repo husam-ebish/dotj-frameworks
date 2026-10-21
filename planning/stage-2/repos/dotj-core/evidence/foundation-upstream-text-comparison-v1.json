@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 63 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 64 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "3d81513e9f4c4865d603def38348dcfb3a27ab97e831ba0daf883fb601e946f4",
+  "jarSha256": "3f01644116d36cee301949a5be80ef5e32b58f8849771ec50d6aaee7f30a0499",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -26,6 +26,17 @@
       "upstreamSha256": "a4a74455bc2c18eb52a6b603db8013218e38cc8e6905af787044e66b471af19a",
       "productIdentifierCount": 54,
       "upstreamIdentifierCount": 407,
+      "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/ArgumentOutOfRangeException.java",
+      "productSha256": "b2e16f52e0656b7f6a4e644994a8857b4576332411c1f8bfce26f61a7448b290",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/ArgumentOutOfRangeException.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/ArgumentOutOfRangeException.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "c391bf2fc83e6f08fd94350b045de99252a7915b37fa0adc045be0abe3dfbc97",
+      "productIdentifierCount": 92,
+      "upstreamIdentifierCount": 1208,
       "sharedIdentifierShinglesOfLength12": 0
     },
     {
@@ -612,12 +623,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "f4a244c5c5f2bbfe9c2ed4a0a7ef98c543372347dc815da9e214f18bb9ac183e",
+      "productSha256": "0de598d6572cdf442343e803598981653ba4582762b29e93bf436b70386c4434",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
-      "productIdentifierCount": 9199,
+      "productIdentifierCount": 9213,
       "upstreamIdentifierCount": 3542,
       "sharedIdentifierShinglesOfLength12": 0
     },
@@ -667,7 +678,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java",
-      "productSha256": "8b808cbf67714e03946191c8d414bb46359851d23772a5c33a52cff20e3a3173",
+      "productSha256": "aaecbfe690309f2b4c4beff5df4ee0384762d2adca52aa8c30d18d4a7daf9afe",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/org/dotj/internal/collections/ExceptionDataDictionary.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/org/dotj/internal/collections/ExceptionDataDictionary.cs",
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"

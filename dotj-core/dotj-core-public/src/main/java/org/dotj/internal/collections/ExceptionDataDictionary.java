@@ -4,6 +4,8 @@ package org.dotj.internal.collections;
 
 import System.ArgumentException;
 import System.ArgumentNullException;
+import System.ArgumentOutOfRangeException;
+import System.InvalidCastException;
 import System.InvalidOperationException;
 import System.Collections.DictionaryEntry;
 import System.Collections.ICollection;
@@ -140,12 +142,21 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
         if (array == null) {
             throw new ArgumentNullException("array");
         }
-        if (!array.getClass().isArray() || index < 0 || index > Array.getLength(array)
-                || values.length > Array.getLength(array) - index) {
-            throw new ArgumentException("Destination array cannot hold the collection", "array");
+        if (index < 0) {
+            throw new ArgumentOutOfRangeException("index");
+        }
+        if (!array.getClass().isArray() || array.getClass().getComponentType().isArray()) {
+            throw new ArgumentException("Destination must be a single-dimensional array");
+        }
+        if (index > Array.getLength(array) || values.length > Array.getLength(array) - index) {
+            throw new ArgumentException("Destination array cannot hold the collection", "index");
         }
         for (int position = 0; position < values.length; position++) {
-            Array.set(array, index + position, values[position]);
+            try {
+                Array.set(array, index + position, values[position]);
+            } catch (IllegalArgumentException mismatch) {
+                throw new InvalidCastException("Destination element type is incompatible");
+            }
         }
     }
 

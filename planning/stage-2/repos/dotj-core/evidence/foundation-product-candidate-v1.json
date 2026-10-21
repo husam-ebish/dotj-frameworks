@@ -63,7 +63,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "f4a244c5c5f2bbfe9c2ed4a0a7ef98c543372347dc815da9e214f18bb9ac183e"
+      "sha256": "0de598d6572cdf442343e803598981653ba4582762b29e93bf436b70386c4434"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/DBNull.java",
@@ -88,6 +88,10 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentNullException.java",
       "sha256": "efb549c0110e34ed6a705ee9ddcff770523a86cc684f452a38e8eaec6a957577"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentOutOfRangeException.java",
+      "sha256": "b2e16f52e0656b7f6a4e644994a8857b4576332411c1f8bfce26f61a7448b290"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/TypeLoadException.java",
@@ -155,7 +159,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java",
-      "sha256": "8b808cbf67714e03946191c8d414bb46359851d23772a5c33a52cff20e3a3173"
+      "sha256": "aaecbfe690309f2b4c4beff5df4ee0384762d2adca52aa8c30d18d4a7daf9afe"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Globalization/NumberStyles.java",
@@ -255,7 +259,7 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "3d81513e9f4c4865d603def38348dcfb3a27ab97e831ba0daf883fb601e946f4",
+  "jarSha256": "3f01644116d36cee301949a5be80ef5e32b58f8849771ec50d6aaee7f30a0499",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -264,6 +268,7 @@
     "META-INF/LICENSE",
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
+    "System/ArgumentOutOfRangeException.class",
     "System/Attribute.class",
     "System/Byte.class",
     "System/Collections/DictionaryEntry.class",
@@ -343,6 +348,7 @@
   "classSha256": {
     "System/ArgumentException.class": "ab97277688577c73a2e3d06762821eae08974d241926488e4ab3baa9f7e18185",
     "System/ArgumentNullException.class": "5965bb39ec9bbc7c15d84f316d65c1b42510c741653c5520a9f94e62a64a25ed",
+    "System/ArgumentOutOfRangeException.class": "659fc812a05be5d7b91e56b347e17491d172b65e51c1f16482c8b292d710ed22",
     "System/Attribute.class": "c4bc801c87c25980f46098d00f2ddf9198249bdd3a629892abe819d6ce0dc64f",
     "System/Byte.class": "ece89f91ce0aeafffa2c42ac6007b44d18aaac0c6479f847346886f8ad940acc",
     "System/Collections/DictionaryEntry.class": "8faaec0348ebca857dc2aab429b1d93444ad1dd350570f5b21f8bc24af323637",
@@ -400,23 +406,23 @@
     "System/SystemException.class": "de15e69523d424b191ef078434ba7e9154e63cf550ec658609f2a816a62e368b",
     "System/Type$1.class": "4c7cac23c6fb843749effcbd1a7d7db5646bebdc9da9d9216b9a0847cc0b9c28",
     "System/Type$2.class": "200aaee06066d9934a8c92a06bc92a330fb332df63bf5f6b0f6332856cc9bab1",
-    "System/Type$ArrayType.class": "63b27c9f58a3b778c0a4b5c53db43746c32fbf73ae81d19bb17b6cb9c9d904f6",
-    "System/Type$ByRefType.class": "50ece082f4e7c445a43f47381174993ef808c5f8786650b95d63de70c350abc8",
-    "System/Type$DefaultMethodMember.class": "6015a4b14be40d3ebe80ed3a6f213c0f5fc5280984d94da6534619f0a9851455",
-    "System/Type$DefaultParameterInfo.class": "eafa64ea0a0f94d8cfb38c8093f804453ea8b7ab0deddfd8000c23aea2b8ab39",
-    "System/Type$DefaultPropertyMember.class": "d51b8857af1c61513c823339198f8282e4280160e7f826d6a50fca572c0516c3",
-    "System/Type$GenericParameterType.class": "f57086e496855231d37dd9f5dd237683dc2ba05301a973825f57108c67300b46",
-    "System/Type$PointerType.class": "8b7860871b0a8c50650157e7db529c425d352b0f7e613c468b343c6c957d5a31",
-    "System/Type$ResolvedType.class": "5369d52fbcda6813fb0ca8afd2a9e24bd4749fdad35b7357afbb110844db9fc9",
-    "System/Type.class": "3030c1e924c9c470764c36526b79ba817c3f7c7a88448c1f5d6a92470c8e5638",
+    "System/Type$ArrayType.class": "ab32bc00eb605ffe1d6869478e2ac13718a9ec097813a4d2fe746749252bb95e",
+    "System/Type$ByRefType.class": "cfbfc96667de98277fa614887357f491cd7033b340acde58bd277e77b44bac16",
+    "System/Type$DefaultMethodMember.class": "700f1cc1203ca137e5e8135f9ef07bd5dd6dd7332bbf5be4df61e90f06d5a257",
+    "System/Type$DefaultParameterInfo.class": "9ec7e319123274056e658281aebfed3ed18c04b71e670d346c391f2bb2cc40f8",
+    "System/Type$DefaultPropertyMember.class": "646df27a573494826a6f659d94baed80f9026b23dd2eec5f998eb00d3ce7f674",
+    "System/Type$GenericParameterType.class": "8f95b58164a1e6d910a6f4e5ac249a3c77b65fe5444328e2546de3e2ffd572f1",
+    "System/Type$PointerType.class": "5fcb2bf74a3a181aaffaa91eef3eca9626cf93ea31e990498d53ed8d3315d162",
+    "System/Type$ResolvedType.class": "066f040d1b260144ac50c4b9ec3af8530810ff5d63c816921ceddebe2623d5e3",
+    "System/Type.class": "e39d11380571143097fb95003b2e41b443f78f702a7d28a8b6588ac5db854816",
     "System/TypeCode.class": "5f6956717c868ad4b0c4eb615505de94484bd689c0ee71825a7769f7b94d2c6e",
     "System/TypeLoadException.class": "3c9398389a065487de5b6ba064da95cbcd77c8dd7dab8f289559cccebabe16cc",
     "System/UInt16.class": "6b2e7953edefd6f9cf8514a869e146c07658f51be4b95c637384c0a35bfa69de",
     "System/UInt32.class": "09435798300eabcbce5d359b29acf78370b98f7f3a1acfda88902327fc532bc8",
-    "org/dotj/internal/collections/ExceptionDataDictionary$CollectionView.class": "6c1cb2b769de8d498a7ee62d32a30b9dd18770c4be594da5c855c3684bb94be9",
-    "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class": "9f563d4e52c01a5879a92e9966ab7b2e8472a4a3edc2e8e99e23943a4cd94d09",
-    "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class": "d0e8a13a4bf8599e01b69da67878c511604135119cb6cfcb3963e29d10bc5395",
-    "org/dotj/internal/collections/ExceptionDataDictionary.class": "9b57159842075390864b58a2bf8e6a8cc2c0c255b1d46aca1fa0ef97efd80ff3",
+    "org/dotj/internal/collections/ExceptionDataDictionary$CollectionView.class": "5facef3bc470e98c2240364e49a238a0a15dc2b692348a23df66f765a110bd82",
+    "org/dotj/internal/collections/ExceptionDataDictionary$EntryEnumerator.class": "4eaffd200f7d2147e295be6466c495c5523131bba7cec617ecf82ce5c54d811b",
+    "org/dotj/internal/collections/ExceptionDataDictionary$ValueEnumerator.class": "710e4a6cf6b6059cba760946ac7fab3f0ce577e7ee00913278eb472f187d57a9",
+    "org/dotj/internal/collections/ExceptionDataDictionary.class": "9951edd436a4417795b98aed34efee090f751ecdda3072a3640715f3f280f16d",
     "org/dotj/internal/throwing/ThrowSite.class": "a1ee91996e5d293c4a7ab0c77ac612bd796739bfa8acfa3646374c6e7058ab25"
   },
   "disposalConsumer": "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation",
