@@ -13,6 +13,10 @@ public final class NullableAttribute extends Attribute {
         this.NullableFlags = new byte[] { flag };
     }
 
+    public NullableAttribute(byte[] flags) {
+        this.NullableFlags = flags;
+    }
+
     @Override
     public boolean equals(Object other) {
         return other instanceof NullableAttribute nullable

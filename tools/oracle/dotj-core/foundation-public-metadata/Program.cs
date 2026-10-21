@@ -633,6 +633,32 @@ static object ObserveSelectedAttributeInstance()
         isDefault = first.IsDefaultAttribute(),
     };
 }
+static object ObserveNullableAttributeConstructor()
+{
+    Type type = typeof(IFormattable).GetMethod("ToString")!.ReturnParameter
+        .GetCustomAttributes(false)[0].GetType();
+    ConstructorInfo[] constructors = type.GetConstructors(
+        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+    ConstructorInfo arrayConstructor = type.GetConstructor(
+        BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance,
+        null, new[] { typeof(byte[]) }, null)!;
+    byte[] input = { 1, 2 };
+    object instance = arrayConstructor.Invoke(new object[] { input });
+    byte[] flags = (byte[])type.GetField("NullableFlags")!.GetValue(instance)!;
+    bool sameReference = ReferenceEquals(input, flags);
+    input[0] = 3;
+    return new
+    {
+        constructors = constructors.Select(ctor => new
+        {
+            parameters = ctor.GetParameters().Select(parameter => parameter.ParameterType.FullName).ToArray(),
+            isPublic = ctor.IsPublic,
+        }).OrderBy(ctor => ctor.parameters[0]).ToArray(),
+        sameArrayReference = sameReference,
+        firstFlagAfterInputMutation = flags[0],
+        secondFlag = flags[1],
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1146,6 +1172,7 @@ var result = new
                     .Select(value => value.GetType().FullName).ToArray() })
             .ToArray() }).ToArray(),
     selectedAttributeInstanceBehavior = ObserveSelectedAttributeInstance(),
+    selectedNullableAttributeConstructorBehavior = ObserveNullableAttributeConstructor(),
     selectedParameterAttributeFilterBehavior = new
     {
         returnBase = typeof(IFormattable).GetMethod("ToString")!.ReturnParameter
