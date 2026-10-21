@@ -16,6 +16,11 @@ import System.Runtime.Serialization.SerializationInfoEnumerator;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Reflection.MemberTypes;
+import System.Collections.IDictionary;
+import System.Collections.ICollection;
+import System.Collections.IEnumerable;
+import System.Collections.IDictionaryEnumerator;
+import System.Collections.DictionaryEntry;
 
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
@@ -55,6 +60,55 @@ public final class ProductExceptionContractConsumer {
         if (withData.get_Data().size() != 1 || !"value".equals(withData.get_Data().get("key"))
                 || otherData.get_Data() == data || !otherData.get_Data().isEmpty()) {
             throw new AssertionError("Selected exception data isolation changed");
+        }
+        IDictionary dictionary = new Exception("dictionary").get_Data();
+        if (dictionary.get_Count() != 0 || dictionary.get_IsReadOnly()
+                || dictionary.get_IsFixedSize()
+                || Type.GetType("System.Collections.IDictionary") == null
+                || !Type.GetType("System.Collections.IDictionary").get_IsInterface()
+                || Type.GetType("System.Collections.IDictionary").GetInterfaces().length != 2
+                || Type.GetType("System.Collections.IDictionary").GetInterfaces()[0]
+                        != Type.GetType("System.Collections.ICollection")
+                || Type.GetType("System.Collections.IDictionary").GetInterfaces()[1]
+                        != Type.GetType("System.Collections.IEnumerable")
+                || !Type.GetType("System.Collections.IDictionary").IsInstanceOfType(dictionary)
+                || !Type.GetType("System.Collections.ICollection").IsAssignableFrom(
+                        Type.GetType("System.Collections.IDictionary"))
+                || !Type.GetType("System.Collections.DictionaryEntry").get_IsValueType()) {
+            throw new AssertionError("Selected IDictionary identity changed");
+        }
+        dictionary.Add("key", "first");
+        IDictionaryEnumerator dictionaryEnumerator = dictionary.GetEnumerator();
+        DictionaryEntry[] copied = new DictionaryEntry[1];
+        dictionary.CopyTo(copied, 0);
+        if (!dictionary.Contains("key") || !"first".equals(dictionary.get_Item("key"))
+                || dictionary.get_Keys().get_Count() != 1
+                || dictionary.get_Values().get_Count() != 1
+                || !dictionaryEnumerator.MoveNext()
+                || !"key".equals(dictionaryEnumerator.get_Key())
+                || !"first".equals(dictionaryEnumerator.get_Value())
+                || !"key".equals(copied[0].get_Key())
+                || !"first".equals(copied[0].get_Value())) {
+            throw new AssertionError("Selected IDictionary operations changed");
+        }
+        try {
+            dictionary.Add("key", "duplicate");
+            throw new AssertionError("Duplicate dictionary key accepted");
+        } catch (ArgumentException expected) {
+            // Pinned CLR failure type.
+        }
+        dictionary.set_Item("key", "second");
+        if (!"second".equals(dictionary.get_Item("key"))) {
+            throw new AssertionError("Selected IDictionary replacement changed");
+        }
+        dictionary.Remove("key");
+        if (dictionary.get_Count() != 0) {
+            throw new AssertionError("Selected IDictionary removal changed");
+        }
+        dictionary.Add("another", 42);
+        dictionary.Clear();
+        if (dictionary.get_Count() != 0) {
+            throw new AssertionError("Selected IDictionary clear changed");
         }
         if (new Exception().get_HResult() != -2146233088
                 || new Exception("message").get_HResult() != -2146233088

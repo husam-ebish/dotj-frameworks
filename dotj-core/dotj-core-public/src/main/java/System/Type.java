@@ -30,6 +30,11 @@ import System.Runtime.Serialization.SerializationException;
 import System.Runtime.Serialization.SerializationEntry;
 import System.Runtime.Serialization.SerializationInfoEnumerator;
 import System.Collections.IEnumerator;
+import System.Collections.IEnumerable;
+import System.Collections.ICollection;
+import System.Collections.IDictionary;
+import System.Collections.IDictionaryEnumerator;
+import System.Collections.DictionaryEntry;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Globalization.NumberStyles;
@@ -449,6 +454,11 @@ public abstract class Type extends MemberInfo {
             case "System.DBNull" -> fromJavaClass(DBNull.class);
             case "System.NullReferenceException" -> fromJavaClass(NullReferenceException.class);
             case "System.Runtime.Serialization.ISerializable" -> fromJavaClass(ISerializable.class);
+            case "System.Collections.IEnumerable" -> fromJavaClass(IEnumerable.class);
+            case "System.Collections.ICollection" -> fromJavaClass(ICollection.class);
+            case "System.Collections.IDictionary" -> fromJavaClass(IDictionary.class);
+            case "System.Collections.IDictionaryEnumerator" -> fromJavaClass(IDictionaryEnumerator.class);
+            case "System.Collections.DictionaryEntry" -> fromJavaClass(DictionaryEntry.class);
             case "System.Runtime.Serialization.IFormatterConverter" ->
                     fromJavaClass(IFormatterConverter.class);
             case "System.Runtime.Serialization.FormatterConverter" ->
@@ -589,6 +599,16 @@ public abstract class Type extends MemberInfo {
                     ? fromJavaClass(NullReferenceException.class) : null;
             case "system.runtime.serialization.iserializable" -> ignoreCase
                     ? fromJavaClass(ISerializable.class) : null;
+            case "system.collections.ienumerable" -> ignoreCase
+                    ? fromJavaClass(IEnumerable.class) : null;
+            case "system.collections.icollection" -> ignoreCase
+                    ? fromJavaClass(ICollection.class) : null;
+            case "system.collections.idictionary" -> ignoreCase
+                    ? fromJavaClass(IDictionary.class) : null;
+            case "system.collections.idictionaryenumerator" -> ignoreCase
+                    ? fromJavaClass(IDictionaryEnumerator.class) : null;
+            case "system.collections.dictionaryentry" -> ignoreCase
+                    ? fromJavaClass(DictionaryEntry.class) : null;
             case "system.runtime.serialization.iformatterconverter" -> ignoreCase
                     ? fromJavaClass(IFormatterConverter.class) : null;
             case "system.runtime.serialization.formatterconverter" -> ignoreCase
@@ -953,7 +973,8 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == Decimal.class || this.definition == DateTime.class
                 || this.definition == StreamingContext.class
-                || this.definition == SerializationEntry.class) {
+                || this.definition == SerializationEntry.class
+                || this.definition == DictionaryEntry.class) {
             return fromJavaClass(Number.class);
         }
         if (this.definition == MemberTypes.class || this.definition == BindingFlags.class
@@ -998,6 +1019,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == DateTime.class
                         || this.definition == StreamingContext.class
                         || this.definition == SerializationEntry.class
+                        || this.definition == DictionaryEntry.class
                         || this.definition == MemberTypes.class
                         || this.definition == BindingFlags.class
                         || this.definition == CallingConventions.class
@@ -1182,7 +1204,10 @@ public abstract class Type extends MemberInfo {
                 || this.definition == IFormatterConverter.class
                 || this.definition == ISpanFormattable.class
                 || this.definition == IUtf8SpanFormattable.class
-                || this.definition == IEnumerator.class;
+                || this.definition == IEnumerator.class
+                || this.definition == IEnumerable.class || this.definition == ICollection.class
+                || this.definition == IDictionary.class
+                || this.definition == IDictionaryEnumerator.class;
     }
 
     public boolean get_IsEnum() {
@@ -1403,6 +1428,11 @@ public abstract class Type extends MemberInfo {
             return false;
         }
         if (this == candidate) {
+            return true;
+        }
+        if ((this.definition == IEnumerable.class || this.definition == ICollection.class
+                || this.definition == IDictionary.class || this.definition == IDictionaryEnumerator.class)
+                && this.definition.isAssignableFrom(candidate.definition)) {
             return true;
         }
         if (this.definition == IEnumerator.class
@@ -1766,6 +1796,18 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
+        if (this.definition == IDictionary.class) {
+            return new Type[] {fromJavaClass(ICollection.class), fromJavaClass(IEnumerable.class)};
+        }
+        if (this.definition == ICollection.class) {
+            return new Type[] {fromJavaClass(IEnumerable.class)};
+        }
+        if (this.definition == IDictionaryEnumerator.class) {
+            return new Type[] {fromJavaClass(IEnumerator.class)};
+        }
+        if (this.definition == IEnumerable.class || this.definition == DictionaryEntry.class) {
+            return new Type[0];
+        }
         if (this.definition == Exception.class) {
             return new Type[] {fromJavaClass(ISerializable.class)};
         }

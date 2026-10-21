@@ -6,10 +6,12 @@ import System.Runtime.Serialization.ISerializable;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.StreamingContext;
 import System.Reflection.MethodBase;
+import System.Collections.IDictionary;
+import org.dotj.internal.collections.ExceptionDataDictionary;
 
 /** Selected unchecked Java carrier for the System.Exception candidate hierarchy. */
 public class Exception extends RuntimeException implements ISerializable {
-    private java.util.Map<Object, Object> data;
+    private IDictionary data;
     private int hResult = -2146233088;
     private String helpLink;
     private String source;
@@ -45,9 +47,9 @@ public class Exception extends RuntimeException implements ISerializable {
         return current;
     }
 
-    public java.util.Map<Object, Object> get_Data() {
+    public IDictionary get_Data() {
         if (this.data == null) {
-            this.data = new java.util.HashMap<>();
+            this.data = new ExceptionDataDictionary();
         }
         return this.data;
     }
