@@ -543,6 +543,13 @@ def main():
         "u32Large": "System.OverflowException",
         "negativeU32": "System.OverflowException",
     }
+    int64_widening = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt64WideningConversionsBehavior"]
+    assert int64_widening == {
+        "text": "5000000000", "decimalText": "5000000000",
+        "doubleValue": 5000000000, "boolean": True,
+        "uint64Text": "5000000000",
+        "negativeUInt64": "System.OverflowException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

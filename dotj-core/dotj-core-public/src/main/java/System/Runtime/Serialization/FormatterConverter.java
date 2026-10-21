@@ -150,6 +150,9 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof Boolean flag) {
             return flag;
         }
+        if (value instanceof Long number) {
+            return number != 0;
+        }
         return convertible(value).ToBoolean(null);
     }
 
@@ -212,6 +215,9 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof Decimal decimal) {
             return decimal;
         }
+        if (value instanceof Long number) {
+            return new Decimal(number);
+        }
         return convertible(value).ToDecimal(null);
     }
 
@@ -226,6 +232,9 @@ public final class FormatterConverter implements IFormatterConverter {
         }
         if (value instanceof Double number) {
             return number;
+        }
+        if (value instanceof Long number) {
+            return number.doubleValue();
         }
         return convertible(value).ToDouble(null);
     }
@@ -346,6 +355,9 @@ public final class FormatterConverter implements IFormatterConverter {
             }
             return unsigned.toString();
         }
+        if (value instanceof Long number) {
+            return number.toString();
+        }
         return convertible(value).ToString(null);
     }
 
@@ -421,6 +433,12 @@ public final class FormatterConverter implements IFormatterConverter {
                 throw new OverflowException("Value was outside the range of UInt64");
             }
             return number;
+        }
+        if (value instanceof Long number) {
+            if (number < 0) {
+                throw new OverflowException("Value was outside the range of UInt64");
+            }
+            return java.math.BigInteger.valueOf(number);
         }
         return convertible(value).ToUInt64(null);
     }
