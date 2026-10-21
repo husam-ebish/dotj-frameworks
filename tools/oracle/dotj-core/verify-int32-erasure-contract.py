@@ -21,22 +21,30 @@ CONVERSION_METHODS = {
 
 
 def prove_erasure():
-    source = """class ReadOnlySpan<T> {}
+    sources = ("""class ReadOnlySpan<T> {}
 class Probe {
     static int Parse(ReadOnlySpan<Character> value) { return 1; }
     static int Parse(ReadOnlySpan<Byte> value) { return 2; }
 }
-"""
+""", """class Span<T> {}
+class Probe {
+    boolean TryFormat(Span<Character> value) { return true; }
+    boolean TryFormat(Span<Byte> value) { return false; }
+}
+""")
     with tempfile.TemporaryDirectory(prefix="dotj-int32-erasure-") as folder:
         path = Path(folder) / "Probe.java"
-        path.write_text(source, encoding="utf-8")
-        result = subprocess.run(
-            ["javac", "-J-Duser.language=en", "--release", "21", str(path)],
-            cwd=folder, capture_output=True, text=True)
-    if result.returncode == 0 or "name clash" not in result.stderr or "same erasure" not in result.stderr:
-        raise RuntimeError("Expected JVM generic overload rejection was not reproduced: "
-                           + result.stderr)
-    return {"javacRejected": True, "diagnostic": "name clash: same erasure"}
+        for source in sources:
+            path.write_text(source, encoding="utf-8")
+            result = subprocess.run(
+                ["javac", "-J-Duser.language=en", "--release", "21", str(path)],
+                cwd=folder, capture_output=True, text=True)
+            if (result.returncode == 0 or "name clash" not in result.stderr
+                    or "same erasure" not in result.stderr):
+                raise RuntimeError("Expected JVM generic overload rejection was not reproduced: "
+                                   + result.stderr)
+    return {"javacRejected": True, "probeCount": len(sources),
+            "diagnostic": "name clash: same erasure"}
 
 
 def main():
@@ -49,6 +57,11 @@ def main():
         if method["status"] == "ERASURE_COLLAPSED_CARRIER":
             groups[method["collapsedCarrierDeclaration"]].append(method["upstreamSignature"])
     assert len(groups) == 5 and all(len(signatures) == 2 for signatures in groups.values())
+    format_signatures = audit["formatCarrierUpstreamSignatures"]
+    assert len(format_signatures) == 2
+    assert sum("System.Span`1[System.Char]" in signature for signature in format_signatures) == 1
+    assert sum("System.Span`1[System.Byte]" in signature for signature in format_signatures) == 1
+    assert audit["formatCarrierDeclaration"].startswith("public <T> boolean TryFormat(System.Span<T>,")
     overloads = []
     for carrier, signatures in sorted(groups.items()):
         char = [signature for signature in signatures
@@ -84,14 +97,16 @@ def main():
         "clrOverloadCount": 10,
         "javaCarrierMethodCount": len(overloads),
         "overloadMappings": overloads,
+        "formatCarrierDeclaration": audit["formatCarrierDeclaration"],
+        "formatCarrierUpstreamSignatures": format_signatures,
         "extraJavaPublicMethodCount": len(extras),
         "extraJavaPublicMethods": extras,
         "status": "FRONTEND_TYPE_DIRECTED_LOWERING_AND_PUBLIC_BRIDGE_POLICY_REQUIRED; N01 OPEN",
         "limitation": "This verifies a mapping contract and a javac rejection. No .j compiler consumes the mapping; it does not establish exact overload dispatch or hide extra Java public members.",
     }
     OUTPUT.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
-    print("PASS Int32 erasure contract: 10 CLR overloads, 5 JVM carriers, "
-          "18 classified extra public methods; javac clash reproduced")
+    print("PASS Int32 erasure contract: 10 parsing CLR overloads, 5 ReadOnlySpan carriers; "
+          "2 formatting overloads, 1 Span carrier; 18 extras; javac clashes reproduced")
 
 
 if __name__ == "__main__":

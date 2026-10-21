@@ -102,6 +102,14 @@ def main():
         assert len(carrier) == 1, (key, carrier)
         for method in group:
             span_carriers[method["signature"]] = carrier[0]["declaration"]
+    format_methods = [method for method in upstream if method["name"] == "TryFormat"]
+    assert len(format_methods) == 2
+    format_carriers = [item for item in candidates
+                       if item["name"] == "TryFormat" and not item["isStatic"]
+                       and item["genericArity"] == 1
+                       and item["parameters"] == ["System.Span<T>", "int[]",
+                                                   "java.lang.String", "System.IFormatProvider"]]
+    assert len(format_carriers) == 1, format_carriers
     matched = set()
     results = []
     for method in upstream:
@@ -141,6 +149,7 @@ def main():
                        "MISSING_PROJECTED_SIGNATURE"),
         })
     matched.update(span_carriers.values())
+    matched.add(format_carriers[0]["declaration"])
     extra_methods = [item["declaration"] for item in candidates
                      if item["declaration"] not in matched]
     missing = [item for item in results if item["candidateDeclaration"] is None]
@@ -158,6 +167,8 @@ def main():
         "missingProjectedSignatureCount": len(missing),
         "erasureCollapsedOverloadGroupCount": len(span_groups),
         "erasureCollapsedUpstreamMethodCount": len(span_carriers),
+        "formatCarrierDeclaration": format_carriers[0]["declaration"],
+        "formatCarrierUpstreamSignatures": [method["signature"] for method in format_methods],
         "extraJavaPublicMethodCount": len(extra_methods),
         "upstreamFields": fields,
         "extraJavaPublicMethods": extra_methods,
@@ -165,7 +176,7 @@ def main():
                                    if item.startswith("public System.Int32(")],
         "methods": results,
         "status": "PROJECTION_AUDIT_ONLY; SPAN_ERASURE/VALUE_TYPE_ABI, BEHAVIOR, E02 AND N01 OPEN",
-        "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Five generic ReadOnlySpan carrier methods collapse ten distinct CLR overloads. Extra Java methods include public interface bridges and carrier helpers.",
+        "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Five generic ReadOnlySpan carrier methods collapse ten distinct CLR parsing overloads; one generic Span carrier maps two already-projected formatting overloads. Extra Java methods include public interface bridges and carrier helpers.",
     }
     OUTPUT.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
     print(f"PASS Int32 signature audit: {len(results) - len(missing)}/53 projected; "

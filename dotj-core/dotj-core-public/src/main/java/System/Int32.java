@@ -763,6 +763,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return true;
     }
 
+    /** One Java carrier for the CLR Char and UTF-8 Byte span overloads. */
+    public <T> boolean TryFormat(Span<T> destination, int[] written, String format,
+                                 IFormatProvider provider) {
+        int count = destination.writeSelectedInt32Text(this.ToString(format, provider));
+        written[0] = count < 0 ? 0 : count;
+        return count >= 0;
+    }
+
     @Override
     public boolean TryFormat(byte[] destination, int[] bytesWritten, String format,
                              IFormatProvider provider) {
