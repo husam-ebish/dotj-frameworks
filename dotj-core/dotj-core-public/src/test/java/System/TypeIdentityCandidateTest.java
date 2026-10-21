@@ -86,6 +86,11 @@ public final class TypeIdentityCandidateTest {
                 Type.fromJavaClass(IFormattable.class),
                 Type.fromJavaClass(IFormatProvider.class)};
         String[] interfaceMethodNames = {"Dispose", "CompareTo", "ToString", "GetFormat"};
+        Type[][] interfaceMethodParameters = {
+            new Type[0], {Type.fromJavaClass(Object.class)},
+            {string, Type.fromJavaClass(IFormatProvider.class)},
+            {Type.fromJavaClass(Type.class)}
+        };
         for (int index = 0; index < interfaceOwners.length; index++) {
             Type owner = interfaceOwners[index];
             MemberInfo[] members = owner.GetMembers();
@@ -147,6 +152,32 @@ public final class TypeIdentityCandidateTest {
                         interfaceMethodNames[index].toLowerCase(java.util.Locale.ROOT),
                         publicInstance.or(BindingFlags.IgnoreCase)).get_Name())) {
                 throw new AssertionError("Selected flagged typed method lookup changed");
+            }
+            MethodInfo parameterized = owner.GetMethod(
+                    interfaceMethodNames[index], interfaceMethodParameters[index]);
+            if (parameterized == null
+                    || !interfaceMethodNames[index].equals(parameterized.get_Name())
+                    || parameterized.get_DeclaringType() != owner
+                    || owner.GetMethod(interfaceMethodNames[index],
+                        new Type[] {Type.fromJavaClass(Integer.class)}) != null) {
+                throw new AssertionError("Selected method parameter lookup changed");
+            }
+        }
+        for (int index = 0; index < 3; index++) {
+            try {
+                if (index == 0) {
+                    interfaceOwners[0].GetMethod(null, new Type[0]);
+                } else if (index == 1) {
+                    interfaceOwners[0].GetMethod("Dispose", (Type[]) null);
+                } else {
+                    interfaceOwners[0].GetMethod("Dispose", new Type[] {null});
+                }
+                throw new AssertionError("Null method lookup input accepted");
+            } catch (ArgumentNullException expected) {
+                String expectedName = index == 0 ? "name" : "types";
+                if (!expectedName.equals(expected.get_ParamName())) {
+                    throw new AssertionError("Null method lookup parameter changed", expected);
+                }
             }
         }
         try {

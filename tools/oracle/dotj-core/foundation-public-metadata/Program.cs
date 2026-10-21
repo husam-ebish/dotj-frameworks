@@ -467,6 +467,21 @@ static object ObserveMethodFlags(Type type, string? name, BindingFlags flags)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveMethodParameters(Type type, string? name, Type[]? parameters)
+{
+    try
+    {
+        MethodInfo? method = type.GetMethod(name!, parameters!);
+        return new { result = method?.Name, kind = method?.MemberType.ToString(),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?)null, kind = (string?)null,
+            exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -977,6 +992,18 @@ var result = new
             name = method.Name, kind = method.MemberType.ToString(),
             declaring = method.DeclaringType?.FullName,
         }).ToArray() }).ToArray(),
+    selectedMethodParameterBehavior = new
+    {
+        dispose = ObserveMethodParameters(typeof(IDisposable), "Dispose", Type.EmptyTypes),
+        compareTo = ObserveMethodParameters(typeof(IComparable), "CompareTo", new[] {typeof(object)}),
+        toString = ObserveMethodParameters(typeof(IFormattable), "ToString",
+            new[] {typeof(string), typeof(IFormatProvider)}),
+        getFormat = ObserveMethodParameters(typeof(IFormatProvider), "GetFormat", new[] {typeof(Type)}),
+        wrongTypes = ObserveMethodParameters(typeof(IDisposable), "Dispose", new[] {typeof(object)}),
+        nullName = ObserveMethodParameters(typeof(IDisposable), null, Type.EmptyTypes),
+        nullArray = ObserveMethodParameters(typeof(IDisposable), "Dispose", null),
+        nullElement = ObserveMethodParameters(typeof(IDisposable), "Dispose", new Type[] {null!}),
+    },
     selectedNestedTypeFlagsBehavior = new
     {
         publicChild = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PublicChild", BindingFlags.Public),
