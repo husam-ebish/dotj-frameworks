@@ -67,10 +67,10 @@ def main():
     current_hashes = {item["path"]: item["sha256"] for item in artifact["productSources"]}
     with ThreadPoolExecutor(max_workers=6) as pool:
         rows = sorted(pool.map(compare, current_hashes.items()), key=lambda row: row["productPath"])
-    assert len(rows) == len(current_hashes) == 63
+    assert len(rows) == len(current_hashes) == 64
     record = {
         "schemaVersion": 1,
-        "scope": "All 63 candidate Java paths; direct name-matched pinned upstream paths only",
+        "scope": "All 64 candidate Java paths; direct name-matched pinned upstream paths only",
         "upstreamCommit": COMMIT,
         "artifactEvidence": ARTIFACT.name,
         "jarSha256": artifact["jarSha256"],
@@ -81,7 +81,7 @@ def main():
     }
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     found = sum(row["directNameMatchedUpstreamFile"] == "FOUND" for row in rows)
-    print(f"PASS bounded text comparison for {found} pinned direct-name upstream files among 63 product sources")
+    print(f"PASS bounded text comparison for {found} pinned direct-name upstream files among 64 product sources")
 
 
 if __name__ == "__main__":

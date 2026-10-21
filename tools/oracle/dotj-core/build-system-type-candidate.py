@@ -13,7 +13,7 @@ SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
-                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "FormatException")]
+                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "ArgumentOutOfRangeException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "FormatException")]
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException", "FileLoadException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
@@ -713,6 +713,22 @@ def main():
         "repeatedValueViewSame": False,
         "keysCount": 1,
         "valuesCount": 1,
+    }
+    assert json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedExceptionDataCopyToBoundaries"] == {
+        "nullArray": "System.ArgumentNullException", "nullArrayParam": "array",
+        "negativeIndex": "System.ArgumentOutOfRangeException", "negativeIndexParam": "index",
+        "indexAtLength": "System.ArgumentException", "indexAtLengthParam": "index",
+        "tooSmall": "System.ArgumentException", "tooSmallParam": "index",
+        "wrongElement": "System.InvalidCastException", "wrongElementParam": None,
+        "multidimensional": "System.ArgumentException", "multidimensionalParam": None,
+        "entryOffsetKey": "key", "entryOffsetValue": 7,
+        "keyOffset": "key", "valueOffset": 7,
+        "argumentOutOfRangeConstructors": [
+            [], ["System.String"], ["System.String", "System.String"],
+            ["System.String", "System.Exception"],
+            ["System.String", "System.Object", "System.String"],
+        ],
+        "argumentOutOfRangeHResult": -2146233086,
     }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]

@@ -2059,6 +2059,41 @@ static object ObserveExceptionDataViewProperties()
         valuesCount = values.Count,
     };
 }
+static object ObserveExceptionDataCopyToBoundaries()
+{
+    var dictionary = new Exception("copy").Data;
+    dictionary.Add("key", 7);
+    var entries = new System.Collections.DictionaryEntry[2];
+    dictionary.CopyTo(entries, 1);
+    var keys = new object[2];
+    dictionary.Keys.CopyTo(keys, 1);
+    var values = new object[2];
+    dictionary.Values.CopyTo(values, 1);
+    return new
+    {
+        nullArray = ObserveMethodError(() => dictionary.CopyTo(null!, 0)),
+        nullArrayParam = ObserveMethodArgumentName(() => dictionary.CopyTo(null!, 0)),
+        negativeIndex = ObserveMethodError(() => dictionary.CopyTo(new object[1], -1)),
+        negativeIndexParam = ObserveMethodArgumentName(() => dictionary.CopyTo(new object[1], -1)),
+        indexAtLength = ObserveMethodError(() => dictionary.CopyTo(new object[1], 1)),
+        indexAtLengthParam = ObserveMethodArgumentName(() => dictionary.CopyTo(new object[1], 1)),
+        tooSmall = ObserveMethodError(() => dictionary.CopyTo(new object[0], 0)),
+        tooSmallParam = ObserveMethodArgumentName(() => dictionary.CopyTo(new object[0], 0)),
+        wrongElement = ObserveMethodError(() => dictionary.CopyTo(new string[1], 0)),
+        wrongElementParam = ObserveMethodArgumentName(() => dictionary.CopyTo(new string[1], 0)),
+        multidimensional = ObserveMethodError(() => dictionary.CopyTo(new object[1, 1], 0)),
+        multidimensionalParam = ObserveMethodArgumentName(() => dictionary.CopyTo(new object[1, 1], 0)),
+        entryOffsetKey = entries[1].Key,
+        entryOffsetValue = entries[1].Value,
+        keyOffset = keys[1],
+        valueOffset = values[1],
+        argumentOutOfRangeConstructors = typeof(ArgumentOutOfRangeException)
+            .GetConstructors(BindingFlags.Public | BindingFlags.Instance)
+            .Select(constructor => constructor.GetParameters()
+                .Select(parameter => parameter.ParameterType.FullName).ToArray()).ToArray(),
+        argumentOutOfRangeHResult = new ArgumentOutOfRangeException("index").HResult,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2257,6 +2292,7 @@ var result = new
     selectedExceptionDataEnumeratorMutation = ObserveExceptionDataEnumeratorMutation(),
     selectedExceptionDataViewEnumeration = ObserveExceptionDataViewEnumeration(),
     selectedExceptionDataViewProperties = ObserveExceptionDataViewProperties(),
+    selectedExceptionDataCopyToBoundaries = ObserveExceptionDataCopyToBoundaries(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
