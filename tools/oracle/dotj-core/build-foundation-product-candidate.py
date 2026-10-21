@@ -160,6 +160,16 @@ def main():
         "arrayType": "Object",
         "genericType": "Object",
     }
+    assert metadata["selectedTypeArrayBehavior"] == {
+        "mixed": {"result": ["System.String", "System.Int32", "System.Exception"],
+                  "exception": None, "paramName": None},
+        "empty": {"result": [], "exception": None, "paramName": None},
+        "nullArray": {"result": None, "exception": "System.ArgumentNullException",
+                      "paramName": "args"},
+        "nullElement": {"result": None, "exception": "System.ArgumentException",
+                        "paramName": "args"},
+        "separateArrays": True,
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 

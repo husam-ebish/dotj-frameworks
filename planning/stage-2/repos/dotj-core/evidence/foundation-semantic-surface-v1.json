@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "e76b49052f27e805546dd879e0c5c3bda9af851dc78d3f054f12faaecc92d6ef",
+  "oracleEvidenceSha256": "4999cca50deeb5b16a5b3fedc3e13744de66e3f71ae43b3c376fe9fe2cc8cf65",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "b1204d03cbbf73d4efb33199cdeba378525684db6806db64a6a196c2e406295a",
+  "javaCandidateEvidenceSha256": "864912ebe0f7eb8232f01828b56e3f910ee14c6e72a810384ce2737b19b1203a",
   "types": [
     {
       "fullName": "System.Type",
@@ -3402,6 +3402,7 @@
       "javaCandidatePublicHeader": "public abstract class System.Type extends System.Reflection.MemberInfo {",
       "javaCandidateDeclaredPublicDeclarations": [
         "public static System.TypeCode GetTypeCode(System.Type);",
+        "public static System.Type[] GetTypeArray(java.lang.Object[]);",
         "public static System.Type GetType(java.lang.String);",
         "public static System.Type GetType(java.lang.String, boolean);",
         "public static System.Type GetType(java.lang.String, boolean, boolean);",
@@ -3526,6 +3527,7 @@
           "GetInterface": 2,
           "GetInterfaces": 1,
           "GetType": 3,
+          "GetTypeArray": 1,
           "GetTypeCode": 1,
           "IsAssignableFrom": 1,
           "IsInstanceOfType": 1,
@@ -3593,7 +3595,6 @@
           "GetProperties",
           "GetProperty",
           "GetRequiredCustomModifiers",
-          "GetTypeArray",
           "GetTypeFromCLSID",
           "GetTypeFromHandle",
           "GetTypeFromProgID",

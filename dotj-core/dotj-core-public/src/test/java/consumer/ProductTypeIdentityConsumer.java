@@ -1,6 +1,7 @@
 package consumer;
 
 import System.Type;
+import System.Exception;
 import System.ArgumentNullException;
 import System.ArgumentException;
 import System.TypeLoadException;
@@ -51,6 +52,29 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetTypeCode(Type.GetType("System.String[]")) != TypeCode.Object
                 || Type.GetTypeCode(definition) != TypeCode.Object) {
             throw new AssertionError("Selected Type.GetTypeCode values changed");
+        }
+        Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
+        if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
+                || mixedTypes[2] != Type.GetType("System.Exception")
+                || Type.GetTypeArray(new Object[0]).length != 0
+                || Type.GetTypeArray(new Object[] {"text"}) == Type.GetTypeArray(new Object[] {"text"})) {
+            throw new AssertionError("Selected Type.GetTypeArray results changed");
+        }
+        try {
+            Type.GetTypeArray(null);
+            throw new AssertionError("Null type-array input accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"args".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null type-array parameter changed");
+            }
+        }
+        try {
+            Type.GetTypeArray(new Object[] {"text", null});
+            throw new AssertionError("Null type-array element accepted");
+        } catch (ArgumentException expected) {
+            if (!"args".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null type-array element parameter changed");
+            }
         }
         if (definition == null || string == null || integer == null
                 || Type.GetType("System.Unknown") != null) {
