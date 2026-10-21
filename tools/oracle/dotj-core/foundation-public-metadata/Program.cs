@@ -980,6 +980,18 @@ var result = new
         nonPublicInstance = typeof(IDisposable).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
             .Select(method => method.Name).ToArray(),
     },
+    selectedMethodReturnBehavior = new
+    {
+        voidType = new { name = typeof(void).Name, fullName = typeof(void).FullName,
+            baseType = typeof(void).BaseType?.FullName, isValueType = typeof(void).IsValueType,
+            isPrimitive = typeof(void).IsPrimitive },
+        methods = new[]
+        {
+            (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+            (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+        }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+            returnType = item.Item1.GetMethod(item.Item2)!.ReturnType.FullName }).ToArray(),
+    },
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

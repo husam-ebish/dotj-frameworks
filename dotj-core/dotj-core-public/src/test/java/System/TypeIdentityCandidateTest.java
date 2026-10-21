@@ -47,6 +47,13 @@ public final class TypeIdentityCandidateTest {
         BindingFlags publicInstance = BindingFlags.Public.or(BindingFlags.Instance);
         Type methodBaseType = Type.fromJavaClass(MethodBase.class);
         Type methodInfoType = Type.fromJavaClass(MethodInfo.class);
+        Type voidType = Type.fromJavaClass(Void.class);
+        if (Type.GetType("System.Void") != voidType
+                || !"System.Void".equals(voidType.get_FullName())
+                || voidType.get_BaseType() != Type.fromJavaClass(Number.class)
+                || !voidType.get_IsValueType() || !voidType.get_IsPrimitive()) {
+            throw new AssertionError("Pinned Void return Type identity changed");
+        }
         if (Type.GetType("System.Reflection.MethodBase") != methodBaseType
                 || Type.GetType("System.Reflection.MethodInfo") != methodInfoType
                 || methodBaseType.get_BaseType() != Type.fromJavaClass(MemberInfo.class)
@@ -86,6 +93,8 @@ public final class TypeIdentityCandidateTest {
                 Type.fromJavaClass(IFormattable.class),
                 Type.fromJavaClass(IFormatProvider.class)};
         String[] interfaceMethodNames = {"Dispose", "CompareTo", "ToString", "GetFormat"};
+        Type[] interfaceMethodReturns = {voidType, integer, string,
+                Type.fromJavaClass(Object.class)};
         Type[][] interfaceMethodParameters = {
             new Type[0], {Type.fromJavaClass(Object.class)},
             {string, Type.fromJavaClass(IFormatProvider.class)},
@@ -137,6 +146,7 @@ public final class TypeIdentityCandidateTest {
                     || !interfaceMethodNames[index].equals(namedMethod.get_Name())
                     || namedMethod.get_MemberType() != MemberTypes.Method
                     || namedMethod.get_DeclaringType() != owner
+                    || namedMethod.get_ReturnType() != interfaceMethodReturns[index]
                     || owner.GetMethod(interfaceMethodNames[index]
                         .toLowerCase(java.util.Locale.ROOT)) != null
                     || owner.GetMethod("Missing") != null) {
