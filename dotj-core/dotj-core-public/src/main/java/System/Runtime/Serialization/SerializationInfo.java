@@ -9,6 +9,8 @@ import System.DateTime;
 import System.OverflowException;
 import System.UInt16;
 import System.UInt32;
+import System.Byte;
+import System.SByte;
 import java.math.BigInteger;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -113,6 +115,8 @@ public class SerializationInfo {
                 : value instanceof BigInteger ? Type.GetType("System.UInt64")
                 : value instanceof UInt16 ? Type.GetType("System.UInt16")
                 : value instanceof UInt32 ? Type.GetType("System.UInt32")
+                : value instanceof Byte ? Type.GetType("System.Byte")
+                : value instanceof SByte ? Type.GetType("System.SByte")
                 : Type.GetType("System.Object");
         this.AddValue(name, value, type);
     }
@@ -170,6 +174,14 @@ public class SerializationInfo {
     }
 
     public void AddValue(String name, UInt32 value) {
+        this.AddValue(name, (Object) value);
+    }
+
+    public void AddValue(String name, Byte value) {
+        this.AddValue(name, (Object) value);
+    }
+
+    public void AddValue(String name, SByte value) {
         this.AddValue(name, (Object) value);
     }
 
@@ -261,6 +273,18 @@ public class SerializationInfo {
         Object value = this.member(name).get_Value();
         return value instanceof UInt32 number ? number.get_Value()
                 : this.converter.ToUInt32(value);
+    }
+
+    public short GetByte(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof Byte number ? number.get_Value()
+                : this.converter.ToByte(value);
+    }
+
+    public byte GetSByte(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof SByte number ? number.get_Value()
+                : this.converter.ToSByte(value);
     }
 
     public SerializationInfoEnumerator GetEnumerator() {

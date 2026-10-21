@@ -1294,6 +1294,28 @@ static object ObserveSerializationInfoUnsignedMembers()
         u32TypeCode = Type.GetTypeCode(typeof(uint)).ToString(),
     };
 }
+static object ObserveSerializationInfoByteMembers()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("byte", (byte)200);
+    info.AddValue("sbyte", (sbyte)-5);
+    var cursor = info.GetEnumerator();
+    var types = new List<string>();
+    while (cursor.MoveNext())
+    {
+        types.Add(cursor.ObjectType.FullName!);
+    }
+    return new
+    {
+        count = info.MemberCount,
+        byteValue = info.GetByte("byte"),
+        sbyteValue = info.GetSByte("sbyte"),
+        types,
+        byteTypeCode = Type.GetTypeCode(typeof(byte)).ToString(),
+        sbyteTypeCode = Type.GetTypeCode(typeof(sbyte)).ToString(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1451,6 +1473,7 @@ var result = new
     selectedSerializationInfoValueOverloadsBehavior = ObserveSerializationInfoValueOverloads(),
     selectedSerializationInfoNumericOverloadsBehavior = ObserveSerializationInfoNumericOverloads(),
     selectedSerializationInfoUnsignedMembersBehavior = ObserveSerializationInfoUnsignedMembers(),
+    selectedSerializationInfoByteMembersBehavior = ObserveSerializationInfoByteMembers(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

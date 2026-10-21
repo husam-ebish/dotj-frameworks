@@ -326,6 +326,21 @@ public final class TypeIdentityCandidateTest {
                 || !"System.UInt32".equals(unsignedCursor.get_ObjectType().get_FullName())) {
             throw new AssertionError("Selected unsigned serialization members changed");
         }
+        SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
+        byteMembers.AddValue("byte", new Byte(200));
+        byteMembers.AddValue("sbyte", new SByte(-5));
+        SerializationInfoEnumerator byteCursor = byteMembers.GetEnumerator();
+        if (byteMembers.get_MemberCount() != 2
+                || byteMembers.GetByte("byte") != 200
+                || byteMembers.GetSByte("sbyte") != -5
+                || Type.GetTypeCode(Type.GetType("System.Byte")) != TypeCode.Byte
+                || Type.GetTypeCode(Type.GetType("System.SByte")) != TypeCode.SByte
+                || !byteCursor.MoveNext()
+                || !"System.Byte".equals(byteCursor.get_ObjectType().get_FullName())
+                || !byteCursor.MoveNext()
+                || !"System.SByte".equals(byteCursor.get_ObjectType().get_FullName())) {
+            throw new AssertionError("Selected byte serialization members changed");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")

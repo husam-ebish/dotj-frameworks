@@ -104,7 +104,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public byte ToSByte(IFormatProvider provider) {
-        if (this.value < Byte.MIN_VALUE || this.value > Byte.MAX_VALUE) {
+        if (this.value < java.lang.Byte.MIN_VALUE || this.value > java.lang.Byte.MAX_VALUE) {
             throw new OverflowException("Value cannot be represented as SByte");
         }
         return (byte)this.value;
