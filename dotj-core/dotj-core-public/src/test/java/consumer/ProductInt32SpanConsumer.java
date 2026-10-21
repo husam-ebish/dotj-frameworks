@@ -193,6 +193,32 @@ public final class ProductInt32SpanConsumer {
         }
         checkProviderVector(new Int32(42), "E1", "4.2Eplus001", positiveSign);
         checkProviderVector(new Int32(-42), "E1", "~4.2Eplus001", positiveSign);
+        NumberFormatInfo numberStyle = new NumberFormatInfo();
+        numberStyle.set_NumberGroupSeparator("_");
+        numberStyle.set_NumberDecimalSeparator(":");
+        numberStyle.set_PositiveSign("plus");
+        numberStyle.set_NegativeSign("~");
+        if (Int32.Parse("12_345", NumberStyles.Number, numberStyle).get_Value() != 12345
+                || Int32.Parse("12_345:00", NumberStyles.Number, numberStyle).get_Value() != 12345
+                || Int32.Parse("~12_345:00", NumberStyles.Number, numberStyle).get_Value() != -12345
+                || Int32.Parse("plus12_345:00", NumberStyles.Number, numberStyle).get_Value() != 12345
+                || Int32.Parse("12_345:00~", NumberStyles.Number, numberStyle).get_Value() != -12345) {
+            throw new AssertionError("NumberStyles.Number provider Parse changed");
+        }
+        Int32[] numberResult = new Int32[1];
+        if (Int32.TryParse("42:5", NumberStyles.Number, numberStyle, numberResult)
+                || numberResult[0].get_Value() != 0
+                || Int32.TryParse("+42", NumberStyles.Number, numberStyle, numberResult)
+                || numberResult[0].get_Value() != 0) {
+            throw new AssertionError("NumberStyles.Number provider rejection changed");
+        }
+        if (Int32.Parse(ReadOnlySpan.OfChars("~12_345:00".toCharArray()),
+                NumberStyles.Number, numberStyle).get_Value() != -12345
+                || Int32.Parse(ReadOnlySpan.OfUtf8Bytes(
+                "~12_345:00".getBytes(StandardCharsets.UTF_8)),
+                NumberStyles.Number, numberStyle).get_Value() != -12345) {
+            throw new AssertionError("NumberStyles.Number provider span Parse changed");
+        }
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,

@@ -58,4 +58,6 @@ The `E`/`e` format now uses the selected number decimal separator and negative s
 
 The selected provider positive sign now applies to `NumberStyles.Integer` parsing and positive exponents. The pinned oracle and packaged consumers accept `plus42`, reject `+42` under that provider, and agree on `4.2Eplus001` and `~4.2Eplus001` in ordinary and Char/UTF-8 span formatting. Other NumberStyles and numeric cultures remain open.
 
+The selected `NumberStyles.Number` path now accepts custom group and decimal separators, zero fractional digits and leading/trailing custom signs. The pinned oracle and packaged consumers agree on grouped positive/negative values, reject a nonzero fractional input and reject the standard `+` under the custom provider. Other flag combinations, grouping rules and full culture behavior remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
