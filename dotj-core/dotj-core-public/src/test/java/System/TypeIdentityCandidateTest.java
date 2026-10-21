@@ -7,6 +7,7 @@ import System.Reflection.BindingFlags;
 import System.Reflection.MemberInfo;
 import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
+import System.Reflection.ParameterInfo;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 
@@ -47,6 +48,12 @@ public final class TypeIdentityCandidateTest {
         BindingFlags publicInstance = BindingFlags.Public.or(BindingFlags.Instance);
         Type methodBaseType = Type.fromJavaClass(MethodBase.class);
         Type methodInfoType = Type.fromJavaClass(MethodInfo.class);
+        Type parameterInfoType = Type.fromJavaClass(ParameterInfo.class);
+        if (Type.GetType("System.Reflection.ParameterInfo") != parameterInfoType
+                || parameterInfoType.get_BaseType() != Type.fromJavaClass(Object.class)
+                || parameterInfoType.get_IsAbstract()) {
+            throw new AssertionError("Selected ParameterInfo identity changed");
+        }
         Type voidType = Type.fromJavaClass(Void.class);
         if (Type.GetType("System.Void") != voidType
                 || !"System.Void".equals(voidType.get_FullName())
@@ -100,6 +107,9 @@ public final class TypeIdentityCandidateTest {
             {string, Type.fromJavaClass(IFormatProvider.class)},
             {Type.fromJavaClass(Type.class)}
         };
+        String[][] interfaceParameterNames = {
+            {}, {"obj"}, {"format", "formatProvider"}, {"formatType"}
+        };
         for (int index = 0; index < interfaceOwners.length; index++) {
             Type owner = interfaceOwners[index];
             MemberInfo[] members = owner.GetMembers();
@@ -151,6 +161,20 @@ public final class TypeIdentityCandidateTest {
                         .toLowerCase(java.util.Locale.ROOT)) != null
                     || owner.GetMethod("Missing") != null) {
                 throw new AssertionError("Selected typed method-name lookup changed");
+            }
+            ParameterInfo[] parameters = namedMethod.GetParameters();
+            if (parameters.length != interfaceMethodParameters[index].length
+                    || parameters == namedMethod.GetParameters()) {
+                throw new AssertionError("Selected method parameter inventory changed");
+            }
+            for (int parameterIndex = 0; parameterIndex < parameters.length; parameterIndex++) {
+                if (!interfaceParameterNames[index][parameterIndex]
+                        .equals(parameters[parameterIndex].get_Name())
+                        || parameters[parameterIndex].get_ParameterType()
+                            != interfaceMethodParameters[index][parameterIndex]
+                        || parameters[parameterIndex].get_Position() != parameterIndex) {
+                    throw new AssertionError("Selected method parameter metadata changed");
+                }
             }
             if (!interfaceMethodNames[index].equals(
                     owner.GetMethod(interfaceMethodNames[index], publicInstance).get_Name())

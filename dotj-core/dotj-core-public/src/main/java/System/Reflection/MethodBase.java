@@ -6,4 +6,6 @@ package System.Reflection;
 public abstract class MethodBase extends MemberInfo {
     protected MethodBase() {
     }
+
+    public abstract ParameterInfo[] GetParameters();
 }

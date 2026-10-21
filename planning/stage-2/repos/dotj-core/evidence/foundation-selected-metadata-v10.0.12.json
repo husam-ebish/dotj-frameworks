@@ -1076,6 +1076,58 @@
       }
     ]
   },
+  "selectedParameterInfoBehavior": {
+    "type": {
+      "name": "System.Reflection.ParameterInfo",
+      "parent": "System.Object",
+      "isAbstract": false
+    },
+    "methods": [
+      {
+        "owner": "System.IDisposable",
+        "name": "Dispose",
+        "parameters": []
+      },
+      {
+        "owner": "System.IComparable",
+        "name": "CompareTo",
+        "parameters": [
+          {
+            "name": "obj",
+            "type": "System.Object",
+            "position": 0
+          }
+        ]
+      },
+      {
+        "owner": "System.IFormattable",
+        "name": "ToString",
+        "parameters": [
+          {
+            "name": "format",
+            "type": "System.String",
+            "position": 0
+          },
+          {
+            "name": "formatProvider",
+            "type": "System.IFormatProvider",
+            "position": 1
+          }
+        ]
+      },
+      {
+        "owner": "System.IFormatProvider",
+        "name": "GetFormat",
+        "parameters": [
+          {
+            "name": "formatType",
+            "type": "System.Type",
+            "position": 0
+          }
+        ]
+      }
+    ]
+  },
   "selectedMethodNameBehavior": [
     {
       "owner": "System.IDisposable",
@@ -14335,6 +14387,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "03713322b5ec2236b819d336f4c4df32257334ebb69f42c67824711aef408569",
+  "oracleProgramSha256": "ab8ef09c06500a92b89796a0640f5cce767981891bc0cc6477c7cc2b66755076",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
