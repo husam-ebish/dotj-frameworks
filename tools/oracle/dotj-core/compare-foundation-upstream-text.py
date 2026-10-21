@@ -1,8 +1,10 @@
-"""Bounded token-overlap screen against four pinned upstream CoreLib files."""
+"""Bounded token-overlap screen for the candidate source inventory."""
 
+from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
 import re
+from urllib.error import HTTPError
 import urllib.request
 from pathlib import Path
 
@@ -13,9 +15,8 @@ ARTIFACT = EVIDENCE / "foundation-product-candidate-v1.json"
 OUTPUT = EVIDENCE / "foundation-upstream-text-comparison-v1.json"
 COMMIT = "4271d88e0aebf3d04f188f1334c2220d80555ef6"
 BASE = "https://raw.githubusercontent.com/dotnet/runtime/" + COMMIT + "/"
-UPSTREAM = "src/libraries/System.Private.CoreLib/src/System/"
-PRODUCT = "dotj-core/dotj-core-public/src/main/java/System/"
-NAMES = ("Type", "Exception", "Int32", "IDisposable")
+UPSTREAM = "src/libraries/System.Private.CoreLib/src/"
+PRODUCT = "dotj-core/dotj-core-public/src/main/java/"
 SHINGLE_SIZE = 12
 
 
@@ -28,43 +29,59 @@ def shingles(tokens):
             for index in range(len(tokens) - SHINGLE_SIZE + 1)}
 
 
+def compare(item):
+    product_path, expected_hash = item
+    relative = product_path.removeprefix(PRODUCT).removesuffix(".java")
+    upstream_path = UPSTREAM + relative + ".cs"
+    product_bytes = (ROOT / product_path).read_bytes()
+    assert hashlib.sha256(product_bytes).hexdigest() == expected_hash
+    row = {
+        "productPath": product_path,
+        "productSha256": expected_hash,
+        "upstreamPath": upstream_path,
+        "upstreamUrl": BASE + upstream_path,
+    }
+    try:
+        with urllib.request.urlopen(BASE + upstream_path, timeout=30) as response:
+            upstream_bytes = response.read()
+    except HTTPError as error:
+        if error.code != 404:
+            raise
+        row["directNameMatchedUpstreamFile"] = "NOT_FOUND_AT_PINNED_PATH"
+        return row
+    product_tokens = identifiers(product_bytes)
+    upstream_tokens = identifiers(upstream_bytes)
+    shared = shingles(product_tokens) & shingles(upstream_tokens)
+    row.update({
+        "directNameMatchedUpstreamFile": "FOUND",
+        "upstreamSha256": hashlib.sha256(upstream_bytes).hexdigest(),
+        "productIdentifierCount": len(product_tokens),
+        "upstreamIdentifierCount": len(upstream_tokens),
+        "sharedIdentifierShinglesOfLength12": len(shared),
+    })
+    return row
+
+
 def main():
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
     current_hashes = {item["path"]: item["sha256"] for item in artifact["productSources"]}
-    rows = []
-    for name in NAMES:
-        product_path = PRODUCT + name + ".java"
-        upstream_path = UPSTREAM + name + ".cs"
-        product_bytes = (ROOT / product_path).read_bytes()
-        assert hashlib.sha256(product_bytes).hexdigest() == current_hashes[product_path]
-        with urllib.request.urlopen(BASE + upstream_path, timeout=30) as response:
-            upstream_bytes = response.read()
-        product_tokens = identifiers(product_bytes)
-        upstream_tokens = identifiers(upstream_bytes)
-        shared = shingles(product_tokens) & shingles(upstream_tokens)
-        rows.append({
-            "productPath": product_path,
-            "productSha256": current_hashes[product_path],
-            "upstreamPath": upstream_path,
-            "upstreamUrl": BASE + upstream_path,
-            "upstreamSha256": hashlib.sha256(upstream_bytes).hexdigest(),
-            "productIdentifierCount": len(product_tokens),
-            "upstreamIdentifierCount": len(upstream_tokens),
-            "sharedIdentifierShinglesOfLength12": len(shared),
-        })
+    with ThreadPoolExecutor(max_workers=6) as pool:
+        rows = sorted(pool.map(compare, current_hashes.items()), key=lambda row: row["productPath"])
+    assert len(rows) == len(current_hashes) == 30
     record = {
         "schemaVersion": 1,
-        "scope": "Four name-matched pairs among 30 candidate Java sources; screening only",
+        "scope": "All 30 candidate Java paths; direct name-matched pinned upstream paths only",
         "upstreamCommit": COMMIT,
         "artifactEvidence": ARTIFACT.name,
         "jarSha256": artifact["jarSha256"],
         "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
         "rows": rows,
-        "interpretationLimit": "This screen misses transformed or translated source, ignores other upstream files and dependencies, and cannot determine authorship, notice applicability, or release rights.",
+        "interpretationLimit": "A missing direct path does not mean no upstream analogue. This screen misses transformed or translated source, other upstream files and dependencies, and cannot determine authorship, notice applicability, or release rights.",
         "releaseQualification": "E01_OPEN",
     }
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-    print("PASS bounded text comparison for four pinned upstream and product source pairs")
+    found = sum(row["directNameMatchedUpstreamFile"] == "FOUND" for row in rows)
+    print(f"PASS bounded text comparison for {found} pinned direct-name upstream files among 30 product sources")
 
 
 if __name__ == "__main__":
