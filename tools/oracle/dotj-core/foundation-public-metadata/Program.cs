@@ -1033,6 +1033,15 @@ var result = new
         evenBackslashInvalidCulture = ObserveGetType("System.String, Missing\\\\, Culture=123", true, false),
         escapedAlias = ObserveGetType("System.String, System.Private.CoreLib\\,Extra, Version=1.2", true, false),
     },
+    selectedEscapedAssemblyMixedErrorPrecedence = new
+    {
+        cultureThenVersion = ObserveGetType("System.String, \"Missing\\\"Assembly\", Culture=123, Version=banana", false, false),
+        versionThenCulture = ObserveGetType("System.String, \"Missing\\\"Assembly\", Version=banana, Culture=123", false, false),
+        unknownEqualsThenCulture = ObserveGetType("System.String, Missing\\,Assembly, UnknownAttr=foo=bar, Culture=123", false, false),
+        escapedAliasMixed = ObserveGetType("System.String, System.Private.CoreLib\\,Extra, Culture=123, Version=banana", false, false),
+        evenBackslashMixed = ObserveGetType("System.String, Missing\\\\, Version=banana, Culture=123", false, false),
+        cultureThenUnknownEquals = ObserveGetType("System.String, Missing\\,Assembly, Culture=123, UnknownAttr=foo=bar", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
