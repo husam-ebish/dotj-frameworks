@@ -136,6 +136,14 @@ public final class Decimal implements IConvertible {
         return value.value.signum();
     }
 
+    public static Decimal Negate(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        return new Decimal(value.value.negate(),
+                value.value.signum() == 0 && !value.negativeZero);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

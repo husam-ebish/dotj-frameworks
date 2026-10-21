@@ -1344,6 +1344,27 @@ static object ObserveDecimalAbsSign()
         sign = decimal.Sign(new decimal(bits)),
     }).ToArray();
 }
+static object ObserveDecimalNegate()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, 0x00020000],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [12345, 0, 0, 0x00020000],
+        [12345, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0x001c0000],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+    ];
+    return inputs.Select(bits => new
+    {
+        input = bits,
+        negated = decimal.GetBits(decimal.Negate(new decimal(bits))),
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5819,6 +5840,7 @@ var result = new
     selectedDecimalRoundModes = ObserveDecimalRoundModes(),
     selectedDecimalRoundOverloads = ObserveDecimalRoundOverloads(),
     selectedDecimalAbsSign = ObserveDecimalAbsSign(),
+    selectedDecimalNegate = ObserveDecimalNegate(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
