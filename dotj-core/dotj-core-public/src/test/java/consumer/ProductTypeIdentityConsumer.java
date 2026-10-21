@@ -451,6 +451,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"42".equals(int32Value.ToString("R", provider))) {
             throw new AssertionError("Selected Int32 binary/round-trip format changed");
         }
+        if (!"4.200000E+001".equals(int32Value.ToString("E", provider))
+                || !"1.23E+004".equals(groupedValue.ToString("E2", provider))
+                || !"1.23e+004".equals(groupedValue.ToString("e2", provider))
+                || !"-4.2E+001".equals(new Int32(-42).ToString("E1", provider))
+                || !"0.00E+000".equals(new Int32(0).ToString("E2", provider))) {
+            throw new AssertionError("Selected Int32 exponential format changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

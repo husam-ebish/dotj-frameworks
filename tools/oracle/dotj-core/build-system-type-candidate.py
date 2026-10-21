@@ -251,6 +251,12 @@ def main():
                               "lowerCase": "00101010",
                               "negative": "11111111111111111111111111111111",
                               "roundTripError": None, "roundTripResult": "42"}
+    exponential_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ExponentialFormatBehavior"]
+    assert exponential_formats == {"defaultPrecision": "4.200000E+001",
+                                   "twoDecimals": "1.23E+004",
+                                   "lowerCase": "1.23e+004",
+                                   "negative": "-4.2E+001",
+                                   "zero": "0.00E+000"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

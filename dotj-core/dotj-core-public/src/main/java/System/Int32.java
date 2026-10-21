@@ -307,6 +307,31 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String fraction = precision == 0 ? "" : "." + "0".repeat(precision);
             return sign + grouped + fraction + " %";
         }
+        if (format.matches("[eE][0-9]*")) {
+            int precision;
+            try {
+                precision = format.length() == 1 ? 6 : Integer.parseInt(format.substring(1));
+            } catch (NumberFormatException expected) {
+                throw new FormatException("Format precision is invalid");
+            }
+            if (precision > 1000) {
+                throw new UnsupportedOperationException("Int32 precision is not mapped");
+            }
+            java.math.BigDecimal rounded = new java.math.BigDecimal(
+                    BigInteger.valueOf(this.value).abs()).round(
+                    new java.math.MathContext(precision + 1, java.math.RoundingMode.HALF_EVEN));
+            int exponent = this.value == 0 ? 0 : rounded.precision() - rounded.scale() - 1;
+            String digits = rounded.unscaledValue().abs().toString();
+            digits += "0".repeat(Math.max(0, precision + 1 - digits.length()));
+            String mantissa = digits.substring(0, 1)
+                    + (precision == 0 ? "" : "." + digits.substring(1, precision + 1));
+            String exponentDigits = Integer.toString(exponent);
+            String paddedExponent = "0".repeat(Math.max(0, 3 - exponentDigits.length()))
+                    + exponentDigits;
+            String sign = this.value < 0 ? "-" : "";
+            char marker = format.charAt(0);
+            return sign + mantissa + marker + "+" + paddedExponent;
+        }
         if (format.equals("Q")) {
             throw new FormatException("Format specifier was invalid");
         }
