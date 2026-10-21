@@ -641,6 +641,16 @@ var result = new
         cultureUnknown = ObserveGetType("System.String, System.Private.CoreLib, Culture=not-a-real-culture", false, false),
         cultureNumeric = ObserveGetType("System.String, System.Private.CoreLib, Culture=123", false, false),
     },
+    selectedPublicKeyTokenBoundBehavior = new
+    {
+        upperHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=7CEC85D7BEA7798E", false, false),
+        zeroHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=0000000000000000", false, false),
+        upperNull = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=NULL", false, false),
+        shortHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=123456789abcdef", false, false),
+        longHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=123456789abcdef01", false, false),
+        nonHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=gggggggggggggggg", false, false),
+        quotedHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=\"7cec85d7bea7798e\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
