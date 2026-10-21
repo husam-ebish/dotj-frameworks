@@ -1271,10 +1271,38 @@ public abstract class Type extends MemberInfo {
         if (this.definition == java.util.List.class && name.equals("Item")) {
             return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
         }
+        String interfaceMethod = this.selectedInterfaceMethodName();
+        if (interfaceMethod != null && interfaceMethod.equals(name)) {
+            return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+        }
         if (name.equals("Missing") || this.definition == String.class && name.equals("chars")) {
             return new MemberInfo[0];
         }
         throw new UnsupportedOperationException("Member lookup is not mapped for this candidate name");
+    }
+
+    public MemberInfo[] GetMembers() {
+        String interfaceMethod = this.selectedInterfaceMethodName();
+        if (interfaceMethod != null) {
+            return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+        }
+        throw new UnsupportedOperationException("Member enumeration is not mapped for this candidate type");
+    }
+
+    private String selectedInterfaceMethodName() {
+        if (this.definition == IDisposable.class) {
+            return "Dispose";
+        }
+        if (this.definition == IComparable.class) {
+            return "CompareTo";
+        }
+        if (this.definition == IFormattable.class) {
+            return "ToString";
+        }
+        if (this.definition == IFormatProvider.class) {
+            return "GetFormat";
+        }
+        return null;
     }
 
     public MemberInfo[] GetDefaultMembers() {
@@ -1574,6 +1602,36 @@ public abstract class Type extends MemberInfo {
 
     public boolean Equals(Type other) {
         return this == other;
+    }
+
+    private static final class DefaultMethodMember extends MemberInfo {
+        private final String name;
+        private final Type owner;
+
+        private DefaultMethodMember(String name, Type owner) {
+            this.name = name;
+            this.owner = owner;
+        }
+
+        @Override
+        public String get_Name() {
+            return this.name;
+        }
+
+        @Override
+        public MemberTypes get_MemberType() {
+            return MemberTypes.Method;
+        }
+
+        @Override
+        public Type get_DeclaringType() {
+            return this.owner;
+        }
+
+        @Override
+        public Type get_ReflectedType() {
+            return this.owner;
+        }
     }
 
     private static final class DefaultPropertyMember extends MemberInfo {

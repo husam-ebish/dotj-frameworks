@@ -34,6 +34,24 @@ public final class TypeIdentityCandidateTest {
         }
         Type closedList = Type.fromJavaClass(List.class)
                 .MakeGenericType(new Type[] {string});
+        Type[] interfaceOwners = {Type.fromJavaClass(IDisposable.class),
+                Type.fromJavaClass(IComparable.class),
+                Type.fromJavaClass(IFormattable.class),
+                Type.fromJavaClass(IFormatProvider.class)};
+        String[] interfaceMethodNames = {"Dispose", "CompareTo", "ToString", "GetFormat"};
+        for (int index = 0; index < interfaceOwners.length; index++) {
+            Type owner = interfaceOwners[index];
+            MemberInfo[] members = owner.GetMembers();
+            if (members.length != 1
+                    || !interfaceMethodNames[index].equals(members[0].get_Name())
+                    || members[0].get_MemberType() != MemberTypes.Method
+                    || members[0].get_DeclaringType() != owner
+                    || members[0].get_ReflectedType() != owner
+                    || owner.GetMember(interfaceMethodNames[index]).length != 1
+                    || members == owner.GetMembers()) {
+                throw new AssertionError("Selected interface member inventory changed");
+            }
+        }
         if (string.GetMember("Chars").length != 1
                 || !"Chars".equals(string.GetMember("Chars")[0].get_Name())
                 || string.GetMember("Chars")[0].get_MemberType() != MemberTypes.Property

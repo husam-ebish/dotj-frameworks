@@ -80,6 +80,7 @@ def main():
         "System.Type[] GetOptionalCustomModifiers()",
         "System.Reflection.MemberInfo[] GetDefaultMembers()",
         "System.Reflection.MemberInfo[] GetMember(System.String)",
+        "System.Reflection.MemberInfo[] GetMembers()",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
@@ -235,10 +236,26 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    interface_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInterfaceMemberEnumeration"]
+    assert [(row["owner"], row["members"][0]["name"])
+            for row in interface_members] == [
+        ("System.IDisposable", "Dispose"),
+        ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"),
+        ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(len(row["members"]) == 1 and row["members"][0]["kind"] == "Method"
+               and row["members"][0]["declaring"] == row["owner"]
+               and row["members"][0]["reflected"] == row["owner"]
+               for row in interface_members)
     member_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberNameBehavior"]
     for key, name in (("stringChars", "Chars"), ("listItem", "Item")):
         assert member_name[key] == {"members": [{"name": name, "kind": "Property"}],
                                     "exception": None, "paramName": None}
+    assert member_name["disposableDispose"] == {
+        "members": [{"name": "Dispose", "kind": "Method"}],
+        "exception": None, "paramName": None,
+    }
     for key in ("stringLower", "stringMissing", "objectMissing"):
         assert member_name[key] == {"members": [], "exception": None, "paramName": None}
     assert member_name["nullName"] == {
@@ -1521,6 +1538,7 @@ def main():
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String);",
+        "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",

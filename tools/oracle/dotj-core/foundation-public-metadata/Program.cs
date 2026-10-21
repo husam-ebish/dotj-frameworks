@@ -799,12 +799,24 @@ var result = new
             declaring = member.DeclaringType?.FullName,
             reflected = member.ReflectedType?.FullName,
         }).ToArray() }).ToArray(),
+    selectedInterfaceMemberEnumeration = new[]
+    {
+        typeof(IDisposable), typeof(IComparable), typeof(IFormattable),
+        typeof(IFormatProvider),
+    }.Select(type => new { owner = type.FullName,
+        members = type.GetMembers().Select(member => new
+        {
+            name = member.Name, kind = member.MemberType.ToString(),
+            declaring = member.DeclaringType?.FullName,
+            reflected = member.ReflectedType?.FullName,
+        }).ToArray() }).ToArray(),
     selectedMemberNameBehavior = new
     {
         stringChars = ObserveMemberName(typeof(string), "Chars"),
         stringLower = ObserveMemberName(typeof(string), "chars"),
         stringMissing = ObserveMemberName(typeof(string), "Missing"),
         listItem = ObserveMemberName(typeof(List<>), "Item"),
+        disposableDispose = ObserveMemberName(typeof(IDisposable), "Dispose"),
         objectMissing = ObserveMemberName(typeof(object), "Missing"),
         nullName = ObserveMemberName(typeof(string), null),
     },
