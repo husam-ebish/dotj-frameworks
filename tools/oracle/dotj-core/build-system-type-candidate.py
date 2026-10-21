@@ -270,6 +270,12 @@ def main():
         "sameReference": True,
         "closedEnumeration": nested_enumeration[2]["publicNested"],
     }
+    nonpublic_nested = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNonpublicNestedQueryBehavior"]
+    assert nonpublic_nested == {
+        "publicOnly": {"result": None, "exception": None, "paramName": None},
+        "nonpublic": "System.Collections.Generic.Dictionary`2+Entry",
+        "publicEnumerationContainsEntry": False,
+    }
     nested_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedPublicVisibilityBehavior"]
     assert [(row["isPublic"], row["isNestedPublic"], row["isVisible"])
             for row in nested_visibility] == [
