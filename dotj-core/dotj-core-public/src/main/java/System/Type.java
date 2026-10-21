@@ -149,7 +149,7 @@ public abstract class Type extends MemberInfo {
                         value = value.substring(1, value.length() - 1);
                     }
                     boolean recognized = key.equals("version") || key.equals("culture")
-                            || key.equals("publickeytoken");
+                            || key.equals("publickeytoken") || key.equals("processorarchitecture");
                     if (attribute.length != 2 || key.isEmpty() || value.isEmpty() && !quotedValue
                             || extraEquals && (!quotedValue || recognized)
                             || value.contains("\"\"")
@@ -157,7 +157,11 @@ public abstract class Type extends MemberInfo {
                             || recognized && !seen.add(key)
                             || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
                             || key.equals("publickeytoken") && !value.equalsIgnoreCase("null")
-                                    && !value.matches("[0-9a-fA-F]{16}")) {
+                                    && !value.matches("[0-9a-fA-F]{16}")
+                            || key.equals("processorarchitecture")
+                                    && !value.equalsIgnoreCase("MSIL")
+                                    && !value.equalsIgnoreCase("X86")
+                                    && !value.equalsIgnoreCase("Amd64")) {
                         throw new FileLoadException("Invalid assembly identity: " + assembly);
                     }
                     if (key.equals("version")) {

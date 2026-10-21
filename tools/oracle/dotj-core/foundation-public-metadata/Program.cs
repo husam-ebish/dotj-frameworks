@@ -741,6 +741,15 @@ var result = new
         unquotedEquals = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo=bar", false, false),
         duplicateMixedCase = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo, unknownattr=bar", false, false),
     },
+    selectedProcessorArchitectureAttributeBehavior = new
+    {
+        msil = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=MSIL", false, false),
+        x86 = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=X86", false, false),
+        amd64 = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=Amd64", false, false),
+        none = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=None", false, false),
+        unknown = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=xyz", false, false),
+        duplicate = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=MSIL, ProcessorArchitecture=X86", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

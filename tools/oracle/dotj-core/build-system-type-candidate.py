@@ -452,6 +452,13 @@ def main():
            for key in ("colon", "slash", "semicolon", "question", "duplicateMixedCase")},
         "unquotedEquals": {"result": None, "exception": "System.IO.FileLoadException", "paramName": None},
     }
+    architectures = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedProcessorArchitectureAttributeBehavior"]
+    assert architectures == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("msil", "x86", "amd64")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("none", "unknown", "duplicate")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
