@@ -296,6 +296,12 @@ def main():
             for entry in abs_sign] == [
         (bits, [*bits[:3], bits[3] & 0x7fffffff], sign)
         for bits, sign in zip(abs_sign_inputs, abs_sign_results)]
+    negate_inputs = (abs_sign_inputs[0], abs_sign_inputs[1],
+                     [0, 0, 0, 131072], abs_sign_inputs[2],
+                     *abs_sign_inputs[3:])
+    assert [(entry["input"], entry["negated"])
+            for entry in metadata["selectedDecimalNegate"]] == [
+        (bits, [*bits[:3], bits[3] ^ -2147483648]) for bits in negate_inputs]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},

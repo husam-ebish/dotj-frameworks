@@ -287,6 +287,21 @@ public final class ProductDecimalBitsConsumer {
                 throw new AssertionError("Decimal Abs or Sign changed: " + index);
             }
         }
+        int[][] negateInputs = {
+            {0, 0, 0, 0}, {0, 0, 0, 0x80000000},
+            {0, 0, 0, 0x00020000}, {0, 0, 0, 0x80020000},
+            {12345, 0, 0, 0x00020000}, {12345, 0, 0, 0x80020000},
+            {1, 0, 0, 0x001c0000}, {1, 0, 0, 0x801c0000},
+            {-1, -1, -1, 0}, {-1, -1, -1, 0x80000000},
+        };
+        for (int index = 0; index < negateInputs.length; index++) {
+            int[] expected = negateInputs[index].clone();
+            expected[3] ^= 0x80000000;
+            if (!Arrays.equals(Decimal.GetBits(Decimal.Negate(
+                    new Decimal(negateInputs[index]))), expected)) {
+                throw new AssertionError("Decimal Negate changed: " + index);
+            }
+        }
         java.lang.System.out.println("PASS external selected Decimal bits");
     }
 }

@@ -113,3 +113,5 @@ Selected `MidpointRounding` values 0–4 and `Decimal.Round(value, decimals, mod
 The default-precision `Decimal.Round(value)` and `Decimal.Round(value, mode)` overloads now select precision zero. Eight pinned .NET 10 values yield eight default results and forty mode results, covering midpoint ties, signed zero and maximum magnitudes. The packaged external consumer checks exact result bits. Other rounding-mode and numeric boundaries remain open.
 
 Selected `Decimal.Abs` and `Decimal.Sign` now follow nine pinned .NET 10 bit patterns, including negative zero at scales zero and two, signed scale-28 values and both maximum magnitudes. Absolute value clears the sign bit while retaining the scale; Sign returns zero, one or minus one. The packaged external consumer checks both results. Other operations and untested values remain open.
+
+Selected `Decimal.Negate` now toggles the sign bit while preserving coefficient and scale for ten pinned .NET 10 values, including positive and negative zero. The packaged external consumer checks exact bits. Other operations and untested values remain open.
