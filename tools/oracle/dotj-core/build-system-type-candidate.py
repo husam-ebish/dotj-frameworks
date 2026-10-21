@@ -218,6 +218,12 @@ def main():
     odd_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32OddFormatResults"]
     assert odd_formats == {"negativeDecimalPrecision": "D-1",
                            "negativeHexPrecision": "X-1"}
+    number_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32NumberFormatBehavior"]
+    assert number_formats == {"groupedInteger": "12,345",
+                              "groupedTwoDecimals": "12,345.00",
+                              "lowerCase": "12,345.00",
+                              "negative": "-12,345.00",
+                              "defaultPrecision": "42.00"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

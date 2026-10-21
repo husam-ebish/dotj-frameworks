@@ -416,6 +416,19 @@ var result = new
         negativeDecimal5 = ((IFormattable)(-42)).ToString("D5", System.Globalization.CultureInfo.InvariantCulture),
         negativeHex = ((IFormattable)(-1)).ToString("X", System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32NumberFormatBehavior = new
+    {
+        groupedInteger = ((IFormattable)12345).ToString("N0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        groupedTwoDecimals = ((IFormattable)12345).ToString("N2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        lowerCase = ((IFormattable)12345).ToString("n2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-12345)).ToString("N2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        defaultPrecision = ((IFormattable)42).ToString("N",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

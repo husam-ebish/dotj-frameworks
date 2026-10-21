@@ -406,6 +406,14 @@ public final class ProductTypeIdentityConsumer {
                 || !"X-1".equals(int32Value.ToString("X-1", provider))) {
             throw new AssertionError("Selected Int32 custom format literals changed");
         }
+        Int32 groupedValue = new Int32(12345);
+        if (!"12,345".equals(groupedValue.ToString("N0", provider))
+                || !"12,345.00".equals(groupedValue.ToString("N2", provider))
+                || !"12,345.00".equals(groupedValue.ToString("n2", provider))
+                || !"-12,345.00".equals(new Int32(-12345).ToString("N2", provider))
+                || !"42.00".equals(int32Value.ToString("N", provider))) {
+            throw new AssertionError("Selected Int32 number format changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
