@@ -175,6 +175,28 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Quoted culture parameter changed", expected);
             }
         }
+        for (String quotedUnknown : new String[] {"UnknownAttr=\"a,b,c\"", "UnknownAttr=\"a=b\""}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + quotedUnknown) != string) {
+                throw new AssertionError("Selected quoted unknown value rejected: " + quotedUnknown);
+            }
+        }
+        for (String invalidQuoted : new String[] {
+                "Version=\"1,2\"", "PublicKeyToken=\"01234567,89abcdef\""}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalidQuoted);
+                throw new AssertionError("Invalid quoted value accepted: " + invalidQuoted);
+            } catch (FileLoadException expected) {
+                // Selected pinned format error.
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, Culture=\"en,US\"");
+            throw new AssertionError("Invalid comma culture accepted");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Comma culture parameter changed", expected);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

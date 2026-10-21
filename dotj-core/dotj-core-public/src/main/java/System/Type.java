@@ -150,7 +150,8 @@ public abstract class Type extends MemberInfo {
                     }
                     boolean recognized = key.equals("version") || key.equals("culture")
                             || key.equals("publickeytoken");
-                    if (attribute.length != 2 || value.isEmpty() && !quotedValue || extraEquals
+                    if (attribute.length != 2 || value.isEmpty() && !quotedValue
+                            || extraEquals && (!quotedValue || recognized)
                             || !quotedValue && value.indexOf('"') >= 0
                             || recognized && !seen.add(key)
                             || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
@@ -165,7 +166,8 @@ public abstract class Type extends MemberInfo {
                             }
                         }
                     }
-                    if (key.equals("culture") && (value.matches("[0-9]+") || value.contains(" "))) {
+                    if (key.equals("culture") && (value.matches("[0-9]+")
+                            || value.contains(" ") || value.contains(","))) {
                         throw new CultureNotFoundException("name", value, "Culture is not supported");
                     }
                 }
