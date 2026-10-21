@@ -1979,6 +1979,16 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public boolean get_IsFamilyAndAssembly() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsFamilyOrAssembly() {
+            return false;
+        }
+
+        @Override
         public boolean get_IsAssembly() {
             return false;
         }

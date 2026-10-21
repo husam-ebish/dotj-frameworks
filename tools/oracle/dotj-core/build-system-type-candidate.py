@@ -382,7 +382,8 @@ def main():
         ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
     ]
     assert all(not any(row[key] for key in
-                       ("isSpecialName", "isConstructor", "isPrivate", "isFamily", "isAssembly"))
+                       ("isSpecialName", "isConstructor", "isPrivate", "isFamily",
+                        "isFamilyAndAssembly", "isFamilyOrAssembly", "isAssembly"))
                and row["isHideBySig"] for row in classifications)
     calling_conventions = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCallingConventionBehavior"]
     assert calling_conventions["values"] == [
