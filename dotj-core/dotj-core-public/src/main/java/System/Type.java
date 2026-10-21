@@ -1419,6 +1419,17 @@ public abstract class Type extends MemberInfo {
         throw new UnsupportedOperationException("Flagged method enumeration is not mapped for this candidate type");
     }
 
+    public MethodInfo GetMethod(String name) {
+        if (name == null) {
+            throw new ArgumentNullException("name");
+        }
+        String interfaceMethod = this.selectedInterfaceMethodName();
+        if (interfaceMethod != null) {
+            return name.equals(interfaceMethod) ? new DefaultMethodMember(interfaceMethod, this) : null;
+        }
+        throw new UnsupportedOperationException("Method lookup is not mapped for this candidate type");
+    }
+
     private String selectedInterfaceMethodName() {
         if (this.definition == IDisposable.class) {
             return "Dispose";

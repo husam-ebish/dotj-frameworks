@@ -437,6 +437,21 @@ static object ObserveMembersFlags(Type type, BindingFlags flags)
     return type.GetMembers(flags).Select(member => new
         { name = member.Name, kind = member.MemberType.ToString() }).ToArray();
 }
+static object ObserveMethodName(Type type, string? name)
+{
+    try
+    {
+        MethodInfo? method = type.GetMethod(name!);
+        return new { result = method?.Name, kind = method?.MemberType.ToString(),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?)null, kind = (string?)null,
+            exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -920,6 +935,14 @@ var result = new
         nonPublicInstance = typeof(IDisposable).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
             .Select(method => method.Name).ToArray(),
     },
+    selectedMethodNameBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+        (typeof(IDisposable), "dispose"), (typeof(IDisposable), "Missing"),
+        (typeof(IDisposable), (string?)null),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        query = ObserveMethodName(item.Item1, item.Item2) }).ToArray(),
     selectedNestedTypeFlagsBehavior = new
     {
         publicChild = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PublicChild", BindingFlags.Public),

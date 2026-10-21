@@ -88,6 +88,7 @@ def main():
         "System.Reflection.MemberInfo[] GetMembers()",
         "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
         "System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags)",
+        "System.Reflection.MethodInfo GetMethod(System.String)",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
@@ -302,6 +303,19 @@ def main():
         "disposableMethods": [{"name": "Dispose", "kind": "Method"}],
         "publicOnly": [], "nonPublicInstance": [],
     }
+    method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
+    assert [(row["owner"], row["query"]["result"])
+            for row in method_names[:4]] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(row["query"]["kind"] == "Method"
+               and row["query"]["exception"] is None for row in method_names[:4])
+    assert all(row["query"] == {"result": None, "kind": None,
+                                 "exception": None, "paramName": None}
+               for row in method_names[4:6])
+    assert method_names[6]["query"] == {"result": None, "kind": None,
+        "exception": "System.ArgumentNullException", "paramName": "name"}
     member_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberNameBehavior"]
     for key, name in (("stringChars", "Chars"), ("listItem", "Item")):
         assert member_name[key] == {"members": [{"name": name, "kind": "Property"}],
@@ -1639,6 +1653,7 @@ def main():
         "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags);",
         "public System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags);",
+        "public System.Reflection.MethodInfo GetMethod(java.lang.String);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
