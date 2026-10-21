@@ -122,6 +122,20 @@ public final class Decimal implements IConvertible {
         return Round(value, 0, mode);
     }
 
+    public static Decimal Abs(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        return new Decimal(value.value.abs(), false);
+    }
+
+    public static int Sign(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        return value.value.signum();
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
