@@ -400,6 +400,16 @@ var result = new
         type.AssemblyQualifiedName,
         sameReference = ReferenceEquals(Type.GetType(type.AssemblyQualifiedName), type),
     }).ToArray(),
+    selectedNestedGenericQualifiedRoundTrip = new[]
+    {
+        typeof(List<List<string>>), typeof(Dictionary<string, List<int>>),
+        typeof(Dictionary<List<string>, List<int>>),
+    }.Select(type => new
+    {
+        type.FullName,
+        type.AssemblyQualifiedName,
+        sameReference = ReferenceEquals(Type.GetType(type.AssemblyQualifiedName), type),
+    }).ToArray(),
     selectedMemberTypeBehavior = new
     {
         enumValues = Enum.GetValues<MemberTypes>()
