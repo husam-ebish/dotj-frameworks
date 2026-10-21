@@ -18,6 +18,8 @@ import System.Runtime.Serialization.IFormatterConverter;
 import System.Runtime.Serialization.FormatterConverter;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.SerializationException;
+import System.Runtime.Serialization.SerializationEntry;
+import System.Runtime.Serialization.SerializationInfoEnumerator;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Reflection.GenericParameterAttributes;
@@ -166,6 +168,25 @@ public final class TypeIdentityCandidateTest {
             throw new AssertionError("Missing member was accepted");
         } catch (SerializationException expected) {
             // Matches the pinned selected CLR failure type.
+        }
+        SerializationInfoEnumerator entries = serializationMembers.GetEnumerator();
+        if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
+                    != Type.fromJavaClass(SerializationEntry.class)
+                || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")
+                    != Type.fromJavaClass(SerializationInfoEnumerator.class)
+                || !entries.MoveNext() || !"age".equals(entries.get_Name())
+                || !"System.Int32".equals(entries.get_ObjectType().get_FullName())
+                || !Integer.valueOf(42).equals(entries.get_Value())
+                || !"age".equals(entries.get_Current().get_Name())
+                || !entries.MoveNext() || !"name".equals(entries.get_Name())
+                || !"System.String".equals(entries.get_ObjectType().get_FullName())
+                || !"Ada".equals(entries.get_Value())
+                || entries.MoveNext()) {
+            throw new AssertionError("Selected serialization enumeration changed");
+        }
+        entries.Reset();
+        if (!entries.MoveNext() || !"age".equals(entries.get_Name())) {
+            throw new AssertionError("Serialization enumeration reset changed");
         }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
         StreamingContext defaultContext = new StreamingContext();

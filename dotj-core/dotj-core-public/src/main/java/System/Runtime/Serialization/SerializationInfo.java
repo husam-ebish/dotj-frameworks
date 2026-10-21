@@ -6,6 +6,8 @@ import System.ArgumentNullException;
 import System.Type;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
 /** Bounded type identity for serialization method signatures. */
 public class SerializationInfo {
@@ -67,6 +69,18 @@ public class SerializationInfo {
     public String GetString(String name) {
         Object value = this.member(name);
         return value instanceof String text ? text : this.converter.ToString(value);
+    }
+
+    public SerializationInfoEnumerator GetEnumerator() {
+        List<SerializationEntry> entries = new ArrayList<>();
+        for (Map.Entry<String, Object> member : this.members.entrySet()) {
+            Object value = member.getValue();
+            Type type = value instanceof Integer ? Type.GetType("System.Int32")
+                    : value instanceof String ? Type.GetType("System.String")
+                    : Type.GetType("System.Object");
+            entries.add(new SerializationEntry(member.getKey(), type, value));
+        }
+        return new SerializationInfoEnumerator(entries);
     }
 
     private Object member(String name) {

@@ -758,6 +758,30 @@ static object ObserveSerializationInfoMembers()
         exceptionBase = typeof(System.Runtime.Serialization.SerializationException).BaseType?.FullName,
     };
 }
+static object ObserveSerializationInfoEnumeration()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("age", 42);
+    info.AddValue("name", "Ada");
+    var enumerator = info.GetEnumerator();
+    var entries = new List<object>();
+    while (enumerator.MoveNext())
+    {
+        entries.Add(new { name = enumerator.Name,
+            type = enumerator.ObjectType.FullName,
+            value = enumerator.Value?.ToString(),
+            currentName = enumerator.Current.Name });
+    }
+    enumerator.Reset();
+    return new
+    {
+        enumeratorType = info.GetEnumerator().GetType().FullName,
+        entryType = typeof(System.Runtime.Serialization.SerializationEntry).FullName,
+        entries,
+        afterReset = enumerator.MoveNext() ? enumerator.Name : null,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -890,6 +914,7 @@ var result = new
     selectedSerializationInfoConstructionBehavior = ObserveSerializationInfoConstruction(),
     selectedFormatterConverterBehavior = ObserveFormatterConverter(),
     selectedSerializationInfoMembersBehavior = ObserveSerializationInfoMembers(),
+    selectedSerializationInfoEnumerationBehavior = ObserveSerializationInfoEnumeration(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

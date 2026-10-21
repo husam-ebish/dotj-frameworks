@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "bd56c0e68c6f4cbddc5bd670c8bbb1667636bca269afb86af2389a5a12fc1827",
+  "jarSha256": "980525ae97cf87ee54f0c3e2652e800440e7edef77d574abc8b6078a0590b23d",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 50,
-  "directNameMatchedCount": 47,
-  "directNameMissingCount": 3,
+  "sourceCount": 52,
+  "directNameMatchedCount": 48,
+  "directNameMissingCount": 4,
   "rows": [
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/ArgumentException.java",
@@ -625,8 +625,23 @@
       "supplementalAdjacencyEvidence": null
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/SerializationEntry.java",
+      "productSha256": "2a7f8f7dc34c3cf36703be55c71525dd531b6a97e291fb3c765d3dc4ade444a4",
+      "classEntries": [
+        "System/Runtime/Serialization/SerializationEntry.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "db79da3cd4a5d93a5b298ff78750eab8f836846e",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/SerializationEntry.cs",
+      "upstreamSha256": null,
+      "sharedIdentifierShinglesOfLength12": null,
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/SerializationException.java",
-      "productSha256": "5e3a2c87f51b3c2dc3346dce3a2fb0184164936401a5d9a639f4659b71bd81a8",
+      "productSha256": "fff82ef7e1a076d1eeeeaf7d86cb200da500a8388a5bc2336a57ea05c2bc10fe",
       "classEntries": [
         "System/Runtime/Serialization/SerializationException.class"
       ],
@@ -641,7 +656,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/SerializationInfo.java",
-      "productSha256": "461cda0086366de5582cfcf1497ea7a8ae57ef8c2442072a20b4e6ef771d75fb",
+      "productSha256": "0e8318eba53b0f1896a79f74bbc66098d6f8ecd8d7fc704722cdfe64a36d68d4",
       "classEntries": [
         "System/Runtime/Serialization/SerializationInfo.class"
       ],
@@ -650,6 +665,21 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/SerializationInfo.cs",
       "upstreamSha256": "ac46a434129d35bbc9bc37cdf98ad00775b581d4645eb7007c29c08861b04db0",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/SerializationInfoEnumerator.java",
+      "productSha256": "4f1540be7a1f373fa3eb8e7ce7200f25d73e5454231cbfcef195586f94b39d6e",
+      "classEntries": [
+        "System/Runtime/Serialization/SerializationInfoEnumerator.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "db79da3cd4a5d93a5b298ff78750eab8f836846e",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/SerializationInfoEnumerator.cs",
+      "upstreamSha256": "67be5a0164642f77688964a130b5e472a8c77973ed159f916c103a104c43addc",
       "sharedIdentifierShinglesOfLength12": 0,
       "noticeApplicabilityDecision": "REVIEW_REQUIRED",
       "supplementalAdjacencyEvidence": null
@@ -701,7 +731,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "e239214b63f5f0f4c406e19cfe54014ddfa369bd6d06a9495e4e621f669fa56f",
+      "productSha256": "23cf67cba6f5fbf6440a42a803744381bf1dd14a400bfb7c541d7d0f18a8c559",
       "classEntries": [
         "System/Type.class",
         "System/Type$1.class",

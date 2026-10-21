@@ -26,6 +26,8 @@ import System.Runtime.Serialization.IFormatterConverter;
 import System.Runtime.Serialization.FormatterConverter;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.SerializationException;
+import System.Runtime.Serialization.SerializationEntry;
+import System.Runtime.Serialization.SerializationInfoEnumerator;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Globalization.NumberStyles;
@@ -427,6 +429,10 @@ public abstract class Type extends MemberInfo {
             case "System.Runtime.Serialization.SerializationInfo" -> fromJavaClass(SerializationInfo.class);
             case "System.Runtime.Serialization.SerializationException" ->
                     fromJavaClass(SerializationException.class);
+            case "System.Runtime.Serialization.SerializationEntry" ->
+                    fromJavaClass(SerializationEntry.class);
+            case "System.Runtime.Serialization.SerializationInfoEnumerator" ->
+                    fromJavaClass(SerializationInfoEnumerator.class);
             case "System.Runtime.Serialization.StreamingContext" -> fromJavaClass(StreamingContext.class);
             case "System.Runtime.Serialization.StreamingContextStates" ->
                     fromJavaClass(StreamingContextStates.class);
@@ -559,6 +565,10 @@ public abstract class Type extends MemberInfo {
                     ? fromJavaClass(SerializationInfo.class) : null;
             case "system.runtime.serialization.serializationexception" -> ignoreCase
                     ? fromJavaClass(SerializationException.class) : null;
+            case "system.runtime.serialization.serializationentry" -> ignoreCase
+                    ? fromJavaClass(SerializationEntry.class) : null;
+            case "system.runtime.serialization.serializationinfoenumerator" -> ignoreCase
+                    ? fromJavaClass(SerializationInfoEnumerator.class) : null;
             case "system.runtime.serialization.streamingcontext" -> ignoreCase
                     ? fromJavaClass(StreamingContext.class) : null;
             case "system.runtime.serialization.streamingcontextstates" -> ignoreCase
