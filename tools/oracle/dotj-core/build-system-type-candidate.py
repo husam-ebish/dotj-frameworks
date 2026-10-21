@@ -949,6 +949,12 @@ def main():
         "isPrimitive": True, "isValueType": True, "isSealed": True, "isClass": False,
         "isAssignableToValueType": True, "typeCode": "Int64",
     }
+    single_identity = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSingleTypeIdentityBehavior"]
+    assert single_identity == {
+        "name": "Single", "fullName": "System.Single", "baseType": "System.ValueType",
+        "isPrimitive": True, "isValueType": True, "isSealed": True, "isClass": False,
+        "isAssignableToValueType": True, "typeCode": "Single",
+    }
     parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
     assert parameter_attributes == {
         "stringType": {"value": None, "exception": "System.InvalidOperationException"},
