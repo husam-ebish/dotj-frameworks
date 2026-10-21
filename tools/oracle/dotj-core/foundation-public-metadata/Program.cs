@@ -415,6 +415,8 @@ var result = new
         fullName = type.FullName,
         lowerSensitive = ObserveGetType(type.FullName!.ToLowerInvariant(), false, false),
         lowerInsensitive = ObserveGetType(type.FullName!.ToLowerInvariant(), false, true),
+        lowerQualifiedSensitive = ObserveGetType(type.AssemblyQualifiedName!.ToLowerInvariant(), false, false),
+        lowerQualifiedInsensitive = ObserveGetType(type.AssemblyQualifiedName!.ToLowerInvariant(), false, true),
     }).ToArray(),
     selectedMemberTypeBehavior = new
     {

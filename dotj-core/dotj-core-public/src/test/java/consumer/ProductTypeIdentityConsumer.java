@@ -1799,6 +1799,12 @@ public final class ProductTypeIdentityConsumer {
                     || Type.GetType(lowerName, false, true) != selectedCoreLibType) {
                 throw new AssertionError("Selected CoreLib case lookup changed: " + selectedCoreLibName);
             }
+            String lowerQualifiedName = selectedCoreLibType.get_AssemblyQualifiedName()
+                    .toLowerCase(java.util.Locale.ROOT);
+            if (Type.GetType(lowerQualifiedName, false, false) != null
+                    || Type.GetType(lowerQualifiedName, false, true) != selectedCoreLibType) {
+                throw new AssertionError("Selected qualified case lookup changed: " + selectedCoreLibName);
+            }
         }
         if (!parameter.get_IsGenericParameter() || parameter.get_GenericParameterPosition() != 0
                 || parameter != definition.GetGenericArguments()[0]) {
