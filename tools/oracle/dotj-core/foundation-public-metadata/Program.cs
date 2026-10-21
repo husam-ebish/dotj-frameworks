@@ -777,6 +777,27 @@ static object ObserveInt32NumberStyleBoundaries()
         return new { text, success, value };
     }).ToArray();
 }
+static object ObserveInt32FloatStyle()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = ":",
+        NumberGroupSeparator = "_",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    string[] texts = ["42", " 42:00 ", "4:2e1", "420e~1", "plus4:2Eplus1",
+        "~4:2eplus1", "12_345", "42:5", "4:2e0", "2147483648",
+        "42plus", "42~", "42:", ":0", "4:2e~1"];
+    return texts.Select(text =>
+    {
+        bool success = int.TryParse(text, System.Globalization.NumberStyles.Float,
+            provider, out int value);
+        string? error = ObserveInt32Error(() => int.Parse(text,
+            System.Globalization.NumberStyles.Float, provider));
+        return new { text, success, value, error };
+    }).ToArray();
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -5165,6 +5186,7 @@ var result = new
     selectedInt32PositiveSignBehavior = ObserveInt32PositiveSign(),
     selectedInt32NumberStyleProviderBehavior = ObserveInt32NumberStyleProvider(),
     selectedInt32NumberStyleBoundaries = ObserveInt32NumberStyleBoundaries(),
+    selectedInt32FloatStyle = ObserveInt32FloatStyle(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",

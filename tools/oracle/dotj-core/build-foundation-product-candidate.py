@@ -229,6 +229,16 @@ def main():
         {"text": text, "success": success, "value": value}
         for text, success, value in zip(boundary_texts, boundary_success, boundary_values)
     ]
+    float_texts = ["42", " 42:00 ", "4:2e1", "420e~1", "plus4:2Eplus1",
+                   "~4:2eplus1", "12_345", "42:5", "4:2e0", "2147483648",
+                   "42plus", "42~", "42:", ":0", "4:2e~1"]
+    float_values = [42, 42, 42, 42, 42, -42, 0, 0, 0, 0, 0, 0, 42, 0, 0]
+    float_errors = [None] * 6 + ["System.FormatException"] + ["System.OverflowException"] * 3 \
+        + ["System.FormatException"] * 2 + [None] * 2 + ["System.OverflowException"]
+    assert metadata["selectedInt32FloatStyle"] == [
+        {"text": text, "success": error is None, "value": value, "error": error}
+        for text, value, error in zip(float_texts, float_values, float_errors)
+    ]
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

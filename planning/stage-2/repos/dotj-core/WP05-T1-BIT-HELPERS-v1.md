@@ -68,4 +68,6 @@ Selected `CurrencyGroupSizes` and `PercentGroupSizes` now use the same defensive
 
 The pinned .NET 10 oracle now covers selected group-size setter boundaries: empty, zero-only and terminal-zero arrays are accepted; negative, over-nine and interior-zero sizes throw `ArgumentException`, while a null array throws `ArgumentNullException`. The packaged Java consumer checks those exception types and accepted assignments. Unobserved error messages and culture behavior remain open.
 
+Selected `NumberStyles.Float` parsing now covers custom decimal and sign tokens, exponent signs, exact integer results, fractional overflow, invalid grouping, and trailing-sign rejection. Fifteen pinned .NET 10 vectors run against packaged string, Char span, and UTF-8 span carriers; the rejected string cases also check `FormatException` versus `OverflowException`. Other `NumberStyles` combinations and broader culture behavior remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
