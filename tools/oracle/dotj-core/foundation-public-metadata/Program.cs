@@ -1669,6 +1669,20 @@ static object ObserveInt64NarrowingConversions()
         negativeU32 = ObserveMethodError(() => converter.ToUInt32(-1L)),
     };
 }
+static object ObserveInt64WideningConversions()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    long value = 5000000000;
+    return new
+    {
+        text = converter.ToString(value),
+        decimalText = converter.ToDecimal(value).ToString(),
+        doubleValue = converter.ToDouble(value),
+        boolean = converter.ToBoolean(value),
+        uint64Text = converter.ToUInt64(value).ToString(),
+        negativeUInt64 = ObserveMethodError(() => converter.ToUInt64(-1L)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1848,6 +1862,7 @@ var result = new
     selectedUnsignedConvertResultIdentityBehavior = ObserveUnsignedConvertResultIdentity(),
     selectedUInt64NarrowingConversionsBehavior = ObserveUInt64NarrowingConversions(),
     selectedInt64NarrowingConversionsBehavior = ObserveInt64NarrowingConversions(),
+    selectedInt64WideningConversionsBehavior = ObserveInt64WideningConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

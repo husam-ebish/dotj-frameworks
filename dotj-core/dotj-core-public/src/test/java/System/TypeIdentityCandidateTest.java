@@ -873,6 +873,19 @@ public final class TypeIdentityCandidateTest {
                 // Pinned CLR failure type.
             }
         }
+        if (!"5000000000".equals(selectedConverter.ToString(5000000000L))
+                || !"5000000000".equals(selectedConverter.ToDecimal(5000000000L).ToString(null))
+                || selectedConverter.ToDouble(5000000000L) != 5000000000d
+                || !selectedConverter.ToBoolean(5000000000L)
+                || !"5000000000".equals(selectedConverter.ToUInt64(5000000000L).toString())) {
+            throw new AssertionError("Selected Int64 widening values changed");
+        }
+        try {
+            selectedConverter.ToUInt64(-1L);
+            throw new AssertionError("Negative Int64 to UInt64 accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
         for (Object value : new Object[] {"256", -1}) {
             try {
                 selectedConverter.ToByte(value);
