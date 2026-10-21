@@ -699,6 +699,44 @@
       "value": 0
     }
   },
+  "selectedNumberStylesValues": {
+    "none": 0,
+    "integer": 7,
+    "allowHexSpecifier": 512,
+    "hexNumber": 515
+  },
+  "selectedInt32HexParseBehavior": {
+    "uppercase": {
+      "result": 255,
+      "exception": null,
+      "paramName": null
+    },
+    "padded": {
+      "result": 255,
+      "exception": null,
+      "paramName": null
+    },
+    "allBits": {
+      "result": -1,
+      "exception": null,
+      "paramName": null
+    },
+    "overflow": {
+      "result": null,
+      "exception": "System.OverflowException",
+      "paramName": null
+    },
+    "prefix": {
+      "result": null,
+      "exception": "System.FormatException",
+      "paramName": null
+    },
+    "nullValue": {
+      "result": null,
+      "exception": "System.ArgumentNullException",
+      "paramName": "s"
+    }
+  },
   "selectedSpanFormattingBehavior": {
     "enough": {
       "success": true,
@@ -3438,8 +3476,22 @@
           }
         ]
       ]
+    },
+    {
+      "fullName": "System.Globalization.NumberStyles",
+      "baseType": "System.Enum",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 0,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [],
+      "selectedProperties": [],
+      "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "6c2bb6666521fc4c519de057fbb504b1ceb02cb9f54b3856e2045727f1d74ac5",
+  "oracleProgramSha256": "897997c6bbb6a0aec7691207d536a44673a30e60c2ed8d6185332c433f6bef2c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

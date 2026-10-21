@@ -7,6 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import System.IO.FileNotFoundException;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
+import System.Globalization.NumberStyles;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
 public abstract class Type extends MemberInfo {
@@ -127,6 +128,7 @@ public abstract class Type extends MemberInfo {
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
             case "System.InvalidCastException" -> fromJavaClass(InvalidCastException.class);
             case "System.FormatException" -> fromJavaClass(FormatException.class);
+            case "System.Globalization.NumberStyles" -> fromJavaClass(NumberStyles.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
@@ -172,6 +174,7 @@ public abstract class Type extends MemberInfo {
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
             case "system.invalidcastexception" -> ignoreCase ? fromJavaClass(InvalidCastException.class) : null;
             case "system.formatexception" -> ignoreCase ? fromJavaClass(FormatException.class) : null;
+            case "system.globalization.numberstyles" -> ignoreCase ? fromJavaClass(NumberStyles.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
@@ -383,7 +386,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Decimal.class || this.definition == DateTime.class) {
             return fromJavaClass(Number.class);
         }
-        if (this.definition == MemberTypes.class || this.definition == TypeCode.class) {
+        if (this.definition == MemberTypes.class || this.definition == TypeCode.class
+                || this.definition == NumberStyles.class) {
             return fromJavaClass(Enum.class);
         }
         if (this.definition == Enum.class) {
@@ -403,7 +407,7 @@ public abstract class Type extends MemberInfo {
                 && (this.definition == Int32.class || this.definition == Decimal.class
                         || this.definition == DateTime.class
                         || this.definition == MemberTypes.class
-                        || this.definition == TypeCode.class);
+                        || this.definition == TypeCode.class || this.definition == NumberStyles.class);
     }
 
     public boolean get_IsClass() {
@@ -418,7 +422,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsEnum() {
-        return this.definition == MemberTypes.class || this.definition == TypeCode.class;
+        return this.definition == MemberTypes.class || this.definition == TypeCode.class
+                || this.definition == NumberStyles.class;
     }
 
     public Type GetEnumUnderlyingType() {
@@ -502,10 +507,12 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Number.class) {
             return value instanceof Integer || value instanceof Int32
                     || value instanceof Decimal || value instanceof DateTime
-                    || value instanceof MemberTypes || value instanceof TypeCode;
+                    || value instanceof MemberTypes || value instanceof TypeCode
+                    || value instanceof NumberStyles;
         }
         if (this.definition == Enum.class) {
-            return value instanceof MemberTypes || value instanceof TypeCode;
+            return value instanceof MemberTypes || value instanceof TypeCode
+                    || value instanceof NumberStyles;
         }
         if (this.definition == IComparable.class) {
             return value instanceof String || value instanceof Integer || value instanceof Int32;

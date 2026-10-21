@@ -22,6 +22,7 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
+EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/NumberStyles.java")
 IDISPOSABLE_SOURCE = SOURCE.with_name("IDisposable.java")
 ICOMPARABLE_SOURCE = SOURCE.with_name("IComparable.java")
 IFORMATTABLE_SOURCE = SOURCE.with_name("IFormattable.java")
@@ -226,6 +227,18 @@ def main():
         "invalid": {"success": False, "value": 0},
         "overflow": {"success": False, "value": 0},
         "nullValue": {"success": False, "value": 0},
+    }
+    number_styles = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNumberStylesValues"]
+    assert number_styles == {"none": 0, "integer": 7,
+                             "allowHexSpecifier": 512, "hexNumber": 515}
+    hexadecimal = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32HexParseBehavior"]
+    assert hexadecimal == {
+        "uppercase": {"result": 255, "exception": None, "paramName": None},
+        "padded": {"result": 255, "exception": None, "paramName": None},
+        "allBits": {"result": -1, "exception": None, "paramName": None},
+        "overflow": {"result": None, "exception": "System.OverflowException", "paramName": None},
+        "prefix": {"result": None, "exception": "System.FormatException", "paramName": None},
+        "nullValue": {"result": None, "exception": "System.ArgumentNullException", "paramName": "s"},
     }
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [

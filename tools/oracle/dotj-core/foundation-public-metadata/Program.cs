@@ -28,6 +28,7 @@ Type[] selected = [
     typeof(OverflowException),
     typeof(InvalidCastException),
     typeof(FormatException),
+    typeof(System.Globalization.NumberStyles),
 ];
 
 BindingFlags declaredPublic = BindingFlags.Public | BindingFlags.DeclaredOnly
@@ -185,6 +186,21 @@ static object ObserveInt32TryParse(string? text)
 {
     bool success = int.TryParse(text, out int value);
     return new { success, value };
+}
+static object ObserveInt32HexParse(string? text)
+{
+    try
+    {
+        return new { result = (int?)int.Parse(text!,
+                System.Globalization.NumberStyles.HexNumber,
+                System.Globalization.CultureInfo.InvariantCulture),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (int?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
 }
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
@@ -401,6 +417,22 @@ var result = new
         invalid = ObserveInt32TryParse("oops"),
         overflow = ObserveInt32TryParse("2147483648"),
         nullValue = ObserveInt32TryParse(null),
+    },
+    selectedNumberStylesValues = new
+    {
+        none = (int)System.Globalization.NumberStyles.None,
+        integer = (int)System.Globalization.NumberStyles.Integer,
+        allowHexSpecifier = (int)System.Globalization.NumberStyles.AllowHexSpecifier,
+        hexNumber = (int)System.Globalization.NumberStyles.HexNumber,
+    },
+    selectedInt32HexParseBehavior = new
+    {
+        uppercase = ObserveInt32HexParse("FF"),
+        padded = ObserveInt32HexParse(" FF "),
+        allBits = ObserveInt32HexParse("FFFFFFFF"),
+        overflow = ObserveInt32HexParse("100000000"),
+        prefix = ObserveInt32HexParse("0xFF"),
+        nullValue = ObserveInt32HexParse(null),
     },
     selectedSpanFormattingBehavior = new
     {
