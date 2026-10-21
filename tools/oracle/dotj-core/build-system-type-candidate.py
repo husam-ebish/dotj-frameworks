@@ -236,6 +236,12 @@ def main():
                              "lowerCase": "12345.00",
                              "negative": "-12345.00",
                              "defaultPrecision": "42.00"}
+    percent_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32PercentFormatBehavior"]
+    assert percent_formats == {"defaultPrecision": "12,300.00 %",
+                               "zeroPrecision": "12,300 %",
+                               "lowerCase": "12,300.00 %",
+                               "negative": "-12,300.00 %",
+                               "small": "4,200.00 %"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

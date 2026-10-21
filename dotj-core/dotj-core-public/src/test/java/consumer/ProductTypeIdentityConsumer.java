@@ -428,6 +428,14 @@ public final class ProductTypeIdentityConsumer {
                 || !"42.00".equals(int32Value.ToString("F", provider))) {
             throw new AssertionError("Selected Int32 fixed-point format changed");
         }
+        Int32 percentValue = new Int32(123);
+        if (!"12,300.00 %".equals(percentValue.ToString("P", provider))
+                || !"12,300 %".equals(percentValue.ToString("P0", provider))
+                || !"12,300.00 %".equals(percentValue.ToString("p2", provider))
+                || !"-12,300.00 %".equals(new Int32(-123).ToString("P2", provider))
+                || !"4,200.00 %".equals(int32Value.ToString("P", provider))) {
+            throw new AssertionError("Selected Int32 percent format changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

@@ -455,6 +455,19 @@ var result = new
         defaultPrecision = ((IFormattable)42).ToString("F",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32PercentFormatBehavior = new
+    {
+        defaultPrecision = ((IFormattable)123).ToString("P",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zeroPrecision = ((IFormattable)123).ToString("P0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        lowerCase = ((IFormattable)123).ToString("p2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-123)).ToString("P2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        small = ((IFormattable)42).ToString("P",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
