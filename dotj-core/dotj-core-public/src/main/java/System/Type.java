@@ -939,6 +939,18 @@ public abstract class Type extends MemberInfo {
         return fromJavaClass(Int32.class);
     }
 
+    public String[] GetEnumNames() {
+        if (!this.get_IsEnum()) {
+            throw new ArgumentException("Type must be an enum", "enumType");
+        }
+        Object[] constants = this.definition.getEnumConstants();
+        String[] names = new String[constants.length];
+        for (int index = 0; index < constants.length; index++) {
+            names[index] = ((java.lang.Enum<?>) constants[index]).name();
+        }
+        return names;
+    }
+
     public boolean IsAssignableTo(Type target) {
         return target != null && target.IsAssignableFrom(this);
     }

@@ -280,6 +280,19 @@ static object ObserveNestedType(Type type, string? name)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveEnumNames(Type type)
+{
+    try
+    {
+        return new { names = type.GetEnumNames(), exception = (string?)null,
+            paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { names = (string[]?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -1080,6 +1093,17 @@ var result = new
         missing = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), "Missing"),
         nullName = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), null),
     },
+    selectedEnumNamesBehavior = new
+    {
+        typeCode = ObserveEnumNames(typeof(TypeCode)),
+        memberTypes = ObserveEnumNames(typeof(MemberTypes)),
+        genericParameterAttributes = ObserveEnumNames(typeof(GenericParameterAttributes)),
+        numberStyles = ObserveEnumNames(typeof(System.Globalization.NumberStyles)),
+        nonEnum = ObserveEnumNames(typeof(int)),
+    },
+    selectedNumberStylesFullValues = Enum.GetNames<System.Globalization.NumberStyles>()
+        .Select(name => new { name, value = (int)Enum.Parse<System.Globalization.NumberStyles>(name) })
+        .ToArray(),
     selectedNestedEnumerationBehavior = new[]
     {
         typeof(System.Collections.Generic.List<>), typeof(object),

@@ -67,6 +67,7 @@ def main():
         "System.Type MakeGenericType(System.Type[])",
         "System.Type GetType(System.String)",
         "System.Type GetEnumUnderlyingType()",
+        "System.String[] GetEnumNames()",
         "Boolean IsAssignableFrom(System.Type)",
         "Boolean IsSubclassOf(System.Type)",
         "Boolean IsInstanceOfType(System.Object)",
@@ -246,6 +247,33 @@ def main():
         "System.Collections.Generic.Dictionary`2+Entry",
     ]
     nested_name_only = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedNameOnlyQueryBehavior"]
+    enum_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumNamesBehavior"]
+    number_style_values = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNumberStylesFullValues"]
+    assert [row["value"] for row in number_style_values] == [
+        0, 1, 2, 4, 7, 8, 16, 32, 64, 111, 128, 167, 256, 383, 511,
+        512, 515, 1024, 1027,
+    ]
+    assert [row["name"] for row in number_style_values] == enum_names["numberStyles"]["names"]
+    assert enum_names == {
+        "typeCode": {"names": ["Empty", "Object", "DBNull", "Boolean", "Char", "SByte", "Byte",
+                               "Int16", "UInt16", "Int32", "UInt32", "Int64", "UInt64", "Single",
+                               "Double", "Decimal", "DateTime", "String"],
+                     "exception": None, "paramName": None},
+        "memberTypes": {"names": ["Constructor", "Event", "Field", "Method", "Property",
+                                  "TypeInfo", "Custom", "NestedType", "All"],
+                        "exception": None, "paramName": None},
+        "genericParameterAttributes": {"names": ["None", "Covariant", "Contravariant",
+            "VarianceMask", "ReferenceTypeConstraint", "NotNullableValueTypeConstraint",
+            "DefaultConstructorConstraint", "SpecialConstraintMask", "AllowByRefLike"],
+            "exception": None, "paramName": None},
+        "numberStyles": {"names": ["None", "AllowLeadingWhite", "AllowTrailingWhite",
+            "AllowLeadingSign", "Integer", "AllowTrailingSign", "AllowParentheses",
+            "AllowDecimalPoint", "AllowThousands", "Number", "AllowExponent", "Float",
+            "AllowCurrencySymbol", "Currency", "Any", "AllowHexSpecifier", "HexNumber",
+            "AllowBinarySpecifier", "BinaryNumber"],
+                         "exception": None, "paramName": None},
+        "nonEnum": {"names": None, "exception": "System.ArgumentException", "paramName": "enumType"},
+    }
     assert nested_name_only == {
         "positive": {"result": "System.Collections.Generic.Dictionary`2+KeyCollection", "exception": None, "paramName": None},
         "lowerMiss": {"result": None, "exception": None, "paramName": None},
@@ -1343,6 +1371,7 @@ def main():
         "public boolean get_IsInterface();",
         "public boolean get_IsEnum();",
         "public System.Type GetEnumUnderlyingType();",
+        "public java.lang.String[] GetEnumNames();",
         "public boolean IsAssignableTo(System.Type);",
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
