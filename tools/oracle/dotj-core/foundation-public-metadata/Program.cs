@@ -1185,6 +1185,31 @@ static object ObserveSerializationEntryEquality()
         populatedText = first.ToString(),
     };
 }
+static object ObserveSerializationEntryTypeEquality()
+{
+    static System.Runtime.Serialization.SerializationEntry Entry(object? value, Type type)
+    {
+        var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+            new System.Runtime.Serialization.FormatterConverter());
+        info.AddValue("item", value, type);
+        var cursor = info.GetEnumerator();
+        cursor.MoveNext();
+        return cursor.Current;
+    }
+    var text = Entry("same", typeof(string));
+    var objectTyped = Entry("same", typeof(object));
+    var changedValue = Entry("different", typeof(string));
+    var nullA = Entry(null, typeof(string));
+    var nullB = Entry(null, typeof(string));
+    return new
+    {
+        differentDeclaredTypeEqual = text.Equals(objectTyped),
+        differentValueEqual = text.Equals(changedValue),
+        sameNullEqual = nullA.Equals(nullB),
+        sameNullHash = nullA.GetHashCode() == nullB.GetHashCode(),
+        nullVersusTextEqual = nullA.Equals(text),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1337,6 +1362,7 @@ var result = new
     selectedSerializationEntryShapeBehavior = ObserveSerializationEntryShape(),
     selectedSerializationEntryValueSnapshotBehavior = ObserveSerializationEntryValueSnapshot(),
     selectedSerializationEntryEqualityBehavior = ObserveSerializationEntryEquality(),
+    selectedSerializationEntryTypeEqualityBehavior = ObserveSerializationEntryTypeEquality(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
