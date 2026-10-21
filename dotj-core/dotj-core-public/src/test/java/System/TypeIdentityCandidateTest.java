@@ -341,6 +341,36 @@ public final class TypeIdentityCandidateTest {
                 || !"System.SByte".equals(byteCursor.get_ObjectType().get_FullName())) {
             throw new AssertionError("Selected byte serialization members changed");
         }
+        IConvertible byteConvertible = new Byte(200);
+        IConvertible sbyteConvertible = new SByte(-5);
+        if (!Type.GetType("System.Byte").IsAssignableTo(Type.GetType("System.IConvertible"))
+                || !Type.GetType("System.SByte").IsAssignableTo(Type.GetType("System.IConvertible"))
+                || byteConvertible.GetTypeCode() != TypeCode.Byte
+                || sbyteConvertible.GetTypeCode() != TypeCode.SByte
+                || byteConvertible.ToInt32(null) != 200
+                || sbyteConvertible.ToInt32(null) != -5
+                || !"200".equals(byteConvertible.ToString(null))
+                || !"-5".equals(sbyteConvertible.ToString(null))) {
+            throw new AssertionError("Selected byte convertible contract changed");
+        }
+        try {
+            byteConvertible.ToSByte(null);
+            throw new AssertionError("Byte to SByte overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            sbyteConvertible.ToByte(null);
+            throw new AssertionError("SByte to Byte overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            byteConvertible.ToDateTime(null);
+            throw new AssertionError("Byte to DateTime accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteConversions = new SerializationInfo(dbnullType, selectedConverter);
         byteConversions.AddValue("byteText", "255");
         byteConversions.AddValue("sbyteText", "-128");

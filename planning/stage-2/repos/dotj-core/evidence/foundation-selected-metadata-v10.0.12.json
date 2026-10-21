@@ -654,6 +654,19 @@
     "sbyteFormat": "System.FormatException",
     "byteNull": "System.ArgumentNullException"
   },
+  "selectedByteConvertibleContractBehavior": {
+    "byteConvertible": true,
+    "sbyteConvertible": true,
+    "byteTypeCode": "Byte",
+    "sbyteTypeCode": "SByte",
+    "byteToInt32": 200,
+    "sbyteToInt32": -5,
+    "byteToString": "200",
+    "sbyteToString": "-5",
+    "byteToSByte": "System.OverflowException",
+    "sbyteToByte": "System.OverflowException",
+    "byteToDateTime": "System.InvalidCastException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16096,6 +16109,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "1b25b947ce09a35c1250e266a43ff6f4ec0111ecfdfdd385597d3701f837f022",
+  "oracleProgramSha256": "5931f51a0e122629eae8ebb58210bb07bd412d5a3931b0527a67fe923f500baa",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
