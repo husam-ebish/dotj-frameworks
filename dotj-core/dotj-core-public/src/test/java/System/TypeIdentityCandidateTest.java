@@ -68,6 +68,19 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Selected function-pointer flags changed");
             }
         }
+        for (Type nonFunctionPointer : new Type[] {string, string.MakePointerType()}) {
+            for (Runnable query : new Runnable[] {
+                    () -> nonFunctionPointer.GetFunctionPointerReturnType(),
+                    () -> nonFunctionPointer.GetFunctionPointerParameterTypes(),
+                    () -> nonFunctionPointer.GetFunctionPointerCallingConventions()}) {
+                try {
+                    query.run();
+                    throw new AssertionError("Non-function-pointer query was accepted");
+                } catch (InvalidOperationException expected) {
+                    // Matches the pinned CLR exception type.
+                }
+            }
+        }
         if (string.get_IsSpecialName()
                 || Type.fromJavaClass(TypeCode.class).get_IsSpecialName()
                 || Type.fromJavaClass(List.class).get_IsSpecialName()

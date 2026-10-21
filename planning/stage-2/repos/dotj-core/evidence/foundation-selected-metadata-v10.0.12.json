@@ -730,6 +730,20 @@
       "isUnmanagedFunctionPointer": false
     }
   ],
+  "selectedNonFunctionPointerQueryBehavior": [
+    {
+      "name": "System.String",
+      "returnTypeError": "System.InvalidOperationException",
+      "parameterTypesError": "System.InvalidOperationException",
+      "callingConventionsError": "System.InvalidOperationException"
+    },
+    {
+      "name": "System.String*",
+      "returnTypeError": "System.InvalidOperationException",
+      "parameterTypesError": "System.InvalidOperationException",
+      "callingConventionsError": "System.InvalidOperationException"
+    }
+  ],
   "selectedInteropTypeFlagBehavior": [
     {
       "name": "System.String",
@@ -13449,6 +13463,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "40ef61b8d1d8cef30bbc0bc48d94e5cdc9ccef379933178d44474bfb4f2e747c",
+  "oracleProgramSha256": "5e6a306bc91f37ad06ad035343bc6f63db76648937f6021c2cc854c37e4ecf8e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -365,6 +365,18 @@ static object ObserveEnumUnderlyingType(Type type)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static string? ObserveFunctionPointerQuery(Func<object> operation)
+{
+    try
+    {
+        operation();
+        return null;
+    }
+    catch (Exception exception)
+    {
+        return exception.GetType().FullName;
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -770,6 +782,14 @@ var result = new
     }.Select(type => new { name = type.FullName ?? type.Name,
         isFunctionPointer = type.IsFunctionPointer,
         isUnmanagedFunctionPointer = type.IsUnmanagedFunctionPointer }).ToArray(),
+    selectedNonFunctionPointerQueryBehavior = new[]
+    {
+        typeof(string), typeof(string).MakePointerType(),
+    }.Select(type => new { name = type.FullName,
+        returnTypeError = ObserveFunctionPointerQuery(type.GetFunctionPointerReturnType),
+        parameterTypesError = ObserveFunctionPointerQuery(type.GetFunctionPointerParameterTypes),
+        callingConventionsError = ObserveFunctionPointerQuery(type.GetFunctionPointerCallingConventions),
+    }).ToArray(),
     selectedInteropTypeFlagBehavior = new[]
     {
         typeof(string), typeof(int), typeof(Type), typeof(Exception),
