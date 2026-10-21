@@ -449,6 +449,43 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        SerializationInfo signedFloatText = new SerializationInfo(dbnullType, selectedConverter);
+        signedFloatText.AddValue("int16Text", "-1234");
+        signedFloatText.AddValue("singleText", "1.25");
+        if (signedFloatText.GetInt16("int16Text") != -1234
+                || signedFloatText.GetSingle("singleText") != 1.25f
+                || !Short.valueOf((short) -1234).equals(selectedConverter.Convert(
+                    "-1234", Type.GetType("System.Int16")))
+                || !Float.valueOf(1.25f).equals(selectedConverter.Convert(
+                    "1.25", TypeCode.Single))) {
+            throw new AssertionError("Selected Int16/Single formatter routes changed");
+        }
+        for (String value : new String[] {"32768", "-32769"}) {
+            try {
+                selectedConverter.ToInt16(value);
+                throw new AssertionError("Int16 overflow accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToInt16("bad");
+            throw new AssertionError("Invalid Int16 text accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToSingle("bad");
+            throw new AssertionError("Invalid Single text accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToSingle(null);
+            throw new AssertionError("Null Single accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));
