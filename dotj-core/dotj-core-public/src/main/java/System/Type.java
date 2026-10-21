@@ -1016,7 +1016,9 @@ public abstract class Type extends MemberInfo {
         if (value instanceof java.lang.Enum<?>) {
             return null;
         }
-        if (value instanceof Integer number) {
+        if (value instanceof Integer || value instanceof Long
+                || value instanceof Short || value instanceof Byte) {
+            long number = ((Number) value).longValue();
             for (Object constant : this.definition.getEnumConstants()) {
                 if (enumNumericValue(constant) == number) {
                     return ((java.lang.Enum<?>) constant).name();

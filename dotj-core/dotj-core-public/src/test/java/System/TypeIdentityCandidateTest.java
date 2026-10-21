@@ -103,6 +103,8 @@ public final class TypeIdentityCandidateTest {
         }
         if (!"Empty".equals(typeCodeEnum.GetEnumName(TypeCode.Empty))
                 || !"Empty".equals(typeCodeEnum.GetEnumName(0))
+                || !"Empty".equals(typeCodeEnum.GetEnumName(0L))
+                || !"Empty".equals(typeCodeEnum.GetEnumName((byte) 0))
                 || typeCodeEnum.GetEnumName(17) != null
                 || memberTypesEnum.GetEnumName(TypeCode.Empty) != null) {
             throw new AssertionError("Selected enum name lookup changed");
@@ -137,6 +139,16 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentException expected) {
             if (expected.get_ParamName() != null) {
                 throw new AssertionError("Foreign enum parameter identity changed", expected);
+            }
+        }
+        for (Object invalidWidth : new Object[] {0L, (byte) 0}) {
+            try {
+                typeCodeEnum.IsEnumDefined(invalidWidth);
+                throw new AssertionError("Wrong-width enum membership value accepted");
+            } catch (ArgumentException expected) {
+                if (expected.get_ParamName() != null) {
+                    throw new AssertionError("Wrong-width enum parameter changed", expected);
+                }
             }
         }
         try {

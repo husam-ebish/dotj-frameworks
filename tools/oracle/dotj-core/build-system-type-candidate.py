@@ -266,8 +266,10 @@ def main():
     assert enum_defined["wrongEnumType"] == {"result": None, "exception": "System.ArgumentException", "paramName": None}
     assert enum_defined["nullValue"] == {"result": None, "exception": "System.ArgumentNullException", "paramName": "value"}
     assert enum_defined["nonEnumOwner"] == {"result": None, "exception": "System.ArgumentException", "paramName": "enumType"}
+    for key in ("longValue", "byteValue"):
+        assert enum_defined[key] == {"result": None, "exception": "System.ArgumentException", "paramName": None}
     enum_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumNameBehavior"]
-    for key in ("enumValue", "integerValue"):
+    for key in ("enumValue", "integerValue", "longValue", "byteValue"):
         assert enum_name[key] == {"result": "Empty", "exception": None, "paramName": None}
     for key in ("missingValue", "wrongEnumType"):
         assert enum_name[key] == {"result": None, "exception": None, "paramName": None}
