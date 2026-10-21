@@ -20,6 +20,7 @@ CHECKS = (
     "verify-idisposable-distribution.py",
     "audit-foundation-public-candidate.py",
     "build-foundation-semantic-surface.py",
+    "audit-int32-declared-signatures.py",
     "lower-selected-typeof.py",
     "lower-selected-throw.py",
     "verify-foundation-distribution.py",
@@ -66,6 +67,7 @@ def main():
 
     evidence_files = (
         "foundation-selected-metadata-v10.0.12.json",
+        "int32-declared-signature-audit-v1.json",
         "foundation-product-candidate-v1.json",
         "foundation-rights-inputs-v1.json",
         "foundation-notice-review-queue-v1.json",
@@ -88,7 +90,7 @@ def main():
         "releaseQualified": False,
     }
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-    print("PASS public foundation candidate gate: 17 checks, 67 sources, MIT, E01 open")
+    print(f"PASS public foundation candidate gate: {len(CHECKS)} checks, 67 sources, MIT, E01 open")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,932 @@
+{
+  "schemaVersion": 1,
+  "scope": "Declared public System.Int32 methods and fields in pinned CoreLib versus compiled Java candidate",
+  "surfaceEvidence": "foundation-semantic-surface-v1.json",
+  "surfaceSha256": "7b9f26ed63eeec02e12d4672a985004b8e9b354656e7d539b932099c5dbf2e4a",
+  "upstreamMethodCount": 53,
+  "projectedCandidateMethodCount": 43,
+  "missingProjectedSignatureCount": 10,
+  "extraJavaPublicMethodCount": 18,
+  "upstreamFields": [
+    {
+      "name": "MaxValue",
+      "type": "System.Int32",
+      "isStatic": true,
+      "isLiteral": true
+    },
+    {
+      "name": "MinValue",
+      "type": "System.Int32",
+      "isStatic": true,
+      "isLiteral": true
+    }
+  ],
+  "extraJavaPublicMethods": [
+    "public int get_Value();",
+    "public boolean ToBoolean(System.IFormatProvider);",
+    "public char ToChar(System.IFormatProvider);",
+    "public byte ToSByte(System.IFormatProvider);",
+    "public short ToByte(System.IFormatProvider);",
+    "public short ToInt16(System.IFormatProvider);",
+    "public int ToUInt16(System.IFormatProvider);",
+    "public int ToInt32(System.IFormatProvider);",
+    "public long ToUInt32(System.IFormatProvider);",
+    "public long ToInt64(System.IFormatProvider);",
+    "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+    "public float ToSingle(System.IFormatProvider);",
+    "public double ToDouble(System.IFormatProvider);",
+    "public System.Decimal ToDecimal(System.IFormatProvider);",
+    "public System.DateTime ToDateTime(System.IFormatProvider);",
+    "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+    "public boolean equals(java.lang.Object);",
+    "public int hashCode();"
+  ],
+  "javaPublicConstructors": [
+    "public System.Int32(int);"
+  ],
+  "methods": [
+    {
+      "upstreamSignature": "Int32 Abs(Int32)",
+      "projectedJava": {
+        "name": "Abs",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Abs(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int64 BigMul(Int32, Int32)",
+      "projectedJava": {
+        "name": "BigMul",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "long",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static long BigMul(System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Clamp(Int32, Int32, Int32)",
+      "projectedJava": {
+        "name": "Clamp",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32",
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Clamp(System.Int32, System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 CompareTo(Int32)",
+      "projectedJava": {
+        "name": "CompareTo",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "int",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public int CompareTo(System.Int32);",
+      "projectionAdaptations": [
+        "CLR Int32 return uses a Java primitive"
+      ],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 CompareTo(System.Object)",
+      "projectedJava": {
+        "name": "CompareTo",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "int",
+        "parameters": [
+          "java.lang.Object"
+        ]
+      },
+      "candidateDeclaration": "public int CompareTo(java.lang.Object);",
+      "projectionAdaptations": [
+        "CLR Int32 return uses a Java primitive"
+      ],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 CopySign(Int32, Int32)",
+      "projectedJava": {
+        "name": "CopySign",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 CopySign(System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 CreateChecked[TOther](TOther)",
+      "projectedJava": {
+        "name": "CreateChecked",
+        "isStatic": true,
+        "genericArity": 1,
+        "returnType": "System.Int32",
+        "parameters": [
+          "TOther"
+        ]
+      },
+      "candidateDeclaration": "public static <TOther> System.Int32 CreateChecked(TOther);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 CreateSaturating[TOther](TOther)",
+      "projectedJava": {
+        "name": "CreateSaturating",
+        "isStatic": true,
+        "genericArity": 1,
+        "returnType": "System.Int32",
+        "parameters": [
+          "TOther"
+        ]
+      },
+      "candidateDeclaration": "public static <TOther> System.Int32 CreateSaturating(TOther);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 CreateTruncating[TOther](TOther)",
+      "projectedJava": {
+        "name": "CreateTruncating",
+        "isStatic": true,
+        "genericArity": 1,
+        "returnType": "System.Int32",
+        "parameters": [
+          "TOther"
+        ]
+      },
+      "candidateDeclaration": "public static <TOther> System.Int32 CreateTruncating(TOther);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "System.ValueTuple`2[System.Int32,System.Int32] DivRem(Int32, Int32)",
+      "projectedJava": {
+        "name": "DivRem",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.ValueTuple<System.Int32, System.Int32>",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.ValueTuple<System.Int32, System.Int32> DivRem(System.Int32, System.Int32);",
+      "projectionAdaptations": [
+        "CLR value tuple uses a Java carrier"
+      ],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean Equals(Int32)",
+      "projectedJava": {
+        "name": "Equals",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public boolean Equals(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean Equals(System.Object)",
+      "projectedJava": {
+        "name": "Equals",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "java.lang.Object"
+        ]
+      },
+      "candidateDeclaration": "public boolean Equals(java.lang.Object);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 GetHashCode()",
+      "projectedJava": {
+        "name": "GetHashCode",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": []
+      },
+      "candidateDeclaration": "public System.Int32 GetHashCode();",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "System.TypeCode GetTypeCode()",
+      "projectedJava": {
+        "name": "GetTypeCode",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "System.TypeCode",
+        "parameters": []
+      },
+      "candidateDeclaration": "public System.TypeCode GetTypeCode();",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean IsEvenInteger(Int32)",
+      "projectedJava": {
+        "name": "IsEvenInteger",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static boolean IsEvenInteger(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean IsNegative(Int32)",
+      "projectedJava": {
+        "name": "IsNegative",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static boolean IsNegative(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean IsOddInteger(Int32)",
+      "projectedJava": {
+        "name": "IsOddInteger",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static boolean IsOddInteger(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean IsPositive(Int32)",
+      "projectedJava": {
+        "name": "IsPositive",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static boolean IsPositive(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean IsPow2(Int32)",
+      "projectedJava": {
+        "name": "IsPow2",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static boolean IsPow2(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 LeadingZeroCount(Int32)",
+      "projectedJava": {
+        "name": "LeadingZeroCount",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 LeadingZeroCount(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Log2(Int32)",
+      "projectedJava": {
+        "name": "Log2",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Log2(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Max(Int32, Int32)",
+      "projectedJava": {
+        "name": "Max",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Max(System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 MaxMagnitude(Int32, Int32)",
+      "projectedJava": {
+        "name": "MaxMagnitude",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 MaxMagnitude(System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Min(Int32, Int32)",
+      "projectedJava": {
+        "name": "Min",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Min(System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 MinMagnitude(Int32, Int32)",
+      "projectedJava": {
+        "name": "MinMagnitude",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 MinMagnitude(System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider)",
+      "projectedJava": {
+        "name": "Parse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "byte[]",
+          "System.Globalization.NumberStyles",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
+      "projectedJava": {
+        "name": "Parse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "byte[]",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
+      "projectedJava": {
+        "name": "Parse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "char[]",
+          "System.Globalization.NumberStyles",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+      "projectedJava": {
+        "name": "Parse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "char[]",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Int32 Parse(System.String)",
+      "projectedJava": {
+        "name": "Parse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "java.lang.String"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Parse(java.lang.String);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Parse(System.String, System.Globalization.NumberStyles)",
+      "projectedJava": {
+        "name": "Parse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "java.lang.String",
+          "System.Globalization.NumberStyles"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Parse(java.lang.String, System.Globalization.NumberStyles);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Parse(System.String, System.Globalization.NumberStyles, System.IFormatProvider)",
+      "projectedJava": {
+        "name": "Parse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "java.lang.String",
+          "System.Globalization.NumberStyles",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Parse(System.String, System.IFormatProvider)",
+      "projectedJava": {
+        "name": "Parse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "java.lang.String",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Parse(java.lang.String, System.IFormatProvider);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 PopCount(Int32)",
+      "projectedJava": {
+        "name": "PopCount",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 PopCount(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 RotateLeft(Int32, Int32)",
+      "projectedJava": {
+        "name": "RotateLeft",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 RotateLeft(System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 RotateRight(Int32, Int32)",
+      "projectedJava": {
+        "name": "RotateRight",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32",
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 RotateRight(System.Int32, System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 Sign(Int32)",
+      "projectedJava": {
+        "name": "Sign",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 Sign(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "System.String ToString()",
+      "projectedJava": {
+        "name": "ToString",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "java.lang.String",
+        "parameters": []
+      },
+      "candidateDeclaration": "public java.lang.String ToString();",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "System.String ToString(System.IFormatProvider)",
+      "projectedJava": {
+        "name": "ToString",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "java.lang.String",
+        "parameters": [
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": "public java.lang.String ToString(System.IFormatProvider);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "System.String ToString(System.String)",
+      "projectedJava": {
+        "name": "ToString",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "java.lang.String",
+        "parameters": [
+          "java.lang.String"
+        ]
+      },
+      "candidateDeclaration": "public java.lang.String ToString(java.lang.String);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "System.String ToString(System.String, System.IFormatProvider)",
+      "projectedJava": {
+        "name": "ToString",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "java.lang.String",
+        "parameters": [
+          "java.lang.String",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Int32 TrailingZeroCount(Int32)",
+      "projectedJava": {
+        "name": "TrailingZeroCount",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "System.Int32",
+        "parameters": [
+          "System.Int32"
+        ]
+      },
+      "candidateDeclaration": "public static System.Int32 TrailingZeroCount(System.Int32);",
+      "projectionAdaptations": [],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+      "projectedJava": {
+        "name": "TryFormat",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "byte[]",
+          "int[]",
+          "java.lang.String",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+      "projectionAdaptations": [
+        "CLR by-reference character count uses a Java int array",
+        "CLR span uses a Java array",
+        "format span uses a Java String"
+      ],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+      "projectedJava": {
+        "name": "TryFormat",
+        "isStatic": false,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "char[]",
+          "int[]",
+          "java.lang.String",
+          "System.IFormatProvider"
+        ]
+      },
+      "candidateDeclaration": "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+      "projectionAdaptations": [
+        "CLR by-reference character count uses a Java int array",
+        "CLR span uses a Java array",
+        "format span uses a Java String"
+      ],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "byte[]",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array",
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "byte[]",
+          "System.Globalization.NumberStyles",
+          "System.IFormatProvider",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array",
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "byte[]",
+          "System.IFormatProvider",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array",
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "char[]",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array",
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "char[]",
+          "System.Globalization.NumberStyles",
+          "System.IFormatProvider",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array",
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "char[]",
+          "System.IFormatProvider",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": null,
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array",
+        "CLR span uses a Java array"
+      ],
+      "status": "MISSING_PROJECTED_SIGNATURE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.String, Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "java.lang.String",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": "public static boolean TryParse(java.lang.String, System.Int32[]);",
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array"
+      ],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.String, System.Globalization.NumberStyles, System.IFormatProvider, Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "java.lang.String",
+          "System.Globalization.NumberStyles",
+          "System.IFormatProvider",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": "public static boolean TryParse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider, System.Int32[]);",
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array"
+      ],
+      "status": "PROJECTED_CANDIDATE"
+    },
+    {
+      "upstreamSignature": "Boolean TryParse(System.String, System.IFormatProvider, Int32 ByRef)",
+      "projectedJava": {
+        "name": "TryParse",
+        "isStatic": true,
+        "genericArity": 0,
+        "returnType": "boolean",
+        "parameters": [
+          "java.lang.String",
+          "System.IFormatProvider",
+          "System.Int32[]"
+        ]
+      },
+      "candidateDeclaration": "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.Int32[]);",
+      "projectionAdaptations": [
+        "CLR by-reference output uses a Java array"
+      ],
+      "status": "PROJECTED_CANDIDATE"
+    }
+  ],
+  "status": "PROJECTION_AUDIT_ONLY; SPAN/BYREF/VALUE_TYPE_ABI, BEHAVIOR, E02 AND N01 OPEN",
+  "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Extra Java methods include public interface bridges and carrier helpers."
+}
