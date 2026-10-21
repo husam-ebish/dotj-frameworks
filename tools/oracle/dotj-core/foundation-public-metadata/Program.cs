@@ -1092,6 +1092,18 @@ var result = new
         isVisible = type.IsVisible,
         declaringVisible = type.DeclaringType!.IsVisible,
     }).ToArray(),
+    selectedNestedArrayVisibilityBehavior = new[]
+    {
+        typeof(System.Collections.Generic.List<int>.Enumerator[]),
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!.MakeArrayType(),
+    }.Select(type => new
+    {
+        name = type.FullName,
+        isPublic = type.IsPublic,
+        isVisible = type.IsVisible,
+        isNested = type.IsNested,
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),

@@ -256,6 +256,9 @@ def main():
             for row in parent_visibility] == [
         (False, True, True, True), (False, True, False, False),
     ]
+    nested_arrays = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedArrayVisibilityBehavior"]
+    assert [(row["isPublic"], row["isVisible"], row["isNested"])
+            for row in nested_arrays] == [(True, True, False), (True, False, False)]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
