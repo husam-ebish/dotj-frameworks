@@ -26,6 +26,16 @@ public final class ProductExceptionContractConsumer {
         if (chained.get_InnerException() != inner) {
             throw new AssertionError("ArgumentNullException selected inner identity changed");
         }
+        Exception root = new InvalidOperationException("root");
+        Exception middle = new Exception("middle", root);
+        ArgumentException chain = new ArgumentException("outer", "value", middle);
+        if (inner.GetBaseException() != inner || root.GetBaseException() != root
+                || middle.GetBaseException() != root || chain.GetBaseException() != root
+                || chain.get_InnerException() != middle
+                || !(chain.GetBaseException() instanceof InvalidOperationException)
+                || !"root".equals(chain.GetBaseException().get_Message())) {
+            throw new AssertionError("Selected base exception chain changed");
+        }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5

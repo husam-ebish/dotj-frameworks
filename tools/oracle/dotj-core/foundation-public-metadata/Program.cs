@@ -39,6 +39,10 @@ BindingFlags declaredPublic = BindingFlags.Public | BindingFlags.DeclaredOnly
 Exception inner = new("inner");
 ArgumentException outer = new("outer", "value", inner);
 ArgumentNullException nullArgument = new("typeName", "missing type");
+Exception rootException = new InvalidOperationException("root");
+Exception middleException = new("middle", rootException);
+Exception chainException = new ArgumentException("outer", "value", middleException);
+Exception standaloneException = new("standalone");
 static object ObserveGetType(string? name, bool throwOnError, bool ignoreCase)
 {
     try
@@ -303,6 +307,16 @@ var result = new
         argumentInnerSameReference = ReferenceEquals(outer.InnerException, inner),
         nullArgumentParamName = nullArgument.ParamName,
         nullArgumentMessage = nullArgument.Message,
+    },
+    selectedBaseExceptionBehavior = new
+    {
+        standaloneIsSelf = ReferenceEquals(standaloneException.GetBaseException(), standaloneException),
+        rootIsSelf = ReferenceEquals(rootException.GetBaseException(), rootException),
+        middleReturnsRoot = ReferenceEquals(middleException.GetBaseException(), rootException),
+        chainReturnsRoot = ReferenceEquals(chainException.GetBaseException(), rootException),
+        chainInnerPreserved = ReferenceEquals(chainException.InnerException, middleException),
+        baseType = chainException.GetBaseException().GetType().FullName,
+        baseMessage = chainException.GetBaseException().Message,
     },
     selectedGetTypeBehavior = new
     {

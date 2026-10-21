@@ -8,6 +8,15 @@
     "nullArgumentParamName": "typeName",
     "nullArgumentMessage": "missing type (Parameter 'typeName')"
   },
+  "selectedBaseExceptionBehavior": {
+    "standaloneIsSelf": true,
+    "rootIsSelf": true,
+    "middleReturnsRoot": true,
+    "chainReturnsRoot": true,
+    "chainInnerPreserved": true,
+    "baseType": "System.InvalidOperationException",
+    "baseMessage": "root"
+  },
   "selectedGetTypeBehavior": {
     "exact": {
       "result": "System.String",
@@ -11230,6 +11239,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "a87d945c33609c2d446c89a10b0ec0a2ee53a7633e81094f29f345b6ac4ba12d",
+  "oracleProgramSha256": "1e679d0c7df7c0166c11d2e636b30d01a49edee52232ce587bf715d0054be014",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
