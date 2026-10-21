@@ -903,6 +903,18 @@ public abstract class Type extends MemberInfo {
                 && !java.lang.reflect.Modifier.isPublic(this.definition.getModifiers());
     }
 
+    public boolean get_IsSerializable() {
+        if (this.get_IsByRef() || this.get_IsPointer() || this.get_IsGenericParameter()) {
+            return false;
+        }
+        if (this.get_IsArray()) {
+            return true;
+        }
+        return this.definition == String.class || this.definition == Int32.class
+                || this.definition == java.util.List.class || this.get_IsEnum()
+                || Exception.class.isAssignableFrom(this.definition);
+    }
+
     @Override
     public MemberTypes get_MemberType() {
         return MemberTypes.TypeInfo;
