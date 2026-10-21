@@ -247,6 +247,9 @@ def main():
     assert all(member_type[key] == "TypeInfo" for key in
                ("stringType", "arrayType", "openGeneric", "genericParameter"))
     assert member_type["memberTypeGetterAbstract"]
+    member_type_combination = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberTypeCombinationBehavior"]
+    assert member_type_combination == {"value": 24, "hasMethod": True,
+                                       "hasProperty": True, "named": False, "enumName": None}
     owners = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberOwnerBehavior"]
     assert len(owners) == 7
     assert all(item["declaringType"] is None and item["reflectedType"] is None

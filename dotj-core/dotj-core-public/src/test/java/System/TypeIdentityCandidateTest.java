@@ -43,6 +43,17 @@ public final class TypeIdentityCandidateTest {
             throw new AssertionError("Pinned BindingFlags identity or values changed");
         }
         BindingFlags publicInstance = BindingFlags.Public.or(BindingFlags.Instance);
+        MemberTypes methodProperty = MemberTypes.Method.or(MemberTypes.Property);
+        Type memberTypesType = Type.fromJavaClass(MemberTypes.class);
+        if (methodProperty.get_Value() != 24 || !methodProperty.has(MemberTypes.Method)
+                || !methodProperty.has(MemberTypes.Property)
+                || methodProperty.has(MemberTypes.Field)
+                || memberTypesType.IsEnumDefined(methodProperty)
+                || memberTypesType.GetEnumName(methodProperty) != null
+                || memberTypesType.GetEnumValues().getClass() != MemberTypes[].class
+                || MemberTypes.All.has(methodProperty) == false) {
+            throw new AssertionError("Pinned MemberTypes combination changed");
+        }
         if (publicInstance.get_Value() != 20 || !publicInstance.has(BindingFlags.Public)
                 || !publicInstance.has(BindingFlags.Instance)
                 || publicInstance.has(BindingFlags.NonPublic)
@@ -102,7 +113,9 @@ public final class TypeIdentityCandidateTest {
         if (string.GetMember("Chars", MemberTypes.Property, publicInstance).length != 1
                 || string.GetMember("Chars", MemberTypes.Method, publicInstance).length != 0
                 || string.GetMember("Chars", MemberTypes.All, publicInstance).length != 1
+                || string.GetMember("Chars", methodProperty, publicInstance).length != 1
                 || interfaceOwners[0].GetMember("Dispose", MemberTypes.Method, publicInstance).length != 1
+                || interfaceOwners[0].GetMember("Dispose", methodProperty, publicInstance).length != 1
                 || interfaceOwners[0].GetMember("Dispose", MemberTypes.Property, publicInstance).length != 0) {
             throw new AssertionError("Selected member-kind filtered lookup changed");
         }

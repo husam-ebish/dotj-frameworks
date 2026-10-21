@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "6730b9db9884bda239e5ba6e4a95d33bad510b8fabfd096928ea7d68406701d2",
+  "candidateJarSha256": "55e13efc474e646de5e469cc0fb8e7f7b5cdebe05f392c4bf39a82f380681e83",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -402,7 +402,7 @@
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 0,
       "javaPublicConstructors": 0,
-      "javaPublicHeader": "public final class System.Reflection.MemberTypes extends java.lang.Enum<System.Reflection.MemberTypes> {",
+      "javaPublicHeader": "public final class System.Reflection.MemberTypes {",
       "javaPublicDeclarations": [
         "public static final System.Reflection.MemberTypes Constructor;",
         "public static final System.Reflection.MemberTypes Event;",
@@ -413,11 +413,15 @@
         "public static final System.Reflection.MemberTypes Custom;",
         "public static final System.Reflection.MemberTypes NestedType;",
         "public static final System.Reflection.MemberTypes All;",
+        "public int get_Value();",
+        "public java.lang.String get_Name();",
+        "public System.Reflection.MemberTypes or(System.Reflection.MemberTypes);",
+        "public boolean has(System.Reflection.MemberTypes);",
         "public static System.Reflection.MemberTypes[] values();",
-        "public static System.Reflection.MemberTypes valueOf(java.lang.String);",
-        "public int get_Value();"
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();"
       ],
-      "disposition": "PARTIAL_ENUM_SURFACE; selected values only, Java enum differs from CLR Enum",
+      "disposition": "PARTIAL_ENUM_SURFACE; selected combinable values, CLR Enum inheritance open",
       "qualified": false
     },
     {
