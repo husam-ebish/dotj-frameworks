@@ -316,6 +316,29 @@ public final class TypeIdentityCandidateTest {
                 || !"System.String".equals(objectEntries.get_ObjectType().get_FullName())) {
             throw new AssertionError("Selected object serialization members changed");
         }
+        SerializationInfo getValueTypes = new SerializationInfo(dbnullType, selectedConverter);
+        Object typeMarker = new Object();
+        getValueTypes.AddValue("text", "hello");
+        getValueTypes.AddValue("marker", typeMarker);
+        if (!"hello".equals(getValueTypes.GetValue("text", Type.GetType("System.Object")))
+                || !"hello".equals(getValueTypes.GetValue("text", Type.GetType("System.IComparable")))
+                || getValueTypes.GetValue("marker", Type.GetType("System.Object")) != typeMarker) {
+            throw new AssertionError("Assignable serialization GetValue changed");
+        }
+        try {
+            getValueTypes.GetValue("marker", Type.GetType("System.String"));
+            throw new AssertionError("Incompatible marker conversion was accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            getValueTypes.GetValue(null, Type.GetType("System.Object"));
+            throw new AssertionError("Null GetValue name was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null GetValue name parameter changed");
+            }
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }

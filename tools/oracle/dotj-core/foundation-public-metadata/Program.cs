@@ -1045,6 +1045,23 @@ static object ObserveSerializationInfoObjectMembers()
         types,
     };
 }
+static object ObserveSerializationInfoGetValueTypes()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    object marker = new();
+    info.AddValue("text", "hello");
+    info.AddValue("marker", marker);
+    return new
+    {
+        textAsObject = info.GetValue("text", typeof(object)),
+        textAsComparable = info.GetValue("text", typeof(IComparable)),
+        markerAsObjectSame = ReferenceEquals(info.GetValue("marker", typeof(object)), marker),
+        markerAsStringError = ObserveMethodError(() => info.GetValue("marker", typeof(string))),
+        nullNameError = ObserveMethodError(() => info.GetValue(null!, typeof(object))),
+        nullNameParameter = ObserveMethodArgumentName(() => info.GetValue(null!, typeof(object))),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1190,6 +1207,7 @@ var result = new
     selectedSerializationInfoPrimitiveConversionsBehavior = ObserveSerializationInfoPrimitiveConversions(),
     selectedPrimitiveConversionErrorsBehavior = ObservePrimitiveConversionErrors(),
     selectedSerializationInfoObjectMembersBehavior = ObserveSerializationInfoObjectMembers(),
+    selectedSerializationInfoGetValueTypesBehavior = ObserveSerializationInfoGetValueTypes(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
