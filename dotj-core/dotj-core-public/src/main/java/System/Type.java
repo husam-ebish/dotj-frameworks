@@ -397,6 +397,13 @@ public abstract class Type extends MemberInfo {
             case "System.Int64[]" -> fromJavaClass(Long.class).MakeArrayType();
             case "System.Single[]" -> fromJavaClass(Float.class).MakeArrayType();
             case "System.Double[]" -> fromJavaClass(Double.class).MakeArrayType();
+            case "System.Boolean[,]" -> fromJavaClass(Boolean.class).MakeArrayType(2);
+            case "System.Char[,]" -> fromJavaClass(Character.class).MakeArrayType(2);
+            case "System.Byte[,]" -> fromJavaClass(Byte.class).MakeArrayType(2);
+            case "System.Int16[,]" -> fromJavaClass(Short.class).MakeArrayType(2);
+            case "System.Int64[,]" -> fromJavaClass(Long.class).MakeArrayType(2);
+            case "System.Single[,]" -> fromJavaClass(Float.class).MakeArrayType(2);
+            case "System.Double[,]" -> fromJavaClass(Double.class).MakeArrayType(2);
             case "System.String[][]" -> fromJavaClass(String[][].class);
             case "System.String[,]" -> arrayOf(fromJavaClass(String.class), 2);
             case "System.String[,,]" -> arrayOf(fromJavaClass(String.class), 3);
@@ -476,6 +483,13 @@ public abstract class Type extends MemberInfo {
             case "system.int64[]" -> ignoreCase ? fromJavaClass(Long.class).MakeArrayType() : null;
             case "system.single[]" -> ignoreCase ? fromJavaClass(Float.class).MakeArrayType() : null;
             case "system.double[]" -> ignoreCase ? fromJavaClass(Double.class).MakeArrayType() : null;
+            case "system.boolean[,]" -> ignoreCase ? fromJavaClass(Boolean.class).MakeArrayType(2) : null;
+            case "system.char[,]" -> ignoreCase ? fromJavaClass(Character.class).MakeArrayType(2) : null;
+            case "system.byte[,]" -> ignoreCase ? fromJavaClass(Byte.class).MakeArrayType(2) : null;
+            case "system.int16[,]" -> ignoreCase ? fromJavaClass(Short.class).MakeArrayType(2) : null;
+            case "system.int64[,]" -> ignoreCase ? fromJavaClass(Long.class).MakeArrayType(2) : null;
+            case "system.single[,]" -> ignoreCase ? fromJavaClass(Float.class).MakeArrayType(2) : null;
+            case "system.double[,]" -> ignoreCase ? fromJavaClass(Double.class).MakeArrayType(2) : null;
             case "system.string[][]" -> ignoreCase ? fromJavaClass(String[][].class) : null;
             case "system.string[,]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 2) : null;
             case "system.string[,,]" -> ignoreCase ? arrayOf(fromJavaClass(String.class), 3) : null;
