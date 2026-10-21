@@ -18,6 +18,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/BindingFlags.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/GenericParameterAttributes.java")
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/throwing/ThrowSite.java")
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
@@ -53,6 +54,7 @@ EXPECTED_CLASSES = [
     "System/InvalidCastException.class",
     "System/InvalidOperationException.class",
     "System/OverflowException.class",
+    "System/Reflection/BindingFlags.class",
     "System/Reflection/GenericParameterAttributes.class",
     "System/Reflection/MemberInfo.class",
     "System/Reflection/MemberTypes.class",
