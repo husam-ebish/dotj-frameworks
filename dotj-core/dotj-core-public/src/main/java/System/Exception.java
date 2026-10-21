@@ -85,4 +85,8 @@ public class Exception extends RuntimeException {
     public Type GetType() {
         return Type.fromJavaClass(this.getClass());
     }
+
+    public String get_StackTrace() {
+        return org.dotj.internal.throwing.ThrowSite.stackText(this);
+    }
 }

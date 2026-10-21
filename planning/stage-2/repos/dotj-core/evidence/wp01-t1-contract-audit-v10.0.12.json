@@ -38,10 +38,10 @@
     "directWp01FixtureRun": "PASS: 17 Java fixtures and 5 .NET oracles",
     "nullAndExceptionOracleReplay": "PASS",
     "publicCandidateAudit": "PASS: 29 selected compiled type mappings; 0 qualified types in the candidate ledger",
-    "E01": "OPEN: source/archive identity is pinned; foundation-rights-inputs-v1.json finds 29 hashed product Java sources, no product license/notice file at candidate roots, and no JAR notice entry. Product license choice, notice applicability, transitive rights and release qualification remain unresolved",
+    "E01": "OPEN: source/archive identity is pinned; foundation-rights-inputs-v1.json finds 30 hashed product Java sources, no product license/notice file at candidate roots, and no JAR notice entry. Product license choice, notice applicability, transitive rights and release qualification remain unresolved",
     "E02": "OPEN: complete declared public metadata is captured for Type and Exception; source-line attribution, inherited/conditional/generated members and remaining WP-01 types are not fully mapped",
     "E03": "PARTIAL: designed WP-01 fixtures and bounded upstream cases exist; exception stack capture diverges at construction versus throw and needs a .j throw-lowering contract before behavior coverage can be accepted",
-    "N01": "OPEN: the 29-type compiled candidate is a selected subset. Name-level declared comparison finds 43 Type non-accessor names and 42 Type getters, plus 1 Exception non-accessor name and 2 Exception getters, absent from Java declarations; exact signature and paired .j usage qualification remain open",
+    "N01": "OPEN: the 29-type compiled candidate is a selected subset. Name-level declared comparison finds 43 Type non-accessor names and 42 Type getters, plus 1 Exception non-accessor name and 1 Exception getter, absent from Java declarations; exact signature and paired .j usage qualification remain open",
     "foundationGateReplay": "NOT RUN: the runner's default pinned source root R:/ is unavailable in this workspace; its historical manifest records 16 WP-01 Java fixtures, while the current directly run fixture script passes 17 and the gate expectation has been corrected"
   },
   "nextNeeded": [

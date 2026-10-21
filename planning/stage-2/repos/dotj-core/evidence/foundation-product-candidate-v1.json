@@ -51,7 +51,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
-      "sha256": "12362269621679163d67f47254e0ddbe3c626af3e0ee61da19f0e0b743653324"
+      "sha256": "1cd5e6c44cbc1e452734508baec40df87471f77699159de56f7d84d3897dc9e1"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/SystemException.java",
@@ -116,10 +116,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberTypes.java",
       "sha256": "f9f2ddb8cb93f55848a80ef8afe6a304f932dea999722b9f61c55e0417517f94"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/throwing/ThrowSite.java",
+      "sha256": "02d47bff0a31252af15631cbd13c2d54159709d6c2f6551ac2ae068a918a6f8f"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "5394de53db7a09a1946e58f50eda94028d505c039b07f51274e387cafdc6fa4a",
+  "jarSha256": "76b54ced90e3144468a88a421937645f19b401397ec52d909aa52cbb7104c9df",
   "jarEntries": [
     "META-INF/MANIFEST.MF",
     "System/ArgumentException.class",
@@ -157,14 +161,15 @@
     "System/Type$ResolvedType.class",
     "System/Type.class",
     "System/TypeCode.class",
-    "System/TypeLoadException.class"
+    "System/TypeLoadException.class",
+    "org/dotj/internal/throwing/ThrowSite.class"
   ],
   "classSha256": {
     "System/ArgumentException.class": "3d4ae2641b5f697d973135480dbd679bf93eac47610b7cdafeb993555b3dec3e",
     "System/ArgumentNullException.class": "5205ae5f1bb78d022c4d07bc8de08db8a938537b6a5433c2b6243d949ce6dccf",
     "System/DateTime.class": "725039727b42fef409a4bee6b22890a6e14f85008f39b9aa206a7de1cbf3ce80",
     "System/Decimal.class": "f072d7710d862a6a8c2d5f1aeb266853b2aca3344a99a5ff7f5a7cb288bbfdd1",
-    "System/Exception.class": "d661571f56aafc46a46fc2df0f1b4bc98d3000e7f4b173344f321f466d225301",
+    "System/Exception.class": "3f3093f8700bc80dafa366475ab18bd97df37ec9202dd8cb2f47b45e4073a6f5",
     "System/FormatException.class": "9cf13468f8b1e9ac2d0d12da9909970118538710db1dbad619f098cfe3761045",
     "System/Globalization/CultureNotFoundException.class": "f694a76317f78e7d8bd8dc6c32a6699d236f4070ef1c56f883364bd4d01c6028",
     "System/Globalization/NumberStyles.class": "98bfa85fe1d3b4c933a0a9657272b90c7a3268807d894e5c078b669a2c4e0e9a",
@@ -195,7 +200,8 @@
     "System/Type$ResolvedType.class": "e84df81769246cd77843f016e1a8c04f7d3b97c09dad9edf0627954ee58423d7",
     "System/Type.class": "841f5d41f6f52f1cbed3ac5c085588fd192207b0ad5de0c7941811aa8dde15ad",
     "System/TypeCode.class": "c752b76fce1df9da0441528ef7b8d2806e034a2a94741544ceaa1378b8a7f595",
-    "System/TypeLoadException.class": "5abf39d1265d20b8756e5215d23b19be75c13fb33def2c35f0736daf1ced4fac"
+    "System/TypeLoadException.class": "5abf39d1265d20b8756e5215d23b19be75c13fb33def2c35f0736daf1ced4fac",
+    "org/dotj/internal/throwing/ThrowSite.class": "efed1a720ccba24f9c966ea636875c759bbffc20440f659af380e7ceab14c18b"
   },
   "disposalConsumer": "PASS: product IDisposable shape, explicit dispatch, borrowed ownership and failure propagation",
   "typeConsumer": "PASS external System.Type selected identity consumer",

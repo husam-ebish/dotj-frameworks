@@ -5,7 +5,7 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "da67479cbdae1260028471f4afb6e65bcc82aaafa69e36088e84a6318fae82d3",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "6c939edf160ff0d54784d1d514731fab9eab6dbe17c27ba26bb3fd272f80794b",
+  "javaCandidateEvidenceSha256": "e82470a3bdcbcb3fc91fc683a3347d78af82a0c2571e0d02a9fb4c4ebf24636a",
   "types": [
     {
       "fullName": "System.Type",
@@ -3940,7 +3940,8 @@
         "public java.lang.String get_Source();",
         "public void set_Source(java.lang.String);",
         "public java.lang.String ToString();",
-        "public System.Type GetType();"
+        "public System.Type GetType();",
+        "public java.lang.String get_StackTrace();"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -3959,6 +3960,7 @@
           "get_InnerException": 1,
           "get_Message": 1,
           "get_Source": 1,
+          "get_StackTrace": 1,
           "set_HelpLink": 1,
           "set_Source": 1
         },
@@ -3966,7 +3968,6 @@
           "GetObjectData"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "StackTrace",
           "TargetSite"
         ],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
