@@ -271,6 +271,12 @@ def main():
         "duplicateError": "System.Runtime.Serialization.SerializationException",
         "wrongCaseError": "System.Runtime.Serialization.SerializationException",
     }
+    reset_cycles = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoEnumeratorResetCyclesBehavior"]
+    assert reset_cycles == {
+        "firstName": "first", "currentAfterReset": "System.InvalidOperationException",
+        "firstAfterReset": "first", "secondAfterReset": "second",
+        "exhausted": False, "firstAfterSecondReset": "first",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

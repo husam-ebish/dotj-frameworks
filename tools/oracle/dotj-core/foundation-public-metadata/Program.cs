@@ -1079,6 +1079,27 @@ static object ObserveSerializationInfoMemberNames()
         wrongCaseError = ObserveMethodError(() => info.GetInt32("NAME")),
     };
 }
+static object ObserveSerializationInfoEnumeratorResetCycles()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("first", 1);
+    info.AddValue("second", 2);
+    var cursor = info.GetEnumerator();
+    cursor.MoveNext();
+    var firstName = cursor.Name;
+    cursor.Reset();
+    var currentAfterReset = ObserveMethodError(() => { _ = cursor.Current; });
+    cursor.MoveNext();
+    var firstAfterReset = cursor.Name;
+    cursor.MoveNext();
+    var secondAfterReset = cursor.Name;
+    var exhausted = cursor.MoveNext();
+    cursor.Reset();
+    var firstAfterSecondReset = cursor.MoveNext() ? cursor.Name : null;
+    return new { firstName, currentAfterReset, firstAfterReset,
+        secondAfterReset, exhausted, firstAfterSecondReset };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1226,6 +1247,7 @@ var result = new
     selectedSerializationInfoObjectMembersBehavior = ObserveSerializationInfoObjectMembers(),
     selectedSerializationInfoGetValueTypesBehavior = ObserveSerializationInfoGetValueTypes(),
     selectedSerializationInfoMemberNamesBehavior = ObserveSerializationInfoMemberNames(),
+    selectedSerializationInfoEnumeratorResetCyclesBehavior = ObserveSerializationInfoEnumeratorResetCycles(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
