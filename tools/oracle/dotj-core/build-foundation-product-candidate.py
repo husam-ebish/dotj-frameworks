@@ -135,6 +135,12 @@ def main():
         "invalidOperationType": "System.InvalidOperationException",
         "repeatedReference": True,
     }
+    assert metadata["selectedExceptionStackBoundary"] == {
+        "prethrowStackIsNull": True,
+        "prethrowTargetSiteIsNull": True,
+        "thrownStackNonEmpty": True,
+        "thrownTargetSitePresent": True,
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 
@@ -180,6 +186,12 @@ def main():
         "disposalConsumer": disposal_result,
         "typeConsumer": type_result,
         "exceptionConsumer": exception_result,
+        "exceptionStackBoundary": {
+            "dotNetPrethrowStackNull": True,
+            "dotNetThrownStackNonEmpty": True,
+            "javaConstructedThrowableStackNonEmpty": True,
+            "mappingStatus": "OPEN: construction and throw capture points differ",
+        },
         "status": "BUILT_FOUNDATION_CANDIDATE; complete public API, behavior, E01 release rights and framework qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
     print("PASS combined foundation candidate JAR and independent consumers")
