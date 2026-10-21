@@ -96,6 +96,9 @@ public class SerializationInfo {
     public void AddValue(String name, Object value) {
         Type type = value instanceof Integer ? Type.GetType("System.Int32")
                 : value instanceof String ? Type.GetType("System.String")
+                : value instanceof Boolean ? Type.GetType("System.Boolean")
+                : value instanceof Long ? Type.GetType("System.Int64")
+                : value instanceof Double ? Type.GetType("System.Double")
                 : Type.GetType("System.Object");
         this.AddValue(name, value, type);
     }
@@ -115,6 +118,18 @@ public class SerializationInfo {
 
     public void AddValue(String name, int value) {
         this.AddValue(name, Integer.valueOf(value));
+    }
+
+    public void AddValue(String name, boolean value) {
+        this.AddValue(name, Boolean.valueOf(value));
+    }
+
+    public void AddValue(String name, long value) {
+        this.AddValue(name, Long.valueOf(value));
+    }
+
+    public void AddValue(String name, double value) {
+        this.AddValue(name, Double.valueOf(value));
     }
 
     public Object GetValue(String name, Type type) {
@@ -138,6 +153,21 @@ public class SerializationInfo {
         Object value = this.member(name).get_Value();
         return value == null ? null
                 : value instanceof String text ? text : this.converter.ToString(value);
+    }
+
+    public boolean GetBoolean(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof Boolean flag ? flag : this.converter.ToBoolean(value);
+    }
+
+    public long GetInt64(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof Long number ? number : this.converter.ToInt64(value);
+    }
+
+    public double GetDouble(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof Double number ? number : this.converter.ToDouble(value);
     }
 
     public SerializationInfoEnumerator GetEnumerator() {

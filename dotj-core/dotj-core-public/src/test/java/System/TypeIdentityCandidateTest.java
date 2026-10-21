@@ -227,6 +227,22 @@ public final class TypeIdentityCandidateTest {
         if (!afterEmptyAdd.MoveNext() || !"added".equals(afterEmptyAdd.get_Name())) {
             throw new AssertionError("Fresh cursor after empty AddValue changed");
         }
+        SerializationInfo primitives = new SerializationInfo(dbnullType, selectedConverter);
+        primitives.AddValue("flag", true);
+        primitives.AddValue("large", 5000000000L);
+        primitives.AddValue("ratio", 1.5d);
+        SerializationInfoEnumerator primitiveCursor = primitives.GetEnumerator();
+        if (primitives.get_MemberCount() != 3 || !primitives.GetBoolean("flag")
+                || primitives.GetInt64("large") != 5000000000L
+                || primitives.GetDouble("ratio") != 1.5d
+                || !primitiveCursor.MoveNext()
+                || !"System.Boolean".equals(primitiveCursor.get_ObjectType().get_FullName())
+                || !primitiveCursor.MoveNext()
+                || !"System.Int64".equals(primitiveCursor.get_ObjectType().get_FullName())
+                || !primitiveCursor.MoveNext()
+                || !"System.Double".equals(primitiveCursor.get_ObjectType().get_FullName())) {
+            throw new AssertionError("Selected primitive serialization members changed");
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }
