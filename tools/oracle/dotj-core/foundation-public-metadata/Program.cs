@@ -1358,6 +1358,14 @@ var result = new
         genericParameter = typeof(List<>).GetGenericArguments()[0].MemberType.ToString(),
         memberTypeGetterAbstract = typeof(MemberInfo).GetProperty("MemberType")?.GetMethod?.IsAbstract,
     },
+    selectedMemberTypeCombinationBehavior = new
+    {
+        value = (int)(MemberTypes.Method | MemberTypes.Property),
+        hasMethod = (MemberTypes.Method | MemberTypes.Property).HasFlag(MemberTypes.Method),
+        hasProperty = (MemberTypes.Method | MemberTypes.Property).HasFlag(MemberTypes.Property),
+        named = typeof(MemberTypes).IsEnumDefined(MemberTypes.Method | MemberTypes.Property),
+        enumName = typeof(MemberTypes).GetEnumName(MemberTypes.Method | MemberTypes.Property),
+    },
     selectedBindingFlagsValues = Enum.GetNames<BindingFlags>()
         .Select(name => new { name, value = (int)Enum.Parse<BindingFlags>(name) })
         .ToArray(),

@@ -115,9 +115,10 @@ def main():
             assert upstream["declaringGetterIsAbstract"] and upstream["reflectedGetterIsAbstract"]
             disposition = "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties"
         elif name == "System.Reflection.MemberTypes":
-            assert "extends java.lang.Enum<System.Reflection.MemberTypes>" in header
+            assert header == "public final class System.Reflection.MemberTypes {"
             assert "public int get_Value();" in declarations
-            disposition = "PARTIAL_ENUM_SURFACE; selected values only, Java enum differs from CLR Enum"
+            assert "public System.Reflection.MemberTypes or(System.Reflection.MemberTypes);" in declarations
+            disposition = "PARTIAL_ENUM_SURFACE; selected combinable values, CLR Enum inheritance open"
         elif name == "System.Reflection.GenericParameterAttributes":
             assert "extends java.lang.Enum<System.Reflection.GenericParameterAttributes>" in header
             assert "public int get_Value();" in declarations

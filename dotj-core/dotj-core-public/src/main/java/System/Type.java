@@ -1096,7 +1096,13 @@ public abstract class Type extends MemberInfo {
             return false;
         }
         if (value.getClass() == this.definition) {
-            return !(value instanceof BindingFlags flags) || flags.get_Name() != null;
+            if (value instanceof BindingFlags flags) {
+                return flags.get_Name() != null;
+            }
+            if (value instanceof MemberTypes member) {
+                return member.get_Name() != null;
+            }
+            return true;
         }
         if (value instanceof Integer number) {
             for (Object constant : constants) {
@@ -1120,10 +1126,16 @@ public abstract class Type extends MemberInfo {
             throw new ArgumentException("Value must be an enum or its underlying type", "value");
         }
         if (value.getClass() == this.definition) {
-            return value instanceof BindingFlags flags
-                    ? flags.get_Name() : ((java.lang.Enum<?>) value).name();
+            if (value instanceof BindingFlags flags) {
+                return flags.get_Name();
+            }
+            if (value instanceof MemberTypes member) {
+                return member.get_Name();
+            }
+            return ((java.lang.Enum<?>) value).name();
         }
-        if (value instanceof java.lang.Enum<?> || value instanceof BindingFlags) {
+        if (value instanceof java.lang.Enum<?> || value instanceof BindingFlags
+                || value instanceof MemberTypes) {
             return null;
         }
         if (value instanceof Integer || value instanceof Long
@@ -1140,13 +1152,23 @@ public abstract class Type extends MemberInfo {
     }
 
     private Object[] enumConstants() {
-        return this.definition == BindingFlags.class
-                ? BindingFlags.values() : this.definition.getEnumConstants();
+        if (this.definition == BindingFlags.class) {
+            return BindingFlags.values();
+        }
+        if (this.definition == MemberTypes.class) {
+            return MemberTypes.values();
+        }
+        return this.definition.getEnumConstants();
     }
 
     private static String enumConstantName(Object constant) {
-        return constant instanceof BindingFlags flags
-                ? flags.get_Name() : ((java.lang.Enum<?>) constant).name();
+        if (constant instanceof BindingFlags flags) {
+            return flags.get_Name();
+        }
+        if (constant instanceof MemberTypes member) {
+            return member.get_Name();
+        }
+        return ((java.lang.Enum<?>) constant).name();
     }
 
     private static int enumNumericValue(Object constant) {
@@ -1346,7 +1368,7 @@ public abstract class Type extends MemberInfo {
         MemberInfo[] matches = this.GetMember(name, flags);
         java.util.ArrayList<MemberInfo> selected = new java.util.ArrayList<>();
         for (MemberInfo member : matches) {
-            if (memberTypes == MemberTypes.All || member.get_MemberType() == memberTypes) {
+            if (memberTypes.has(member.get_MemberType())) {
                 selected.add(member);
             }
         }
