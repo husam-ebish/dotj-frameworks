@@ -48,6 +48,11 @@ bool helpLinkStartsNull = helpLinkException.HelpLink is null;
 helpLinkException.HelpLink = "https://example.invalid/help";
 string? helpLinkAfterSet = helpLinkException.HelpLink;
 helpLinkException.HelpLink = null;
+Exception sourceException = new("source");
+string? sourceBeforeSet = sourceException.Source;
+sourceException.Source = "selected.component";
+string? sourceAfterSet = sourceException.Source;
+sourceException.Source = null;
 Exception dataException = new("data");
 System.Collections.IDictionary data = dataException.Data;
 bool dataStartsEmpty = data.Count == 0;
@@ -351,6 +356,13 @@ var result = new
         afterSet = helpLinkAfterSet,
         afterReset = helpLinkException.HelpLink,
         separateInstanceIsNull = new Exception("other").HelpLink is null,
+    },
+    selectedExceptionSourceBehavior = new
+    {
+        beforeSet = sourceBeforeSet,
+        afterSet = sourceAfterSet,
+        afterReset = sourceException.Source,
+        separateInstance = new Exception("other").Source,
     },
     selectedGetTypeBehavior = new
     {

@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "c1adb50f870eba90d1d83729ea706186025005e31b364cec02c6549ed3310a47",
+  "oracleEvidenceSha256": "41099ee3f8a7663d3ea2def43aabdb407ee9c223b1d8d30289c0ae91b53e4994",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "f5c1c3bb19d7bbff600a0996ff65d7b3732eae132404f29521adaecbf51d0399",
+  "javaCandidateEvidenceSha256": "df236c0abbd9d4928c8b884852151d35c12ca31ec2344e48d08bd8d72c20d0fc",
   "types": [
     {
       "fullName": "System.Type",
@@ -3936,7 +3936,9 @@
         "public java.util.Map<java.lang.Object, java.lang.Object> get_Data();",
         "public int get_HResult();",
         "public java.lang.String get_HelpLink();",
-        "public void set_HelpLink(java.lang.String);"
+        "public void set_HelpLink(java.lang.String);",
+        "public java.lang.String get_Source();",
+        "public void set_Source(java.lang.String);"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -3952,7 +3954,9 @@
           "get_HelpLink": 1,
           "get_InnerException": 1,
           "get_Message": 1,
-          "set_HelpLink": 1
+          "get_Source": 1,
+          "set_HelpLink": 1,
+          "set_Source": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "GetObjectData",
@@ -3960,7 +3964,6 @@
           "ToString"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "Source",
           "StackTrace",
           "TargetSite"
         ],

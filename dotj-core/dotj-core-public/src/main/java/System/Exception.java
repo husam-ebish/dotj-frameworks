@@ -5,6 +5,7 @@ public class Exception extends RuntimeException {
     private java.util.Map<Object, Object> data;
     private int hResult = -2146233088;
     private String helpLink;
+    private String source;
 
     public Exception() {
         super();
@@ -56,5 +57,13 @@ public class Exception extends RuntimeException {
 
     public void set_HelpLink(String value) {
         this.helpLink = value;
+    }
+
+    public String get_Source() {
+        return this.source;
+    }
+
+    public void set_Source(String value) {
+        this.source = value;
     }
 }
