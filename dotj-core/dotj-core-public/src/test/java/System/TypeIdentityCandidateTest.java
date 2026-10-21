@@ -188,6 +188,15 @@ public final class TypeIdentityCandidateTest {
         if (!entries.MoveNext() || !"age".equals(entries.get_Name())) {
             throw new AssertionError("Serialization enumeration reset changed");
         }
+        SerializationInfoEnumerator cursorBoundary = serializationMembers.GetEnumerator();
+        assertEnumeratorOutsideMember(cursorBoundary);
+        while (cursorBoundary.MoveNext()) {
+            // Traverse both selected members.
+        }
+        if (cursorBoundary.MoveNext()) {
+            throw new AssertionError("Exhausted serialization cursor advanced");
+        }
+        assertEnumeratorOutsideMember(cursorBoundary);
         SerializationInfo typedMembers = new SerializationInfo(dbnullType, selectedConverter);
         typedMembers.AddValue("text", "17", Type.GetType("System.String"));
         typedMembers.AddValue("typed", 42, Type.GetType("System.Object"));
@@ -1549,5 +1558,32 @@ public final class TypeIdentityCandidateTest {
             }
         }
         java.lang.System.out.println("PASS selected System.Type identity, nested arguments, defensive copies and null boundary");
+    }
+
+    private static void assertEnumeratorOutsideMember(SerializationInfoEnumerator cursor) {
+        try {
+            cursor.get_Current();
+            throw new AssertionError("Current was available outside a member");
+        } catch (InvalidOperationException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            cursor.get_Name();
+            throw new AssertionError("Name was available outside a member");
+        } catch (InvalidOperationException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            cursor.get_ObjectType();
+            throw new AssertionError("ObjectType was available outside a member");
+        } catch (InvalidOperationException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            cursor.get_Value();
+            throw new AssertionError("Value was available outside a member");
+        } catch (InvalidOperationException expected) {
+            // Pinned selected CLR failure type.
+        }
     }
 }
