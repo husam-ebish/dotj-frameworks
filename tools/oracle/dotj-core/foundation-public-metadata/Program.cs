@@ -495,6 +495,19 @@ var result = new
         roundTripResult = ((IFormattable)42).ToString("R",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32ExponentialFormatBehavior = new
+    {
+        defaultPrecision = ((IFormattable)42).ToString("E",
+            System.Globalization.CultureInfo.InvariantCulture),
+        twoDecimals = ((IFormattable)12345).ToString("E2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        lowerCase = ((IFormattable)12345).ToString("e2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-42)).ToString("E1",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zero = ((IFormattable)0).ToString("E2",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
