@@ -337,6 +337,13 @@ def main():
         "decimalText": "12", "date": "2024-02-29",
         "types": ["System.Char", "System.Single", "System.Decimal", "System.DateTime"],
     }
+    numeric_overloads = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoNumericOverloadsBehavior"]
+    assert numeric_overloads == {
+        "count": 2, "signed": -1234,
+        "unsignedText": "18446744073709551615",
+        "types": ["System.Int16", "System.UInt64"],
+        "unsignedTypeCode": "UInt64",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

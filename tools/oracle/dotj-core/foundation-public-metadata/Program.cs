@@ -1251,6 +1251,27 @@ static object ObserveSerializationInfoValueOverloads()
         types,
     };
 }
+static object ObserveSerializationInfoNumericOverloads()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("signed", (short)-1234);
+    info.AddValue("unsigned", ulong.MaxValue);
+    var cursor = info.GetEnumerator();
+    var types = new List<string>();
+    while (cursor.MoveNext())
+    {
+        types.Add(cursor.ObjectType.FullName!);
+    }
+    return new
+    {
+        count = info.MemberCount,
+        signed = info.GetInt16("signed"),
+        unsignedText = info.GetUInt64("unsigned").ToString(),
+        types,
+        unsignedTypeCode = Type.GetTypeCode(typeof(ulong)).ToString(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1406,6 +1427,7 @@ var result = new
     selectedSerializationEntryTypeEqualityBehavior = ObserveSerializationEntryTypeEquality(),
     selectedSerializationInfoDuplicateStateBehavior = ObserveSerializationInfoDuplicateState(),
     selectedSerializationInfoValueOverloadsBehavior = ObserveSerializationInfoValueOverloads(),
+    selectedSerializationInfoNumericOverloadsBehavior = ObserveSerializationInfoNumericOverloads(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

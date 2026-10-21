@@ -295,6 +295,22 @@ public final class TypeIdentityCandidateTest {
                 || !"System.DateTime".equals(valueCursor.get_ObjectType().get_FullName())) {
             throw new AssertionError("Selected serialization value overloads changed");
         }
+        SerializationInfo numericOverloads = new SerializationInfo(dbnullType, selectedConverter);
+        java.math.BigInteger maximumUInt64 = new java.math.BigInteger("18446744073709551615");
+        numericOverloads.AddValue("signed", (short) -1234);
+        numericOverloads.AddValue("unsigned", maximumUInt64);
+        SerializationInfoEnumerator numericCursor = numericOverloads.GetEnumerator();
+        Type uint64Type = Type.GetType("System.UInt64");
+        if (numericOverloads.get_MemberCount() != 2
+                || numericOverloads.GetInt16("signed") != -1234
+                || !maximumUInt64.equals(numericOverloads.GetUInt64("unsigned"))
+                || Type.GetTypeCode(uint64Type) != TypeCode.UInt64
+                || !numericCursor.MoveNext()
+                || !"System.Int16".equals(numericCursor.get_ObjectType().get_FullName())
+                || !numericCursor.MoveNext()
+                || numericCursor.get_ObjectType() != uint64Type) {
+            throw new AssertionError("Selected numeric serialization overloads changed");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")
