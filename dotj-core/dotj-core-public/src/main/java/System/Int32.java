@@ -37,6 +37,15 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return Parse(text, NumberStyles.Integer, provider);
     }
 
+    public static <T> Int32 Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
+        return Parse(text.selectedInt32Text(), NumberStyles.Integer, provider);
+    }
+
+    public static <T> Int32 Parse(ReadOnlySpan<T> text, NumberStyles style,
+                                  IFormatProvider provider) {
+        return Parse(text.selectedInt32Text(), style, provider);
+    }
+
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (style == NumberStyles.Integer) {
             return Parse(text);
@@ -96,6 +105,20 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     public static boolean TryParse(String text, IFormatProvider provider, Int32[] result) {
         return TryParse(text, NumberStyles.Integer, provider, result);
+    }
+
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, Int32[] result) {
+        return TryParse(text.selectedInt32Text(), result);
+    }
+
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider,
+                                       Int32[] result) {
+        return TryParse(text.selectedInt32Text(), NumberStyles.Integer, provider, result);
+    }
+
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style,
+                                       IFormatProvider provider, Int32[] result) {
+        return TryParse(text.selectedInt32Text(), style, provider, result);
     }
 
     public static boolean TryParse(String text, NumberStyles style,

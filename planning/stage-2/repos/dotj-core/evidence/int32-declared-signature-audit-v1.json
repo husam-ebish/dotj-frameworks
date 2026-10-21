@@ -2,10 +2,12 @@
   "schemaVersion": 1,
   "scope": "Declared public System.Int32 methods and fields in pinned CoreLib versus compiled Java candidate",
   "surfaceEvidence": "foundation-semantic-surface-v1.json",
-  "surfaceSha256": "7b9f26ed63eeec02e12d4672a985004b8e9b354656e7d539b932099c5dbf2e4a",
+  "surfaceSha256": "0b73262d63f3c54cb48700fc7e025ae340996521599b31adcd246b295bfc00a4",
   "upstreamMethodCount": 53,
   "projectedCandidateMethodCount": 43,
   "missingProjectedSignatureCount": 10,
+  "erasureCollapsedOverloadGroupCount": 5,
+  "erasureCollapsedUpstreamMethodCount": 10,
   "extraJavaPublicMethodCount": 18,
   "upstreamFields": [
     {
@@ -57,6 +59,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Abs(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -73,6 +76,7 @@
         ]
       },
       "candidateDeclaration": "public static long BigMul(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -90,6 +94,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Clamp(System.Int32, System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -105,6 +110,7 @@
         ]
       },
       "candidateDeclaration": "public int CompareTo(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [
         "CLR Int32 return uses a Java primitive"
       ],
@@ -122,6 +128,7 @@
         ]
       },
       "candidateDeclaration": "public int CompareTo(java.lang.Object);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [
         "CLR Int32 return uses a Java primitive"
       ],
@@ -140,6 +147,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 CopySign(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -155,6 +163,7 @@
         ]
       },
       "candidateDeclaration": "public static <TOther> System.Int32 CreateChecked(TOther);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -170,6 +179,7 @@
         ]
       },
       "candidateDeclaration": "public static <TOther> System.Int32 CreateSaturating(TOther);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -185,6 +195,7 @@
         ]
       },
       "candidateDeclaration": "public static <TOther> System.Int32 CreateTruncating(TOther);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -201,6 +212,7 @@
         ]
       },
       "candidateDeclaration": "public static System.ValueTuple<System.Int32, System.Int32> DivRem(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [
         "CLR value tuple uses a Java carrier"
       ],
@@ -218,6 +230,7 @@
         ]
       },
       "candidateDeclaration": "public boolean Equals(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -233,6 +246,7 @@
         ]
       },
       "candidateDeclaration": "public boolean Equals(java.lang.Object);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -246,6 +260,7 @@
         "parameters": []
       },
       "candidateDeclaration": "public System.Int32 GetHashCode();",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -259,6 +274,7 @@
         "parameters": []
       },
       "candidateDeclaration": "public System.TypeCode GetTypeCode();",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -274,6 +290,7 @@
         ]
       },
       "candidateDeclaration": "public static boolean IsEvenInteger(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -289,6 +306,7 @@
         ]
       },
       "candidateDeclaration": "public static boolean IsNegative(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -304,6 +322,7 @@
         ]
       },
       "candidateDeclaration": "public static boolean IsOddInteger(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -319,6 +338,7 @@
         ]
       },
       "candidateDeclaration": "public static boolean IsPositive(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -334,6 +354,7 @@
         ]
       },
       "candidateDeclaration": "public static boolean IsPow2(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -349,6 +370,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 LeadingZeroCount(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -364,6 +386,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Log2(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -380,6 +403,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Max(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -396,6 +420,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 MaxMagnitude(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -412,6 +437,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Min(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -428,6 +454,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 MinMagnitude(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -445,10 +472,11 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider);",
       "projectionAdaptations": [
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider)",
@@ -463,10 +491,11 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
       "projectionAdaptations": [
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider)",
@@ -482,10 +511,11 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider);",
       "projectionAdaptations": [
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Int32 Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
@@ -500,10 +530,11 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> System.Int32 Parse(System.ReadOnlySpan<T>, System.IFormatProvider);",
       "projectionAdaptations": [
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Int32 Parse(System.String)",
@@ -517,6 +548,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Parse(java.lang.String);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -533,6 +565,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Parse(java.lang.String, System.Globalization.NumberStyles);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -550,6 +583,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -566,6 +600,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Parse(java.lang.String, System.IFormatProvider);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -581,6 +616,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 PopCount(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -597,6 +633,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 RotateLeft(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -613,6 +650,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 RotateRight(System.Int32, System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -628,6 +666,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 Sign(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -641,6 +680,7 @@
         "parameters": []
       },
       "candidateDeclaration": "public java.lang.String ToString();",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -656,6 +696,7 @@
         ]
       },
       "candidateDeclaration": "public java.lang.String ToString(System.IFormatProvider);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -671,6 +712,7 @@
         ]
       },
       "candidateDeclaration": "public java.lang.String ToString(java.lang.String);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -687,6 +729,7 @@
         ]
       },
       "candidateDeclaration": "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -702,6 +745,7 @@
         ]
       },
       "candidateDeclaration": "public static System.Int32 TrailingZeroCount(System.Int32);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [],
       "status": "PROJECTED_CANDIDATE"
     },
@@ -720,6 +764,7 @@
         ]
       },
       "candidateDeclaration": "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [
         "CLR by-reference character count uses a Java int array",
         "CLR span uses a Java array",
@@ -742,6 +787,7 @@
         ]
       },
       "candidateDeclaration": "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [
         "CLR by-reference character count uses a Java int array",
         "CLR span uses a Java array",
@@ -762,11 +808,12 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Int32[]);",
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array",
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.Globalization.NumberStyles, System.IFormatProvider, Int32 ByRef)",
@@ -783,11 +830,12 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider, System.Int32[]);",
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array",
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Byte], System.IFormatProvider, Int32 ByRef)",
@@ -803,11 +851,12 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Int32[]);",
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array",
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], Int32 ByRef)",
@@ -822,11 +871,12 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Int32[]);",
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array",
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.Globalization.NumberStyles, System.IFormatProvider, Int32 ByRef)",
@@ -843,11 +893,12 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider, System.Int32[]);",
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array",
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, Int32 ByRef)",
@@ -863,11 +914,12 @@
         ]
       },
       "candidateDeclaration": null,
+      "collapsedCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Int32[]);",
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array",
         "CLR span uses a Java array"
       ],
-      "status": "MISSING_PROJECTED_SIGNATURE"
+      "status": "ERASURE_COLLAPSED_CARRIER"
     },
     {
       "upstreamSignature": "Boolean TryParse(System.String, Int32 ByRef)",
@@ -882,6 +934,7 @@
         ]
       },
       "candidateDeclaration": "public static boolean TryParse(java.lang.String, System.Int32[]);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array"
       ],
@@ -902,6 +955,7 @@
         ]
       },
       "candidateDeclaration": "public static boolean TryParse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider, System.Int32[]);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array"
       ],
@@ -921,12 +975,13 @@
         ]
       },
       "candidateDeclaration": "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.Int32[]);",
+      "collapsedCarrierDeclaration": null,
       "projectionAdaptations": [
         "CLR by-reference output uses a Java array"
       ],
       "status": "PROJECTED_CANDIDATE"
     }
   ],
-  "status": "PROJECTION_AUDIT_ONLY; SPAN/BYREF/VALUE_TYPE_ABI, BEHAVIOR, E02 AND N01 OPEN",
-  "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Extra Java methods include public interface bridges and carrier helpers."
+  "status": "PROJECTION_AUDIT_ONLY; SPAN_ERASURE/VALUE_TYPE_ABI, BEHAVIOR, E02 AND N01 OPEN",
+  "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Five generic ReadOnlySpan carrier methods collapse ten distinct CLR overloads. Extra Java methods include public interface bridges and carrier helpers."
 }
