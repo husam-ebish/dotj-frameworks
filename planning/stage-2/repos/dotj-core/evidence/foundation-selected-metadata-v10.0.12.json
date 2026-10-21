@@ -1971,6 +1971,43 @@
       "paramName": null
     }
   },
+  "selectedCultureSeparatorBehavior": {
+    "underscore": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "dot": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    },
+    "doubleHyphen": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    },
+    "trailingHyphen": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    },
+    "leadingHyphen": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    },
+    "slash": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    },
+    "atSign": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -5397,6 +5434,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "fbcf24c825b203dd6ac424945e664884f7c53fc99a9a25d9281a75ba43e5f5af",
+  "oracleProgramSha256": "e16f057b8544ed3755b5d11a1ae84623ad295c6be1f9b99f3d0b9844748788b0",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

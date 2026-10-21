@@ -183,8 +183,8 @@ public abstract class Type extends MemberInfo {
                             }
                         }
                     }
-                    if (key.equals("culture") && (value.matches("[0-9]+")
-                            || value.contains(" ") || value.contains(",") || value.contains("\"")
+                    if (key.equals("culture") && (!value.isEmpty()
+                            && !value.matches("[A-Za-z][A-Za-z0-9_]*(?:-[A-Za-z0-9_]+)*")
                             || value.equalsIgnoreCase("invariant") || value.equalsIgnoreCase("null"))) {
                         invalidCulture = value;
                     }
