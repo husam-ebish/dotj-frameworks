@@ -545,6 +545,20 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected Unicode attribute key rejected: " + unicodeKey);
             }
         }
+        if (Type.GetType("System.String, System.Private.CoreLib, ContentType=WINDOWSRUNTIME") != string
+                || Type.GetType("System.String, System.Private.CoreLib, UnknownAttr=é") != string) {
+            throw new AssertionError("Selected ASCII/unknown Unicode value rejected");
+        }
+        for (String unicodeKnownValue : new String[] {
+                "Retargetable=Yés", "ProcessorArchitecture=MSİL",
+                "ContentType=WındowsRuntime", "PublicKeyToken=nüll"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + unicodeKnownValue);
+                throw new AssertionError("Unicode known value accepted: " + unicodeKnownValue);
+            } catch (FileLoadException expected) {
+                // Selected pinned ASCII-only identity value.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

@@ -595,6 +595,13 @@ def main():
         for key in ("dotlessVersion", "dottedUpperVersion", "dotlessToken",
                     "accentedRetargetable", "unicodeThenVersion", "versionThenUnicode")
     }
+    unicode_values = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyAttributeUnicodeValueBehavior"]
+    assert unicode_values == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("asciiContent", "unicodeUnknown")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("accentedRetargetable", "dottedArchitecture", "dotlessContent", "accentedTokenNull")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
