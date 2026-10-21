@@ -259,6 +259,12 @@ def main():
     nested_arrays = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedArrayVisibilityBehavior"]
     assert [(row["isPublic"], row["isVisible"], row["isNested"])
             for row in nested_arrays] == [(True, True, False), (True, False, False)]
+    nested_qualified = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedQualifiedRoundTripBehavior"]
+    assert [row["sameReference"] for row in nested_qualified] == [True, True]
+    assert [row["qualified"].split(", ", 1)[0] for row in nested_qualified] == [
+        "System.Collections.Generic.Dictionary`2+Entry",
+        "System.Collections.Generic.Dictionary`2+Entry[]",
+    ]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
