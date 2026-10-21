@@ -774,6 +774,14 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedCustomModifierBehavior = new[]
+    {
+        typeof(string), typeof(int), typeof(List<>),
+        typeof(List<>).GetGenericArguments()[0], typeof(string[]),
+        typeof(string).MakeByRefType(), typeof(string).MakePointerType(),
+    }.Select(type => new { name = type.FullName ?? type.Name,
+        optional = type.GetOptionalCustomModifiers().Select(modifier => modifier.FullName).ToArray(),
+        required = type.GetRequiredCustomModifiers().Select(modifier => modifier.FullName).ToArray() }).ToArray(),
     selectedSecurityTransparencyBehavior = new[]
     {
         typeof(string), typeof(int), typeof(TypeCode), typeof(IDisposable),

@@ -77,6 +77,8 @@ def main():
         "Boolean IsSubclassOf(System.Type)",
         "Boolean IsInstanceOfType(System.Object)",
         "System.Type[] GetInterfaces()",
+        "System.Type[] GetOptionalCustomModifiers()",
+        "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
         "System.Type GetNestedType(System.String)",
@@ -231,6 +233,9 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    custom_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCustomModifierBehavior"]
+    assert len(custom_modifiers) == 7 and all(
+        row["optional"] == [] and row["required"] == [] for row in custom_modifiers)
     security_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSecurityTransparencyBehavior"]
     assert len(security_flags) == 10 and all(
         row["isSecurityCritical"] and not row["isSecuritySafeCritical"]
@@ -1496,6 +1501,8 @@ def main():
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
+        "public System.Type[] GetOptionalCustomModifiers();",
+        "public System.Type[] GetRequiredCustomModifiers();",
         "public System.Type[] GetInterfaces();",
         "public System.Type GetInterface(java.lang.String);",
         "public System.Type GetNestedType(java.lang.String);",
