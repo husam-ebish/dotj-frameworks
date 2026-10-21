@@ -510,6 +510,13 @@ def main():
         for key in ("bothNull", "keyThenNullToken", "tokenThenKey", "keyThenToken",
                     "tokenThenInvalidKey", "invalidTokenThenKey")
     }
+    culture_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCultureNameBoundaryBehavior"]
+    assert culture_names == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("titleNeutral", "upperNeutral", "lowerLocale", "upperLocale", "shortLocale")},
+        **{key: {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"}
+           for key in ("invariant", "nullText")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

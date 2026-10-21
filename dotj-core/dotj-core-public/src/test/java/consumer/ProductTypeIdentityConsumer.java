@@ -381,6 +381,22 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned mutually exclusive identity attributes.
             }
         }
+        for (String acceptedCulture : new String[] {
+                "Neutral", "NEUTRAL", "en-us", "EN-US", "iv"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, Culture=" + acceptedCulture) != string) {
+                throw new AssertionError("Selected culture name rejected: " + acceptedCulture);
+            }
+        }
+        for (String invalidCultureName : new String[] {"invariant", "null"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, Culture=" + invalidCultureName);
+                throw new AssertionError("Invalid culture name accepted: " + invalidCultureName);
+            } catch (CultureNotFoundException expected) {
+                if (!"name".equals(expected.get_ParamName())) {
+                    throw new AssertionError("Culture name parameter changed", expected);
+                }
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
