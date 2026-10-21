@@ -66,6 +66,9 @@ def main():
     snapshot = json.loads(SNAPSHOT.read_text(encoding="utf-8"))
     provenance = json.loads(PROVENANCE.read_text(encoding="utf-8"))
     assert sha256(SNAPSHOT) == provenance["snapshotSha256"]
+    dbnull = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDBNullBehavior"]
+    assert dbnull == {"fullName": "System.DBNull", "sameReference": True,
+                      "text": "", "providerText": "", "typeCode": "DBNull"}
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

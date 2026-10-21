@@ -38,7 +38,11 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         if (Type.GetType("System.DBNull") != Type.fromJavaClass(DBNull.class)
-                || DBNull.Value == null) {
+                || DBNull.Value == null
+                || !"".equals(DBNull.Value.ToString())
+                || !"".equals(DBNull.Value.ToString(null))
+                || !"".equals(DBNull.Value.toString())
+                || DBNull.Value.GetTypeCode() != TypeCode.DBNull) {
             throw new AssertionError("Selected DBNull identity changed");
         }
         if (string.get_IsCollectible()
