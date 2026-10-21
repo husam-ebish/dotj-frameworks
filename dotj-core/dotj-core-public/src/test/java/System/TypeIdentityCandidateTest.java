@@ -339,6 +339,27 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Null GetValue name parameter changed");
             }
         }
+        SerializationInfo namedMembers = new SerializationInfo(dbnullType, selectedConverter);
+        namedMembers.AddValue("", 1);
+        namedMembers.AddValue("Name", 2);
+        namedMembers.AddValue("name", 3);
+        if (namedMembers.get_MemberCount() != 3 || namedMembers.GetInt32("") != 1
+                || namedMembers.GetInt32("Name") != 2
+                || namedMembers.GetInt32("name") != 3) {
+            throw new AssertionError("Selected serialization member names changed");
+        }
+        try {
+            namedMembers.AddValue("Name", 4);
+            throw new AssertionError("Duplicate case-sensitive member was accepted");
+        } catch (SerializationException expected) {
+            // Pinned selected CLR failure type.
+        }
+        try {
+            namedMembers.GetInt32("NAME");
+            throw new AssertionError("Wrong-case member lookup was accepted");
+        } catch (SerializationException expected) {
+            // Pinned selected CLR failure type.
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }

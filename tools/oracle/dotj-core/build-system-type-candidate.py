@@ -265,6 +265,12 @@ def main():
         "nullNameError": "System.ArgumentNullException",
         "nullNameParameter": "name",
     }
+    member_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoMemberNamesBehavior"]
+    assert member_names == {
+        "count": 3, "empty": 1, "uppercase": 2, "lowercase": 3,
+        "duplicateError": "System.Runtime.Serialization.SerializationException",
+        "wrongCaseError": "System.Runtime.Serialization.SerializationException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

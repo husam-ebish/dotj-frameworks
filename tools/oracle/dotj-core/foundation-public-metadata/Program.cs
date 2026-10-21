@@ -1062,6 +1062,23 @@ static object ObserveSerializationInfoGetValueTypes()
         nullNameParameter = ObserveMethodArgumentName(() => info.GetValue(null!, typeof(object))),
     };
 }
+static object ObserveSerializationInfoMemberNames()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("", 1);
+    info.AddValue("Name", 2);
+    info.AddValue("name", 3);
+    return new
+    {
+        count = info.MemberCount,
+        empty = info.GetInt32(""),
+        uppercase = info.GetInt32("Name"),
+        lowercase = info.GetInt32("name"),
+        duplicateError = ObserveMethodError(() => info.AddValue("Name", 4)),
+        wrongCaseError = ObserveMethodError(() => info.GetInt32("NAME")),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1208,6 +1225,7 @@ var result = new
     selectedPrimitiveConversionErrorsBehavior = ObservePrimitiveConversionErrors(),
     selectedSerializationInfoObjectMembersBehavior = ObserveSerializationInfoObjectMembers(),
     selectedSerializationInfoGetValueTypesBehavior = ObserveSerializationInfoGetValueTypes(),
+    selectedSerializationInfoMemberNamesBehavior = ObserveSerializationInfoMemberNames(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
