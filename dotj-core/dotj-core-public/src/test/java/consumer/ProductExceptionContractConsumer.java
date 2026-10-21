@@ -52,15 +52,18 @@ public final class ProductExceptionContractConsumer {
             throw new AssertionError("Selected base exception chain changed");
         }
         Exception withData = new Exception("data");
-        java.util.Map<Object, Object> data = withData.get_Data();
-        if (!data.isEmpty() || withData.get_Data() != data) {
+        IDictionary data = withData.get_Data();
+        if (data.get_Count() != 0 || withData.get_Data() != data) {
             throw new AssertionError("Selected exception data identity changed");
         }
-        data.put("key", "value");
+        data.Add("key", "value");
         Exception otherData = new Exception("other");
-        if (withData.get_Data().size() != 1 || !"value".equals(withData.get_Data().get("key"))
-                || otherData.get_Data() == data || !otherData.get_Data().isEmpty()) {
+        if (withData.get_Data().get_Count() != 1 || !"value".equals(withData.get_Data().get_Item("key"))
+                || otherData.get_Data() == data || otherData.get_Data().get_Count() != 0) {
             throw new AssertionError("Selected exception data isolation changed");
+        }
+        if (java.util.Map.class.isAssignableFrom(IDictionary.class)) {
+            throw new AssertionError("IDictionary exposes Java Map methods");
         }
         IDictionary dictionary = new Exception("dictionary").get_Data();
         if (dictionary.get_Count() != 0 || dictionary.get_IsReadOnly()
