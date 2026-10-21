@@ -2205,6 +2205,47 @@ static object ObserveInt32ValueIdentityAndBigMul()
         }).ToArray(),
     };
 }
+static object ObserveInt32DivRem()
+{
+    (int Left, int Right)[] pairs =
+    [(7, 3), (-7, 3), (7, -3), (int.MinValue, 3), (int.MaxValue, 1)];
+    return new
+    {
+        pairs = pairs.Select(pair =>
+        {
+            var result = int.DivRem(pair.Left, pair.Right);
+            return new { left = pair.Left, right = pair.Right,
+                quotient = result.Item1, remainder = result.Item2 };
+        }).ToArray(),
+        zeroError = ObserveMethodError(() => { _ = int.DivRem(1, 0); }),
+        overflowError = ObserveMethodError(() => { _ = int.DivRem(int.MinValue, -1); }),
+        tupleDefinition = typeof(ValueTuple<int, int>).GetGenericTypeDefinition().FullName,
+        tupleIsValueType = typeof(ValueTuple<int, int>).IsValueType,
+        tupleFields = typeof(ValueTuple<int, int>).GetFields(BindingFlags.Public | BindingFlags.Instance)
+            .Select(field => new { name = field.Name, type = field.FieldType.FullName,
+                isInitOnly = field.IsInitOnly }).ToArray(),
+        tupleConstructors = typeof(ValueTuple<int, int>).GetConstructors(BindingFlags.Public | BindingFlags.Instance)
+            .Select(constructor => constructor.GetParameters()
+                .Select(parameter => parameter.ParameterType.FullName).ToArray()).ToArray(),
+        divideByZeroBase = typeof(DivideByZeroException).BaseType?.FullName,
+        divideByZeroConstructors = typeof(DivideByZeroException)
+            .GetConstructors(BindingFlags.Public | BindingFlags.Instance)
+            .Select(constructor => constructor.GetParameters()
+                .Select(parameter => parameter.ParameterType.FullName).ToArray()).ToArray(),
+        divideByZeroHResult = new DivideByZeroException().HResult,
+        divideByZeroMessage = new DivideByZeroException().Message,
+        arithmeticBase = typeof(ArithmeticException).BaseType?.FullName,
+        arithmeticConstructors = typeof(ArithmeticException)
+            .GetConstructors(BindingFlags.Public | BindingFlags.Instance)
+            .Select(constructor => constructor.GetParameters()
+                .Select(parameter => parameter.ParameterType.FullName).ToArray()).ToArray(),
+        arithmeticHResult = new ArithmeticException().HResult,
+        arithmeticMessage = new ArithmeticException().Message,
+        overflowBase = typeof(OverflowException).BaseType?.FullName,
+        overflowHResult = new OverflowException().HResult,
+        overflowMessage = new OverflowException().Message,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2408,6 +2449,7 @@ var result = new
     selectedInt32BitHelpers = ObserveInt32BitHelpers(),
     selectedInt32SignedArithmetic = ObserveInt32SignedArithmetic(),
     selectedInt32ValueIdentityAndBigMul = ObserveInt32ValueIdentityAndBigMul(),
+    selectedInt32DivRem = ObserveInt32DivRem(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

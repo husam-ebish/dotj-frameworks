@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "64 hashed Java product sources in the built foundation candidate JAR",
+  "scope": "67 hashed Java product sources in the built foundation candidate JAR",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "0f44e11be4bb9a3c5b9ea14580b4087a81c7854a77473d902c0ec44e1b96bc3e",
-  "sourceCount": 64,
+  "jarSha256": "40d79110b89f84678a45e282d2a05226435c4c3fbd863b29d1bc7236c87c3c1d",
+  "sourceCount": 67,
   "sources": [
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentException.java",
@@ -21,6 +21,12 @@
       "path": "dotj-core/dotj-core-public/src/main/java/System/ArgumentOutOfRangeException.java",
       "sha256": "cfb1fec26d7a023f7ed2e3cff24aa3d059c3eccc345ee17816b1a469d67b8aa2",
       "localIntroductionCommit": "737170fb73de496a72a0ee75c2fa3f7442c2d858",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/ArithmeticException.java",
+      "sha256": "44f0dc34d6d42779b89489493db9ba1923cecfc46e0ebc1af62dbfab1c58bcef",
+      "localIntroductionCommit": "ef5c04de0a81114cff8e67d828e684d865e2e8d8",
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
     {
@@ -87,6 +93,12 @@
       "path": "dotj-core/dotj-core-public/src/main/java/System/Decimal.java",
       "sha256": "15c5881a9c36f9994f39fc7f57862f89fe2a49e78fc17a4c6008d1bbcbca7b49",
       "localIntroductionCommit": "e991449f128083419a0a80736c9b41b46914a9fb",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/DivideByZeroException.java",
+      "sha256": "13f995dc4f19d3dbbe3e42067edb62e6ee2d7668668ba101ba7b385b480e0797",
+      "localIntroductionCommit": "ef5c04de0a81114cff8e67d828e684d865e2e8d8",
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
     {
@@ -181,7 +193,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Int32.java",
-      "sha256": "5f2892a24fe8585896f59e7841302c21ca6f264aa4a9553edb87473aa21eda00",
+      "sha256": "21f68ef85db6c9a94d40d88f4549f10f3ec13e200ac8c49319d7607e70304570",
       "localIntroductionCommit": "4c9bc39b448e3907edef11a1452c723a0c71e280",
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
@@ -205,7 +217,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/OverflowException.java",
-      "sha256": "2da4fd4c1c77ff7ca7d0540c102c377599b00c6f8731bfdaf445e823e3086ae6",
+      "sha256": "fa617d439b7e1b9b454b6bd46e873120d58d4bfe06d546001b239eacff7f6e65",
       "localIntroductionCommit": "c9eda8ba263a467dfd079f8b8808c4d6853ebbb4",
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
@@ -349,7 +361,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "0de598d6572cdf442343e803598981653ba4582762b29e93bf436b70386c4434",
+      "sha256": "489d52057eec1bcb1a76725a4576cdc551329208ffcc647e4a0466f1313aff61",
       "localIntroductionCommit": "8b009d15003da5c160b650d40af7e6b5f6001b97",
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
@@ -378,6 +390,12 @@
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/ValueTuple.java",
+      "sha256": "9ea3248cb6a964757d05c32afec1d3a5d2dc0b99a85fdba6aa49dbc551b1e2b8",
+      "localIntroductionCommit": "ef5c04de0a81114cff8e67d828e684d865e2e8d8",
+      "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java",
       "sha256": "aaecbfe690309f2b4c4beff5df4ee0384762d2adca52aa8c30d18d4a7daf9afe",
       "localIntroductionCommit": "b474e96a165c9ba76a155eea8734f3f63a9d4c22",
@@ -390,7 +408,7 @@
       "introductionEvidence": "Git add event in this repository; not an authorship or originality determination"
     }
   ],
-  "headerObservation": "MIT SPDX identifier in first 30 lines of all 64 current Java files; no inline copyright or .NET Foundation text",
+  "headerObservation": "MIT SPDX identifier in first 30 lines of all 67 current Java files; no inline copyright or .NET Foundation text",
   "upstreamNoticeApplicability": "UNRESOLVED: local Git introductions and source headers do not prove independent authorship or exclude embedded upstream material",
   "releaseQualification": "E01_OPEN"
 }

@@ -1,8 +1,12 @@
 package consumer;
 
 import System.ArgumentException;
+import System.ArithmeticException;
+import System.DivideByZeroException;
 import System.Int32;
 import System.OverflowException;
+import System.Type;
+import System.ValueTuple;
 
 /** Pinned signed Int32 arithmetic observations against the packaged JAR. */
 public final class ProductInt32ArithmeticConsumer {
@@ -82,6 +86,48 @@ public final class ProductInt32ArithmeticConsumer {
                     != expected[2]) {
                 throw new AssertionError("Int32.BigMul result changed");
             }
+        }
+        int[][] divisions = {
+                {7, 3, 2, 1}, {-7, 3, -2, -1}, {7, -3, -2, 1},
+                {Integer.MIN_VALUE, 3, -715827882, -2},
+                {Integer.MAX_VALUE, 1, Integer.MAX_VALUE, 0},
+        };
+        for (int[] expected : divisions) {
+            ValueTuple<Int32, Int32> result = Int32.DivRem(
+                    new Int32(expected[0]), new Int32(expected[1]));
+            if (result.Item1.get_Value() != expected[2]
+                    || result.Item2.get_Value() != expected[3]) {
+                throw new AssertionError("Int32.DivRem quotient or remainder changed");
+            }
+            result.Item1 = new Int32(0);
+            result.Item2 = new Int32(0);
+        }
+        try {
+            Int32.DivRem(new Int32(7), new Int32(0));
+            throw new AssertionError("Int32.DivRem accepted zero divisor");
+        } catch (DivideByZeroException expected) {
+            if (!(expected instanceof ArithmeticException)
+                    || expected.get_HResult() != -2147352558
+                    || !"Attempted to divide by zero.".equals(expected.get_Message())) {
+                throw new AssertionError("DivideByZeroException identity changed");
+            }
+        }
+        expectOverflow(() -> Int32.DivRem(new Int32(Integer.MIN_VALUE), new Int32(-1)));
+        ArithmeticException arithmetic = new ArithmeticException();
+        OverflowException overflow = new OverflowException();
+        if (arithmetic.get_HResult() != -2147024362
+                || !"Overflow or underflow in the arithmetic operation."
+                .equals(arithmetic.get_Message())
+                || !(overflow instanceof ArithmeticException)
+                || overflow.get_HResult() != -2146233066
+                || !"Arithmetic operation resulted in an overflow."
+                .equals(overflow.get_Message())) {
+            throw new AssertionError("Arithmetic exception hierarchy changed");
+        }
+        Type tuple = Type.GetType("System.ValueTuple`2");
+        if (tuple == null || !tuple.get_IsValueType()
+                || !"System.ValueTuple`2".equals(tuple.get_FullName())) {
+            throw new AssertionError("ValueTuple`2 type identity changed");
         }
         java.lang.System.out.println("PASS external selected Int32 signed arithmetic");
     }
