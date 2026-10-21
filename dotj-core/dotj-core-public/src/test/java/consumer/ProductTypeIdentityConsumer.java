@@ -22,6 +22,7 @@ import System.InvalidCastException;
 import System.InvalidOperationException;
 import System.FormatException;
 import System.Globalization.NumberStyles;
+import System.Globalization.CultureNotFoundException;
 import System.ISpanFormattable;
 import System.IUtf8SpanFormattable;
 import System.Reflection.MemberInfo;
@@ -116,6 +117,16 @@ public final class ProductTypeIdentityConsumer {
                 "Culture=en_US", "Culture=not-a-real-culture"}) {
             if (Type.GetType("System.String, System.Private.CoreLib, " + valid) != string) {
                 throw new AssertionError("Selected assembly attribute spelling rejected: " + valid);
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, Culture=123");
+            throw new AssertionError("Numeric culture accepted");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())
+                    || !"123".equals(expected.get_InvalidCultureName())
+                    || Type.GetType("System.Globalization.CultureNotFoundException") == null) {
+                throw new AssertionError("Selected culture error identity changed", expected);
             }
         }
         if (Type.GetType("") != null || Type.GetType(" System.String") != string

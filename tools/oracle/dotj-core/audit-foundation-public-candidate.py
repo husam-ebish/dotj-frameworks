@@ -165,6 +165,11 @@ def main():
             assert header == "public class System.FormatException extends System.SystemException {"
             assert len(constructors) == 3
             disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open"
+        elif name == "System.Globalization.CultureNotFoundException":
+            assert header == "public class System.Globalization.CultureNotFoundException extends System.ArgumentException {"
+            assert len(constructors) == 8
+            assert "public java.lang.String get_InvalidCultureName();" in declarations
+            disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; culture semantics and exact messages open"
         elif name == "System.Globalization.NumberStyles":
             assert "extends java.lang.Enum<System.Globalization.NumberStyles>" in header
             assert "public int get_Value();" in declarations
@@ -192,7 +197,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 28
+    assert len(records) == 29
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -211,7 +216,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS twenty-eight selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS twenty-nine selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":

@@ -6,6 +6,7 @@ import System.Exception;
 import System.SystemException;
 import System.InvalidOperationException;
 import System.IO.FileLoadException;
+import System.Globalization.CultureNotFoundException;
 
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
@@ -31,6 +32,7 @@ public final class ProductExceptionContractConsumer {
                 || ArgumentNullException.class.getConstructors().length != 4
                 || InvalidOperationException.class.getConstructors().length != 3
                 || FileLoadException.class.getConstructors().length != 5
+                || CultureNotFoundException.class.getConstructors().length != 8
                 || new FileLoadException("invalid", "corelib", inner).get_InnerException() != inner
                 || !"corelib".equals(new FileLoadException("invalid", "corelib").get_FileName())
                 || !(new InvalidOperationException("invalid", inner) instanceof SystemException)

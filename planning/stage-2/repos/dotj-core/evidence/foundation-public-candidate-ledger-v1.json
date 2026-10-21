@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "0dc9504934c1f000f5361f69442290594b299183fd09f207bf0194987a937947",
-  "typeCount": 28,
+  "candidateJarSha256": "1660841e954bb16ce80038cadd6068299120bf9c01b1a801a77a890e752e78e9",
+  "typeCount": 29,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -535,6 +535,31 @@
         "public java.lang.String get_FileName();"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Globalization.CultureNotFoundException",
+      "upstreamBaseType": "System.ArgumentException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 1,
+      "upstreamDeclaredProperties": 3,
+      "upstreamPublicConstructors": 8,
+      "javaPublicConstructors": 8,
+      "javaPublicHeader": "public class System.Globalization.CultureNotFoundException extends System.ArgumentException {",
+      "javaPublicDeclarations": [
+        "public System.Globalization.CultureNotFoundException();",
+        "public System.Globalization.CultureNotFoundException(java.lang.String);",
+        "public System.Globalization.CultureNotFoundException(java.lang.String, java.lang.String);",
+        "public System.Globalization.CultureNotFoundException(java.lang.String, System.Exception);",
+        "public System.Globalization.CultureNotFoundException(java.lang.String, java.lang.String, java.lang.String);",
+        "public System.Globalization.CultureNotFoundException(java.lang.String, java.lang.String, System.Exception);",
+        "public System.Globalization.CultureNotFoundException(java.lang.String, int, System.Exception);",
+        "public System.Globalization.CultureNotFoundException(java.lang.String, int, java.lang.String);",
+        "public java.lang.String get_InvalidCultureName();",
+        "public java.lang.Integer get_InvalidCultureId();"
+      ],
+      "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; culture semantics and exact messages open",
       "qualified": false
     },
     {

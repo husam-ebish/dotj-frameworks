@@ -4477,6 +4477,109 @@
       ]
     },
     {
+      "fullName": "System.Globalization.CultureNotFoundException",
+      "baseType": "System.ArgumentException",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 1,
+      "declaredPublicPropertyCount": 3,
+      "selectedMethods": [],
+      "selectedProperties": [
+        {
+          "name": "Message",
+          "type": "System.String"
+        }
+      ],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "paramName",
+            "type": "System.String"
+          },
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ],
+        [
+          {
+            "name": "paramName",
+            "type": "System.String"
+          },
+          {
+            "name": "invalidCultureName",
+            "type": "System.String"
+          },
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "invalidCultureName",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "invalidCultureId",
+            "type": "System.Int32"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ],
+        [
+          {
+            "name": "paramName",
+            "type": "System.String"
+          },
+          {
+            "name": "invalidCultureId",
+            "type": "System.Int32"
+          },
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ]
+      ]
+    },
+    {
       "fullName": "System.OverflowException",
       "baseType": "System.ArithmeticException",
       "isInterface": false,
@@ -4629,6 +4732,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "655d08e225bb6c896602cb70c3c01b2d9a3e1c3237dd1076ffbd0438d2789509",
+  "oracleProgramSha256": "0d2afed60db81b2fad6e86768f88301c7e293bda59f5c04d0d9ba75ff5fb81c1",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
