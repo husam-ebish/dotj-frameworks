@@ -182,6 +182,8 @@ def main():
     assert len(dictionary_names) == 5
     assert all(item["sameReference"] and item["AssemblyQualifiedName"] ==
                item["FullName"] + corelib_identity for item in dictionary_names)
+    assert all(item["lowerSensitive"] == {"result": None, "exception": None, "paramName": None}
+               and item["lowerInsensitiveSameReference"] for item in dictionary_names)
     assert dictionary_names[0]["FullName"] == "System.Collections.Generic.Dictionary`2"
     assert "[[System.String, " in dictionary_names[1]["FullName"]
     assert "[[System.Int32, " in dictionary_names[2]["FullName"]
@@ -191,6 +193,8 @@ def main():
     assert len(nested_names) == 3
     assert all(item["sameReference"] and item["AssemblyQualifiedName"] ==
                item["FullName"] + corelib_identity for item in nested_names)
+    assert all(item["lowerSensitive"] == {"result": None, "exception": None, "paramName": None}
+               and item["lowerInsensitiveSameReference"] for item in nested_names)
     assert nested_names[0]["FullName"].startswith("System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[")
     assert all(item["FullName"].startswith("System.Collections.Generic.Dictionary`2[[")
                for item in nested_names[1:])

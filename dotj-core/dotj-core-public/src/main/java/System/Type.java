@@ -110,15 +110,19 @@ public abstract class Type extends MemberInfo {
         return parts;
     }
 
-    private static Type resolveSelectedCoreLibGeneric(String name) {
+    private static Type resolveSelectedCoreLibGeneric(String name, boolean ignoreCase) {
         int start = name.indexOf("[[");
         if (start < 0 || !name.endsWith("]]")) {
             return null;
         }
         String definitionName = name.substring(0, start);
-        int arity = switch (definitionName) {
-            case "System.Collections.Generic.List`1" -> 1;
-            case "System.Collections.Generic.Dictionary`2" -> 2;
+        if (ignoreCase && !definitionName.chars().allMatch(character -> character < 128)) {
+            return null;
+        }
+        String selectedDefinition = ignoreCase ? definitionName.toLowerCase(Locale.ROOT) : definitionName;
+        int arity = switch (selectedDefinition) {
+            case "System.Collections.Generic.List`1", "system.collections.generic.list`1" -> 1;
+            case "System.Collections.Generic.Dictionary`2", "system.collections.generic.dictionary`2" -> 2;
             default -> 0;
         };
         if (arity == 0) {
@@ -154,13 +158,19 @@ public abstract class Type extends MemberInfo {
         Type[] arguments = new Type[arity];
         for (int index = 0; index < arity; index++) {
             String argumentName = argumentNames.get(index);
-            Type argument = GetType(argumentName);
-            if (argument == null || !argumentName.equals(argument.get_AssemblyQualifiedName())) {
+            Type argument = GetType(argumentName, false, ignoreCase);
+            String canonicalName = argument == null ? null : argument.get_AssemblyQualifiedName();
+            if (canonicalName == null || ignoreCase
+                    && (!argumentName.chars().allMatch(character -> character < 128)
+                            || !argumentName.equalsIgnoreCase(canonicalName))
+                    || !ignoreCase && !argumentName.equals(canonicalName)) {
                 return null;
             }
             arguments[index] = argument;
         }
-        return GetType(definitionName).MakeGenericType(arguments);
+        String canonicalDefinitionName = arity == 1
+                ? "System.Collections.Generic.List`1" : "System.Collections.Generic.Dictionary`2";
+        return GetType(canonicalDefinitionName).MakeGenericType(arguments);
     }
 
     /** Selected CoreLib names only; assembly resolution remains open. */
@@ -423,7 +433,7 @@ public abstract class Type extends MemberInfo {
                     "system.collections.generic.list`1[[system.string, system.private.corelib]]" ->
                     ignoreCase ? fromJavaClass(java.util.List.class)
                             .MakeGenericType(new Type[] {fromJavaClass(String.class)}) : null;
-            default -> resolveSelectedCoreLibGeneric(key);
+            default -> resolveSelectedCoreLibGeneric(name, ignoreCase);
         };
         if (resolved == null && throwOnError) {
             throw new TypeLoadException("Could not resolve selected type: " + typeName);
