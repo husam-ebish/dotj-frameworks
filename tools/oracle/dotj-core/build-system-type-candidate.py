@@ -316,6 +316,10 @@ def main():
     assert [row["outcome"] for row in nested_misses] == [
         "null", "null", "System.ArgumentException",
     ]
+    nested_ignore_case = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedConstructedIgnoreCaseBehavior"]
+    assert len(nested_ignore_case) == 1
+    assert nested_ignore_case[0]["exactMiss"]
+    assert nested_ignore_case[0]["insensitiveSameReference"]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
