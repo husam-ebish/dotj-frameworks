@@ -146,6 +146,7 @@ def main():
             assert "public static System.Int32 Parse(java.lang.String);" in declarations
             assert "public static System.Int32 Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);" in declarations
             assert "public static boolean TryParse(java.lang.String, System.Int32[]);" in declarations
+            assert "public static boolean TryParse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider, System.Int32[]);" in declarations
             assert upstream["declaredPublicMethodCount"] == 53
             disposition = "PARTIAL_VALUE_SURFACE; selected conversion and comparison behavior only"
         elif name == "System.OverflowException":
