@@ -948,6 +948,40 @@
     "parsedText": "2026-01-02 03:04:05.123",
     "convertedMillisecond": 123
   },
+  "selectedExceptionSerializationBehavior": {
+    "interfaces": [
+      "System.Runtime.Serialization.ISerializable"
+    ],
+    "count": 12,
+    "names": [
+      "ClassName",
+      "Message",
+      "Data",
+      "InnerException",
+      "HelpURL",
+      "StackTraceString",
+      "RemoteStackTraceString",
+      "RemoteStackIndex",
+      "ExceptionMethod",
+      "HResult",
+      "Source",
+      "WatsonBuckets"
+    ],
+    "className": "System.Exception",
+    "message": "boom",
+    "dataIsNull": true,
+    "innerSame": true,
+    "stackTraceString": null,
+    "remoteStackTraceString": null,
+    "remoteStackIndex": 0,
+    "exceptionMethod": null,
+    "watsonBucketsIsNull": true,
+    "hResult": -2146233088,
+    "helpUrl": "https://example.test/help",
+    "source": "dotj-test",
+    "nullError": "System.ArgumentNullException",
+    "nullParameter": "info"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16390,6 +16424,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "951f1c1d3d3bb973d59d952e95b6a119efb28a03de1660775328d07330f9049f",
+  "oracleProgramSha256": "1ec464dcbcf75429a77071b1c4d5752a1a34d5e1e1e1a657a50eacce7fec1906",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

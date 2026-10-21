@@ -2,8 +2,12 @@
 
 package System;
 
+import System.Runtime.Serialization.ISerializable;
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.StreamingContext;
+
 /** Selected unchecked Java carrier for the System.Exception candidate hierarchy. */
-public class Exception extends RuntimeException {
+public class Exception extends RuntimeException implements ISerializable {
     private java.util.Map<Object, Object> data;
     private int hResult = -2146233088;
     private String helpLink;
@@ -90,5 +94,24 @@ public class Exception extends RuntimeException {
 
     public String get_StackTrace() {
         return org.dotj.internal.throwing.ThrowSite.stackText(this);
+    }
+
+    @Override
+    public void GetObjectData(SerializationInfo info, StreamingContext context) {
+        if (info == null) {
+            throw new ArgumentNullException("info");
+        }
+        info.AddValue("ClassName", this.GetType().get_FullName());
+        info.AddValue("Message", this.get_Message());
+        info.AddValue("Data", (Object) this.data);
+        info.AddValue("InnerException", this.get_InnerException(), Type.GetType("System.Exception"));
+        info.AddValue("HelpURL", this.get_HelpLink());
+        info.AddValue("StackTraceString", this.get_StackTrace());
+        info.AddValue("RemoteStackTraceString", (Object) null);
+        info.AddValue("RemoteStackIndex", 0);
+        info.AddValue("ExceptionMethod", (Object) null);
+        info.AddValue("HResult", this.get_HResult());
+        info.AddValue("Source", this.get_Source());
+        info.AddValue("WatsonBuckets", (Object) null);
     }
 }

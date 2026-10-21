@@ -9,6 +9,12 @@ import System.Type;
 import org.dotj.internal.throwing.ThrowSite;
 import System.IO.FileLoadException;
 import System.Globalization.CultureNotFoundException;
+import System.Runtime.Serialization.FormatterConverter;
+import System.Runtime.Serialization.ISerializable;
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.SerializationInfoEnumerator;
+import System.Runtime.Serialization.StreamingContext;
+import System.Runtime.Serialization.StreamingContextStates;
 
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
@@ -81,6 +87,50 @@ public final class ProductExceptionContractConsumer {
         withSource.set_Source(null);
         if (withSource.get_Source() != null) {
             throw new AssertionError("Selected Source reset changed");
+        }
+        Exception serialized = new Exception("boom", new InvalidOperationException("inner"));
+        serialized.set_HelpLink("https://example.test/help");
+        serialized.set_Source("dotj-test");
+        SerializationInfo serializedInfo = new SerializationInfo(
+                Type.GetType("System.Exception"), new FormatterConverter());
+        StreamingContext serializationContext = new StreamingContext(StreamingContextStates.All);
+        serialized.GetObjectData(serializedInfo, serializationContext);
+        String[] expectedNames = {"ClassName", "Message", "Data", "InnerException",
+                "HelpURL", "StackTraceString", "RemoteStackTraceString", "RemoteStackIndex",
+                "ExceptionMethod", "HResult", "Source", "WatsonBuckets"};
+        java.util.List<String> serializedNames = new java.util.ArrayList<>();
+        SerializationInfoEnumerator entries = serializedInfo.GetEnumerator();
+        while (entries.MoveNext()) {
+            serializedNames.add(entries.get_Name());
+        }
+        if (!(serialized instanceof ISerializable)
+                || Type.GetType("System.Exception").GetInterfaces().length != 1
+                || Type.GetType("System.Exception").GetInterfaces()[0]
+                        != Type.GetType("System.Runtime.Serialization.ISerializable")
+                || serializedInfo.get_MemberCount() != 12
+                || !serializedNames.equals(java.util.Arrays.asList(expectedNames))
+                || !"System.Exception".equals(serializedInfo.GetString("ClassName"))
+                || !"boom".equals(serializedInfo.GetString("Message"))
+                || serializedInfo.GetValue("Data", Type.GetType("System.Object")) != null
+                || serializedInfo.GetValue("InnerException", Type.GetType("System.Exception"))
+                        != serialized.get_InnerException()
+                || serializedInfo.GetString("StackTraceString") != null
+                || serializedInfo.GetString("RemoteStackTraceString") != null
+                || serializedInfo.GetInt32("RemoteStackIndex") != 0
+                || serializedInfo.GetString("ExceptionMethod") != null
+                || serializedInfo.GetValue("WatsonBuckets", Type.GetType("System.Object")) != null
+                || serializedInfo.GetInt32("HResult") != -2146233088
+                || !"https://example.test/help".equals(serializedInfo.GetString("HelpURL"))
+                || !"dotj-test".equals(serializedInfo.GetString("Source"))) {
+            throw new AssertionError("Selected Exception serialization changed");
+        }
+        try {
+            serialized.GetObjectData(null, serializationContext);
+            throw new AssertionError("Null Exception serialization info accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"info".equals(expected.get_ParamName())) {
+                throw new AssertionError("Exception serialization null parameter changed", expected);
+            }
         }
         if (!"System.Exception: message".equals(new Exception("message").ToString())
                 || !"System.Exception: Exception of type 'System.Exception' was thrown."

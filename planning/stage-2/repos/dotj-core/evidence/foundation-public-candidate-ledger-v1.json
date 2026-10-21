@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "ca8256202b80e5f8985c0fa83c54f092ee40703610e543d7950d0bd9f883fbaf",
+  "candidateJarSha256": "75840bd5791d27f5ee5644411ee42c3e58410e4bec4ed9fb06c417b783d61328",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -510,7 +510,7 @@
       "upstreamDeclaredProperties": 8,
       "upstreamPublicConstructors": 3,
       "javaPublicConstructors": 3,
-      "javaPublicHeader": "public class System.Exception extends java.lang.RuntimeException {",
+      "javaPublicHeader": "public class System.Exception extends java.lang.RuntimeException implements System.Runtime.Serialization.ISerializable {",
       "javaPublicDeclarations": [
         "public System.Exception();",
         "public System.Exception(java.lang.String);",
@@ -526,7 +526,8 @@
         "public void set_Source(java.lang.String);",
         "public java.lang.String ToString();",
         "public System.Type GetType();",
-        "public java.lang.String get_StackTrace();"
+        "public java.lang.String get_StackTrace();",
+        "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false
