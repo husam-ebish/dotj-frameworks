@@ -760,6 +760,20 @@ public final class ProductTypeIdentityConsumer {
         if (Type.GetType("System.String, System.Private.CoreLib\\,Extra, Version=1.2", true) != string) {
             throw new AssertionError("Escaped CoreLib alias rejected with throwOnError");
         }
+        for (String mixedInvalidIdentity : new String[] {
+                "\"Missing\\\"Assembly\", Culture=123, Version=banana",
+                "\"Missing\\\"Assembly\", Version=banana, Culture=123",
+                "Missing\\,Assembly, UnknownAttr=foo=bar, Culture=123",
+                "System.Private.CoreLib\\,Extra, Culture=123, Version=banana",
+                "Missing\\\\, Version=banana, Culture=123",
+                "Missing\\,Assembly, Culture=123, UnknownAttr=foo=bar"}) {
+            try {
+                Type.GetType("System.String, " + mixedInvalidIdentity);
+                throw new AssertionError("Mixed invalid identity accepted: " + mixedInvalidIdentity);
+            } catch (FileLoadException expected) {
+                // Syntactic identity error precedes deferred culture validation.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
