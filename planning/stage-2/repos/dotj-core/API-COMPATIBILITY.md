@@ -16,6 +16,8 @@ The [naming ledger](evidence/naming-ledger.json) retains 187 lexical production 
 
 The original lexical inventory above uses the analysis revision. The bounded release-profile [N01 selected-method ledger](evidence/n01-selected-methods-v10.0.12.json) instead checks 99 distinct declared-public method signatures across nine async and cancellation types against installed .NET 10.0.12 CoreLib metadata (SHA-256 `1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678`) and owning source-file hashes at commit `4271d88e0aebf3d04f188f1334c2220d80555ef6`. This is a selected metadata inventory: it does not attribute each member to a source line, establish all inherited or conditional APIs, decide the Java generic-arity collision, or qualify public behavior. [The 100-point schedule](../../implementation/N01-100-POINTS.json) and [series audit](../../implementation/batches/Batch-400.md) retain the bounded scope.
 
+The selected [Int32 erasure contract](evidence/int32-erasure-contract-v1.json) identifies ten distinct CLR byte/char span parsing overloads that lower to five generic Java carrier declarations. A javac probe confirms that both element-specific declarations cannot coexist with the same erased signature. The contract also classifies 18 additional Java public methods as explicit-interface, boxed-carrier or Object interop bridges. Source-type-directed `.j` lowering and a public bridge policy remain required; this mapping is not an implemented compiler or an exact N01 qualification.
+
 ## N01 tasks
 
 1. `DJ-001-N01-T1`: Extract the complete semantic upstream public surface for the selected slice, preserving exact namespace/type/member spelling, casing, overloads, generic arity, parameter identities and property/event metadata.
