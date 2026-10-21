@@ -100,6 +100,10 @@ public abstract class Type extends MemberInfo {
         return types;
     }
 
+    public int GetHashCode() {
+        return this.hashCode();
+    }
+
     public static Type GetType(String typeName) {
         return GetType(typeName, false, false);
     }

@@ -461,6 +461,14 @@ var result = new
         nullElement = ObserveTypeArray(["text", null]),
         separateArrays = !ReferenceEquals(Type.GetTypeArray(["text"]), Type.GetTypeArray(["text"])),
     },
+    selectedTypeHashBehavior = new
+    {
+        stringRepeatStable = typeof(string).GetHashCode() == typeof(string).GetHashCode(),
+        stringLookupStable = typeof(string).GetHashCode() == Type.GetType("System.String")!.GetHashCode(),
+        int32RepeatStable = typeof(int).GetHashCode() == Type.GetType("System.Int32")!.GetHashCode(),
+        genericRepeatStable = typeof(System.Collections.Generic.List<string>).GetHashCode()
+            == typeof(System.Collections.Generic.List<string>).GetHashCode(),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),

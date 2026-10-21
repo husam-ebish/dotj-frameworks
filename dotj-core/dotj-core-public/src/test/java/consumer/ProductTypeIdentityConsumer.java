@@ -60,6 +60,14 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetTypeArray(new Object[] {"text"}) == Type.GetTypeArray(new Object[] {"text"})) {
             throw new AssertionError("Selected Type.GetTypeArray results changed");
         }
+        Type listOfString = definition.MakeGenericType(new Type[] {string});
+        if (string.GetHashCode() != string.GetHashCode()
+                || string.GetHashCode() != Type.GetType("System.String").GetHashCode()
+                || integer.GetHashCode() != Type.GetType("System.Int32").GetHashCode()
+                || listOfString.GetHashCode()
+                    != definition.MakeGenericType(new Type[] {string}).GetHashCode()) {
+            throw new AssertionError("Selected Type.GetHashCode stability changed");
+        }
         try {
             Type.GetTypeArray(null);
             throw new AssertionError("Null type-array input accepted");
