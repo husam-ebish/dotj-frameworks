@@ -21,6 +21,7 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBase.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBody.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/ParameterInfo.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/ParameterAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")
@@ -369,6 +370,16 @@ def main():
                and parameter["rawDefaultType"] == "System.DBNull"
                and parameter["sameReference"]
                for row in default_values for parameter in row["parameters"])
+    parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterAttributeBehavior"]
+    assert parameter_attributes["values"] == [
+        {"name": name, "value": value} for name, value in (
+            ("None", 0), ("In", 1), ("Out", 2), ("Lcid", 4), ("Retval", 8),
+            ("Optional", 16), ("HasDefault", 4096), ("HasFieldMarshal", 8192),
+            ("Reserved3", 16384), ("Reserved4", 32768), ("ReservedMask", 61440))]
+    assert [len(row["attributes"]) for row in parameter_attributes["methods"]] == [1, 2, 3, 2]
+    assert all(attribute["value"] == 0 and attribute["text"] == "None"
+               for row in parameter_attributes["methods"]
+               for attribute in row["attributes"])
     parameter_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterModifierBehavior"]
     assert [len(row["parameters"]) for row in parameter_modifiers] == [1, 2, 3, 2]
     assert all(parameter["optional"] == [] and parameter["required"] == []

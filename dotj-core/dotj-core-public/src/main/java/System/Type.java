@@ -19,6 +19,7 @@ import System.Reflection.CallingConventions;
 import System.Reflection.MethodImplAttributes;
 import System.Reflection.MethodBody;
 import System.Reflection.GenericParameterAttributes;
+import System.Reflection.ParameterAttributes;
 import System.Globalization.NumberStyles;
 import System.Globalization.CultureNotFoundException;
 
@@ -438,6 +439,7 @@ public abstract class Type extends MemberInfo {
             case "System.Reflection.MethodImplAttributes" -> fromJavaClass(MethodImplAttributes.class);
             case "System.Reflection.GenericParameterAttributes" ->
                     fromJavaClass(GenericParameterAttributes.class);
+            case "System.Reflection.ParameterAttributes" -> fromJavaClass(ParameterAttributes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
@@ -555,6 +557,8 @@ public abstract class Type extends MemberInfo {
                     ? fromJavaClass(MethodImplAttributes.class) : null;
             case "system.reflection.genericparameterattributes" -> ignoreCase
                     ? fromJavaClass(GenericParameterAttributes.class) : null;
+            case "system.reflection.parameterattributes" -> ignoreCase
+                    ? fromJavaClass(ParameterAttributes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
             case "system.collections.generic.dictionary`2" -> ignoreCase ? fromJavaClass(java.util.Map.class) : null;
@@ -861,6 +865,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == CallingConventions.class
                 || this.definition == MethodImplAttributes.class
                 || this.definition == GenericParameterAttributes.class
+                || this.definition == ParameterAttributes.class
                 || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class) {
             return fromJavaClass(Enum.class);
@@ -898,6 +903,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == CallingConventions.class
                         || this.definition == MethodImplAttributes.class
                         || this.definition == GenericParameterAttributes.class
+                        || this.definition == ParameterAttributes.class
                         || this.definition == TypeCode.class || this.definition == NumberStyles.class);
     }
 
@@ -1074,6 +1080,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == CallingConventions.class
                 || this.definition == MethodImplAttributes.class
                 || this.definition == GenericParameterAttributes.class
+                || this.definition == ParameterAttributes.class
                 || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class;
     }
@@ -1250,6 +1257,9 @@ public abstract class Type extends MemberInfo {
             return attributes.get_Value();
         }
         if (constant instanceof GenericParameterAttributes attributes) {
+            return attributes.get_Value();
+        }
+        if (constant instanceof ParameterAttributes attributes) {
             return attributes.get_Value();
         }
         if (constant instanceof NumberStyles style) {

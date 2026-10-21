@@ -21,6 +21,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBody.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/ParameterInfo.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/ParameterAttributes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/BindingFlags.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/CallingConventions.java")
@@ -70,6 +71,7 @@ EXPECTED_CLASSES = [
     "System/Reflection/MethodBody.class",
     "System/Reflection/MethodImplAttributes.class",
     "System/Reflection/MethodInfo.class",
+    "System/Reflection/ParameterAttributes.class",
     "System/Reflection/ParameterInfo.class",
     "System/SystemException.class",
     "System/Type$1.class",

@@ -67,6 +67,10 @@ public class ParameterInfo {
         return false;
     }
 
+    public ParameterAttributes get_Attributes() {
+        return ParameterAttributes.None;
+    }
+
     public Type[] GetOptionalCustomModifiers() {
         return new Type[0];
     }
