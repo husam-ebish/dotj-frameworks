@@ -431,6 +431,16 @@ def main():
         "u32ToUInt16": "System.OverflowException",
         "u16Null": "System.ArgumentNullException",
     }
+    signed_float_routes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt16SingleFormatterRoutesBehavior"]
+    assert signed_float_routes == {
+        "int16Text": -1234, "singleText": 1.25,
+        "int16Type": -1234, "singleTypeCode": 1.25,
+        "int16OverflowHigh": "System.OverflowException",
+        "int16OverflowLow": "System.OverflowException",
+        "int16Format": "System.FormatException",
+        "singleFormat": "System.FormatException",
+        "singleNull": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

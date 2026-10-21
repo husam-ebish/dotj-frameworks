@@ -725,6 +725,17 @@
     "u32ToUInt16": "System.OverflowException",
     "u16Null": "System.ArgumentNullException"
   },
+  "selectedInt16SingleFormatterRoutesBehavior": {
+    "int16Text": -1234,
+    "singleText": 1.25,
+    "int16Type": -1234,
+    "singleTypeCode": 1.25,
+    "int16OverflowHigh": "System.OverflowException",
+    "int16OverflowLow": "System.OverflowException",
+    "int16Format": "System.FormatException",
+    "singleFormat": "System.FormatException",
+    "singleNull": "System.ArgumentNullException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16167,6 +16178,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "3b74d137432f12223eef5bdb86be1af69b1b8ecfba372a2ac7e2351da5af0b16",
+  "oracleProgramSha256": "9445035f3f7a434f8d7cd371b0c8f763a6a6d27e21be2c134c20087017c501cd",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -64,6 +64,12 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.UInt32".equals(name)) {
             return ToUInt32(value);
         }
+        if ("System.Int16".equals(name)) {
+            return ToInt16(value);
+        }
+        if ("System.Single".equals(name)) {
+            return ToSingle(value);
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -82,6 +88,8 @@ public final class FormatterConverter implements IFormatterConverter {
             case SByte -> ToSByte(value);
             case UInt16 -> ToUInt16(value);
             case UInt32 -> ToUInt32(value);
+            case Int16 -> ToInt16(value);
+            case Single -> ToSingle(value);
             default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
         };
     }
@@ -147,6 +155,14 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public short ToInt16(Object value) {
+        if (value instanceof String text) {
+            java.math.BigInteger parsed = parseByteText(text);
+            if (parsed.compareTo(java.math.BigInteger.valueOf(Short.MIN_VALUE)) < 0
+                    || parsed.compareTo(java.math.BigInteger.valueOf(Short.MAX_VALUE)) > 0) {
+                throw new OverflowException("Value was outside the range of Int16");
+            }
+            return parsed.shortValue();
+        }
         return convertible(value).ToInt16(null);
     }
 
@@ -209,6 +225,16 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public float ToSingle(Object value) {
+        if (value instanceof String text) {
+            try {
+                return Float.parseFloat(text.strip());
+            } catch (NumberFormatException ignored) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+        }
+        if (value instanceof Float number) {
+            return number;
+        }
         return convertible(value).ToSingle(null);
     }
 

@@ -1446,6 +1446,25 @@ static object ObserveUnsignedToTypeContract()
         u16Null = ObserveMethodError(() => u16.ToType(null!, null)),
     };
 }
+static object ObserveInt16SingleFormatterRoutes()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("int16Text", "-1234");
+    info.AddValue("singleText", "1.25");
+    return new
+    {
+        int16Text = info.GetInt16("int16Text"),
+        singleText = info.GetSingle("singleText"),
+        int16Type = converter.Convert("-1234", typeof(short)),
+        singleTypeCode = converter.Convert("1.25", TypeCode.Single),
+        int16OverflowHigh = ObserveMethodError(() => converter.ToInt16("32768")),
+        int16OverflowLow = ObserveMethodError(() => converter.ToInt16("-32769")),
+        int16Format = ObserveMethodError(() => converter.ToInt16("bad")),
+        singleFormat = ObserveMethodError(() => converter.ToSingle("bad")),
+        singleNull = ObserveMethodError(() => converter.ToSingle(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1611,6 +1630,7 @@ var result = new
     selectedUInt32ConvertibleContractBehavior = ObserveUInt32ConvertibleContract(),
     selectedUnsignedFormatterRoutesBehavior = ObserveUnsignedFormatterRoutes(),
     selectedUnsignedToTypeContractBehavior = ObserveUnsignedToTypeContract(),
+    selectedInt16SingleFormatterRoutesBehavior = ObserveInt16SingleFormatterRoutes(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
