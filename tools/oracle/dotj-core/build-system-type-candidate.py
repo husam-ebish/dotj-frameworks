@@ -211,6 +211,18 @@ def main():
                           "assemblyName": corelib_name,
                           "fullExplicit": False, "assemblyExplicit": False},
     }
+    cursor_boundaries = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoEnumeratorBoundariesBehavior"]
+    assert cursor_boundaries == {
+        "beforeCurrent": "System.InvalidOperationException",
+        "beforeName": "System.InvalidOperationException",
+        "beforeType": "System.InvalidOperationException",
+        "beforeValue": "System.InvalidOperationException",
+        "firstMove": True, "secondMove": False, "thirdMove": False,
+        "afterCurrent": "System.InvalidOperationException",
+        "afterName": "System.InvalidOperationException",
+        "afterType": "System.InvalidOperationException",
+        "afterValue": "System.InvalidOperationException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

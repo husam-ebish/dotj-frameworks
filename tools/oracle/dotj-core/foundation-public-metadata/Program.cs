@@ -896,6 +896,29 @@ static object ObserveSerializationInfoSetTypeReset()
             assemblyExplicit = info.IsAssemblyNameSetExplicit },
     };
 }
+static object ObserveSerializationInfoEnumeratorBoundaries()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("only", 1);
+    var cursor = info.GetEnumerator();
+    var beforeCurrent = ObserveMethodError(() => { _ = cursor.Current; });
+    var beforeName = ObserveMethodError(() => { _ = cursor.Name; });
+    var beforeType = ObserveMethodError(() => { _ = cursor.ObjectType; });
+    var beforeValue = ObserveMethodError(() => { _ = cursor.Value; });
+    var firstMove = cursor.MoveNext();
+    var secondMove = cursor.MoveNext();
+    var thirdMove = cursor.MoveNext();
+    return new
+    {
+        beforeCurrent, beforeName, beforeType, beforeValue,
+        firstMove, secondMove, thirdMove,
+        afterCurrent = ObserveMethodError(() => { _ = cursor.Current; }),
+        afterName = ObserveMethodError(() => { _ = cursor.Name; }),
+        afterType = ObserveMethodError(() => { _ = cursor.ObjectType; }),
+        afterValue = ObserveMethodError(() => { _ = cursor.Value; }),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1034,6 +1057,7 @@ var result = new
     selectedSerializationInfoTypeMetadataBehavior = ObserveSerializationInfoTypeMetadata(),
     selectedSerializationInfoNameValidationBehavior = ObserveSerializationInfoNameValidation(),
     selectedSerializationInfoSetTypeResetBehavior = ObserveSerializationInfoSetTypeReset(),
+    selectedSerializationInfoEnumeratorBoundariesBehavior = ObserveSerializationInfoEnumeratorBoundaries(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
