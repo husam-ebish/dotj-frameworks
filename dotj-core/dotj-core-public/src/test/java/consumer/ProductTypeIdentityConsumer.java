@@ -82,6 +82,14 @@ public final class ProductTypeIdentityConsumer {
         } catch (FileNotFoundException expected) {
             // Selected pinned error type.
         }
+        if (Type.GetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e") != string
+                || Type.GetType("System.String, System.Private.CoreLib, Version=99.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e") != string
+                || Type.GetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=en-US, PublicKeyToken=7cec85d7bea7798e") != string
+                || Type.GetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null") != string
+                || Type.GetType("System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089") != string
+                || Type.GetType("System.String, System.Private.CoreLib, Version=99.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", true) != string) {
+            throw new AssertionError("Selected assembly identity lookup changed");
+        }
         if (Type.GetType("") != null || Type.GetType(" System.String") != string
                 || Type.GetType("System.String ") != null
                 || Type.GetType("System.String , System.Private.CoreLib") != null

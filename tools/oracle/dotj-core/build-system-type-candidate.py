@@ -336,6 +336,12 @@ def main():
         "unknownThrow": {"result": None, "exception": "System.IO.FileNotFoundException",
                          "paramName": None},
     }
+    assembly_identity = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyIdentityBehavior"]
+    assert assembly_identity == {
+        key: {"result": "System.String", "exception": None, "paramName": None}
+        for key in ("canonical", "versionMismatch", "cultureMismatch", "tokenMismatch",
+                    "legacy", "mismatchThrow")
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
