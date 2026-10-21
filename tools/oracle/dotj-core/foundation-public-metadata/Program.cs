@@ -501,6 +501,16 @@ var result = new
         name = type.FullName ?? type.Name,
         observation = ObserveGenericParameterConstraints(type),
     }).ToArray(),
+    selectedSzArrayBehavior = new[]
+    {
+        typeof(object), typeof(string[]), typeof(string[][]),
+        typeof(string).MakeArrayType(1), typeof(string[,]), typeof(string[,,]),
+        typeof(List<string>[]),
+    }.Select(type => new
+    {
+        name = type.FullName,
+        isSzArray = type.IsSZArray,
+    }).ToArray(),
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
@@ -1034,7 +1044,7 @@ var result = new
         selectedProperties = type.GetProperties(declaredPublic)
             .Where(property => property.Name is "ParamName" or "Message" or "InnerException" or "IsGenericType"
                 or "IsConstructedGenericType" or "IsGenericParameter"
-                or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
+                or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsSZArray" or "IsByRef"
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
                 or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType" or "IsPrimitive" or "IsAbstract" or "IsSealed" or "IsPublic" or "IsVisible" or "IsGenericTypeDefinition" or "ContainsGenericParameters"
                 or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType" or "IsAssignableFrom"
