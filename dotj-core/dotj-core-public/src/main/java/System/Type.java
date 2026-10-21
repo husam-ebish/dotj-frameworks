@@ -126,11 +126,13 @@ public abstract class Type extends MemberInfo {
                             || assemblyName.startsWith("'") && assemblyName.endsWith("'"))) {
                 assemblyName = assemblyName.substring(1, assemblyName.length() - 1);
             }
-            if (assemblyName.equalsIgnoreCase("System.Private.CoreLib.dll")) {
+            boolean asciiAssemblyName = assemblyName.chars().allMatch(character -> character < 128);
+            if (asciiAssemblyName && assemblyName.equalsIgnoreCase("System.Private.CoreLib.dll")) {
                 assemblyName = assemblyName.substring(0, assemblyName.length() - 4);
             }
-            boolean knownAssembly = assemblyName.equalsIgnoreCase("System.Private.CoreLib")
-                    || assemblyName.equalsIgnoreCase("mscorlib");
+            boolean knownAssembly = asciiAssemblyName
+                    && (assemblyName.equalsIgnoreCase("System.Private.CoreLib")
+                            || assemblyName.equalsIgnoreCase("mscorlib"));
                 java.util.ArrayList<String> attributes = new java.util.ArrayList<>();
                 StringBuilder attributeText = new StringBuilder();
                 boolean insideQuotes = false;
