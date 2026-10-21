@@ -1006,6 +1006,15 @@ var result = new
         unquotedDoubleTwo = ObserveGetType("System.String, System.Private.CoreLib\\\\\"", false, false),
         unquotedDoubleThree = ObserveGetType("System.String, System.Private.CoreLib\\\\\\\"", false, false),
     },
+    selectedAssemblyAttributeEscapeParityBehavior = new
+    {
+        quotedTwo = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\\\", Version=1.2", false, false),
+        quotedThree = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\\\\\", Version=1.2", false, false),
+        unquotedTwo = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=a\\\\, Version=1.2", false, false),
+        unquotedThree = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=a\\\\\\, Version=1.2", false, false),
+        quotedCommaTwo = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\\,b\", Version=1.2", false, false),
+        quotedCommaThree = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\\\\,b\", Version=1.2", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

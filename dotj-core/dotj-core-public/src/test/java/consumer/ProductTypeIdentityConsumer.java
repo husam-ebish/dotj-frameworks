@@ -684,6 +684,25 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Quote run resolved: " + unknownQuoteRun);
             }
         }
+        for (String validAttributeRun : new String[] {
+                "UnknownAttr=\"a\\\\\", Version=1.2",
+                "UnknownAttr=a\\\\, Version=1.2",
+                "UnknownAttr=\"a\\\\,b\", Version=1.2",
+                "UnknownAttr=\"a\\\\\\,b\", Version=1.2"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + validAttributeRun) != string) {
+                throw new AssertionError("Valid attribute escape run rejected: " + validAttributeRun);
+            }
+        }
+        for (String invalidAttributeRun : new String[] {
+                "UnknownAttr=\"a\\\\\\\", Version=1.2",
+                "UnknownAttr=a\\\\\\, Version=1.2"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalidAttributeRun);
+                throw new AssertionError("Invalid attribute escape run accepted: " + invalidAttributeRun);
+            } catch (FileLoadException expected) {
+                // Selected quote or separator escape parity.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

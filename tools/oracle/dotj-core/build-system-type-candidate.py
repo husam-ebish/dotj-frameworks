@@ -657,6 +657,13 @@ def main():
         **{key: {"result": None, "exception": None, "paramName": None}
            for key in ("doubleTwo", "singleTwo", "unquotedDoubleThree")},
     }
+    attribute_parity = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyAttributeEscapeParityBehavior"]
+    assert attribute_parity == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("quotedTwo", "unquotedTwo", "quotedCommaTwo", "quotedCommaThree")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("quotedThree", "unquotedThree")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
