@@ -14,6 +14,7 @@ import System.IFormatProvider;
 import System.IConvertible;
 import System.TypeCode;
 import System.Decimal;
+import System.DateTime;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -355,8 +356,8 @@ public final class ProductTypeIdentityConsumer {
             public Decimal ToDecimal(IFormatProvider formatProvider) {
                 return new Decimal(42);
             }
-            public java.time.LocalDateTime ToDateTime(IFormatProvider formatProvider) {
-                return java.time.LocalDateTime.of(2026, 1, 2, 0, 0);
+            public DateTime ToDateTime(IFormatProvider formatProvider) {
+                return new DateTime(2026, 1, 2);
             }
             public String ToString(IFormatProvider formatProvider) { return "42"; }
             public Object ToType(Type conversionType, IFormatProvider formatProvider) {
@@ -376,7 +377,12 @@ public final class ProductTypeIdentityConsumer {
                 || convertible.ToSingle(provider) != 42 || convertible.ToDouble(provider) != 42
                 || !"42".equals(convertible.ToDecimal(provider).ToString(provider))
                 || !Type.GetType("System.Decimal").get_IsValueType()
-                || convertible.ToDateTime(provider).getYear() != 2026
+                || convertible.ToDateTime(provider).get_Year() != 2026
+                || convertible.ToDateTime(provider).get_Month() != 1
+                || convertible.ToDateTime(provider).get_Day() != 2
+                || !"2026-01-02".equals(convertible.ToDateTime(provider)
+                        .ToString("yyyy-MM-dd", provider))
+                || !Type.GetType("System.DateTime").get_IsValueType()
                 || !"42".equals(convertible.ToString(provider))
                 || !Integer.valueOf(42).equals(convertible.ToType(integer, provider))
                 || convertibleType == null || !convertibleType.get_IsInterface()

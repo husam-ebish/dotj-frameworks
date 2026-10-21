@@ -35,6 +35,9 @@ def main():
         if name == "System.Decimal":
             assert constructors == ["public System.Decimal(int);"]
             assert len(upstream["publicConstructors"]) == 9
+        elif name == "System.DateTime":
+            assert constructors == ["public System.DateTime(int, int, int);"]
+            assert len(upstream["publicConstructors"]) == 17
         else:
             assert len(constructors) == len(upstream["publicConstructors"])
         if name == "System.IDisposable":
@@ -69,7 +72,7 @@ def main():
                 "public abstract float ToSingle(System.IFormatProvider);",
                 "public abstract double ToDouble(System.IFormatProvider);",
                 "public abstract System.Decimal ToDecimal(System.IFormatProvider);",
-                "public abstract java.time.LocalDateTime ToDateTime(System.IFormatProvider);",
+                "public abstract System.DateTime ToDateTime(System.IFormatProvider);",
                 "public abstract java.lang.String ToString(System.IFormatProvider);",
                 "public abstract java.lang.Object ToType(System.Type, System.IFormatProvider);",
             ]
@@ -109,6 +112,14 @@ def main():
                                     "public java.lang.String ToString(System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 78
             disposition = "PARTIAL_VALUE_SURFACE; integer construction and invariant text only"
+        elif name == "System.DateTime":
+            assert header == "public final class System.DateTime {"
+            assert declarations == ["public System.DateTime(int, int, int);",
+                                    "public int get_Year();", "public int get_Month();",
+                                    "public int get_Day();",
+                                    "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"]
+            assert upstream["declaredPublicMethodCount"] == 70
+            disposition = "PARTIAL_VALUE_SURFACE; selected date construction/properties/text only"
         else:
             assert header.startswith("public class " + name)
             if name == "System.Exception":
@@ -131,7 +142,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 18
+    assert len(records) == 19
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -150,7 +161,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS eighteen selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS nineteen selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":

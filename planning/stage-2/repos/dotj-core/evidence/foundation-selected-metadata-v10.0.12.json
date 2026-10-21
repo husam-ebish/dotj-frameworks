@@ -622,6 +622,14 @@
     "isValueType": true,
     "baseType": "System.ValueType"
   },
+  "selectedDateTimeBehavior": {
+    "year": 2026,
+    "month": 1,
+    "day": 2,
+    "text": "2026-01-02",
+    "isValueType": true,
+    "baseType": "System.ValueType"
+  },
   "selectedAssignability": [
     {
       "target": "System.Object",
@@ -1511,6 +1519,570 @@
       ]
     },
     {
+      "fullName": "System.DateTime",
+      "baseType": "System.ValueType",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 70,
+      "declaredPublicPropertyCount": 18,
+      "selectedMethods": [
+        {
+          "name": "CompareTo",
+          "isStatic": false,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object"
+            }
+          ]
+        },
+        {
+          "name": "CompareTo",
+          "isStatic": false,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.DateTime"
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object"
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.DateTime"
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "isStatic": true,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "t1",
+              "type": "System.DateTime"
+            },
+            {
+              "name": "t2",
+              "type": "System.DateTime"
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String"
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "format",
+              "type": "System.String"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        }
+      ],
+      "selectedProperties": [],
+      "publicConstructors": [
+        [
+          {
+            "name": "ticks",
+            "type": "System.Int64"
+          }
+        ],
+        [
+          {
+            "name": "ticks",
+            "type": "System.Int64"
+          },
+          {
+            "name": "kind",
+            "type": "System.DateTimeKind"
+          }
+        ],
+        [
+          {
+            "name": "date",
+            "type": "System.DateOnly"
+          },
+          {
+            "name": "time",
+            "type": "System.TimeOnly"
+          }
+        ],
+        [
+          {
+            "name": "date",
+            "type": "System.DateOnly"
+          },
+          {
+            "name": "time",
+            "type": "System.TimeOnly"
+          },
+          {
+            "name": "kind",
+            "type": "System.DateTimeKind"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "calendar",
+            "type": "System.Globalization.Calendar"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "millisecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "calendar",
+            "type": "System.Globalization.Calendar"
+          },
+          {
+            "name": "kind",
+            "type": "System.DateTimeKind"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "kind",
+            "type": "System.DateTimeKind"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "calendar",
+            "type": "System.Globalization.Calendar"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "millisecond",
+            "type": "System.Int32"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "millisecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "kind",
+            "type": "System.DateTimeKind"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "millisecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "calendar",
+            "type": "System.Globalization.Calendar"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "millisecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "microsecond",
+            "type": "System.Int32"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "millisecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "microsecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "kind",
+            "type": "System.DateTimeKind"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "millisecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "microsecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "calendar",
+            "type": "System.Globalization.Calendar"
+          }
+        ],
+        [
+          {
+            "name": "year",
+            "type": "System.Int32"
+          },
+          {
+            "name": "month",
+            "type": "System.Int32"
+          },
+          {
+            "name": "day",
+            "type": "System.Int32"
+          },
+          {
+            "name": "hour",
+            "type": "System.Int32"
+          },
+          {
+            "name": "minute",
+            "type": "System.Int32"
+          },
+          {
+            "name": "second",
+            "type": "System.Int32"
+          },
+          {
+            "name": "millisecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "microsecond",
+            "type": "System.Int32"
+          },
+          {
+            "name": "calendar",
+            "type": "System.Globalization.Calendar"
+          },
+          {
+            "name": "kind",
+            "type": "System.DateTimeKind"
+          }
+        ]
+      ]
+    },
+    {
       "fullName": "System.Type",
       "baseType": "System.Reflection.MemberInfo",
       "isInterface": false,
@@ -2240,6 +2812,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "2921377987fef6d6ce492d04228dec17878da98c7c11c6e54d7e94da78c7ab14",
+  "oracleProgramSha256": "89e9da1c2ae5604f8e9aadbe1e9f232c1a0f52c8a22854354c9d2dbbdf181b4c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
