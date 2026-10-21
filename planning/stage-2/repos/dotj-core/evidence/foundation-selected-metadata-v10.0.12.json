@@ -24105,6 +24105,212 @@
       "error": "System.OverflowException"
     }
   ],
+  "selectedDecimalBitPatterns": {
+    "valid": [
+      {
+        "input": [
+          42,
+          0,
+          0,
+          0
+        ],
+        "text": "42",
+        "bits": [
+          42,
+          0,
+          0,
+          0
+        ],
+        "convertedBits": [
+          42,
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "input": [
+          12345,
+          0,
+          0,
+          131072
+        ],
+        "text": "123.45",
+        "bits": [
+          12345,
+          0,
+          0,
+          131072
+        ],
+        "convertedBits": [
+          12345,
+          0,
+          0,
+          131072
+        ]
+      },
+      {
+        "input": [
+          12345,
+          0,
+          0,
+          -2147352576
+        ],
+        "text": "-123.45",
+        "bits": [
+          12345,
+          0,
+          0,
+          -2147352576
+        ],
+        "convertedBits": [
+          12345,
+          0,
+          0,
+          -2147352576
+        ]
+      },
+      {
+        "input": [
+          0,
+          0,
+          0,
+          -2147483648
+        ],
+        "text": "0",
+        "bits": [
+          0,
+          0,
+          0,
+          -2147483648
+        ],
+        "convertedBits": [
+          0,
+          0,
+          0,
+          -2147483648
+        ]
+      },
+      {
+        "input": [
+          0,
+          0,
+          0,
+          -2147352576
+        ],
+        "text": "0.00",
+        "bits": [
+          0,
+          0,
+          0,
+          -2147352576
+        ],
+        "convertedBits": [
+          0,
+          0,
+          0,
+          -2147352576
+        ]
+      },
+      {
+        "input": [
+          -1,
+          -1,
+          -1,
+          0
+        ],
+        "text": "79228162514264337593543950335",
+        "bits": [
+          -1,
+          -1,
+          -1,
+          0
+        ],
+        "convertedBits": [
+          -1,
+          -1,
+          -1,
+          0
+        ]
+      },
+      {
+        "input": [
+          -1,
+          -1,
+          -1,
+          -2147483648
+        ],
+        "text": "-79228162514264337593543950335",
+        "bits": [
+          -1,
+          -1,
+          -1,
+          -2147483648
+        ],
+        "convertedBits": [
+          -1,
+          -1,
+          -1,
+          -2147483648
+        ]
+      },
+      {
+        "input": [
+          1,
+          0,
+          0,
+          1835008
+        ],
+        "text": "0.0000000000000000000000000001",
+        "bits": [
+          1,
+          0,
+          0,
+          1835008
+        ],
+        "convertedBits": [
+          1,
+          0,
+          0,
+          1835008
+        ]
+      }
+    ],
+    "parsedNegativeZero": [
+      0,
+      0,
+      0,
+      -2147352576
+    ],
+    "parsedPositiveZero": [
+      0,
+      0,
+      0,
+      131072
+    ],
+    "invalid": {
+      "nullArray": {
+        "type": "System.ArgumentNullException",
+        "paramName": "bits"
+      },
+      "threeWords": {
+        "type": "System.ArgumentException",
+        "paramName": null
+      },
+      "fiveWords": {
+        "type": "System.ArgumentException",
+        "paramName": null
+      },
+      "reservedBit": {
+        "type": "System.ArgumentException",
+        "paramName": null
+      },
+      "scale29": {
+        "type": "System.ArgumentException",
+        "paramName": null
+      }
+    }
+  },
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -27601,6 +27807,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "97ea3c2c24e79e763e2913580bc519040eb7dc6c4675bd6492c5b279f838247f",
+  "oracleProgramSha256": "376110fef0596313d7a00a2ebd5617dbfeb9781af4e1ca72ff6e78acc526c428",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

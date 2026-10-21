@@ -38,7 +38,8 @@ SOURCES.append(PRODUCT / "src/main/java/System/Reflection/GenericParameterAttrib
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/throwing/ThrowSite.java")
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer",
-    "ProductInt32BitConsumer", "ProductInt32ArithmeticConsumer", "ProductInt32SpanConsumer")]
+    "ProductInt32BitConsumer", "ProductInt32ArithmeticConsumer", "ProductInt32SpanConsumer",
+    "ProductDecimalBitsConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -146,6 +147,26 @@ def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
     metadata = json.loads((EVIDENCE_ROOT / "foundation-selected-metadata-v10.0.12.json").read_text(encoding="utf-8"))
+    decimal_patterns = metadata["selectedDecimalBitPatterns"]
+    assert [(entry["input"], entry["bits"], entry["convertedBits"], entry["text"])
+            for entry in decimal_patterns["valid"]] == [
+        (bits, bits, bits, rendered) for bits, rendered in (
+            ([42, 0, 0, 0], "42"),
+            ([12345, 0, 0, 0x00020000], "123.45"),
+            ([12345, 0, 0, -2147352576], "-123.45"),
+            ([0, 0, 0, -2147483648], "0"),
+            ([0, 0, 0, -2147352576], "0.00"),
+            ([-1, -1, -1, 0], "79228162514264337593543950335"),
+            ([-1, -1, -1, -2147483648], "-79228162514264337593543950335"),
+            ([1, 0, 0, 0x001c0000], "0.0000000000000000000000000001"),
+        )]
+    assert decimal_patterns["parsedNegativeZero"] == [0, 0, 0, -2147352576]
+    assert decimal_patterns["parsedPositiveZero"] == [0, 0, 0, 0x00020000]
+    assert decimal_patterns["invalid"] == {
+        "nullArray": {"type": "System.ArgumentNullException", "paramName": "bits"},
+        **{name: {"type": "System.ArgumentException", "paramName": None}
+           for name in ("threeWords", "fiveWords", "reservedBit", "scale29")},
+    }
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -671,12 +692,14 @@ def main():
     int32_result = run("java", "-cp", classpath, "consumer.ProductInt32BitConsumer").strip()
     arithmetic_result = run("java", "-cp", classpath, "consumer.ProductInt32ArithmeticConsumer").strip()
     span_result = run("java", "-cp", classpath, "consumer.ProductInt32SpanConsumer").strip()
+    decimal_result = run("java", "-cp", classpath, "consumer.ProductDecimalBitsConsumer").strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
     assert int32_result == "PASS external selected Int32 bit helpers"
     assert arithmetic_result == "PASS external selected Int32 signed arithmetic"
     assert span_result == "PASS external selected Int32 span parsing and formatting"
+    assert decimal_result == "PASS external selected Decimal bits"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
@@ -693,6 +716,7 @@ def main():
         "int32BitConsumer": int32_result,
         "int32ArithmeticConsumer": arithmetic_result,
         "int32SpanConsumer": span_result,
+        "decimalBitsConsumer": decimal_result,
         "exceptionStackBoundary": {
             "dotNetPrethrowStackNull": True,
             "dotNetThrownStackNonEmpty": True,

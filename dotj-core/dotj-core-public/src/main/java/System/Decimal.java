@@ -11,17 +11,55 @@ public final class Decimal implements IConvertible {
     private static final BigDecimal MAX_MAGNITUDE =
             new BigDecimal("79228162514264337593543950335");
     private final BigDecimal value;
+    private final boolean negativeZero;
 
     public Decimal(int value) {
         this.value = BigDecimal.valueOf(value);
+        this.negativeZero = false;
     }
 
     public Decimal(long value) {
         this.value = BigDecimal.valueOf(value);
+        this.negativeZero = false;
     }
 
-    private Decimal(BigDecimal value) {
+    public Decimal(int[] bits) {
+        if (bits == null) {
+            throw new ArgumentNullException("bits");
+        }
+        if (bits.length != 4 || (bits[3] & 0x7f00ffff) != 0
+                || ((bits[3] >>> 16) & 0xff) > 28) {
+            throw new ArgumentException("Invalid Decimal bits");
+        }
+        BigInteger coefficient = BigInteger.valueOf(bits[0] & 0xffffffffL)
+                .add(BigInteger.valueOf(bits[1] & 0xffffffffL).shiftLeft(32))
+                .add(BigInteger.valueOf(bits[2] & 0xffffffffL).shiftLeft(64));
+        boolean negative = bits[3] < 0;
+        this.value = new BigDecimal(negative ? coefficient.negate() : coefficient,
+                (bits[3] >>> 16) & 0xff);
+        this.negativeZero = negative && coefficient.signum() == 0;
+    }
+
+    private Decimal(BigDecimal value, boolean negativeZero) {
         this.value = value;
+        this.negativeZero = negativeZero;
+    }
+
+    public static int[] GetBits(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        BigInteger coefficient = value.value.unscaledValue().abs();
+        int scale = value.value.scale();
+        if (scale < 0 || scale > 28 || coefficient.bitLength() > 96) {
+            throw new OverflowException("Value was outside the range of Decimal bits");
+        }
+        return new int[] {
+            coefficient.intValue(),
+            coefficient.shiftRight(32).intValue(),
+            coefficient.shiftRight(64).intValue(),
+            (scale << 16) | (value.value.signum() < 0 || value.negativeZero ? 0x80000000 : 0)
+        };
     }
 
     public static Decimal Parse(String text) {
@@ -37,7 +75,7 @@ public final class Decimal implements IConvertible {
         if (parsed.abs().compareTo(MAX_MAGNITUDE) > 0) {
             throw new OverflowException("Value was outside the range of Decimal");
         }
-        return new Decimal(parsed);
+        return new Decimal(parsed, parsed.signum() == 0 && trimmed.startsWith("-"));
     }
 
     public String ToString(IFormatProvider provider) {
@@ -111,7 +149,7 @@ public final class Decimal implements IConvertible {
 
     @Override
     public Decimal ToDecimal(IFormatProvider provider) {
-        return new Decimal(this.value);
+        return new Decimal(this.value, this.negativeZero);
     }
 
     @Override

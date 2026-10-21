@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "b2c02bc00941e29065ea16a7b372933a693171d8c66e7022f561f0d03ab056b7",
+  "candidateJarSha256": "7dc0e5bf933dcd1fa5143936af5a5afd509e51911ede0a66e5bde0683f8d65fa",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -179,11 +179,13 @@
       "upstreamDeclaredNonAccessorMethods": 78,
       "upstreamDeclaredProperties": 1,
       "upstreamPublicConstructors": 9,
-      "javaPublicConstructors": 2,
+      "javaPublicConstructors": 3,
       "javaPublicHeader": "public final class System.Decimal implements System.IConvertible {",
       "javaPublicDeclarations": [
         "public System.Decimal(int);",
         "public System.Decimal(long);",
+        "public System.Decimal(int[]);",
+        "public static int[] GetBits(System.Decimal);",
         "public static System.Decimal Parse(java.lang.String);",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public System.TypeCode GetTypeCode();",

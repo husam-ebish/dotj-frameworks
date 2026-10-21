@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "00ef026ac456ed18af0500587f2afbd7d628a36f9fb31f368c38a64623bc9f31",
+  "oracleEvidenceSha256": "672e0725c5f74f09eed0ebb13fb3d1443e3238b4ab47396987f3d7f0f250f318",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "fbe8df7b0cf45c560ec96b986fe02bf468f407f35830a44f218db1b57208fbff",
+  "javaCandidateEvidenceSha256": "9d1d484f5539a16145b2fa89c485c78b89696533d35fa1c688207d19751cc8bb",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 113,
+  "nameLevelMissingMethodCount": 112,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -3264,6 +3264,8 @@
       "javaCandidateDeclaredPublicDeclarations": [
         "public System.Decimal(int);",
         "public System.Decimal(long);",
+        "public System.Decimal(int[]);",
+        "public static int[] GetBits(System.Decimal);",
         "public static System.Decimal Parse(java.lang.String);",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public System.TypeCode GetTypeCode();",
@@ -3339,6 +3341,7 @@
           "TryParse": 9
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "GetBits": 1,
           "GetTypeCode": 1,
           "Parse": 1,
           "ToBoolean": 1,
@@ -3375,7 +3378,6 @@
           "Equals",
           "Floor",
           "FromOACurrency",
-          "GetBits",
           "GetHashCode",
           "IsCanonical",
           "IsEvenInteger",
