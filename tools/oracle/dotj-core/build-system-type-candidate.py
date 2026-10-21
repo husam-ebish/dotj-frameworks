@@ -81,6 +81,7 @@ def main():
         "System.Type[] GetOptionalCustomModifiers()",
         "System.Reflection.MemberInfo[] GetDefaultMembers()",
         "System.Reflection.MemberInfo[] GetMember(System.String)",
+        "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.BindingFlags)",
         "System.Reflection.MemberInfo[] GetMembers()",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
@@ -281,6 +282,21 @@ def main():
     for key in ("stringLower", "stringMissing", "objectMissing"):
         assert member_name[key] == {"members": [], "exception": None, "paramName": None}
     assert member_name["nullName"] == {
+        "members": None, "exception": "System.ArgumentNullException", "paramName": "name",
+    }
+    member_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberFlagsBehavior"]
+    for key in ("stringChars", "ignoreCase"):
+        assert member_flags[key] == {
+            "members": [{"name": "Chars", "kind": "Property"}],
+            "exception": None, "paramName": None,
+        }
+    assert member_flags["disposableDispose"] == {
+        "members": [{"name": "Dispose", "kind": "Method"}],
+        "exception": None, "paramName": None,
+    }
+    for key in ("publicOnly", "instanceOnly", "nonPublic"):
+        assert member_flags[key] == {"members": [], "exception": None, "paramName": None}
+    assert member_flags["nullName"] == {
         "members": None, "exception": "System.ArgumentNullException", "paramName": "name",
     }
     default_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDefaultMemberBehavior"]
@@ -1560,6 +1576,7 @@ def main():
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String);",
+        "public System.Reflection.MemberInfo[] GetMember(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",

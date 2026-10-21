@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "8027b571d46d07c79f614b0a25a81eb1f89da06cb794754116c1e71d8e994efa",
+  "oracleEvidenceSha256": "0fc18e6aac7e986dde0ef51afb9d95a7ee3f1d9425fb5ae106063db696163dd1",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "d87d518a6d00d95f3e9176efee763b8f593f5c2f78eba32bb73e398ab3050f96",
+  "javaCandidateEvidenceSha256": "745cda1b2355dbc0a617b2aea107bb64353def33e4974df4f9ac95a8f2c0750a",
   "types": [
     {
       "fullName": "System.Type",
@@ -3466,6 +3466,7 @@
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String);",
+        "public System.Reflection.MemberInfo[] GetMember(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
@@ -3586,7 +3587,7 @@
           "GetHashCode": 1,
           "GetInterface": 2,
           "GetInterfaces": 1,
-          "GetMember": 1,
+          "GetMember": 2,
           "GetMembers": 1,
           "GetNestedType": 1,
           "GetNestedTypes": 1,

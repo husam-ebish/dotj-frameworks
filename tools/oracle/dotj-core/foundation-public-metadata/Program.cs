@@ -391,6 +391,20 @@ static object ObserveMemberName(Type type, string? name)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveMemberFlags(Type type, string? name, BindingFlags flags)
+{
+    try
+    {
+        return new { members = type.GetMember(name!, flags).Select(member => new
+            { name = member.Name, kind = member.MemberType.ToString() }).ToArray(),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { members = (object[]?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -827,6 +841,16 @@ var result = new
         disposableDispose = ObserveMemberName(typeof(IDisposable), "Dispose"),
         objectMissing = ObserveMemberName(typeof(object), "Missing"),
         nullName = ObserveMemberName(typeof(string), null),
+    },
+    selectedMemberFlagsBehavior = new
+    {
+        stringChars = ObserveMemberFlags(typeof(string), "Chars", BindingFlags.Public | BindingFlags.Instance),
+        publicOnly = ObserveMemberFlags(typeof(string), "Chars", BindingFlags.Public),
+        instanceOnly = ObserveMemberFlags(typeof(string), "Chars", BindingFlags.Instance),
+        nonPublic = ObserveMemberFlags(typeof(string), "Chars", BindingFlags.NonPublic | BindingFlags.Instance),
+        ignoreCase = ObserveMemberFlags(typeof(string), "chars", BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase),
+        disposableDispose = ObserveMemberFlags(typeof(IDisposable), "Dispose", BindingFlags.Public | BindingFlags.Instance),
+        nullName = ObserveMemberFlags(typeof(string), null, BindingFlags.Public | BindingFlags.Instance),
     },
     selectedCustomModifierBehavior = new[]
     {
