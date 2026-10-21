@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 49 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 50 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "ea6f694f76d98db3df1f11b04b1645880abc26f71ecf0fd33fa8d0959586f098",
+  "jarSha256": "bd56c0e68c6f4cbddc5bd670c8bbb1667636bca269afb86af2389a5a12fc1827",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -426,7 +426,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/FormatterConverter.java",
-      "productSha256": "b3884a5d432dcda2da7310c4c754e5ebe7a4f407c0d0dbbc16c619ff8c869215",
+      "productSha256": "4b57ca063695402a7dde03d109fc474150e8984ab3b94187fde00aa034661502",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/FormatterConverter.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/FormatterConverter.cs",
       "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
@@ -454,13 +454,24 @@
       "sharedIdentifierShinglesOfLength12": 0
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/SerializationException.java",
+      "productSha256": "5e3a2c87f51b3c2dc3346dce3a2fb0184164936401a5d9a639f4659b71bd81a8",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/SerializationException.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/SerializationException.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "fa874405661c0153163750723b7d6edcde6d52efcf814e26fc53654d07c435fb",
+      "productIdentifierCount": 44,
+      "upstreamIdentifierCount": 114,
+      "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/SerializationInfo.java",
-      "productSha256": "6a3cef449db384efd070eee8f748f56c81d6aa0e8c53f7da074ead7f3fe84653",
+      "productSha256": "461cda0086366de5582cfcf1497ea7a8ae57ef8c2442072a20b4e6ef771d75fb",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/SerializationInfo.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/SerializationInfo.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "ac46a434129d35bbc9bc37cdf98ad00775b581d4645eb7007c29c08861b04db0",
-      "productIdentifierCount": 87,
+      "productIdentifierCount": 231,
       "upstreamIdentifierCount": 1553,
       "sharedIdentifierShinglesOfLength12": 0
     },
@@ -495,12 +506,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "e284fde5ed4c70fc0be81dace1f04584ad136031152cd9a31564ee9ada5b36b7",
+      "productSha256": "e239214b63f5f0f4c406e19cfe54014ddfa369bd6d06a9495e4e621f669fa56f",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
-      "productIdentifierCount": 8338,
+      "productIdentifierCount": 8361,
       "upstreamIdentifierCount": 3542,
       "sharedIdentifierShinglesOfLength12": 0
     },
