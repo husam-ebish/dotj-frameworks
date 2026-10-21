@@ -531,6 +531,18 @@ var result = new
         isAssignableToValueType = typeof(float).IsAssignableTo(typeof(ValueType)),
         typeCode = Type.GetTypeCode(typeof(float)).ToString(),
     },
+    selectedDoubleTypeIdentityBehavior = new
+    {
+        name = typeof(double).Name,
+        fullName = typeof(double).FullName,
+        baseType = typeof(double).BaseType?.FullName,
+        isPrimitive = typeof(double).IsPrimitive,
+        isValueType = typeof(double).IsValueType,
+        isSealed = typeof(double).IsSealed,
+        isClass = typeof(double).IsClass,
+        isAssignableToValueType = typeof(double).IsAssignableTo(typeof(ValueType)),
+        typeCode = Type.GetTypeCode(typeof(double)).ToString(),
+    },
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),

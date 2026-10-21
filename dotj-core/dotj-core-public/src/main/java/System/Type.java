@@ -352,6 +352,7 @@ public abstract class Type extends MemberInfo {
             case "System.Int16" -> fromJavaClass(Short.class);
             case "System.Int64" -> fromJavaClass(Long.class);
             case "System.Single" -> fromJavaClass(Float.class);
+            case "System.Double" -> fromJavaClass(Double.class);
             case "System.Int32" -> fromJavaClass(Int32.class);
             case "System.Object" -> fromJavaClass(Object.class);
             case "System.ValueType" -> fromJavaClass(Number.class);
@@ -599,6 +600,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Short.class) return "Int16";
         if (this.definition == Long.class) return "Int64";
         if (this.definition == Float.class) return "Single";
+        if (this.definition == Double.class) return "Double";
         if (this.definition == Int32.class) return "Int32";
         if (this.definition == Object.class) return "Object";
         if (this.definition == Number.class) return "ValueType";
@@ -664,6 +666,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Short.class
                 || this.definition == Long.class
                 || this.definition == Float.class
+                || this.definition == Double.class
                 || this.definition == Int32.class
                 || this.definition == Object.class || this.definition == Number.class
                 || this.definition == java.lang.reflect.Array.class || this.definition == Enum.class) {
@@ -694,7 +697,8 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == Int32.class || this.definition == Boolean.class
                 || this.definition == Character.class || this.definition == Short.class
-                || this.definition == Long.class || this.definition == Float.class) {
+                || this.definition == Long.class || this.definition == Float.class
+                || this.definition == Double.class) {
             return fromJavaClass(Number.class);
         }
         if (this.definition == Decimal.class || this.definition == DateTime.class) {
@@ -727,6 +731,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == Short.class
                         || this.definition == Long.class
                         || this.definition == Float.class
+                        || this.definition == Double.class
                         || this.definition == Decimal.class
                         || this.definition == DateTime.class
                         || this.definition == MemberTypes.class
@@ -736,7 +741,8 @@ public abstract class Type extends MemberInfo {
     public boolean get_IsPrimitive() {
         return this.definition == Int32.class || this.definition == Boolean.class
                 || this.definition == Character.class || this.definition == Short.class
-                || this.definition == Long.class || this.definition == Float.class;
+                || this.definition == Long.class || this.definition == Float.class
+                || this.definition == Double.class;
     }
 
     public boolean get_IsAbstract() {
@@ -751,6 +757,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Short.class
                 || this.definition == Long.class
                 || this.definition == Float.class
+                || this.definition == Double.class
                 || this.definition == Int32.class
                 || this.definition == Decimal.class || this.definition == DateTime.class
                 || this.get_IsEnum();
