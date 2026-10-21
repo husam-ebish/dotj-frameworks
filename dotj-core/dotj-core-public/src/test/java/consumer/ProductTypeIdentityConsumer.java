@@ -411,6 +411,21 @@ public final class ProductTypeIdentityConsumer {
                 }
             }
         }
+        for (String acceptedLocale : new String[] {"fr-CH", "zh-Hant", "ja-JP"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, Culture=" + acceptedLocale) != string) {
+                throw new AssertionError("Selected locale rejected: " + acceptedLocale);
+            }
+        }
+        for (String invalidLocale : new String[] {"123", "١٢٣", "é"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, Culture=" + invalidLocale);
+                throw new AssertionError("Invalid locale accepted: " + invalidLocale);
+            } catch (CultureNotFoundException expected) {
+                if (!"name".equals(expected.get_ParamName())) {
+                    throw new AssertionError("Unicode locale parameter changed", expected);
+                }
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

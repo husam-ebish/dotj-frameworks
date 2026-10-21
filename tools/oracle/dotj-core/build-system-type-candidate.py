@@ -523,6 +523,13 @@ def main():
         **{key: {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"}
            for key in ("dot", "doubleHyphen", "trailingHyphen", "leadingHyphen", "slash", "atSign")},
     }
+    culture_unicode = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCultureUnicodeBoundaryBehavior"]
+    assert culture_unicode == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("swissFrench", "scriptTag", "japanese")},
+        **{key: {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"}
+           for key in ("numericTag", "arabicDigits", "accentedName")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
