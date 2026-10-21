@@ -544,6 +544,14 @@ def main():
            for key in ("plusSign", "negativeSign", "spaceBeforeDot", "spaceAfterDot",
                        "fiveParts", "emptyMiddle")},
     }
+    known_order = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedKnownAssemblyAttributeOrderBehavior"]
+    assert known_order == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("contentThenRetargetable", "retargetableThenContent",
+                       "architectureThenRetargetable", "retargetableThenVersion")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("cultureThenInvalidToken", "invalidTokenThenCulture")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

@@ -452,6 +452,24 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned Version syntax error.
             }
         }
+        for (String acceptedOrdering : new String[] {
+                "ContentType=WindowsRuntime, Retargetable=Yes",
+                "Retargetable=Yes, ContentType=WindowsRuntime",
+                "ProcessorArchitecture=X86, Retargetable=Yes",
+                "Retargetable=No, Version=1.2"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + acceptedOrdering) != string) {
+                throw new AssertionError("Selected known-attribute order rejected: " + acceptedOrdering);
+            }
+        }
+        for (String invalidOrdering : new String[] {
+                "Culture=123, PublicKeyToken=xyz", "PublicKeyToken=xyz, Culture=123"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalidOrdering);
+                throw new AssertionError("Malformed known-attribute order accepted: " + invalidOrdering);
+            } catch (FileLoadException expected) {
+                // Selected parse error precedes invalid culture.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
