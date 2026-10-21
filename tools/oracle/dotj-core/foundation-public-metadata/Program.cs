@@ -1279,6 +1279,15 @@ var result = new
         nullParameter = ObserveMethodArgumentName(() => typeof(IDisposable).GetMethod("Dispose")!
             .GetCustomAttributes((Type)null!, false)),
     },
+    selectedMethodIsDefinedBehavior = new
+    {
+        direct = typeof(IDisposable).GetMethod("Dispose")!.IsDefined(typeof(Attribute), false),
+        inherited = typeof(IFormattable).GetMethod("ToString")!.IsDefined(typeof(Attribute), true),
+        nullError = ObserveMethodError(() => typeof(IDisposable).GetMethod("Dispose")!
+            .IsDefined((Type)null!, false)),
+        nullParameter = ObserveMethodArgumentName(() => typeof(IDisposable).GetMethod("Dispose")!
+            .IsDefined((Type)null!, false)),
+    },
     selectedNongenericMethodErrorBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
