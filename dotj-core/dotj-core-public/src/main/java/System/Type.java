@@ -112,6 +112,10 @@ public abstract class Type extends MemberInfo {
                 }
                 return null;
             }
+            if (assemblyName.startsWith("\"") != assemblyName.endsWith("\"")
+                    || assemblyName.startsWith("'") != assemblyName.endsWith("'")) {
+                throw new FileLoadException("Unbalanced assembly name quotes: " + assembly);
+            }
             if (assemblyName.length() >= 2
                     && (assemblyName.startsWith("\"") && assemblyName.endsWith("\"")
                             || assemblyName.startsWith("'") && assemblyName.endsWith("'"))) {

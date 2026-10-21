@@ -891,6 +891,15 @@ var result = new
         singleQuotes = ObserveGetType("System.String, 'System.Private.CoreLib'", false, false),
         quotedUnknown = ObserveGetType("System.String, \"Missing.Assembly\"", false, false),
     },
+    selectedUnbalancedAssemblyQuoteBehavior = new
+    {
+        missingDoubleClose = ObserveGetType("System.String, \"System.Private.CoreLib", false, false),
+        missingDoubleOpen = ObserveGetType("System.String, System.Private.CoreLib\"", false, false),
+        missingSingleClose = ObserveGetType("System.String, 'System.Private.CoreLib", false, false),
+        missingSingleOpen = ObserveGetType("System.String, System.Private.CoreLib'", false, false),
+        nestedDoubleInSingle = ObserveGetType("System.String, '\"System.Private.CoreLib\"'", false, false),
+        nestedSingleInDouble = ObserveGetType("System.String, \"'System.Private.CoreLib'\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

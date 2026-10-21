@@ -567,6 +567,13 @@ def main():
         **{key: {"result": None, "exception": None, "paramName": None}
            for key in ("quotedInnerSpaces", "spaceBeforeDll", "quotedUnknown")},
     }
+    unbalanced_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUnbalancedAssemblyQuoteBehavior"]
+    assert unbalanced_names == {
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("missingDoubleClose", "missingDoubleOpen", "missingSingleClose", "missingSingleOpen")},
+        **{key: {"result": None, "exception": None, "paramName": None}
+           for key in ("nestedDoubleInSingle", "nestedSingleInDouble")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

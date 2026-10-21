@@ -502,6 +502,20 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected missing simple name resolved: " + missingSimpleName);
             }
         }
+        for (String unbalancedName : new String[] {
+                "\"System.Private.CoreLib", "System.Private.CoreLib\"",
+                "'System.Private.CoreLib", "System.Private.CoreLib'"}) {
+            try {
+                Type.GetType("System.String, " + unbalancedName);
+                throw new AssertionError("Unbalanced assembly name accepted: " + unbalancedName);
+            } catch (FileLoadException expected) {
+                // Selected pinned quote parse error.
+            }
+        }
+        if (Type.GetType("System.String, '\"System.Private.CoreLib\"'") != null
+                || Type.GetType("System.String, \"'System.Private.CoreLib'\"") != null) {
+            throw new AssertionError("Nested assembly name quotes resolved");
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
