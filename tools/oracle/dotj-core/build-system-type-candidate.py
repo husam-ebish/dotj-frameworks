@@ -242,6 +242,10 @@ def main():
                                "lowerCase": "12,300.00 %",
                                "negative": "-12,300.00 %",
                                "small": "4,200.00 %"}
+    general_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32GeneralFormatBehavior"]
+    assert general_formats == {"defaultFormat": "42", "paddedPrecision": "42",
+                               "lowerCase": "42", "zeroPrecision": "42",
+                               "negative": "-42"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

@@ -189,6 +189,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format.equals("D-1") || format.equals("X-1")) {
             return format;
         }
+        if (format.matches("[gG][0-9]*")) {
+            return Integer.toString(this.value);
+        }
         if (format.matches("[dD][0-9]+")) {
             int precision;
             try {

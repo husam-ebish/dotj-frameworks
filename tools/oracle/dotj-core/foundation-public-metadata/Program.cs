@@ -468,6 +468,19 @@ var result = new
         small = ((IFormattable)42).ToString("P",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32GeneralFormatBehavior = new
+    {
+        defaultFormat = ((IFormattable)42).ToString("G",
+            System.Globalization.CultureInfo.InvariantCulture),
+        paddedPrecision = ((IFormattable)42).ToString("G5",
+            System.Globalization.CultureInfo.InvariantCulture),
+        lowerCase = ((IFormattable)42).ToString("g5",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zeroPrecision = ((IFormattable)42).ToString("G0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-42)).ToString("G5",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
