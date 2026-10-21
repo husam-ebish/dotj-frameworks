@@ -83,6 +83,7 @@ def main():
         "System.Reflection.MemberInfo[] GetMember(System.String)",
         "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.BindingFlags)",
         "System.Reflection.MemberInfo[] GetMembers()",
+        "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
@@ -271,6 +272,18 @@ def main():
                and row["members"][0]["declaring"] == row["owner"]
                and row["members"][0]["reflected"] == row["owner"]
                for row in interface_members)
+    flagged_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMembersFlagsBehavior"]
+    assert [(row["owner"], row["publicInstance"][0]["name"])
+            for row in flagged_members] == [
+        ("System.IDisposable", "Dispose"),
+        ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"),
+        ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(len(row["publicInstance"]) == 1
+               and row["publicInstance"][0]["kind"] == "Method"
+               and row["publicOnly"] == [] and row["nonPublicInstance"] == []
+               for row in flagged_members)
     member_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberNameBehavior"]
     for key, name in (("stringChars", "Chars"), ("listItem", "Item")):
         assert member_name[key] == {"members": [{"name": name, "kind": "Property"}],
@@ -1578,6 +1591,7 @@ def main():
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String);",
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetMembers();",
+        "public System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
