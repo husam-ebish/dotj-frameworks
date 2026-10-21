@@ -828,6 +828,30 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Unsigned converter result identity changed");
             }
         }
+        java.math.BigInteger smallUnsigned64 = java.math.BigInteger.valueOf(42);
+        if (selectedConverter.ToInt32(smallUnsigned64) != 42
+                || selectedConverter.ToByte(smallUnsigned64) != 42
+                || selectedConverter.ToUInt16(smallUnsigned64) != 42) {
+            throw new AssertionError("Selected UInt64 narrowing values changed");
+        }
+        try {
+            selectedConverter.ToInt32(maxUnsigned64);
+            throw new AssertionError("UInt64 to Int32 overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToByte(maxUnsigned64);
+            throw new AssertionError("UInt64 to Byte overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToUInt16(maxUnsigned64);
+            throw new AssertionError("UInt64 to UInt16 overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
         for (Object value : new Object[] {"256", -1}) {
             try {
                 selectedConverter.ToByte(value);

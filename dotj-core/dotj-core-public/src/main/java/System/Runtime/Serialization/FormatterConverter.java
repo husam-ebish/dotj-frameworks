@@ -162,6 +162,13 @@ public final class FormatterConverter implements IFormatterConverter {
             }
             return parsed.shortValue();
         }
+        if (value instanceof java.math.BigInteger unsigned) {
+            this.checkedUInt64(unsigned);
+            if (unsigned.compareTo(java.math.BigInteger.valueOf(255)) > 0) {
+                throw new OverflowException("Value was outside the range of Byte");
+            }
+            return unsigned.shortValue();
+        }
         return convertible(value).ToByte(null);
     }
 
@@ -246,6 +253,13 @@ public final class FormatterConverter implements IFormatterConverter {
                 throw new OverflowException("Value was outside the range of Int32");
             }
             return number.intValue();
+        }
+        if (value instanceof java.math.BigInteger unsigned) {
+            this.checkedUInt64(unsigned);
+            if (unsigned.compareTo(java.math.BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+                throw new OverflowException("Value was outside the range of Int32");
+            }
+            return unsigned.intValue();
         }
         return convertible(value).ToInt32(null);
     }
@@ -334,6 +348,13 @@ public final class FormatterConverter implements IFormatterConverter {
                 throw new OverflowException("Value was outside the range of UInt16");
             }
             return parsed.intValue();
+        }
+        if (value instanceof java.math.BigInteger unsigned) {
+            this.checkedUInt64(unsigned);
+            if (unsigned.compareTo(java.math.BigInteger.valueOf(65535)) > 0) {
+                throw new OverflowException("Value was outside the range of UInt16");
+            }
+            return unsigned.intValue();
         }
         return convertible(value).ToUInt16(null);
     }
