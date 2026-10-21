@@ -1039,6 +1039,20 @@ var result = new
         parameter = new { name = item.Item1.GetMethod(item.Item2)!.ReturnParameter.Name,
             type = item.Item1.GetMethod(item.Item2)!.ReturnParameter.ParameterType.FullName,
             position = item.Item1.GetMethod(item.Item2)!.ReturnParameter.Position } }).ToArray(),
+    selectedParameterMemberBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item =>
+    {
+        MethodInfo method = item.Item1.GetMethod(item.Item2)!;
+        return new { owner = item.Item1.FullName, name = item.Item2,
+            parameterMembers = method.GetParameters()
+                .Select(parameter => new { name = parameter.Member.Name,
+                    sameReference = ReferenceEquals(parameter.Member, method) }).ToArray(),
+            returnMember = method.ReturnParameter.Member.Name,
+            returnSameReference = ReferenceEquals(method.ReturnParameter.Member, method) };
+    }).ToArray(),
     selectedParameterFlagBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

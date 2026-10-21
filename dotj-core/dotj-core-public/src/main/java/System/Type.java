@@ -2090,7 +2090,7 @@ public abstract class Type extends MemberInfo {
         @Override
         public ParameterInfo get_ReturnParameter() {
             return new DefaultParameterInfo(this.name.equals("ToString") ? "" : null,
-                    this.get_ReturnType(), -1);
+                    this.get_ReturnType(), -1, this);
         }
 
         @Override
@@ -2098,12 +2098,12 @@ public abstract class Type extends MemberInfo {
             return switch (this.name) {
                 case "Dispose" -> new ParameterInfo[0];
                 case "CompareTo" -> new ParameterInfo[] {
-                    new DefaultParameterInfo("obj", fromJavaClass(Object.class), 0)};
+                    new DefaultParameterInfo("obj", fromJavaClass(Object.class), 0, this)};
                 case "ToString" -> new ParameterInfo[] {
-                    new DefaultParameterInfo("format", fromJavaClass(String.class), 0),
-                    new DefaultParameterInfo("formatProvider", fromJavaClass(IFormatProvider.class), 1)};
+                    new DefaultParameterInfo("format", fromJavaClass(String.class), 0, this),
+                    new DefaultParameterInfo("formatProvider", fromJavaClass(IFormatProvider.class), 1, this)};
                 case "GetFormat" -> new ParameterInfo[] {
-                    new DefaultParameterInfo("formatType", fromJavaClass(Type.class), 0)};
+                    new DefaultParameterInfo("formatType", fromJavaClass(Type.class), 0, this)};
                 default -> throw new UnsupportedOperationException("Method parameters are not mapped");
             };
         }
@@ -2120,8 +2120,9 @@ public abstract class Type extends MemberInfo {
     }
 
     private static final class DefaultParameterInfo extends ParameterInfo {
-        private DefaultParameterInfo(String name, Type parameterType, int position) {
-            super(name, parameterType, position);
+        private DefaultParameterInfo(String name, Type parameterType, int position,
+                MemberInfo member) {
+            super(name, parameterType, position, member);
         }
     }
 
