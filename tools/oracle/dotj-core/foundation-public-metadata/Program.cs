@@ -907,6 +907,19 @@ var result = new
         publicOnly = ObserveMembersFlags(type, BindingFlags.Public),
         nonPublicInstance = ObserveMembersFlags(type, BindingFlags.NonPublic | BindingFlags.Instance),
     }).ToArray(),
+    selectedMethodInfoBehavior = new
+    {
+        methodBase = new { name = typeof(MethodBase).FullName,
+            parent = typeof(MethodBase).BaseType?.FullName, isAbstract = typeof(MethodBase).IsAbstract },
+        methodInfo = new { name = typeof(MethodInfo).FullName,
+            parent = typeof(MethodInfo).BaseType?.FullName, isAbstract = typeof(MethodInfo).IsAbstract },
+        disposableMethods = typeof(IDisposable).GetMethods(BindingFlags.Public | BindingFlags.Instance)
+            .Select(method => new { name = method.Name, kind = method.MemberType.ToString() }).ToArray(),
+        publicOnly = typeof(IDisposable).GetMethods(BindingFlags.Public)
+            .Select(method => method.Name).ToArray(),
+        nonPublicInstance = typeof(IDisposable).GetMethods(BindingFlags.NonPublic | BindingFlags.Instance)
+            .Select(method => method.Name).ToArray(),
+    },
     selectedNestedTypeFlagsBehavior = new
     {
         publicChild = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PublicChild", BindingFlags.Public),

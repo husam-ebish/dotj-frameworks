@@ -17,6 +17,8 @@ EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException", "FileLoadException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBase.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")
@@ -85,6 +87,7 @@ def main():
         "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags)",
         "System.Reflection.MemberInfo[] GetMembers()",
         "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
+        "System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags)",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
@@ -290,6 +293,15 @@ def main():
                and row["publicInstance"][0]["kind"] == "Method"
                and row["publicOnly"] == [] and row["nonPublicInstance"] == []
                for row in flagged_members)
+    method_info = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodInfoBehavior"]
+    assert method_info == {
+        "methodBase": {"name": "System.Reflection.MethodBase",
+                       "parent": "System.Reflection.MemberInfo", "isAbstract": True},
+        "methodInfo": {"name": "System.Reflection.MethodInfo",
+                       "parent": "System.Reflection.MethodBase", "isAbstract": True},
+        "disposableMethods": [{"name": "Dispose", "kind": "Method"}],
+        "publicOnly": [], "nonPublicInstance": [],
+    }
     member_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberNameBehavior"]
     for key, name in (("stringChars", "Chars"), ("listItem", "Item")):
         assert member_name[key] == {"members": [{"name": name, "kind": "Property"}],
@@ -1626,6 +1638,7 @@ def main():
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags);",
+        "public System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",

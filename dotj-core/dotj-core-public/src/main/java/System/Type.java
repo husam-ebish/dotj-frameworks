@@ -10,6 +10,8 @@ import System.IO.FileNotFoundException;
 import System.IO.FileLoadException;
 import System.IO.IOException;
 import System.Reflection.MemberInfo;
+import System.Reflection.MethodBase;
+import System.Reflection.MethodInfo;
 import System.Reflection.MemberTypes;
 import System.Reflection.BindingFlags;
 import System.Reflection.GenericParameterAttributes;
@@ -403,6 +405,8 @@ public abstract class Type extends MemberInfo {
             case "System.TypeCode" -> fromJavaClass(TypeCode.class);
             case "System.Type" -> fromJavaClass(Type.class);
             case "System.Reflection.MemberInfo" -> fromJavaClass(MemberInfo.class);
+            case "System.Reflection.MethodBase" -> fromJavaClass(MethodBase.class);
+            case "System.Reflection.MethodInfo" -> fromJavaClass(MethodInfo.class);
             case "System.Exception" -> fromJavaClass(Exception.class);
             case "System.SystemException" -> fromJavaClass(SystemException.class);
             case "System.ArgumentException" -> fromJavaClass(ArgumentException.class);
@@ -508,6 +512,8 @@ public abstract class Type extends MemberInfo {
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
             case "system.type" -> ignoreCase ? fromJavaClass(Type.class) : null;
             case "system.reflection.memberinfo" -> ignoreCase ? fromJavaClass(MemberInfo.class) : null;
+            case "system.reflection.methodbase" -> ignoreCase ? fromJavaClass(MethodBase.class) : null;
+            case "system.reflection.methodinfo" -> ignoreCase ? fromJavaClass(MethodInfo.class) : null;
             case "system.exception" -> ignoreCase ? fromJavaClass(Exception.class) : null;
             case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
             case "system.argumentexception" -> ignoreCase ? fromJavaClass(ArgumentException.class) : null;
@@ -879,6 +885,8 @@ public abstract class Type extends MemberInfo {
     public boolean get_IsAbstract() {
         return this.definition == Type.class || this.definition == Number.class
                 || this.definition == Enum.class || this.definition == java.lang.reflect.Array.class
+                || this.definition == MemberInfo.class || this.definition == MethodBase.class
+                || this.definition == MethodInfo.class
                 || this.get_IsInterface();
     }
 
@@ -1397,6 +1405,20 @@ public abstract class Type extends MemberInfo {
         throw new UnsupportedOperationException("Flagged member enumeration is not mapped for this candidate type");
     }
 
+    public MethodInfo[] GetMethods(BindingFlags flags) {
+        if (flags == null) {
+            throw new NullPointerException("flags");
+        }
+        String interfaceMethod = this.selectedInterfaceMethodName();
+        if (interfaceMethod != null) {
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)) {
+                return new MethodInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+            }
+            return new MethodInfo[0];
+        }
+        throw new UnsupportedOperationException("Flagged method enumeration is not mapped for this candidate type");
+    }
+
     private String selectedInterfaceMethodName() {
         if (this.definition == IDisposable.class) {
             return "Dispose";
@@ -1753,7 +1775,7 @@ public abstract class Type extends MemberInfo {
         return this == other;
     }
 
-    private static final class DefaultMethodMember extends MemberInfo {
+    private static final class DefaultMethodMember extends MethodInfo {
         private final String name;
         private final Type owner;
 

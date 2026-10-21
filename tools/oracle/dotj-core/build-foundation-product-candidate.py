@@ -17,6 +17,8 @@ SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/BindingFlags.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/GenericParameterAttributes.java")
@@ -58,6 +60,8 @@ EXPECTED_CLASSES = [
     "System/Reflection/GenericParameterAttributes.class",
     "System/Reflection/MemberInfo.class",
     "System/Reflection/MemberTypes.class",
+    "System/Reflection/MethodBase.class",
+    "System/Reflection/MethodInfo.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",
