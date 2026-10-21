@@ -69,6 +69,19 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, NotAnAssembly") != null) {
             throw new AssertionError("Selected assembly-qualified lookup changed");
         }
+        if (Type.GetType("System.String, system.private.corelib") != string
+                || Type.GetType("System.String, SYSTEM.PRIVATE.CORELIB") != string
+                || Type.GetType("System.String, MSCORLIB") != string
+                || Type.GetType("System.String, MsCoRlIb") != string
+                || Type.GetType("System.String, UnknownAssembly") != null) {
+            throw new AssertionError("Selected assembly-name casing changed");
+        }
+        try {
+            Type.GetType("System.String, UnknownAssembly", true);
+            throw new AssertionError("Unknown assembly accepted");
+        } catch (FileNotFoundException expected) {
+            // Selected pinned error type.
+        }
         if (Type.GetType("") != null || Type.GetType(" System.String") != string
                 || Type.GetType("System.String ") != null
                 || Type.GetType("System.String , System.Private.CoreLib") != null

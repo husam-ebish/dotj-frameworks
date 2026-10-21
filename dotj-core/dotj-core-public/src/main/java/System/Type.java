@@ -102,7 +102,8 @@ public abstract class Type extends MemberInfo {
                 }
                 return null;
             }
-            if (assembly.equals("System.Private.CoreLib") || assembly.equals("mscorlib")) {
+            if (assembly.equalsIgnoreCase("System.Private.CoreLib")
+                    || assembly.equalsIgnoreCase("mscorlib")) {
                 name = typeName.substring(0, assemblySeparator).stripLeading();
             } else if (throwOnError) {
                 throw new FileNotFoundException("Could not load assembly: " + assembly);
