@@ -11,7 +11,11 @@ import java.util.List;
 
 /** Bounded type identity for serialization method signatures. */
 public class SerializationInfo {
-    private final Type objectType;
+    private Type objectType;
+    private String fullTypeName;
+    private String assemblyName;
+    private boolean fullTypeNameSetExplicit;
+    private boolean assemblyNameSetExplicit;
     private final IFormatterConverter converter;
     private final Map<String, SerializationEntry> members = new LinkedHashMap<>();
 
@@ -29,6 +33,9 @@ public class SerializationInfo {
         }
         this.objectType = type;
         this.converter = converter;
+        this.fullTypeName = type.get_FullName();
+        String qualified = type.get_AssemblyQualifiedName();
+        this.assemblyName = qualified.substring(qualified.indexOf(", ") + 2);
     }
 
     public Type get_ObjectType() {
@@ -36,7 +43,50 @@ public class SerializationInfo {
     }
 
     public String get_FullTypeName() {
-        return this.objectType.get_FullName();
+        return this.fullTypeName;
+    }
+
+    public void set_FullTypeName(String value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        this.fullTypeName = value;
+        this.fullTypeNameSetExplicit = true;
+    }
+
+    public String get_AssemblyName() {
+        return this.assemblyName;
+    }
+
+    public void set_AssemblyName(String value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        this.assemblyName = value;
+        this.assemblyNameSetExplicit = true;
+    }
+
+    public boolean get_IsFullTypeNameSetExplicit() {
+        return this.fullTypeNameSetExplicit;
+    }
+
+    public boolean get_IsAssemblyNameSetExplicit() {
+        return this.assemblyNameSetExplicit;
+    }
+
+    public void SetType(Type type) {
+        if (type == null) {
+            throw new ArgumentNullException("type");
+        }
+        if (this.objectType == type) {
+            return;
+        }
+        this.objectType = type;
+        this.fullTypeName = type.get_FullName();
+        String qualified = type.get_AssemblyQualifiedName();
+        this.assemblyName = qualified.substring(qualified.indexOf(", ") + 2);
+        this.fullTypeNameSetExplicit = false;
+        this.assemblyNameSetExplicit = false;
     }
 
     public int get_MemberCount() {
