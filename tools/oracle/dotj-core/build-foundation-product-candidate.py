@@ -167,6 +167,8 @@ def main():
         "negativeFormat": "~42.00",
         "decimalFormat": "~42", "paddedDecimalFormat": "~00042",
         "providerText": "~42",
+        "generalFormat": "~42", "lowerGeneral": "~42",
+        "generalPrecision": "~42", "roundTrip": "~42",
     }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,

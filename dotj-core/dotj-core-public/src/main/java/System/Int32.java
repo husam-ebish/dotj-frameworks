@@ -627,10 +627,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return this.ToString("F2", provider);
         }
         if (format.matches("[gG][0-9]*")) {
-            return Integer.toString(this.value);
+            return this.ToString("D", provider);
         }
         if (format.equals("R")) {
-            return Integer.toString(this.value);
+            return this.ToString("D", provider);
         }
         if (format.matches("[dD][0-9]+")) {
             int precision;

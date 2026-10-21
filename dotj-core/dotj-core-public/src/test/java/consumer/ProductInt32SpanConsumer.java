@@ -130,6 +130,10 @@ public final class ProductInt32SpanConsumer {
         }
         checkProviderVector(new Int32(-42), "D", "~42", customSign);
         checkProviderVector(new Int32(-42), "D5", "~00042", customSign);
+        checkProviderVector(new Int32(-42), "G", "~42", customSign);
+        checkProviderVector(new Int32(-42), "g2", "~42", customSign);
+        checkProviderVector(new Int32(-42), "G5", "~42", customSign);
+        checkProviderVector(new Int32(-42), "R", "~42", customSign);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,
