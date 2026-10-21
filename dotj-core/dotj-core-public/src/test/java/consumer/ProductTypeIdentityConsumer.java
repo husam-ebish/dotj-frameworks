@@ -259,6 +259,22 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned identity error.
             }
         }
+        for (String retargetable : new String[] {"Yes", "No"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, Retargetable=" + retargetable)
+                    != string) {
+                throw new AssertionError("Selected Retargetable value rejected: " + retargetable);
+            }
+        }
+        for (String invalidRetargetable : new String[] {
+                "Retargetable=true", "Retargetable=false", "Retargetable=1",
+                "Retargetable=Yes, Retargetable=No"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalidRetargetable);
+                throw new AssertionError("Invalid Retargetable accepted: " + invalidRetargetable);
+            } catch (FileLoadException expected) {
+                // Selected pinned identity error.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

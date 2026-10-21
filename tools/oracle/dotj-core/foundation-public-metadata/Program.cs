@@ -750,6 +750,15 @@ var result = new
         unknown = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=xyz", false, false),
         duplicate = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=MSIL, ProcessorArchitecture=X86", false, false),
     },
+    selectedRetargetableAttributeBehavior = new
+    {
+        yes = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=Yes", false, false),
+        no = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=No", false, false),
+        trueValue = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=true", false, false),
+        falseValue = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=false", false, false),
+        numeric = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=1", false, false),
+        duplicate = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=Yes, Retargetable=No", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
