@@ -23,6 +23,7 @@ import System.Reflection.ParameterAttributes;
 import System.Runtime.CompilerServices.NullableAttribute;
 import System.Runtime.Serialization.ISerializable;
 import System.Runtime.Serialization.IFormatterConverter;
+import System.Runtime.Serialization.FormatterConverter;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
@@ -420,6 +421,8 @@ public abstract class Type extends MemberInfo {
             case "System.Runtime.Serialization.ISerializable" -> fromJavaClass(ISerializable.class);
             case "System.Runtime.Serialization.IFormatterConverter" ->
                     fromJavaClass(IFormatterConverter.class);
+            case "System.Runtime.Serialization.FormatterConverter" ->
+                    fromJavaClass(FormatterConverter.class);
             case "System.Runtime.Serialization.SerializationInfo" -> fromJavaClass(SerializationInfo.class);
             case "System.Runtime.Serialization.StreamingContext" -> fromJavaClass(StreamingContext.class);
             case "System.Runtime.Serialization.StreamingContextStates" ->
@@ -547,6 +550,8 @@ public abstract class Type extends MemberInfo {
                     ? fromJavaClass(ISerializable.class) : null;
             case "system.runtime.serialization.iformatterconverter" -> ignoreCase
                     ? fromJavaClass(IFormatterConverter.class) : null;
+            case "system.runtime.serialization.formatterconverter" -> ignoreCase
+                    ? fromJavaClass(FormatterConverter.class) : null;
             case "system.runtime.serialization.serializationinfo" -> ignoreCase
                     ? fromJavaClass(SerializationInfo.class) : null;
             case "system.runtime.serialization.streamingcontext" -> ignoreCase

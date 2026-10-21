@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 48 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 49 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "84efbda195a1b365d0fe1123417b3765c3b20cadd8a12a72a03db4fabd262af8",
+  "jarSha256": "ea6f694f76d98db3df1f11b04b1645880abc26f71ecf0fd33fa8d0959586f098",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -425,8 +425,15 @@
       "sharedIdentifierShinglesOfLength12": 0
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/FormatterConverter.java",
+      "productSha256": "b3884a5d432dcda2da7310c4c754e5ebe7a4f407c0d0dbbc16c619ff8c869215",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/FormatterConverter.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/FormatterConverter.cs",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH"
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/IFormatterConverter.java",
-      "productSha256": "4986334867c76110b7a1d73788467d44ec8e87e16d024ccd15eab40c6f12d5d2",
+      "productSha256": "17a99175149b993b6f5452b15c8b6c79fcd3695911e7a7797e4368b3d7c1bb28",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/IFormatterConverter.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/IFormatterConverter.cs",
       "directNameMatchedUpstreamFile": "FOUND",
@@ -488,12 +495,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "fe5f625e4a71372870ee0ae80ea46968ccc7390e6ca21d9f66d1da6811fa8397",
+      "productSha256": "e284fde5ed4c70fc0be81dace1f04584ad136031152cd9a31564ee9ada5b36b7",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
-      "productIdentifierCount": 8315,
+      "productIdentifierCount": 8338,
       "upstreamIdentifierCount": 3542,
       "sharedIdentifierShinglesOfLength12": 0
     },

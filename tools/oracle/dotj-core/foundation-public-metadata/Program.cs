@@ -717,6 +717,26 @@ static object ObserveSerializationInfoConstruction()
             new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), null!)),
     };
 }
+static object ObserveFormatterConverter()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    return new
+    {
+        constructorCount = typeof(System.Runtime.Serialization.FormatterConverter)
+            .GetConstructors(BindingFlags.Public | BindingFlags.Instance).Length,
+        interfaceName = typeof(System.Runtime.Serialization.FormatterConverter)
+            .GetInterfaces().Single(type => type == typeof(System.Runtime.Serialization.IFormatterConverter)).FullName,
+        integer = converter.ToInt32(42),
+        stringInteger = converter.ToInt32("17"),
+        integerText = converter.ToString(42),
+        integerBoolean = converter.ToBoolean(1),
+        byType = converter.Convert("17", typeof(int)),
+        byTypeCode = converter.Convert("17", TypeCode.Int32),
+        nullIntegerError = ObserveMethodError(() => converter.ToInt32(null!)),
+        nullIntegerParameter = ObserveMethodArgumentName(() => converter.ToInt32(null!)),
+        badIntegerError = ObserveMethodError(() => converter.ToInt32("oops")),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -847,6 +867,7 @@ var result = new
     },
     selectedStreamingContextEqualityBehavior = ObserveStreamingContextEquality(),
     selectedSerializationInfoConstructionBehavior = ObserveSerializationInfoConstruction(),
+    selectedFormatterConverterBehavior = ObserveFormatterConverter(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
