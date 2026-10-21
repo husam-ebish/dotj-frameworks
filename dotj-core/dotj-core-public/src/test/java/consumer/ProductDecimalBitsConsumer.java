@@ -168,6 +168,39 @@ public final class ProductDecimalBitsConsumer {
                 throw new AssertionError("Decimal floor or ceiling changed: " + index);
             }
         }
+        int[][] roundInput = {
+            {125, 0, 0, 0x00020000}, {135, 0, 0, 0x00020000},
+            {125, 0, 0, 0x80020000}, {5, 0, 0, 0x00010000},
+            {5, 0, 0, 0x80010000}, {12345, 0, 0, 0x00020000},
+            {12345, 0, 0, 0x00020000}, {12345, 0, 0, 0x00020000},
+            {12345, 0, 0, 0x00020000}, {-1, -1, -1, 0},
+            {1, 0, 0, 0x001c0000}, {6, 0, 0, 0x001c0000},
+        };
+        int[] decimals = {1, 1, 1, 0, 0, 0, 1, 2, 3, 2, 27, 27};
+        int[][] roundExpected = {
+            {12, 0, 0, 0x00010000}, {14, 0, 0, 0x00010000},
+            {12, 0, 0, 0x80010000}, {0, 0, 0, 0},
+            {0, 0, 0, 0x80000000}, {123, 0, 0, 0},
+            {1234, 0, 0, 0x00010000}, {12345, 0, 0, 0x00020000},
+            {12345, 0, 0, 0x00020000}, {-1, -1, -1, 0},
+            {0, 0, 0, 0x001b0000}, {1, 0, 0, 0x001b0000},
+        };
+        for (int index = 0; index < roundInput.length; index++) {
+            if (!Arrays.equals(Decimal.GetBits(Decimal.Round(
+                    new Decimal(roundInput[index]), decimals[index])), roundExpected[index])) {
+                throw new AssertionError("Decimal round changed: " + index);
+            }
+        }
+        for (int decimalsValue : new int[] {-1, 29}) {
+            try {
+                Decimal.Round(new Decimal(1), decimalsValue);
+                throw new AssertionError("Invalid Decimal precision accepted");
+            } catch (ArgumentOutOfRangeException caught) {
+                if (!"decimals".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Decimal precision parameter changed");
+                }
+            }
+        }
         java.lang.System.out.println("PASS external selected Decimal bits");
     }
 }

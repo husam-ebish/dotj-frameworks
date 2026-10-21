@@ -228,6 +228,25 @@ def main():
         ([123, 0, 0, 0], [123, 0, 0, 0]),
         ([1, 0, 0, -2147483648], [0, 0, 0, -2147483648]),
     ]
+    decimal_round = metadata["selectedDecimalRound"]
+    assert [(entry["input"], entry["decimals"], entry["result"])
+            for entry in decimal_round["valid"]] == [
+        ([125, 0, 0, 131072], 1, [12, 0, 0, 65536]),
+        ([135, 0, 0, 131072], 1, [14, 0, 0, 65536]),
+        ([125, 0, 0, -2147352576], 1, [12, 0, 0, -2147418112]),
+        ([5, 0, 0, 65536], 0, [0, 0, 0, 0]),
+        ([5, 0, 0, -2147418112], 0, [0, 0, 0, -2147483648]),
+        ([12345, 0, 0, 131072], 0, [123, 0, 0, 0]),
+        ([12345, 0, 0, 131072], 1, [1234, 0, 0, 65536]),
+        ([12345, 0, 0, 131072], 2, [12345, 0, 0, 131072]),
+        ([12345, 0, 0, 131072], 3, [12345, 0, 0, 131072]),
+        ([-1, -1, -1, 0], 2, [-1, -1, -1, 0]),
+        ([1, 0, 0, 1835008], 27, [0, 0, 0, 1769472]),
+        ([6, 0, 0, 1835008], 27, [1, 0, 0, 1769472]),
+    ]
+    assert decimal_round["negativeDigits"] == {
+        "type": "System.ArgumentOutOfRangeException", "paramName": "decimals"}
+    assert decimal_round["over28Digits"] == decimal_round["negativeDigits"]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},

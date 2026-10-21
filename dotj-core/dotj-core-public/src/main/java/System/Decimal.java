@@ -85,6 +85,20 @@ public final class Decimal implements IConvertible {
         return roundIntegral(value, RoundingMode.CEILING);
     }
 
+    public static Decimal Round(Decimal value, int decimals) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        if (decimals < 0 || decimals > 28) {
+            throw new ArgumentOutOfRangeException("decimals");
+        }
+        BigDecimal result = value.value.setScale(
+                Math.min(value.value.scale(), decimals), RoundingMode.HALF_EVEN);
+        boolean negativeZero = result.signum() == 0
+                && (value.value.signum() < 0 || value.negativeZero);
+        return new Decimal(result, negativeZero);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
