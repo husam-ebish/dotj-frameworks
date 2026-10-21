@@ -422,6 +422,38 @@ def main():
             ]),
         )
     }
+    radix_styles = {
+        "hex": (["FF", " FF", "FF ", "FFFFFFFF", "100000000", "0xFF"],
+                [255, 0, 0, -1, 0, 0],
+                [None, "Format", "Format", None, "Overflow", "Format"]),
+        "leadingHex": ([" FF", "FF ", "FF", " 100000000"],
+                       [255, 0, 255, 0], [None, "Format", None, "Overflow"]),
+        "trailingHex": (["FF ", " FF", "FF"], [255, 0, 255],
+                        [None, "Format", None]),
+        "binary": (["101010", " 101010", "101010 ",
+                    "11111111111111111111111111111111",
+                    "100000000000000000000000000000000"],
+                   [42, 0, 0, -1, 0],
+                   [None, "Format", "Format", None, "Overflow"]),
+        "leadingBinary": ([" 101010", "101010 ", "101010"],
+                          [42, 0, 42], [None, "Format", None]),
+        "trailingBinary": (["101010 ", " 101010", "101010"],
+                           [42, 0, 42], [None, "Format", None]),
+    }
+    expected_radix = {
+        name: [
+            {"text": text, "success": error is None, "value": value,
+             "error": None if error is None else f"System.{error}Exception"}
+            for text, value, error in zip(texts, values, errors)
+        ]
+        for name, (texts, values, errors) in radix_styles.items()
+    }
+    expected_radix["invalid"] = [
+        {"value": value, "parseError": "System.ArgumentException",
+         "tryParseError": "System.ArgumentException"}
+        for value in (516, 1056, 1536, 576)
+    ]
+    assert metadata["selectedInt32RadixFlagStyles"] == expected_radix
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

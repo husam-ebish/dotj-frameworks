@@ -1005,6 +1005,51 @@ static object ObserveInt32CurrencyFlagStyles()
             ["USD42e1", "42e1USD", "USD42eplus1", "USD42:0e1", "~USD42e1", "USD42e~1"], provider),
     };
 }
+static object ObserveInt32RadixFlagStyles()
+{
+    var hex = System.Globalization.NumberStyles.AllowHexSpecifier;
+    var binary = System.Globalization.NumberStyles.AllowBinarySpecifier;
+    var invalid = new[]
+    {
+        hex | System.Globalization.NumberStyles.AllowLeadingSign,
+        binary | System.Globalization.NumberStyles.AllowDecimalPoint,
+        hex | binary,
+        hex | System.Globalization.NumberStyles.AllowThousands,
+    };
+    return new
+    {
+        hex = ObserveInt32SingleStyle(hex,
+            ["FF", " FF", "FF ", "FFFFFFFF", "100000000", "0xFF"],
+            System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
+        leadingHex = ObserveInt32SingleStyle(hex | System.Globalization.NumberStyles.AllowLeadingWhite,
+            [" FF", "FF ", "FF", " 100000000"],
+            System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
+        trailingHex = ObserveInt32SingleStyle(hex | System.Globalization.NumberStyles.AllowTrailingWhite,
+            ["FF ", " FF", "FF"],
+            System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
+        binary = ObserveInt32SingleStyle(binary,
+            ["101010", " 101010", "101010 ", "11111111111111111111111111111111",
+                "100000000000000000000000000000000"],
+            System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
+        leadingBinary = ObserveInt32SingleStyle(binary | System.Globalization.NumberStyles.AllowLeadingWhite,
+            [" 101010", "101010 ", "101010"],
+            System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
+        trailingBinary = ObserveInt32SingleStyle(binary | System.Globalization.NumberStyles.AllowTrailingWhite,
+            ["101010 ", " 101010", "101010"],
+            System.Globalization.CultureInfo.InvariantCulture.NumberFormat),
+        invalid = invalid.Select(style => new
+        {
+            value = (int)style,
+            parseError = ObserveInt32Error(() => int.Parse("42", style,
+                System.Globalization.CultureInfo.InvariantCulture)),
+            tryParseError = ObserveInt32Error(() =>
+            {
+                int.TryParse("42", style, System.Globalization.CultureInfo.InvariantCulture,
+                    out _);
+            }),
+        }).ToArray(),
+    };
+}
 static object ObserveInt32SingleStyle(System.Globalization.NumberStyles style,
     string[] texts, System.Globalization.NumberFormatInfo provider)
 {
@@ -5412,6 +5457,7 @@ var result = new
     selectedInt32TrailingSignStyles = ObserveInt32TrailingSignStyles(),
     selectedInt32GroupedDecimalStyles = ObserveInt32GroupedDecimalStyles(),
     selectedInt32CurrencyFlagStyles = ObserveInt32CurrencyFlagStyles(),
+    selectedInt32RadixFlagStyles = ObserveInt32RadixFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",
