@@ -188,6 +188,8 @@ def main():
             disposition = "PARTIAL_VALUE_SURFACE; selected DateTime IConvertible and date construction/Parse/properties/text"
         elif name == "System.Int32":
             assert header.startswith("public final class System.Int32")
+            assert "public static final int MaxValue;" in declarations
+            assert "public static final int MinValue;" in declarations
             assert "public System.TypeCode GetTypeCode();" in declarations
             assert "public int ToInt32(System.IFormatProvider);" in declarations
             assert "public System.Decimal ToDecimal(System.IFormatProvider);" in declarations

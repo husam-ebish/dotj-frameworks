@@ -768,6 +768,10 @@ def main():
             ]
     int32_surface = next(item for item in foundation["completeDeclaredSurface"]
                          if item["fullName"] == "System.Int32")
+    assert int32_surface["fields"] == [
+        {"name": "MaxValue", "type": "System.Int32", "isStatic": True, "isLiteral": True},
+        {"name": "MinValue", "type": "System.Int32", "isStatic": True, "isLiteral": True},
+    ]
     expected_bit_names = {"IsEvenInteger", "IsOddInteger", "IsNegative", "IsPositive", "IsPow2",
                           "LeadingZeroCount", "TrailingZeroCount", "PopCount", "Log2",
                           "RotateLeft", "RotateRight"}

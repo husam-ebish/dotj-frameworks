@@ -17,6 +17,9 @@ import java.math.BigInteger;
 /** Pinned signed Int32 arithmetic observations against the packaged JAR. */
 public final class ProductInt32ArithmeticConsumer {
     public static void main(String[] args) {
+        if (Int32.MinValue != Integer.MIN_VALUE || Int32.MaxValue != Integer.MAX_VALUE) {
+            throw new AssertionError("Int32 public bound fields changed");
+        }
         int[][] unary = {
                 {Integer.MIN_VALUE, -1, 0}, {-3, -1, 3}, {-1, -1, 1},
                 {0, 0, 0}, {1, 1, 1}, {3, 1, 3}, {Integer.MAX_VALUE, 1, Integer.MAX_VALUE},
