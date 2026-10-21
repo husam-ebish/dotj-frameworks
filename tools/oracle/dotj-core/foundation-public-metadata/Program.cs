@@ -619,6 +619,25 @@ var result = new
         assemblyLookupIdentity = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
         insensitiveLookupIdentity = ReferenceEquals(type, Type.GetType(type.FullName!.ToLowerInvariant(), false, true)),
     }).ToArray(),
+    selectedPrimitiveVariableBoundBehavior = new[]
+    {
+        typeof(bool).MakeArrayType(1), typeof(char).MakeArrayType(1),
+        typeof(byte).MakeArrayType(1), typeof(short).MakeArrayType(1),
+        typeof(long).MakeArrayType(1), typeof(float).MakeArrayType(1),
+        typeof(double).MakeArrayType(1),
+    }.Select(type => new
+    {
+        name = type.Name,
+        fullName = type.FullName,
+        elementFullName = type.GetElementType()?.FullName,
+        rank = type.GetArrayRank(),
+        isVector = type.IsSZArray,
+        isVariableBound = type.IsVariableBoundArray,
+        typeCode = Type.GetTypeCode(type).ToString(),
+        lookupIdentity = ReferenceEquals(type, Type.GetType(type.FullName!)),
+        assemblyLookupIdentity = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
+        insensitiveLookupIdentity = ReferenceEquals(type, Type.GetType(type.FullName!.ToLowerInvariant(), false, true)),
+    }).ToArray(),
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),
