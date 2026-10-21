@@ -1065,6 +1065,22 @@ var result = new
                 isIn = parameter.IsIn, isOut = parameter.IsOut,
                 isRetval = parameter.IsRetval, isLcid = parameter.IsLcid })
             .ToArray() }).ToArray(),
+    selectedParameterAttributeBehavior = new
+    {
+        values = Enum.GetNames<ParameterAttributes>()
+            .Select(name => new { name, value = (int)Enum.Parse<ParameterAttributes>(name) })
+            .ToArray(),
+        methods = new[]
+        {
+            (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+            (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+        }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+            attributes = item.Item1.GetMethod(item.Item2)!.GetParameters()
+                .Append(item.Item1.GetMethod(item.Item2)!.ReturnParameter)
+                .Select(parameter => new { position = parameter.Position,
+                    value = (int)parameter.Attributes, text = parameter.Attributes.ToString() })
+                .ToArray() }).ToArray(),
+    },
     selectedParameterDefaultValueBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

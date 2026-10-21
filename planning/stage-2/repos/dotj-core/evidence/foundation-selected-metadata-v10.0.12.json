@@ -1313,6 +1313,120 @@
       ]
     }
   ],
+  "selectedParameterAttributeBehavior": {
+    "values": [
+      {
+        "name": "None",
+        "value": 0
+      },
+      {
+        "name": "In",
+        "value": 1
+      },
+      {
+        "name": "Out",
+        "value": 2
+      },
+      {
+        "name": "Lcid",
+        "value": 4
+      },
+      {
+        "name": "Retval",
+        "value": 8
+      },
+      {
+        "name": "Optional",
+        "value": 16
+      },
+      {
+        "name": "HasDefault",
+        "value": 4096
+      },
+      {
+        "name": "HasFieldMarshal",
+        "value": 8192
+      },
+      {
+        "name": "Reserved3",
+        "value": 16384
+      },
+      {
+        "name": "Reserved4",
+        "value": 32768
+      },
+      {
+        "name": "ReservedMask",
+        "value": 61440
+      }
+    ],
+    "methods": [
+      {
+        "owner": "System.IDisposable",
+        "name": "Dispose",
+        "attributes": [
+          {
+            "position": -1,
+            "value": 0,
+            "text": "None"
+          }
+        ]
+      },
+      {
+        "owner": "System.IComparable",
+        "name": "CompareTo",
+        "attributes": [
+          {
+            "position": 0,
+            "value": 0,
+            "text": "None"
+          },
+          {
+            "position": -1,
+            "value": 0,
+            "text": "None"
+          }
+        ]
+      },
+      {
+        "owner": "System.IFormattable",
+        "name": "ToString",
+        "attributes": [
+          {
+            "position": 0,
+            "value": 0,
+            "text": "None"
+          },
+          {
+            "position": 1,
+            "value": 0,
+            "text": "None"
+          },
+          {
+            "position": -1,
+            "value": 0,
+            "text": "None"
+          }
+        ]
+      },
+      {
+        "owner": "System.IFormatProvider",
+        "name": "GetFormat",
+        "attributes": [
+          {
+            "position": 0,
+            "value": 0,
+            "text": "None"
+          },
+          {
+            "position": -1,
+            "value": 0,
+            "text": "None"
+          }
+        ]
+      }
+    ]
+  },
   "selectedParameterDefaultValueBehavior": [
     {
       "owner": "System.IDisposable",
@@ -15207,6 +15321,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "47cc079fe8cdb8a1cc0f0509b81455b769c3caec2866b1b9ee8476d7431aaab9",
+  "oracleProgramSha256": "41b14a8a105e44fc1730e086834245f0cd8eec950eb0eb9712e5049b9ccd8db2",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

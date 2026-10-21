@@ -11,6 +11,7 @@ import System.Reflection.MemberInfo;
 import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
 import System.Reflection.ParameterInfo;
+import System.Reflection.ParameterAttributes;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 
@@ -83,6 +84,14 @@ public final class TypeIdentityCandidateTest {
         Type methodBaseType = Type.fromJavaClass(MethodBase.class);
         Type methodInfoType = Type.fromJavaClass(MethodInfo.class);
         Type parameterInfoType = Type.fromJavaClass(ParameterInfo.class);
+        Type parameterAttributesType = Type.fromJavaClass(ParameterAttributes.class);
+        if (Type.GetType("System.Reflection.ParameterAttributes") != parameterAttributesType
+                || !parameterAttributesType.get_IsEnum()
+                || parameterAttributesType.GetEnumNames().length != 11
+                || ParameterAttributes.None.get_Value() != 0
+                || ParameterAttributes.ReservedMask.get_Value() != 61440) {
+            throw new AssertionError("Pinned ParameterAttributes values changed");
+        }
         Type methodBodyType = Type.fromJavaClass(MethodBody.class);
         if (Type.GetType("System.Reflection.MethodBody") != methodBodyType
                 || methodBodyType.get_BaseType() != Type.fromJavaClass(Object.class)
@@ -276,6 +285,7 @@ public final class TypeIdentityCandidateTest {
                     || returnParameter.get_RawDefaultValue() != DBNull.Value
                     || returnParameter.get_IsIn() || returnParameter.get_IsOut()
                     || returnParameter.get_IsRetval() || returnParameter.get_IsLcid()
+                    || returnParameter.get_Attributes() != ParameterAttributes.None
                     || returnParameter.GetOptionalCustomModifiers().length != 0
                     || returnParameter.GetRequiredCustomModifiers().length != 0
                     || !java.util.Objects.equals(returnParameter.get_Name(),
@@ -311,6 +321,7 @@ public final class TypeIdentityCandidateTest {
                         || parameters[parameterIndex].get_IsOut()
                         || parameters[parameterIndex].get_IsRetval()
                         || parameters[parameterIndex].get_IsLcid()
+                        || parameters[parameterIndex].get_Attributes() != ParameterAttributes.None
                         || parameters[parameterIndex].GetOptionalCustomModifiers().length != 0
                         || parameters[parameterIndex].GetRequiredCustomModifiers().length != 0) {
                     throw new AssertionError("Selected parameter default flags changed");
