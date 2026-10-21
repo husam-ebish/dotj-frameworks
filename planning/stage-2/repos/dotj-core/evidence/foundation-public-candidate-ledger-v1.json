@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "cfd05fd5110c9cbe1d53f646ca607661f66d5120f7ecaeb2099437d474e911b3",
+  "candidateJarSha256": "3be8333c99a29c1a3b640e17506f3087e464e22f6e693ce1d96b03a5dc68e936",
   "typeCount": 29,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -284,6 +284,7 @@
         "public System.Type get_DeclaringType();",
         "public System.Type get_ReflectedType();",
         "public System.Type get_BaseType();",
+        "public System.Type get_UnderlyingSystemType();",
         "public boolean get_IsValueType();",
         "public boolean get_IsPrimitive();",
         "public boolean get_IsAbstract();",

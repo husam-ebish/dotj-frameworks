@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "ddf3add0991baff3b97b5a7de6b0cd07211b36a5bbb915b429a099358047872e",
+  "oracleEvidenceSha256": "5a81d244dd526973752164d39a2d9d57cb35de69e86e4b9746780fea97e0e7af",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "467f41cbc1f8ff141d3d6fa810c8330105bb5c885ec768c8b96e421e693a1f66",
+  "javaCandidateEvidenceSha256": "bb18a8797291634ae3a8c852ebdfb94c265ba1a042815526fa11abd0045f2ae0",
   "types": [
     {
       "fullName": "System.Type",
@@ -3422,6 +3422,7 @@
         "public System.Type get_DeclaringType();",
         "public System.Type get_ReflectedType();",
         "public System.Type get_BaseType();",
+        "public System.Type get_UnderlyingSystemType();",
         "public boolean get_IsValueType();",
         "public boolean get_IsPrimitive();",
         "public boolean get_IsAbstract();",
@@ -3569,7 +3570,8 @@
           "get_IsVariableBoundArray": 1,
           "get_IsVisible": 1,
           "get_Namespace": 1,
-          "get_ReflectedType": 1
+          "get_ReflectedType": 1,
+          "get_UnderlyingSystemType": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "FindInterfaces",
@@ -3652,8 +3654,7 @@
           "Module",
           "StructLayoutAttribute",
           "TypeHandle",
-          "TypeInitializer",
-          "UnderlyingSystemType"
+          "TypeInitializer"
         ],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
