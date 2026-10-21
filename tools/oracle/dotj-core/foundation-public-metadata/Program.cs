@@ -333,6 +333,19 @@ static string? ObserveInt32FormatError(string format)
         return exception.GetType().FullName;
     }
 }
+static object ObserveTypeArray(object?[]? values)
+{
+    try
+    {
+        return new { result = Array.ConvertAll(Type.GetTypeArray(values!), type => type.FullName),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?[]?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -439,6 +452,14 @@ var result = new
         enumType = Type.GetTypeCode(typeof(MemberTypes)).ToString(),
         arrayType = Type.GetTypeCode(typeof(string[])).ToString(),
         genericType = Type.GetTypeCode(typeof(System.Collections.Generic.List<string>)).ToString(),
+    },
+    selectedTypeArrayBehavior = new
+    {
+        mixed = ObserveTypeArray(["text", 42, new Exception("x")]),
+        empty = ObserveTypeArray([]),
+        nullArray = ObserveTypeArray(null),
+        nullElement = ObserveTypeArray(["text", null]),
+        separateArrays = !ReferenceEquals(Type.GetTypeArray(["text"]), Type.GetTypeArray(["text"])),
     },
     selectedGetTypeBehavior = new
     {

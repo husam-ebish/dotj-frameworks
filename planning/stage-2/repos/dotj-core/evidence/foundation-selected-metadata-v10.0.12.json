@@ -83,6 +83,33 @@
     "arrayType": "Object",
     "genericType": "Object"
   },
+  "selectedTypeArrayBehavior": {
+    "mixed": {
+      "result": [
+        "System.String",
+        "System.Int32",
+        "System.Exception"
+      ],
+      "exception": null,
+      "paramName": null
+    },
+    "empty": {
+      "result": [],
+      "exception": null,
+      "paramName": null
+    },
+    "nullArray": {
+      "result": null,
+      "exception": "System.ArgumentNullException",
+      "paramName": "args"
+    },
+    "nullElement": {
+      "result": null,
+      "exception": "System.ArgumentException",
+      "paramName": "args"
+    },
+    "separateArrays": true
+  },
   "selectedGetTypeBehavior": {
     "exact": {
       "result": "System.String",
@@ -11305,6 +11332,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "13fe0ff946b7ac838784e10ee9c70c7198c6c8c692cf01ad2fcfd3c2d1aebdd4",
+  "oracleProgramSha256": "2924dcb3a1efb99546a6331318dcc4b9e67310187c49882a193ff03bc751660c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

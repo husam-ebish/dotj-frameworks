@@ -86,6 +86,20 @@ public abstract class Type extends MemberInfo {
         return TypeCode.Object;
     }
 
+    public static Type[] GetTypeArray(Object[] args) {
+        if (args == null) {
+            throw new ArgumentNullException("args");
+        }
+        Type[] types = new Type[args.length];
+        for (int index = 0; index < args.length; index++) {
+            if (args[index] == null) {
+                throw new ArgumentException("Array element cannot be null", "args");
+            }
+            types[index] = fromJavaClass(args[index].getClass());
+        }
+        return types;
+    }
+
     public static Type GetType(String typeName) {
         return GetType(typeName, false, false);
     }
