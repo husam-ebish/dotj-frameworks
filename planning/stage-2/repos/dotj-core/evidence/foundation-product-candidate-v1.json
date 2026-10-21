@@ -47,7 +47,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "e284fde5ed4c70fc0be81dace1f04584ad136031152cd9a31564ee9ada5b36b7"
+      "sha256": "e239214b63f5f0f4c406e19cfe54014ddfa369bd6d06a9495e4e621f669fa56f"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/DBNull.java",
@@ -127,7 +127,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/FormatterConverter.java",
-      "sha256": "b3884a5d432dcda2da7310c4c754e5ebe7a4f407c0d0dbbc16c619ff8c869215"
+      "sha256": "4b57ca063695402a7dde03d109fc474150e8984ab3b94187fde00aa034661502"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/IFormatterConverter.java",
@@ -138,8 +138,12 @@
       "sha256": "cd5293ace8bac3c15cb63251966a922c2014158ca5dac5e43691120d31b7fdeb"
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/SerializationException.java",
+      "sha256": "5e3a2c87f51b3c2dc3346dce3a2fb0184164936401a5d9a639f4659b71bd81a8"
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/SerializationInfo.java",
-      "sha256": "6a3cef449db384efd070eee8f748f56c81d6aa0e8c53f7da074ead7f3fe84653"
+      "sha256": "461cda0086366de5582cfcf1497ea7a8ae57ef8c2442072a20b4e6ef771d75fb"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/StreamingContext.java",
@@ -199,7 +203,7 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "ea6f694f76d98db3df1f11b04b1645880abc26f71ecf0fd33fa8d0959586f098",
+  "jarSha256": "bd56c0e68c6f4cbddc5bd670c8bbb1667636bca269afb86af2389a5a12fc1827",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -248,6 +252,7 @@
     "System/Runtime/Serialization/FormatterConverter.class",
     "System/Runtime/Serialization/IFormatterConverter.class",
     "System/Runtime/Serialization/ISerializable.class",
+    "System/Runtime/Serialization/SerializationException.class",
     "System/Runtime/Serialization/SerializationInfo.class",
     "System/Runtime/Serialization/StreamingContext.class",
     "System/Runtime/Serialization/StreamingContextStates.class",
@@ -310,21 +315,22 @@
     "System/Runtime/Serialization/FormatterConverter.class": "3e88e641ff78e6fd5f5eb08c43b8ca19dc905a8b3c204cafb50404a252a63c46",
     "System/Runtime/Serialization/IFormatterConverter.class": "95d0fd6f1f1d80ba2dd3f28241a16289be1087968213259ce220e1f5573f6209",
     "System/Runtime/Serialization/ISerializable.class": "4347ce9e749fe7678c6d3465fc0724b2d07049ea48e7bdc337b3ec5520ae4edd",
-    "System/Runtime/Serialization/SerializationInfo.class": "b271302daba10d18d075b43c9dedace6c01f33f8e6bf830b59f9e32ff9339258",
+    "System/Runtime/Serialization/SerializationException.class": "5f3fd0b06f2f8a9f08b1667715ab12e6e0cd921da51ed15ad7aaea9aa4745322",
+    "System/Runtime/Serialization/SerializationInfo.class": "342cf99319a37b5703fdb3a7680337b0fb07163cda595c9f1d2505b8713dcbba",
     "System/Runtime/Serialization/StreamingContext.class": "ee56e43d93af42901721653b6afa0747f9086837935ade2d6c3a43a14a756c35",
     "System/Runtime/Serialization/StreamingContextStates.class": "d03ec5c67f876c07e7de01ca06bf599dbd4525aefa721cb404a52f516da1f289",
     "System/SystemException.class": "de15e69523d424b191ef078434ba7e9154e63cf550ec658609f2a816a62e368b",
-    "System/Type$1.class": "6b5de34df4d666b37b0331d39bc3fb5f314a5a3e8ab785e7704bcdd14801d4da",
-    "System/Type$2.class": "5c015a198e154cbf814f49bc1494d812c86772aa98e6b6fb9b78c77d7af9a422",
-    "System/Type$ArrayType.class": "c9b347e89e0f83a7498002e5e21ce7e1de408122ebf0b9db6b6c44c3268c20ea",
-    "System/Type$ByRefType.class": "a6ea2305de570ce23c61d5427af4a0d995ee76eff617a6100586dcbae55a2d43",
-    "System/Type$DefaultMethodMember.class": "4969b53db4227ace41c3bed2bfe924813fb266cc47fc53f757fae99975608bbb",
-    "System/Type$DefaultParameterInfo.class": "f95629b73bb0e1a5bd9c489e321efbae564df13eb1742d1d7d3ee3c69992c0f9",
-    "System/Type$DefaultPropertyMember.class": "dff4941109370b6911815eaea8237c258b5a82a850404d59462ae0d86942ead2",
-    "System/Type$GenericParameterType.class": "40a1cbc5a2af0960763431fc557db3826e56d525234bd24e8ee9407f4b0e1406",
-    "System/Type$PointerType.class": "cfd1de85294b4711dbf7e7aff1aa971eaf33534d040f67a79a317208053ee2cb",
-    "System/Type$ResolvedType.class": "15a627f4a7f8facf1b3559179b949b603e5f972ffe16d2f9682aa02a0965be4c",
-    "System/Type.class": "12886163872c776286dd458810c84d58f55f9e909f8226714ced32d37e8bacbb",
+    "System/Type$1.class": "92d19b9ff4f58322c68d51bae95e98096ae75daffe15d2e5d6d76c926c7dae79",
+    "System/Type$2.class": "ced77abf7aa5c1d348627a9aca489c0fba412b4ae99c77b22add672815a4322d",
+    "System/Type$ArrayType.class": "8af66a878720d61ae0e62320e7caf0ff5f879afdc8e4275297ad2c787e7481f6",
+    "System/Type$ByRefType.class": "adb81edecbd889c66669ff61649b590797a720def5f944aee4b5215dc9612682",
+    "System/Type$DefaultMethodMember.class": "839ac7af7a82dda4eb78c02e19c3ea648f64ec3bbfb179db3e5c8c2754f963ad",
+    "System/Type$DefaultParameterInfo.class": "ff97324d7a986582647a5992d4761aec13a1d9b1bccb71fb014eb30fc8fb4570",
+    "System/Type$DefaultPropertyMember.class": "7476ac389f0238fcf6ca767a8b6d1ba364e74afdd67a457394d5f52dd5c97337",
+    "System/Type$GenericParameterType.class": "b63e828cd781c22a6968e665c96b039ea30f17cc3cafeb14d1f74b55cb11f84e",
+    "System/Type$PointerType.class": "13ead991060295c7380e178e000b3d4c83e1dcba443e60b3389c115c9c811de3",
+    "System/Type$ResolvedType.class": "1f437750048b5d49b8b64fb41f6be5d913c3aeb0bb15c51c4d8b8c07d2106b7e",
+    "System/Type.class": "f9739286d30729a1bd5fa85716cee62a8c1a66cc89815c0de8a2a1659e45fec5",
     "System/TypeCode.class": "5f6956717c868ad4b0c4eb615505de94484bd689c0ee71825a7769f7b94d2c6e",
     "System/TypeLoadException.class": "3c9398389a065487de5b6ba064da95cbcd77c8dd7dab8f289559cccebabe16cc",
     "org/dotj/internal/throwing/ThrowSite.class": "aac0ec55aba9352680a787d24422f741c8cea67698dadfc33eef79d72344c280"

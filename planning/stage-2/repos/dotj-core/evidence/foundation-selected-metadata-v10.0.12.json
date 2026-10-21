@@ -307,6 +307,19 @@
     "nullIntegerParameter": "value",
     "badIntegerError": "System.FormatException"
   },
+  "selectedSerializationInfoMembersBehavior": {
+    "count": 2,
+    "age": 42,
+    "name": "Ada",
+    "ageByType": 42,
+    "nullAddError": "System.ArgumentNullException",
+    "nullAddParameter": "name",
+    "nullGetError": "System.ArgumentNullException",
+    "nullGetParameter": "name",
+    "duplicateError": "System.Runtime.Serialization.SerializationException",
+    "missingError": "System.Runtime.Serialization.SerializationException",
+    "exceptionBase": "System.SystemException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15749,6 +15762,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "2c283c4afcf5bfe3830f82d8ce1534cac661241b13b40169d417dbfe063bb65b",
+  "oracleProgramSha256": "98818c991ebec72083209a09984ba2071718a041a870eed332f2d5557ca708ae",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

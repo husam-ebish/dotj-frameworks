@@ -737,6 +737,27 @@ static object ObserveFormatterConverter()
         badIntegerError = ObserveMethodError(() => converter.ToInt32("oops")),
     };
 }
+static object ObserveSerializationInfoMembers()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("age", 42);
+    info.AddValue("name", "Ada");
+    return new
+    {
+        count = info.MemberCount,
+        age = info.GetInt32("age"),
+        name = info.GetString("name"),
+        ageByType = info.GetValue("age", typeof(int)),
+        nullAddError = ObserveMethodError(() => info.AddValue(null!, 1)),
+        nullAddParameter = ObserveMethodArgumentName(() => info.AddValue(null!, 1)),
+        nullGetError = ObserveMethodError(() => info.GetInt32(null!)),
+        nullGetParameter = ObserveMethodArgumentName(() => info.GetInt32(null!)),
+        duplicateError = ObserveMethodError(() => info.AddValue("age", 1)),
+        missingError = ObserveMethodError(() => info.GetInt32("missing")),
+        exceptionBase = typeof(System.Runtime.Serialization.SerializationException).BaseType?.FullName,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -868,6 +889,7 @@ var result = new
     selectedStreamingContextEqualityBehavior = ObserveStreamingContextEquality(),
     selectedSerializationInfoConstructionBehavior = ObserveSerializationInfoConstruction(),
     selectedFormatterConverterBehavior = ObserveFormatterConverter(),
+    selectedSerializationInfoMembersBehavior = ObserveSerializationInfoMembers(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

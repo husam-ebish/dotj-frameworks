@@ -17,6 +17,7 @@ import System.Runtime.Serialization.ISerializable;
 import System.Runtime.Serialization.IFormatterConverter;
 import System.Runtime.Serialization.FormatterConverter;
 import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.SerializationException;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Reflection.GenericParameterAttributes;
@@ -126,6 +127,44 @@ public final class TypeIdentityCandidateTest {
             selectedConverter.ToInt32("oops");
             throw new AssertionError("Malformed FormatterConverter value was accepted");
         } catch (FormatException expected) {
+            // Matches the pinned selected CLR failure type.
+        }
+        SerializationInfo serializationMembers = new SerializationInfo(dbnullType, selectedConverter);
+        serializationMembers.AddValue("age", 42);
+        serializationMembers.AddValue("name", "Ada");
+        if (serializationMembers.get_MemberCount() != 2 || serializationMembers.GetInt32("age") != 42
+                || !"Ada".equals(serializationMembers.GetString("name"))
+                || !Integer.valueOf(42).equals(serializationMembers.GetValue("age", Type.GetType("System.Int32")))
+                || Type.GetType("System.Runtime.Serialization.SerializationException")
+                    != Type.fromJavaClass(SerializationException.class)) {
+            throw new AssertionError("Selected SerializationInfo members changed");
+        }
+        try {
+            serializationMembers.AddValue(null, 1);
+            throw new AssertionError("Null member name was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null member name parameter changed");
+            }
+        }
+        try {
+            serializationMembers.GetInt32(null);
+            throw new AssertionError("Null member lookup was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null member lookup parameter changed");
+            }
+        }
+        try {
+            serializationMembers.AddValue("age", 1);
+            throw new AssertionError("Duplicate member was accepted");
+        } catch (SerializationException expected) {
+            // Matches the pinned selected CLR failure type.
+        }
+        try {
+            serializationMembers.GetInt32("missing");
+            throw new AssertionError("Missing member was accepted");
+        } catch (SerializationException expected) {
             // Matches the pinned selected CLR failure type.
         }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);

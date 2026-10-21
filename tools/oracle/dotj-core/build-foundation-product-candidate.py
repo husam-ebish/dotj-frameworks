@@ -18,7 +18,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/NullableAttribute.java")
 SOURCES += [PRODUCT / "src/main/java/System/Runtime/Serialization" / (name + ".java") for name in
-            ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationInfo", "StreamingContext", "StreamingContextStates")]
+            ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationException", "SerializationInfo", "StreamingContext", "StreamingContextStates")]
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBody.java")
@@ -83,6 +83,7 @@ EXPECTED_CLASSES = [
     "System/Runtime/Serialization/FormatterConverter.class",
     "System/Runtime/Serialization/IFormatterConverter.class",
     "System/Runtime/Serialization/ISerializable.class",
+    "System/Runtime/Serialization/SerializationException.class",
     "System/Runtime/Serialization/SerializationInfo.class",
     "System/Runtime/Serialization/StreamingContext.class",
     "System/Runtime/Serialization/StreamingContextStates.class",
