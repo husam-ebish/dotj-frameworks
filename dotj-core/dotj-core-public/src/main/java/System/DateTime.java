@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
-public final class DateTime {
+public final class DateTime implements IConvertible {
     private final LocalDate date;
 
     public DateTime(int year, int month, int day) {
@@ -36,6 +36,101 @@ public final class DateTime {
 
     public int get_Day() {
         return this.date.getDayOfMonth();
+    }
+
+    @Override
+    public TypeCode GetTypeCode() {
+        return TypeCode.DateTime;
+    }
+
+    @Override
+    public boolean ToBoolean(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Boolean");
+    }
+
+    @Override
+    public char ToChar(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Char");
+    }
+
+    @Override
+    public byte ToSByte(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to SByte");
+    }
+
+    @Override
+    public short ToByte(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Byte");
+    }
+
+    @Override
+    public short ToInt16(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Int16");
+    }
+
+    @Override
+    public int ToUInt16(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to UInt16");
+    }
+
+    @Override
+    public int ToInt32(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Int32");
+    }
+
+    @Override
+    public long ToUInt32(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to UInt32");
+    }
+
+    @Override
+    public long ToInt64(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Int64");
+    }
+
+    @Override
+    public java.math.BigInteger ToUInt64(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to UInt64");
+    }
+
+    @Override
+    public float ToSingle(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Single");
+    }
+
+    @Override
+    public double ToDouble(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Double");
+    }
+
+    @Override
+    public Decimal ToDecimal(IFormatProvider provider) {
+        throw new InvalidCastException("DateTime cannot be converted to Decimal");
+    }
+
+    @Override
+    public DateTime ToDateTime(IFormatProvider provider) {
+        return new DateTime(this.get_Year(), this.get_Month(), this.get_Day());
+    }
+
+    @Override
+    public String ToString(IFormatProvider provider) {
+        return String.format(java.util.Locale.ROOT, "%02d/%02d/%04d 00:00:00",
+                this.get_Month(), this.get_Day(), this.get_Year());
+    }
+
+    @Override
+    public Object ToType(Type conversionType, IFormatProvider provider) {
+        if (conversionType == null) {
+            throw new ArgumentNullException("conversionType");
+        }
+        if (conversionType == Type.GetType("System.DateTime")) {
+            return this.ToDateTime(provider);
+        }
+        if (conversionType == Type.GetType("System.String")) {
+            return this.ToString(provider);
+        }
+        throw new InvalidCastException("DateTime target type is not mapped");
     }
 
     public String ToString(String format, IFormatProvider provider) {

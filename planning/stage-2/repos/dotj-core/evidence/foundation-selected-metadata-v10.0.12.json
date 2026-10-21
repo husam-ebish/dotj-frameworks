@@ -795,6 +795,16 @@
     "date": "2024-02-29",
     "u32ToInt32": "System.OverflowException"
   },
+  "selectedDateTimeConvertibleContractBehavior": {
+    "implements": true,
+    "typeCode": "DateTime",
+    "dateSame": false,
+    "invariantText": "02/29/2024 00:00:00",
+    "int32": "System.InvalidCastException",
+    "boolean": "System.InvalidCastException",
+    "byteValue": "System.InvalidCastException",
+    "selfTypeSame": false
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16237,6 +16247,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "394869b12bbd45e3a5e0fba2c11070a18ef660da0f256f043c5182cfc004a17c",
+  "oracleProgramSha256": "65ab7731d6599f1385f51d85e83094b2606ec2a370c4afe1b73c915bc33736ab",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
