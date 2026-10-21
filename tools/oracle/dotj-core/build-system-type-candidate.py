@@ -19,6 +19,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
@@ -213,6 +214,20 @@ def main():
     assert nested_names[0]["FullName"].startswith("System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[")
     assert all(item["FullName"].startswith("System.Collections.Generic.Dictionary`2[[")
                for item in nested_names[1:])
+    binding_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBindingFlagsValues"]
+    assert binding_flags == [
+        {"name": name, "value": value} for name, value in (
+            ("Default", 0), ("IgnoreCase", 1), ("DeclaredOnly", 2),
+            ("Instance", 4), ("Static", 8), ("Public", 16), ("NonPublic", 32),
+            ("FlattenHierarchy", 64), ("InvokeMethod", 256),
+            ("CreateInstance", 512), ("GetField", 1024), ("SetField", 2048),
+            ("GetProperty", 4096), ("SetProperty", 8192),
+            ("PutDispProperty", 16384), ("PutRefDispProperty", 32768),
+            ("ExactBinding", 65536), ("SuppressChangeType", 131072),
+            ("OptionalParamBinding", 262144), ("IgnoreReturn", 16777216),
+            ("DoNotWrapExceptions", 33554432),
+        )
+    ]
     member_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberTypeBehavior"]
     assert member_type["enumValues"] == [
         {"name": name, "value": value} for name, value in (

@@ -1259,6 +1259,9 @@ var result = new
         genericParameter = typeof(List<>).GetGenericArguments()[0].MemberType.ToString(),
         memberTypeGetterAbstract = typeof(MemberInfo).GetProperty("MemberType")?.GetMethod?.IsAbstract,
     },
+    selectedBindingFlagsValues = Enum.GetNames<BindingFlags>()
+        .Select(name => new { name, value = (int)Enum.Parse<BindingFlags>(name) })
+        .ToArray(),
     selectedMemberOwnerBehavior = new[]
     {
         typeof(string), typeof(List<>), typeof(List<string>),

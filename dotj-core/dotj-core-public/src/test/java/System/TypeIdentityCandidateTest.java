@@ -3,6 +3,7 @@ package System;
 import java.util.List;
 import java.util.Map;
 import System.Reflection.MemberTypes;
+import System.Reflection.BindingFlags;
 import System.Reflection.MemberInfo;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
@@ -27,6 +28,17 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        Type bindingFlagsType = Type.fromJavaClass(BindingFlags.class);
+        int[] bindingValues = bindingFlagsType.GetEnumValuesAsUnderlyingType();
+        if (Type.GetType("System.Reflection.BindingFlags") != bindingFlagsType
+                || !bindingFlagsType.get_IsEnum() || !bindingFlagsType.get_IsValueType()
+                || bindingValues.length != 21 || bindingValues[0] != 0
+                || bindingValues[6] != 32 || bindingValues[20] != 33554432
+                || !"BindingFlags".equals(bindingFlagsType.get_Name())
+                || !"System.Reflection.BindingFlags".equals(bindingFlagsType.get_FullName())
+                || !"DoNotWrapExceptions".equals(bindingFlagsType.GetEnumNames()[20])) {
+            throw new AssertionError("Pinned BindingFlags identity or values changed");
+        }
         if (Type.fromJavaClass(Object.class).GetDefaultMembers().length != 0
                 || Type.fromJavaClass(IDisposable.class).GetDefaultMembers().length != 0
                 || Type.fromJavaClass(TypeCode.class).GetDefaultMembers().length != 0) {
