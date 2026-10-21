@@ -430,6 +430,17 @@ var result = new
         name = type.FullName ?? type.Name,
         isGenericTypeDefinition = type.IsGenericTypeDefinition,
     }).ToArray(),
+    selectedContainsGenericParametersBehavior = new[]
+    {
+        typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
+        typeof(Dictionary<string, int>), typeof(List<>).GetGenericArguments()[0],
+        typeof(List<>).MakeArrayType(),
+        typeof(List<>).MakeGenericType(typeof(List<>).GetGenericArguments()[0]),
+    }.Select(type => new
+    {
+        name = type.FullName ?? type.Name,
+        containsGenericParameters = type.ContainsGenericParameters,
+    }).ToArray(),
     selectedEnumBaseBehavior = new
     {
         enumBase = typeof(MemberTypes).BaseType?.FullName,
@@ -954,7 +965,7 @@ var result = new
                 or "IsConstructedGenericType" or "IsGenericParameter"
                 or "GenericParameterPosition" or "GenericTypeArguments" or "IsArray" or "IsByRef"
                 or "IsPointer" or "Name" or "FullName" or "Namespace" or "MemberType"
-                or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType" or "IsPrimitive" or "IsAbstract" or "IsSealed" or "IsPublic" or "IsVisible" or "IsGenericTypeDefinition"
+                or "DeclaringType" or "ReflectedType" or "BaseType" or "IsClass" or "IsValueType" or "IsPrimitive" or "IsAbstract" or "IsSealed" or "IsPublic" or "IsVisible" or "IsGenericTypeDefinition" or "ContainsGenericParameters"
                 or "IsInterface" or "IsEnum" or "GetEnumUnderlyingType" or "IsAssignableFrom"
                 or "IsSubclassOf" or "IsInstanceOfType" or "GetInterfaces" or "GetInterface")
             .Select(property => new { name = property.Name, type = property.PropertyType.FullName })
