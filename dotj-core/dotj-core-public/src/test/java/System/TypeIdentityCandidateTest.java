@@ -56,6 +56,12 @@ public final class TypeIdentityCandidateTest {
         Type closedEntry = nestedEntry.MakeGenericType(new Type[] {string, integer});
         Type closedEntryArray = closedEntry.MakeArrayType();
         Type closedEntryRectangle = closedEntry.MakeArrayType(2);
+        Type closedEntryRankThree = closedEntry.MakeArrayType(3);
+        if (Type.GetType(closedEntryRankThree.get_FullName()) != closedEntryRankThree
+                || Type.GetType(closedEntryRankThree.get_AssemblyQualifiedName())
+                        != closedEntryRankThree) {
+            throw new AssertionError("Constructed nested rank-three lookup changed");
+        }
         if (Type.GetType(closedEntryRectangle.get_FullName()) != closedEntryRectangle
                 || Type.GetType(closedEntryRectangle.get_AssemblyQualifiedName())
                         != closedEntryRectangle) {

@@ -287,6 +287,11 @@ def main():
     assert nested_rectangle_lookup[0]["name"].endswith("]][,]")
     assert nested_rectangle_lookup[0]["fullNameSameReference"]
     assert nested_rectangle_lookup[0]["qualifiedSameReference"]
+    nested_rank_three_lookup = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedConstructedRankThreeLookupBehavior"]
+    assert len(nested_rank_three_lookup) == 1
+    assert nested_rank_three_lookup[0]["name"].endswith("]][,,]")
+    assert nested_rank_three_lookup[0]["fullNameSameReference"]
+    assert nested_rank_three_lookup[0]["qualifiedSameReference"]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
