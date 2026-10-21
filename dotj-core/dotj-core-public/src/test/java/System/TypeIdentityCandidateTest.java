@@ -5,6 +5,9 @@ import java.util.Map;
 
 /** Exercises selected Type identity and null boundaries against the candidate implementation. */
 public final class TypeIdentityCandidateTest {
+    static final class NestedAssemblyFixture {
+    }
+
     public static void main(String[] args) {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
@@ -45,6 +48,12 @@ public final class TypeIdentityCandidateTest {
                 || list.GetGenericArguments()[0].get_IsNestedPublic()
                 || !nestedEntry.get_IsNested() || !nestedEntry.get_IsNestedPublic()) {
             throw new AssertionError("Selected nested Type flags changed");
+        }
+        Type nestedAssembly = Type.fromJavaClass(NestedAssemblyFixture.class);
+        if (string.get_IsNestedAssembly() || list.GetGenericArguments()[0].get_IsNestedAssembly()
+                || nestedEntry.get_IsNestedAssembly() || !nestedAssembly.get_IsNestedAssembly()
+                || !nestedAssembly.get_IsNested() || nestedAssembly.get_IsNestedPublic()) {
+            throw new AssertionError("Selected nested assembly visibility changed");
         }
         Type[] listParameters = list.GetGenericArguments();
         Type[] mapParameters = map.GetGenericArguments();

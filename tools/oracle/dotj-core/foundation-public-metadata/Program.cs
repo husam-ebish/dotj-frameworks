@@ -676,6 +676,12 @@ var result = new
         isNested = type.IsNested,
         isNestedPublic = type.IsNestedPublic,
     }).ToArray(),
+    selectedNestedAssemblyBehavior = new[]
+    {
+        typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
+        typeof(System.Collections.Generic.List<int>.Enumerator),
+        typeof(string).Assembly.GetType("Interop+OleAut32", throwOnError: true)!,
+    }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsNestedAssembly }).ToArray(),
     selectedNestedTypeToStringBehavior = new[]
     {
         typeof(System.Collections.Generic.List<string>[]),
