@@ -593,6 +593,19 @@ var result = new
         halfway = ((IFormattable)1250).ToString("0,.0",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32OptionalFractionBehavior = new
+    {
+        integer = ((IFormattable)42).ToString("0.##",
+            System.Globalization.CultureInfo.InvariantCulture),
+        scaled = ((IFormattable)12345).ToString("0,.##",
+            System.Globalization.CultureInfo.InvariantCulture),
+        exact = ((IFormattable)12000).ToString("0,.##",
+            System.Globalization.CultureInfo.InvariantCulture),
+        grouped = ((IFormattable)1234567).ToString("#,##0,.##",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-12345)).ToString("0,.##",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

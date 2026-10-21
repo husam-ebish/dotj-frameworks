@@ -232,6 +232,21 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             return scaled;
         }
+        if (format.equals("0.##")) {
+            return Integer.toString(this.value);
+        }
+        if (format.equals("0,.##") || format.equals("#,##0,.##")) {
+            String scaled = BigDecimal.valueOf(this.value)
+                    .divide(BigDecimal.valueOf(1_000), 2, RoundingMode.HALF_UP)
+                    .stripTrailingZeros().toPlainString();
+            if (format.equals("#,##0,.##")) {
+                int decimalPoint = scaled.indexOf('.');
+                String integral = decimalPoint < 0 ? scaled : scaled.substring(0, decimalPoint);
+                return new Int32(Integer.parseInt(integral)).ToString("N0", provider)
+                        + (decimalPoint < 0 ? "" : scaled.substring(decimalPoint));
+            }
+            return scaled;
+        }
         if (format.matches("0+")) {
             String digits = BigInteger.valueOf(this.value).abs().toString();
             String sign = this.value < 0 ? "-" : "";
