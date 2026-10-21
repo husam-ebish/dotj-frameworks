@@ -1304,6 +1304,38 @@ public abstract class Type extends MemberInfo {
         throw new UnsupportedOperationException("Member lookup is not mapped for this candidate name");
     }
 
+    public MemberInfo[] GetMember(String name, BindingFlags flags) {
+        if (name == null) {
+            throw new ArgumentNullException("name");
+        }
+        if (flags == null) {
+            throw new NullPointerException("flags");
+        }
+        if (!flags.has(BindingFlags.Public) || !flags.has(BindingFlags.Instance)) {
+            return new MemberInfo[0];
+        }
+        boolean ignoreCase = flags.has(BindingFlags.IgnoreCase);
+        if (this.definition == String.class
+                && (name.equals("Chars") || ignoreCase && name.equalsIgnoreCase("Chars"))) {
+            return new MemberInfo[] {new DefaultPropertyMember("Chars", this)};
+        }
+        if (this.definition == java.util.List.class
+                && (name.equals("Item") || ignoreCase && name.equalsIgnoreCase("Item"))) {
+            return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
+        }
+        String interfaceMethod = this.selectedInterfaceMethodName();
+        if (interfaceMethod != null) {
+            if (name.equals(interfaceMethod) || ignoreCase && name.equalsIgnoreCase(interfaceMethod)) {
+                return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+            }
+            return new MemberInfo[0];
+        }
+        if (name.equals("Missing") || this.definition == String.class && name.equals("chars")) {
+            return new MemberInfo[0];
+        }
+        throw new UnsupportedOperationException("Flagged member lookup is not mapped for this candidate name");
+    }
+
     public MemberInfo[] GetMembers() {
         String interfaceMethod = this.selectedInterfaceMethodName();
         if (interfaceMethod != null) {

@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "daf8d37787fb391b3f93f11a090cf8ed3de24e0a6b8de9fc560f775a4f6deaca",
+  "candidateJarSha256": "b422465e5406945c58928cd296ca82e125bc04f335ab6b342e3c81238289a3cc",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -328,6 +328,7 @@
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String);",
+        "public System.Reflection.MemberInfo[] GetMember(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",

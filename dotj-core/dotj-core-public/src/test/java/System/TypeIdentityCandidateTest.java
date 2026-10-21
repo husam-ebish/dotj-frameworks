@@ -88,6 +88,25 @@ public final class TypeIdentityCandidateTest {
                 || Type.fromJavaClass(Object.class).GetMember("Missing").length != 0) {
             throw new AssertionError("Selected member name lookup changed");
         }
+        BindingFlags publicInstanceIgnoreCase = publicInstance.or(BindingFlags.IgnoreCase);
+        if (string.GetMember("Chars", publicInstance).length != 1
+                || string.GetMember("Chars", publicInstance)[0].get_MemberType() != MemberTypes.Property
+                || string.GetMember("Chars", BindingFlags.Public).length != 0
+                || string.GetMember("Chars", BindingFlags.Instance).length != 0
+                || string.GetMember("Chars", BindingFlags.NonPublic.or(BindingFlags.Instance)).length != 0
+                || string.GetMember("chars", publicInstance).length != 0
+                || !"Chars".equals(string.GetMember("chars", publicInstanceIgnoreCase)[0].get_Name())
+                || !"Dispose".equals(interfaceOwners[0].GetMember("Dispose", publicInstance)[0].get_Name())) {
+            throw new AssertionError("Selected flagged member lookup changed");
+        }
+        try {
+            string.GetMember(null, publicInstance);
+            throw new AssertionError("Null flagged member name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null flagged member name parameter changed", expected);
+            }
+        }
         try {
             string.GetMember(null);
             throw new AssertionError("Null member name accepted");
