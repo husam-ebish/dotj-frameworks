@@ -150,7 +150,7 @@ public abstract class Type extends MemberInfo {
                     }
                     boolean recognized = key.equals("version") || key.equals("culture")
                             || key.equals("publickeytoken");
-                    if (attribute.length != 2 || value.isEmpty() && !quotedValue
+                    if (attribute.length != 2 || key.isEmpty() || value.isEmpty() && !quotedValue
                             || extraEquals && (!quotedValue || recognized)
                             || value.contains("\"\"")
                             || !quotedValue && value.indexOf('"') >= 0
