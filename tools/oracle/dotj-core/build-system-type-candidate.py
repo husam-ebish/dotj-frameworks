@@ -406,6 +406,15 @@ def main():
         "matchesRepeat": True,
         "typeId": "System.Runtime.CompilerServices.NullableAttribute",
         "typeIdEqualsType": True, "isDefault": False}
+    nullable_constructor = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNullableAttributeConstructorBehavior"]
+    assert nullable_constructor == {
+        "constructors": [
+            {"parameters": ["System.Byte"], "isPublic": True},
+            {"parameters": ["System.Byte[]"], "isPublic": True},
+        ],
+        "sameArrayReference": True, "firstFlagAfterInputMutation": 3,
+        "secondFlag": 2,
+    }
     attribute_filter = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterAttributeFilterBehavior"]
     assert attribute_filter == {
         "returnBase": ["System.Runtime.CompilerServices.NullableAttribute"],

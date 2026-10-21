@@ -98,6 +98,15 @@ public final class TypeIdentityCandidateTest {
                     != Type.fromJavaClass(Attribute.class)) {
             throw new AssertionError("Selected attribute hierarchy changed");
         }
+        byte[] nullableFlags = { 1, 2 };
+        NullableAttribute nullableArray = new NullableAttribute(nullableFlags);
+        if (nullableArray.NullableFlags != nullableFlags) {
+            throw new AssertionError("Nullable array constructor lost array identity");
+        }
+        nullableFlags[0] = 3;
+        if (nullableArray.NullableFlags[0] != 3 || nullableArray.NullableFlags[1] != 2) {
+            throw new AssertionError("Nullable array constructor mutation behavior changed");
+        }
         if (Type.GetType("System.Reflection.ParameterAttributes") != parameterAttributesType
                 || !parameterAttributesType.get_IsEnum()
                 || parameterAttributesType.GetEnumNames().length != 11
