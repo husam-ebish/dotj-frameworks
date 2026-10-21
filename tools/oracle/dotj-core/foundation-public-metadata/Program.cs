@@ -1038,6 +1038,16 @@ var result = new
                 required = parameter.GetRequiredCustomModifiers()
                     .Select(type => type.FullName).ToArray() })
             .ToArray() }).ToArray(),
+    selectedMethodFlagBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        isPublic = item.Item1.GetMethod(item.Item2)!.IsPublic,
+        isStatic = item.Item1.GetMethod(item.Item2)!.IsStatic,
+        isAbstract = item.Item1.GetMethod(item.Item2)!.IsAbstract,
+        isVirtual = item.Item1.GetMethod(item.Item2)!.IsVirtual,
+        isFinal = item.Item1.GetMethod(item.Item2)!.IsFinal }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

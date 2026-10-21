@@ -8,4 +8,14 @@ public abstract class MethodBase extends MemberInfo {
     }
 
     public abstract ParameterInfo[] GetParameters();
+
+    public abstract boolean get_IsPublic();
+
+    public abstract boolean get_IsStatic();
+
+    public abstract boolean get_IsAbstract();
+
+    public abstract boolean get_IsVirtual();
+
+    public abstract boolean get_IsFinal();
 }
