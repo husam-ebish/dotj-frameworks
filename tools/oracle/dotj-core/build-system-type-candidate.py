@@ -288,6 +288,9 @@ def main():
     quoted_literal = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32QuotedLiteralBehavior"]
     assert quoted_literal == {"prefix": "item 42", "suffix": "42 units", "both": "[42]",
                               "negative": "-item 42", "zero": "item 0"}
+    quoted_sections = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32QuotedSectionBehavior"]
+    assert quoted_sections == {"positive": "42", "negative": "[42]", "zero": "none",
+                               "unsignedNegative": "42", "labeledNegative": "minus 42"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

@@ -518,6 +518,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"item 0".equals(new Int32(0).ToString("'item '0", provider))) {
             throw new AssertionError("Selected Int32 quoted literals changed");
         }
+        if (!"42".equals(int32Value.ToString("0;[0];'none'", provider))
+                || !"[42]".equals(new Int32(-42).ToString("0;[0];'none'", provider))
+                || !"none".equals(new Int32(0).ToString("0;[0];'none'", provider))
+                || !"42".equals(new Int32(-42).ToString("0;0;'zero'", provider))
+                || !"minus 42".equals(new Int32(-42).ToString("0;'minus '0;'zero'", provider))) {
+            throw new AssertionError("Selected Int32 quoted sections changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
