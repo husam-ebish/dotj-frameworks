@@ -218,6 +218,13 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static <TOther> Int32 CreateChecked(TOther value) {
+        if (value instanceof BigInteger source) {
+            if (source.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                    || source.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+                throw new OverflowException();
+            }
+            return new Int32(source.intValue());
+        }
         long source = selectedCreateSource(value);
         if (source < Integer.MIN_VALUE || source > Integer.MAX_VALUE) {
             throw new OverflowException();
@@ -226,12 +233,22 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static <TOther> Int32 CreateSaturating(TOther value) {
+        if (value instanceof BigInteger source) {
+            if (source.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0) {
+                return new Int32(Integer.MIN_VALUE);
+            }
+            if (source.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+                return new Int32(Integer.MAX_VALUE);
+            }
+            return new Int32(source.intValue());
+        }
         long source = selectedCreateSource(value);
         return new Int32((int)Math.max(Integer.MIN_VALUE,
                 Math.min(Integer.MAX_VALUE, source)));
     }
 
     public static <TOther> Int32 CreateTruncating(TOther value) {
+        if (value instanceof BigInteger source) return new Int32(source.intValue());
         return new Int32((int)selectedCreateSource(value));
     }
 

@@ -2260,6 +2260,28 @@ static object ObserveInt32CreateFromInt64()
         truncated = int.CreateTruncating(value),
     }).ToArray();
 }
+static object ObserveInt32CreateFromBigInteger()
+{
+    System.Numerics.BigInteger[] values =
+    [-(System.Numerics.BigInteger.One << 80),
+        new System.Numerics.BigInteger(int.MinValue) - 1,
+        new System.Numerics.BigInteger(int.MinValue),
+        new System.Numerics.BigInteger(-3),
+        System.Numerics.BigInteger.Zero,
+        new System.Numerics.BigInteger(3),
+        new System.Numerics.BigInteger(int.MaxValue),
+        new System.Numerics.BigInteger(int.MaxValue) + 1,
+        System.Numerics.BigInteger.One << 80];
+    return values.Select(value => new
+    {
+        value = value.ToString(),
+        checkedValue = value >= int.MinValue && value <= int.MaxValue
+            ? (int?)int.CreateChecked(value) : null,
+        checkedError = ObserveMethodError(() => { _ = int.CreateChecked(value); }),
+        saturated = int.CreateSaturating(value),
+        truncated = int.CreateTruncating(value),
+    }).ToArray();
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2465,6 +2487,7 @@ var result = new
     selectedInt32ValueIdentityAndBigMul = ObserveInt32ValueIdentityAndBigMul(),
     selectedInt32DivRem = ObserveInt32DivRem(),
     selectedInt32CreateFromInt64 = ObserveInt32CreateFromInt64(),
+    selectedInt32CreateFromBigInteger = ObserveInt32CreateFromBigInteger(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
