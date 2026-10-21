@@ -201,6 +201,18 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("External Type identity call changed");
         }
         Type parameter = definition.GetGenericArguments()[0];
+        Type dictionaryDefinition = Type.GetType("System.Collections.Generic.Dictionary`2");
+        Type dictionaryConstructed = dictionaryDefinition.MakeGenericType(new Type[] {string, integer});
+        if (Type.GetType("System.Object").get_IsGenericTypeDefinition()
+                || integer.get_IsGenericTypeDefinition()
+                || !definition.get_IsGenericTypeDefinition()
+                || first.get_IsGenericTypeDefinition()
+                || !dictionaryDefinition.get_IsGenericTypeDefinition()
+                || dictionaryConstructed.get_IsGenericTypeDefinition()
+                || parameter.get_IsGenericTypeDefinition()
+                || Type.GetType("System.String[]").get_IsGenericTypeDefinition()) {
+            throw new AssertionError("Selected generic definition flags changed");
+        }
         Type object = Type.GetType("System.Object");
         Type valueType = Type.GetType("System.ValueType");
         Type arrayBase = Type.GetType("System.Array");
