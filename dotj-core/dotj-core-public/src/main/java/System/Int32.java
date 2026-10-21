@@ -107,6 +107,53 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return this.value;
     }
 
+    public static boolean IsEvenInteger(Int32 value) {
+        return (value.value & 1) == 0;
+    }
+
+    public static boolean IsOddInteger(Int32 value) {
+        return (value.value & 1) != 0;
+    }
+
+    public static boolean IsNegative(Int32 value) {
+        return value.value < 0;
+    }
+
+    public static boolean IsPositive(Int32 value) {
+        return value.value >= 0;
+    }
+
+    public static boolean IsPow2(Int32 value) {
+        return value.value > 0 && (value.value & (value.value - 1)) == 0;
+    }
+
+    public static Int32 LeadingZeroCount(Int32 value) {
+        return new Int32(Integer.numberOfLeadingZeros(value.value));
+    }
+
+    public static Int32 TrailingZeroCount(Int32 value) {
+        return new Int32(Integer.numberOfTrailingZeros(value.value));
+    }
+
+    public static Int32 PopCount(Int32 value) {
+        return new Int32(Integer.bitCount(value.value));
+    }
+
+    public static Int32 Log2(Int32 value) {
+        if (value.value < 0) {
+            throw new ArgumentOutOfRangeException("value", "Non-negative number required.");
+        }
+        return new Int32(value.value == 0 ? 0 : 31 - Integer.numberOfLeadingZeros(value.value));
+    }
+
+    public static Int32 RotateLeft(Int32 value, Int32 rotateAmount) {
+        return new Int32(Integer.rotateLeft(value.value, rotateAmount.value));
+    }
+
+    public static Int32 RotateRight(Int32 value, Int32 rotateAmount) {
+        return new Int32(Integer.rotateRight(value.value, rotateAmount.value));
+    }
+
     @Override
     public TypeCode GetTypeCode() {
         return TypeCode.Int32;

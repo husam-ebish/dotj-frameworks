@@ -742,6 +742,42 @@ def main():
         {"paramName": "index", "message": "custom (Parameter 'index')\r\nActual value was 42.",
          "actualValue": 42, "innerSame": False, "hResult": -2146233086},
     ]
+    foundation = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))
+    bit_helpers = foundation["selectedInt32BitHelpers"]
+    assert [(item["value"], item["isEven"], item["isOdd"], item["isNegative"],
+             item["isPositive"], item["isPow2"], item["leadingZeroCount"],
+             item["trailingZeroCount"], item["popCount"], item["log2"])
+            for item in bit_helpers["values"]] == [
+                (0, True, False, False, True, False, 32, 32, 0, 0),
+                (1, False, True, False, True, True, 31, 0, 1, 0),
+                (2, True, False, False, True, True, 30, 1, 1, 1),
+                (3, False, True, False, True, False, 30, 0, 2, 1),
+                (-1, False, True, True, False, False, 0, 0, 32, None),
+                (-2147483648, True, False, True, False, False, 0, 31, 1, None),
+                (2147483647, False, True, False, True, False, 1, 0, 31, 30),
+                (1073741824, True, False, False, True, True, 1, 30, 1, 30),
+            ]
+    assert all(item["log2Error"] == ("System.ArgumentOutOfRangeException" if item["value"] < 0 else None)
+               and item["log2ErrorParam"] == ("value" if item["value"] < 0 else None)
+               for item in bit_helpers["values"])
+    assert [(item["value"], item["amount"], item["left"], item["right"])
+            for item in bit_helpers["rotations"]] == [
+                (1, 1, 2, -2147483648), (-1, 1, -1, -1),
+                (-2147483648, 31, 1073741824, 1), (1, 32, 1, 1),
+                (1, -1, -2147483648, 2),
+            ]
+    int32_surface = next(item for item in foundation["completeDeclaredSurface"]
+                         if item["fullName"] == "System.Int32")
+    expected_bit_names = {"IsEvenInteger", "IsOddInteger", "IsNegative", "IsPositive", "IsPow2",
+                          "LeadingZeroCount", "TrailingZeroCount", "PopCount", "Log2",
+                          "RotateLeft", "RotateRight"}
+    declared_bit_methods = [item for item in int32_surface["methods"] if item["name"] in expected_bit_names]
+    assert {item["name"] for item in declared_bit_methods} == expected_bit_names
+    assert all(item["isStatic"] and item["returnType"] ==
+               ("System.Boolean" if item["name"].startswith("Is") else "System.Int32")
+               and [parameter["type"] for parameter in item["parameters"]] ==
+               (["System.Int32", "System.Int32"] if item["name"].startswith("Rotate") else ["System.Int32"])
+               for item in declared_bit_methods)
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

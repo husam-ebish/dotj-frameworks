@@ -2114,6 +2114,36 @@ static object ObserveArgumentOutOfRangeConstructors()
         hResult = value.HResult,
     }).ToArray();
 }
+static object ObserveInt32BitHelpers()
+{
+    int[] values = [0, 1, 2, 3, -1, int.MinValue, int.MaxValue, 0x40000000];
+    (int Value, int Amount)[] rotations = [(1, 1), (-1, 1), (int.MinValue, 31), (1, 32), (1, -1)];
+    return new
+    {
+        values = values.Select(value => new
+        {
+            value,
+            isEven = int.IsEvenInteger(value),
+            isOdd = int.IsOddInteger(value),
+            isNegative = int.IsNegative(value),
+            isPositive = int.IsPositive(value),
+            isPow2 = int.IsPow2(value),
+            leadingZeroCount = int.LeadingZeroCount(value),
+            trailingZeroCount = int.TrailingZeroCount(value),
+            popCount = int.PopCount(value),
+            log2 = value >= 0 ? int.Log2(value) : (int?)null,
+            log2Error = ObserveMethodError(() => { _ = int.Log2(value); }),
+            log2ErrorParam = ObserveMethodArgumentName(() => { _ = int.Log2(value); }),
+        }).ToArray(),
+        rotations = rotations.Select(item => new
+        {
+            value = item.Value,
+            amount = item.Amount,
+            left = int.RotateLeft(item.Value, item.Amount),
+            right = int.RotateRight(item.Value, item.Amount),
+        }).ToArray(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2314,6 +2344,7 @@ var result = new
     selectedExceptionDataViewProperties = ObserveExceptionDataViewProperties(),
     selectedExceptionDataCopyToBoundaries = ObserveExceptionDataCopyToBoundaries(),
     selectedArgumentOutOfRangeConstructors = ObserveArgumentOutOfRangeConstructors(),
+    selectedInt32BitHelpers = ObserveInt32BitHelpers(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

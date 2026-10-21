@@ -1236,6 +1236,154 @@
       "hResult": -2146233086
     }
   ],
+  "selectedInt32BitHelpers": {
+    "values": [
+      {
+        "value": 0,
+        "isEven": true,
+        "isOdd": false,
+        "isNegative": false,
+        "isPositive": true,
+        "isPow2": false,
+        "leadingZeroCount": 32,
+        "trailingZeroCount": 32,
+        "popCount": 0,
+        "log2": 0,
+        "log2Error": null,
+        "log2ErrorParam": null
+      },
+      {
+        "value": 1,
+        "isEven": false,
+        "isOdd": true,
+        "isNegative": false,
+        "isPositive": true,
+        "isPow2": true,
+        "leadingZeroCount": 31,
+        "trailingZeroCount": 0,
+        "popCount": 1,
+        "log2": 0,
+        "log2Error": null,
+        "log2ErrorParam": null
+      },
+      {
+        "value": 2,
+        "isEven": true,
+        "isOdd": false,
+        "isNegative": false,
+        "isPositive": true,
+        "isPow2": true,
+        "leadingZeroCount": 30,
+        "trailingZeroCount": 1,
+        "popCount": 1,
+        "log2": 1,
+        "log2Error": null,
+        "log2ErrorParam": null
+      },
+      {
+        "value": 3,
+        "isEven": false,
+        "isOdd": true,
+        "isNegative": false,
+        "isPositive": true,
+        "isPow2": false,
+        "leadingZeroCount": 30,
+        "trailingZeroCount": 0,
+        "popCount": 2,
+        "log2": 1,
+        "log2Error": null,
+        "log2ErrorParam": null
+      },
+      {
+        "value": -1,
+        "isEven": false,
+        "isOdd": true,
+        "isNegative": true,
+        "isPositive": false,
+        "isPow2": false,
+        "leadingZeroCount": 0,
+        "trailingZeroCount": 0,
+        "popCount": 32,
+        "log2": null,
+        "log2Error": "System.ArgumentOutOfRangeException",
+        "log2ErrorParam": "value"
+      },
+      {
+        "value": -2147483648,
+        "isEven": true,
+        "isOdd": false,
+        "isNegative": true,
+        "isPositive": false,
+        "isPow2": false,
+        "leadingZeroCount": 0,
+        "trailingZeroCount": 31,
+        "popCount": 1,
+        "log2": null,
+        "log2Error": "System.ArgumentOutOfRangeException",
+        "log2ErrorParam": "value"
+      },
+      {
+        "value": 2147483647,
+        "isEven": false,
+        "isOdd": true,
+        "isNegative": false,
+        "isPositive": true,
+        "isPow2": false,
+        "leadingZeroCount": 1,
+        "trailingZeroCount": 0,
+        "popCount": 31,
+        "log2": 30,
+        "log2Error": null,
+        "log2ErrorParam": null
+      },
+      {
+        "value": 1073741824,
+        "isEven": true,
+        "isOdd": false,
+        "isNegative": false,
+        "isPositive": true,
+        "isPow2": true,
+        "leadingZeroCount": 1,
+        "trailingZeroCount": 30,
+        "popCount": 1,
+        "log2": 30,
+        "log2Error": null,
+        "log2ErrorParam": null
+      }
+    ],
+    "rotations": [
+      {
+        "value": 1,
+        "amount": 1,
+        "left": 2,
+        "right": -2147483648
+      },
+      {
+        "value": -1,
+        "amount": 1,
+        "left": -1,
+        "right": -1
+      },
+      {
+        "value": -2147483648,
+        "amount": 31,
+        "left": 1073741824,
+        "right": 1
+      },
+      {
+        "value": 1,
+        "amount": 32,
+        "left": 1,
+        "right": 1
+      },
+      {
+        "value": 1,
+        "amount": -1,
+        "left": -2147483648,
+        "right": 2
+      }
+    ]
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -24860,6 +25008,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "f4a7663b0cfad55edf5b279fc9be0528fa805477fb092d7cf83df792aa46badf",
+  "oracleProgramSha256": "3a3af9135ebf79d662288d51966108811a04bb5843e7d95d02d0471e6e1a7330",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
