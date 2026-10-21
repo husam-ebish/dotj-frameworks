@@ -141,21 +141,21 @@ public final class ProductInt32SpanConsumer {
         checkProviderVector(new Int32(-123456789), "C0", "(USD12_34_56_789)", otherGroups);
         checkProviderVector(new Int32(42), "P0", "42_00 pct", otherGroups);
         checkProviderVector(new Int32(-42), "P0", "-42_00 pct", otherGroups);
-        checkGroupSizeError(() -> otherGroups.set_NumberGroupSizes(null),
+        checkExpectedError(() -> otherGroups.set_NumberGroupSizes(null),
                 ArgumentNullException.class);
-        checkGroupSizeError(() -> otherGroups.set_NumberGroupSizes(new int[] {-1}),
+        checkExpectedError(() -> otherGroups.set_NumberGroupSizes(new int[] {-1}),
                 ArgumentException.class);
-        checkGroupSizeError(() -> otherGroups.set_NumberGroupSizes(new int[] {10}),
+        checkExpectedError(() -> otherGroups.set_NumberGroupSizes(new int[] {10}),
                 ArgumentException.class);
-        checkGroupSizeError(() -> otherGroups.set_NumberGroupSizes(new int[] {3, 0, 2}),
+        checkExpectedError(() -> otherGroups.set_NumberGroupSizes(new int[] {3, 0, 2}),
                 ArgumentException.class);
-        checkGroupSizeError(() -> otherGroups.set_CurrencyGroupSizes(new int[] {-1}),
+        checkExpectedError(() -> otherGroups.set_CurrencyGroupSizes(new int[] {-1}),
                 ArgumentException.class);
-        checkGroupSizeError(() -> otherGroups.set_CurrencyGroupSizes(new int[] {3, 0, 2}),
+        checkExpectedError(() -> otherGroups.set_CurrencyGroupSizes(new int[] {3, 0, 2}),
                 ArgumentException.class);
-        checkGroupSizeError(() -> otherGroups.set_PercentGroupSizes(new int[] {-1}),
+        checkExpectedError(() -> otherGroups.set_PercentGroupSizes(new int[] {-1}),
                 ArgumentException.class);
-        checkGroupSizeError(() -> otherGroups.set_PercentGroupSizes(new int[] {3, 0, 2}),
+        checkExpectedError(() -> otherGroups.set_PercentGroupSizes(new int[] {3, 0, 2}),
                 ArgumentException.class);
         otherGroups.set_NumberGroupSizes(new int[0]);
         otherGroups.set_NumberGroupSizes(new int[] {0});
@@ -283,6 +283,57 @@ public final class ProductInt32SpanConsumer {
         checkTrailingSignStyles();
         checkGroupedDecimalStyles();
         checkCurrencyFlagStyles();
+        checkRadixFlagStyles();
+    }
+
+    private static void checkRadixFlagStyles() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        NumberStyles hex = NumberStyles.AllowHexSpecifier;
+        NumberStyles binary = NumberStyles.AllowBinarySpecifier;
+        checkSingleStyleVectors(hex, provider,
+                new String[] {"FF", " FF", "FF ", "FFFFFFFF", "100000000", "0xFF"},
+                new int[] {255, 0, 0, -1, 0, 0},
+                new Class<?>[] {null, FormatException.class, FormatException.class,
+                        null, OverflowException.class, FormatException.class});
+        checkSingleStyleVectors(hex.Or(NumberStyles.AllowLeadingWhite), provider,
+                new String[] {" FF", "FF ", "FF", " 100000000"},
+                new int[] {255, 0, 255, 0},
+                new Class<?>[] {null, FormatException.class, null, OverflowException.class});
+        checkSingleStyleVectors(hex.Or(NumberStyles.AllowTrailingWhite), provider,
+                new String[] {"FF ", " FF", "FF"},
+                new int[] {255, 0, 255},
+                new Class<?>[] {null, FormatException.class, null});
+        checkSingleStyleVectors(binary, provider,
+                new String[] {"101010", " 101010", "101010 ",
+                        "11111111111111111111111111111111",
+                        "100000000000000000000000000000000"},
+                new int[] {42, 0, 0, -1, 0},
+                new Class<?>[] {null, FormatException.class, FormatException.class,
+                        null, OverflowException.class});
+        checkSingleStyleVectors(binary.Or(NumberStyles.AllowLeadingWhite), provider,
+                new String[] {" 101010", "101010 ", "101010"},
+                new int[] {42, 0, 42},
+                new Class<?>[] {null, FormatException.class, null});
+        checkSingleStyleVectors(binary.Or(NumberStyles.AllowTrailingWhite), provider,
+                new String[] {"101010 ", " 101010", "101010"},
+                new int[] {42, 0, 42},
+                new Class<?>[] {null, FormatException.class, null});
+        NumberStyles[] invalid = {
+                hex.Or(NumberStyles.AllowLeadingSign),
+                binary.Or(NumberStyles.AllowDecimalPoint),
+                hex.Or(binary),
+                hex.Or(NumberStyles.AllowThousands)};
+        int[] expectedValues = {516, 1056, 1536, 576};
+        for (int index = 0; index < invalid.length; index++) {
+            NumberStyles style = invalid[index];
+            if (style.get_Value() != expectedValues[index]) {
+                throw new AssertionError("Invalid radix flag mask changed");
+            }
+            checkExpectedError(() -> Int32.Parse("42", style, provider),
+                    ArgumentException.class);
+            checkExpectedError(() -> Int32.TryParse("42", style, provider, new Int32[1]),
+                    ArgumentException.class);
+        }
     }
 
     private static void checkCurrencyFlagStyles() {
@@ -621,14 +672,14 @@ public final class ProductInt32SpanConsumer {
         }
     }
 
-    private static void checkGroupSizeError(Runnable setter, Class<?> expected) {
+    private static void checkExpectedError(Runnable setter, Class<?> expected) {
         try {
             setter.run();
         } catch (RuntimeException failure) {
             if (failure.getClass() == expected) return;
-            throw new AssertionError("Unexpected group-size setter error", failure);
+            throw new AssertionError("Unexpected error type", failure);
         }
-        throw new AssertionError("Expected group-size setter error: " + expected.getName());
+        throw new AssertionError("Expected error: " + expected.getName());
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,

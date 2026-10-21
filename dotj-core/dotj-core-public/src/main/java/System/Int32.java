@@ -49,6 +49,15 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (style == null) throw new ArgumentNullException("style");
+        int flags = style.get_Value();
+        if ((flags & (512 | 1024)) != 0) {
+            boolean hex = (flags & 512) != 0;
+            int allowed = (hex ? 512 : 1024) | 3;
+            if ((flags & ~allowed) != 0) {
+                throw new ArgumentException("Invalid NumberStyles value", "style");
+            }
+            return selectedParseRadix(text, flags, hex ? 16 : 2);
+        }
         if (style == NumberStyles.Integer) {
             if (text != null) {
                 NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
@@ -109,31 +118,17 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if ((style.get_Value() & 256) != 0 && (style.get_Value() & ~511) == 0) {
             return selectedParseCurrencyFlags(text, provider, style);
         }
-        if (style == NumberStyles.BinaryNumber) {
-            if (text == null) {
-                throw new ArgumentNullException("s");
-            }
-            String trimmed = text.strip();
-            if (!trimmed.matches("[01]+")) {
-                throw new FormatException("Input string was not in a correct format");
-            }
-            BigInteger parsed = new BigInteger(trimmed, 2);
-            if (parsed.compareTo(BigInteger.valueOf(0xffff_ffffL)) > 0) {
-                throw new OverflowException("Value was outside the range of Int32");
-            }
-            return new Int32(parsed.intValue());
-        }
-        if (style != NumberStyles.HexNumber) {
-            throw new UnsupportedOperationException("NumberStyles value is not mapped");
-        }
-        if (text == null) {
-            throw new ArgumentNullException("s");
-        }
-        String trimmed = text.strip();
-        if (!trimmed.matches("[0-9a-fA-F]+")) {
+        throw new UnsupportedOperationException("NumberStyles value is not mapped");
+    }
+
+    private static Int32 selectedParseRadix(String text, int flags, int radix) {
+        if (text == null) throw new ArgumentNullException("s");
+        String digits = (flags & 1) != 0 ? text.stripLeading() : text;
+        if ((flags & 2) != 0) digits = digits.stripTrailing();
+        if (!digits.matches(radix == 16 ? "[0-9a-fA-F]+" : "[01]+")) {
             throw new FormatException("Input string was not in a correct format");
         }
-        BigInteger parsed = new BigInteger(trimmed, 16);
+        BigInteger parsed = new BigInteger(digits, radix);
         if (parsed.compareTo(BigInteger.valueOf(0xffff_ffffL)) > 0) {
             throw new OverflowException("Value was outside the range of Int32");
         }

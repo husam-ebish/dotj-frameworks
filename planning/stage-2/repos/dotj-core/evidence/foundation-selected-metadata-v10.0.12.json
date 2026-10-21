@@ -23741,6 +23741,186 @@
       }
     ]
   },
+  "selectedInt32RadixFlagStyles": {
+    "hex": [
+      {
+        "text": "FF",
+        "success": true,
+        "value": 255,
+        "error": null
+      },
+      {
+        "text": " FF",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "FF ",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "FFFFFFFF",
+        "success": true,
+        "value": -1,
+        "error": null
+      },
+      {
+        "text": "100000000",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      },
+      {
+        "text": "0xFF",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ],
+    "leadingHex": [
+      {
+        "text": " FF",
+        "success": true,
+        "value": 255,
+        "error": null
+      },
+      {
+        "text": "FF ",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "FF",
+        "success": true,
+        "value": 255,
+        "error": null
+      },
+      {
+        "text": " 100000000",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      }
+    ],
+    "trailingHex": [
+      {
+        "text": "FF ",
+        "success": true,
+        "value": 255,
+        "error": null
+      },
+      {
+        "text": " FF",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "FF",
+        "success": true,
+        "value": 255,
+        "error": null
+      }
+    ],
+    "binary": [
+      {
+        "text": "101010",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": " 101010",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "101010 ",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "11111111111111111111111111111111",
+        "success": true,
+        "value": -1,
+        "error": null
+      },
+      {
+        "text": "100000000000000000000000000000000",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      }
+    ],
+    "leadingBinary": [
+      {
+        "text": " 101010",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "101010 ",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "101010",
+        "success": true,
+        "value": 42,
+        "error": null
+      }
+    ],
+    "trailingBinary": [
+      {
+        "text": "101010 ",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": " 101010",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "101010",
+        "success": true,
+        "value": 42,
+        "error": null
+      }
+    ],
+    "invalid": [
+      {
+        "value": 516,
+        "parseError": "System.ArgumentException",
+        "tryParseError": "System.ArgumentException"
+      },
+      {
+        "value": 1056,
+        "parseError": "System.ArgumentException",
+        "tryParseError": "System.ArgumentException"
+      },
+      {
+        "value": 1536,
+        "parseError": "System.ArgumentException",
+        "tryParseError": "System.ArgumentException"
+      },
+      {
+        "value": 576,
+        "parseError": "System.ArgumentException",
+        "tryParseError": "System.ArgumentException"
+      }
+    ]
+  },
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -27076,6 +27256,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "2e83974d876849dbef93f06fef57b10d715485db6fb893f9947e3cd1cf4f7b54",
+  "oracleProgramSha256": "edd6f65e23fbdb1574abf1964b254024d7d10f25997e0e71bfbcc50cecc3ae46",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
