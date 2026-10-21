@@ -36,6 +36,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "Collections" / (name + ".java") for name 
                       ("IEnumerable", "ICollection", "IDictionary", "IDictionaryEnumerator", "DictionaryEntry")]
 EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("MidpointRounding.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("ReadOnlySpan.java"))

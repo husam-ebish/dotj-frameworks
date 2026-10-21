@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
-    "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "ReadOnlySpan", "Span", "UInt16", "UInt32", "Byte", "SByte", "Type", "DBNull", "Attribute", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "ArgumentOutOfRangeException", "ArithmeticException", "DivideByZeroException", "ValueTuple", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "NullReferenceException", "FormatException")]
+    "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "MidpointRounding", "Decimal", "DateTime", "Int32", "ReadOnlySpan", "Span", "UInt16", "UInt32", "Byte", "SByte", "Type", "DBNull", "Attribute", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "ArgumentOutOfRangeException", "ArithmeticException", "DivideByZeroException", "ValueTuple", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "NullReferenceException", "FormatException")]
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException", "FileLoadException")]
 SOURCES.append(PRODUCT / "src/main/java/System/Collections/IEnumerator.java")
@@ -83,6 +83,7 @@ EXPECTED_CLASSES = [
     "System/Int32.class",
     "System/InvalidCastException.class",
     "System/InvalidOperationException.class",
+    "System/MidpointRounding.class",
     "System/NullReferenceException.class",
     "System/OverflowException.class",
     "System/ReadOnlySpan.class",
@@ -247,6 +248,26 @@ def main():
     assert decimal_round["negativeDigits"] == {
         "type": "System.ArgumentOutOfRangeException", "paramName": "decimals"}
     assert decimal_round["over28Digits"] == decimal_round["negativeDigits"]
+    round_modes = metadata["selectedDecimalRoundModes"]
+    assert round_modes["modes"] == [
+        {"name": name, "value": value} for value, name in enumerate((
+            "ToEven", "AwayFromZero", "ToZero", "ToNegativeInfinity",
+            "ToPositiveInfinity"))]
+    mode_inputs = ([125, 0, 0, 131072], [125, 0, 0, -2147352576],
+                   [126, 0, 0, 131072], [126, 0, 0, -2147352576],
+                   [5, 0, 0, -2147352576])
+    mode_results = ((12, 13, 12, 12, 13), (12, 13, 12, 13, 12),
+                    (13, 13, 12, 12, 13), (13, 13, 12, 13, 12),
+                    (0, 1, 0, 1, 0))
+    assert [(entry["input"], entry["decimals"], entry["mode"], entry["result"])
+            for entry in round_modes["valid"]] == [
+        (bits, 1, mode, [result, 0, 0,
+                         (65536 | (-2147483648 if bits[3] < 0 else 0))])
+        for bits, results in zip(mode_inputs, mode_results)
+        for mode, result in enumerate(results)]
+    assert round_modes["invalidNegative"] == {
+        "type": "System.ArgumentException", "paramName": "mode"}
+    assert round_modes["invalidFive"] == round_modes["invalidNegative"]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -738,8 +759,10 @@ def main():
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 
-    CLASSES.mkdir(parents=True, exist_ok=True)
-    CONSUMER_CLASSES.mkdir(parents=True, exist_ok=True)
+    for output_dir in (CLASSES, CONSUMER_CLASSES):
+        output_dir.mkdir(parents=True, exist_ok=True)
+        for stale_class in output_dir.rglob("*.class"):
+            stale_class.unlink()
     run("javac", "--release", "21", "-d", str(CLASSES), *(str(path) for path in SOURCES))
     class_files = sorted(path.relative_to(CLASSES).as_posix() for path in CLASSES.rglob("*.class"))
     assert class_files == EXPECTED_CLASSES, class_files
