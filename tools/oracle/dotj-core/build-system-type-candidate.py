@@ -41,6 +41,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("ReadOnlySpan.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("UInt16.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("UInt32.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Byte.java"))
@@ -981,6 +982,18 @@ def main():
                 ("System.UInt32", "2147483648", None, "System.OverflowException", 2147483647, -2147483648),
                 ("System.UInt32", "4294967295", None, "System.OverflowException", 2147483647, -1),
             ]
+    assert foundation["selectedInt32SpanParse"] == {
+        "charParseProvider": -7, "charParseStyled": 255,
+        "byteParseProvider": -7, "byteParseStyled": 255,
+        "charPlain": True, "charPlainValue": -7,
+        "charProvider": True, "charProviderValue": -7,
+        "charStyled": True, "charStyledValue": 255,
+        "bytePlain": True, "bytePlainValue": -7,
+        "byteProvider": True, "byteProviderValue": -7,
+        "byteStyled": True, "byteStyledValue": 255,
+        "charInvalid": False, "charInvalidValue": 0,
+        "byteInvalid": False, "byteInvalidValue": 0,
+    }
     assert {
         "Int32 CompareTo(Int32)",
         "Int32 Parse(System.String, System.Globalization.NumberStyles)",

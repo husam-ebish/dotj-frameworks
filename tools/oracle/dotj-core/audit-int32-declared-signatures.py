@@ -2,6 +2,8 @@
 
 import hashlib
 import json
+import re
+from collections import defaultdict
 from pathlib import Path
 
 
@@ -36,9 +38,10 @@ def java_method(declaration):
     is_static = body.startswith("static ")
     if is_static:
         body = body.removeprefix("static ")
-    generic_arity = 1 if body.startswith("<TOther> ") else 0
-    if generic_arity:
-        body = body.removeprefix("<TOther> ")
+    generic = re.match(r"<[^>]+> ", body)
+    generic_arity = 1 if generic else 0
+    if generic:
+        body = body[generic.end():]
     if " " not in body:
         return None  # Public carrier constructor, not a CLR Int32 method.
     return_type, name = body.rsplit(" ", 1)
@@ -82,6 +85,23 @@ def main():
     declarations = record["javaCandidateDeclaredPublicDeclarations"]
     candidates = [item for declaration in declarations
                   if (item := java_method(declaration)) is not None]
+    span_groups = defaultdict(list)
+    for method in upstream:
+        if (method["parameters"] and method["parameters"][0]["type"]
+                .startswith("System.ReadOnlySpan`1[[")):
+            span_groups[(method["name"], method["isStatic"],
+                         len(method["parameters"]))].append(method)
+    assert len(span_groups) == 5 and all(len(group) == 2 for group in span_groups.values())
+    span_carriers = {}
+    for key, group in span_groups.items():
+        name, is_static, arity = key
+        carrier = [item for item in candidates
+                   if item["name"] == name and item["isStatic"] == is_static
+                   and item["genericArity"] == 1 and len(item["parameters"]) == arity
+                   and item["parameters"][0] == "System.ReadOnlySpan<T>"]
+        assert len(carrier) == 1, (key, carrier)
+        for method in group:
+            span_carriers[method["signature"]] = carrier[0]["declaration"]
     matched = set()
     results = []
     for method in upstream:
@@ -109,13 +129,18 @@ def main():
         assert len(found) <= 1, (method["signature"], found)
         if found:
             matched.add(found[0]["declaration"])
+        carrier_declaration = span_carriers.get(method["signature"])
         results.append({
             "upstreamSignature": method["signature"],
             "projectedJava": expected,
             "candidateDeclaration": found[0]["declaration"] if found else None,
+            "collapsedCarrierDeclaration": carrier_declaration,
             "projectionAdaptations": sorted(set(adaptations)),
-            "status": "PROJECTED_CANDIDATE" if found else "MISSING_PROJECTED_SIGNATURE",
+            "status": ("PROJECTED_CANDIDATE" if found else
+                       "ERASURE_COLLAPSED_CARRIER" if carrier_declaration else
+                       "MISSING_PROJECTED_SIGNATURE"),
         })
+    matched.update(span_carriers.values())
     extra_methods = [item["declaration"] for item in candidates
                      if item["declaration"] not in matched]
     missing = [item for item in results if item["candidateDeclaration"] is None]
@@ -131,18 +156,21 @@ def main():
         "upstreamMethodCount": len(upstream),
         "projectedCandidateMethodCount": len(results) - len(missing),
         "missingProjectedSignatureCount": len(missing),
+        "erasureCollapsedOverloadGroupCount": len(span_groups),
+        "erasureCollapsedUpstreamMethodCount": len(span_carriers),
         "extraJavaPublicMethodCount": len(extra_methods),
         "upstreamFields": fields,
         "extraJavaPublicMethods": extra_methods,
         "javaPublicConstructors": [item for item in declarations
                                    if item.startswith("public System.Int32(")],
         "methods": results,
-        "status": "PROJECTION_AUDIT_ONLY; SPAN/BYREF/VALUE_TYPE_ABI, BEHAVIOR, E02 AND N01 OPEN",
-        "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Extra Java methods include public interface bridges and carrier helpers.",
+        "status": "PROJECTION_AUDIT_ONLY; SPAN_ERASURE/VALUE_TYPE_ABI, BEHAVIOR, E02 AND N01 OPEN",
+        "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Five generic ReadOnlySpan carrier methods collapse ten distinct CLR overloads. Extra Java methods include public interface bridges and carrier helpers.",
     }
     OUTPUT.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
     print(f"PASS Int32 signature audit: {len(results) - len(missing)}/53 projected; "
-          f"{len(missing)} missing, {len(extra_methods)} extra Java public methods")
+          f"{len(missing)} collapsed by {len(span_groups)} span carriers, "
+          f"{len(extra_methods)} extra Java public methods")
 
 
 if __name__ == "__main__":

@@ -38,6 +38,7 @@ EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/do
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("ReadOnlySpan.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("UInt16.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("UInt32.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Byte.java"))

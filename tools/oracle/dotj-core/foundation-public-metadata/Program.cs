@@ -2403,6 +2403,36 @@ static object ObserveInt32CreateSmallIntegrals()
         ObserveInt32CreateIntegralSource(uint.MaxValue),
     };
 }
+static object ObserveInt32SpanParse()
+{
+    var provider = System.Globalization.CultureInfo.InvariantCulture;
+    byte[] number = System.Text.Encoding.UTF8.GetBytes(" -7 ");
+    byte[] hex = System.Text.Encoding.UTF8.GetBytes("FF");
+    byte[] invalid = System.Text.Encoding.UTF8.GetBytes("oops");
+    bool charPlain = int.TryParse(" -7 ".AsSpan(), out int charPlainValue);
+    bool charProvider = int.TryParse(" -7 ".AsSpan(), provider, out int charProviderValue);
+    bool charStyled = int.TryParse("FF".AsSpan(),
+        System.Globalization.NumberStyles.HexNumber, provider, out int charStyledValue);
+    bool bytePlain = int.TryParse(number.AsSpan(), out int bytePlainValue);
+    bool byteProvider = int.TryParse(number.AsSpan(), provider, out int byteProviderValue);
+    bool byteStyled = int.TryParse(hex.AsSpan(),
+        System.Globalization.NumberStyles.HexNumber, provider, out int byteStyledValue);
+    bool charInvalid = int.TryParse("oops".AsSpan(), out int charInvalidValue);
+    bool byteInvalid = int.TryParse(invalid.AsSpan(), out int byteInvalidValue);
+    return new
+    {
+        charParseProvider = int.Parse(" -7 ".AsSpan(), provider),
+        charParseStyled = int.Parse("FF".AsSpan(),
+            System.Globalization.NumberStyles.HexNumber, provider),
+        byteParseProvider = int.Parse(number.AsSpan(), provider),
+        byteParseStyled = int.Parse(hex.AsSpan(),
+            System.Globalization.NumberStyles.HexNumber, provider),
+        charPlain, charPlainValue, charProvider, charProviderValue,
+        charStyled, charStyledValue, bytePlain, bytePlainValue,
+        byteProvider, byteProviderValue, byteStyled, byteStyledValue,
+        charInvalid, charInvalidValue, byteInvalid, byteInvalidValue,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2614,6 +2644,7 @@ var result = new
     selectedInt32CreateFromDecimal = ObserveInt32CreateFromDecimal(),
     selectedInt32OrdinaryOverloads = ObserveInt32OrdinaryOverloads(),
     selectedInt32CreateSmallIntegrals = ObserveInt32CreateSmallIntegrals(),
+    selectedInt32SpanParse = ObserveInt32SpanParse(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

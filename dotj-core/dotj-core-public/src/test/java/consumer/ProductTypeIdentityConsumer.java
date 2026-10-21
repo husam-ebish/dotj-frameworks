@@ -1904,7 +1904,7 @@ public final class ProductTypeIdentityConsumer {
             // Selected exception identity.
         }
         try {
-            Int32.Parse(null, NumberStyles.HexNumber, provider);
+            Int32.Parse((String)null, NumberStyles.HexNumber, provider);
             throw new AssertionError("Null hexadecimal Int32 parsed");
         } catch (ArgumentNullException expected) {
             if (!"s".equals(expected.get_ParamName())) {
@@ -1937,7 +1937,7 @@ public final class ProductTypeIdentityConsumer {
                 || !Int32.TryParse("-7", parsedResult) || parsedResult[0].get_Value() != -7
                 || Int32.TryParse("oops", parsedResult) || parsedResult[0].get_Value() != 0
                 || Int32.TryParse("2147483648", parsedResult) || parsedResult[0].get_Value() != 0
-                || Int32.TryParse(null, parsedResult) || parsedResult[0].get_Value() != 0) {
+                || Int32.TryParse((String)null, parsedResult) || parsedResult[0].get_Value() != 0) {
             throw new AssertionError("Selected Int32.TryParse behavior changed");
         }
         if (!Int32.TryParse("FF", NumberStyles.HexNumber, provider, parsedResult)
@@ -1950,7 +1950,7 @@ public final class ProductTypeIdentityConsumer {
                 || parsedResult[0].get_Value() != 0
                 || Int32.TryParse("0xFF", NumberStyles.HexNumber, provider, parsedResult)
                 || parsedResult[0].get_Value() != 0
-                || Int32.TryParse(null, NumberStyles.HexNumber, provider, parsedResult)
+                || Int32.TryParse((String)null, NumberStyles.HexNumber, provider, parsedResult)
                 || parsedResult[0].get_Value() != 0) {
             throw new AssertionError("Selected hexadecimal Int32.TryParse behavior changed");
         }

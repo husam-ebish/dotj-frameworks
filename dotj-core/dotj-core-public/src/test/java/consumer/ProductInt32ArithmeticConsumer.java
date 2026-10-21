@@ -289,7 +289,7 @@ public final class ProductInt32ArithmeticConsumer {
             // Pinned CLR error type.
         }
         try {
-            Int32.Parse(null, (IFormatProvider)null);
+            Int32.Parse((String)null, (IFormatProvider)null);
             throw new AssertionError("Null Int32.Parse input accepted");
         } catch (ArgumentNullException expected) {
             // Pinned CLR error type.
@@ -299,7 +299,7 @@ public final class ProductInt32ArithmeticConsumer {
                 || parsed[0].get_Value() != -7
                 || Int32.TryParse("oops", (IFormatProvider)null, parsed)
                 || parsed[0].get_Value() != 0
-                || Int32.TryParse(null, (IFormatProvider)null, parsed)
+                || Int32.TryParse((String)null, (IFormatProvider)null, parsed)
                 || parsed[0].get_Value() != 0) {
             throw new AssertionError("Int32.TryParse provider overload changed");
         }
