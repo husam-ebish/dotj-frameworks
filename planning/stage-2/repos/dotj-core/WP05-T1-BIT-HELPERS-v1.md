@@ -44,4 +44,6 @@ A selected `System.Globalization.NumberFormatInfo` candidate now supplies group 
 
 The selected provider also carries a custom negative sign. The pinned .NET oracle confirms that `NumberStyles.Integer` parses `~42` as `-42`, rejects `-42` under that provider, and formats negative `N2` as `~42.00`. The packaged consumer checks string and Char/UTF-8 span parsing and formatting on those paths. Other sign placement and parsing styles remain open.
 
+The same pinned provider also yields `~42` for `D` and `ToString(provider)`, and `~00042` for `D5`. The packaged consumer checks both format strings through the Char and UTF-8 Byte span carrier. General, currency, percent and other provider-sensitive formats remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

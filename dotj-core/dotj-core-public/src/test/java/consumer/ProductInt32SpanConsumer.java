@@ -125,6 +125,11 @@ public final class ProductInt32SpanConsumer {
             throw new AssertionError("Custom provider span Parse changed");
         }
         checkProviderVector(new Int32(-42), "N2", "~42.00", customSign);
+        if (!new Int32(-42).ToString(customSign).equals("~42")) {
+            throw new AssertionError("Custom provider ToString changed");
+        }
+        checkProviderVector(new Int32(-42), "D", "~42", customSign);
+        checkProviderVector(new Int32(-42), "D5", "~00042", customSign);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,
