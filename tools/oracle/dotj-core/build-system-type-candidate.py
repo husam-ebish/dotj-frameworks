@@ -251,6 +251,11 @@ def main():
     ]
     generic_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericArgumentVisibilityBehavior"]
     assert [row["isVisible"] for row in generic_visibility] == [True, False, False]
+    parent_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedParentVisibilityBehavior"]
+    assert [(row["isPublic"], row["isNestedPublic"], row["isVisible"], row["declaringVisible"])
+            for row in parent_visibility] == [
+        (False, True, True, True), (False, True, False, False),
+    ]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",

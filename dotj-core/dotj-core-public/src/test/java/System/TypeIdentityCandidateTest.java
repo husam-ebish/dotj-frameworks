@@ -14,6 +14,11 @@ public final class TypeIdentityCandidateTest {
     protected static final class NestedFamilyFixture {
     }
 
+    private static final class PrivateOwnerFixture {
+        public static final class PublicChild {
+        }
+    }
+
     public static void main(String[] args) {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
@@ -48,6 +53,12 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        Type privateOwnerChild = Type.fromJavaClass(PrivateOwnerFixture.PublicChild.class);
+        if (!privateOwnerChild.get_IsNestedPublic() || privateOwnerChild.get_IsPublic()
+                || privateOwnerChild.get_IsVisible()
+                || privateOwnerChild.get_DeclaringType().get_IsVisible()) {
+            throw new AssertionError("Nested declaring-type visibility changed");
+        }
         Type privateArgument = Type.fromJavaClass(NestedPrivateFixture.class);
         Type privateList = list.MakeGenericType(new Type[] {privateArgument});
         if (privateList.get_IsVisible() || privateList.MakeArrayType().get_IsVisible()
