@@ -119,8 +119,8 @@ public abstract class Type extends MemberInfo {
             if (assemblyName.equalsIgnoreCase("System.Private.CoreLib.dll")) {
                 assemblyName = assemblyName.substring(0, assemblyName.length() - 4);
             }
-            if (assemblyName.equalsIgnoreCase("System.Private.CoreLib")
-                    || assemblyName.equalsIgnoreCase("mscorlib")) {
+            boolean knownAssembly = assemblyName.equalsIgnoreCase("System.Private.CoreLib")
+                    || assemblyName.equalsIgnoreCase("mscorlib");
                 java.util.ArrayList<String> attributes = new java.util.ArrayList<>();
                 StringBuilder attributeText = new StringBuilder();
                 boolean insideQuotes = false;
@@ -138,6 +138,7 @@ public abstract class Type extends MemberInfo {
                 }
                 attributes.add(attributeText.toString());
                 java.util.HashSet<String> seen = new java.util.HashSet<>();
+                String invalidCulture = null;
                 for (int index = 1; index < attributes.size(); index++) {
                     String[] attribute = attributes.get(index).trim().split("=", 2);
                     String key = attribute[0].trim().toLowerCase(Locale.ROOT);
@@ -179,9 +180,13 @@ public abstract class Type extends MemberInfo {
                     }
                     if (key.equals("culture") && (value.matches("[0-9]+")
                             || value.contains(" ") || value.contains(",") || value.contains("\""))) {
-                        throw new CultureNotFoundException("name", value, "Culture is not supported");
+                        invalidCulture = value;
                     }
                 }
+                if (invalidCulture != null) {
+                    throw new CultureNotFoundException("name", invalidCulture, "Culture is not supported");
+                }
+            if (knownAssembly) {
                 name = typeName.substring(0, assemblySeparator).stripLeading();
             } else if (throwOnError) {
                 throw new FileNotFoundException("Could not load assembly: " + assembly);

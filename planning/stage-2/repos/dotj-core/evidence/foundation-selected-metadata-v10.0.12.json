@@ -1759,6 +1759,38 @@
       "paramName": null
     }
   },
+  "selectedMixedAssemblyIdentityBehavior": {
+    "allValid": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "invalidVersionFirst": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "invalidCultureFirst": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "unknownAssemblyInvalidVersion": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "unknownAssemblyInvalidVersionThrow": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "invalidContentFirst": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -5185,6 +5217,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "d3a892f71fa8c9b8684904c6a21475501f4dc89c7384c766e127008ec97c6010",
+  "oracleProgramSha256": "50b0fd7b6a5ff6b56394f6a730b83d405ba7ae2001e49a6eb78d73bc064d3254",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

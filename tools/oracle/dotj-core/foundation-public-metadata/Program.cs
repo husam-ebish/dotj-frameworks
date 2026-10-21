@@ -768,6 +768,15 @@ var result = new
         numeric = ObserveGetType("System.String, System.Private.CoreLib, ContentType=1", false, false),
         duplicate = ObserveGetType("System.String, System.Private.CoreLib, ContentType=Default, ContentType=WindowsRuntime", false, false),
     },
+    selectedMixedAssemblyIdentityBehavior = new
+    {
+        allValid = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null, ProcessorArchitecture=MSIL, Retargetable=No, ContentType=WindowsRuntime", false, false),
+        invalidVersionFirst = ObserveGetType("System.String, System.Private.CoreLib, Version=banana, Culture=123", false, false),
+        invalidCultureFirst = ObserveGetType("System.String, System.Private.CoreLib, Culture=123, Version=banana", false, false),
+        unknownAssemblyInvalidVersion = ObserveGetType("System.String, Missing.Assembly, Version=banana", false, false),
+        unknownAssemblyInvalidVersionThrow = ObserveGetType("System.String, Missing.Assembly, Version=banana", true, false),
+        invalidContentFirst = ObserveGetType("System.String, System.Private.CoreLib, ContentType=Default, Version=banana", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
