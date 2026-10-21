@@ -1428,6 +1428,24 @@ static object ObserveUnsignedFormatterRoutes()
         nullValue = ObserveMethodError(() => converter.ToUInt32(null!)),
     };
 }
+static object ObserveUnsignedToTypeContract()
+{
+    IConvertible u16 = (ushort)60000;
+    IConvertible u32 = (uint)4000000000;
+    return new
+    {
+        u16Self = u16.ToType(typeof(ushort), null).GetType().FullName,
+        u32Self = u32.ToType(typeof(uint), null).GetType().FullName,
+        u16ToUInt32 = u16.ToType(typeof(uint), null),
+        u16ToInt32 = u16.ToType(typeof(int), null),
+        u32ToInt64 = u32.ToType(typeof(long), null),
+        u32ToDecimal = u32.ToType(typeof(decimal), null).ToString(),
+        u32ToString = u32.ToType(typeof(string), null),
+        u32ToInt32 = ObserveMethodError(() => u32.ToType(typeof(int), null)),
+        u32ToUInt16 = ObserveMethodError(() => u32.ToType(typeof(ushort), null)),
+        u16Null = ObserveMethodError(() => u16.ToType(null!, null)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1592,6 +1610,7 @@ var result = new
     selectedUInt16ConvertibleContractBehavior = ObserveUInt16ConvertibleContract(),
     selectedUInt32ConvertibleContractBehavior = ObserveUInt32ConvertibleContract(),
     selectedUnsignedFormatterRoutesBehavior = ObserveUnsignedFormatterRoutes(),
+    selectedUnsignedToTypeContractBehavior = ObserveUnsignedToTypeContract(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

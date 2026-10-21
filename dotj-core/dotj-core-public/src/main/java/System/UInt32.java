@@ -109,6 +109,12 @@ public final class UInt32 implements IConvertible {
         if (conversionType == Type.GetType("System.UInt32")) {
             return this;
         }
+        if (conversionType == Type.GetType("System.UInt16")) {
+            return new UInt16(this.ToUInt16(provider));
+        }
+        if (conversionType == Type.GetType("System.Int64")) {
+            return this.ToInt64(provider);
+        }
         if (conversionType == Type.GetType("System.String")) {
             return this.ToString(provider);
         }

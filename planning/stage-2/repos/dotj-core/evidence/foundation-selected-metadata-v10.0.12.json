@@ -713,6 +713,18 @@
     "format": "System.FormatException",
     "nullValue": "System.ArgumentNullException"
   },
+  "selectedUnsignedToTypeContractBehavior": {
+    "u16Self": "System.UInt16",
+    "u32Self": "System.UInt32",
+    "u16ToUInt32": 60000,
+    "u16ToInt32": 60000,
+    "u32ToInt64": 4000000000,
+    "u32ToDecimal": "4000000000",
+    "u32ToString": "4000000000",
+    "u32ToInt32": "System.OverflowException",
+    "u32ToUInt16": "System.OverflowException",
+    "u16Null": "System.ArgumentNullException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16155,6 +16167,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "674de9067981bee0510c8fdd5fda6ef31270c0e2b81a2e261ae100e763c169fb",
+  "oracleProgramSha256": "3b74d137432f12223eef5bdb86be1af69b1b8ecfba372a2ac7e2351da5af0b16",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
