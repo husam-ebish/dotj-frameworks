@@ -1106,6 +1106,10 @@ public abstract class Type extends MemberInfo {
         return this.get_IsGenericType() && this.arguments.isEmpty();
     }
 
+    public boolean get_IsTypeDefinition() {
+        return this.parameterIndex < 0 && this.arguments.isEmpty() && !this.get_HasElementType();
+    }
+
     public boolean get_ContainsGenericParameters() {
         if (this.get_IsGenericParameter() || this.get_IsGenericTypeDefinition()) {
             return true;
