@@ -1454,6 +1454,36 @@ public abstract class Type extends MemberInfo {
         throw new UnsupportedOperationException("Flagged method lookup is not mapped for this candidate type");
     }
 
+    public MethodInfo GetMethod(String name, Type[] types) {
+        if (name == null) {
+            throw new ArgumentNullException("name");
+        }
+        if (types == null) {
+            throw new ArgumentNullException("types");
+        }
+        for (Type type : types) {
+            if (type == null) {
+                throw new ArgumentNullException("types");
+            }
+        }
+        String interfaceMethod = this.selectedInterfaceMethodName();
+        if (interfaceMethod == null) {
+            throw new UnsupportedOperationException("Parameterized method lookup is not mapped for this candidate type");
+        }
+        if (!name.equals(interfaceMethod)) {
+            return null;
+        }
+        boolean matches = this.definition == IDisposable.class && types.length == 0
+                || this.definition == IComparable.class
+                    && Arrays.equals(types, new Type[] {fromJavaClass(Object.class)})
+                || this.definition == IFormattable.class
+                    && Arrays.equals(types, new Type[] {fromJavaClass(String.class),
+                        fromJavaClass(IFormatProvider.class)})
+                || this.definition == IFormatProvider.class
+                    && Arrays.equals(types, new Type[] {fromJavaClass(Type.class)});
+        return matches ? new DefaultMethodMember(interfaceMethod, this) : null;
+    }
+
     private String selectedInterfaceMethodName() {
         if (this.definition == IDisposable.class) {
             return "Dispose";
