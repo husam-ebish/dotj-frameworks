@@ -279,6 +279,39 @@ public final class ProductInt32SpanConsumer {
         checkCurrencyStyle();
         checkAnyStyle();
         checkCombinedStyles(numberStyle);
+        checkMoreCombinedStyles();
+    }
+
+    private static void checkMoreCombinedStyles() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        provider.set_NumberDecimalSeparator(":");
+        provider.set_PositiveSign("plus");
+        provider.set_NegativeSign("~");
+        NumberStyles signExponent = NumberStyles.AllowLeadingSign.Or(
+                NumberStyles.AllowExponent);
+        NumberStyles paddedDecimal = NumberStyles.AllowLeadingWhite.Or(
+                NumberStyles.AllowTrailingWhite).Or(NumberStyles.AllowDecimalPoint);
+        NumberStyles signDecimalExponent = NumberStyles.AllowLeadingSign.Or(
+                NumberStyles.AllowDecimalPoint).Or(NumberStyles.AllowExponent);
+        if (signExponent.get_Value() != 132 || paddedDecimal.get_Value() != 35
+                || signDecimalExponent.get_Value() != 164) {
+            throw new AssertionError("Combined NumberStyles values changed");
+        }
+        checkSingleStyleVectors(signExponent, provider,
+                new String[] {"~42e1", "42e~1", "42:0", " 42", "plus42e1"},
+                new int[] {-420, 0, 0, 0, 420},
+                new Class<?>[] {null, OverflowException.class, FormatException.class,
+                        FormatException.class, null});
+        checkSingleStyleVectors(paddedDecimal, provider,
+                new String[] {" 42:00 ", "42:5", "~42", "4:2e1", "42"},
+                new int[] {42, 0, 0, 0, 42},
+                new Class<?>[] {null, OverflowException.class, FormatException.class,
+                        FormatException.class, null});
+        checkSingleStyleVectors(signDecimalExponent, provider,
+                new String[] {"~4:2e1", "plus4:2e1", " 4:2e1", "4:2e~1", "42"},
+                new int[] {-42, 42, 0, 0, 42},
+                new Class<?>[] {null, null, FormatException.class,
+                        OverflowException.class, null});
     }
 
     private static void checkCombinedStyles(NumberFormatInfo provider) {

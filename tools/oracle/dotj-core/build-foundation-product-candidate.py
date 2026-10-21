@@ -312,6 +312,30 @@ def main():
             ]),
         )
     }
+    more_combined_styles = {
+        "signExponent": (132, ["~42e1", "42e~1", "42:0", " 42", "plus42e1"],
+                         [-420, 0, 0, 0, 420],
+                         [None, "Overflow", "Format", "Format", None]),
+        "paddedDecimal": (35, [" 42:00 ", "42:5", "~42", "4:2e1", "42"],
+                          [42, 0, 0, 0, 42],
+                          [None, "Overflow", "Format", "Format", None]),
+        "signDecimalExponent": (164, ["~4:2e1", "plus4:2e1", " 4:2e1",
+                                     "4:2e~1", "42"],
+                                [-42, 42, 0, 0, 42],
+                                [None, None, "Format", "Overflow", None]),
+    }
+    assert metadata["selectedInt32MoreCombinedStyles"] == {
+        key: value
+        for name, (flags, texts, values, errors) in more_combined_styles.items()
+        for key, value in (
+            (name + "Value", flags),
+            (name, [
+                {"text": text, "success": error is None, "value": value,
+                 "error": None if error is None else f"System.{error}Exception"}
+                for text, value, error in zip(texts, values, errors)
+            ]),
+        )
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
