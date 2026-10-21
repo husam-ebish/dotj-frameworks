@@ -20,6 +20,7 @@ import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.SerializationException;
 import System.Runtime.Serialization.SerializationEntry;
 import System.Runtime.Serialization.SerializationInfoEnumerator;
+import System.Collections.IEnumerator;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Reflection.GenericParameterAttributes;
@@ -170,6 +171,16 @@ public final class TypeIdentityCandidateTest {
             // Matches the pinned selected CLR failure type.
         }
         SerializationInfoEnumerator entries = serializationMembers.GetEnumerator();
+        Type cursorInterface = Type.GetType("System.Collections.IEnumerator");
+        Type[] cursorInterfaces = Type.fromJavaClass(SerializationInfoEnumerator.class).GetInterfaces();
+        if (cursorInterface != Type.fromJavaClass(IEnumerator.class)
+                || !cursorInterface.get_IsInterface()
+                || cursorInterfaces.length != 1 || cursorInterfaces[0] != cursorInterface
+                || !cursorInterface.IsAssignableFrom(Type.fromJavaClass(SerializationInfoEnumerator.class))
+                || !cursorInterface.IsInstanceOfType(entries)
+                || !(entries instanceof IEnumerator)) {
+            throw new AssertionError("Selected serialization enumerator interface changed");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")

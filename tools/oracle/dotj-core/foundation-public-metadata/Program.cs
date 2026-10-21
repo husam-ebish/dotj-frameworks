@@ -1100,6 +1100,24 @@ static object ObserveSerializationInfoEnumeratorResetCycles()
     return new { firstName, currentAfterReset, firstAfterReset,
         secondAfterReset, exhausted, firstAfterSecondReset };
 }
+static object ObserveSerializationInfoEnumeratorInterface()
+{
+    var type = typeof(System.Runtime.Serialization.SerializationInfoEnumerator);
+    return new
+    {
+        interfaces = type.GetInterfaces().Select(item => item.FullName).ToArray(),
+        declaredMethods = type.GetMethods(BindingFlags.Public | BindingFlags.Instance
+            | BindingFlags.DeclaredOnly)
+            .Select(method => new { name = method.Name,
+                result = method.ReturnType.FullName })
+            .OrderBy(method => method.name).ToArray(),
+        currentType = type.GetProperty("Current")?.PropertyType.FullName,
+        assignable = typeof(System.Collections.IEnumerator).IsAssignableFrom(type),
+        instance = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+            new System.Runtime.Serialization.FormatterConverter()).GetEnumerator()
+            is System.Collections.IEnumerator,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1248,6 +1266,7 @@ var result = new
     selectedSerializationInfoGetValueTypesBehavior = ObserveSerializationInfoGetValueTypes(),
     selectedSerializationInfoMemberNamesBehavior = ObserveSerializationInfoMemberNames(),
     selectedSerializationInfoEnumeratorResetCyclesBehavior = ObserveSerializationInfoEnumeratorResetCycles(),
+    selectedSerializationInfoEnumeratorInterfaceBehavior = ObserveSerializationInfoEnumeratorInterface(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

@@ -14,6 +14,7 @@ SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
     "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "Type", "DBNull", "Attribute", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "NullReferenceException", "FormatException")]
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException", "FileLoadException")]
+SOURCES.append(PRODUCT / "src/main/java/System/Collections/IEnumerator.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/NullableAttribute.java")
@@ -44,6 +45,7 @@ EXPECTED_CLASSES = [
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
     "System/Attribute.class",
+    "System/Collections/IEnumerator.class",
     "System/DBNull.class",
     "System/DateTime.class",
     "System/Decimal.class",
