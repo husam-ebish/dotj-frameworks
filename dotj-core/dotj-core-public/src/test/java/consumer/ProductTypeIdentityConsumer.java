@@ -355,6 +355,20 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned identity error.
             }
         }
+        for (String publicKey : new String[] {
+                "00", "0011", "0011223344556677", "00112233445566778899aabbccddeeff", "NULL"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, PublicKey=" + publicKey) != string) {
+                throw new AssertionError("Selected PublicKey value rejected: " + publicKey);
+            }
+        }
+        for (String invalidPublicKey : new String[] {"0", "gg"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, PublicKey=" + invalidPublicKey);
+                throw new AssertionError("Invalid PublicKey accepted: " + invalidPublicKey);
+            } catch (FileLoadException expected) {
+                // Selected pinned PublicKey parse error.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

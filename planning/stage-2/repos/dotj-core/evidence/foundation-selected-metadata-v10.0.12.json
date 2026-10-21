@@ -1865,6 +1865,43 @@
       "paramName": null
     }
   },
+  "selectedPublicKeyValueBehavior": {
+    "zeroByte": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "oneNibble": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "twoBytes": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "eightBytes": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "sixteenBytes": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "nonHex": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "upperNull": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -5291,6 +5328,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "3da63e73bc6db6295e484f1798dd9d555313778b712f16a1d6d991dd953dc87c",
+  "oracleProgramSha256": "bdcd21d59876058f60f19b6350107d2e96e1884d7e05af48975bd80163e13bdb",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

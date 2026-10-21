@@ -497,6 +497,13 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("publicKeyGarbage", "duplicateRetargetableCase")},
     }
+    public_keys = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPublicKeyValueBehavior"]
+    assert public_keys == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("zeroByte", "twoBytes", "eightBytes", "sixteenBytes", "upperNull")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("oneNibble", "nonHex")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

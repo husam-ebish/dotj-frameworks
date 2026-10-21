@@ -797,6 +797,16 @@ var result = new
         cultureInfoAlias = ObserveGetType("System.String, System.Private.CoreLib, CultureInfo=neutral", false, false),
         duplicateRetargetableCase = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=Yes, retargetable=No", false, false),
     },
+    selectedPublicKeyValueBehavior = new
+    {
+        zeroByte = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=00", false, false),
+        oneNibble = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=0", false, false),
+        twoBytes = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=0011", false, false),
+        eightBytes = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=0011223344556677", false, false),
+        sixteenBytes = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=00112233445566778899aabbccddeeff", false, false),
+        nonHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=gg", false, false),
+        upperNull = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=NULL", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
