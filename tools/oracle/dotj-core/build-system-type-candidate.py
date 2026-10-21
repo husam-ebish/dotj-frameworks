@@ -466,6 +466,12 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("trueValue", "falseValue", "numeric", "duplicate")},
     }
+    content_types = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContentTypeAttributeBehavior"]
+    assert content_types == {
+        "windowsRuntime": {"result": "System.String", "exception": None, "paramName": None},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("defaultValue", "lowerDefault", "unknown", "numeric", "duplicate")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
