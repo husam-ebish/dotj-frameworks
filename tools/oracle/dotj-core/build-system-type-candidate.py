@@ -955,6 +955,12 @@ def main():
         "isPrimitive": True, "isValueType": True, "isSealed": True, "isClass": False,
         "isAssignableToValueType": True, "typeCode": "Single",
     }
+    double_identity = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDoubleTypeIdentityBehavior"]
+    assert double_identity == {
+        "name": "Double", "fullName": "System.Double", "baseType": "System.ValueType",
+        "isPrimitive": True, "isValueType": True, "isSealed": True, "isClass": False,
+        "isAssignableToValueType": True, "typeCode": "Double",
+    }
     parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
     assert parameter_attributes == {
         "stringType": {"value": None, "exception": "System.InvalidOperationException"},
