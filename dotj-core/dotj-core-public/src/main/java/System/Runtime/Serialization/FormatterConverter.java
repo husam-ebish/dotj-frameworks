@@ -58,6 +58,12 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.SByte".equals(name)) {
             return ToSByte(value);
         }
+        if ("System.UInt16".equals(name)) {
+            return ToUInt16(value);
+        }
+        if ("System.UInt32".equals(name)) {
+            return ToUInt32(value);
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -74,6 +80,8 @@ public final class FormatterConverter implements IFormatterConverter {
             case Double -> ToDouble(value);
             case Byte -> ToByte(value);
             case SByte -> ToSByte(value);
+            case UInt16 -> ToUInt16(value);
+            case UInt32 -> ToUInt32(value);
             default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
         };
     }
@@ -214,11 +222,25 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public int ToUInt16(Object value) {
+        if (value instanceof String text) {
+            java.math.BigInteger parsed = parseByteText(text);
+            if (parsed.signum() < 0 || parsed.compareTo(java.math.BigInteger.valueOf(65535)) > 0) {
+                throw new OverflowException("Value was outside the range of UInt16");
+            }
+            return parsed.intValue();
+        }
         return convertible(value).ToUInt16(null);
     }
 
     @Override
     public long ToUInt32(Object value) {
+        if (value instanceof String text) {
+            java.math.BigInteger parsed = parseByteText(text);
+            if (parsed.signum() < 0 || parsed.compareTo(java.math.BigInteger.valueOf(4294967295L)) > 0) {
+                throw new OverflowException("Value was outside the range of UInt32");
+            }
+            return parsed.longValue();
+        }
         return convertible(value).ToUInt32(null);
     }
 

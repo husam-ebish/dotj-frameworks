@@ -380,6 +380,45 @@ public final class TypeIdentityCandidateTest {
         } catch (InvalidCastException expected) {
             // Pinned CLR failure type.
         }
+        SerializationInfo unsignedText = new SerializationInfo(dbnullType, selectedConverter);
+        unsignedText.AddValue("u16Text", "60000");
+        unsignedText.AddValue("u32Text", "4000000000");
+        if (unsignedText.GetUInt16("u16Text") != 60000
+                || unsignedText.GetUInt32("u32Text") != 4000000000L
+                || !Integer.valueOf(60000).equals(selectedConverter.Convert(
+                    "60000", Type.GetType("System.UInt16")))
+                || !Long.valueOf(4000000000L).equals(selectedConverter.Convert(
+                    "4000000000", TypeCode.UInt32))) {
+            throw new AssertionError("Selected unsigned formatter routes changed");
+        }
+        for (String value : new String[] {"65536", "-1"}) {
+            try {
+                selectedConverter.ToUInt16(value);
+                throw new AssertionError("UInt16 overflow accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        for (String value : new String[] {"4294967296", "-1"}) {
+            try {
+                selectedConverter.ToUInt32(value);
+                throw new AssertionError("UInt32 overflow accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToUInt16("bad");
+            throw new AssertionError("Invalid UInt16 text accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToUInt32(null);
+            throw new AssertionError("Null UInt32 accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));
