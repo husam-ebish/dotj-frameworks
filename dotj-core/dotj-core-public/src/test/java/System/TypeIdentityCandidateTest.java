@@ -273,6 +273,28 @@ public final class TypeIdentityCandidateTest {
                 || duplicateCursor.MoveNext()) {
             throw new AssertionError("Rejected duplicate changed serialization state");
         }
+        SerializationInfo valueOverloads = new SerializationInfo(dbnullType, selectedConverter);
+        valueOverloads.AddValue("character", 'Q');
+        valueOverloads.AddValue("single", 1.25f);
+        valueOverloads.AddValue("decimal", new Decimal(12));
+        valueOverloads.AddValue("date", new DateTime(2024, 2, 29));
+        SerializationInfoEnumerator valueCursor = valueOverloads.GetEnumerator();
+        if (valueOverloads.get_MemberCount() != 4
+                || valueOverloads.GetChar("character") != 'Q'
+                || valueOverloads.GetSingle("single") != 1.25f
+                || !"12".equals(valueOverloads.GetDecimal("decimal").ToString(null))
+                || !"2024-02-29".equals(valueOverloads.GetDateTime("date")
+                    .ToString("yyyy-MM-dd", null))
+                || !valueCursor.MoveNext()
+                || !"System.Char".equals(valueCursor.get_ObjectType().get_FullName())
+                || !valueCursor.MoveNext()
+                || !"System.Single".equals(valueCursor.get_ObjectType().get_FullName())
+                || !valueCursor.MoveNext()
+                || !"System.Decimal".equals(valueCursor.get_ObjectType().get_FullName())
+                || !valueCursor.MoveNext()
+                || !"System.DateTime".equals(valueCursor.get_ObjectType().get_FullName())) {
+            throw new AssertionError("Selected serialization value overloads changed");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")

@@ -1227,6 +1227,30 @@ static object ObserveSerializationInfoDuplicateState()
         secondMove = cursor.MoveNext(),
     };
 }
+static object ObserveSerializationInfoValueOverloads()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("character", 'Q');
+    info.AddValue("single", 1.25f);
+    info.AddValue("decimal", 12m);
+    info.AddValue("date", new DateTime(2024, 2, 29));
+    var cursor = info.GetEnumerator();
+    var types = new List<string>();
+    while (cursor.MoveNext())
+    {
+        types.Add(cursor.ObjectType.FullName!);
+    }
+    return new
+    {
+        count = info.MemberCount,
+        character = info.GetChar("character").ToString(),
+        single = info.GetSingle("single"),
+        decimalText = info.GetDecimal("decimal").ToString(),
+        date = info.GetDateTime("date").ToString("yyyy-MM-dd"),
+        types,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1381,6 +1405,7 @@ var result = new
     selectedSerializationEntryEqualityBehavior = ObserveSerializationEntryEquality(),
     selectedSerializationEntryTypeEqualityBehavior = ObserveSerializationEntryTypeEquality(),
     selectedSerializationInfoDuplicateStateBehavior = ObserveSerializationInfoDuplicateState(),
+    selectedSerializationInfoValueOverloadsBehavior = ObserveSerializationInfoValueOverloads(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
