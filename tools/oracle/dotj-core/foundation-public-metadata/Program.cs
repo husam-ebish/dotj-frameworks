@@ -267,6 +267,19 @@ static object ObserveInterface(Type type, string? name, bool ignoreCase)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveNestedType(Type type, string? name)
+{
+    try
+    {
+        return new { result = type.GetNestedType(name!)?.FullName,
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -1060,6 +1073,13 @@ var result = new
         name,
         resolved = Type.GetType(name, throwOnError: false, ignoreCase: index == 2)?.FullName,
     }).ToArray(),
+    selectedNestedNameOnlyQueryBehavior = new
+    {
+        positive = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), "KeyCollection"),
+        lowerMiss = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), "keycollection"),
+        missing = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), "Missing"),
+        nullName = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), null),
+    },
     selectedNestedPublicVisibilityBehavior = new[]
     {
         typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],

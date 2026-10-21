@@ -53,6 +53,20 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        if (map.GetNestedType("Entry") != nestedEntry
+                || map.GetNestedType("entry") != null
+                || map.GetNestedType("Missing") != null
+                || string.GetNestedType("Entry") != null) {
+            throw new AssertionError("Selected public nested Type lookup changed");
+        }
+        try {
+            map.GetNestedType(null);
+            throw new AssertionError("Null nested Type name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"fullname".equals(expected.get_ParamName())) {
+                throw new AssertionError("Nested Type null parameter identity changed", expected);
+            }
+        }
         Type[] nestedParameters = nestedEntry.GetGenericArguments();
         if (nestedParameters.length != 2
                 || !"TKey".equals(nestedParameters[0].get_Name())

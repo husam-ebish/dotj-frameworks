@@ -73,6 +73,7 @@ def main():
         "System.Type[] GetInterfaces()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
+        "System.Type GetNestedType(System.String)",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
     assert selected <= signatures
@@ -243,6 +244,13 @@ def main():
         "System.Collections.Generic.Dictionary`2+Entry[]",
         "System.Collections.Generic.Dictionary`2+Entry",
     ]
+    nested_name_only = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedNameOnlyQueryBehavior"]
+    assert nested_name_only == {
+        "positive": {"result": "System.Collections.Generic.Dictionary`2+KeyCollection", "exception": None, "paramName": None},
+        "lowerMiss": {"result": None, "exception": None, "paramName": None},
+        "missing": {"result": None, "exception": None, "paramName": None},
+        "nullName": {"result": None, "exception": "System.ArgumentNullException", "paramName": "fullname"},
+    }
     nested_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedPublicVisibilityBehavior"]
     assert [(row["isPublic"], row["isNestedPublic"], row["isVisible"])
             for row in nested_visibility] == [
@@ -1307,6 +1315,7 @@ def main():
         "public boolean IsInstanceOfType(java.lang.Object);",
         "public System.Type[] GetInterfaces();",
         "public System.Type GetInterface(java.lang.String);",
+        "public System.Type GetNestedType(java.lang.String);",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
         "public boolean get_IsSZArray();",
