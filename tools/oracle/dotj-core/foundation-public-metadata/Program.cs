@@ -873,6 +873,15 @@ var result = new
         cultureThenInvalidToken = ObserveGetType("System.String, System.Private.CoreLib, Culture=123, PublicKeyToken=xyz", false, false),
         invalidTokenThenCulture = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=xyz, Culture=123", false, false),
     },
+    selectedAssemblyAttributeCollisionBehavior = new
+    {
+        cultureAndCultureInfo = ObserveGetType("System.String, System.Private.CoreLib, Culture=neutral, CultureInfo=neutral", false, false),
+        versionAndHyphenAlias = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2, Ver-sion=3.4", false, false),
+        duplicateTokenCase = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=null, publickeytoken=null", false, false),
+        duplicateArchitectureCase = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=MSIL, processorarchitecture=X86", false, false),
+        duplicatePublicKeyCase = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=00, publickey=11", false, false),
+        duplicateContentCase = ObserveGetType("System.String, System.Private.CoreLib, ContentType=WindowsRuntime, contenttype=WindowsRuntime", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

@@ -470,6 +470,24 @@ public final class ProductTypeIdentityConsumer {
                 // Selected parse error precedes invalid culture.
             }
         }
+        for (String distinctAlias : new String[] {
+                "Culture=neutral, CultureInfo=neutral", "Version=1.2, Ver-sion=3.4"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + distinctAlias) != string) {
+                throw new AssertionError("Selected distinct alias rejected: " + distinctAlias);
+            }
+        }
+        for (String duplicateKnownKey : new String[] {
+                "PublicKeyToken=null, publickeytoken=null",
+                "ProcessorArchitecture=MSIL, processorarchitecture=X86",
+                "PublicKey=00, publickey=11",
+                "ContentType=WindowsRuntime, contenttype=WindowsRuntime"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + duplicateKnownKey);
+                throw new AssertionError("Duplicate known key accepted: " + duplicateKnownKey);
+            } catch (FileLoadException expected) {
+                // Selected case-insensitive duplicate key error.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
