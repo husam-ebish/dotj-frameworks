@@ -51,15 +51,25 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (style == NumberStyles.Integer) {
             if (text != null) {
                 NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
-                if (numberFormat != null && !numberFormat.get_NegativeSign().isEmpty()
-                        && !numberFormat.get_NegativeSign().equals("-")) {
+                if (numberFormat != null) {
                     String trimmed = text.strip();
-                    if (trimmed.startsWith(numberFormat.get_NegativeSign())) {
-                        return Parse("-" + trimmed.substring(
-                                numberFormat.get_NegativeSign().length()));
+                    String negativeSign = numberFormat.get_NegativeSign();
+                    if (!negativeSign.isEmpty() && !negativeSign.equals("-")) {
+                        if (trimmed.startsWith(negativeSign)) {
+                            return Parse("-" + trimmed.substring(negativeSign.length()));
+                        }
+                        if (trimmed.startsWith("-")) {
+                            throw new FormatException("Input string was not in a correct format");
+                        }
                     }
-                    if (trimmed.startsWith("-")) {
-                        throw new FormatException("Input string was not in a correct format");
+                    String positiveSign = numberFormat.get_PositiveSign();
+                    if (!positiveSign.isEmpty() && !positiveSign.equals("+")) {
+                        if (trimmed.startsWith(positiveSign)) {
+                            return Parse("+" + trimmed.substring(positiveSign.length()));
+                        }
+                        if (trimmed.startsWith("+")) {
+                            throw new FormatException("Input string was not in a correct format");
+                        }
                     }
                 }
             }
@@ -817,7 +827,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String sign = this.value < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign()) : "";
             char marker = format.charAt(0);
-            return sign + mantissa + marker + "+" + paddedExponent;
+            return sign + mantissa + marker + (numberFormat == null ? "+"
+                    : numberFormat.get_PositiveSign()) + paddedExponent;
         }
         if (format.equals("Q")) {
             throw new FormatException("Format specifier was invalid");

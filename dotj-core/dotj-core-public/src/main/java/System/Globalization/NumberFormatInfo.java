@@ -13,6 +13,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     private String numberDecimalSeparator = ".";
     private int numberDecimalDigits = 2;
     private String negativeSign = "-";
+    private String positiveSign = "+";
     private String currencySymbol = "\u00a4";
     private String currencyGroupSeparator = ",";
     private String currencyDecimalSeparator = ".";
@@ -61,6 +62,15 @@ public final class NumberFormatInfo implements IFormatProvider {
     public void set_NegativeSign(String value) {
         if (value == null) throw new ArgumentNullException("value");
         this.negativeSign = value;
+    }
+
+    public String get_PositiveSign() {
+        return this.positiveSign;
+    }
+
+    public void set_PositiveSign(String value) {
+        if (value == null) throw new ArgumentNullException("value");
+        this.positiveSign = value;
     }
 
     public String get_CurrencySymbol() {

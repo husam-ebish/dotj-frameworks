@@ -171,6 +171,28 @@ public final class ProductInt32SpanConsumer {
         checkProviderVector(new Int32(-42), "E2", "~4:20E+001", exponential);
         checkProviderVector(new Int32(42), "e1", "4:2e+001", exponential);
         checkProviderVector(new Int32(-42), "E0", "~4E+001", exponential);
+        NumberFormatInfo positiveSign = new NumberFormatInfo();
+        positiveSign.set_PositiveSign("plus");
+        positiveSign.set_NegativeSign("~");
+        if (Int32.Parse("plus42", NumberStyles.Integer, positiveSign).get_Value() != 42) {
+            throw new AssertionError("Custom provider positive sign Parse changed");
+        }
+        Int32[] positiveParsed = new Int32[1];
+        if (!Int32.TryParse("plus42", NumberStyles.Integer, positiveSign, positiveParsed)
+                || positiveParsed[0].get_Value() != 42
+                || Int32.TryParse("+42", NumberStyles.Integer, positiveSign, positiveParsed)
+                || positiveParsed[0].get_Value() != 0) {
+            throw new AssertionError("Custom provider positive sign TryParse changed");
+        }
+        if (Int32.Parse(ReadOnlySpan.OfChars("plus42".toCharArray()),
+                NumberStyles.Integer, positiveSign).get_Value() != 42
+                || Int32.Parse(ReadOnlySpan.OfUtf8Bytes(
+                "plus42".getBytes(StandardCharsets.UTF_8)),
+                NumberStyles.Integer, positiveSign).get_Value() != 42) {
+            throw new AssertionError("Custom provider positive sign span Parse changed");
+        }
+        checkProviderVector(new Int32(42), "E1", "4.2Eplus001", positiveSign);
+        checkProviderVector(new Int32(-42), "E1", "~4.2Eplus001", positiveSign);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,
