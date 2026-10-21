@@ -611,6 +611,12 @@ def main():
         "prefix": "System.FormatException",
         "overflow": "System.OverflowException", "tryPrefix": False,
     }
+    datetime_time = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDateTimeTimeOfDayBehavior"]
+    assert datetime_time == {
+        "constructedHour": 3, "constructedMinute": 4, "constructedSecond": 5,
+        "constructedText": "2026-01-02 03:04:05",
+        "parsedText": "2026-01-02 03:04:05", "convertedSame": True,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
