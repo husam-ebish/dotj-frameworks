@@ -275,6 +275,19 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned identity error.
             }
         }
+        if (Type.GetType("System.String, System.Private.CoreLib, ContentType=WindowsRuntime") != string) {
+            throw new AssertionError("Selected WindowsRuntime ContentType rejected");
+        }
+        for (String invalidContentType : new String[] {
+                "ContentType=Default", "contenttype=default", "ContentType=xyz",
+                "ContentType=1", "ContentType=Default, ContentType=WindowsRuntime"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalidContentType);
+                throw new AssertionError("Invalid ContentType accepted: " + invalidContentType);
+            } catch (FileLoadException expected) {
+                // Selected pinned identity error.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

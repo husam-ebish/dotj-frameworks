@@ -759,6 +759,15 @@ var result = new
         numeric = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=1", false, false),
         duplicate = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=Yes, Retargetable=No", false, false),
     },
+    selectedContentTypeAttributeBehavior = new
+    {
+        defaultValue = ObserveGetType("System.String, System.Private.CoreLib, ContentType=Default", false, false),
+        windowsRuntime = ObserveGetType("System.String, System.Private.CoreLib, ContentType=WindowsRuntime", false, false),
+        lowerDefault = ObserveGetType("System.String, System.Private.CoreLib, contenttype=default", false, false),
+        unknown = ObserveGetType("System.String, System.Private.CoreLib, ContentType=xyz", false, false),
+        numeric = ObserveGetType("System.String, System.Private.CoreLib, ContentType=1", false, false),
+        duplicate = ObserveGetType("System.String, System.Private.CoreLib, ContentType=Default, ContentType=WindowsRuntime", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

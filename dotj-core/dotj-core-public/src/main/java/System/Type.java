@@ -150,7 +150,7 @@ public abstract class Type extends MemberInfo {
                     }
                     boolean recognized = key.equals("version") || key.equals("culture")
                             || key.equals("publickeytoken") || key.equals("processorarchitecture")
-                            || key.equals("retargetable");
+                            || key.equals("retargetable") || key.equals("contenttype");
                     if (attribute.length != 2 || key.isEmpty() || value.isEmpty() && !quotedValue
                             || extraEquals && (!quotedValue || recognized)
                             || value.contains("\"\"")
@@ -165,7 +165,9 @@ public abstract class Type extends MemberInfo {
                                     && !value.equalsIgnoreCase("Amd64")
                             || key.equals("retargetable")
                                     && !value.equalsIgnoreCase("Yes")
-                                    && !value.equalsIgnoreCase("No")) {
+                                    && !value.equalsIgnoreCase("No")
+                            || key.equals("contenttype")
+                                    && !value.equalsIgnoreCase("WindowsRuntime")) {
                         throw new FileLoadException("Invalid assembly identity: " + assembly);
                     }
                     if (key.equals("version")) {
