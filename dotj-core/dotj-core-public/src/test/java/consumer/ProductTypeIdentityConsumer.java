@@ -155,6 +155,20 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected primitive lookup changed: " + name);
             }
         }
+        for (int index = 0; index < selectedPrimitiveNames.length; index++) {
+            Type element = primitiveTypes[index];
+            String vectorName = selectedPrimitiveNames[index] + "[]";
+            Type vector = Type.GetType(vectorName);
+            if (vector == null || vector != element.MakeArrayType()
+                    || vector.GetElementType() != element || !vector.get_IsSZArray()
+                    || vector.GetArrayRank() != 1 || Type.GetTypeCode(vector) != TypeCode.Object
+                    || !(element.get_Name() + "[]").equals(vector.get_Name())
+                    || !vectorName.equals(vector.get_FullName())
+                    || Type.GetType(vector.get_AssemblyQualifiedName()) != vector
+                    || Type.GetType(vectorName.toLowerCase(java.util.Locale.ROOT), false, true) != vector) {
+                throw new AssertionError("Selected primitive vector identity changed: " + vectorName);
+            }
+        }
         Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
         if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
                 || mixedTypes[2] != Type.GetType("System.Exception")
