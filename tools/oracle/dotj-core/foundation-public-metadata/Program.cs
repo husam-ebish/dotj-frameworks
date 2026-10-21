@@ -658,6 +658,19 @@ var result = new
         positiveHalfway = ((IFormattable)50).ToString("0,.0",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32ScaledSectionBehavior = new
+    {
+        positive = ((IFormattable)12345).ToString("0,;(0,);'zero'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-12345)).ToString("0,;(0,);'zero'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zero = ((IFormattable)0).ToString("0,;(0,);'zero'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeSmall = ((IFormattable)(-1)).ToString("0,;(0,);'zero'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeFraction = ((IFormattable)(-1250)).ToString("0,.0;(0,.0);'zero'",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

@@ -540,6 +540,14 @@ public final class ProductTypeIdentityConsumer {
                 || !"0.1".equals(new Int32(50).ToString("0,.0", provider))) {
             throw new AssertionError("Selected Int32 near-zero scaling changed");
         }
+        String scaledSections = "0,;(0,);'zero'";
+        if (!"12".equals(new Int32(12345).ToString(scaledSections, provider))
+                || !"(12)".equals(new Int32(-12345).ToString(scaledSections, provider))
+                || !"zero".equals(new Int32(0).ToString(scaledSections, provider))
+                || !"zero".equals(new Int32(-1).ToString(scaledSections, provider))
+                || !"(1.3)".equals(new Int32(-1250).ToString("0,.0;(0,.0);'zero'", provider))) {
+            throw new AssertionError("Selected Int32 scaled sections changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
