@@ -183,6 +183,10 @@ def main():
         "defaultPrecision": "~42:000", "explicitPrecision": "~42:0",
         "zeroPrecision": "~42",
     }
+    assert metadata["selectedInt32ExponentialProviderBehavior"] == {
+        "upper": "~4:20E+001", "lower": "4:2e+001",
+        "zeroPrecision": "~4E+001",
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
