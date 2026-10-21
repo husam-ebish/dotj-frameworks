@@ -836,6 +836,15 @@ var result = new
         slash = ObserveGetType("System.String, System.Private.CoreLib, Culture=en/US", false, false),
         atSign = ObserveGetType("System.String, System.Private.CoreLib, Culture=en@US", false, false),
     },
+    selectedCultureUnicodeBoundaryBehavior = new
+    {
+        swissFrench = ObserveGetType("System.String, System.Private.CoreLib, Culture=fr-CH", false, false),
+        scriptTag = ObserveGetType("System.String, System.Private.CoreLib, Culture=zh-Hant", false, false),
+        numericTag = ObserveGetType("System.String, System.Private.CoreLib, Culture=123", false, false),
+        arabicDigits = ObserveGetType("System.String, System.Private.CoreLib, Culture=١٢٣", false, false),
+        accentedName = ObserveGetType("System.String, System.Private.CoreLib, Culture=é", false, false),
+        japanese = ObserveGetType("System.String, System.Private.CoreLib, Culture=ja-JP", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
