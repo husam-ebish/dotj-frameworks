@@ -26,6 +26,18 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        for (Type modifierType : new Type[] {string, integer,
+                Type.fromJavaClass(List.class),
+                Type.fromJavaClass(List.class).GetGenericArguments()[0],
+                string.MakeArrayType(), string.MakeByRefType(),
+                string.MakePointerType()}) {
+            if (modifierType.GetOptionalCustomModifiers().length != 0
+                    || modifierType.GetRequiredCustomModifiers().length != 0
+                    || modifierType.GetOptionalCustomModifiers()
+                            == modifierType.GetOptionalCustomModifiers()) {
+                throw new AssertionError("Selected Type custom modifiers changed");
+            }
+        }
         Type[] characterSetTypes = {string, integer, Type.fromJavaClass(TypeCode.class),
                 Type.fromJavaClass(IDisposable.class), Type.fromJavaClass(List.class),
                 Type.fromJavaClass(List.class).MakeGenericType(new Type[] {string}),

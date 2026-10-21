@@ -1261,6 +1261,14 @@ public abstract class Type extends MemberInfo {
         return this.definition.isInstance(value);
     }
 
+    public Type[] GetOptionalCustomModifiers() {
+        return new Type[0];
+    }
+
+    public Type[] GetRequiredCustomModifiers() {
+        return new Type[0];
+    }
+
     public Type[] GetInterfaces() {
         if (this.definition == Object.class || this.definition == IDisposable.class
                 || this.definition == IUtf8SpanFormattable.class) {
