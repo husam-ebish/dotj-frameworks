@@ -74,6 +74,17 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetTypeCode(booleanType) != TypeCode.Boolean) {
             throw new AssertionError("Selected Boolean Type identity changed");
         }
+        Type charType = Type.GetType("System.Char");
+        if (charType == null || charType != primitiveTypes[1]
+                || !"Char".equals(charType.get_Name())
+                || !"System.Char".equals(charType.get_FullName())
+                || !"System.ValueType".equals(charType.get_BaseType().get_FullName())
+                || !charType.get_IsPrimitive() || !charType.get_IsValueType()
+                || !charType.get_IsSealed() || charType.get_IsClass()
+                || !charType.IsAssignableTo(Type.GetType("System.ValueType"))
+                || Type.GetTypeCode(charType) != TypeCode.Char) {
+            throw new AssertionError("Selected Char Type identity changed");
+        }
         Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
         if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
                 || mixedTypes[2] != Type.GetType("System.Exception")
