@@ -482,6 +482,15 @@ def main():
         "nullCode": "System.ArgumentNullException",
         "nullTarget": "System.ArgumentNullException",
     }
+    typecode_boundaries = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFormatterTypeCodeBoundariesBehavior"]
+    assert typecode_boundaries == {
+        "dbNullCode": "System.InvalidCastException",
+        "dbNullType": None,
+        "integerToDBNull": "System.InvalidCastException",
+        "integerToEmpty": "System.InvalidCastException",
+        "dbNullToEmpty": "System.InvalidCastException",
+        "nullToDBNull": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

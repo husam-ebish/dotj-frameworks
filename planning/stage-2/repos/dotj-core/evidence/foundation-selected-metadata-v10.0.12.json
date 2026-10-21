@@ -780,6 +780,14 @@
     "nullCode": "System.ArgumentNullException",
     "nullTarget": "System.ArgumentNullException"
   },
+  "selectedFormatterTypeCodeBoundariesBehavior": {
+    "dbNullCode": "System.InvalidCastException",
+    "dbNullType": null,
+    "integerToDBNull": "System.InvalidCastException",
+    "integerToEmpty": "System.InvalidCastException",
+    "dbNullToEmpty": "System.InvalidCastException",
+    "nullToDBNull": "System.ArgumentNullException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16222,6 +16230,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "3c1b2d3cb90494a09231f07aede07a67cfeed69d57aeb0f5332f62240da52abc",
+  "oracleProgramSha256": "26118b8b74e5090b42c50172eebd7fdf7035cc9e786fdce75f476dd8fa98d73c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
