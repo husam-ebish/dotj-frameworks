@@ -109,6 +109,39 @@ public abstract class Type extends MemberInfo {
         return parts;
     }
 
+    private static Type resolveSelectedCoreLibGeneric(String name) {
+        int start = name.indexOf("[[");
+        if (start < 0 || !name.endsWith("]]")) {
+            return null;
+        }
+        String definitionName = name.substring(0, start);
+        int arity = switch (definitionName) {
+            case "System.Collections.Generic.List`1" -> 1;
+            case "System.Collections.Generic.Dictionary`2" -> 2;
+            default -> 0;
+        };
+        if (arity == 0) {
+            return null;
+        }
+        String[] argumentNames = name.substring(start + 2, name.length() - 2).split("\\],\\[", -1);
+        if (argumentNames.length != arity) {
+            return null;
+        }
+        Type[] arguments = new Type[arity];
+        for (int index = 0; index < arity; index++) {
+            String argumentName = argumentNames[index];
+            if (argumentName.indexOf('[') >= 0 || argumentName.indexOf(']') >= 0) {
+                return null;
+            }
+            Type argument = GetType(argumentName);
+            if (argument == null || !argumentName.equals(argument.get_AssemblyQualifiedName())) {
+                return null;
+            }
+            arguments[index] = argument;
+        }
+        return GetType(definitionName).MakeGenericType(arguments);
+    }
+
     /** Selected CoreLib names only; assembly resolution remains open. */
     public static Type GetType(String typeName, boolean throwOnError, boolean ignoreCase) {
         if (typeName == null) {
@@ -284,18 +317,13 @@ public abstract class Type extends MemberInfo {
             case "System.Int32*" -> fromJavaClass(Int32.class).MakePointerType();
             case "System.Int32[]" -> fromJavaClass(int[].class);
             case "System.Collections.Generic.List`1[System.String]",
-                    "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]",
-                    "System.Collections.Generic.List`1[[System.String, " + CORELIB_IDENTITY + "]]" ->
+                    "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]" ->
                     fromJavaClass(java.util.List.class).MakeGenericType(new Type[] {fromJavaClass(String.class)});
             case "System.Collections.Generic.Dictionary`2[System.String,System.Int32]",
-                    "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]",
-                    "System.Collections.Generic.Dictionary`2[[System.String, " + CORELIB_IDENTITY
-                            + "],[System.Int32, " + CORELIB_IDENTITY + "]]" ->
+                    "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]" ->
                     fromJavaClass(java.util.Map.class).MakeGenericType(
                             new Type[] {fromJavaClass(String.class), fromJavaClass(Int32.class)});
-            case "System.Collections.Generic.Dictionary`2[System.Int32,System.String]",
-                    "System.Collections.Generic.Dictionary`2[[System.Int32, " + CORELIB_IDENTITY
-                            + "],[System.String, " + CORELIB_IDENTITY + "]]" ->
+            case "System.Collections.Generic.Dictionary`2[System.Int32,System.String]" ->
                     fromJavaClass(java.util.Map.class).MakeGenericType(
                             new Type[] {fromJavaClass(Int32.class), fromJavaClass(String.class)});
             case "System.Collections.Generic.List`1[System.String][]" ->
@@ -356,7 +384,7 @@ public abstract class Type extends MemberInfo {
                     "system.collections.generic.list`1[[system.string, system.private.corelib]]" ->
                     ignoreCase ? fromJavaClass(java.util.List.class)
                             .MakeGenericType(new Type[] {fromJavaClass(String.class)}) : null;
-            default -> null;
+            default -> resolveSelectedCoreLibGeneric(key);
         };
         if (resolved == null && throwOnError) {
             throw new TypeLoadException("Could not resolve selected type: " + typeName);

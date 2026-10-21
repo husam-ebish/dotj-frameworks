@@ -157,12 +157,14 @@ def main():
     ]
     assert [item["roundTripSameReference"] for item in names] == [True] * 8 + [False]
     dictionary_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDictionaryQualifiedRoundTrip"]
-    assert len(dictionary_names) == 3
+    assert len(dictionary_names) == 5
     assert all(item["sameReference"] and item["AssemblyQualifiedName"] ==
                item["FullName"] + corelib_identity for item in dictionary_names)
     assert dictionary_names[0]["FullName"] == "System.Collections.Generic.Dictionary`2"
     assert "[[System.String, " in dictionary_names[1]["FullName"]
     assert "[[System.Int32, " in dictionary_names[2]["FullName"]
+    assert "],[System.String, " in dictionary_names[3]["FullName"]
+    assert "],[System.Int32, " in dictionary_names[4]["FullName"]
     member_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberTypeBehavior"]
     assert member_type["enumValues"] == [
         {"name": name, "value": value} for name, value in (
