@@ -385,10 +385,10 @@ public final class TypeIdentityCandidateTest {
         unsignedText.AddValue("u32Text", "4000000000");
         if (unsignedText.GetUInt16("u16Text") != 60000
                 || unsignedText.GetUInt32("u32Text") != 4000000000L
-                || !Integer.valueOf(60000).equals(selectedConverter.Convert(
-                    "60000", Type.GetType("System.UInt16")))
-                || !Long.valueOf(4000000000L).equals(selectedConverter.Convert(
-                    "4000000000", TypeCode.UInt32))) {
+                || ((UInt16) selectedConverter.Convert(
+                    "60000", Type.GetType("System.UInt16"))).get_Value() != 60000
+                || ((UInt32) selectedConverter.Convert(
+                    "4000000000", TypeCode.UInt32)).get_Value() != 4000000000L) {
             throw new AssertionError("Selected unsigned formatter routes changed");
         }
         for (String value : new String[] {"65536", "-1"}) {
@@ -808,9 +808,25 @@ public final class TypeIdentityCandidateTest {
                 || byteConversions.GetSByte("sbyteText") != -128
                 || selectedConverter.ToByte(200) != 200
                 || selectedConverter.ToSByte(-5) != -5
-                || !Short.valueOf((short) 200).equals(selectedConverter.Convert("200", Type.GetType("System.Byte")))
-                || !java.lang.Byte.valueOf((byte) -5).equals(selectedConverter.Convert("-5", TypeCode.SByte))) {
+                || ((Byte) selectedConverter.Convert("200", Type.GetType("System.Byte"))).get_Value() != 200
+                || ((SByte) selectedConverter.Convert("-5", TypeCode.SByte)).get_Value() != -5) {
             throw new AssertionError("Selected byte conversions changed");
+        }
+        Object[] unsignedResultValues = {
+            selectedConverter.Convert("200", Type.GetType("System.Byte")),
+            selectedConverter.Convert("-5", TypeCode.SByte),
+            selectedConverter.Convert("60000", Type.GetType("System.UInt16")),
+            selectedConverter.Convert("4000000000", TypeCode.UInt32),
+        };
+        String[] unsignedResultNames = {"System.Byte", "System.SByte",
+            "System.UInt16", "System.UInt32"};
+        String[] unsignedResultTexts = {"200", "-5", "60000", "4000000000"};
+        Type[] unsignedResultTypes = Type.GetTypeArray(unsignedResultValues);
+        for (int index = 0; index < unsignedResultTypes.length; index++) {
+            if (!unsignedResultNames[index].equals(unsignedResultTypes[index].get_FullName())
+                    || !unsignedResultTexts[index].equals(unsignedResultValues[index].toString())) {
+                throw new AssertionError("Unsigned converter result identity changed");
+            }
         }
         for (Object value : new Object[] {"256", -1}) {
             try {

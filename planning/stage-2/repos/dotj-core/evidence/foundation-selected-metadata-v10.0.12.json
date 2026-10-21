@@ -824,6 +824,20 @@
     "smallToInt64": 42,
     "maxToUInt32": "System.OverflowException"
   },
+  "selectedUnsignedConvertResultIdentityBehavior": {
+    "types": [
+      "System.Byte",
+      "System.SByte",
+      "System.UInt16",
+      "System.UInt32"
+    ],
+    "values": [
+      "200",
+      "-5",
+      "60000",
+      "4000000000"
+    ]
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16266,6 +16280,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "22817fac928e563c5f7ead8e73bab463d0ac1335a26988d0f9cd1b96da703ec8",
+  "oracleProgramSha256": "011ec36f04af1ac03de505a3745b23913102500949db4d068081a16415a52786",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

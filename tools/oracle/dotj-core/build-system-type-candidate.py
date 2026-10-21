@@ -523,6 +523,11 @@ def main():
         "smallToInt64": 42,
         "maxToUInt32": "System.OverflowException",
     }
+    unsigned_result_identity = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUnsignedConvertResultIdentityBehavior"]
+    assert unsigned_result_identity == {
+        "types": ["System.Byte", "System.SByte", "System.UInt16", "System.UInt32"],
+        "values": ["200", "-5", "60000", "4000000000"],
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
