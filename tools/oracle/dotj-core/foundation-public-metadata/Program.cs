@@ -371,6 +371,12 @@ var result = new
         argumentWithParameter = new ArgumentException("invalid", "value").ToString(),
         invalidOperation = new InvalidOperationException("invalid").ToString(),
     },
+    selectedExceptionInnerToStringBehavior = new
+    {
+        twoLevel = new Exception("outer", new Exception("inner")).ToString(),
+        threeLevel = new ArgumentException("outer", "value",
+            new Exception("middle", new InvalidOperationException("root"))).ToString(),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),

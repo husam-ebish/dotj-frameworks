@@ -89,6 +89,18 @@ public final class ProductExceptionContractConsumer {
                         .equals(new InvalidOperationException("invalid").ToString())) {
             throw new AssertionError("Selected exception ToString output changed");
         }
+        String twoLevel = "System.Exception: outer\r\n ---> System.Exception: inner"
+                + "\r\n   --- End of inner exception stack trace ---";
+        String threeLevel = "System.ArgumentException: outer (Parameter 'value')"
+                + "\r\n ---> System.Exception: middle"
+                + "\r\n ---> System.InvalidOperationException: root"
+                + "\r\n   --- End of inner exception stack trace ---"
+                + "\r\n   --- End of inner exception stack trace ---";
+        if (!twoLevel.equals(new Exception("outer", new Exception("inner")).ToString())
+                || !threeLevel.equals(new ArgumentException("outer", "value",
+                        new Exception("middle", new InvalidOperationException("root"))).ToString())) {
+            throw new AssertionError("Selected inner exception ToString output changed");
+        }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5
