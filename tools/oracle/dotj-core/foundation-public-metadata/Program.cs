@@ -3377,7 +3377,7 @@ var result = new
         lowerQualifiedThrowSensitive = ObserveGetType(type.AssemblyQualifiedName!.ToLowerInvariant(), true, false),
         lowerQualifiedThrowInsensitive = ObserveGetType(type.AssemblyQualifiedName!.ToLowerInvariant(), true, true),
     }).ToArray(),
-    completeDeclaredSurface = new[] { typeof(Type), typeof(Exception) }
+    completeDeclaredSurface = selected
         .Select(type => new
         {
             fullName = type.FullName,
