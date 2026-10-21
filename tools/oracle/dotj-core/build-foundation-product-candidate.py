@@ -285,6 +285,17 @@ def main():
         expected_overloads.append((bits, mode_bits[0], mode_bits))
     assert [(entry["input"], entry["defaultBits"], entry["modeBits"])
             for entry in round_overloads] == expected_overloads
+    abs_sign = metadata["selectedDecimalAbsSign"]
+    abs_sign_inputs = ([0, 0, 0, 0], [0, 0, 0, -2147483648],
+                       [0, 0, 0, -2147352576], [12345, 0, 0, 131072],
+                       [12345, 0, 0, -2147352576], [1, 0, 0, 1835008],
+                       [1, 0, 0, -2145648640], [-1, -1, -1, 0],
+                       [-1, -1, -1, -2147483648])
+    abs_sign_results = (0, 0, 0, 1, -1, 1, -1, 1, -1)
+    assert [(entry["input"], entry["absolute"], entry["sign"])
+            for entry in abs_sign] == [
+        (bits, [*bits[:3], bits[3] & 0x7fffffff], sign)
+        for bits, sign in zip(abs_sign_inputs, abs_sign_results)]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},

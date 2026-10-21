@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "6624b655bd759b6c105f63d45fd84d878e03c47e08549521bfd77aacdd5c249a",
+  "oracleEvidenceSha256": "a3168781fcdab3484b266925223686446a8cecaf36f6567b03d9284c09b0946d",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "194357c0bd152c065fbf6e78c44e162bedebd471ed33b76518f2cc3a47ea871d",
+  "javaCandidateEvidenceSha256": "1948b4cf51bb90c6a80daa29612da382e0215356ed10f54c9362f7d4b801391f",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 108,
+  "nameLevelMissingMethodCount": 106,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -3274,6 +3274,8 @@
         "public static System.Decimal Round(System.Decimal, int, System.MidpointRounding);",
         "public static System.Decimal Round(System.Decimal);",
         "public static System.Decimal Round(System.Decimal, System.MidpointRounding);",
+        "public static System.Decimal Abs(System.Decimal);",
+        "public static int Sign(System.Decimal);",
         "public static System.Decimal Parse(java.lang.String);",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public System.TypeCode GetTypeCode();",
@@ -3349,12 +3351,14 @@
           "TryParse": 9
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "Abs": 1,
           "Ceiling": 1,
           "Floor": 1,
           "GetBits": 1,
           "GetTypeCode": 1,
           "Parse": 1,
           "Round": 4,
+          "Sign": 1,
           "ToBoolean": 1,
           "ToByte": 1,
           "ToChar": 1,
@@ -3374,7 +3378,6 @@
           "Truncate": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "Abs",
           "Add",
           "Clamp",
           "Compare",
@@ -3402,7 +3405,6 @@
           "Multiply",
           "Negate",
           "Remainder",
-          "Sign",
           "Subtract",
           "ToOACurrency",
           "TryFormat",
