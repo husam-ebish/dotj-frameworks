@@ -1103,6 +1103,47 @@ static object ObserveInt32ExponentLimits()
         "~2147483649", "214748364:7e1", "214748364:8e1"];
     return ObserveInt32SingleStyle(System.Globalization.NumberStyles.Float, texts, provider);
 }
+static object ObserveDecimalBitPatterns()
+{
+    int[][] inputs =
+    [
+        [42, 0, 0, 0],
+        [12345, 0, 0, 0x00020000],
+        [12345, 0, 0, unchecked((int)0x80020000)],
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x001c0000],
+    ];
+    return new
+    {
+        valid = inputs.Select(bits =>
+        {
+            decimal value = new decimal(bits);
+            return new
+            {
+                input = bits,
+                text = value.ToString(System.Globalization.CultureInfo.InvariantCulture),
+                bits = decimal.GetBits(value),
+                convertedBits = decimal.GetBits(((IConvertible)value).ToDecimal(
+                    System.Globalization.CultureInfo.InvariantCulture)),
+            };
+        }).ToArray(),
+        parsedNegativeZero = decimal.GetBits(decimal.Parse("-0.00",
+            System.Globalization.CultureInfo.InvariantCulture)),
+        parsedPositiveZero = decimal.GetBits(decimal.Parse("0.00",
+            System.Globalization.CultureInfo.InvariantCulture)),
+        invalid = new
+        {
+            nullArray = ObserveInt32StyleError(() => new decimal((int[])null!)),
+            threeWords = ObserveInt32StyleError(() => new decimal([1, 0, 0])),
+            fiveWords = ObserveInt32StyleError(() => new decimal([1, 0, 0, 0, 0])),
+            reservedBit = ObserveInt32StyleError(() => new decimal([1, 0, 0, 1])),
+            scale29 = ObserveInt32StyleError(() => new decimal([1, 0, 0, 0x001d0000])),
+        },
+    };
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5569,6 +5610,7 @@ var result = new
     selectedInt32RadixFlagStyles = ObserveInt32RadixFlagStyles(),
     selectedInt32StyleValidationPrecedence = ObserveInt32StyleValidationPrecedence(),
     selectedInt32ExponentLimits = ObserveInt32ExponentLimits(),
+    selectedDecimalBitPatterns = ObserveDecimalBitPatterns(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
