@@ -6452,6 +6452,28 @@
       "resolved": "System.Collections.Generic.Dictionary`2+Entry"
     }
   ],
+  "selectedNestedNameOnlyQueryBehavior": {
+    "positive": {
+      "result": "System.Collections.Generic.Dictionary`2+KeyCollection",
+      "exception": null,
+      "paramName": null
+    },
+    "lowerMiss": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "missing": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "nullName": {
+      "result": null,
+      "exception": "System.ArgumentNullException",
+      "paramName": "fullname"
+    }
+  },
   "selectedNestedPublicVisibilityBehavior": [
     {
       "name": "System.String",
@@ -12508,6 +12530,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "ef87af4ae54a6ddee1d89cacc40f17a84a92736654cb83bb6c9ee2f24bbe807b",
+  "oracleProgramSha256": "d226fa1d1e7e3b4f01110db16a705fc8269c2dd552c3f9887aad96c0b0678ce2",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

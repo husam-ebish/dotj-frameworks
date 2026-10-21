@@ -1067,6 +1067,22 @@ public abstract class Type extends MemberInfo {
         return this.GetInterface(fullname, false);
     }
 
+    public Type GetNestedType(String name) {
+        if (name == null) {
+            throw new ArgumentNullException("fullname");
+        }
+        if (this.get_IsGenericParameter() || this.get_HasElementType()) {
+            return null;
+        }
+        for (Class<?> nested : this.definition.getDeclaredClasses()) {
+            if (java.lang.reflect.Modifier.isPublic(nested.getModifiers())
+                    && nested.getSimpleName().equals(name)) {
+                return fromJavaClass(nested);
+            }
+        }
+        return null;
+    }
+
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) {
             throw new ArgumentNullException("fullname");

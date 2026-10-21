@@ -187,7 +187,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "6d1d4cad2bfaf09960c07336afe3fa55a3943b3bbf2278e4a00e03c5c98df9ad",
+  "sourceSha256": "91fd4b7b36de274137c5d273dc5276f46012362eae92befe947b2e9518081aad",
   "idisposableSourceSha256": "03e7907bdd9aeb3d00e1c58a793446bea5baaf7174e544ba505a220e898da140",
   "icomparableSourceSha256": "6bcbfe9ce519dce4068cb4531bb3dbc3f044b4c9925d011016405e66b2cccc95",
   "iformattableSourceSha256": "5f594291b15b45d4f82e4dfb54a96a6dfdcef3e25fcb5ffcb1ad38eca791fd97",
@@ -290,7 +290,7 @@
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
-  "testSha256": "4cac4e161039e6f1e754f853f59b39e49e33258e47deeb7bcb4872618d28c7ae",
+  "testSha256": "9825b372374c5583c4a7be48b49f29c164fa90a180c5b5506230529ae2b9e1c2",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
   "externalConsumerSha256": "6892386892de73b6282e15c626cbc2427058b55b1f4f133dbefaef2e3440472a",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
@@ -336,6 +336,7 @@
     "public boolean IsInstanceOfType(java.lang.Object);",
     "public System.Type[] GetInterfaces();",
     "public System.Type GetInterface(java.lang.String);",
+    "public System.Type GetNestedType(java.lang.String);",
     "public System.Type GetInterface(java.lang.String, boolean);",
     "public boolean get_IsArray();",
     "public boolean get_IsSZArray();",
