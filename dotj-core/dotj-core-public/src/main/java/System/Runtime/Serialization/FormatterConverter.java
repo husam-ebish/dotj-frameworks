@@ -225,9 +225,15 @@ public final class FormatterConverter implements IFormatterConverter {
             return new Decimal(number);
         }
         if (value instanceof Float number) {
+            if (!Float.isFinite(number)) {
+                throw new OverflowException("Value was outside the range of Decimal");
+            }
             return Decimal.Parse(number.toString());
         }
         if (value instanceof Double number) {
+            if (!Double.isFinite(number)) {
+                throw new OverflowException("Value was outside the range of Decimal");
+            }
             return Decimal.Parse(number.toString());
         }
         return convertible(value).ToDecimal(null);
