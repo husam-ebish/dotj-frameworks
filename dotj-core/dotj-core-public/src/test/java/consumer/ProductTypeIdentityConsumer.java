@@ -11,6 +11,7 @@ import System.IDisposable;
 import System.IComparable;
 import System.IFormattable;
 import System.IFormatProvider;
+import System.IConvertible;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -332,6 +333,21 @@ public final class ProductTypeIdentityConsumer {
                 || !formattableType.IsAssignableFrom(integer)
                 || !formattableType.IsInstanceOfType(42)) {
             throw new AssertionError("Selected formatting interface contract changed");
+        }
+        IConvertible convertible = new IConvertible() {
+            public int ToInt32(IFormatProvider formatProvider) { return 42; }
+            public String ToString(IFormatProvider formatProvider) { return "42"; }
+        };
+        Type convertibleType = Type.GetType("System.IConvertible");
+        if (convertible.ToInt32(provider) != 42 || !"42".equals(convertible.ToString(provider))
+                || convertibleType == null || !convertibleType.get_IsInterface()
+                || integer.GetInterface("System.IConvertible") != convertibleType
+                || integer.GetInterface("IConvertible") != convertibleType
+                || integer.GetInterface("system.iconvertible", true) != null
+                || object.GetInterface("System.IConvertible") != null
+                || !convertibleType.IsAssignableFrom(integer)
+                || !convertibleType.IsInstanceOfType(42)) {
+            throw new AssertionError("Selected IConvertible contract changed");
         }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null

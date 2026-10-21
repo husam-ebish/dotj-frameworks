@@ -7,6 +7,7 @@ Type[] selected = [
     typeof(IComparable),
     typeof(IFormattable),
     typeof(IFormatProvider),
+    typeof(IConvertible),
     typeof(Type),
     typeof(MemberInfo),
     typeof(MemberTypes),
@@ -306,6 +307,7 @@ var result = new
         (typeof(string), null),
         (typeof(IComparable), typeof(string)),
         (typeof(IFormattable), typeof(int)),
+        (typeof(IConvertible), typeof(int)),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -348,6 +350,7 @@ var result = new
         (typeof(string), null),
         (typeof(IComparable), "text"),
         (typeof(IFormattable), 42),
+        (typeof(IConvertible), 42),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -372,6 +375,10 @@ var result = new
         intFormattableShort = ObserveInterface(typeof(int), "IFormattable", false),
         intFormattableLower = ObserveInterface(typeof(int), "system.iformattable", true),
         stringFormattableMiss = ObserveInterface(typeof(string), "System.IFormattable", false),
+        intConvertible = ObserveInterface(typeof(int), "System.IConvertible", false),
+        intConvertibleShort = ObserveInterface(typeof(int), "IConvertible", false),
+        intConvertibleLower = ObserveInterface(typeof(int), "system.iconvertible", true),
+        objectConvertibleMiss = ObserveInterface(typeof(object), "System.IConvertible", false),
     },
     types = selected.Select(type => new
     {
@@ -386,7 +393,7 @@ var result = new
         declaredPublicPropertyCount = type.GetProperties(declaredPublic).Length,
         selectedMethods = type.GetMethods(declaredPublic)
             .Where(method => !method.IsSpecialName && (
-                method.Name is "Dispose" or "CompareTo" or "ToString" or "GetFormat" or "Equals" or "GetType" or "MakeGenericType"
+                method.Name is "Dispose" or "CompareTo" or "ToString" or "ToInt32" or "GetFormat" or "Equals" or "GetType" or "MakeGenericType"
                     or "GetGenericArguments" or "GetGenericTypeDefinition"
                     or "GetElementType" or "GetArrayRank" or "MakeArrayType" or "MakeByRefType"
                     or "MakePointerType"))

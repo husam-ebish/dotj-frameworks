@@ -626,6 +626,11 @@
       "target": "System.IFormattable",
       "candidate": "System.Int32",
       "result": true
+    },
+    {
+      "target": "System.IConvertible",
+      "candidate": "System.Int32",
+      "result": true
     }
   ],
   "selectedSubclassBehavior": [
@@ -800,6 +805,11 @@
       "target": "System.IFormattable",
       "valueType": "System.Int32",
       "result": true
+    },
+    {
+      "target": "System.IConvertible",
+      "valueType": "System.Int32",
+      "result": true
     }
   ],
   "selectedInterfaceBehavior": {
@@ -871,6 +881,26 @@
       "paramName": null
     },
     "stringFormattableMiss": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "intConvertible": {
+      "result": "System.IConvertible",
+      "exception": null,
+      "paramName": null
+    },
+    "intConvertibleShort": {
+      "result": "System.IConvertible",
+      "exception": null,
+      "paramName": null
+    },
+    "intConvertibleLower": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "objectConvertibleMiss": {
       "result": null,
       "exception": null,
       "paramName": null
@@ -973,6 +1003,43 @@
             {
               "name": "formatType",
               "type": "System.Type"
+            }
+          ]
+        }
+      ],
+      "selectedProperties": [],
+      "publicConstructors": []
+    },
+    {
+      "fullName": "System.IConvertible",
+      "baseType": null,
+      "isInterface": true,
+      "isAbstract": true,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 17,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [
+        {
+          "name": "ToInt32",
+          "isStatic": false,
+          "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
             }
           ]
         }
@@ -1710,6 +1777,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "9dbc86a7e5cfb8b8173bd55fc767e16dfdf1123ab5f483ca7b3b4a5caf82c409",
+  "oracleProgramSha256": "0da3b504eccc534464fc71229e55617e6f7e8db1a6a760e68f2a4e26c8bd8fbb",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
