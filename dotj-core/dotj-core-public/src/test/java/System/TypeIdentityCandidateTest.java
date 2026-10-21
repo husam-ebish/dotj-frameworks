@@ -244,6 +244,39 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Matches the pinned selected CLR failure type.
         }
+        SerializationInfo metadata = new SerializationInfo(dbnullType, selectedConverter);
+        String corelibName = "System.Private.CoreLib, Version=10.0.0.0, "
+                + "Culture=neutral, PublicKeyToken=7cec85d7bea7798e";
+        if (!"System.DBNull".equals(metadata.get_FullTypeName())
+                || !corelibName.equals(metadata.get_AssemblyName())
+                || metadata.get_IsFullTypeNameSetExplicit()
+                || metadata.get_IsAssemblyNameSetExplicit()) {
+            throw new AssertionError("Initial serialization type metadata changed");
+        }
+        metadata.SetType(Type.GetType("System.String"));
+        if (!"System.String".equals(metadata.get_ObjectType().get_FullName())
+                || !"System.String".equals(metadata.get_FullTypeName())
+                || !corelibName.equals(metadata.get_AssemblyName())
+                || metadata.get_IsFullTypeNameSetExplicit()
+                || metadata.get_IsAssemblyNameSetExplicit()) {
+            throw new AssertionError("SetType serialization metadata changed");
+        }
+        metadata.set_FullTypeName("custom.Record");
+        metadata.set_AssemblyName("custom.assembly");
+        if (!"custom.Record".equals(metadata.get_FullTypeName())
+                || !"custom.assembly".equals(metadata.get_AssemblyName())
+                || !metadata.get_IsFullTypeNameSetExplicit()
+                || !metadata.get_IsAssemblyNameSetExplicit()) {
+            throw new AssertionError("Explicit serialization metadata changed");
+        }
+        try {
+            metadata.SetType(null);
+            throw new AssertionError("Null serialization type was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"type".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null serialization type parameter changed");
+            }
+        }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
         StreamingContext defaultContext = new StreamingContext();
         StreamingContext processContext = new StreamingContext(StreamingContextStates.CrossProcess);

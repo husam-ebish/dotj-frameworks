@@ -824,6 +824,36 @@ static object ObserveSerializationInfoConversionBoundaries()
         nullIntError = ObserveMethodError(() => info.GetInt32("empty")),
     };
 }
+static object ObserveSerializationInfoTypeMetadata()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    var initialType = info.ObjectType.FullName;
+    var initialFullName = info.FullTypeName;
+    var initialAssemblyName = info.AssemblyName;
+    var initialFullNameExplicit = info.IsFullTypeNameSetExplicit;
+    var initialAssemblyNameExplicit = info.IsAssemblyNameSetExplicit;
+    info.SetType(typeof(string));
+    var afterSetType = new { objectType = info.ObjectType.FullName,
+        fullTypeName = info.FullTypeName,
+        assemblyName = info.AssemblyName,
+        fullNameExplicit = info.IsFullTypeNameSetExplicit,
+        assemblyNameExplicit = info.IsAssemblyNameSetExplicit };
+    info.FullTypeName = "custom.Record";
+    info.AssemblyName = "custom.assembly";
+    return new
+    {
+        initialType, initialFullName, initialAssemblyName,
+        initialFullNameExplicit, initialAssemblyNameExplicit,
+        afterSetType,
+        customFullName = info.FullTypeName,
+        customAssemblyName = info.AssemblyName,
+        customFullNameExplicit = info.IsFullTypeNameSetExplicit,
+        customAssemblyNameExplicit = info.IsAssemblyNameSetExplicit,
+        nullSetTypeError = ObserveMethodError(() => info.SetType(null!)),
+        nullSetTypeParameter = ObserveMethodArgumentName(() => info.SetType(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -959,6 +989,7 @@ var result = new
     selectedSerializationInfoEnumerationBehavior = ObserveSerializationInfoEnumeration(),
     selectedSerializationInfoTypedValuesBehavior = ObserveSerializationInfoTypedValues(),
     selectedSerializationInfoConversionBoundariesBehavior = ObserveSerializationInfoConversionBoundaries(),
+    selectedSerializationInfoTypeMetadataBehavior = ObserveSerializationInfoTypeMetadata(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

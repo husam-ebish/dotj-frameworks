@@ -180,6 +180,20 @@ def main():
         "incompatibleError": "System.InvalidCastException",
         "nullIntError": "System.ArgumentNullException",
     }
+    type_metadata = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoTypeMetadataBehavior"]
+    corelib_name = "System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
+    assert type_metadata == {
+        "initialType": "System.DBNull", "initialFullName": "System.DBNull",
+        "initialAssemblyName": corelib_name,
+        "initialFullNameExplicit": False, "initialAssemblyNameExplicit": False,
+        "afterSetType": {"objectType": "System.String", "fullTypeName": "System.String",
+                         "assemblyName": corelib_name, "fullNameExplicit": False,
+                         "assemblyNameExplicit": False},
+        "customFullName": "custom.Record", "customAssemblyName": "custom.assembly",
+        "customFullNameExplicit": True, "customAssemblyNameExplicit": True,
+        "nullSetTypeError": "System.ArgumentNullException",
+        "nullSetTypeParameter": "type",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
