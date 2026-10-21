@@ -202,6 +202,22 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32((int)(sign.value < 0 ? -magnitude : magnitude));
     }
 
+    public static long BigMul(Int32 left, Int32 right) {
+        return (long)left.value * right.value;
+    }
+
+    public boolean Equals(Int32 obj) {
+        return obj != null && this.value == obj.value;
+    }
+
+    public boolean Equals(Object obj) {
+        return obj instanceof Int32 other && this.value == other.value;
+    }
+
+    public Int32 GetHashCode() {
+        return new Int32(this.value);
+    }
+
     @Override
     public TypeCode GetTypeCode() {
         return TypeCode.Int32;

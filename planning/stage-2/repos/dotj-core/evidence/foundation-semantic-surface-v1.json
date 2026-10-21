@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "d259c3ab4ba149cd36d54d558c7fc96741ab061abd4fe3562f90041330278992",
+  "oracleEvidenceSha256": "7008bf30d8f8bd872bf0482c45194c896bfc0d38f274ccc4d1c49591168206d0",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "6008ebedf6fdc071307ade1e3241f35b7f7029092b138fdb03dda8057e33765d",
+  "javaCandidateEvidenceSha256": "46d8aad626ff4e7c4e9e0f32c89154d6d9e4362618daabc9dcee97938c33096b",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 120,
+  "nameLevelMissingMethodCount": 117,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -7144,6 +7144,10 @@
         "public static System.Int32 MinMagnitude(System.Int32, System.Int32);",
         "public static System.Int32 Clamp(System.Int32, System.Int32, System.Int32);",
         "public static System.Int32 CopySign(System.Int32, System.Int32);",
+        "public static long BigMul(System.Int32, System.Int32);",
+        "public boolean Equals(System.Int32);",
+        "public boolean Equals(java.lang.Object);",
+        "public System.Int32 GetHashCode();",
         "public System.TypeCode GetTypeCode();",
         "public boolean ToBoolean(System.IFormatProvider);",
         "public char ToChar(System.IFormatProvider);",
@@ -7205,9 +7209,12 @@
         },
         "javaCandidateDeclaredMethodOverloads": {
           "Abs": 1,
+          "BigMul": 1,
           "Clamp": 1,
           "CompareTo": 1,
           "CopySign": 1,
+          "Equals": 2,
+          "GetHashCode": 1,
           "GetTypeCode": 1,
           "IsEvenInteger": 1,
           "IsNegative": 1,
@@ -7249,13 +7256,10 @@
           "hashCode": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "BigMul",
           "CreateChecked",
           "CreateSaturating",
           "CreateTruncating",
-          "DivRem",
-          "Equals",
-          "GetHashCode"
+          "DivRem"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"

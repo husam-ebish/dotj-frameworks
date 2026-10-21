@@ -2181,6 +2181,30 @@ static object ObserveInt32SignedArithmetic()
         }).ToArray(),
     };
 }
+static object ObserveInt32ValueIdentityAndBigMul()
+{
+    int value = 42;
+    object boxed = 42;
+    (int Left, int Right)[] products =
+    [(int.MinValue, int.MaxValue), (int.MaxValue, int.MaxValue), (-3, 7), (0, int.MinValue)];
+    return new
+    {
+        typedSame = value.Equals(42),
+        typedDifferent = value.Equals(-42),
+        objectSame = value.Equals(boxed),
+        objectDifferentType = value.Equals("42"),
+        objectNull = value.Equals(null),
+        zeroHash = 0.GetHashCode(),
+        negativeHash = (-42).GetHashCode(),
+        positiveHash = value.GetHashCode(),
+        products = products.Select(item => new
+        {
+            left = item.Left,
+            right = item.Right,
+            product = int.BigMul(item.Left, item.Right),
+        }).ToArray(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2383,6 +2407,7 @@ var result = new
     selectedArgumentOutOfRangeConstructors = ObserveArgumentOutOfRangeConstructors(),
     selectedInt32BitHelpers = ObserveInt32BitHelpers(),
     selectedInt32SignedArithmetic = ObserveInt32SignedArithmetic(),
+    selectedInt32ValueIdentityAndBigMul = ObserveInt32ValueIdentityAndBigMul(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

@@ -1538,6 +1538,38 @@
       }
     ]
   },
+  "selectedInt32ValueIdentityAndBigMul": {
+    "typedSame": true,
+    "typedDifferent": false,
+    "objectSame": true,
+    "objectDifferentType": false,
+    "objectNull": false,
+    "zeroHash": 0,
+    "negativeHash": -42,
+    "positiveHash": 42,
+    "products": [
+      {
+        "left": -2147483648,
+        "right": 2147483647,
+        "product": -4611686016279904256
+      },
+      {
+        "left": 2147483647,
+        "right": 2147483647,
+        "product": 4611686014132420609
+      },
+      {
+        "left": -3,
+        "right": 7,
+        "product": -21
+      },
+      {
+        "left": 0,
+        "right": -2147483648,
+        "product": 0
+      }
+    ]
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -25162,6 +25194,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "3a9496c529a2381c61613322fd221a45d82b4490ecd64b08d26332208274190e",
+  "oracleProgramSha256": "e82d59d93644162e0a3befc2c1348f33ea807c7646de5c1aa0d4faf9032b442b",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
