@@ -537,6 +537,13 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("overflowPair", "integerOverflow")},
     }
+    version_grammar = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedVersionGrammarBoundaryBehavior"]
+    assert version_grammar == {
+        "fourParts": {"result": "System.String", "exception": None, "paramName": None},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("plusSign", "negativeSign", "spaceBeforeDot", "spaceAfterDot",
+                       "fiveParts", "emptyMiddle")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

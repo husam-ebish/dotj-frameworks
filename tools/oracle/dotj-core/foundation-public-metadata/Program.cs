@@ -854,6 +854,16 @@ var result = new
         manyLeadingZeros = ObserveGetType("System.String, System.Private.CoreLib, Version=0000001.0", false, false),
         integerOverflow = ObserveGetType("System.String, System.Private.CoreLib, Version=2147483648.0", false, false),
     },
+    selectedVersionGrammarBoundaryBehavior = new
+    {
+        plusSign = ObserveGetType("System.String, System.Private.CoreLib, Version=+1.2", false, false),
+        negativeSign = ObserveGetType("System.String, System.Private.CoreLib, Version=-1.2", false, false),
+        spaceBeforeDot = ObserveGetType("System.String, System.Private.CoreLib, Version=1 .2", false, false),
+        spaceAfterDot = ObserveGetType("System.String, System.Private.CoreLib, Version=1. 2", false, false),
+        fourParts = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2.3.4", false, false),
+        fiveParts = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2.3.4.5", false, false),
+        emptyMiddle = ObserveGetType("System.String, System.Private.CoreLib, Version=1..2", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
