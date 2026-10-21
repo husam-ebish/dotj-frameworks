@@ -755,6 +755,40 @@
       "isPublic": true
     }
   ],
+  "selectedGenericDefinitionBehavior": [
+    {
+      "name": "System.Object",
+      "isGenericTypeDefinition": false
+    },
+    {
+      "name": "System.Int32",
+      "isGenericTypeDefinition": false
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "isGenericTypeDefinition": true
+    },
+    {
+      "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "isGenericTypeDefinition": false
+    },
+    {
+      "name": "System.Collections.Generic.Dictionary`2",
+      "isGenericTypeDefinition": true
+    },
+    {
+      "name": "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "isGenericTypeDefinition": false
+    },
+    {
+      "name": "T",
+      "isGenericTypeDefinition": false
+    },
+    {
+      "name": "System.String[]",
+      "isGenericTypeDefinition": false
+    }
+  ],
   "selectedEnumBaseBehavior": {
     "enumBase": "System.Enum",
     "baseBase": "System.ValueType",
@@ -3322,6 +3356,10 @@
           "type": "System.Boolean"
         },
         {
+          "name": "IsGenericTypeDefinition",
+          "type": "System.Boolean"
+        },
+        {
           "name": "GenericTypeArguments",
           "type": "System.Type[]"
         },
@@ -3918,6 +3956,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "ec84b488431f67f9d76454b3ff17c5f1c109f1155babbd52315afc926902d719",
+  "oracleProgramSha256": "cb14c774977d37548b7e33b8faa0e7e3fc0dc5843890be1a3b286348aeddb7ee",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

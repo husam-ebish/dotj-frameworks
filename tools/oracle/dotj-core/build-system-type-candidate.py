@@ -75,7 +75,7 @@ def main():
     assert any(method["signature"] == "System.Type GetType(System.String)" and method["isStatic"]
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
-    assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
+    assert {"GenericTypeArguments", "IsGenericType", "IsGenericTypeDefinition", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
             "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed", "IsPublic", "IsVisible",
             "IsInterface", "IsEnum"} <= properties
@@ -228,6 +228,17 @@ def main():
     ]
     assert [item["isVisible"] for item in visible] == [True] * 11
     assert [item["isPublic"] for item in visible] == [True] * 11
+    generic_definitions = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericDefinitionBehavior"]
+    assert [item["name"] for item in generic_definitions[:3]] == [
+        "System.Object", "System.Int32", "System.Collections.Generic.List`1",
+    ]
+    assert generic_definitions[3]["name"].startswith("System.Collections.Generic.List`1[[System.String,")
+    assert generic_definitions[4]["name"] == "System.Collections.Generic.Dictionary`2"
+    assert generic_definitions[5]["name"].startswith("System.Collections.Generic.Dictionary`2[[System.String,")
+    assert [item["name"] for item in generic_definitions[6:]] == ["T", "System.String[]"]
+    assert [item["isGenericTypeDefinition"] for item in generic_definitions] == [
+        False, False, True, False, True, False, False, False,
+    ]
     enum_base = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumBaseBehavior"]
     assert enum_base == {
         "enumBase": "System.Enum", "baseBase": "System.ValueType",
@@ -506,6 +517,7 @@ def main():
         "public System.Type GetElementType();",
         "public int GetArrayRank();",
         "public boolean get_IsGenericType();",
+        "public boolean get_IsGenericTypeDefinition();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",
         "public int get_GenericParameterPosition();",
