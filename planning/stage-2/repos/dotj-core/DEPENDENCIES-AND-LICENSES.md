@@ -37,6 +37,8 @@ The project owner selected **MIT** for dotj-core source and binary distribution.
 
 The built foundation candidate has a separate [technical rights-input inventory](evidence/foundation-rights-inputs-v1.json): 30 hashed product Java sources compile into the candidate JAR, `java.base` is the observed JDK module dependency, and the product MIT license is packaged in source and binary form. The upstream license and third-party notice copies remain reference evidence outside the JAR. File-level upstream notice applicability, transitive rights and release approval still require review; this inventory does not grant release clearance.
 
+[Local source introduction evidence](evidence/foundation-source-provenance-v1.json) records the first Git add event for each of the 30 Java files and verifies the current source hashes. None of their first 30 lines contains an SPDX identifier, copyright notice, or .NET Foundation name. These observations do not establish originality or resolve whether upstream notices apply to their contents.
+
 Observed root metadata/license text is evidence, not a completed eligibility review. Resolve conditional/transitive dependencies, embedded assets, generated inputs and redistributable binaries before source reuse or release.
 
 | Retrieved notice/license | Immutable source |
