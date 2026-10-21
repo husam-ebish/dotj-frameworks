@@ -231,6 +231,10 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    function_pointer_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFunctionPointerFlagBehavior"]
+    assert len(function_pointer_flags) == 8 and all(
+        not row["isFunctionPointer"] and not row["isUnmanagedFunctionPointer"]
+        for row in function_pointer_flags)
     interop_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInteropTypeFlagBehavior"]
     assert len(interop_flags) == 9 and all(
         not any(row[key] for key in ("isImport", "isCOMObject", "isContextful",
@@ -1460,6 +1464,8 @@ def main():
         "public boolean get_IsContextful();",
         "public boolean get_IsMarshalByRef();",
         "public boolean get_IsSignatureType();",
+        "public boolean get_IsFunctionPointer();",
+        "public boolean get_IsUnmanagedFunctionPointer();",
         "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",
