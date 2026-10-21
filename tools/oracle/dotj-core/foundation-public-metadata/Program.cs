@@ -1141,6 +1141,17 @@ var result = new
         fullNameSameReference = ReferenceEquals(type, Type.GetType(type.FullName!)),
         qualifiedSameReference = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
     }).ToArray(),
+    selectedNestedConstructedArrayLookupBehavior = new[]
+    {
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!
+            .MakeGenericType(typeof(string), typeof(int)).MakeArrayType(),
+    }.Select(type => new
+    {
+        name = type.FullName,
+        fullNameSameReference = ReferenceEquals(type, Type.GetType(type.FullName!)),
+        qualifiedSameReference = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
