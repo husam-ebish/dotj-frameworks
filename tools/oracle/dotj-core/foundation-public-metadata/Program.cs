@@ -2371,6 +2371,38 @@ static object ObserveInt32OrdinaryOverloads()
         textNegative = (-42).ToString("D4"),
     };
 }
+static object ObserveInt32CreateIntegralSource<T>(T value)
+    where T : System.Numerics.INumberBase<T>
+{
+    int? checkedValue = null;
+    try { checkedValue = int.CreateChecked(value); }
+    catch (OverflowException) { }
+    return new
+    {
+        sourceType = typeof(T).FullName,
+        value = value.ToString(),
+        checkedValue,
+        checkedError = ObserveMethodError(() => { _ = int.CreateChecked(value); }),
+        saturated = int.CreateSaturating(value),
+        truncated = int.CreateTruncating(value),
+    };
+}
+static object ObserveInt32CreateSmallIntegrals()
+{
+    return new object[]
+    {
+        ObserveInt32CreateIntegralSource((byte)0),
+        ObserveInt32CreateIntegralSource(byte.MaxValue),
+        ObserveInt32CreateIntegralSource(sbyte.MinValue),
+        ObserveInt32CreateIntegralSource(sbyte.MaxValue),
+        ObserveInt32CreateIntegralSource((ushort)0),
+        ObserveInt32CreateIntegralSource(ushort.MaxValue),
+        ObserveInt32CreateIntegralSource((uint)0),
+        ObserveInt32CreateIntegralSource((uint)int.MaxValue),
+        ObserveInt32CreateIntegralSource((uint)int.MaxValue + 1),
+        ObserveInt32CreateIntegralSource(uint.MaxValue),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2581,6 +2613,7 @@ var result = new
     selectedInt32CreateFromSingle = ObserveInt32CreateFromSingle(),
     selectedInt32CreateFromDecimal = ObserveInt32CreateFromDecimal(),
     selectedInt32OrdinaryOverloads = ObserveInt32OrdinaryOverloads(),
+    selectedInt32CreateSmallIntegrals = ObserveInt32CreateSmallIntegrals(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

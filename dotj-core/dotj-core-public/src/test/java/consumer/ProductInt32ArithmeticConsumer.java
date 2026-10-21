@@ -3,13 +3,17 @@ package consumer;
 import System.ArgumentException;
 import System.ArgumentNullException;
 import System.ArithmeticException;
+import System.Byte;
 import System.DivideByZeroException;
 import System.Decimal;
 import System.FormatException;
 import System.IFormatProvider;
 import System.Int32;
 import System.OverflowException;
+import System.SByte;
 import System.Type;
+import System.UInt16;
+import System.UInt32;
 import System.ValueTuple;
 import System.Globalization.NumberStyles;
 import java.math.BigInteger;
@@ -19,6 +23,26 @@ public final class ProductInt32ArithmeticConsumer {
     public static void main(String[] args) {
         if (Int32.MinValue != Integer.MIN_VALUE || Int32.MaxValue != Integer.MAX_VALUE) {
             throw new AssertionError("Int32 public bound fields changed");
+        }
+        Object[] smallSources = {new Byte(0), new Byte(255), new SByte(-128),
+                new SByte(127), new UInt16(0), new UInt16(65535),
+                new UInt32(0), new UInt32(Integer.MAX_VALUE),
+                new UInt32(2147483648L), new UInt32(4294967295L)};
+        int[] checkedOrSaturated = {0, 255, -128, 127, 0, 65535, 0,
+                Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
+        int[] truncated = {0, 255, -128, 127, 0, 65535, 0,
+                Integer.MAX_VALUE, Integer.MIN_VALUE, -1};
+        for (int index = 0; index < smallSources.length; index++) {
+            Object source = smallSources[index];
+            if (index >= 8) {
+                expectOverflow(() -> Int32.CreateChecked(source));
+            } else if (Int32.CreateChecked(source).get_Value() != checkedOrSaturated[index]) {
+                throw new AssertionError("Int32.CreateChecked small source changed");
+            }
+            if (Int32.CreateSaturating(source).get_Value() != checkedOrSaturated[index]
+                    || Int32.CreateTruncating(source).get_Value() != truncated[index]) {
+                throw new AssertionError("Int32.Create small source conversion changed");
+            }
         }
         int[][] unary = {
                 {Integer.MIN_VALUE, -1, 0}, {-3, -1, 3}, {-1, -1, 1},
