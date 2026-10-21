@@ -141,6 +141,15 @@
     "twoArgState": 32,
     "twoArgContext": "marker"
   },
+  "selectedStreamingContextEqualityBehavior": {
+    "defaultEquals": true,
+    "sameStateSameContext": true,
+    "sameStateDifferentContext": false,
+    "differentStateSameContext": false,
+    "sameHash": true,
+    "text": "System.Runtime.Serialization.StreamingContext",
+    "defaultText": "System.Runtime.Serialization.StreamingContext"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15583,6 +15592,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "cb22d3597b57baf7447774744ddc3b18b579c86ff2ecea4e2f0f1f02d6fe693f",
+  "oracleProgramSha256": "34c18878e236739a1217cea412eb6c33e40f221dba784f280e8708a071acfa16",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

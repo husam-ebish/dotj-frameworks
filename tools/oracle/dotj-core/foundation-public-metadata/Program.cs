@@ -663,6 +663,29 @@ static object ObserveNullableAttributeConstructor()
         secondFlag = flags[1],
     };
 }
+static object ObserveStreamingContextEquality()
+{
+    object marker = new();
+    var first = new System.Runtime.Serialization.StreamingContext(
+        System.Runtime.Serialization.StreamingContextStates.Other, marker);
+    var same = new System.Runtime.Serialization.StreamingContext(
+        System.Runtime.Serialization.StreamingContextStates.Other, marker);
+    var differentObject = new System.Runtime.Serialization.StreamingContext(
+        System.Runtime.Serialization.StreamingContextStates.Other, new object());
+    var differentState = new System.Runtime.Serialization.StreamingContext(
+        System.Runtime.Serialization.StreamingContextStates.CrossProcess, marker);
+    return new
+    {
+        defaultEquals = default(System.Runtime.Serialization.StreamingContext)
+            .Equals(default(System.Runtime.Serialization.StreamingContext)),
+        sameStateSameContext = first.Equals(same),
+        sameStateDifferentContext = first.Equals(differentObject),
+        differentStateSameContext = first.Equals(differentState),
+        sameHash = first.GetHashCode() == same.GetHashCode(),
+        text = first.ToString(),
+        defaultText = default(System.Runtime.Serialization.StreamingContext).ToString(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -791,6 +814,7 @@ var result = new
         twoArgContext = new System.Runtime.Serialization.StreamingContext(
             System.Runtime.Serialization.StreamingContextStates.Other, "marker").Context,
     },
+    selectedStreamingContextEqualityBehavior = ObserveStreamingContextEquality(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

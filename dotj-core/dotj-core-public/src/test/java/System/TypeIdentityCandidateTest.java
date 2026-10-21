@@ -86,6 +86,22 @@ public final class TypeIdentityCandidateTest {
                 || !"marker".equals(markerContext.get_Context())) {
             throw new AssertionError("Selected StreamingContext state changed");
         }
+        Object sharedContextMarker = new Object();
+        StreamingContext sameA = new StreamingContext(StreamingContextStates.Other,
+                sharedContextMarker);
+        StreamingContext sameB = new StreamingContext(StreamingContextStates.Other,
+                sharedContextMarker);
+        if (!defaultContext.Equals(new StreamingContext())
+                || !sameA.Equals(sameB) || !sameA.equals(sameB)
+                || sameA.GetHashCode() != sameB.GetHashCode()
+                || sameA.Equals(new StreamingContext(StreamingContextStates.Other, new Object()))
+                || sameA.Equals(new StreamingContext(StreamingContextStates.CrossProcess,
+                    sharedContextMarker))
+                || !"System.Runtime.Serialization.StreamingContext".equals(sameA.ToString())
+                || !"System.Runtime.Serialization.StreamingContext".equals(
+                    defaultContext.toString())) {
+            throw new AssertionError("Selected StreamingContext equality changed");
+        }
         try {
             ((ISerializable) DBNull.Value).GetObjectData(null, new StreamingContext());
             throw new AssertionError("Null DBNull serialization info was accepted");

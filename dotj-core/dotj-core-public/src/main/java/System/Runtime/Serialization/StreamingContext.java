@@ -27,4 +27,33 @@ public final class StreamingContext {
     public Object get_Context() {
         return this.context;
     }
+
+    public boolean Equals(Object other) {
+        return this.equals(other);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return other instanceof StreamingContext contextValue
+                && this.state.equals(contextValue.state)
+                && this.context == contextValue.context;
+    }
+
+    public int GetHashCode() {
+        return this.hashCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return 31 * this.state.get_Value() + java.lang.System.identityHashCode(this.context);
+    }
+
+    public String ToString() {
+        return "System.Runtime.Serialization.StreamingContext";
+    }
+
+    @Override
+    public String toString() {
+        return this.ToString();
+    }
 }
