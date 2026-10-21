@@ -936,6 +936,15 @@ var result = new
         asciiContent = ObserveGetType("System.String, System.Private.CoreLib, ContentType=WINDOWSRUNTIME", false, false),
         unicodeUnknown = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=é", false, false),
     },
+    selectedAssemblyAliasSuffixBehavior = new
+    {
+        upperDll = ObserveGetType("System.String, System.Private.CoreLib.DLL", false, false),
+        lowerDll = ObserveGetType("System.String, system.private.corelib.dll", false, false),
+        quotedUpperDll = ObserveGetType("System.String, \"SYSTEM.PRIVATE.CORELIB.DLL\"", false, false),
+        singleQuotedDll = ObserveGetType("System.String, 'System.Private.CoreLib.dll'", false, false),
+        legacyUpperDll = ObserveGetType("System.String, mscorlib.DLL", false, false),
+        legacySingleQuotedDll = ObserveGetType("System.String, 'mscorlib.dll'", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

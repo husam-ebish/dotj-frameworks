@@ -559,6 +559,18 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned ASCII-only identity value.
             }
         }
+        for (String coreLibAlias : new String[] {
+                "System.Private.CoreLib.DLL", "system.private.corelib.dll",
+                "\"SYSTEM.PRIVATE.CORELIB.DLL\"", "'System.Private.CoreLib.dll'"}) {
+            if (Type.GetType("System.String, " + coreLibAlias) != string) {
+                throw new AssertionError("Selected CoreLib suffix alias rejected: " + coreLibAlias);
+            }
+        }
+        for (String legacySuffix : new String[] {"mscorlib.DLL", "'mscorlib.dll'"}) {
+            if (Type.GetType("System.String, " + legacySuffix) != null) {
+                throw new AssertionError("Selected legacy suffix unexpectedly resolved: " + legacySuffix);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
