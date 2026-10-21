@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "7135874482043a9abd3aea4016a27dd53bb6d617515b33d9dc2f70b704439bd4",
+  "candidateJarSha256": "f0aa1deb444c302c3eea007eff27d4fad7db8bf71bd37f3f364d8483a60640bf",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -202,12 +202,13 @@
       "javaPublicHeader": "public final class System.DateTime {",
       "javaPublicDeclarations": [
         "public System.DateTime(int, int, int);",
+        "public static System.DateTime Parse(java.lang.String);",
         "public int get_Year();",
         "public int get_Month();",
         "public int get_Day();",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"
       ],
-      "disposition": "PARTIAL_VALUE_SURFACE; selected date construction/properties/text only",
+      "disposition": "PARTIAL_VALUE_SURFACE; selected date construction/Parse/properties/text",
       "qualified": false
     },
     {

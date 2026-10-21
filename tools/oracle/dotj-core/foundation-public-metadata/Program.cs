@@ -1496,6 +1496,21 @@ static object ObserveDecimalFormatterRoutes()
         nullValue = ObserveMethodError(() => converter.ToDecimal(null!)),
     };
 }
+static object ObserveDateTimeFormatterRoutes()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("dateText", "2024-02-29");
+    return new
+    {
+        text = info.GetDateTime("dateText").ToString("yyyy-MM-dd"),
+        type = ((DateTime)converter.Convert("2024-02-29", typeof(DateTime))).ToString("yyyy-MM-dd"),
+        typeCode = ((DateTime)converter.Convert("2024-02-29", TypeCode.DateTime)).ToString("yyyy-MM-dd"),
+        invalid = ObserveMethodError(() => converter.ToDateTime("bad")),
+        impossible = ObserveMethodError(() => converter.ToDateTime("2023-02-29")),
+        nullValue = ObserveMethodError(() => converter.ToDateTime(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1664,6 +1679,7 @@ var result = new
     selectedInt16SingleFormatterRoutesBehavior = ObserveInt16SingleFormatterRoutes(),
     selectedUInt64FormatterRoutesBehavior = ObserveUInt64FormatterRoutes(),
     selectedDecimalFormatterRoutesBehavior = ObserveDecimalFormatterRoutes(),
+    selectedDateTimeFormatterRoutesBehavior = ObserveDateTimeFormatterRoutes(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

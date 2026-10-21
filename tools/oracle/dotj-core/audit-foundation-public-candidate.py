@@ -141,11 +141,12 @@ def main():
         elif name == "System.DateTime":
             assert header == "public final class System.DateTime {"
             assert declarations == ["public System.DateTime(int, int, int);",
+                                    "public static System.DateTime Parse(java.lang.String);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();",
                                     "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 70
-            disposition = "PARTIAL_VALUE_SURFACE; selected date construction/properties/text only"
+            disposition = "PARTIAL_VALUE_SURFACE; selected date construction/Parse/properties/text"
         elif name == "System.Int32":
             assert header.startswith("public final class System.Int32")
             assert "public System.TypeCode GetTypeCode();" in declarations

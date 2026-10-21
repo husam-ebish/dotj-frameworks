@@ -76,6 +76,9 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.Decimal".equals(name)) {
             return ToDecimal(value);
         }
+        if ("System.DateTime".equals(name)) {
+            return ToDateTime(value);
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -98,6 +101,7 @@ public final class FormatterConverter implements IFormatterConverter {
             case Single -> ToSingle(value);
             case UInt64 -> ToUInt64(value);
             case Decimal -> ToDecimal(value);
+            case DateTime -> ToDateTime(value);
             default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
         };
     }
@@ -138,6 +142,12 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public DateTime ToDateTime(Object value) {
+        if (value instanceof String text) {
+            return DateTime.Parse(text);
+        }
+        if (value instanceof DateTime date) {
+            return date;
+        }
         return convertible(value).ToDateTime(null);
     }
 

@@ -4,6 +4,7 @@ package System;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
 public final class DateTime {
@@ -11,6 +12,18 @@ public final class DateTime {
 
     public DateTime(int year, int month, int day) {
         this.date = LocalDate.of(year, month, day);
+    }
+
+    public static DateTime Parse(String text) {
+        if (text == null) {
+            throw new ArgumentNullException("s");
+        }
+        try {
+            LocalDate parsed = LocalDate.parse(text.strip(), DateTimeFormatter.ISO_LOCAL_DATE);
+            return new DateTime(parsed.getYear(), parsed.getMonthValue(), parsed.getDayOfMonth());
+        } catch (DateTimeParseException ignored) {
+            throw new FormatException("Input string was not in a correct format");
+        }
     }
 
     public int get_Year() {
