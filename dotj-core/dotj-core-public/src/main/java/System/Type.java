@@ -1430,6 +1430,26 @@ public abstract class Type extends MemberInfo {
         throw new UnsupportedOperationException("Method lookup is not mapped for this candidate type");
     }
 
+    public MethodInfo GetMethod(String name, BindingFlags flags) {
+        if (name == null) {
+            throw new ArgumentNullException("name");
+        }
+        if (flags == null) {
+            throw new NullPointerException("flags");
+        }
+        String interfaceMethod = this.selectedInterfaceMethodName();
+        if (interfaceMethod != null) {
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)
+                    && (name.equals(interfaceMethod)
+                    || flags.has(BindingFlags.IgnoreCase)
+                            && name.equalsIgnoreCase(interfaceMethod))) {
+                return new DefaultMethodMember(interfaceMethod, this);
+            }
+            return null;
+        }
+        throw new UnsupportedOperationException("Flagged method lookup is not mapped for this candidate type");
+    }
+
     private String selectedInterfaceMethodName() {
         if (this.definition == IDisposable.class) {
             return "Dispose";

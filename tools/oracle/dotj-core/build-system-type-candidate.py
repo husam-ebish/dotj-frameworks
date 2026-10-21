@@ -89,6 +89,7 @@ def main():
         "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
         "System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags)",
         "System.Reflection.MethodInfo GetMethod(System.String)",
+        "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags)",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
@@ -315,6 +316,15 @@ def main():
                                  "exception": None, "paramName": None}
                for row in method_names[4:6])
     assert method_names[6]["query"] == {"result": None, "kind": None,
+        "exception": "System.ArgumentNullException", "paramName": "name"}
+    flagged_method = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodFlagsBehavior"]
+    for key in ("positive", "ignoreCase"):
+        assert flagged_method[key] == {"result": "Dispose", "kind": "Method",
+                                       "exception": None, "paramName": None}
+    for key in ("publicOnly", "nonPublic", "missing"):
+        assert flagged_method[key] == {"result": None, "kind": None,
+                                       "exception": None, "paramName": None}
+    assert flagged_method["nullName"] == {"result": None, "kind": None,
         "exception": "System.ArgumentNullException", "paramName": "name"}
     member_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberNameBehavior"]
     for key, name in (("stringChars", "Chars"), ("listItem", "Item")):
@@ -1654,6 +1664,7 @@ def main():
         "public System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags);",
         "public System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags);",
         "public System.Reflection.MethodInfo GetMethod(java.lang.String);",
+        "public System.Reflection.MethodInfo GetMethod(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
