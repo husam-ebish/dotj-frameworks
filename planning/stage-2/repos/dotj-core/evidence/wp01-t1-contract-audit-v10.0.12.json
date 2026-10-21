@@ -10,7 +10,7 @@
         "type-inequality-disposition-v10.0.12.json",
         "TypeIdentityTest and TypeIdentityBoundaryTest"
       ],
-      "observation": "Selected repeated closed types compare equal and different arguments compare unequal in the pinned .NET oracle and Java fixtures. Open List and Dictionary definitions return canonical generic parameter Type values with selected positions in both oracles and the Java product candidate.",
+      "observation": "Selected repeated closed types compare equal and different arguments compare unequal in the pinned .NET oracle and Java fixtures. Open List and Dictionary definitions return canonical generic parameter Type values with selected positions in both oracles and the Java product candidate. The 29 selected public CoreLib type candidates now round-trip through assembly-qualified names, with selected generic and case lookup checks.",
       "remaining": "The product System.Type candidate is partial; constraints, names, declaring methods, complete type forms and broader identity behavior remain unmapped."
     },
     {
@@ -32,8 +32,20 @@
   ],
   "taskStatus": "IN_PROGRESS",
   "completionCredit": false,
+  "latestGateReview": {
+    "date": "2026-10-21",
+    "directWp01FixtureRun": "PASS: 17 Java fixtures and 5 .NET oracles",
+    "nullAndExceptionOracleReplay": "PASS",
+    "publicCandidateAudit": "PASS: 29 selected compiled type mappings; 0 qualified types in the candidate ledger",
+    "E01": "OPEN: source/archive identity is pinned, but transitive rights, notice applicability and release qualification remain unresolved",
+    "E02": "OPEN: the selected public semantic surface and conditional/generated members are not fully mapped",
+    "E03": "PARTIAL: designed WP-01 fixtures and bounded upstream cases exist; complete fixture mapping and behavior coverage are not accepted",
+    "N01": "OPEN: the 29-type compiled candidate is a selected subset, with no complete exact public API comparison or paired .j usage qualification",
+    "foundationGateReplay": "NOT RUN: the runner's default pinned source root R:/ is unavailable in this workspace; its historical manifest records 16 WP-01 Java fixtures, while the current directly run fixture script passes 17 and the gate expectation has been corrected"
+  },
   "nextNeeded": [
-    "Specify public System.Type and closed-generic representations against the complete selected semantic surface.",
-    "Write a versioned public nullability and exception mapping contract and verify it with paired consumers."
+    "Close E01 release and rights applicability for the bounded WP-01 product inputs and distribution.",
+    "Complete E02 semantic inventory and N01 exact-name comparison for the WP-01 public slice, including generated and conditional members.",
+    "Close the four WP-01 E03 acceptance fixtures and re-run the full foundation gate against an available pinned source root before awarding task credit."
   ]
 }
