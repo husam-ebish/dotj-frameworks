@@ -219,6 +219,19 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     ? new Int32(scaled).ToString("N0", provider)
                     : Integer.toString(scaled);
         }
+        if (format.equals("0,.0") || format.equals("0,.00") || format.equals("#,##0,.0")) {
+            int precision = format.equals("0,.00") ? 2 : 1;
+            String scaled = BigDecimal.valueOf(this.value)
+                    .divide(BigDecimal.valueOf(1_000), precision, RoundingMode.HALF_UP)
+                    .toPlainString();
+            if (format.equals("#,##0,.0")) {
+                int decimalPoint = scaled.indexOf('.');
+                int integral = Integer.parseInt(scaled.substring(0, decimalPoint));
+                return new Int32(integral).ToString("N0", provider)
+                        + scaled.substring(decimalPoint);
+            }
+            return scaled;
+        }
         if (format.matches("0+")) {
             String digits = BigInteger.valueOf(this.value).abs().toString();
             String sign = this.value < 0 ? "-" : "";

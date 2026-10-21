@@ -497,6 +497,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"1000".equals(new Int32(999500).ToString("0,", provider))) {
             throw new AssertionError("Selected Int32 comma scaling changed");
         }
+        if (!"12.3".equals(groupedValue.ToString("0,.0", provider))
+                || !"12.35".equals(groupedValue.ToString("0,.00", provider))
+                || !"1,234.6".equals(new Int32(1234567).ToString("#,##0,.0", provider))
+                || !"-12.3".equals(new Int32(-12345).ToString("0,.0", provider))
+                || !"1.3".equals(new Int32(1250).ToString("0,.0", provider))) {
+            throw new AssertionError("Selected Int32 scaled fraction changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

@@ -279,6 +279,9 @@ def main():
     comma_scaling = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32CommaScalingBehavior"]
     assert comma_scaling == {"single": "12", "doubleScale": "1", "grouped": "1,235",
                              "negative": "-12", "halfway": "1000"}
+    scaled_fraction = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ScaledFractionBehavior"]
+    assert scaled_fraction == {"onePlace": "12.3", "twoPlaces": "12.35",
+                               "grouped": "1,234.6", "negative": "-12.3", "halfway": "1.3"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
