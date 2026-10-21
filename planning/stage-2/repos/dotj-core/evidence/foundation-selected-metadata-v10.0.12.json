@@ -673,6 +673,32 @@
       "paramName": "s"
     }
   },
+  "selectedInt32TryParseBehavior": {
+    "number": {
+      "success": true,
+      "value": 42
+    },
+    "padded": {
+      "success": true,
+      "value": 42
+    },
+    "negative": {
+      "success": true,
+      "value": -7
+    },
+    "invalid": {
+      "success": false,
+      "value": 0
+    },
+    "overflow": {
+      "success": false,
+      "value": 0
+    },
+    "nullValue": {
+      "success": false,
+      "value": 0
+    }
+  },
   "selectedSpanFormattingBehavior": {
     "enough": {
       "success": true,
@@ -3414,6 +3440,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "5d6b566a323c404047f973b629def7c8a8723655436901b57e3e08d7fd46ab62",
+  "oracleProgramSha256": "6c2bb6666521fc4c519de057fbb504b1ceb02cb9f54b3856e2045727f1d74ac5",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

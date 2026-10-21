@@ -218,6 +218,15 @@ def main():
         "overflow": {"result": None, "exception": "System.OverflowException", "paramName": None},
         "nullValue": {"result": None, "exception": "System.ArgumentNullException", "paramName": "s"},
     }
+    try_parsed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32TryParseBehavior"]
+    assert try_parsed == {
+        "number": {"success": True, "value": 42},
+        "padded": {"success": True, "value": 42},
+        "negative": {"success": True, "value": -7},
+        "invalid": {"success": False, "value": 0},
+        "overflow": {"success": False, "value": 0},
+        "nullValue": {"success": False, "value": 0},
+    }
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,

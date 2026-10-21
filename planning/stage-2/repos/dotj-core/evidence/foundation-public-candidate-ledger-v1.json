@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "4dfc2b62a78ee1187f4dafdb92be59724ddf3fcea63c01a722810cc0321bdb79",
+  "candidateJarSha256": "7fd97dcbe5831bfd8bee5fd7814da78decd91f32d52f8655f5c1956f24379183",
   "typeCount": 25,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -220,6 +220,7 @@
       "javaPublicHeader": "public final class System.Int32 implements System.IConvertible,System.ISpanFormattable,System.IUtf8SpanFormattable,System.IComparable {",
       "javaPublicDeclarations": [
         "public static System.Int32 Parse(java.lang.String);",
+        "public static boolean TryParse(java.lang.String, System.Int32[]);",
         "public System.Int32(int);",
         "public int get_Value();",
         "public System.TypeCode GetTypeCode();",
