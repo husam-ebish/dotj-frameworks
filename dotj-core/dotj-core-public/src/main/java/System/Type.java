@@ -150,7 +150,8 @@ public abstract class Type extends MemberInfo {
                         value = value.substring(1, value.length() - 1);
                     }
                     boolean recognized = key.equals("version") || key.equals("culture")
-                            || key.equals("publickeytoken") || key.equals("processorarchitecture")
+                            || key.equals("publickeytoken") || key.equals("publickey")
+                            || key.equals("processorarchitecture")
                             || key.equals("retargetable") || key.equals("contenttype");
                     if (attribute.length != 2 || key.isEmpty() || value.isEmpty() && !quotedValue
                             || extraEquals && (!quotedValue || recognized)
@@ -160,6 +161,7 @@ public abstract class Type extends MemberInfo {
                             || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
                             || key.equals("publickeytoken") && !value.equalsIgnoreCase("null")
                                     && !value.matches("[0-9a-fA-F]{16}")
+                            || key.equals("publickey") && !value.equalsIgnoreCase("null")
                             || key.equals("processorarchitecture")
                                     && !value.equalsIgnoreCase("MSIL")
                                     && !value.equalsIgnoreCase("X86")

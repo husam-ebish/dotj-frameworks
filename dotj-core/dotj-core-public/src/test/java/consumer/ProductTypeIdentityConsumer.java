@@ -339,6 +339,22 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Missing-assembly culture parameter changed", expected);
             }
         }
+        for (String acceptedAlias : new String[] {
+                "processorarchitecture=msil", "RETARGETABLE=YES",
+                "contenttype=windowsruntime", "PublicKey=null", "CultureInfo=neutral"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + acceptedAlias) != string) {
+                throw new AssertionError("Selected assembly attribute alias rejected: " + acceptedAlias);
+            }
+        }
+        for (String invalidAlias : new String[] {
+                "PublicKey=xyz", "Retargetable=Yes, retargetable=No"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalidAlias);
+                throw new AssertionError("Invalid assembly attribute alias accepted: " + invalidAlias);
+            } catch (FileLoadException expected) {
+                // Selected pinned identity error.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
