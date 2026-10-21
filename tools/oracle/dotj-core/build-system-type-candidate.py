@@ -34,6 +34,7 @@ ISPANFORMATTABLE_SOURCE = SOURCE.with_name("ISpanFormattable.java")
 IUTF8SPANFORMATTABLE_SOURCE = SOURCE.with_name("IUtf8SpanFormattable.java")
 ICONVERTIBLE_SOURCE = SOURCE.with_name("IConvertible.java")
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
+NOT_PUBLIC_FIXTURE = ROOT / "dotj-core/dotj-core-public/src/test/java/System/PackagePrivateTypeFixture.java"
 CONCURRENCY_TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java"
 LOADER_FIXTURE = ROOT / "dotj-core/dotj-core-public/src/test/java/fixture/LoadableType.java"
 EXTERNAL = ROOT / "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java"
@@ -230,6 +231,12 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    not_public = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNotPublicBehavior"]
+    assert [(row["isPublic"], row["isNotPublic"], row["isNested"])
+            for row in not_public] == [
+        (True, False, False), (False, True, False), (False, False, True),
+        (True, False, False), (True, False, True),
+    ]
     nested_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedNameBehavior"]
     assert nested_names == [
         {"name": name, "fullName": full_name, "namespace": "System.Collections.Generic"}
@@ -1384,7 +1391,7 @@ def main():
                                  ISPANFORMATTABLE_SOURCE, IUTF8SPANFORMATTABLE_SOURCE]))
     assert not (CLASSES / "System/TypeCandidateFactory.class").exists()
     run("javac", "--release", "21", "-cp", str(CLASSES), "-d", str(TEST_CLASSES),
-        str(TEST), str(CONCURRENCY_TEST), str(LOADER_FIXTURE), str(EXTERNAL))
+        str(TEST), str(NOT_PUBLIC_FIXTURE), str(CONCURRENCY_TEST), str(LOADER_FIXTURE), str(EXTERNAL))
     assert not (TEST_CLASSES / "System/TypeCandidateFactory.class").exists()
     public = run("javap", "-public", "-classpath", str(CLASSES), "System.Type")
     assert "public abstract class System.Type" in public
@@ -1417,6 +1424,7 @@ def main():
         "public boolean get_IsAbstract();",
         "public boolean get_IsSealed();",
         "public boolean get_IsPublic();",
+        "public boolean get_IsNotPublic();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",
         "public boolean get_IsInterface();",

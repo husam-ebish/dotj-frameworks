@@ -26,6 +26,14 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        Type packagePrivate = Type.fromJavaClass(PackagePrivateTypeFixture.class);
+        if (!packagePrivate.get_IsNotPublic() || packagePrivate.get_IsPublic()
+                || string.get_IsNotPublic()
+                || Type.fromJavaClass(NestedPrivateFixture.class).get_IsNotPublic()
+                || string.MakeArrayType().get_IsNotPublic()
+                || Type.fromJavaClass(List.class).GetGenericArguments()[0].get_IsNotPublic()) {
+            throw new AssertionError("Selected top-level nonpublic Type flag changed");
+        }
         Type typeCodeEnum = Type.fromJavaClass(TypeCode.class);
         Type memberTypesEnum = Type.fromJavaClass(MemberTypes.class);
         if (typeCodeEnum.GetEnumUnderlyingType() != integer
