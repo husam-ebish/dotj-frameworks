@@ -173,6 +173,13 @@ def main():
         "nullGetTypeError": "System.ArgumentNullException",
         "nullGetTypeParameter": "type",
     }
+    conversion_boundaries = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoConversionBoundariesBehavior"]
+    assert conversion_boundaries == {
+        "numberAsString": "42", "nullString": None, "nullValue": None,
+        "badIntError": "System.FormatException",
+        "incompatibleError": "System.InvalidCastException",
+        "nullIntError": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

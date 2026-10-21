@@ -86,7 +86,8 @@ public class SerializationInfo {
 
     public String GetString(String name) {
         Object value = this.member(name).get_Value();
-        return value instanceof String text ? text : this.converter.ToString(value);
+        return value == null ? null
+                : value instanceof String text ? text : this.converter.ToString(value);
     }
 
     public SerializationInfoEnumerator GetEnumerator() {
