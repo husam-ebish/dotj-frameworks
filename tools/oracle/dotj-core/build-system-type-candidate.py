@@ -88,6 +88,7 @@ def main():
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
         "System.Type GetNestedType(System.String)",
+        "System.Type GetNestedType(System.String, System.Reflection.BindingFlags)",
         "System.Type[] GetNestedTypes()",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
@@ -720,6 +721,15 @@ def main():
         "byRefPointer": {"result": None, "exception": "System.TypeLoadException"},
     }
     nested_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedTypeNameBehavior"]
+    nested_type_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedTypeFlagsBehavior"]
+    for key, name in (("publicChild", "PublicChild"),
+                      ("privateChild", "PrivateChild"), ("ignoreCase", "PublicChild")):
+        assert nested_type_flags[key] == {"result": name, "exception": None, "paramName": None}
+    for key in ("publicChildNonPublic", "privateChildPublic"):
+        assert nested_type_flags[key] == {"result": None, "exception": None, "paramName": None}
+    assert nested_type_flags["nullName"] == {
+        "result": None, "exception": "System.ArgumentNullException", "paramName": "fullname",
+    }
     assert nested_names == {
         "pointerArray": {"result": "System.String*[]", "exception": None, "paramName": None},
         "pointerByRef": {"result": "System.String*&", "exception": None, "paramName": None},
@@ -1598,6 +1608,7 @@ def main():
         "public System.Type[] GetInterfaces();",
         "public System.Type GetInterface(java.lang.String);",
         "public System.Type GetNestedType(java.lang.String);",
+        "public System.Type GetNestedType(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Type[] GetNestedTypes();",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",

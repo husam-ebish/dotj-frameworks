@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "1bcceeaf494952abd12aa4cfa879b33434d30f7357168e3d74bfea411a621ad0",
+  "oracleEvidenceSha256": "67b8344c5ada09ec3284574f8e0ae35eefd505b677f64ca80890a41b5eb2a844",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "36157461099d3ff18ad550e3f744ba6bf835c84a3aa9ae6dc3018c3a2db28e76",
+  "javaCandidateEvidenceSha256": "6c76c768263b9e0795255e7b46c121fd60b5c80faa7067f1889f88b3693b27ea",
   "types": [
     {
       "fullName": "System.Type",
@@ -3475,6 +3475,7 @@
         "public System.Type[] GetInterfaces();",
         "public System.Type GetInterface(java.lang.String);",
         "public System.Type GetNestedType(java.lang.String);",
+        "public System.Type GetNestedType(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Type[] GetNestedTypes();",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
@@ -3590,7 +3591,7 @@
           "GetInterfaces": 1,
           "GetMember": 2,
           "GetMembers": 2,
-          "GetNestedType": 1,
+          "GetNestedType": 2,
           "GetNestedTypes": 1,
           "GetOptionalCustomModifiers": 1,
           "GetRequiredCustomModifiers": 1,
