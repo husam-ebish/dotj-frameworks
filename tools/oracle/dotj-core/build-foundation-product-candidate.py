@@ -454,6 +454,39 @@ def main():
         for value in (516, 1056, 1536, 576)
     ]
     assert metadata["selectedInt32RadixFlagStyles"] == expected_radix
+    general_styles = {
+        "signDecimal": (44, ["~42:00", "42:00~", "~42:00~", "42:5", "42"],
+                        [-42, -42, 0, 0, 42],
+                        [None, None, "Format", "Overflow", None]),
+        "groupedExponent": (192, ["12_345e1", "12_345e~1", "~12_345e1",
+                                 "12_345:00e1", "12_345"],
+                            [123450, 0, 0, 0, 12345],
+                            [None, "Overflow", "Format", "Format", None]),
+        "parenthesizedExponent": (144, ["(42e1)", "42e1", "~42e1",
+                                       "(42e~1)", "(42)"],
+                                  [-420, 420, 0, 0, -42],
+                                  [None, None, "Format", "Overflow", None]),
+        "paddedGroupedExponent": (227, [" 12_345:00e1 ", "~12_345:00e1",
+                                         "12_345:5e0", " 42 "],
+                                    [123450, 0, 0, 42],
+                                    [None, "Format", "Overflow", None]),
+        "signedParentheses": (148, ["(~42e1)", "(42e1)", "~42e1",
+                                    "plus42e1", "(42e~1)"],
+                               [0, -420, -420, 420, 0],
+                               ["Format", None, None, None, "Overflow"]),
+    }
+    assert metadata["selectedInt32GeneralFlagStyles"] == {
+        key: value
+        for name, (flags, texts, values, errors) in general_styles.items()
+        for key, value in (
+            (name + "Value", flags),
+            (name, [
+                {"text": text, "success": error is None, "value": value,
+                 "error": None if error is None else f"System.{error}Exception"}
+                for text, value, error in zip(texts, values, errors)
+            ]),
+        )
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

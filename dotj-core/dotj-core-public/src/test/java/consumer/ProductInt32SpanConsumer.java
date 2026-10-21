@@ -284,6 +284,57 @@ public final class ProductInt32SpanConsumer {
         checkGroupedDecimalStyles();
         checkCurrencyFlagStyles();
         checkRadixFlagStyles();
+        checkGeneralFlagStyles();
+    }
+
+    private static void checkGeneralFlagStyles() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        provider.set_NumberGroupSeparator("_");
+        provider.set_NumberDecimalSeparator(":");
+        provider.set_PositiveSign("plus");
+        provider.set_NegativeSign("~");
+        NumberStyles signDecimal = NumberStyles.AllowLeadingSign.Or(
+                NumberStyles.AllowTrailingSign).Or(NumberStyles.AllowDecimalPoint);
+        NumberStyles groupedExponent = NumberStyles.AllowThousands.Or(
+                NumberStyles.AllowExponent);
+        NumberStyles parenthesizedExponent = NumberStyles.AllowParentheses.Or(
+                NumberStyles.AllowExponent);
+        NumberStyles paddedGroupedExponent = NumberStyles.AllowLeadingWhite.Or(
+                NumberStyles.AllowTrailingWhite).Or(NumberStyles.AllowThousands)
+                .Or(NumberStyles.AllowDecimalPoint).Or(NumberStyles.AllowExponent);
+        NumberStyles signedParentheses = NumberStyles.AllowLeadingSign.Or(
+                NumberStyles.AllowParentheses).Or(NumberStyles.AllowExponent);
+        if (signDecimal.get_Value() != 44 || groupedExponent.get_Value() != 192
+                || parenthesizedExponent.get_Value() != 144
+                || paddedGroupedExponent.get_Value() != 227
+                || signedParentheses.get_Value() != 148) {
+            throw new AssertionError("General flag values changed");
+        }
+        checkSingleStyleVectors(signDecimal, provider,
+                new String[] {"~42:00", "42:00~", "~42:00~", "42:5", "42"},
+                new int[] {-42, -42, 0, 0, 42},
+                new Class<?>[] {null, null, FormatException.class,
+                        OverflowException.class, null});
+        checkSingleStyleVectors(groupedExponent, provider,
+                new String[] {"12_345e1", "12_345e~1", "~12_345e1",
+                        "12_345:00e1", "12_345"},
+                new int[] {123450, 0, 0, 0, 12345},
+                new Class<?>[] {null, OverflowException.class, FormatException.class,
+                        FormatException.class, null});
+        checkSingleStyleVectors(parenthesizedExponent, provider,
+                new String[] {"(42e1)", "42e1", "~42e1", "(42e~1)", "(42)"},
+                new int[] {-420, 420, 0, 0, -42},
+                new Class<?>[] {null, null, FormatException.class,
+                        OverflowException.class, null});
+        checkSingleStyleVectors(paddedGroupedExponent, provider,
+                new String[] {" 12_345:00e1 ", "~12_345:00e1", "12_345:5e0", " 42 "},
+                new int[] {123450, 0, 0, 42},
+                new Class<?>[] {null, FormatException.class, OverflowException.class, null});
+        checkSingleStyleVectors(signedParentheses, provider,
+                new String[] {"(~42e1)", "(42e1)", "~42e1", "plus42e1", "(42e~1)"},
+                new int[] {0, -420, -420, 420, 0},
+                new Class<?>[] {FormatException.class, null, null, null,
+                        OverflowException.class});
     }
 
     private static void checkRadixFlagStyles() {

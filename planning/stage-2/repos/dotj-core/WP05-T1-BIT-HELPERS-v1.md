@@ -88,4 +88,6 @@ Selected `AllowCurrencySymbol` compositions now route through the flag parser wi
 
 Hexadecimal and binary parsing now accepts selected `AllowHexSpecifier` and `AllowBinarySpecifier` combinations with independently permitted leading or trailing whitespace. Twenty-four pinned .NET 10 input vectors cover exact two's-complement limits, whitespace and invalid text across packaged string and both span carriers; four invalid flag masks throw `ArgumentException` for Parse and TryParse. Other flag validation and radix cultures remain open.
 
+The shared noncurrency parser now receives remaining valid flag masks instead of returning an unsupported-operation error. Twenty-four pinned .NET 10 vectors cover five previously unreachable combinations of leading/trailing signs, grouping, decimal points, exponents, parentheses and whitespace in packaged string and both span carriers. Full grammar parity and edge-case ordering remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
