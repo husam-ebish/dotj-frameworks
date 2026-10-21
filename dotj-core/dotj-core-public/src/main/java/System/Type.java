@@ -1911,6 +1911,26 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public boolean get_IsGenericMethod() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsGenericMethodDefinition() {
+            return false;
+        }
+
+        @Override
+        public boolean get_ContainsGenericParameters() {
+            return false;
+        }
+
+        @Override
+        public Type[] GetGenericArguments() {
+            return new Type[0];
+        }
+
+        @Override
         public Type get_ReturnType() {
             return switch (this.name) {
                 case "Dispose" -> fromJavaClass(Void.class);

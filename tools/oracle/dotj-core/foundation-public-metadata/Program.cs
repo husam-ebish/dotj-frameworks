@@ -1048,6 +1048,16 @@ var result = new
         isAbstract = item.Item1.GetMethod(item.Item2)!.IsAbstract,
         isVirtual = item.Item1.GetMethod(item.Item2)!.IsVirtual,
         isFinal = item.Item1.GetMethod(item.Item2)!.IsFinal }).ToArray(),
+    selectedGenericMethodBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        isGenericMethod = item.Item1.GetMethod(item.Item2)!.IsGenericMethod,
+        isGenericMethodDefinition = item.Item1.GetMethod(item.Item2)!.IsGenericMethodDefinition,
+        containsGenericParameters = item.Item1.GetMethod(item.Item2)!.ContainsGenericParameters,
+        genericArguments = item.Item1.GetMethod(item.Item2)!.GetGenericArguments()
+            .Select(type => type.FullName).ToArray() }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

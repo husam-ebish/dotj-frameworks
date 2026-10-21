@@ -357,6 +357,14 @@ def main():
     assert all(row["isPublic"] and not row["isStatic"]
                and row["isAbstract"] and row["isVirtual"] and not row["isFinal"]
                for row in method_flags)
+    generic_methods = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericMethodBehavior"]
+    assert [(row["owner"], row["name"]) for row in generic_methods] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(not row["isGenericMethod"] and not row["isGenericMethodDefinition"]
+               and not row["containsGenericParameters"] and row["genericArguments"] == []
+               for row in generic_methods)
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

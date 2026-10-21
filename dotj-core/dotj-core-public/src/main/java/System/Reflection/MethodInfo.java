@@ -12,4 +12,12 @@ public abstract class MethodInfo extends MethodBase {
     public abstract Type get_ReturnType();
 
     public abstract ParameterInfo get_ReturnParameter();
+
+    public abstract boolean get_IsGenericMethod();
+
+    public abstract boolean get_IsGenericMethodDefinition();
+
+    public abstract boolean get_ContainsGenericParameters();
+
+    public abstract Type[] GetGenericArguments();
 }
