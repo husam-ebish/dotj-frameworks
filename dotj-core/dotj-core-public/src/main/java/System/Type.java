@@ -1410,7 +1410,8 @@ public abstract class Type extends MemberInfo {
                 && (candidate.definition == Byte.class || candidate.definition == SByte.class)) {
             return true;
         }
-        if (this.definition == IConvertible.class && candidate.definition == UInt16.class) {
+        if (this.definition == IConvertible.class
+                && (candidate.definition == UInt16.class || candidate.definition == UInt32.class)) {
             return true;
         }
         if (this.definition == IConvertible.class && candidate.definition == DBNull.class) {
@@ -1490,7 +1491,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IConvertible.class) {
             return value instanceof Integer || value instanceof Int32 || value instanceof DBNull
                     || value instanceof Byte || value instanceof SByte
-                    || value instanceof UInt16;
+                    || value instanceof UInt16 || value instanceof UInt32;
         }
         if (this.definition == ISerializable.class) {
             return value instanceof DBNull;
@@ -1750,7 +1751,7 @@ public abstract class Type extends MemberInfo {
                     fromJavaClass(IConvertible.class)};
         }
         if (this.definition == Byte.class || this.definition == SByte.class
-                || this.definition == UInt16.class) {
+                || this.definition == UInt16.class || this.definition == UInt32.class) {
             return new Type[] {fromJavaClass(IConvertible.class)};
         }
         if (this.definition == Object.class || this.definition == IDisposable.class

@@ -401,6 +401,16 @@ def main():
         "int16Overflow": "System.OverflowException",
         "dateTime": "System.InvalidCastException",
     }
+    uint32_convertible = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUInt32ConvertibleContractBehavior"]
+    assert uint32_convertible == {
+        "implements": True, "typeCode": "UInt32",
+        "int64": 4000000000, "uint32": 4000000000,
+        "uint64Text": "4000000000", "decimalText": "4000000000",
+        "text": "4000000000",
+        "int32Overflow": "System.OverflowException",
+        "byteOverflow": "System.OverflowException",
+        "dateTime": "System.InvalidCastException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

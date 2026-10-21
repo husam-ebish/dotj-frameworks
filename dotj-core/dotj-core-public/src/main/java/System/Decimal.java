@@ -12,6 +12,10 @@ public final class Decimal {
         this.value = BigDecimal.valueOf(value);
     }
 
+    public Decimal(long value) {
+        this.value = BigDecimal.valueOf(value);
+    }
+
     public String ToString(IFormatProvider provider) {
         return this.value.toPlainString();
     }

@@ -352,6 +352,34 @@ public final class TypeIdentityCandidateTest {
         } catch (InvalidCastException expected) {
             // Pinned CLR failure type.
         }
+        IConvertible uint32Convertible = new UInt32(4000000000L);
+        if (!Type.GetType("System.UInt32").IsAssignableTo(Type.GetType("System.IConvertible"))
+                || uint32Convertible.GetTypeCode() != TypeCode.UInt32
+                || uint32Convertible.ToInt64(null) != 4000000000L
+                || uint32Convertible.ToUInt32(null) != 4000000000L
+                || !"4000000000".equals(uint32Convertible.ToUInt64(null).toString())
+                || !"4000000000".equals(uint32Convertible.ToDecimal(null).ToString(null))
+                || !"4000000000".equals(uint32Convertible.ToString(null))) {
+            throw new AssertionError("Selected UInt32 convertible values changed");
+        }
+        try {
+            uint32Convertible.ToInt32(null);
+            throw new AssertionError("UInt32 to Int32 overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            uint32Convertible.ToByte(null);
+            throw new AssertionError("UInt32 to Byte overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            uint32Convertible.ToDateTime(null);
+            throw new AssertionError("UInt32 to DateTime accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));
