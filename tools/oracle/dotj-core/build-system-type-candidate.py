@@ -814,6 +814,25 @@ def main():
                and [parameter["type"] for parameter in item["parameters"]] ==
                ["System.Int32"] * arithmetic_names[item["name"]]
                for item in declared_arithmetic)
+    value_identity = foundation["selectedInt32ValueIdentityAndBigMul"]
+    assert {key: value_identity[key] for key in (
+        "typedSame", "typedDifferent", "objectSame", "objectDifferentType", "objectNull",
+        "zeroHash", "negativeHash", "positiveHash")} == {
+        "typedSame": True, "typedDifferent": False, "objectSame": True,
+        "objectDifferentType": False, "objectNull": False,
+        "zeroHash": 0, "negativeHash": -42, "positiveHash": 42,
+    }
+    assert [(item["left"], item["right"], item["product"])
+            for item in value_identity["products"]] == [
+                (-2147483648, 2147483647, -4611686016279904256),
+                (2147483647, 2147483647, 4611686014132420609),
+                (-3, 7, -21), (0, -2147483648, 0),
+            ]
+    assert {item["signature"] for item in int32_surface["methods"]
+            if item["name"] in {"BigMul", "Equals", "GetHashCode"} and not item["isSpecialName"]} == {
+                "Int64 BigMul(Int32, Int32)", "Boolean Equals(Int32)",
+                "Boolean Equals(System.Object)", "Int32 GetHashCode()",
+            }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

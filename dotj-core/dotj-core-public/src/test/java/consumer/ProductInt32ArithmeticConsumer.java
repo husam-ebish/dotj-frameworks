@@ -62,6 +62,27 @@ public final class ProductInt32ArithmeticConsumer {
             }
         }
         expectOverflow(() -> Int32.CopySign(new Int32(Integer.MIN_VALUE), new Int32(1)));
+        Int32 identity = new Int32(42);
+        if (!identity.Equals(new Int32(42)) || identity.Equals(new Int32(-42))
+                || !identity.Equals((Object)new Int32(42))
+                || identity.Equals((Object)"42") || identity.Equals((Object)null)
+                || identity.GetHashCode().get_Value() != 42
+                || new Int32(0).GetHashCode().get_Value() != 0
+                || new Int32(-42).GetHashCode().get_Value() != -42
+                || !identity.equals(new Int32(42)) || identity.hashCode() != 42) {
+            throw new AssertionError("Int32 value identity changed");
+        }
+        long[][] products = {
+                {Integer.MIN_VALUE, Integer.MAX_VALUE, -4611686016279904256L},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, 4611686014132420609L},
+                {-3, 7, -21}, {0, Integer.MIN_VALUE, 0},
+        };
+        for (long[] expected : products) {
+            if (Int32.BigMul(new Int32((int)expected[0]), new Int32((int)expected[1]))
+                    != expected[2]) {
+                throw new AssertionError("Int32.BigMul result changed");
+            }
+        }
         java.lang.System.out.println("PASS external selected Int32 signed arithmetic");
     }
 
