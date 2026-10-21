@@ -635,6 +635,17 @@ public final class ProductTypeIdentityConsumer {
         } catch (FileLoadException expected) {
             // Selected pinned malformed attribute result.
         }
+        for (String escapedQuoteName : new String[] {
+                "\"System.Private.CoreLib\\\"Extra\"",
+                "'System.Private.CoreLib\\'Extra'",
+                "System.Private.CoreLib\\\"",
+                "System.Private.CoreLib\\'",
+                "\"System.Private.CoreLib\\\"Extra\", Version=1.2",
+                "'System.Private.CoreLib\\'Extra', Version=1.2"}) {
+            if (Type.GetType("System.String, " + escapedQuoteName) != null) {
+                throw new AssertionError("Escaped quote name resolved: " + escapedQuoteName);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

@@ -637,6 +637,12 @@ def main():
            for key in ("unquotedVersion", "doubleQuotedVersion", "singleQuotedVersion", "unquotedUnknown")},
         "unquotedInvalidVersion": {"result": None, "exception": "System.IO.FileLoadException", "paramName": None},
     }
+    escaped_name_quotes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEscapedAssemblyNameQuoteBehavior"]
+    assert escaped_name_quotes == {
+        key: {"result": None, "exception": None, "paramName": None}
+        for key in ("doubleEmbedded", "singleEmbedded", "unquotedDouble",
+                    "unquotedSingle", "doubleWithVersion", "singleWithVersion")
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

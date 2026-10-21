@@ -108,7 +108,9 @@ public abstract class Type extends MemberInfo {
             char nameQuote = 0;
             for (int offset = 0; offset < assembly.length(); offset++) {
                 char character = assembly.charAt(offset);
-                if ((character == '"' || character == '\'') && (nameQuote == 0 || nameQuote == character)) {
+                if ((character == '"' || character == '\'')
+                        && (offset == 0 || assembly.charAt(offset - 1) != '\\')
+                        && (nameQuote == 0 || nameQuote == character)) {
                     nameQuote = nameQuote == 0 ? character : 0;
                 } else if (character == ',' && nameQuote == 0
                         && (offset == 0 || assembly.charAt(offset - 1) != '\\')) {
@@ -128,8 +130,12 @@ public abstract class Type extends MemberInfo {
                 }
                 return null;
             }
-            if (assemblyName.startsWith("\"") != assemblyName.endsWith("\"")
-                    || assemblyName.startsWith("'") != assemblyName.endsWith("'")) {
+            boolean endsDoubleQuote = assemblyName.endsWith("\"")
+                    && (assemblyName.length() < 2 || assemblyName.charAt(assemblyName.length() - 2) != '\\');
+            boolean endsSingleQuote = assemblyName.endsWith("'")
+                    && (assemblyName.length() < 2 || assemblyName.charAt(assemblyName.length() - 2) != '\\');
+            if (assemblyName.startsWith("\"") != endsDoubleQuote
+                    || assemblyName.startsWith("'") != endsSingleQuote) {
                 throw new FileLoadException("Unbalanced assembly name quotes: " + assembly);
             }
             if (assemblyName.indexOf('=') >= 0 && !assemblyName.startsWith("\"")
@@ -157,6 +163,7 @@ public abstract class Type extends MemberInfo {
                 for (int offset = 0; offset < assembly.length(); offset++) {
                     char character = assembly.charAt(offset);
                     if ((character == '"' || character == '\'')
+                            && (offset == 0 || assembly.charAt(offset - 1) != '\\')
                             && (attributeQuote == 0 || attributeQuote == character)) {
                         attributeQuote = attributeQuote == 0 ? character : 0;
                     }
