@@ -119,6 +119,24 @@ public final class TypeIdentityCandidateTest {
                     || owner.GetMethods(BindingFlags.NonPublic.or(BindingFlags.Instance)).length != 0) {
                 throw new AssertionError("Selected flagged interface method inventory changed");
             }
+            MethodInfo namedMethod = owner.GetMethod(interfaceMethodNames[index]);
+            if (namedMethod == null
+                    || !interfaceMethodNames[index].equals(namedMethod.get_Name())
+                    || namedMethod.get_MemberType() != MemberTypes.Method
+                    || namedMethod.get_DeclaringType() != owner
+                    || owner.GetMethod(interfaceMethodNames[index]
+                        .toLowerCase(java.util.Locale.ROOT)) != null
+                    || owner.GetMethod("Missing") != null) {
+                throw new AssertionError("Selected typed method-name lookup changed");
+            }
+        }
+        try {
+            interfaceOwners[0].GetMethod(null);
+            throw new AssertionError("Null typed method name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null typed method name parameter changed", expected);
+            }
         }
         if (string.GetMember("Chars").length != 1
                 || !"Chars".equals(string.GetMember("Chars")[0].get_Name())
