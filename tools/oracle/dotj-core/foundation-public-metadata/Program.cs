@@ -390,6 +390,15 @@ var result = new
             && ReferenceEquals(Type.GetType(assemblyQualifiedName), type),
         type.Namespace,
     }).ToArray(),
+    selectedDictionaryQualifiedRoundTrip = new[]
+    {
+        typeof(Dictionary<,>), typeof(Dictionary<string, int>), typeof(Dictionary<int, string>),
+    }.Select(type => new
+    {
+        type.FullName,
+        type.AssemblyQualifiedName,
+        sameReference = ReferenceEquals(Type.GetType(type.AssemblyQualifiedName), type),
+    }).ToArray(),
     selectedMemberTypeBehavior = new
     {
         enumValues = Enum.GetValues<MemberTypes>()

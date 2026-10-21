@@ -288,10 +288,14 @@ public abstract class Type extends MemberInfo {
                     "System.Collections.Generic.List`1[[System.String, " + CORELIB_IDENTITY + "]]" ->
                     fromJavaClass(java.util.List.class).MakeGenericType(new Type[] {fromJavaClass(String.class)});
             case "System.Collections.Generic.Dictionary`2[System.String,System.Int32]",
-                    "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]" ->
+                    "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]",
+                    "System.Collections.Generic.Dictionary`2[[System.String, " + CORELIB_IDENTITY
+                            + "],[System.Int32, " + CORELIB_IDENTITY + "]]" ->
                     fromJavaClass(java.util.Map.class).MakeGenericType(
                             new Type[] {fromJavaClass(String.class), fromJavaClass(Int32.class)});
-            case "System.Collections.Generic.Dictionary`2[System.Int32,System.String]" ->
+            case "System.Collections.Generic.Dictionary`2[System.Int32,System.String]",
+                    "System.Collections.Generic.Dictionary`2[[System.Int32, " + CORELIB_IDENTITY
+                            + "],[System.String, " + CORELIB_IDENTITY + "]]" ->
                     fromJavaClass(java.util.Map.class).MakeGenericType(
                             new Type[] {fromJavaClass(Int32.class), fromJavaClass(String.class)});
             case "System.Collections.Generic.List`1[System.String][]" ->
