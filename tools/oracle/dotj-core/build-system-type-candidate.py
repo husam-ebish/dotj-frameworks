@@ -1045,6 +1045,8 @@ def main():
     assert [row["result"] for row in nested_assembly] == [False] * 3 + [True]
     nested_private = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedPrivateBehavior"]
     assert [row["result"] for row in nested_private] == [False] * 3 + [True]
+    nested_family = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedFamilyBehavior"]
+    assert [row["result"] for row in nested_family] == [False] * 3 + [True]
     primitive_array_texts = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveArrayToStringBehavior"]
     assert [row["name"] for row in primitive_array_texts] == [
         "System.Boolean", "System.Char", "System.Byte", "System.Int16",
@@ -1208,6 +1210,7 @@ def main():
         "public boolean get_IsNestedPublic();",
         "public boolean get_IsNestedAssembly();",
         "public boolean get_IsNestedPrivate();",
+        "public boolean get_IsNestedFamily();",
         "public boolean get_ContainsGenericParameters();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",
