@@ -118,6 +118,11 @@ def main():
             assert "extends java.lang.Enum<System.Reflection.MemberTypes>" in header
             assert "public int get_Value();" in declarations
             disposition = "PARTIAL_ENUM_SURFACE; selected values only, Java enum differs from CLR Enum"
+        elif name == "System.Reflection.GenericParameterAttributes":
+            assert "extends java.lang.Enum<System.Reflection.GenericParameterAttributes>" in header
+            assert "public int get_Value();" in declarations
+            assert upstream["baseType"] == "System.Enum"
+            disposition = "SELECTED_ENUM_VALUES; Java enum differs from CLR flags enum"
         elif name == "System.TypeCode":
             assert "extends java.lang.Enum<System.TypeCode>" in header
             assert "public int get_Value();" in declarations
@@ -197,7 +202,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 29
+    assert len(records) == 30
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -216,7 +221,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS twenty-nine selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS thirty selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":
