@@ -23921,6 +23921,92 @@
       }
     ]
   },
+  "selectedInt32StyleValidationPrecedence": {
+    "invalid": [
+      {
+        "value": 516,
+        "nullParse": {
+          "type": "System.ArgumentNullException",
+          "paramName": "s"
+        },
+        "nullTryParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        },
+        "overflowParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        },
+        "overflowTryParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        }
+      },
+      {
+        "value": 1056,
+        "nullParse": {
+          "type": "System.ArgumentNullException",
+          "paramName": "s"
+        },
+        "nullTryParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        },
+        "overflowParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        },
+        "overflowTryParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        }
+      },
+      {
+        "value": 1536,
+        "nullParse": {
+          "type": "System.ArgumentNullException",
+          "paramName": "s"
+        },
+        "nullTryParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        },
+        "overflowParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        },
+        "overflowTryParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        }
+      },
+      {
+        "value": 576,
+        "nullParse": {
+          "type": "System.ArgumentNullException",
+          "paramName": "s"
+        },
+        "nullTryParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        },
+        "overflowParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        },
+        "overflowTryParse": {
+          "type": "System.ArgumentException",
+          "paramName": "style"
+        }
+      }
+    ],
+    "validNullParse": {
+      "type": "System.ArgumentNullException",
+      "paramName": "s"
+    },
+    "validNullSuccess": false,
+    "validNullValue": 0
+  },
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -27417,6 +27503,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "04431a1197b2caf471517510069734521ce03d7f74cc540ed7e4d9228ae78185",
+  "oracleProgramSha256": "7b853a13e58f0504e863cbbfec49dbf58a369d8f45d7a11211585c7268d6bfae",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

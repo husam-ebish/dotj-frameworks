@@ -454,6 +454,19 @@ def main():
         for value in (516, 1056, 1536, 576)
     ]
     assert metadata["selectedInt32RadixFlagStyles"] == expected_radix
+    assert metadata["selectedInt32StyleValidationPrecedence"] == {
+        "invalid": [
+            {"value": value,
+             "nullParse": {"type": "System.ArgumentNullException", "paramName": "s"},
+             "nullTryParse": {"type": "System.ArgumentException", "paramName": "style"},
+             "overflowParse": {"type": "System.ArgumentException", "paramName": "style"},
+             "overflowTryParse": {"type": "System.ArgumentException", "paramName": "style"}}
+            for value in (516, 1056, 1536, 576)
+        ],
+        "validNullParse": {"type": "System.ArgumentNullException", "paramName": "s"},
+        "validNullSuccess": False,
+        "validNullValue": 0,
+    }
     general_styles = {
         "signDecimal": (44, ["~42:00", "42:00~", "~42:00~", "42:5", "42"],
                         [-42, -42, 0, 0, 42],

@@ -90,4 +90,6 @@ Hexadecimal and binary parsing now accepts selected `AllowHexSpecifier` and `All
 
 The shared noncurrency parser now receives remaining valid flag masks instead of returning an unsupported-operation error. Twenty-four pinned .NET 10 vectors cover five previously unreachable combinations of leading/trailing signs, grouping, decimal points, exponents, parentheses and whitespace in packaged string and both span carriers. Full grammar parity and edge-case ordering remain open.
 
+Selected invalid radix-style masks now preserve the pinned error order and parameter identity: Parse with null input reports `ArgumentNullException(s)` first, while TryParse validates the style and reports `ArgumentException(style)` even for null input; invalid masks also take precedence over out-of-range text. A valid radix style retains false/zero TryParse behavior for null. Other overload and error-message details remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
