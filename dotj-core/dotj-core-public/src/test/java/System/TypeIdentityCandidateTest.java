@@ -486,6 +486,36 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        String maximumUnsignedText = "18446744073709551615";
+        SerializationInfo unsigned64Text = new SerializationInfo(dbnullType, selectedConverter);
+        unsigned64Text.AddValue("u64Text", maximumUnsignedText);
+        if (!maximumUnsignedText.equals(unsigned64Text.GetUInt64("u64Text").toString())
+                || !maximumUnsignedText.equals(selectedConverter.Convert(
+                    maximumUnsignedText, Type.GetType("System.UInt64")).toString())
+                || !maximumUnsignedText.equals(selectedConverter.Convert(
+                    maximumUnsignedText, TypeCode.UInt64).toString())) {
+            throw new AssertionError("Selected UInt64 formatter routes changed");
+        }
+        for (String value : new String[] {"18446744073709551616", "-1"}) {
+            try {
+                selectedConverter.ToUInt64(value);
+                throw new AssertionError("UInt64 overflow accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToUInt64("bad");
+            throw new AssertionError("Invalid UInt64 text accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToUInt64(null);
+            throw new AssertionError("Null UInt64 accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));

@@ -1465,6 +1465,22 @@ static object ObserveInt16SingleFormatterRoutes()
         singleNull = ObserveMethodError(() => converter.ToSingle(null!)),
     };
 }
+static object ObserveUInt64FormatterRoutes()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("u64Text", "18446744073709551615");
+    return new
+    {
+        text = info.GetUInt64("u64Text").ToString(),
+        type = converter.Convert("18446744073709551615", typeof(ulong)).ToString(),
+        typeCode = converter.Convert("18446744073709551615", TypeCode.UInt64).ToString(),
+        overflow = ObserveMethodError(() => converter.ToUInt64("18446744073709551616")),
+        negative = ObserveMethodError(() => converter.ToUInt64("-1")),
+        format = ObserveMethodError(() => converter.ToUInt64("bad")),
+        nullValue = ObserveMethodError(() => converter.ToUInt64(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1631,6 +1647,7 @@ var result = new
     selectedUnsignedFormatterRoutesBehavior = ObserveUnsignedFormatterRoutes(),
     selectedUnsignedToTypeContractBehavior = ObserveUnsignedToTypeContract(),
     selectedInt16SingleFormatterRoutesBehavior = ObserveInt16SingleFormatterRoutes(),
+    selectedUInt64FormatterRoutesBehavior = ObserveUInt64FormatterRoutes(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
