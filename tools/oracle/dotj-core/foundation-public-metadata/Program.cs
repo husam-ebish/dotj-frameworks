@@ -942,6 +942,37 @@ static object ObserveInt32TrailingSignStyles()
             ["~12_345", "12_345~", "~12_345~", "plus12_345~", "12_345plus"], provider),
     };
 }
+static object ObserveInt32GroupedDecimalStyles()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = ":",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    var groupedDecimal = System.Globalization.NumberStyles.AllowThousands
+        | System.Globalization.NumberStyles.AllowDecimalPoint;
+    var parenthesizedDecimal = System.Globalization.NumberStyles.AllowParentheses
+        | groupedDecimal;
+    var groupedExponent = groupedDecimal | System.Globalization.NumberStyles.AllowExponent;
+    return new
+    {
+        parenthesesValue = (int)System.Globalization.NumberStyles.AllowParentheses,
+        parentheses = ObserveInt32SingleStyle(System.Globalization.NumberStyles.AllowParentheses,
+            ["(42)", "42", "~42", " (42)", "(42)~"], provider),
+        groupedDecimalValue = (int)groupedDecimal,
+        groupedDecimal = ObserveInt32SingleStyle(groupedDecimal,
+            ["12_345:00", "12_345:5", " 12_345:00", "~12_345:00", "12_345:0_0"], provider),
+        parenthesizedDecimalValue = (int)parenthesizedDecimal,
+        parenthesizedDecimal = ObserveInt32SingleStyle(parenthesizedDecimal,
+            ["(12_345:00)", "(12_345:5)", "~12_345:00", "(12_345:00)~", "12_345:00"], provider),
+        groupedExponentValue = (int)groupedExponent,
+        groupedExponent = ObserveInt32SingleStyle(groupedExponent,
+            ["12_345:00e1", "1_234:5e1", "12_345:5e0", "12_345:00e~1",
+                "12_345:00eplus1", "12_345:00"], provider),
+    };
+}
 static object ObserveInt32SingleStyle(System.Globalization.NumberStyles style,
     string[] texts, System.Globalization.NumberFormatInfo provider)
 {
@@ -5347,6 +5378,7 @@ var result = new
     selectedInt32CombinedStyles = ObserveInt32CombinedStyles(),
     selectedInt32MoreCombinedStyles = ObserveInt32MoreCombinedStyles(),
     selectedInt32TrailingSignStyles = ObserveInt32TrailingSignStyles(),
+    selectedInt32GroupedDecimalStyles = ObserveInt32GroupedDecimalStyles(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",

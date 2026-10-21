@@ -281,6 +281,46 @@ public final class ProductInt32SpanConsumer {
         checkCombinedStyles(numberStyle);
         checkMoreCombinedStyles();
         checkTrailingSignStyles();
+        checkGroupedDecimalStyles();
+    }
+
+    private static void checkGroupedDecimalStyles() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        provider.set_NumberGroupSeparator("_");
+        provider.set_NumberDecimalSeparator(":");
+        provider.set_PositiveSign("plus");
+        provider.set_NegativeSign("~");
+        NumberStyles groupedDecimal = NumberStyles.AllowThousands.Or(
+                NumberStyles.AllowDecimalPoint);
+        NumberStyles parenthesizedDecimal = NumberStyles.AllowParentheses.Or(groupedDecimal);
+        NumberStyles groupedExponent = groupedDecimal.Or(NumberStyles.AllowExponent);
+        if (groupedDecimal.get_Value() != 96 || parenthesizedDecimal.get_Value() != 112
+                || groupedExponent.get_Value() != 224) {
+            throw new AssertionError("Grouped decimal style values changed");
+        }
+        checkSingleStyleVectors(NumberStyles.AllowParentheses, provider,
+                new String[] {"(42)", "42", "~42", " (42)", "(42)~"},
+                new int[] {-42, 42, 0, 0, 0},
+                new Class<?>[] {null, null, FormatException.class, FormatException.class,
+                        FormatException.class});
+        checkSingleStyleVectors(groupedDecimal, provider,
+                new String[] {"12_345:00", "12_345:5", " 12_345:00", "~12_345:00",
+                        "12_345:0_0"},
+                new int[] {12345, 0, 0, 0, 0},
+                new Class<?>[] {null, OverflowException.class, FormatException.class,
+                        FormatException.class, FormatException.class});
+        checkSingleStyleVectors(parenthesizedDecimal, provider,
+                new String[] {"(12_345:00)", "(12_345:5)", "~12_345:00",
+                        "(12_345:00)~", "12_345:00"},
+                new int[] {-12345, 0, 0, 0, 12345},
+                new Class<?>[] {null, OverflowException.class, FormatException.class,
+                        FormatException.class, null});
+        checkSingleStyleVectors(groupedExponent, provider,
+                new String[] {"12_345:00e1", "1_234:5e1", "12_345:5e0",
+                        "12_345:00e~1", "12_345:00eplus1", "12_345:00"},
+                new int[] {123450, 12345, 0, 0, 123450, 12345},
+                new Class<?>[] {null, null, OverflowException.class,
+                        OverflowException.class, null, null});
     }
 
     private static void checkTrailingSignStyles() {

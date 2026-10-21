@@ -80,6 +80,8 @@ The `NumberStyles` Java carrier now represents unnamed bitwise combinations thro
 
 The numeric parser now dispatches combinations drawn from leading and trailing whitespace, leading sign, decimal point, and exponent flags by their bit mask. Three additional combinations (132, 35 and 164) have fifteen pinned .NET 10 vectors across packaged string and both span carriers. Parentheses, grouping with decimal or exponent, and currency composition remain open.
 
-Selected trailing-sign parsing now works alone and with grouping, whitespace and leading-sign flags. Eighteen pinned .NET 10 vectors cover custom trailing signs, double-sign rejection and whitespace permissions in packaged string and both span carriers. Parentheses, decimal and currency compositions remain open.
+Selected trailing-sign parsing now works alone and with grouping, whitespace and leading-sign flags. Eighteen pinned .NET 10 vectors cover custom trailing signs, double-sign rejection and whitespace permissions in packaged string and both span carriers. Currency composition and broader combinations remain open.
+
+Selected parentheses, grouped-decimal and grouped-exponent flag combinations now parse through a shared noncurrency path. Twenty-one pinned .NET 10 vectors cover sign and whitespace rejection, grouping confined to the integer part, exact fractional results and overflow across packaged string and both span carriers. Broader combinations and culture behavior remain open.
 
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

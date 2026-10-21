@@ -88,6 +88,11 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (style == NumberStyles.Number) {
             return selectedParseNumber(text, provider);
         }
+        if ((style.get_Value() & ~255) == 0
+                && ((style.get_Value() & 16) != 0
+                || (style.get_Value() & 96) == 96)) {
+            return selectedParseExtended(text, provider, style);
+        }
         if (style.get_Value() != 0 && (style.get_Value() & ~167) == 0) {
             return selectedParseFloat(text, provider, style);
         }
@@ -328,6 +333,106 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (!parentheses) return parsed;
         if (parsed.value == Integer.MIN_VALUE) throw new OverflowException();
         return new Int32(-parsed.value);
+    }
+
+    private static Int32 selectedParseExtended(String text, IFormatProvider provider,
+                                               NumberStyles style) {
+        if (text == null) throw new ArgumentNullException("s");
+        int flags = style.get_Value();
+        NumberFormatInfo format = selectedNumberFormatInfo(provider);
+        String negativeSign = format == null ? "-" : format.get_NegativeSign();
+        String positiveSign = format == null ? "+" : format.get_PositiveSign();
+        String groupSeparator = format == null ? "," : format.get_NumberGroupSeparator();
+        String decimalSeparator = format == null ? "." : format.get_NumberDecimalSeparator();
+        String number = (flags & 1) != 0 ? text.stripLeading() : text;
+        if ((flags & 2) != 0) number = number.stripTrailing();
+        boolean negative = false;
+        boolean signed = false;
+        if ((flags & 16) != 0 && number.startsWith("(") && number.endsWith(")")) {
+            number = number.substring(1, number.length() - 1);
+            negative = signed = true;
+        }
+        if ((flags & 4) != 0) {
+            if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
+                if (signed) throw new FormatException("Input string was not in a correct format");
+                number = number.substring(negativeSign.length());
+                negative = signed = true;
+            } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
+                if (signed) throw new FormatException("Input string was not in a correct format");
+                number = number.substring(positiveSign.length());
+                signed = true;
+            }
+        }
+        if ((flags & 8) != 0) {
+            if (!negativeSign.isEmpty() && number.endsWith(negativeSign)) {
+                if (signed) throw new FormatException("Input string was not in a correct format");
+                number = number.substring(0, number.length() - negativeSign.length());
+                negative = signed = true;
+            } else if (!positiveSign.isEmpty() && number.endsWith(positiveSign)) {
+                if (signed) throw new FormatException("Input string was not in a correct format");
+                number = number.substring(0, number.length() - positiveSign.length());
+                signed = true;
+            }
+        }
+        int exponent = 0;
+        int exponentIndex = Math.max(number.indexOf('e'), number.indexOf('E'));
+        if ((flags & 128) != 0 && exponentIndex >= 0) {
+            String exponentText = number.substring(exponentIndex + 1);
+            number = number.substring(0, exponentIndex);
+            boolean exponentNegative = false;
+            if (!negativeSign.isEmpty() && exponentText.startsWith(negativeSign)) {
+                exponentText = exponentText.substring(negativeSign.length());
+                exponentNegative = true;
+            } else if (!positiveSign.isEmpty() && exponentText.startsWith(positiveSign)) {
+                exponentText = exponentText.substring(positiveSign.length());
+            }
+            if (!exponentText.matches("[0-9]+")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            try {
+                exponent = Integer.parseInt(exponentText);
+            } catch (NumberFormatException expected) {
+                throw new OverflowException();
+            }
+            if (exponent > 1000) throw new OverflowException();
+            if (exponentNegative) exponent = -exponent;
+        }
+        boolean hasDecimal = false;
+        String fraction = "";
+        if ((flags & 32) != 0 && !decimalSeparator.isEmpty()) {
+            int decimalIndex = number.indexOf(decimalSeparator);
+            if (decimalIndex >= 0) {
+                if (number.indexOf(decimalSeparator,
+                        decimalIndex + decimalSeparator.length()) >= 0) {
+                    throw new FormatException("Input string was not in a correct format");
+                }
+                fraction = number.substring(decimalIndex + decimalSeparator.length());
+                number = number.substring(0, decimalIndex);
+                hasDecimal = true;
+            }
+        }
+        if ((flags & 64) != 0 && !groupSeparator.isEmpty()) {
+            if (number.startsWith(groupSeparator)) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            number = number.replace(groupSeparator, "");
+        }
+        String normalized = number + (hasDecimal ? "." + fraction : "");
+        if (!normalized.matches("[0-9]+(\\.[0-9]*)?|\\.[0-9]+")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        try {
+            BigDecimal parsed = new BigDecimal(normalized).scaleByPowerOfTen(exponent);
+            if (negative) parsed = parsed.negate();
+            BigInteger exact = parsed.toBigIntegerExact();
+            if (exact.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                    || exact.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+                throw new OverflowException();
+            }
+            return new Int32(exact.intValue());
+        } catch (java.lang.ArithmeticException expected) {
+            throw new OverflowException();
+        }
     }
 
     private static Int32 selectedParseFloat(String text, IFormatProvider provider,

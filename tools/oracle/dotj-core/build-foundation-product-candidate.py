@@ -364,6 +364,34 @@ def main():
             ]),
         )
     }
+    grouped_decimal_styles = {
+        "parentheses": (16, ["(42)", "42", "~42", " (42)", "(42)~"],
+                        [-42, 42, 0, 0, 0], [None, None, "Format", "Format", "Format"]),
+        "groupedDecimal": (96, ["12_345:00", "12_345:5", " 12_345:00",
+                                "~12_345:00", "12_345:0_0"],
+                           [12345, 0, 0, 0, 0],
+                           [None, "Overflow", "Format", "Format", "Format"]),
+        "parenthesizedDecimal": (112, ["(12_345:00)", "(12_345:5)",
+                                       "~12_345:00", "(12_345:00)~", "12_345:00"],
+                                  [-12345, 0, 0, 0, 12345],
+                                  [None, "Overflow", "Format", "Format", None]),
+        "groupedExponent": (224, ["12_345:00e1", "1_234:5e1", "12_345:5e0",
+                                  "12_345:00e~1", "12_345:00eplus1", "12_345:00"],
+                             [123450, 12345, 0, 0, 123450, 12345],
+                             [None, None, "Overflow", "Overflow", None, None]),
+    }
+    assert metadata["selectedInt32GroupedDecimalStyles"] == {
+        key: value
+        for name, (flags, texts, values, errors) in grouped_decimal_styles.items()
+        for key, value in (
+            (name + "Value", flags),
+            (name, [
+                {"text": text, "success": error is None, "value": value,
+                 "error": None if error is None else f"System.{error}Exception"}
+                for text, value, error in zip(texts, values, errors)
+            ]),
+        )
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
