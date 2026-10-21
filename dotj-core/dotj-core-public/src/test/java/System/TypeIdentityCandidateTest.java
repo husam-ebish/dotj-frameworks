@@ -36,6 +36,10 @@ public final class TypeIdentityCandidateTest {
     public static void main(String[] args) {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
+        if (string.get_IsCollectible()
+                || Type.fromJavaClass(List.class).get_IsCollectible()) {
+            throw new AssertionError("Selected type collectibility changed");
+        }
         Type integer = Type.fromJavaClass(Integer.class);
         Type bindingFlagsType = Type.fromJavaClass(BindingFlags.class);
         Type callingConventionType = Type.fromJavaClass(CallingConventions.class);
@@ -160,6 +164,7 @@ public final class TypeIdentityCandidateTest {
                     || members[0].get_MemberType() != MemberTypes.Method
                     || members[0].get_DeclaringType() != owner
                     || members[0].get_ReflectedType() != owner
+                    || members[0].get_IsCollectible()
                     || owner.GetMember(interfaceMethodNames[index]).length != 1
                     || members == owner.GetMembers()) {
                 throw new AssertionError("Selected interface member inventory changed");
@@ -430,6 +435,7 @@ public final class TypeIdentityCandidateTest {
                     || defaults[0].get_MemberType() != MemberTypes.Property
                     || defaults[0].get_DeclaringType() != defaultOwner
                     || defaults[0].get_ReflectedType() != defaultOwner
+                    || defaults[0].get_IsCollectible()
                     || defaults == defaultOwner.GetDefaultMembers()) {
                 throw new AssertionError("Selected default property member changed");
             }
