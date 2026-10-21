@@ -561,6 +561,15 @@ var result = new
         byRefArray = ObserveGetType("System.String&[]", false, false),
         byRefArrayThrow = ObserveGetType("System.String&[]", true, false),
     },
+    selectedQualifiedNestedNameBehavior = new
+    {
+        coreLibArray = ObserveGetType("System.String*[], System.Private.CoreLib", false, false),
+        insensitiveArray = ObserveGetType("system.string*[], System.Private.CoreLib", false, true),
+        sensitiveMiss = ObserveGetType("system.string*[], System.Private.CoreLib", false, false),
+        legacyByRef = ObserveGetType("System.String*&, mscorlib", false, false),
+        coreLibDoublePointer = ObserveGetType("System.String**, System.Private.CoreLib", false, false),
+        invalidByRefArray = ObserveGetType("System.String&[], System.Private.CoreLib", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
