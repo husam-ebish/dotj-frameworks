@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "e719a2a3f5064848aad0451c7e65860c7a235f53399406688a20f9c6d4823fbf",
+  "candidateJarSha256": "40bd0f75fb44340e529271a94395fe04ebd8cdcafdfb4246c52ca6d6190e95cc",
   "typeCount": 29,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -294,6 +294,7 @@
         "public boolean get_IsInterface();",
         "public boolean get_IsEnum();",
         "public System.Type GetEnumUnderlyingType();",
+        "public boolean IsAssignableTo(System.Type);",
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",

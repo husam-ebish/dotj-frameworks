@@ -469,6 +469,16 @@ var result = new
         genericRepeatStable = typeof(System.Collections.Generic.List<string>).GetHashCode()
             == typeof(System.Collections.Generic.List<string>).GetHashCode(),
     },
+    selectedAssignableToBehavior = new
+    {
+        stringToObject = typeof(string).IsAssignableTo(typeof(object)),
+        objectToString = typeof(object).IsAssignableTo(typeof(string)),
+        stringToComparable = typeof(string).IsAssignableTo(typeof(IComparable)),
+        comparableToString = typeof(IComparable).IsAssignableTo(typeof(string)),
+        stringToSelf = typeof(string).IsAssignableTo(typeof(string)),
+        stringToNull = typeof(string).IsAssignableTo(null),
+        int32ToValueType = typeof(int).IsAssignableTo(typeof(ValueType)),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),

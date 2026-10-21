@@ -68,6 +68,15 @@ public final class ProductTypeIdentityConsumer {
                     != definition.MakeGenericType(new Type[] {string}).GetHashCode()) {
             throw new AssertionError("Selected Type.GetHashCode stability changed");
         }
+        if (!string.IsAssignableTo(Type.GetType("System.Object"))
+                || Type.GetType("System.Object").IsAssignableTo(string)
+                || !string.IsAssignableTo(Type.GetType("System.IComparable"))
+                || Type.GetType("System.IComparable").IsAssignableTo(string)
+                || !string.IsAssignableTo(string)
+                || string.IsAssignableTo(null)
+                || !integer.IsAssignableTo(Type.GetType("System.ValueType"))) {
+            throw new AssertionError("Selected Type.IsAssignableTo direction changed");
+        }
         try {
             Type.GetTypeArray(null);
             throw new AssertionError("Null type-array input accepted");
