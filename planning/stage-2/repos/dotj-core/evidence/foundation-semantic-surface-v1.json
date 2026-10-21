@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "67b8344c5ada09ec3284574f8e0ae35eefd505b677f64ca80890a41b5eb2a844",
+  "oracleEvidenceSha256": "6b33e0f4a07c71df14c1989c350974fcd8fa3855775c24934f3b3f5719b07d36",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "6c76c768263b9e0795255e7b46c121fd60b5c80faa7067f1889f88b3693b27ea",
+  "javaCandidateEvidenceSha256": "c54abe32dbcfdacfa3091aab72070a900638d0f6fff7a71ca314ce578afe7ead",
   "types": [
     {
       "fullName": "System.Type",
@@ -3477,6 +3477,7 @@
         "public System.Type GetNestedType(java.lang.String);",
         "public System.Type GetNestedType(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Type[] GetNestedTypes();",
+        "public System.Type[] GetNestedTypes(System.Reflection.BindingFlags);",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
         "public boolean get_IsSZArray();",
@@ -3592,7 +3593,7 @@
           "GetMember": 2,
           "GetMembers": 2,
           "GetNestedType": 2,
-          "GetNestedTypes": 1,
+          "GetNestedTypes": 2,
           "GetOptionalCustomModifiers": 1,
           "GetRequiredCustomModifiers": 1,
           "GetType": 3,

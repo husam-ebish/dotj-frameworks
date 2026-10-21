@@ -1463,6 +1463,24 @@ public abstract class Type extends MemberInfo {
         return result.toArray(new Type[0]);
     }
 
+    public Type[] GetNestedTypes(BindingFlags flags) {
+        if (flags == null) {
+            throw new NullPointerException("flags");
+        }
+        if (this.get_IsGenericParameter() || this.get_HasElementType()) {
+            return new Type[0];
+        }
+        java.util.ArrayList<Type> result = new java.util.ArrayList<>();
+        for (Class<?> nested : this.definition.getDeclaredClasses()) {
+            boolean isPublic = java.lang.reflect.Modifier.isPublic(nested.getModifiers());
+            if (isPublic && flags.has(BindingFlags.Public)
+                    || !isPublic && flags.has(BindingFlags.NonPublic)) {
+                result.add(fromJavaClass(nested));
+            }
+        }
+        return result.toArray(new Type[0]);
+    }
+
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) {
             throw new ArgumentNullException("fullname");

@@ -90,6 +90,7 @@ def main():
         "System.Type GetNestedType(System.String)",
         "System.Type GetNestedType(System.String, System.Reflection.BindingFlags)",
         "System.Type[] GetNestedTypes()",
+        "System.Type[] GetNestedTypes(System.Reflection.BindingFlags)",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
     assert selected <= signatures
@@ -729,6 +730,11 @@ def main():
         assert nested_type_flags[key] == {"result": None, "exception": None, "paramName": None}
     assert nested_type_flags["nullName"] == {
         "result": None, "exception": "System.ArgumentNullException", "paramName": "fullname",
+    }
+    nested_types_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedTypesFlagsBehavior"]
+    assert nested_types_flags == {
+        "publicTypes": ["PublicChild"], "nonPublicTypes": ["PrivateChild"],
+        "both": ["PrivateChild", "PublicChild"], "none": [],
     }
     assert nested_names == {
         "pointerArray": {"result": "System.String*[]", "exception": None, "paramName": None},
@@ -1610,6 +1616,7 @@ def main():
         "public System.Type GetNestedType(java.lang.String);",
         "public System.Type GetNestedType(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Type[] GetNestedTypes();",
+        "public System.Type[] GetNestedTypes(System.Reflection.BindingFlags);",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
         "public boolean get_IsSZArray();",
