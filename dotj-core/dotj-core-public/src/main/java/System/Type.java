@@ -648,7 +648,8 @@ public abstract class Type extends MemberInfo {
             if (this.definition == java.util.List.class) {
                 return "T";
             }
-            if (this.definition == java.util.Map.class) {
+            if (this.definition == java.util.Map.class
+                    || this.definition == java.util.Map.Entry.class) {
                 return this.parameterIndex == 0 ? "TKey" : "TValue";
             }
             return this.definition.getTypeParameters()[this.parameterIndex].getName();
@@ -1219,8 +1220,9 @@ public abstract class Type extends MemberInfo {
         }
         if (this.get_IsGenericType()) {
             Type[] typeArguments = this.GetGenericArguments();
-            StringBuilder result = new StringBuilder(this.get_Namespace())
-                    .append('.').append(this.get_Name()).append('[');
+            StringBuilder result = new StringBuilder(this.get_DeclaringType() == null
+                    ? this.get_Namespace() + "." + this.get_Name()
+                    : this.get_DeclaringType().get_FullName() + "+" + this.get_Name()).append('[');
             for (int index = 0; index < typeArguments.length; index++) {
                 if (index > 0) {
                     result.append(',');

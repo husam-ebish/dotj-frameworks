@@ -1043,6 +1043,13 @@ var result = new
         fullName = type.FullName,
         @namespace = type.Namespace,
     }).ToArray(),
+    selectedNestedDefinitionStringBehavior = new[]
+    {
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!,
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!.MakeArrayType(),
+    }.Select(type => new { name = type.FullName, text = type.ToString() }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),

@@ -232,6 +232,11 @@ def main():
             ("Enumerator", "System.Collections.Generic.List`1+Enumerator"),
         )
     ]
+    nested_definition_text = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedDefinitionStringBehavior"]
+    assert [row["text"] for row in nested_definition_text] == [
+        "System.Collections.Generic.Dictionary`2+Entry[TKey,TValue]",
+        "System.Collections.Generic.Dictionary`2+Entry[TKey,TValue][]",
+    ]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",

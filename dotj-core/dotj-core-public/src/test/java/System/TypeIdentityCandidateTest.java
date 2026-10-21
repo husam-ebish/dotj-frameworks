@@ -53,6 +53,11 @@ public final class TypeIdentityCandidateTest {
                 || !"System.Collections.Generic.Dictionary`2+Entry".equals(nestedEntry.get_FullName())) {
             throw new AssertionError("Selected nested Type names changed");
         }
+        if (!"System.Collections.Generic.Dictionary`2+Entry[TKey,TValue]".equals(nestedEntry.ToString())
+                || !"System.Collections.Generic.Dictionary`2+Entry[TKey,TValue][]"
+                        .equals(nestedEntry.MakeArrayType().ToString())) {
+            throw new AssertionError("Selected nested Type text changed");
+        }
         if (nestedEntry.get_DeclaringType() != map || nestedEntry.get_ReflectedType() != map
                 || string.get_DeclaringType() != null || string.get_ReflectedType() != null
                 || nestedEntry.MakeArrayType().get_DeclaringType() != null) {
