@@ -1130,6 +1130,23 @@ var result = new
                 inherited = parameter.GetCustomAttributes(true)
                     .Select(value => value.GetType().FullName).ToArray() })
             .ToArray() }).ToArray(),
+    selectedParameterAttributeFilterBehavior = new
+    {
+        returnBase = typeof(IFormattable).GetMethod("ToString")!.ReturnParameter
+            .GetCustomAttributes(typeof(Attribute), false)
+            .Select(value => value.GetType().FullName).ToArray(),
+        returnExact = typeof(IFormattable).GetMethod("ToString")!.ReturnParameter
+            .GetCustomAttributes(typeof(IFormattable).GetMethod("ToString")!.ReturnParameter
+                .GetCustomAttributes(false)[0].GetType(), true)
+            .Select(value => value.GetType().FullName).ToArray(),
+        inputBase = typeof(IFormattable).GetMethod("ToString")!.GetParameters()[0]
+            .GetCustomAttributes(typeof(Attribute), false)
+            .Select(value => value.GetType().FullName).ToArray(),
+        nullError = ObserveMethodError(() => typeof(IFormattable).GetMethod("ToString")!
+            .ReturnParameter.GetCustomAttributes((Type)null!, false)),
+        nullParameter = ObserveMethodArgumentName(() => typeof(IFormattable).GetMethod("ToString")!
+            .ReturnParameter.GetCustomAttributes((Type)null!, false)),
+    },
     selectedParameterTextBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

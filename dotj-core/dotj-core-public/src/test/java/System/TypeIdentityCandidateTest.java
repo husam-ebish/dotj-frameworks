@@ -262,17 +262,37 @@ public final class TypeIdentityCandidateTest {
             ParameterInfo returnParameter = namedMethod.get_ReturnParameter();
             Object[] returnAttributes = returnParameter.GetCustomAttributes(false);
             Object[] inheritedReturnAttributes = returnParameter.GetCustomAttributes(true);
+            Object[] filteredReturnAttributes = returnParameter.GetCustomAttributes(
+                    Type.fromJavaClass(Attribute.class), false);
             if (index == 2) {
                 if (returnAttributes.length != 1
                         || inheritedReturnAttributes.length != 1
+                        || filteredReturnAttributes.length != 1
                         || !(returnAttributes[0] instanceof NullableAttribute annotation)
                         || annotation.NullableFlags.length != 1
                         || annotation.NullableFlags[0] != 1
                         || !(inheritedReturnAttributes[0] instanceof NullableAttribute)) {
                     throw new AssertionError("Selected nullable return attribute changed");
                 }
-            } else if (returnAttributes.length != 0 || inheritedReturnAttributes.length != 0) {
+            } else if (returnAttributes.length != 0 || inheritedReturnAttributes.length != 0
+                    || filteredReturnAttributes.length != 0) {
                 throw new AssertionError("Unexpected selected return attribute");
+            }
+            if (index == 2) {
+                if (returnParameter.GetCustomAttributes(
+                        Type.fromJavaClass(NullableAttribute.class), true).length != 1
+                        || namedMethod.GetParameters()[0].GetCustomAttributes(
+                            Type.fromJavaClass(Attribute.class), false).length != 0) {
+                    throw new AssertionError("Selected attribute type filtering changed");
+                }
+                try {
+                    returnParameter.GetCustomAttributes(null, false);
+                    throw new AssertionError("Null attribute type was accepted");
+                } catch (ArgumentNullException expected) {
+                    if (!"attributeType".equals(expected.get_ParamName())) {
+                        throw new AssertionError("Null attribute type parameter changed");
+                    }
+                }
             }
             if (namedMethod.GetMethodBody() != null) {
                 throw new AssertionError("Abstract interface method supplied a body");
