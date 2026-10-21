@@ -246,6 +246,15 @@ def main():
         "parameter": "System.InvalidOperationException",
         "array": "System.InvalidOperationException",
     }
+    argument_copies = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericArgumentCopyBehavior"]
+    assert argument_copies == {
+        "openNames": ["TKey", "TValue"], "positions": [0, 1],
+        "distinctArrays": True, "stableElements": True, "mutationIsolated": True,
+        "closedNames": ["System.String", "System.Int32"],
+        "openTypeArgumentsLength": 0,
+        "closedTypeArguments": ["System.String", "System.Int32"],
+        "arrayArgumentsLength": 0,
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

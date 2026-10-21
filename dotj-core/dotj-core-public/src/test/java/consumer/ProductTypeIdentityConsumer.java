@@ -213,6 +213,27 @@ public final class ProductTypeIdentityConsumer {
         }
         Type dictionaryDefinition = Type.GetType("System.Collections.Generic.Dictionary`2");
         Type dictionaryConstructed = dictionaryDefinition.MakeGenericType(new Type[] {string, integer});
+        Type[] dictionaryArguments = dictionaryDefinition.GetGenericArguments();
+        Type[] copiedArguments = dictionaryDefinition.GetGenericArguments();
+        if (dictionaryArguments == copiedArguments || dictionaryArguments.length != 2
+                || !"TKey".equals(dictionaryArguments[0].get_Name())
+                || !"TValue".equals(dictionaryArguments[1].get_Name())
+                || dictionaryArguments[0].get_GenericParameterPosition() != 0
+                || dictionaryArguments[1].get_GenericParameterPosition() != 1
+                || dictionaryArguments[0] != copiedArguments[0]
+                || dictionaryArguments[1] != copiedArguments[1]) {
+            throw new AssertionError("Selected open generic argument ordering changed");
+        }
+        dictionaryArguments[0] = Type.GetType("System.Object");
+        if (copiedArguments[0] != dictionaryDefinition.GetGenericArguments()[0]
+                || dictionaryConstructed.GetGenericArguments()[0] != string
+                || dictionaryConstructed.GetGenericArguments()[1] != integer
+                || dictionaryDefinition.get_GenericTypeArguments().length != 0
+                || dictionaryConstructed.get_GenericTypeArguments()[0] != string
+                || dictionaryConstructed.get_GenericTypeArguments()[1] != integer
+                || Type.GetType("System.String[]").GetGenericArguments().length != 0) {
+            throw new AssertionError("Selected generic argument copies changed");
+        }
         if (Type.GetType("System.Object").get_IsGenericTypeDefinition()
                 || integer.get_IsGenericTypeDefinition()
                 || !definition.get_IsGenericTypeDefinition()
