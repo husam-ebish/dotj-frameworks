@@ -945,6 +945,26 @@ static object ObserveSerializationInfoEnumeratorMutation()
     }
     return new { memberCount = info.MemberCount, observed, afterReset, freshNames };
 }
+static object ObserveEmptySerializationInfoEnumeration()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    var empty = info.GetEnumerator();
+    var firstMove = empty.MoveNext();
+    empty.Reset();
+    var afterReset = empty.MoveNext();
+    info.AddValue("added", 1);
+    var afterAdd = empty.MoveNext();
+    var fresh = info.GetEnumerator();
+    return new
+    {
+        firstMove, afterReset, afterAdd,
+        emptyCurrentError = ObserveMethodError(() => { _ = empty.Current; }),
+        memberCount = info.MemberCount,
+        freshMove = fresh.MoveNext(),
+        freshName = fresh.Name,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1085,6 +1105,7 @@ var result = new
     selectedSerializationInfoSetTypeResetBehavior = ObserveSerializationInfoSetTypeReset(),
     selectedSerializationInfoEnumeratorBoundariesBehavior = ObserveSerializationInfoEnumeratorBoundaries(),
     selectedSerializationInfoEnumeratorMutationBehavior = ObserveSerializationInfoEnumeratorMutation(),
+    selectedEmptySerializationInfoEnumerationBehavior = ObserveEmptySerializationInfoEnumeration(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

@@ -226,6 +226,12 @@ def main():
     mutation = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoEnumeratorMutationBehavior"]
     assert mutation == {"memberCount": 2, "observed": ["first"],
                         "afterReset": ["first"], "freshNames": ["first", "second"]}
+    empty_enumeration = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEmptySerializationInfoEnumerationBehavior"]
+    assert empty_enumeration == {
+        "firstMove": False, "afterReset": False, "afterAdd": False,
+        "emptyCurrentError": "System.InvalidOperationException",
+        "memberCount": 1, "freshMove": True, "freshName": "added",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
