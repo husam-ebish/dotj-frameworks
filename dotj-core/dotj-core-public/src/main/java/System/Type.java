@@ -1114,6 +1114,16 @@ public abstract class Type extends MemberInfo {
         return false;
     }
 
+    public boolean get_IsNested() {
+        return this.parameterIndex >= 0 || (!this.get_HasElementType()
+                && this.definition.getEnclosingClass() != null);
+    }
+
+    public boolean get_IsNestedPublic() {
+        return this.parameterIndex < 0 && this.get_IsNested()
+                && java.lang.reflect.Modifier.isPublic(this.definition.getModifiers());
+    }
+
     public boolean get_ContainsGenericParameters() {
         if (this.get_IsGenericParameter() || this.get_IsGenericTypeDefinition()) {
             return true;

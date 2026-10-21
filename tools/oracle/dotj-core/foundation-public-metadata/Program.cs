@@ -664,6 +664,18 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedNestedTypeFlagBehavior = new[]
+    {
+        typeof(string), typeof(System.Collections.Generic.List<>),
+        typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
+        typeof(System.Collections.Generic.Dictionary<string, int>.KeyCollection),
+        typeof(System.Collections.Generic.List<int>.Enumerator),
+    }.Select(type => new
+    {
+        name = type.FullName ?? type.Name,
+        isNested = type.IsNested,
+        isNestedPublic = type.IsNestedPublic,
+    }).ToArray(),
     selectedNestedTypeToStringBehavior = new[]
     {
         typeof(System.Collections.Generic.List<string>[]),
