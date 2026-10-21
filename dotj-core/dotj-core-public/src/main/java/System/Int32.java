@@ -118,6 +118,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if ((style.get_Value() & 256) != 0 && (style.get_Value() & ~511) == 0) {
             return selectedParseCurrencyFlags(text, provider, style);
         }
+        if ((style.get_Value() & ~511) == 0) {
+            return selectedParseExtended(text, provider, style);
+        }
         throw new UnsupportedOperationException("NumberStyles value is not mapped");
     }
 

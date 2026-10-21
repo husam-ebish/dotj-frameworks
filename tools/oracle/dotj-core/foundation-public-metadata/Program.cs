@@ -1050,6 +1050,49 @@ static object ObserveInt32RadixFlagStyles()
         }).ToArray(),
     };
 }
+static object ObserveInt32GeneralFlagStyles()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = ":",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    var signDecimal = System.Globalization.NumberStyles.AllowLeadingSign
+        | System.Globalization.NumberStyles.AllowTrailingSign
+        | System.Globalization.NumberStyles.AllowDecimalPoint;
+    var groupedExponent = System.Globalization.NumberStyles.AllowThousands
+        | System.Globalization.NumberStyles.AllowExponent;
+    var parenthesizedExponent = System.Globalization.NumberStyles.AllowParentheses
+        | System.Globalization.NumberStyles.AllowExponent;
+    var paddedGroupedExponent = System.Globalization.NumberStyles.AllowLeadingWhite
+        | System.Globalization.NumberStyles.AllowTrailingWhite
+        | System.Globalization.NumberStyles.AllowThousands
+        | System.Globalization.NumberStyles.AllowDecimalPoint
+        | System.Globalization.NumberStyles.AllowExponent;
+    var signedParentheses = System.Globalization.NumberStyles.AllowLeadingSign
+        | System.Globalization.NumberStyles.AllowParentheses
+        | System.Globalization.NumberStyles.AllowExponent;
+    return new
+    {
+        signDecimalValue = (int)signDecimal,
+        signDecimal = ObserveInt32SingleStyle(signDecimal,
+            ["~42:00", "42:00~", "~42:00~", "42:5", "42"], provider),
+        groupedExponentValue = (int)groupedExponent,
+        groupedExponent = ObserveInt32SingleStyle(groupedExponent,
+            ["12_345e1", "12_345e~1", "~12_345e1", "12_345:00e1", "12_345"], provider),
+        parenthesizedExponentValue = (int)parenthesizedExponent,
+        parenthesizedExponent = ObserveInt32SingleStyle(parenthesizedExponent,
+            ["(42e1)", "42e1", "~42e1", "(42e~1)", "(42)"], provider),
+        paddedGroupedExponentValue = (int)paddedGroupedExponent,
+        paddedGroupedExponent = ObserveInt32SingleStyle(paddedGroupedExponent,
+            [" 12_345:00e1 ", "~12_345:00e1", "12_345:5e0", " 42 "], provider),
+        signedParenthesesValue = (int)signedParentheses,
+        signedParentheses = ObserveInt32SingleStyle(signedParentheses,
+            ["(~42e1)", "(42e1)", "~42e1", "plus42e1", "(42e~1)"], provider),
+    };
+}
 static object ObserveInt32SingleStyle(System.Globalization.NumberStyles style,
     string[] texts, System.Globalization.NumberFormatInfo provider)
 {
@@ -5458,6 +5501,7 @@ var result = new
     selectedInt32GroupedDecimalStyles = ObserveInt32GroupedDecimalStyles(),
     selectedInt32CurrencyFlagStyles = ObserveInt32CurrencyFlagStyles(),
     selectedInt32RadixFlagStyles = ObserveInt32RadixFlagStyles(),
+    selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",
