@@ -63,6 +63,25 @@ catch (Exception caught)
 {
     stackAfterThrow = caught;
 }
+Exception rethrowOriginal = new("rethrow");
+Exception rethrowCaught = null!;
+string? stackBeforeRethrow = null;
+try
+{
+    try
+    {
+        throw rethrowOriginal;
+    }
+    catch (Exception caught)
+    {
+        stackBeforeRethrow = caught.StackTrace;
+        throw;
+    }
+}
+catch (Exception caught)
+{
+    rethrowCaught = caught;
+}
 Exception dataException = new("data");
 System.Collections.IDictionary data = dataException.Data;
 bool dataStartsEmpty = data.Count == 0;
@@ -400,6 +419,14 @@ var result = new
         prethrowTargetSiteIsNull = stackBeforeThrow.TargetSite is null,
         thrownStackNonEmpty = !string.IsNullOrEmpty(stackAfterThrow.StackTrace),
         thrownTargetSitePresent = stackAfterThrow.TargetSite is not null,
+    },
+    selectedExceptionRethrowBoundary = new
+    {
+        sameReference = ReferenceEquals(rethrowOriginal, rethrowCaught),
+        stackBeforeNonEmpty = !string.IsNullOrEmpty(stackBeforeRethrow),
+        stackAfterNonEmpty = !string.IsNullOrEmpty(rethrowCaught.StackTrace),
+        stackTextUnchanged = string.Equals(stackBeforeRethrow, rethrowCaught.StackTrace,
+            StringComparison.Ordinal),
     },
     selectedGetTypeBehavior = new
     {

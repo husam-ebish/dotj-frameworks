@@ -143,6 +143,12 @@ def main():
         "thrownStackNonEmpty": True,
         "thrownTargetSitePresent": True,
     }
+    assert metadata["selectedExceptionRethrowBoundary"] == {
+        "sameReference": True,
+        "stackBeforeNonEmpty": True,
+        "stackAfterNonEmpty": True,
+        "stackTextUnchanged": True,
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 

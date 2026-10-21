@@ -3,16 +3,23 @@
   "sourceCalls": [
     {
       "source": "throw reused;",
-      "lowered": "throw ThrowSite.capture(reused);"
+      "lowered": "throw ThrowSite.capture(reused);",
+      "catchVariable": null
     },
     {
       "source": "throw new System.Exception(\"fresh\");",
-      "lowered": "throw ThrowSite.capture(new Exception(\"fresh\"));"
+      "lowered": "throw ThrowSite.capture(new Exception(\"fresh\"));",
+      "catchVariable": null
+    },
+    {
+      "source": "throw;",
+      "lowered": "throw caught;",
+      "catchVariable": "caught"
     }
   ],
   "unsupportedFormsRejected": 6,
   "jarSha256": "76b54ced90e3144468a88a421937645f19b401397ec52d909aa52cbb7104c9df",
-  "generatedConsumerSha256": "c069a0e55a7feaa924446a700d0667c4eb19a49467786ae7670d0304705aab7a",
+  "generatedConsumerSha256": "f1fe5fb6c583736a2169b03908816c613b1753dfe3dfca26fb0a0adb8852003e",
   "result": "PASS selected .j throw lowering consumer",
-  "qualification": "BOUNDED_LOWERING_PROTOTYPE; general .j parser, rethrow and CLR frame mapping OPEN"
+  "qualification": "BOUNDED_LOWERING_PROTOTYPE; general .j parser, nested catch binding and CLR frame mapping OPEN"
 }
