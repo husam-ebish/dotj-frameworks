@@ -377,6 +377,13 @@ var result = new
         threeLevel = new ArgumentException("outer", "value",
             new Exception("middle", new InvalidOperationException("root"))).ToString(),
     },
+    selectedExceptionRuntimeTypeBehavior = new
+    {
+        baseType = new Exception("base").GetType().FullName,
+        argumentType = new ArgumentException("argument").GetType().FullName,
+        invalidOperationType = new InvalidOperationException("invalid").GetType().FullName,
+        repeatedReference = ReferenceEquals(new Exception().GetType(), new Exception().GetType()),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),

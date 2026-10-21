@@ -5,6 +5,7 @@ import System.ArgumentNullException;
 import System.Exception;
 import System.SystemException;
 import System.InvalidOperationException;
+import System.Type;
 import System.IO.FileLoadException;
 import System.Globalization.CultureNotFoundException;
 
@@ -100,6 +101,13 @@ public final class ProductExceptionContractConsumer {
                 || !threeLevel.equals(new ArgumentException("outer", "value",
                         new Exception("middle", new InvalidOperationException("root"))).ToString())) {
             throw new AssertionError("Selected inner exception ToString output changed");
+        }
+        if (new Exception("base").GetType() != Type.GetType("System.Exception")
+                || new ArgumentException("argument").GetType() != Type.GetType("System.ArgumentException")
+                || new InvalidOperationException("invalid").GetType()
+                        != Type.GetType("System.InvalidOperationException")
+                || new Exception().GetType() != new Exception().GetType()) {
+            throw new AssertionError("Selected exception runtime Type identity changed");
         }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3

@@ -81,4 +81,8 @@ public class Exception extends RuntimeException {
         }
         return result;
     }
+
+    public Type GetType() {
+        return Type.fromJavaClass(this.getClass());
+    }
 }
