@@ -29,26 +29,26 @@
 
 | Path | Purpose |
 |---|---|
-| `dotj-core/dotj-core-public/src/main/java/System/Reflection/ParameterInfo.java` | Capture CLR selected attribute existence queries and null boundary |
-| `dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/WP01-T1-CONTRACT-v1.md` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-e01-review-packet-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-notice-review-queue-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-product-candidate-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-gate-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-ledger-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-rights-inputs-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-selected-metadata-v10.0.12.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-semantic-surface-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-source-provenance-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-upstream-text-comparison-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/system-type-identity-candidate-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/throw-selected-lowering-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/repos/dotj-core/evidence/throw-site-upstream-adjacency-v1.json` | Capture CLR selected attribute existence queries and null boundary |
-| `tools/oracle/dotj-core/build-system-type-candidate.py` | Capture CLR selected attribute existence queries and null boundary |
-| `tools/oracle/dotj-core/foundation-public-metadata/Program.cs` | Capture CLR selected attribute existence queries and null boundary |
-| `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Continuity and counts. |
-| `planning/stage-2/implementation/batches/Batch-1516.md` | This report. |
+| `dotj-core/dotj-core-public/src/main/java/System/Reflection/ParameterInfo.java` | Implements selected parameter attribute type filter. |
+| `dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java` | Tests selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/WP01-T1-CONTRACT-v1.md` | Documents the selected parameter attribute type filter boundary. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-e01-review-packet-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-notice-review-queue-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-product-candidate-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-gate-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-ledger-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-rights-inputs-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-selected-metadata-v10.0.12.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-semantic-surface-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-source-provenance-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-upstream-text-comparison-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/system-type-identity-candidate-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/throw-selected-lowering-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `planning/stage-2/repos/dotj-core/evidence/throw-site-upstream-adjacency-v1.json` | Records evidence for selected parameter attribute type filter. |
+| `tools/oracle/dotj-core/build-system-type-candidate.py` | Validates selected parameter attribute type filter. |
+| `tools/oracle/dotj-core/foundation-public-metadata/Program.cs` | Captures CLR behavior for selected parameter attribute type filter. |
+| `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Updates the implementation ledger. |
+| `planning/stage-2/implementation/batches/Batch-1516.md` | Records this batch report. |
 
 **This batch is complete. The current request authorizes the next batch.**

@@ -1857,6 +1857,21 @@ var result = new
         disposableMethod = typeof(IDisposable).GetMethod("Dispose")!.IsCollectible,
         stringCharsProperty = typeof(string).GetProperty("Chars")!.IsCollectible,
     },
+    selectedMemberMetadataDefinitionBehavior = new
+    {
+        sameMethod = typeof(IDisposable).GetMethod("Dispose")!
+            .HasSameMetadataDefinitionAs(typeof(IDisposable).GetMethod("Dispose")!),
+        differentMethod = typeof(IDisposable).GetMethod("Dispose")!
+            .HasSameMetadataDefinitionAs(typeof(IComparable).GetMethod("CompareTo")!),
+        methodVsType = typeof(IDisposable).GetMethod("Dispose")!
+            .HasSameMetadataDefinitionAs(typeof(IDisposable)),
+        sameProperty = typeof(string).GetProperty("Chars")!
+            .HasSameMetadataDefinitionAs(typeof(string).GetProperty("Chars")!),
+        nullError = ObserveMethodError(() => typeof(IDisposable).GetMethod("Dispose")!
+            .HasSameMetadataDefinitionAs(null!)),
+        nullParameter = ObserveMethodArgumentName(() => typeof(IDisposable).GetMethod("Dispose")!
+            .HasSameMetadataDefinitionAs(null!)),
+    },
     selectedNestedOwnerBehavior = new[]
     {
         typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],

@@ -29,26 +29,26 @@
 
 | Path | Purpose |
 |---|---|
-| `dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodInfo.java` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/WP01-T1-CONTRACT-v1.md` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-e01-review-packet-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-notice-review-queue-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-product-candidate-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-gate-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-ledger-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-rights-inputs-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-selected-metadata-v10.0.12.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-semantic-surface-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-source-provenance-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-upstream-text-comparison-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/system-type-identity-candidate-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/throw-selected-lowering-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/repos/dotj-core/evidence/throw-site-upstream-adjacency-v1.json` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `tools/oracle/dotj-core/build-system-type-candidate.py` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `tools/oracle/dotj-core/foundation-public-metadata/Program.cs` | Capture CLR typed attribute filter and null boundary on selected methods |
-| `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Continuity and counts. |
-| `planning/stage-2/implementation/batches/Batch-1518.md` | This report. |
+| `dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodInfo.java` | Implements selected method custom attributes. |
+| `dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java` | Tests selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/WP01-T1-CONTRACT-v1.md` | Documents the selected method custom attributes boundary. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-e01-review-packet-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-notice-review-queue-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-product-candidate-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-gate-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-ledger-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-rights-inputs-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-selected-metadata-v10.0.12.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-semantic-surface-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-source-provenance-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-upstream-text-comparison-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/system-type-identity-candidate-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/throw-selected-lowering-v1.json` | Records evidence for selected method custom attributes. |
+| `planning/stage-2/repos/dotj-core/evidence/throw-site-upstream-adjacency-v1.json` | Records evidence for selected method custom attributes. |
+| `tools/oracle/dotj-core/build-system-type-candidate.py` | Validates selected method custom attributes. |
+| `tools/oracle/dotj-core/foundation-public-metadata/Program.cs` | Captures CLR behavior for selected method custom attributes. |
+| `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Updates the implementation ledger. |
+| `planning/stage-2/implementation/batches/Batch-1518.md` | Records this batch report. |
 
 **This batch is complete. The current request authorizes the next batch.**
