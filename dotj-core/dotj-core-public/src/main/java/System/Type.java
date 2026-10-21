@@ -105,6 +105,13 @@ public abstract class Type extends MemberInfo {
                 return null;
             }
             String assemblyName = assembly.split(",", 2)[0].trim();
+            if (assemblyName.length() >= 2 && assemblyName.startsWith("\"")
+                    && assemblyName.endsWith("\"")) {
+                assemblyName = assemblyName.substring(1, assemblyName.length() - 1);
+            }
+            if (assemblyName.toLowerCase(Locale.ROOT).endsWith(".dll")) {
+                assemblyName = assemblyName.substring(0, assemblyName.length() - 4);
+            }
             if (assemblyName.equalsIgnoreCase("System.Private.CoreLib")
                     || assemblyName.equalsIgnoreCase("mscorlib")) {
                 String[] attributes = assembly.split(",", -1);

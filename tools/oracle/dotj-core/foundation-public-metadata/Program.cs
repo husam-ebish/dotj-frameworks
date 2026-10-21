@@ -660,6 +660,16 @@ var result = new
         duplicateUnknown = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo, UnknownAttr=bar", false, false),
         duplicateVersionMixedCase = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, version=11.0.0.0", false, false),
     },
+    selectedAssemblySimpleNameBoundaryBehavior = new
+    {
+        extraOuterSpace = ObserveGetType("System.String,  System.Private.CoreLib  ", false, false),
+        quotedName = ObserveGetType("System.String, \"System.Private.CoreLib\"", false, false),
+        fileExtension = ObserveGetType("System.String, System.Private.CoreLib.dll", false, false),
+        embeddedSpace = ObserveGetType("System.String, System. Private.CoreLib", false, false),
+        leadingDot = ObserveGetType("System.String, .System.Private.CoreLib", false, false),
+        emptyBeforeAttribute = ObserveGetType("System.String, , Version=10.0.0.0", false, false),
+        legacyOuterSpace = ObserveGetType("System.String,  mscorlib  ", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

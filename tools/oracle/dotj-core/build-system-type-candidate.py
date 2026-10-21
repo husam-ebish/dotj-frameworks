@@ -385,6 +385,13 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("duplicateToken", "duplicateVersionMixedCase")},
     }
+    simple_name_bounds = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblySimpleNameBoundaryBehavior"]
+    assert simple_name_bounds == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("extraOuterSpace", "quotedName", "fileExtension", "legacyOuterSpace")},
+        **{key: {"result": None, "exception": None, "paramName": None}
+           for key in ("embeddedSpace", "leadingDot", "emptyBeforeAttribute")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

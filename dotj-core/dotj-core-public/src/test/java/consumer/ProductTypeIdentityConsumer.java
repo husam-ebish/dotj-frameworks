@@ -78,6 +78,15 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, UnknownAssembly") != null) {
             throw new AssertionError("Selected assembly-name casing changed");
         }
+        if (Type.GetType("System.String,  System.Private.CoreLib  ") != string
+                || Type.GetType("System.String, \"System.Private.CoreLib\"") != string
+                || Type.GetType("System.String, System.Private.CoreLib.dll") != string
+                || Type.GetType("System.String,  mscorlib  ") != string
+                || Type.GetType("System.String, System. Private.CoreLib") != null
+                || Type.GetType("System.String, .System.Private.CoreLib") != null
+                || Type.GetType("System.String, , Version=10.0.0.0") != null) {
+            throw new AssertionError("Selected assembly simple-name boundary changed");
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
