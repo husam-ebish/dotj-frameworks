@@ -224,6 +224,9 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type MakeArrayType() {
+        if (this.get_IsByRef()) {
+            throw new TypeLoadException("Cannot make an array of a by-reference type");
+        }
         if (this == fromJavaClass(String.class)) {
             return fromJavaClass(String[].class);
         }
@@ -237,6 +240,9 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type MakeArrayType(int rank) {
+        if (this.get_IsByRef()) {
+            throw new TypeLoadException("Cannot make an array of a by-reference type");
+        }
         if (rank < 1) {
             throw new IndexOutOfRangeException("Array rank is out of range");
         }

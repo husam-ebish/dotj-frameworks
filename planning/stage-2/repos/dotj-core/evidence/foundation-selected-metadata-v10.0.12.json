@@ -962,6 +962,32 @@
       "elementType": "System.String"
     }
   ],
+  "selectedTypeConstructionBoundaryBehavior": {
+    "byRefVector": {
+      "result": null,
+      "exception": "System.TypeLoadException"
+    },
+    "byRefRankTwo": {
+      "result": null,
+      "exception": "System.TypeLoadException"
+    },
+    "pointerVector": {
+      "result": "System.String*[]",
+      "exception": null
+    },
+    "pointerByRef": {
+      "result": "System.String*&",
+      "exception": null
+    },
+    "arrayByRef": {
+      "result": "System.String[]&",
+      "exception": null
+    },
+    "byRefPointer": {
+      "result": null,
+      "exception": "System.TypeLoadException"
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -4217,6 +4243,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "a92fe248aa180ec0b24ce28cf72f8950b6d0b61977796c79623c0d8e3402d6a7",
+  "oracleProgramSha256": "ab3744f8dc085762820907c99a4716d814f02f614e95c94e3aecdf3ce16b6137",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
