@@ -1038,6 +1038,15 @@ var result = new
                 required = parameter.GetRequiredCustomModifiers()
                     .Select(type => type.FullName).ToArray() })
             .ToArray() }).ToArray(),
+    selectedParameterTextBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        parameters = item.Item1.GetMethod(item.Item2)!.GetParameters()
+            .Append(item.Item1.GetMethod(item.Item2)!.ReturnParameter)
+            .Select(parameter => new { position = parameter.Position,
+                text = parameter.ToString() }).ToArray() }).ToArray(),
     selectedMethodFlagBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

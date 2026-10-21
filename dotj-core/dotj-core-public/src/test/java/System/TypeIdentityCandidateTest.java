@@ -140,6 +140,11 @@ public final class TypeIdentityCandidateTest {
         String[][] interfaceParameterNames = {
             {}, {"obj"}, {"format", "formatProvider"}, {"formatType"}
         };
+        String[][] interfaceParameterTexts = {
+            {"Void"}, {"System.Object obj", "Int32"},
+            {"System.String format", "System.IFormatProvider formatProvider", "System.String "},
+            {"System.Type formatType", "System.Object"}
+        };
         for (int index = 0; index < interfaceOwners.length; index++) {
             Type owner = interfaceOwners[index];
             MemberInfo[] members = owner.GetMembers();
@@ -222,6 +227,8 @@ public final class TypeIdentityCandidateTest {
                     || returnParameter.GetRequiredCustomModifiers().length != 0
                     || !java.util.Objects.equals(returnParameter.get_Name(),
                         index == 2 ? "" : null)
+                    || !interfaceParameterTexts[index][interfaceParameterTexts[index].length - 1]
+                        .equals(returnParameter.ToString())
                     || returnParameter == namedMethod.get_ReturnParameter()) {
                 throw new AssertionError("Selected return parameter metadata changed");
             }
@@ -237,6 +244,10 @@ public final class TypeIdentityCandidateTest {
                             != interfaceMethodParameters[index][parameterIndex]
                         || parameters[parameterIndex].get_Position() != parameterIndex) {
                     throw new AssertionError("Selected method parameter metadata changed");
+                }
+                if (!interfaceParameterTexts[index][parameterIndex]
+                        .equals(parameters[parameterIndex].ToString())) {
+                    throw new AssertionError("Selected parameter signature text changed");
                 }
                 if (parameters[parameterIndex].get_IsOptional()
                         || parameters[parameterIndex].get_HasDefaultValue()
