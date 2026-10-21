@@ -3,6 +3,7 @@ package System;
 import java.util.List;
 import java.util.Map;
 import System.Reflection.MemberTypes;
+import System.Reflection.MemberInfo;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 
@@ -26,6 +27,25 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        if (Type.fromJavaClass(Object.class).GetDefaultMembers().length != 0
+                || Type.fromJavaClass(IDisposable.class).GetDefaultMembers().length != 0
+                || Type.fromJavaClass(TypeCode.class).GetDefaultMembers().length != 0) {
+            throw new AssertionError("Selected empty default-member queries changed");
+        }
+        Type closedList = Type.fromJavaClass(List.class)
+                .MakeGenericType(new Type[] {string});
+        for (Type defaultOwner : new Type[] {string, Type.fromJavaClass(List.class),
+                closedList}) {
+            MemberInfo[] defaults = defaultOwner.GetDefaultMembers();
+            String expectedName = defaultOwner == string ? "Chars" : "Item";
+            if (defaults.length != 1 || !expectedName.equals(defaults[0].get_Name())
+                    || defaults[0].get_MemberType() != MemberTypes.Property
+                    || defaults[0].get_DeclaringType() != defaultOwner
+                    || defaults[0].get_ReflectedType() != defaultOwner
+                    || defaults == defaultOwner.GetDefaultMembers()) {
+                throw new AssertionError("Selected default property member changed");
+            }
+        }
         for (Type modifierType : new Type[] {string, integer,
                 Type.fromJavaClass(List.class),
                 Type.fromJavaClass(List.class).GetGenericArguments()[0],

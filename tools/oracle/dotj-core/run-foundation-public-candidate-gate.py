@@ -58,7 +58,7 @@ def main():
     assert jar_hash == packet["candidateJarSha256"]
     assert sha256(ROOT / artifact["jarPath"]) == jar_hash
     assert len(artifact["productSources"]) == queue["sourceCount"] == 31
-    assert len(artifact["jarEntries"]) == 40
+    assert len(artifact["jarEntries"]) == 41
     assert packet["productLicense"]["identifier"] == "MIT"
     assert packet["qualification"] == "E01_OPEN; NOT_RELEASE_QUALIFIED"
     assert len(packet["openDecisions"]) == 3
@@ -78,7 +78,7 @@ def main():
         "checks": list(CHECKS),
         "candidateJarSha256": jar_hash,
         "productSourceCount": 31,
-        "jarEntryCount": 40,
+        "jarEntryCount": 41,
         "evidenceSha256": {
             name: sha256(EVIDENCE / name) for name in evidence_files
         },

@@ -774,6 +774,17 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedDefaultMemberBehavior = new[]
+    {
+        typeof(object), typeof(IDisposable), typeof(TypeCode),
+        typeof(string), typeof(List<>), typeof(List<string>),
+    }.Select(type => new { name = type.FullName,
+        members = type.GetDefaultMembers().Select(member => new
+        {
+            name = member.Name, kind = member.MemberType.ToString(),
+            declaring = member.DeclaringType?.FullName,
+            reflected = member.ReflectedType?.FullName,
+        }).ToArray() }).ToArray(),
     selectedCustomModifierBehavior = new[]
     {
         typeof(string), typeof(int), typeof(List<>),
