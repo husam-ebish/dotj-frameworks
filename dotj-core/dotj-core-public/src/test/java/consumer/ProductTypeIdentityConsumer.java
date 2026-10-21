@@ -608,6 +608,18 @@ public final class ProductTypeIdentityConsumer {
         } catch (FileLoadException expected) {
             // Selected pinned malformed attribute error.
         }
+        for (String escapedName : new String[] {
+                "\"System.Private.CoreLib\\,Extra\"",
+                "'System.Private.CoreLib\\,Extra'",
+                "System.Private.CoreLib\\,Extra"}) {
+            if (Type.GetType("System.String, " + escapedName) != string) {
+                throw new AssertionError("Selected escaped comma name rejected: " + escapedName);
+            }
+        }
+        if (Type.GetType("System.String, \"System.Private.CoreLib\\=Extra\"") != null
+                || Type.GetType("System.String, \"System.Private.CoreLib\\\\Extra\"") != null) {
+            throw new AssertionError("Selected escaped punctuation name resolved");
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

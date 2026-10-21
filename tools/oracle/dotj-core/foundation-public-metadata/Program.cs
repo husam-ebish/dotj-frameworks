@@ -963,6 +963,14 @@ var result = new
         singleQuotedEquals = ObserveGetType("System.String, 'System.Private.CoreLib=Extra'", false, false),
         quotedCommaToken = ObserveGetType("System.String, \"System.Private.CoreLib,Extra\", PublicKeyToken=null", false, false),
     },
+    selectedEscapedAssemblyNameSeparatorBehavior = new
+    {
+        quotedEscapedComma = ObserveGetType("System.String, \"System.Private.CoreLib\\,Extra\"", false, false),
+        singleEscapedComma = ObserveGetType("System.String, 'System.Private.CoreLib\\,Extra'", false, false),
+        unquotedEscapedComma = ObserveGetType("System.String, System.Private.CoreLib\\,Extra", false, false),
+        quotedEscapedEquals = ObserveGetType("System.String, \"System.Private.CoreLib\\=Extra\"", false, false),
+        quotedBackslash = ObserveGetType("System.String, \"System.Private.CoreLib\\\\Extra\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
