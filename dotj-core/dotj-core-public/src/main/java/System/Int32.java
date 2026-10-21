@@ -750,9 +750,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return Integer.toString(this.value) + fraction;
         }
         if (format.matches("[pP][0-9]*")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             int precision;
             try {
-                precision = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+                precision = format.length() == 1
+                        ? (numberFormat == null ? 2 : numberFormat.get_PercentDecimalDigits())
+                        : Integer.parseInt(format.substring(1));
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
@@ -764,13 +767,22 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             StringBuilder grouped = new StringBuilder();
             for (int index = 0; index < digits.length(); index++) {
                 if (index > 0 && (digits.length() - index) % 3 == 0) {
-                    grouped.append(',');
+                    grouped.append(numberFormat == null ? ","
+                            : numberFormat.get_PercentGroupSeparator());
                 }
                 grouped.append(digits.charAt(index));
             }
-            String sign = this.value < 0 ? "-" : "";
-            String fraction = precision == 0 ? "" : "." + "0".repeat(precision);
-            return sign + grouped + fraction + " %";
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String fraction = precision == 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_PercentDecimalSeparator()) + "0".repeat(precision);
+            String symbol = numberFormat == null ? "%" : numberFormat.get_PercentSymbol();
+            int pattern = numberFormat == null ? 0 : this.value < 0
+                    ? numberFormat.get_PercentNegativePattern()
+                    : numberFormat.get_PercentPositivePattern();
+            if (pattern == 0) return sign + grouped + fraction + " " + symbol;
+            if (pattern == 1) return sign + grouped + fraction + symbol;
+            throw new UnsupportedOperationException("Percent pattern is not mapped");
         }
         if (format.matches("[eE][0-9]*")) {
             int precision;

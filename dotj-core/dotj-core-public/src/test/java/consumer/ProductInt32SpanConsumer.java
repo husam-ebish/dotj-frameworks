@@ -146,6 +146,18 @@ public final class ProductInt32SpanConsumer {
         checkProviderVector(new Int32(12345), "C", "USD12_345:000", currency);
         checkProviderVector(new Int32(12345), "C0", "USD12_345", currency);
         checkProviderVector(new Int32(-12345), "C2", "(USD12_345:00)", currency);
+        NumberFormatInfo percent = new NumberFormatInfo();
+        percent.set_PercentSymbol("pct");
+        percent.set_PercentGroupSeparator("_");
+        percent.set_PercentDecimalSeparator(":");
+        percent.set_PercentDecimalDigits(3);
+        percent.set_NegativeSign("~");
+        checkProviderVector(new Int32(42), "P", "4_200:000 pct", percent);
+        checkProviderVector(new Int32(-42), "P2", "~4_200:00 pct", percent);
+        percent.set_PercentPositivePattern(1);
+        percent.set_PercentNegativePattern(1);
+        checkProviderVector(new Int32(42), "P2", "4_200:00pct", percent);
+        checkProviderVector(new Int32(-42), "P2", "~4_200:00pct", percent);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,
