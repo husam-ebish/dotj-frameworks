@@ -17,7 +17,12 @@ VARIABLE = re.compile(r"\s*throw\s+([A-Za-z][A-Za-z0-9]*)\s*;\s*")
 CONSTRUCTOR = re.compile(r'\s*throw\s+new\s+System\.Exception\("([^"\\]*)"\)\s*;\s*')
 
 
-def lower(source):
+def lower(source, catch_variable=None):
+    if source.strip() == "throw;":
+        if (catch_variable is None or catch_variable in {"null", "new", "true", "false"}
+                or VARIABLE.fullmatch("throw " + catch_variable + ";") is None):
+            raise ValueError("Bare rethrow requires a bound catch variable")
+        return f"throw {catch_variable};"
     variable = VARIABLE.fullmatch(source)
     if variable is not None:
         if variable.group(1) in {"null", "new", "true", "false"}:
@@ -35,8 +40,9 @@ def sha256(path):
 
 
 def main():
-    source_calls = ["throw reused;", 'throw new System.Exception("fresh");']
-    lowered = [lower(call) for call in source_calls]
+    source_calls = ["throw reused;", 'throw new System.Exception("fresh");', "throw;"]
+    lowered = [lower(source_calls[0]), lower(source_calls[1]),
+               lower(source_calls[2], catch_variable="caught")]
     rejected = [
         "throw;", "throw reused.GetBaseException();", "throw java.lang.RuntimeException;",
         'throw new System.Exception("escaped\\n");', "throw reused; extra", "throw null;",
@@ -72,6 +78,19 @@ def main():
         '      if (!"fresh".equals(caught.get_Message()) || caught.get_StackTrace() == null)',
         '        throw new AssertionError("constructor throw message or stack");',
         "    }",
+        '    Exception rethrowOriginal = new Exception("rethrow");',
+        '    String beforeRethrowStack = null;',
+        "    try {",
+        '      try { throw ThrowSite.capture(rethrowOriginal); }',
+        "      catch (Exception caught) {",
+        '        beforeRethrowStack = caught.get_StackTrace();',
+        "        " + lowered[2],
+        "      }",
+        "    } catch (Exception caught) {",
+        '      if (caught != rethrowOriginal || beforeRethrowStack == null',
+        '          || !beforeRethrowStack.equals(caught.get_StackTrace()))',
+        '        throw new AssertionError("bare rethrow identity or stack");',
+        "    }",
         '    java.lang.System.out.println("PASS selected .j throw lowering consumer");',
         "  }",
         "}",
@@ -86,13 +105,14 @@ def main():
     assert result == "PASS selected .j throw lowering consumer"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
-        "sourceCalls": [{"source": source, "lowered": expression}
+        "sourceCalls": [{"source": source, "lowered": expression,
+                         "catchVariable": "caught" if source == "throw;" else None}
                         for source, expression in zip(source_calls, lowered)],
         "unsupportedFormsRejected": len(rejected),
         "jarSha256": artifact["jarSha256"],
         "generatedConsumerSha256": sha256(generated),
         "result": result,
-        "qualification": "BOUNDED_LOWERING_PROTOTYPE; general .j parser, rethrow and CLR frame mapping OPEN",
+        "qualification": "BOUNDED_LOWERING_PROTOTYPE; general .j parser, nested catch binding and CLR frame mapping OPEN",
     }, indent=2) + "\n", encoding="utf-8")
     print(result)
 
