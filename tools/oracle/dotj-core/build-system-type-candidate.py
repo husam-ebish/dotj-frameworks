@@ -278,6 +278,10 @@ def main():
     collectibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberCollectibilityBehavior"]
     assert collectibility == {"stringType": False, "genericListType": False,
         "disposableMethod": False, "stringCharsProperty": False}
+    metadata_definition = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberMetadataDefinitionBehavior"]
+    assert metadata_definition == {"sameMethod": True, "differentMethod": False,
+        "methodVsType": False, "sameProperty": True,
+        "nullError": "System.ArgumentNullException", "nullParameter": "other"}
     nested_owners = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedOwnerBehavior"]
     assert [row["declaringType"] for row in nested_owners] == [
         None, "System.Collections.Generic.List`1", "System.Collections.Generic.Dictionary`2",

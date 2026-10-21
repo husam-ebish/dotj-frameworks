@@ -29,36 +29,36 @@
 
 | Path | Purpose |
 |---|---|
-| `dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodBase.java` | Capture CLR selected method metadata tokens and candidate semantics |
-| `dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodBody.java` | Capture CLR selected method metadata tokens and candidate semantics |
-| `dotj-core/dotj-core-public/src/main/java/System/Type.java` | Capture CLR selected method metadata tokens and candidate semantics |
-| `dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/WP01-T1-CONTRACT-v1.md` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-e01-review-packet-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-notice-review-queue-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-product-candidate-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-gate-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-ledger-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-rights-inputs-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-selected-metadata-v10.0.12.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-semantic-surface-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-source-provenance-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-upstream-text-comparison-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/system-type-identity-candidate-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/throw-selected-lowering-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/throw-site-upstream-adjacency-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/audit-foundation-source-provenance.py` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/build-foundation-e01-review-packet.py` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/build-foundation-notice-review-queue.py` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/build-foundation-product-candidate.py` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/build-system-type-candidate.py` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/compare-foundation-upstream-text.py` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/foundation-public-metadata/Program.cs` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/lower-selected-typeof.py` | Capture CLR selected method metadata tokens and candidate semantics |
-| `tools/oracle/dotj-core/run-foundation-public-candidate-gate.py` | Capture CLR selected method metadata tokens and candidate semantics |
-| `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Continuity and counts. |
-| `planning/stage-2/implementation/batches/Batch-1505.md` | This report. |
+| `dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodBase.java` | Implements selected abstract method body lookup. |
+| `dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodBody.java` | Implements selected abstract method body lookup. |
+| `dotj-core/dotj-core-public/src/main/java/System/Type.java` | Implements selected abstract method body lookup. |
+| `dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java` | Tests selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/WP01-T1-CONTRACT-v1.md` | Documents the selected abstract method body lookup boundary. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-e01-review-packet-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-notice-review-queue-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-product-candidate-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-gate-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-ledger-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-rights-inputs-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-selected-metadata-v10.0.12.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-semantic-surface-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-source-provenance-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-upstream-text-comparison-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/system-type-identity-candidate-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/throw-selected-lowering-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/throw-site-upstream-adjacency-v1.json` | Records evidence for selected abstract method body lookup. |
+| `planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json` | Records evidence for selected abstract method body lookup. |
+| `tools/oracle/dotj-core/audit-foundation-source-provenance.py` | Validates selected abstract method body lookup. |
+| `tools/oracle/dotj-core/build-foundation-e01-review-packet.py` | Validates selected abstract method body lookup. |
+| `tools/oracle/dotj-core/build-foundation-notice-review-queue.py` | Validates selected abstract method body lookup. |
+| `tools/oracle/dotj-core/build-foundation-product-candidate.py` | Validates selected abstract method body lookup. |
+| `tools/oracle/dotj-core/build-system-type-candidate.py` | Validates selected abstract method body lookup. |
+| `tools/oracle/dotj-core/compare-foundation-upstream-text.py` | Validates selected abstract method body lookup. |
+| `tools/oracle/dotj-core/foundation-public-metadata/Program.cs` | Captures CLR behavior for selected abstract method body lookup. |
+| `tools/oracle/dotj-core/lower-selected-typeof.py` | Validates selected abstract method body lookup. |
+| `tools/oracle/dotj-core/run-foundation-public-candidate-gate.py` | Validates selected abstract method body lookup. |
+| `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Updates the implementation ledger. |
+| `planning/stage-2/implementation/batches/Batch-1505.md` | Records this batch report. |
 
 **This batch is complete. The current request authorizes the next batch.**

@@ -29,28 +29,28 @@
 
 | Path | Purpose |
 |---|---|
-| `dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodInfo.java` | Capture CLR metadata tokens and candidate bounds |
-| `dotj-core/dotj-core-public/src/main/java/System/Type.java` | Capture CLR metadata tokens and candidate bounds |
-| `dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/WP01-T1-CONTRACT-v1.md` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-e01-review-packet-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-notice-review-queue-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-product-candidate-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-gate-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-ledger-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-rights-inputs-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-selected-metadata-v10.0.12.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-semantic-surface-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-source-provenance-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/foundation-upstream-text-comparison-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/system-type-identity-candidate-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/throw-selected-lowering-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/throw-site-upstream-adjacency-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json` | Capture CLR metadata tokens and candidate bounds |
-| `tools/oracle/dotj-core/build-system-type-candidate.py` | Capture CLR metadata tokens and candidate bounds |
-| `tools/oracle/dotj-core/foundation-public-metadata/Program.cs` | Capture CLR metadata tokens and candidate bounds |
-| `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Continuity and counts. |
-| `planning/stage-2/implementation/batches/Batch-1506.md` | This report. |
+| `dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodInfo.java` | Implements selected constructed generic method flag. |
+| `dotj-core/dotj-core-public/src/main/java/System/Type.java` | Implements selected constructed generic method flag. |
+| `dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java` | Tests selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/WP01-T1-CONTRACT-v1.md` | Documents the selected constructed generic method flag boundary. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-e01-review-packet-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-file-notice-map-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-notice-review-queue-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-product-candidate-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-gate-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-public-candidate-ledger-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-rights-inputs-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-selected-metadata-v10.0.12.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-semantic-surface-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-source-provenance-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/foundation-upstream-text-comparison-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/system-type-identity-candidate-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/throw-selected-lowering-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/throw-site-upstream-adjacency-v1.json` | Records evidence for selected constructed generic method flag. |
+| `planning/stage-2/repos/dotj-core/evidence/typeof-selected-lowering-v1.json` | Records evidence for selected constructed generic method flag. |
+| `tools/oracle/dotj-core/build-system-type-candidate.py` | Validates selected constructed generic method flag. |
+| `tools/oracle/dotj-core/foundation-public-metadata/Program.cs` | Captures CLR behavior for selected constructed generic method flag. |
+| `planning/stage-2/IMPLEMENTATION-STATE.md` and `IMPLEMENTATION-PROGRESS.json` | Updates the implementation ledger. |
+| `planning/stage-2/implementation/batches/Batch-1506.md` | Records this batch report. |
 
 **This batch is complete. The current request authorizes the next batch.**

@@ -185,6 +185,26 @@ public final class TypeIdentityCandidateTest {
         for (int index = 0; index < interfaceOwners.length; index++) {
             Type owner = interfaceOwners[index];
             MemberInfo[] members = owner.GetMembers();
+            if (!members[0].HasSameMetadataDefinitionAs(
+                    owner.GetMethod(interfaceMethodNames[index]))
+                    || members[0].HasSameMetadataDefinitionAs(
+                        Type.fromJavaClass(String.class))) {
+                throw new AssertionError("Selected method metadata identity changed");
+            }
+            if (index == 0) {
+                if (members[0].HasSameMetadataDefinitionAs(
+                        Type.fromJavaClass(IComparable.class).GetMethod("CompareTo"))) {
+                    throw new AssertionError("Distinct methods share metadata identity");
+                }
+                try {
+                    members[0].HasSameMetadataDefinitionAs(null);
+                    throw new AssertionError("Null member metadata comparison was accepted");
+                } catch (ArgumentNullException expected) {
+                    if (!"other".equals(expected.get_ParamName())) {
+                        throw new AssertionError("Null member comparison parameter changed");
+                    }
+                }
+            }
             if (members.length != 1
                     || !interfaceMethodNames[index].equals(members[0].get_Name())
                     || members[0].get_MemberType() != MemberTypes.Method
@@ -546,6 +566,8 @@ public final class TypeIdentityCandidateTest {
             MemberInfo[] defaults = defaultOwner.GetDefaultMembers();
             String expectedName = defaultOwner == string ? "Chars" : "Item";
             if (defaults.length != 1 || !expectedName.equals(defaults[0].get_Name())
+                    || !defaults[0].HasSameMetadataDefinitionAs(
+                        defaultOwner.GetDefaultMembers()[0])
                     || defaults[0].get_MemberType() != MemberTypes.Property
                     || defaults[0].get_DeclaringType() != defaultOwner
                     || defaults[0].get_ReflectedType() != defaultOwner
