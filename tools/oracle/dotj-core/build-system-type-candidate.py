@@ -231,6 +231,10 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    character_set = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCharacterSetBehavior"]
+    assert len(character_set) == 10 and all(
+        row["isAnsiClass"] and not row["isUnicodeClass"] and not row["isAutoClass"]
+        for row in character_set)
     special_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSpecialNameBehavior"]
     assert len(special_name) == 7 and all(not row["isSpecialName"] for row in special_name)
     serializable = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializableBehavior"]
@@ -1434,6 +1438,9 @@ def main():
         "public boolean get_IsNotPublic();",
         "public boolean get_IsSerializable();",
         "public boolean get_IsSpecialName();",
+        "public boolean get_IsAnsiClass();",
+        "public boolean get_IsUnicodeClass();",
+        "public boolean get_IsAutoClass();",
         "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",

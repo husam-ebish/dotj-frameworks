@@ -919,6 +919,18 @@ public abstract class Type extends MemberInfo {
         return false;
     }
 
+    public boolean get_IsAnsiClass() {
+        return true;
+    }
+
+    public boolean get_IsUnicodeClass() {
+        return false;
+    }
+
+    public boolean get_IsAutoClass() {
+        return false;
+    }
+
     @Override
     public MemberTypes get_MemberType() {
         return MemberTypes.TypeInfo;
