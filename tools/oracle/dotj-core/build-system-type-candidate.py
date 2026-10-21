@@ -27,6 +27,7 @@ ICOMPARABLE_SOURCE = SOURCE.with_name("IComparable.java")
 IFORMATTABLE_SOURCE = SOURCE.with_name("IFormattable.java")
 IFORMATPROVIDER_SOURCE = SOURCE.with_name("IFormatProvider.java")
 ISPANFORMATTABLE_SOURCE = SOURCE.with_name("ISpanFormattable.java")
+IUTF8SPANFORMATTABLE_SOURCE = SOURCE.with_name("IUtf8SpanFormattable.java")
 ICONVERTIBLE_SOURCE = SOURCE.with_name("IConvertible.java")
 TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java"
 CONCURRENCY_TEST = ROOT / "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java"
@@ -207,7 +208,7 @@ def main():
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,
-        True, False, False, True, False, True, True, True, True, True,
+        True, False, False, True, False, True, True, True, True, True, True,
     ]
     subclass = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSubclassBehavior"]
     assert [item["observation"]["result"] for item in subclass] == [
@@ -218,7 +219,7 @@ def main():
     instances = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInstanceBehavior"]
     assert [item["result"] for item in instances] == [
         True, True, False, True, False, True, False, True, True, True, True,
-        True, False, False, True, True, True, True, True,
+        True, False, False, True, True, True, True, True, True,
     ]
     interfaces = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInterfaceBehavior"]
     assert interfaces["objectInterfaces"] == interfaces["disposableInterfaces"] == []
@@ -254,6 +255,13 @@ def main():
     span_format = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSpanFormattingBehavior"]
     assert span_format == {"enough": {"success": True, "charsWritten": 2, "text": "42"},
                            "shortBuffer": {"success": False, "charsWritten": 0, "text": ""}}
+    assert interfaces["utf8SpanFormattableInterfaces"] == []
+    assert interfaces["intUtf8SpanFormattable"]["result"] == "System.IUtf8SpanFormattable"
+    assert interfaces["intUtf8SpanFormattableShort"]["result"] == "System.IUtf8SpanFormattable"
+    assert interfaces["intUtf8SpanFormattableLower"]["result"] is None
+    utf8_format = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUtf8SpanFormattingBehavior"]
+    assert utf8_format == {"enough": {"success": True, "bytesWritten": 2, "text": "42"},
+                           "shortBuffer": {"success": False, "bytesWritten": 0, "text": ""}}
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
@@ -265,7 +273,7 @@ def main():
     run("javac", "--release", "21", "-d", str(CLASSES),
         *(str(path) for path in [SOURCE, *EXCEPTION_SOURCES, IDISPOSABLE_SOURCE, ICOMPARABLE_SOURCE,
                                  IFORMATTABLE_SOURCE, IFORMATPROVIDER_SOURCE, ICONVERTIBLE_SOURCE,
-                                 ISPANFORMATTABLE_SOURCE]))
+                                 ISPANFORMATTABLE_SOURCE, IUTF8SPANFORMATTABLE_SOURCE]))
     assert not (CLASSES / "System/TypeCandidateFactory.class").exists()
     run("javac", "--release", "21", "-cp", str(CLASSES), "-d", str(TEST_CLASSES),
         str(TEST), str(CONCURRENCY_TEST), str(LOADER_FIXTURE), str(EXTERNAL))
@@ -338,6 +346,7 @@ def main():
         "iformatproviderSourceSha256": sha256(IFORMATPROVIDER_SOURCE),
         "iconvertibleSourceSha256": sha256(ICONVERTIBLE_SOURCE),
         "ispanformattableSourceSha256": sha256(ISPANFORMATTABLE_SOURCE),
+        "iutf8spanformattableSourceSha256": sha256(IUTF8SPANFORMATTABLE_SOURCE),
         "exceptionSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)}
                              for path in EXCEPTION_SOURCES],
         "testPath": TEST.relative_to(ROOT).as_posix(),

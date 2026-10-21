@@ -7,6 +7,7 @@ Type[] selected = [
     typeof(IComparable),
     typeof(IFormattable),
     typeof(ISpanFormattable),
+    typeof(IUtf8SpanFormattable),
     typeof(IFormatProvider),
     typeof(IConvertible),
     typeof(TypeCode),
@@ -143,6 +144,14 @@ static object ObserveSpanFormat(int value, int length)
     bool success = value.TryFormat(destination, out int charsWritten, "D",
         System.Globalization.CultureInfo.InvariantCulture);
     return new { success, charsWritten, text = new string(destination[..charsWritten]) };
+}
+static object ObserveUtf8SpanFormat(int value, int length)
+{
+    Span<byte> destination = stackalloc byte[length];
+    bool success = ((IUtf8SpanFormattable)value).TryFormat(destination,
+        out int bytesWritten, "D", System.Globalization.CultureInfo.InvariantCulture);
+    return new { success, bytesWritten,
+        text = System.Text.Encoding.UTF8.GetString(destination[..bytesWritten]) };
 }
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
@@ -337,6 +346,11 @@ var result = new
         enough = ObserveSpanFormat(42, 2),
         shortBuffer = ObserveSpanFormat(42, 1),
     },
+    selectedUtf8SpanFormattingBehavior = new
+    {
+        enough = ObserveUtf8SpanFormat(42, 2),
+        shortBuffer = ObserveUtf8SpanFormat(42, 1),
+    },
     selectedAssignability = new (Type Target, Type? Candidate)[]
     {
         (typeof(object), typeof(string)),
@@ -360,6 +374,7 @@ var result = new
         (typeof(IConvertible), typeof(int)),
         (typeof(IComparable), typeof(int)),
         (typeof(ISpanFormattable), typeof(int)),
+        (typeof(IUtf8SpanFormattable), typeof(int)),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -405,6 +420,7 @@ var result = new
         (typeof(IConvertible), 42),
         (typeof(IComparable), 42),
         (typeof(ISpanFormattable), 42),
+        (typeof(IUtf8SpanFormattable), 42),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -417,6 +433,8 @@ var result = new
         disposableInterfaces = typeof(IDisposable).GetInterfaces().Select(type => type.FullName).ToArray(),
         intInterfaces = typeof(int).GetInterfaces().Select(type => type.FullName).ToArray(),
         spanFormattableInterfaces = typeof(ISpanFormattable).GetInterfaces()
+            .Select(type => type.FullName).ToArray(),
+        utf8SpanFormattableInterfaces = typeof(IUtf8SpanFormattable).GetInterfaces()
             .Select(type => type.FullName).ToArray(),
         objectMiss = ObserveInterface(typeof(object), "System.IDisposable", false),
         disposableSelf = ObserveInterface(typeof(IDisposable), "System.IDisposable", false),
@@ -442,6 +460,9 @@ var result = new
         intSpanFormattable = ObserveInterface(typeof(int), "System.ISpanFormattable", false),
         intSpanFormattableShort = ObserveInterface(typeof(int), "ISpanFormattable", false),
         intSpanFormattableLower = ObserveInterface(typeof(int), "system.ispanformattable", true),
+        intUtf8SpanFormattable = ObserveInterface(typeof(int), "System.IUtf8SpanFormattable", false),
+        intUtf8SpanFormattableShort = ObserveInterface(typeof(int), "IUtf8SpanFormattable", false),
+        intUtf8SpanFormattableLower = ObserveInterface(typeof(int), "system.iutf8spanformattable", true),
     },
     types = selected.Select(type => new
     {

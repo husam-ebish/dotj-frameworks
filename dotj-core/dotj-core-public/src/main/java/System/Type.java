@@ -118,6 +118,7 @@ public abstract class Type extends MemberInfo {
             case "System.IComparable" -> fromJavaClass(IComparable.class);
             case "System.IFormattable" -> fromJavaClass(IFormattable.class);
             case "System.ISpanFormattable" -> fromJavaClass(ISpanFormattable.class);
+            case "System.IUtf8SpanFormattable" -> fromJavaClass(IUtf8SpanFormattable.class);
             case "System.IFormatProvider" -> fromJavaClass(IFormatProvider.class);
             case "System.IConvertible" -> fromJavaClass(IConvertible.class);
             case "System.TypeCode" -> fromJavaClass(TypeCode.class);
@@ -159,6 +160,7 @@ public abstract class Type extends MemberInfo {
             case "system.icomparable" -> ignoreCase ? fromJavaClass(IComparable.class) : null;
             case "system.iformattable" -> ignoreCase ? fromJavaClass(IFormattable.class) : null;
             case "system.ispanformattable" -> ignoreCase ? fromJavaClass(ISpanFormattable.class) : null;
+            case "system.iutf8spanformattable" -> ignoreCase ? fromJavaClass(IUtf8SpanFormattable.class) : null;
             case "system.iformatprovider" -> ignoreCase ? fromJavaClass(IFormatProvider.class) : null;
             case "system.iconvertible" -> ignoreCase ? fromJavaClass(IConvertible.class) : null;
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
@@ -405,7 +407,8 @@ public abstract class Type extends MemberInfo {
     public boolean get_IsInterface() {
         return this.definition == IDisposable.class || this.definition == IComparable.class
                 || this.definition == IFormattable.class || this.definition == IFormatProvider.class
-                || this.definition == IConvertible.class || this.definition == ISpanFormattable.class;
+                || this.definition == IConvertible.class || this.definition == ISpanFormattable.class
+                || this.definition == IUtf8SpanFormattable.class;
     }
 
     public boolean get_IsEnum() {
@@ -439,6 +442,9 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this.definition == ISpanFormattable.class && candidate.definition == Int32.class) {
+            return true;
+        }
+        if (this.definition == IUtf8SpanFormattable.class && candidate.definition == Int32.class) {
             return true;
         }
         if (this.definition == IFormattable.class && candidate.definition == ISpanFormattable.class) {
@@ -507,6 +513,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == ISpanFormattable.class) {
             return value instanceof Integer || value instanceof Int32;
         }
+        if (this.definition == IUtf8SpanFormattable.class) {
+            return value instanceof Integer || value instanceof Int32;
+        }
         if (this.definition == Int32.class && value instanceof Integer) {
             return true;
         }
@@ -521,7 +530,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
-        if (this.definition == Object.class || this.definition == IDisposable.class) {
+        if (this.definition == Object.class || this.definition == IDisposable.class
+                || this.definition == IUtf8SpanFormattable.class) {
             return new Type[0];
         }
         if (this.definition == ISpanFormattable.class) {
@@ -552,6 +562,13 @@ public abstract class Type extends MemberInfo {
             }
         }
         if (this.definition == Int32.class) {
+            if (fullname.equals("System.IUtf8SpanFormattable")
+                    || fullname.equals("IUtf8SpanFormattable")) {
+                return fromJavaClass(IUtf8SpanFormattable.class);
+            }
+            if (fullname.equals("system.iutf8spanformattable")) {
+                return null;
+            }
             if (fullname.equals("System.ISpanFormattable") || fullname.equals("ISpanFormattable")) {
                 return fromJavaClass(ISpanFormattable.class);
             }
