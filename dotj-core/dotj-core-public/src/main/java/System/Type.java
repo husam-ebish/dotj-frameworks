@@ -348,6 +348,7 @@ public abstract class Type extends MemberInfo {
         Type resolved = switch (key) {
             case "System.String" -> fromJavaClass(String.class);
             case "System.Boolean" -> fromJavaClass(Boolean.class);
+            case "System.Char" -> fromJavaClass(Character.class);
             case "System.Int32" -> fromJavaClass(Int32.class);
             case "System.Object" -> fromJavaClass(Object.class);
             case "System.ValueType" -> fromJavaClass(Number.class);
@@ -591,6 +592,7 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == String.class) return "String";
         if (this.definition == Boolean.class) return "Boolean";
+        if (this.definition == Character.class) return "Char";
         if (this.definition == Int32.class) return "Int32";
         if (this.definition == Object.class) return "Object";
         if (this.definition == Number.class) return "ValueType";
@@ -652,6 +654,7 @@ public abstract class Type extends MemberInfo {
             return "System.Collections.Generic";
         }
         if (this.definition == String.class || this.definition == Boolean.class
+                || this.definition == Character.class
                 || this.definition == Int32.class
                 || this.definition == Object.class || this.definition == Number.class
                 || this.definition == java.lang.reflect.Array.class || this.definition == Enum.class) {
@@ -680,7 +683,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Object.class && this.parameterIndex < 0) {
             return null;
         }
-        if (this.definition == Int32.class || this.definition == Boolean.class) {
+        if (this.definition == Int32.class || this.definition == Boolean.class
+                || this.definition == Character.class) {
             return fromJavaClass(Number.class);
         }
         if (this.definition == Decimal.class || this.definition == DateTime.class) {
@@ -709,6 +713,7 @@ public abstract class Type extends MemberInfo {
     public boolean get_IsValueType() {
         return this.parameterIndex < 0
                 && (this.definition == Int32.class || this.definition == Boolean.class
+                        || this.definition == Character.class
                         || this.definition == Decimal.class
                         || this.definition == DateTime.class
                         || this.definition == MemberTypes.class
@@ -716,7 +721,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsPrimitive() {
-        return this.definition == Int32.class || this.definition == Boolean.class;
+        return this.definition == Int32.class || this.definition == Boolean.class
+                || this.definition == Character.class;
     }
 
     public boolean get_IsAbstract() {
@@ -727,6 +733,7 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsSealed() {
         return this.definition == String.class || this.definition == Boolean.class
+                || this.definition == Character.class
                 || this.definition == Int32.class
                 || this.definition == Decimal.class || this.definition == DateTime.class
                 || this.get_IsEnum();
