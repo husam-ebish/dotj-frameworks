@@ -971,6 +971,14 @@ var result = new
         quotedEscapedEquals = ObserveGetType("System.String, \"System.Private.CoreLib\\=Extra\"", false, false),
         quotedBackslash = ObserveGetType("System.String, \"System.Private.CoreLib\\\\Extra\"", false, false),
     },
+    selectedEscapedAssemblyNameAttributeBehavior = new
+    {
+        unquotedVersion = ObserveGetType("System.String, System.Private.CoreLib\\,Extra, Version=1.2", false, false),
+        doubleQuotedVersion = ObserveGetType("System.String, \"System.Private.CoreLib\\,Extra\", Version=1.2", false, false),
+        singleQuotedVersion = ObserveGetType("System.String, 'System.Private.CoreLib\\,Extra', Version=1.2", false, false),
+        unquotedUnknown = ObserveGetType("System.String, System.Private.CoreLib\\,Extra, UnknownAttr=foo", false, false),
+        unquotedInvalidVersion = ObserveGetType("System.String, System.Private.CoreLib\\,Extra, Version=banana", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
