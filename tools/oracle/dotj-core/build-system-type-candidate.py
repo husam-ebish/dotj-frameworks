@@ -528,6 +528,13 @@ def main():
         "types": ["System.Byte", "System.SByte", "System.UInt16", "System.UInt32"],
         "values": ["200", "-5", "60000", "4000000000"],
     }
+    uint64_narrowing = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUInt64NarrowingConversionsBehavior"]
+    assert uint64_narrowing == {
+        "int32Small": 42, "byteSmall": 42, "u16Small": 42,
+        "int32Max": "System.OverflowException",
+        "byteMax": "System.OverflowException",
+        "u16Max": "System.OverflowException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

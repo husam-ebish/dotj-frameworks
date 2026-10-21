@@ -838,6 +838,14 @@
       "4000000000"
     ]
   },
+  "selectedUInt64NarrowingConversionsBehavior": {
+    "int32Small": 42,
+    "byteSmall": 42,
+    "u16Small": 42,
+    "int32Max": "System.OverflowException",
+    "byteMax": "System.OverflowException",
+    "u16Max": "System.OverflowException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16280,6 +16288,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "011ec36f04af1ac03de505a3745b23913102500949db4d068081a16415a52786",
+  "oracleProgramSha256": "9cae2f6bbb9b868ddde7c933f4abe80944bbc76e8160c9e5d47f3ff526e3e0b0",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

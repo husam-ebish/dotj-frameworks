@@ -1637,6 +1637,21 @@ static object ObserveUnsignedConvertResultIdentity()
             u16ByType.ToString(), u32ByCode.ToString()},
     };
 }
+static object ObserveUInt64NarrowingConversions()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    ulong small = 42;
+    ulong maximum = ulong.MaxValue;
+    return new
+    {
+        int32Small = converter.ToInt32(small),
+        byteSmall = converter.ToByte(small),
+        u16Small = converter.ToUInt16(small),
+        int32Max = ObserveMethodError(() => converter.ToInt32(maximum)),
+        byteMax = ObserveMethodError(() => converter.ToByte(maximum)),
+        u16Max = ObserveMethodError(() => converter.ToUInt16(maximum)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1814,6 +1829,7 @@ var result = new
     selectedDecimalConvertibleContractBehavior = ObserveDecimalConvertibleContract(),
     selectedUInt64CrossConversionsBehavior = ObserveUInt64CrossConversions(),
     selectedUnsignedConvertResultIdentityBehavior = ObserveUnsignedConvertResultIdentity(),
+    selectedUInt64NarrowingConversionsBehavior = ObserveUInt64NarrowingConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
