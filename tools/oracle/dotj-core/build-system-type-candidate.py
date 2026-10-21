@@ -392,6 +392,13 @@ def main():
     ]
     assert all(row["baseName"] == row["name"] and row["baseOwner"] == row["owner"]
                and row["sameReference"] for row in base_definitions)
+    method_security = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodSecurityBehavior"]
+    assert [(row["owner"], row["name"]) for row in method_security] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(row["isSecurityCritical"] and not row["isSecuritySafeCritical"]
+               and not row["isSecurityTransparent"] for row in method_security)
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

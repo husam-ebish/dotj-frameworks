@@ -32,4 +32,10 @@ public abstract class MethodBase extends MemberInfo {
     public abstract boolean get_IsHideBySig();
 
     public abstract CallingConventions get_CallingConvention();
+
+    public abstract boolean get_IsSecurityCritical();
+
+    public abstract boolean get_IsSecuritySafeCritical();
+
+    public abstract boolean get_IsSecurityTransparent();
 }
