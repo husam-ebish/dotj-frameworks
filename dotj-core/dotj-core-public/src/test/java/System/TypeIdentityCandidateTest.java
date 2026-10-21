@@ -221,6 +221,32 @@ public final class TypeIdentityCandidateTest {
                 || retainedInfo.get_MemberCount() != 2) {
             throw new AssertionError("Selected SerializationEntry value snapshot changed");
         }
+        Object sharedEntryValue = new Object();
+        SerializationInfo firstEntryInfo = new SerializationInfo(dbnullType, selectedConverter);
+        firstEntryInfo.AddValue("item", sharedEntryValue);
+        SerializationInfo equalEntryInfo = new SerializationInfo(dbnullType, selectedConverter);
+        equalEntryInfo.AddValue("item", sharedEntryValue);
+        SerializationInfo otherNameInfo = new SerializationInfo(dbnullType, selectedConverter);
+        otherNameInfo.AddValue("other", sharedEntryValue);
+        SerializationInfo otherValueInfo = new SerializationInfo(dbnullType, selectedConverter);
+        otherValueInfo.AddValue("item", new Object());
+        SerializationInfoEnumerator firstEntryCursor = firstEntryInfo.GetEnumerator();
+        SerializationInfoEnumerator equalEntryCursor = equalEntryInfo.GetEnumerator();
+        SerializationInfoEnumerator otherNameCursor = otherNameInfo.GetEnumerator();
+        SerializationInfoEnumerator otherValueCursor = otherValueInfo.GetEnumerator();
+        firstEntryCursor.MoveNext();
+        equalEntryCursor.MoveNext();
+        otherNameCursor.MoveNext();
+        otherValueCursor.MoveNext();
+        SerializationEntry firstEntry = firstEntryCursor.get_Current();
+        SerializationEntry equalEntry = equalEntryCursor.get_Current();
+        if (!firstEntry.Equals(equalEntry) || !firstEntry.equals(equalEntry)
+                || firstEntry.GetHashCode() != equalEntry.GetHashCode()
+                || firstEntry.Equals(otherNameCursor.get_Current())
+                || firstEntry.Equals(otherValueCursor.get_Current())
+                || !"System.Runtime.Serialization.SerializationEntry".equals(firstEntry.ToString())) {
+            throw new AssertionError("Selected SerializationEntry equality changed");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")

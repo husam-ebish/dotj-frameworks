@@ -1157,6 +1157,34 @@ static object ObserveSerializationEntryValueSnapshot()
         freshMemberCount = info.MemberCount,
     };
 }
+static object ObserveSerializationEntryEquality()
+{
+    static System.Runtime.Serialization.SerializationEntry Entry(string name, object value)
+    {
+        var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+            new System.Runtime.Serialization.FormatterConverter());
+        info.AddValue(name, value);
+        var cursor = info.GetEnumerator();
+        cursor.MoveNext();
+        return cursor.Current;
+    }
+    object shared = new();
+    var first = Entry("item", shared);
+    var equal = Entry("item", shared);
+    var differentName = Entry("other", shared);
+    var differentValue = Entry("item", new object());
+    var empty = default(System.Runtime.Serialization.SerializationEntry);
+    return new
+    {
+        equalEntries = first.Equals(equal),
+        equalHashes = first.GetHashCode() == equal.GetHashCode(),
+        differentNameEqual = first.Equals(differentName),
+        differentValueEqual = first.Equals(differentValue),
+        defaultEqual = empty.Equals(default(System.Runtime.Serialization.SerializationEntry)),
+        defaultText = empty.ToString(),
+        populatedText = first.ToString(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1308,6 +1336,7 @@ var result = new
     selectedSerializationInfoEnumeratorInterfaceBehavior = ObserveSerializationInfoEnumeratorInterface(),
     selectedSerializationEntryShapeBehavior = ObserveSerializationEntryShape(),
     selectedSerializationEntryValueSnapshotBehavior = ObserveSerializationEntryValueSnapshot(),
+    selectedSerializationEntryEqualityBehavior = ObserveSerializationEntryEquality(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
