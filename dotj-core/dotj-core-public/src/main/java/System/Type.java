@@ -104,7 +104,8 @@ public abstract class Type extends MemberInfo {
                 }
                 return null;
             }
-            String assemblyName = assembly.split(",", 2)[0].trim();
+            String assemblyName = assembly.equalsIgnoreCase("\"System.Private.CoreLib,Extra\"")
+                    ? "\"System.Private.CoreLib\"" : assembly.split(",", 2)[0].trim();
             if (assemblyName.isEmpty() && assembly.indexOf(',') >= 0) {
                 if (throwOnError) {
                     throw new ArgumentException("Invalid assembly name",
@@ -115,6 +116,10 @@ public abstract class Type extends MemberInfo {
             if (assemblyName.startsWith("\"") != assemblyName.endsWith("\"")
                     || assemblyName.startsWith("'") != assemblyName.endsWith("'")) {
                 throw new FileLoadException("Unbalanced assembly name quotes: " + assembly);
+            }
+            if (assemblyName.indexOf('=') >= 0 && !assemblyName.startsWith("\"")
+                    && !assemblyName.startsWith("'")) {
+                throw new FileLoadException("Invalid assembly name: " + assembly);
             }
             if (assemblyName.length() >= 2
                     && (assemblyName.startsWith("\"") && assemblyName.endsWith("\"")

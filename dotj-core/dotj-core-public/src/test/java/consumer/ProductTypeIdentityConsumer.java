@@ -516,6 +516,19 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, \"'System.Private.CoreLib'\"") != null) {
             throw new AssertionError("Nested assembly name quotes resolved");
         }
+        if (Type.GetType("System.String, \"System.Private.CoreLib,Extra\"") != string
+                || Type.GetType("System.String, System.Private.CoreLib, Version=1.2") != string
+                || Type.GetType("System.String, \"System.Private.CoreLib=Extra\"") != null
+                || Type.GetType("System.String, System.Private.CoreLib;Extra") != null
+                || Type.GetType("System.String, System.Private.CoreLib/Extra") != null) {
+            throw new AssertionError("Selected assembly name punctuation changed");
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib=Extra");
+            throw new AssertionError("Unquoted equals assembly name accepted");
+        } catch (FileLoadException expected) {
+            // Selected pinned assembly name parse error.
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
