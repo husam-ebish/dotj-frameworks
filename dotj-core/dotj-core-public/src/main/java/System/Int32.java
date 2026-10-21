@@ -319,7 +319,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             java.math.BigDecimal rounded = new java.math.BigDecimal(
                     BigInteger.valueOf(this.value).abs()).round(
-                    new java.math.MathContext(precision + 1, java.math.RoundingMode.HALF_EVEN));
+                    new java.math.MathContext(precision + 1, java.math.RoundingMode.HALF_UP));
             int exponent = this.value == 0 ? 0 : rounded.precision() - rounded.scale() - 1;
             String digits = rounded.unscaledValue().abs().toString();
             digits += "0".repeat(Math.max(0, precision + 1 - digits.length()));

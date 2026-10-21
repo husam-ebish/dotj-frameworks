@@ -458,6 +458,14 @@ public final class ProductTypeIdentityConsumer {
                 || !"0.00E+000".equals(new Int32(0).ToString("E2", provider))) {
             throw new AssertionError("Selected Int32 exponential format changed");
         }
+        if (!"1.0E+003".equals(new Int32(999).ToString("E1", provider))
+                || !"1.0E+003".equals(new Int32(995).ToString("E1", provider))
+                || !"9.9E+002".equals(new Int32(985).ToString("E1", provider))
+                || !"9.5E+002".equals(new Int32(949).ToString("E1", provider))
+                || !"2.15E+009".equals(new Int32(Integer.MAX_VALUE).ToString("E2", provider))
+                || !"-2.15E+009".equals(new Int32(Integer.MIN_VALUE).ToString("E2", provider))) {
+            throw new AssertionError("Selected Int32 exponential rounding changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
