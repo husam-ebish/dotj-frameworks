@@ -151,6 +151,7 @@ def main():
                                     "public static System.Decimal Abs(System.Decimal);",
                                     "public static int Sign(System.Decimal);",
                                     "public static System.Decimal Negate(System.Decimal);",
+                                    "public static System.Decimal Add(System.Decimal, System.Decimal);",
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
