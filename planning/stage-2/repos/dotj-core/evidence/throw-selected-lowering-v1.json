@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "sourceCalls": [
+    {
+      "source": "throw reused;",
+      "lowered": "throw ThrowSite.capture(reused);"
+    },
+    {
+      "source": "throw new System.Exception(\"fresh\");",
+      "lowered": "throw ThrowSite.capture(new Exception(\"fresh\"));"
+    }
+  ],
+  "unsupportedFormsRejected": 6,
+  "jarSha256": "76b54ced90e3144468a88a421937645f19b401397ec52d909aa52cbb7104c9df",
+  "generatedConsumerSha256": "c069a0e55a7feaa924446a700d0667c4eb19a49467786ae7670d0304705aab7a",
+  "result": "PASS selected .j throw lowering consumer",
+  "qualification": "BOUNDED_LOWERING_PROTOTYPE; general .j parser, rethrow and CLR frame mapping OPEN"
+}
