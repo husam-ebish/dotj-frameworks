@@ -710,6 +710,21 @@ var result = new
     },
     selectedGenericParameterAttributeValues = Enum.GetNames<GenericParameterAttributes>()
         .ToDictionary(name => name, name => (int)Enum.Parse<GenericParameterAttributes>(name)),
+    selectedGenericParameterAttributesTypeIdentity = new
+    {
+        name = typeof(GenericParameterAttributes).Name,
+        fullName = typeof(GenericParameterAttributes).FullName,
+        baseType = typeof(GenericParameterAttributes).BaseType?.FullName,
+        isEnum = typeof(GenericParameterAttributes).IsEnum,
+        isValueType = typeof(GenericParameterAttributes).IsValueType,
+        isSealed = typeof(GenericParameterAttributes).IsSealed,
+        underlyingType = typeof(GenericParameterAttributes).GetEnumUnderlyingType().FullName,
+        typeCode = Type.GetTypeCode(typeof(GenericParameterAttributes)).ToString(),
+        qualifiedLookup = ReferenceEquals(typeof(GenericParameterAttributes),
+            Type.GetType(typeof(GenericParameterAttributes).AssemblyQualifiedName!)),
+        insensitiveLookup = ReferenceEquals(typeof(GenericParameterAttributes),
+            Type.GetType("system.reflection.genericparameterattributes", false, true)),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),

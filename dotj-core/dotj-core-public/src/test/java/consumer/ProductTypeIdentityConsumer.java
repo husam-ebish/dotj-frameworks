@@ -2018,6 +2018,20 @@ public final class ProductTypeIdentityConsumer {
         if (parameter.get_GenericParameterAttributes() != GenericParameterAttributes.None) {
             throw new AssertionError("Selected generic parameter attributes changed");
         }
+        Type attributesType = Type.GetType("System.Reflection.GenericParameterAttributes");
+        if (attributesType == null
+                || !"GenericParameterAttributes".equals(attributesType.get_Name())
+                || !"System.Reflection.GenericParameterAttributes".equals(attributesType.get_FullName())
+                || !"System.Enum".equals(attributesType.get_BaseType().get_FullName())
+                || !attributesType.get_IsEnum() || !attributesType.get_IsValueType()
+                || !attributesType.get_IsSealed()
+                || attributesType.GetEnumUnderlyingType() != Type.GetType("System.Int32")
+                || Type.GetTypeCode(attributesType) != TypeCode.Int32
+                || Type.GetType(attributesType.get_AssemblyQualifiedName()) != attributesType
+                || Type.GetType("system.reflection.genericparameterattributes", false, true)
+                        != attributesType) {
+            throw new AssertionError("GenericParameterAttributes Type identity changed");
+        }
         int[] attributeValues = {0, 1, 2, 3, 4, 8, 16, 28, 32};
         GenericParameterAttributes[] attributes = GenericParameterAttributes.values();
         if (attributes.length != attributeValues.length) {
