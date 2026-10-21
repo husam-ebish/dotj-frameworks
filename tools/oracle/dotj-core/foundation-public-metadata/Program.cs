@@ -588,6 +588,15 @@ var result = new
         unknown = ObserveGetType("System.String, UnknownAssembly", false, false),
         unknownThrow = ObserveGetType("System.String, UnknownAssembly", true, false),
     },
+    selectedAssemblyIdentityBehavior = new
+    {
+        canonical = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", false, false),
+        versionMismatch = ObserveGetType("System.String, System.Private.CoreLib, Version=99.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", false, false),
+        cultureMismatch = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=en-US, PublicKeyToken=7cec85d7bea7798e", false, false),
+        tokenMismatch = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null", false, false),
+        legacy = ObserveGetType("System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089", false, false),
+        mismatchThrow = ObserveGetType("System.String, System.Private.CoreLib, Version=99.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", true, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
