@@ -120,6 +120,15 @@ def main():
         "argumentWithParameter": "System.ArgumentException: invalid (Parameter 'value')",
         "invalidOperation": "System.InvalidOperationException: invalid",
     }
+    assert metadata["selectedExceptionInnerToStringBehavior"] == {
+        "twoLevel": "System.Exception: outer\r\n ---> System.Exception: inner"
+                    "\r\n   --- End of inner exception stack trace ---",
+        "threeLevel": "System.ArgumentException: outer (Parameter 'value')"
+                      "\r\n ---> System.Exception: middle"
+                      "\r\n ---> System.InvalidOperationException: root"
+                      "\r\n   --- End of inner exception stack trace ---"
+                      "\r\n   --- End of inner exception stack trace ---",
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 

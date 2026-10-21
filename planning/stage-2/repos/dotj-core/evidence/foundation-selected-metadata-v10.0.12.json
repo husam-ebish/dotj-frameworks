@@ -50,6 +50,10 @@
     "argumentWithParameter": "System.ArgumentException: invalid (Parameter 'value')",
     "invalidOperation": "System.InvalidOperationException: invalid"
   },
+  "selectedExceptionInnerToStringBehavior": {
+    "twoLevel": "System.Exception: outer\r\n ---> System.Exception: inner\r\n   --- End of inner exception stack trace ---",
+    "threeLevel": "System.ArgumentException: outer (Parameter 'value')\r\n ---> System.Exception: middle\r\n ---> System.InvalidOperationException: root\r\n   --- End of inner exception stack trace ---\r\n   --- End of inner exception stack trace ---"
+  },
   "selectedGetTypeBehavior": {
     "exact": {
       "result": "System.String",
@@ -11272,6 +11276,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "5fa9ca1ab2d428620e62ca9b2cbbd1961cac06cdf979402409e48f5ce75e8320",
+  "oracleProgramSha256": "a5b4709ffea4e0d2ad1f8f9655135b9d5f6f5746ea02da63c84cc1cbd1d9109d",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

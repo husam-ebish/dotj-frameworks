@@ -73,6 +73,12 @@ public class Exception extends RuntimeException {
         if (message == null) {
             message = "Exception of type '" + typeName + "' was thrown.";
         }
-        return typeName + ": " + message;
+        String result = typeName + ": " + message;
+        Exception inner = this.get_InnerException();
+        if (inner != null) {
+            result += "\r\n ---> " + inner.ToString()
+                    + "\r\n   --- End of inner exception stack trace ---";
+        }
+        return result;
     }
 }
