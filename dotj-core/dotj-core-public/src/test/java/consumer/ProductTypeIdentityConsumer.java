@@ -504,6 +504,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"1.3".equals(new Int32(1250).ToString("0,.0", provider))) {
             throw new AssertionError("Selected Int32 scaled fraction changed");
         }
+        if (!"42".equals(int32Value.ToString("0.##", provider))
+                || !"12.35".equals(groupedValue.ToString("0,.##", provider))
+                || !"12".equals(new Int32(12000).ToString("0,.##", provider))
+                || !"1,234.57".equals(new Int32(1234567).ToString("#,##0,.##", provider))
+                || !"-12.35".equals(new Int32(-12345).ToString("0,.##", provider))) {
+            throw new AssertionError("Selected Int32 optional fraction changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

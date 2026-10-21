@@ -282,6 +282,9 @@ def main():
     scaled_fraction = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ScaledFractionBehavior"]
     assert scaled_fraction == {"onePlace": "12.3", "twoPlaces": "12.35",
                                "grouped": "1,234.6", "negative": "-12.3", "halfway": "1.3"}
+    optional_fraction = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32OptionalFractionBehavior"]
+    assert optional_fraction == {"integer": "42", "scaled": "12.35", "exact": "12",
+                                 "grouped": "1,234.57", "negative": "-12.35"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
