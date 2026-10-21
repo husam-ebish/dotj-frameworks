@@ -1148,6 +1148,33 @@
       "paramName": null
     }
   },
+  "selectedInvalidAssemblyAttributeBehavior": {
+    "invalidVersion": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "emptyCulture": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "invalidToken": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "unknownAttribute": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "duplicateVersion": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -4251,6 +4278,74 @@
       ]
     },
     {
+      "fullName": "System.IO.FileLoadException",
+      "baseType": "System.IO.IOException",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 2,
+      "declaredPublicPropertyCount": 3,
+      "selectedMethods": [
+        {
+          "name": "ToString",
+          "isStatic": false,
+          "returnType": "System.String",
+          "parameters": []
+        }
+      ],
+      "selectedProperties": [
+        {
+          "name": "Message",
+          "type": "System.String"
+        }
+      ],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "inner",
+            "type": "System.Exception"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "fileName",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "fileName",
+            "type": "System.String"
+          },
+          {
+            "name": "inner",
+            "type": "System.Exception"
+          }
+        ]
+      ]
+    },
+    {
       "fullName": "System.OverflowException",
       "baseType": "System.ArithmeticException",
       "isInterface": false,
@@ -4403,6 +4498,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "623d789f2e7632f0d7c92f75e818cfc6d209278cb93ed89471021da44116a659",
+  "oracleProgramSha256": "4fb4fb2cae1d535cd499ebbc43c90e43eb5be39e7dd2f83385dc52facd445b71",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

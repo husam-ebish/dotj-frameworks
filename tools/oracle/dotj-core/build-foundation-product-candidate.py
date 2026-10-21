@@ -13,7 +13,7 @@ PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
     "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "FormatException")]
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
-            ("IOException", "FileNotFoundException")]
+            ("IOException", "FileNotFoundException", "FileLoadException")]
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
@@ -38,6 +38,7 @@ EXPECTED_CLASSES = [
     "System/IDisposable.class",
     "System/IFormatProvider.class",
     "System/IFormattable.class",
+    "System/IO/FileLoadException.class",
     "System/IO/FileNotFoundException.class",
     "System/IO/IOException.class",
     "System/ISpanFormattable.class",

@@ -15,7 +15,7 @@ SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
                      ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "FormatException")]
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
-                      ("IOException", "FileNotFoundException")]
+                      ("IOException", "FileNotFoundException", "FileLoadException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
@@ -341,6 +341,12 @@ def main():
         key: {"result": "System.String", "exception": None, "paramName": None}
         for key in ("canonical", "versionMismatch", "cultureMismatch", "tokenMismatch",
                     "legacy", "mismatchThrow")
+    }
+    invalid_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInvalidAssemblyAttributeBehavior"]
+    assert invalid_attributes == {
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("invalidVersion", "emptyCulture", "invalidToken", "duplicateVersion")},
+        "unknownAttribute": {"result": "System.String", "exception": None, "paramName": None},
     }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"

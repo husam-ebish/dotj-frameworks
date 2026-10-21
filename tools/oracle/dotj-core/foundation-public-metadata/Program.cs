@@ -25,6 +25,7 @@ Type[] selected = [
     typeof(IndexOutOfRangeException),
     typeof(System.IO.IOException),
     typeof(System.IO.FileNotFoundException),
+    typeof(System.IO.FileLoadException),
     typeof(OverflowException),
     typeof(InvalidCastException),
     typeof(InvalidOperationException),
@@ -596,6 +597,14 @@ var result = new
         tokenMismatch = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null", false, false),
         legacy = ObserveGetType("System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089", false, false),
         mismatchThrow = ObserveGetType("System.String, System.Private.CoreLib, Version=99.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", true, false),
+    },
+    selectedInvalidAssemblyAttributeBehavior = new
+    {
+        invalidVersion = ObserveGetType("System.String, System.Private.CoreLib, Version=banana", false, false),
+        emptyCulture = ObserveGetType("System.String, System.Private.CoreLib, Culture=", false, false),
+        invalidToken = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=xyz", false, false),
+        unknownAttribute = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo", false, false),
+        duplicateVersion = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Version=11.0.0.0", false, false),
     },
     selectedContainsGenericParametersBehavior = new[]
     {
