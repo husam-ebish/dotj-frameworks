@@ -191,6 +191,10 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof String text) {
             return Decimal.Parse(text);
         }
+        if (value instanceof java.math.BigInteger unsigned) {
+            this.checkedUInt64(unsigned);
+            return Decimal.Parse(unsigned.toString());
+        }
         if (value instanceof Decimal decimal) {
             return decimal;
         }
@@ -257,6 +261,13 @@ public final class FormatterConverter implements IFormatterConverter {
         }
         if (value instanceof Long number) {
             return number;
+        }
+        if (value instanceof java.math.BigInteger unsigned) {
+            this.checkedUInt64(unsigned);
+            if (unsigned.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) > 0) {
+                throw new OverflowException("Value was outside the range of Int64");
+            }
+            return unsigned.longValue();
         }
         return convertible(value).ToInt64(null);
     }
@@ -332,7 +343,21 @@ public final class FormatterConverter implements IFormatterConverter {
             }
             return parsed.longValue();
         }
+        if (value instanceof java.math.BigInteger unsigned) {
+            this.checkedUInt64(unsigned);
+            if (unsigned.compareTo(java.math.BigInteger.valueOf(4294967295L)) > 0) {
+                throw new OverflowException("Value was outside the range of UInt32");
+            }
+            return unsigned.longValue();
+        }
         return convertible(value).ToUInt32(null);
+    }
+
+    private java.math.BigInteger checkedUInt64(java.math.BigInteger value) {
+        if (value.signum() < 0 || value.bitLength() > 64) {
+            throw new OverflowException("Value was outside the range of UInt64");
+        }
+        return value;
     }
 
     @Override
