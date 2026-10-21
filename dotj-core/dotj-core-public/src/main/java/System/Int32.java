@@ -252,6 +252,19 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String number = this.ToString("N" + precision, provider);
             return this.value < 0 ? "(\u00a4" + number.substring(1) + ")" : "\u00a4" + number;
         }
+        if (format.matches("[fF][0-9]*")) {
+            int precision;
+            try {
+                precision = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+            } catch (NumberFormatException expected) {
+                throw new FormatException("Format precision is invalid");
+            }
+            if (precision > 1000) {
+                throw new UnsupportedOperationException("Int32 precision is not mapped");
+            }
+            String fraction = precision == 0 ? "" : "." + "0".repeat(precision);
+            return Integer.toString(this.value) + fraction;
+        }
         if (format.equals("Q")) {
             throw new FormatException("Format specifier was invalid");
         }

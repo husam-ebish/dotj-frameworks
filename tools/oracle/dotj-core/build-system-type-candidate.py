@@ -230,6 +230,12 @@ def main():
                                 "lowerCase": "\u00a412,345.00",
                                 "negative": "(\u00a412,345.00)",
                                 "small": "\u00a442.00"}
+    fixed_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32FixedFormatBehavior"]
+    assert fixed_formats == {"zeroPrecision": "12345",
+                             "twoDecimals": "12345.00",
+                             "lowerCase": "12345.00",
+                             "negative": "-12345.00",
+                             "defaultPrecision": "42.00"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
