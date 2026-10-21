@@ -845,6 +845,15 @@ var result = new
         accentedName = ObserveGetType("System.String, System.Private.CoreLib, Culture=é", false, false),
         japanese = ObserveGetType("System.String, System.Private.CoreLib, Culture=ja-JP", false, false),
     },
+    selectedVersionComponentBoundaryBehavior = new
+    {
+        leadingZeros = ObserveGetType("System.String, System.Private.CoreLib, Version=0001.0002", false, false),
+        zeroPair = ObserveGetType("System.String, System.Private.CoreLib, Version=0.0", false, false),
+        maxPair = ObserveGetType("System.String, System.Private.CoreLib, Version=65534.65534", false, false),
+        overflowPair = ObserveGetType("System.String, System.Private.CoreLib, Version=65535.0", false, false),
+        manyLeadingZeros = ObserveGetType("System.String, System.Private.CoreLib, Version=0000001.0", false, false),
+        integerOverflow = ObserveGetType("System.String, System.Private.CoreLib, Version=2147483648.0", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

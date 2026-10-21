@@ -530,6 +530,13 @@ def main():
         **{key: {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"}
            for key in ("numericTag", "arabicDigits", "accentedName")},
     }
+    version_components = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedVersionComponentBoundaryBehavior"]
+    assert version_components == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("leadingZeros", "zeroPair", "maxPair", "manyLeadingZeros")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("overflowPair", "integerOverflow")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
