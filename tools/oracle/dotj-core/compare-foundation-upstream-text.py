@@ -4,6 +4,7 @@ from concurrent.futures import ThreadPoolExecutor
 import hashlib
 import json
 import re
+import time
 from urllib.error import HTTPError
 import urllib.request
 from pathlib import Path
@@ -29,7 +30,7 @@ def shingles(tokens):
             for index in range(len(tokens) - SHINGLE_SIZE + 1)}
 
 
-def compare(item):
+def compare(item, cached):
     product_path, expected_hash = item
     relative = product_path.removeprefix(PRODUCT).removesuffix(".java")
     upstream_path = UPSTREAM + relative + ".cs"
@@ -41,9 +42,20 @@ def compare(item):
         "upstreamPath": upstream_path,
         "upstreamUrl": BASE + upstream_path,
     }
+    prior = cached.get(product_path)
+    if (prior is not None and prior.get("productSha256") == expected_hash
+            and prior.get("upstreamUrl") == row["upstreamUrl"]):
+        return prior
     try:
-        with urllib.request.urlopen(BASE + upstream_path, timeout=30) as response:
-            upstream_bytes = response.read()
+        for attempt in range(3):
+            try:
+                with urllib.request.urlopen(BASE + upstream_path, timeout=30) as response:
+                    upstream_bytes = response.read()
+                break
+            except (ConnectionError, TimeoutError):
+                if attempt == 2:
+                    raise
+                time.sleep(attempt + 1)
     except HTTPError as error:
         if error.code != 404:
             raise
@@ -65,12 +77,16 @@ def compare(item):
 def main():
     artifact = json.loads(ARTIFACT.read_text(encoding="utf-8"))
     current_hashes = {item["path"]: item["sha256"] for item in artifact["productSources"]}
+    prior = json.loads(OUTPUT.read_text(encoding="utf-8")) if OUTPUT.exists() else {}
+    cached = ({row["productPath"]: row for row in prior["rows"]}
+              if prior.get("upstreamCommit") == COMMIT else {})
     with ThreadPoolExecutor(max_workers=6) as pool:
-        rows = sorted(pool.map(compare, current_hashes.items()), key=lambda row: row["productPath"])
-    assert len(rows) == len(current_hashes) == 68
+        rows = sorted(pool.map(lambda item: compare(item, cached), current_hashes.items()),
+                      key=lambda row: row["productPath"])
+    assert len(rows) == len(current_hashes)
     record = {
         "schemaVersion": 1,
-        "scope": "All 68 candidate Java paths; direct name-matched pinned upstream paths only",
+        "scope": f"All {len(rows)} candidate Java paths; direct name-matched pinned upstream paths only",
         "upstreamCommit": COMMIT,
         "artifactEvidence": ARTIFACT.name,
         "jarSha256": artifact["jarSha256"],
@@ -81,7 +97,7 @@ def main():
     }
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     found = sum(row["directNameMatchedUpstreamFile"] == "FOUND" for row in rows)
-    print(f"PASS bounded text comparison for {found} pinned direct-name upstream files among 68 product sources")
+    print(f"PASS bounded text comparison for {found} pinned direct-name upstream files among {len(rows)} product sources")
 
 
 if __name__ == "__main__":

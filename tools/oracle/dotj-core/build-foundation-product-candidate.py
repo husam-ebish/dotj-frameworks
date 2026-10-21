@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
-    "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "ReadOnlySpan", "UInt16", "UInt32", "Byte", "SByte", "Type", "DBNull", "Attribute", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "ArgumentOutOfRangeException", "ArithmeticException", "DivideByZeroException", "ValueTuple", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "NullReferenceException", "FormatException")]
+    "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "ReadOnlySpan", "Span", "UInt16", "UInt32", "Byte", "SByte", "Type", "DBNull", "Attribute", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "ArgumentOutOfRangeException", "ArithmeticException", "DivideByZeroException", "ValueTuple", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "NullReferenceException", "FormatException")]
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException", "FileLoadException")]
 SOURCES.append(PRODUCT / "src/main/java/System/Collections/IEnumerator.java")
@@ -106,6 +106,7 @@ EXPECTED_CLASSES = [
     "System/Runtime/Serialization/StreamingContext.class",
     "System/Runtime/Serialization/StreamingContextStates.class",
     "System/SByte.class",
+    "System/Span.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -143,6 +144,14 @@ def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
     metadata = json.loads((EVIDENCE_ROOT / "foundation-selected-metadata-v10.0.12.json").read_text(encoding="utf-8"))
+    assert metadata["selectedSpanFormattingBehavior"] == {
+        "enough": {"success": True, "charsWritten": 2, "text": "42"},
+        "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
+    }
+    assert metadata["selectedUtf8SpanFormattingBehavior"] == {
+        "enough": {"success": True, "bytesWritten": 2, "text": "42"},
+        "shortBuffer": {"success": False, "bytesWritten": 0, "text": ""},
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
@@ -300,11 +309,13 @@ def main():
     exception_result = run("java", "-cp", classpath, "consumer.ProductExceptionContractConsumer").strip()
     int32_result = run("java", "-cp", classpath, "consumer.ProductInt32BitConsumer").strip()
     arithmetic_result = run("java", "-cp", classpath, "consumer.ProductInt32ArithmeticConsumer").strip()
+    span_result = run("java", "-cp", classpath, "consumer.ProductInt32SpanConsumer").strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
     assert int32_result == "PASS external selected Int32 bit helpers"
     assert arithmetic_result == "PASS external selected Int32 signed arithmetic"
+    assert span_result == "PASS external selected Int32 span parsing and formatting"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
@@ -320,6 +331,7 @@ def main():
         "exceptionConsumer": exception_result,
         "int32BitConsumer": int32_result,
         "int32ArithmeticConsumer": arithmetic_result,
+        "int32SpanConsumer": span_result,
         "exceptionStackBoundary": {
             "dotNetPrethrowStackNull": True,
             "dotNetThrownStackNonEmpty": True,

@@ -4,6 +4,7 @@ import System.Byte;
 import System.FormatException;
 import System.Int32;
 import System.ReadOnlySpan;
+import System.Span;
 import System.Globalization.NumberStyles;
 import java.nio.charset.StandardCharsets;
 
@@ -16,7 +17,9 @@ public final class ProductInt32SpanConsumer {
         check(new ReadOnlySpan<Byte>(" -7 ".getBytes(StandardCharsets.UTF_8)),
                 new ReadOnlySpan<Byte>("FF".getBytes(StandardCharsets.UTF_8)),
                 new ReadOnlySpan<Byte>("oops".getBytes(StandardCharsets.UTF_8)));
-        java.lang.System.out.println("PASS external selected Int32 span parsing");
+        checkFormat(new Int32(42), new char[] {'#', '#', '#', '#'},
+                new byte[] {'#', '#', '#', '#'});
+        java.lang.System.out.println("PASS external selected Int32 span parsing and formatting");
     }
 
     private static <T> void check(ReadOnlySpan<T> number, ReadOnlySpan<T> hex,
@@ -38,6 +41,31 @@ public final class ProductInt32SpanConsumer {
             throw new AssertionError("Invalid Int32 span accepted");
         } catch (FormatException expected) {
             // Pinned CLR failure type.
+        }
+    }
+
+    private static void checkFormat(Int32 value, char[] chars, byte[] bytes) {
+        int[] written = {-1};
+        if (!value.TryFormat(new Span<Character>(chars, 1, 2), written, "D", null)
+                || written[0] != 2 || !new String(chars).equals("#42#")) {
+            throw new AssertionError("Char span format changed");
+        }
+        written[0] = -1;
+        if (!value.TryFormat(new Span<Byte>(bytes, 1, 2), written, "D", null)
+                || written[0] != 2
+                || !new String(bytes, StandardCharsets.UTF_8).equals("#42#")) {
+            throw new AssertionError("UTF-8 Byte span format changed");
+        }
+        written[0] = -1;
+        if (value.TryFormat(new Span<Character>(chars, 1, 1), written, "D", null)
+                || written[0] != 0 || !new String(chars).equals("#42#")) {
+            throw new AssertionError("Short Char span modified destination");
+        }
+        written[0] = -1;
+        if (value.TryFormat(new Span<Byte>(bytes, 1, 1), written, "D", null)
+                || written[0] != 0
+                || !new String(bytes, StandardCharsets.UTF_8).equals("#42#")) {
+            throw new AssertionError("Short Byte span modified destination");
         }
     }
 }

@@ -2,9 +2,10 @@
   "schemaVersion": 1,
   "scope": "Selected Int32 ReadOnlySpan overloads and extra Java public declarations",
   "signatureAudit": "int32-declared-signature-audit-v1.json",
-  "signatureAuditSha256": "5f355a09ba4df250c69f8b5b9ef0c7995a8732439b8878c04243c48ed2124c54",
+  "signatureAuditSha256": "04ec9693c8832e48423c1a3d315a9c92ff605c9811ef785f42527f85b06b330b",
   "javacErasureProof": {
     "javacRejected": true,
+    "probeCount": 2,
     "diagnostic": "name clash: same erasure"
   },
   "clrOverloadCount": 10,
@@ -40,6 +41,11 @@
       "javaCarrierDeclaration": "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Int32[]);",
       "requiredResolution": "Select the CLR overload from the source span element type before lowering to this JVM method"
     }
+  ],
+  "formatCarrierDeclaration": "public <T> boolean TryFormat(System.Span<T>, int[], java.lang.String, System.IFormatProvider);",
+  "formatCarrierUpstreamSignatures": [
+    "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+    "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)"
   ],
   "extraJavaPublicMethodCount": 18,
   "extraJavaPublicMethods": [

@@ -28,8 +28,8 @@ def main():
     assert artifact["licensePath"] == mapping["productLicensePath"] == "dotj-core/LICENSE"
     assert artifact["licenseEntry"] == mapping["productLicenseEntry"] == "META-INF/LICENSE"
     assert rights["jarNoticeEntries"] == ["META-INF/LICENSE"]
-    assert queue["sourceCount"] == rights["productSourceCount"] == 68
-    assert queue["directNameMatchedCount"] + queue["directNameMissingCount"] == 68
+    assert queue["sourceCount"] == rights["productSourceCount"] == len(artifact["productSources"])
+    assert queue["directNameMatchedCount"] + queue["directNameMissingCount"] == queue["sourceCount"]
     assert all(row["mitSpdxHeaderObserved"] and
                row["noticeApplicabilityDecision"] == "REVIEW_REQUIRED"
                for row in queue["rows"])
@@ -57,10 +57,10 @@ def main():
             "sourceFile": rights["licensePath"],
             "sourceSha256": rights["licenseSha256"],
             "jarEntry": artifact["licenseEntry"],
-            "javaSourcesWithIdentifier": 68,
+            "javaSourcesWithIdentifier": queue["sourceCount"],
         },
         "boundedSourceScreen": {
-            "productSources": 68,
+            "productSources": queue["sourceCount"],
             "directNameMatchedPinnedFiles": queue["directNameMatchedCount"],
             "missingDirectNamePath": queue["directNameMissingCount"],
             "throwSiteAdjacentFilesCompared": len(adjacency["rows"]),
@@ -74,7 +74,7 @@ def main():
                 "id": "SOURCE_AND_NOTICE_APPLICABILITY",
                 "status": "OPEN",
                 "evidence": "foundation-notice-review-queue-v1.json",
-                "question": "Which pinned upstream or third-party notices, if any, apply to the 68 Java source files and compiled classes?",
+                "question": f"Which pinned upstream or third-party notices, if any, apply to the {queue['sourceCount']} Java source files and compiled classes?",
             },
             {
                 "id": "REFERENCE_AND_DEPENDENCY_RIGHTS",

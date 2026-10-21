@@ -37,7 +37,7 @@ def main():
     upstream = indexed(comparison["rows"], "productPath")
     assert set(product) == set(headers) == set(introductions) == set(upstream)
     assert set(product) == set(mapping["sourceToClasses"])
-    assert len(product) == 68
+    assert len(product) == len(artifact["productSources"])
 
     rows = []
     for path in sorted(product):

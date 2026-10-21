@@ -43,11 +43,15 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Int32.java",
-      "sha256": "80cf18a0fa3121d2cc20f88b9b4f93e729911063a879eda0174203404f885426"
+      "sha256": "f34b6ee0cf8e23ec2c10c8ce8a7cf65c75475725ed5f87f15e768fb11233e63c"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/ReadOnlySpan.java",
       "sha256": "2390602518a536bf449b8dbf9e36f680fdc4ff90d35321f685fce7275b85c76f"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Span.java",
+      "sha256": "1edab8088bd4efbb14d176dbc3b4eaa74cd750572ca8e55ebb4958b8b7c55f66"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/UInt16.java",
@@ -275,7 +279,7 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "94cef6082605a9994f558f4969bdc8cee181878b4167c08d4e38f530a3b50b5f",
+  "jarSha256": "8559f86f03164dd270d19c0cb893c294db44740fd4720a9935e605199ee9e70d",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -342,6 +346,7 @@
     "System/Runtime/Serialization/StreamingContext.class",
     "System/Runtime/Serialization/StreamingContextStates.class",
     "System/SByte.class",
+    "System/Span.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",
@@ -397,7 +402,7 @@
     "System/ISpanFormattable.class": "77611d584c6a1f1df5d716e7b922aa0fa428924e74eacfd35e52a0fa0e531152",
     "System/IUtf8SpanFormattable.class": "c4b20062e25c355b98474850bb31f2ad6760f088fb935a22d5d60ea277aae96a",
     "System/IndexOutOfRangeException.class": "82c1c749d0a9712b993206bb6b5e666896e19819dcb2d13ed151a3722129a584",
-    "System/Int32.class": "4257bf5de8c784d378fd04a04cee8a362edbbfcf2a09f52ef7be43ce1acb81d0",
+    "System/Int32.class": "fe442d4698cc348a336acc07524b31afcaf29605a083033f7f874ccb67eaaf71",
     "System/InvalidCastException.class": "a7874ef4fa4f141ef38c784cba589fe3181a899e12da814ad46ccbb5e0402535",
     "System/InvalidOperationException.class": "6ac2e00a347847734577f1ed03091762014e37d9ee502a04aecfb9bf9fd663f8",
     "System/NullReferenceException.class": "bae9bd4bd37f9f25cd4b7c65aae59ff94e4ce7db7a4c6fb9088e26dfc36b7a76",
@@ -426,6 +431,7 @@
     "System/Runtime/Serialization/StreamingContext.class": "ee56e43d93af42901721653b6afa0747f9086837935ade2d6c3a43a14a756c35",
     "System/Runtime/Serialization/StreamingContextStates.class": "d03ec5c67f876c07e7de01ca06bf599dbd4525aefa721cb404a52f516da1f289",
     "System/SByte.class": "8d360602e2dfacf9c7e35283188090999dedadc0b07aeb0d8c114077cba9df08",
+    "System/Span.class": "fe3418c09cb6eafbdac800be446b05df560f3ef01893139613e846e75b54c5b2",
     "System/SystemException.class": "de15e69523d424b191ef078434ba7e9154e63cf550ec658609f2a816a62e368b",
     "System/Type$1.class": "4c7cac23c6fb843749effcbd1a7d7db5646bebdc9da9d9216b9a0847cc0b9c28",
     "System/Type$2.class": "200aaee06066d9934a8c92a06bc92a330fb332df63bf5f6b0f6332856cc9bab1",
@@ -454,6 +460,7 @@
   "exceptionConsumer": "PASS external selected Exception constructors and inner identity",
   "int32BitConsumer": "PASS external selected Int32 bit helpers",
   "int32ArithmeticConsumer": "PASS external selected Int32 signed arithmetic",
+  "int32SpanConsumer": "PASS external selected Int32 span parsing and formatting",
   "exceptionStackBoundary": {
     "dotNetPrethrowStackNull": true,
     "dotNetThrownStackNonEmpty": true,

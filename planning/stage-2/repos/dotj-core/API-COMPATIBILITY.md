@@ -18,6 +18,8 @@ The original lexical inventory above uses the analysis revision. The bounded rel
 
 The selected [Int32 erasure contract](evidence/int32-erasure-contract-v1.json) identifies ten distinct CLR byte/char span parsing overloads that lower to five generic Java carrier declarations. A javac probe confirms that both element-specific declarations cannot coexist with the same erased signature. The contract also classifies 18 additional Java public methods as explicit-interface, boxed-carrier or Object interop bridges. Source-type-directed `.j` lowering and a public bridge policy remain required; this mapping is not an implemented compiler or an exact N01 qualification.
 
+The selected Char and UTF-8 Byte `TryFormat` paths also share one generic mutable `Span<T>` carrier. The [signature audit](evidence/int32-declared-signature-audit-v1.json) records its two CLR source signatures separately and the erasure contract proves the Java name clash. The array-backed implementation passes the pinned short-buffer and success vectors but does not provide CLR byref-like span semantics.
+
 ## N01 tasks
 
 1. `DJ-001-N01-T1`: Extract the complete semantic upstream public surface for the selected slice, preserving exact namespace/type/member spelling, casing, overloads, generic arity, parameter identities and property/event metadata.
