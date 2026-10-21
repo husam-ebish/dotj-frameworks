@@ -340,6 +340,11 @@ def main():
         ("System.IFormattable", "ToString", {"name": "", "type": "System.String", "position": -1}),
         ("System.IFormatProvider", "GetFormat", {"name": None, "type": "System.Object", "position": -1}),
     ]
+    parameter_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterFlagBehavior"]
+    assert [len(row["parameters"]) for row in parameter_flags] == [1, 2, 3, 2]
+    assert [row["parameters"][-1]["position"] for row in parameter_flags] == [-1] * 4
+    assert all(not parameter["isOptional"] and not parameter["hasDefaultValue"]
+               for row in parameter_flags for parameter in row["parameters"])
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [
