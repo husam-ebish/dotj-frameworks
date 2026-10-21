@@ -570,6 +570,15 @@ var result = new
         coreLibDoublePointer = ObserveGetType("System.String**, System.Private.CoreLib", false, false),
         invalidByRefArray = ObserveGetType("System.String&[], System.Private.CoreLib", false, false),
     },
+    selectedCaseBoundaryBehavior = new
+    {
+        typeInsensitive = ObserveGetType("system.type", false, true),
+        typeSensitive = ObserveGetType("system.type", false, false),
+        operationInsensitive = ObserveGetType("system.invalidoperationexception", false, true),
+        operationSensitive = ObserveGetType("system.invalidoperationexception", false, false),
+        invalidNestedInsensitive = ObserveGetType("system.string&[]", false, true),
+        invalidNestedSensitive = ObserveGetType("system.string&[]", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

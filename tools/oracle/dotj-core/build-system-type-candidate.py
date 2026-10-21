@@ -317,6 +317,15 @@ def main():
         "coreLibDoublePointer": {"result": "System.String**", "exception": None, "paramName": None},
         "invalidByRefArray": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
     }
+    case_boundaries = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCaseBoundaryBehavior"]
+    assert case_boundaries == {
+        "typeInsensitive": {"result": "System.Type", "exception": None, "paramName": None},
+        "typeSensitive": {"result": None, "exception": None, "paramName": None},
+        "operationInsensitive": {"result": "System.InvalidOperationException", "exception": None, "paramName": None},
+        "operationSensitive": {"result": None, "exception": None, "paramName": None},
+        "invalidNestedInsensitive": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
+        "invalidNestedSensitive": {"result": None, "exception": None, "paramName": None},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
