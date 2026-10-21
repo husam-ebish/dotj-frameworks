@@ -203,6 +203,14 @@ def main():
         "fullNameAfterErrors": "", "assemblyNameAfterErrors": "",
         "fullExplicitAfterErrors": True, "assemblyExplicitAfterErrors": True,
     }
+    settype_reset = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoSetTypeResetBehavior"]
+    assert settype_reset == {
+        "sameType": {"fullName": "custom.Record", "assemblyName": "custom.assembly",
+                     "fullExplicit": True, "assemblyExplicit": True},
+        "differentType": {"objectType": "System.String", "fullName": "System.String",
+                          "assemblyName": corelib_name,
+                          "fullExplicit": False, "assemblyExplicit": False},
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
