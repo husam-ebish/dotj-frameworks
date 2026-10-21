@@ -555,6 +555,26 @@ static object ObserveInt32ProviderFormat()
         defaultPrecision = ((IFormattable)42).ToString("N", provider),
     };
 }
+static object ObserveInt32NegativeSign()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~",
+    };
+    bool customSuccess = int.TryParse("~42", System.Globalization.NumberStyles.Integer,
+        provider, out int customValue);
+    bool standardSuccess = int.TryParse("-42", System.Globalization.NumberStyles.Integer,
+        provider, out int standardValue);
+    return new
+    {
+        customParse = int.Parse("~42", System.Globalization.NumberStyles.Integer, provider),
+        customSuccess,
+        customValue,
+        standardSuccess,
+        standardValue,
+        negativeFormat = ((IFormattable)(-42)).ToString("N2", provider),
+    };
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -4919,6 +4939,7 @@ var result = new
             System.Globalization.CultureInfo.InvariantCulture),
     },
     selectedInt32ProviderFormatBehavior = ObserveInt32ProviderFormat(),
+    selectedInt32NegativeSignBehavior = ObserveInt32NegativeSign(),
     selectedInt32CurrencyFormatBehavior = new
     {
         defaultPrecision = ((IFormattable)12345).ToString("C",

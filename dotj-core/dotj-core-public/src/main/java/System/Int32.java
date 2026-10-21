@@ -49,6 +49,20 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (style == NumberStyles.Integer) {
+            if (text != null) {
+                NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+                if (numberFormat != null && !numberFormat.get_NegativeSign().isEmpty()
+                        && !numberFormat.get_NegativeSign().equals("-")) {
+                    String trimmed = text.strip();
+                    if (trimmed.startsWith(numberFormat.get_NegativeSign())) {
+                        return Parse("-" + trimmed.substring(
+                                numberFormat.get_NegativeSign().length()));
+                    }
+                    if (trimmed.startsWith("-")) {
+                        throw new FormatException("Input string was not in a correct format");
+                    }
+                }
+            }
             return Parse(text);
         }
         if (style == NumberStyles.None) {
@@ -89,6 +103,13 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             throw new OverflowException("Value was outside the range of Int32");
         }
         return new Int32(parsed.intValue());
+    }
+
+    private static NumberFormatInfo selectedNumberFormatInfo(IFormatProvider provider) {
+        if (provider == null) return null;
+        Object supplied = provider.GetFormat(
+                Type.GetType("System.Globalization.NumberFormatInfo"));
+        return supplied instanceof NumberFormatInfo info ? info : null;
     }
 
     public static boolean TryParse(String text, Int32[] result) {
@@ -650,9 +671,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return "0".repeat(Math.max(0, precision - digits.length())) + digits;
         }
         if (format.matches("[nN][0-9]*")) {
-            Object supplied = provider == null ? null : provider.GetFormat(
-                    Type.GetType("System.Globalization.NumberFormatInfo"));
-            NumberFormatInfo numberFormat = supplied instanceof NumberFormatInfo info ? info : null;
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             int precision;
             try {
                 precision = format.length() == 1
@@ -673,7 +692,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 }
                 grouped.append(digits.charAt(index));
             }
-            String sign = this.value < 0 ? "-" : "";
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
             String fraction = precision == 0 ? "" : (numberFormat == null ? "."
                     : numberFormat.get_NumberDecimalSeparator()) + "0".repeat(precision);
             return sign + grouped + fraction;

@@ -12,6 +12,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     private String numberGroupSeparator = ",";
     private String numberDecimalSeparator = ".";
     private int numberDecimalDigits = 2;
+    private String negativeSign = "-";
 
     public String get_NumberGroupSeparator() {
         return this.numberGroupSeparator;
@@ -40,6 +41,15 @@ public final class NumberFormatInfo implements IFormatProvider {
             throw new ArgumentOutOfRangeException("value");
         }
         this.numberDecimalDigits = value;
+    }
+
+    public String get_NegativeSign() {
+        return this.negativeSign;
+    }
+
+    public void set_NegativeSign(String value) {
+        if (value == null) throw new ArgumentNullException("value");
+        this.negativeSign = value;
     }
 
     @Override

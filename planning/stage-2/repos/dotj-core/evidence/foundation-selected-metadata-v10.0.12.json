@@ -22510,6 +22510,14 @@
     "negative": "-42:00",
     "defaultPrecision": "42:000"
   },
+  "selectedInt32NegativeSignBehavior": {
+    "customParse": -42,
+    "customSuccess": true,
+    "customValue": -42,
+    "standardSuccess": false,
+    "standardValue": 0,
+    "negativeFormat": "~42.00"
+  },
   "selectedInt32CurrencyFormatBehavior": {
     "defaultPrecision": "\u00a412,345.00",
     "zeroPrecision": "\u00a412,345",
@@ -25852,6 +25860,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "9768c7c5183b4fd7083d1bf07153a4f99b73c7d8f9cf89ec85b00ffc6833c4a9",
+  "oracleProgramSha256": "06bd38dfafe1e51333d914a4b451250640782bbb2912a1f2cc657073fc3d5ec6",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

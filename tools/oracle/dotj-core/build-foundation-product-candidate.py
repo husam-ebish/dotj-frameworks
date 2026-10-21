@@ -161,6 +161,11 @@ def main():
     assert metadata["selectedInt32ProviderFormatBehavior"] == {
         "grouped": "12_345:00", "negative": "-42:00", "defaultPrecision": "42:000",
     }
+    assert metadata["selectedInt32NegativeSignBehavior"] == {
+        "customParse": -42, "customSuccess": True, "customValue": -42,
+        "standardSuccess": False, "standardValue": 0,
+        "negativeFormat": "~42.00",
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
