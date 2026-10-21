@@ -24,6 +24,7 @@ import System.Runtime.CompilerServices.NullableAttribute;
 import System.Runtime.Serialization.ISerializable;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.StreamingContext;
+import System.Runtime.Serialization.StreamingContextStates;
 import System.Globalization.NumberStyles;
 import System.Globalization.CultureNotFoundException;
 
@@ -418,6 +419,8 @@ public abstract class Type extends MemberInfo {
             case "System.Runtime.Serialization.ISerializable" -> fromJavaClass(ISerializable.class);
             case "System.Runtime.Serialization.SerializationInfo" -> fromJavaClass(SerializationInfo.class);
             case "System.Runtime.Serialization.StreamingContext" -> fromJavaClass(StreamingContext.class);
+            case "System.Runtime.Serialization.StreamingContextStates" ->
+                    fromJavaClass(StreamingContextStates.class);
             case "System.Attribute" -> fromJavaClass(Attribute.class);
             case "System.Runtime.CompilerServices.NullableAttribute" ->
                     fromJavaClass(NullableAttribute.class);
@@ -543,6 +546,8 @@ public abstract class Type extends MemberInfo {
                     ? fromJavaClass(SerializationInfo.class) : null;
             case "system.runtime.serialization.streamingcontext" -> ignoreCase
                     ? fromJavaClass(StreamingContext.class) : null;
+            case "system.runtime.serialization.streamingcontextstates" -> ignoreCase
+                    ? fromJavaClass(StreamingContextStates.class) : null;
             case "system.attribute" -> ignoreCase ? fromJavaClass(Attribute.class) : null;
             case "system.runtime.compilerservices.nullableattribute" -> ignoreCase
                     ? fromJavaClass(NullableAttribute.class) : null;
@@ -887,6 +892,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == MemberTypes.class || this.definition == BindingFlags.class
                 || this.definition == CallingConventions.class
                 || this.definition == MethodImplAttributes.class
+                || this.definition == StreamingContextStates.class
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == ParameterAttributes.class
                 || this.definition == TypeCode.class
@@ -926,6 +932,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == BindingFlags.class
                         || this.definition == CallingConventions.class
                         || this.definition == MethodImplAttributes.class
+                        || this.definition == StreamingContextStates.class
                         || this.definition == GenericParameterAttributes.class
                         || this.definition == ParameterAttributes.class
                         || this.definition == TypeCode.class || this.definition == NumberStyles.class);
@@ -959,6 +966,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Int32.class || this.definition == Void.class
                 || this.definition == Decimal.class || this.definition == DateTime.class
                 || this.definition == StreamingContext.class
+                || this.definition == StreamingContextStates.class
                 || this.get_IsEnum();
     }
 
@@ -1106,6 +1114,7 @@ public abstract class Type extends MemberInfo {
         return this.definition == MemberTypes.class || this.definition == BindingFlags.class
                 || this.definition == CallingConventions.class
                 || this.definition == MethodImplAttributes.class
+                || this.definition == StreamingContextStates.class
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == ParameterAttributes.class
                 || this.definition == TypeCode.class
@@ -1179,6 +1188,9 @@ public abstract class Type extends MemberInfo {
             if (value instanceof MethodImplAttributes attributes) {
                 return attributes.get_Name() != null;
             }
+            if (value instanceof StreamingContextStates state) {
+                return state.get_Name() != null;
+            }
             return true;
         }
         if (value instanceof Integer number) {
@@ -1215,6 +1227,9 @@ public abstract class Type extends MemberInfo {
             if (value instanceof MethodImplAttributes attributes) {
                 return attributes.get_Name();
             }
+            if (value instanceof StreamingContextStates state) {
+                return state.get_Name();
+            }
             return ((java.lang.Enum<?>) value).name();
         }
         if (value instanceof java.lang.Enum<?> || value instanceof BindingFlags
@@ -1248,6 +1263,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == MethodImplAttributes.class) {
             return MethodImplAttributes.values();
         }
+        if (this.definition == StreamingContextStates.class) {
+            return StreamingContextStates.values();
+        }
         return this.definition.getEnumConstants();
     }
 
@@ -1263,6 +1281,9 @@ public abstract class Type extends MemberInfo {
         }
         if (constant instanceof MethodImplAttributes attributes) {
             return attributes.get_Name();
+        }
+        if (constant instanceof StreamingContextStates state) {
+            return state.get_Name();
         }
         return ((java.lang.Enum<?>) constant).name();
     }
@@ -1282,6 +1303,9 @@ public abstract class Type extends MemberInfo {
         }
         if (constant instanceof MethodImplAttributes attributes) {
             return attributes.get_Value();
+        }
+        if (constant instanceof StreamingContextStates state) {
+            return state.get_Value();
         }
         if (constant instanceof GenericParameterAttributes attributes) {
             return attributes.get_Value();

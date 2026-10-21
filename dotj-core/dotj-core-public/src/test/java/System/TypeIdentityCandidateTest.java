@@ -16,6 +16,7 @@ import System.Runtime.CompilerServices.NullableAttribute;
 import System.Runtime.Serialization.ISerializable;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.StreamingContext;
+import System.Runtime.Serialization.StreamingContextStates;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 
@@ -69,6 +70,21 @@ public final class TypeIdentityCandidateTest {
                 || dbnullType.GetInterface("System.Runtime.Serialization.ISerializable")
                     != serializableType) {
             throw new AssertionError("Selected DBNull serialization interface metadata changed");
+        }
+        Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
+        StreamingContext defaultContext = new StreamingContext();
+        StreamingContext processContext = new StreamingContext(StreamingContextStates.CrossProcess);
+        StreamingContext markerContext = new StreamingContext(StreamingContextStates.Other, "marker");
+        if (Type.GetType("System.Runtime.Serialization.StreamingContextStates") != contextStatesType
+                || !contextStatesType.get_IsEnum()
+                || contextStatesType.GetEnumNames().length != 9
+                || defaultContext.get_State().get_Value() != 0
+                || defaultContext.get_Context() != null
+                || processContext.get_State() != StreamingContextStates.CrossProcess
+                || processContext.get_Context() != null
+                || markerContext.get_State() != StreamingContextStates.Other
+                || !"marker".equals(markerContext.get_Context())) {
+            throw new AssertionError("Selected StreamingContext state changed");
         }
         try {
             ((ISerializable) DBNull.Value).GetObjectData(null, new StreamingContext());
