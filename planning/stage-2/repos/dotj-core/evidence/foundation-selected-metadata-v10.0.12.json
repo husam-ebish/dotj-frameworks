@@ -1526,6 +1526,108 @@
       "isSecurityTransparent": false
     }
   ],
+  "selectedMethodImplementationBehavior": {
+    "values": [
+      {
+        "name": "IL",
+        "value": 0
+      },
+      {
+        "name": "Managed",
+        "value": 0
+      },
+      {
+        "name": "Native",
+        "value": 1
+      },
+      {
+        "name": "OPTIL",
+        "value": 2
+      },
+      {
+        "name": "CodeTypeMask",
+        "value": 3
+      },
+      {
+        "name": "Runtime",
+        "value": 3
+      },
+      {
+        "name": "ManagedMask",
+        "value": 4
+      },
+      {
+        "name": "Unmanaged",
+        "value": 4
+      },
+      {
+        "name": "NoInlining",
+        "value": 8
+      },
+      {
+        "name": "ForwardRef",
+        "value": 16
+      },
+      {
+        "name": "Synchronized",
+        "value": 32
+      },
+      {
+        "name": "NoOptimization",
+        "value": 64
+      },
+      {
+        "name": "PreserveSig",
+        "value": 128
+      },
+      {
+        "name": "AggressiveInlining",
+        "value": 256
+      },
+      {
+        "name": "AggressiveOptimization",
+        "value": 512
+      },
+      {
+        "name": "InternalCall",
+        "value": 4096
+      },
+      {
+        "name": "Async",
+        "value": 8192
+      },
+      {
+        "name": "MaxMethodImplVal",
+        "value": 65535
+      }
+    ],
+    "methods": [
+      {
+        "owner": "System.IDisposable",
+        "name": "Dispose",
+        "value": 0,
+        "text": "IL"
+      },
+      {
+        "owner": "System.IComparable",
+        "name": "CompareTo",
+        "value": 0,
+        "text": "IL"
+      },
+      {
+        "owner": "System.IFormattable",
+        "name": "ToString",
+        "value": 0,
+        "text": "IL"
+      },
+      {
+        "owner": "System.IFormatProvider",
+        "name": "GetFormat",
+        "value": 0,
+        "text": "IL"
+      }
+    ]
+  },
   "selectedMethodNameBehavior": [
     {
       "owner": "System.IDisposable",
@@ -14785,6 +14887,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "d7f853f1a8b157a701da34eac025662192743a1a74db0073e31e0746e771d926",
+  "oracleProgramSha256": "7b1d4f2f113cbc6a26c345d23e244cc6286a844e884451afaf9e245eb9e2d210",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

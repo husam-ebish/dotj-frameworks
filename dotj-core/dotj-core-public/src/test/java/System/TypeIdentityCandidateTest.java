@@ -5,6 +5,7 @@ import java.util.Map;
 import System.Reflection.MemberTypes;
 import System.Reflection.BindingFlags;
 import System.Reflection.CallingConventions;
+import System.Reflection.MethodImplAttributes;
 import System.Reflection.MemberInfo;
 import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
@@ -37,6 +38,16 @@ public final class TypeIdentityCandidateTest {
         Type integer = Type.fromJavaClass(Integer.class);
         Type bindingFlagsType = Type.fromJavaClass(BindingFlags.class);
         Type callingConventionType = Type.fromJavaClass(CallingConventions.class);
+        Type implementationType = Type.fromJavaClass(MethodImplAttributes.class);
+        if (Type.GetType("System.Reflection.MethodImplAttributes") != implementationType
+                || !implementationType.get_IsEnum()
+                || implementationType.GetEnumValues().getClass() != MethodImplAttributes[].class
+                || implementationType.GetEnumNames().length != 18
+                || MethodImplAttributes.IL.get_Value() != 0
+                || MethodImplAttributes.Managed.get_Value() != 0
+                || MethodImplAttributes.Async.get_Value() != 8192) {
+            throw new AssertionError("Pinned method implementation values changed");
+        }
         CallingConventions standardInstance = CallingConventions.Standard.or(CallingConventions.HasThis);
         if (Type.GetType("System.Reflection.CallingConventions") != callingConventionType
                 || !callingConventionType.get_IsEnum()
@@ -183,6 +194,7 @@ public final class TypeIdentityCandidateTest {
                     || !namedMethod.get_IsSecurityCritical()
                     || namedMethod.get_IsSecuritySafeCritical()
                     || namedMethod.get_IsSecurityTransparent()
+                    || namedMethod.GetMethodImplementationFlags().get_Value() != 0
                     || namedMethod.get_IsGenericMethod()
                     || namedMethod.get_IsGenericMethodDefinition()
                     || namedMethod.get_ContainsGenericParameters()

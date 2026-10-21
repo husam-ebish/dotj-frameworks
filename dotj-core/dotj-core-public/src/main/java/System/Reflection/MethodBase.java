@@ -38,4 +38,6 @@ public abstract class MethodBase extends MemberInfo {
     public abstract boolean get_IsSecuritySafeCritical();
 
     public abstract boolean get_IsSecurityTransparent();
+
+    public abstract MethodImplAttributes GetMethodImplementationFlags();
 }
