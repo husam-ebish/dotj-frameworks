@@ -95,7 +95,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return selectedParseThousands(text, provider);
         }
         if (style == NumberStyles.Currency) {
-            return selectedParseCurrency(text, provider);
+            return selectedParseCurrencyLike(text, provider, false);
+        }
+        if (style == NumberStyles.Any) {
+            return selectedParseCurrencyLike(text, provider, true);
         }
         if (style == NumberStyles.BinaryNumber) {
             if (text == null) {
@@ -237,7 +240,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(parsed.intValue());
     }
 
-    private static Int32 selectedParseCurrency(String text, IFormatProvider provider) {
+    private static Int32 selectedParseCurrencyLike(String text, IFormatProvider provider,
+                                                    boolean allowExponent) {
         if (text == null) throw new ArgumentNullException("s");
         NumberFormatInfo format = selectedNumberFormatInfo(provider);
         String symbol = format == null ? "\u00a4" : format.get_CurrencySymbol();
@@ -279,7 +283,18 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 : format == null ? "." : format.get_NumberDecimalSeparator());
         parsingFormat.set_NegativeSign(negativeSign);
         parsingFormat.set_PositiveSign(positiveSign);
-        Int32 parsed = selectedParseNumber(leadingSign + number, parsingFormat);
+        Int32 parsed;
+        if (allowExponent && (number.indexOf('e') >= 0 || number.indexOf('E') >= 0)) {
+            String group = parsingFormat.get_NumberGroupSeparator();
+            if (!group.isEmpty() && number.startsWith(group)) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            if (!group.isEmpty()) number = number.replace(group, "");
+            parsed = selectedParseFloat(leadingSign + number, parsingFormat,
+                    NumberStyles.Float);
+        } else {
+            parsed = selectedParseNumber(leadingSign + number, parsingFormat);
+        }
         if (!parentheses) return parsed;
         if (parsed.value == Integer.MIN_VALUE) throw new OverflowException();
         return new Int32(-parsed.value);

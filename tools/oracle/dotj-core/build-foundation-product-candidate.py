@@ -276,6 +276,17 @@ def main():
          "error": None if error is None else f"System.{error}Exception"}
         for text, value, error in zip(currency_texts, currency_values, currency_errors)
     ]
+    any_texts = ["USD12_345:00", "12.345=00", "~USD12_345:00", "42e1",
+                 "4:2e1", "4=2e1", "(USD42)", "USD42e1", "USD42:5",
+                 "42:5", "42=5", "12_345", "12.345", "42plus", "USD42~",
+                 "USD42eplus1", "(42)"]
+    any_values = [12345, 12345, -12345, 420, 42, 42, -42, 420, 0, 0, 0,
+                  12345, 12345, 42, -42, 420, -42]
+    any_errors = [None] * 8 + ["System.OverflowException"] * 3 + [None] * 6
+    assert metadata["selectedInt32AnyStyle"] == [
+        {"text": text, "success": error is None, "value": value, "error": error}
+        for text, value, error in zip(any_texts, any_values, any_errors)
+    ]
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

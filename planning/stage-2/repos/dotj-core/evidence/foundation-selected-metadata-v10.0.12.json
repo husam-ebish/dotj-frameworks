@@ -22997,6 +22997,110 @@
       "error": null
     }
   ],
+  "selectedInt32AnyStyle": [
+    {
+      "text": "USD12_345:00",
+      "success": true,
+      "value": 12345,
+      "error": null
+    },
+    {
+      "text": "12.345=00",
+      "success": true,
+      "value": 12345,
+      "error": null
+    },
+    {
+      "text": "~USD12_345:00",
+      "success": true,
+      "value": -12345,
+      "error": null
+    },
+    {
+      "text": "42e1",
+      "success": true,
+      "value": 420,
+      "error": null
+    },
+    {
+      "text": "4:2e1",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": "4=2e1",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": "(USD42)",
+      "success": true,
+      "value": -42,
+      "error": null
+    },
+    {
+      "text": "USD42e1",
+      "success": true,
+      "value": 420,
+      "error": null
+    },
+    {
+      "text": "USD42:5",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "42:5",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "42=5",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "12_345",
+      "success": true,
+      "value": 12345,
+      "error": null
+    },
+    {
+      "text": "12.345",
+      "success": true,
+      "value": 12345,
+      "error": null
+    },
+    {
+      "text": "42plus",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": "USD42~",
+      "success": true,
+      "value": -42,
+      "error": null
+    },
+    {
+      "text": "USD42eplus1",
+      "success": true,
+      "value": 420,
+      "error": null
+    },
+    {
+      "text": "(42)",
+      "success": true,
+      "value": -42,
+      "error": null
+    }
+  ],
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -26332,6 +26436,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "bc84c57c2a24e3ef5450850f5b11392b409d090d7c69720fad59b02b056b7c88",
+  "oracleProgramSha256": "a0cce4ab4adf151bd24c5c8e870a7d14dd50b38b7afb3de5c77d7ce69df6f66b",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

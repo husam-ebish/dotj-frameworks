@@ -74,4 +74,6 @@ The standalone `AllowThousands`, `AllowDecimalPoint`, and `AllowExponent` `Numbe
 
 The named `NumberStyles.Currency` path now handles selected symbol placement, parentheses, custom signs, whitespace, currency or number separators, and integer-only decimal fractions. Sixteen pinned .NET 10 vectors run through packaged string and both span carriers with rejected string error types. Unmapped currency patterns and composed flags remain open.
 
+The named `NumberStyles.Any` path now combines selected currency and number separator rules with decimal, exponent, sign, grouping and parentheses parsing. Seventeen pinned .NET 10 vectors run through packaged string and both span carriers, with fractional overflow cases checked by exception type. Arbitrary composed flags and broader culture behavior remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

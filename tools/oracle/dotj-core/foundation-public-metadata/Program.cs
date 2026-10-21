@@ -836,6 +836,24 @@ static object ObserveInt32CurrencyStyle()
         "USD42e1", "  USD42  ", "USD42~", "USD42plus"];
     return ObserveInt32SingleStyle(System.Globalization.NumberStyles.Currency, texts, provider);
 }
+static object ObserveInt32AnyStyle()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        CurrencySymbol = "USD",
+        CurrencyGroupSeparator = "_",
+        CurrencyDecimalSeparator = ":",
+        NumberGroupSeparator = ".",
+        NumberDecimalSeparator = "=",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    string[] texts = ["USD12_345:00", "12.345=00", "~USD12_345:00",
+        "42e1", "4:2e1", "4=2e1", "(USD42)", "USD42e1", "USD42:5",
+        "42:5", "42=5", "12_345", "12.345", "42plus", "USD42~",
+        "USD42eplus1", "(42)"];
+    return ObserveInt32SingleStyle(System.Globalization.NumberStyles.Any, texts, provider);
+}
 static object ObserveInt32SingleStyle(System.Globalization.NumberStyles style,
     string[] texts, System.Globalization.NumberFormatInfo provider)
 {
@@ -5237,6 +5255,7 @@ var result = new
     selectedInt32FloatStyle = ObserveInt32FloatStyle(),
     selectedInt32SingleStyles = ObserveInt32SingleStyles(),
     selectedInt32CurrencyStyle = ObserveInt32CurrencyStyle(),
+    selectedInt32AnyStyle = ObserveInt32AnyStyle(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",
