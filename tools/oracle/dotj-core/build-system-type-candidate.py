@@ -33,7 +33,7 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
-                      ("ISerializable", "SerializationInfo", "StreamingContext", "StreamingContextStates")]
+                      ("IFormatterConverter", "ISerializable", "SerializationInfo", "StreamingContext", "StreamingContextStates")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
@@ -118,6 +118,23 @@ def main():
         "sameHash": True, "text": "System.Runtime.Serialization.StreamingContext",
         "defaultText": "System.Runtime.Serialization.StreamingContext",
     }
+    info_construction = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoConstructionBehavior"]
+    assert info_construction["constructors"] == [
+        ["System.Type", "System.Runtime.Serialization.IFormatterConverter"],
+        ["System.Type", "System.Runtime.Serialization.IFormatterConverter", "System.Boolean"],
+    ]
+    assert [row["name"] for row in info_construction["converterMethods"]] == [
+        "Convert", "Convert", "ToBoolean", "ToByte", "ToChar", "ToDateTime",
+        "ToDecimal", "ToDouble", "ToInt16", "ToInt32", "ToInt64", "ToSByte",
+        "ToSingle", "ToString", "ToUInt16", "ToUInt32", "ToUInt64",
+    ]
+    assert info_construction["objectType"] == info_construction["fullTypeName"] == "System.DBNull"
+    assert info_construction["memberCount"] == 0
+    assert info_construction["threeArgType"] == "System.DBNull"
+    assert info_construction["nullTypeError"] == "System.ArgumentNullException"
+    assert info_construction["nullTypeParameter"] == "type"
+    assert info_construction["nullConverterError"] == "System.ArgumentNullException"
+    assert info_construction["nullConverterParameter"] == "converter"
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
