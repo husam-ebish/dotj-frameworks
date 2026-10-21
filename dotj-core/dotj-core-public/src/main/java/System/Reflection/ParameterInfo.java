@@ -27,4 +27,12 @@ public class ParameterInfo {
     public int get_Position() {
         return this.position;
     }
+
+    public boolean get_IsOptional() {
+        return false;
+    }
+
+    public boolean get_HasDefaultValue() {
+        return false;
+    }
 }

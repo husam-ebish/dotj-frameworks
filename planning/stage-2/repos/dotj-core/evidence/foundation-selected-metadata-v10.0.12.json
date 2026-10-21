@@ -1166,6 +1166,72 @@
       }
     }
   ],
+  "selectedParameterFlagBehavior": [
+    {
+      "owner": "System.IDisposable",
+      "name": "Dispose",
+      "parameters": [
+        {
+          "position": -1,
+          "isOptional": false,
+          "hasDefaultValue": false
+        }
+      ]
+    },
+    {
+      "owner": "System.IComparable",
+      "name": "CompareTo",
+      "parameters": [
+        {
+          "position": 0,
+          "isOptional": false,
+          "hasDefaultValue": false
+        },
+        {
+          "position": -1,
+          "isOptional": false,
+          "hasDefaultValue": false
+        }
+      ]
+    },
+    {
+      "owner": "System.IFormattable",
+      "name": "ToString",
+      "parameters": [
+        {
+          "position": 0,
+          "isOptional": false,
+          "hasDefaultValue": false
+        },
+        {
+          "position": 1,
+          "isOptional": false,
+          "hasDefaultValue": false
+        },
+        {
+          "position": -1,
+          "isOptional": false,
+          "hasDefaultValue": false
+        }
+      ]
+    },
+    {
+      "owner": "System.IFormatProvider",
+      "name": "GetFormat",
+      "parameters": [
+        {
+          "position": 0,
+          "isOptional": false,
+          "hasDefaultValue": false
+        },
+        {
+          "position": -1,
+          "isOptional": false,
+          "hasDefaultValue": false
+        }
+      ]
+    }
+  ],
   "selectedMethodNameBehavior": [
     {
       "owner": "System.IDisposable",
@@ -14425,6 +14491,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "02afb0b4ebd0b2fda08a2a64d65152907f213dc45379b1255ccfc9005bf1233e",
+  "oracleProgramSha256": "b52218b099d79ba297c99c405eaa2590f13b4d17aed2deb1c68649d1e0acca21",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

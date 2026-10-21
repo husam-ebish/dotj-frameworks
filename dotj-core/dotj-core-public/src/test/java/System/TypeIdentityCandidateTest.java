@@ -165,6 +165,8 @@ public final class TypeIdentityCandidateTest {
             ParameterInfo returnParameter = namedMethod.get_ReturnParameter();
             if (returnParameter.get_ParameterType() != interfaceMethodReturns[index]
                     || returnParameter.get_Position() != -1
+                    || returnParameter.get_IsOptional()
+                    || returnParameter.get_HasDefaultValue()
                     || !java.util.Objects.equals(returnParameter.get_Name(),
                         index == 2 ? "" : null)
                     || returnParameter == namedMethod.get_ReturnParameter()) {
@@ -182,6 +184,10 @@ public final class TypeIdentityCandidateTest {
                             != interfaceMethodParameters[index][parameterIndex]
                         || parameters[parameterIndex].get_Position() != parameterIndex) {
                     throw new AssertionError("Selected method parameter metadata changed");
+                }
+                if (parameters[parameterIndex].get_IsOptional()
+                        || parameters[parameterIndex].get_HasDefaultValue()) {
+                    throw new AssertionError("Selected parameter default flags changed");
                 }
             }
             if (!interfaceMethodNames[index].equals(

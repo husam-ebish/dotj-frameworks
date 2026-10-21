@@ -1015,6 +1015,16 @@ var result = new
         parameter = new { name = item.Item1.GetMethod(item.Item2)!.ReturnParameter.Name,
             type = item.Item1.GetMethod(item.Item2)!.ReturnParameter.ParameterType.FullName,
             position = item.Item1.GetMethod(item.Item2)!.ReturnParameter.Position } }).ToArray(),
+    selectedParameterFlagBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        parameters = item.Item1.GetMethod(item.Item2)!.GetParameters()
+            .Append(item.Item1.GetMethod(item.Item2)!.ReturnParameter)
+            .Select(parameter => new { position = parameter.Position,
+                isOptional = parameter.IsOptional, hasDefaultValue = parameter.HasDefaultValue })
+            .ToArray() }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
