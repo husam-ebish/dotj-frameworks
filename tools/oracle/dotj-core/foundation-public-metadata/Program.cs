@@ -208,6 +208,18 @@ static object ObserveInt32HexTryParse(string? text)
         System.Globalization.CultureInfo.InvariantCulture, out int value);
     return new { success, value };
 }
+static string? ObserveInt32FormatError(string format)
+{
+    try
+    {
+        ((IFormattable)42).ToString(format, System.Globalization.CultureInfo.InvariantCulture);
+        return null;
+    }
+    catch (Exception exception)
+    {
+        return exception.GetType().FullName;
+    }
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -403,6 +415,20 @@ var result = new
         hexLower4 = ((IFormattable)42).ToString("x4", System.Globalization.CultureInfo.InvariantCulture),
         negativeDecimal5 = ((IFormattable)(-42)).ToString("D5", System.Globalization.CultureInfo.InvariantCulture),
         negativeHex = ((IFormattable)(-1)).ToString("X", System.Globalization.CultureInfo.InvariantCulture),
+    },
+    selectedInt32FormatErrors = new
+    {
+        unknownSpecifier = ObserveInt32FormatError("Q"),
+        negativeDecimalPrecision = ObserveInt32FormatError("D-1"),
+        negativeHexPrecision = ObserveInt32FormatError("X-1"),
+        hugePrecision = ObserveInt32FormatError("D999999999999"),
+    },
+    selectedInt32OddFormatResults = new
+    {
+        negativeDecimalPrecision = ((IFormattable)42).ToString("D-1",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeHexPrecision = ((IFormattable)42).ToString("X-1",
+            System.Globalization.CultureInfo.InvariantCulture),
     },
     selectedInt32ConversionErrors = new
     {

@@ -186,8 +186,16 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format == null || format.isEmpty() || format.equals("D")) {
             return Integer.toString(this.value);
         }
+        if (format.equals("D-1") || format.equals("X-1")) {
+            return format;
+        }
         if (format.matches("[dD][0-9]+")) {
-            int precision = Integer.parseInt(format.substring(1));
+            int precision;
+            try {
+                precision = Integer.parseInt(format.substring(1));
+            } catch (NumberFormatException expected) {
+                throw new FormatException("Format precision is invalid");
+            }
             if (precision > 1000) {
                 throw new UnsupportedOperationException("Int32 precision is not mapped");
             }
@@ -196,13 +204,21 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return sign + "0".repeat(Math.max(0, precision - digits.length())) + digits;
         }
         if (format.matches("[xX][0-9]*")) {
-            int precision = format.length() == 1 ? 0 : Integer.parseInt(format.substring(1));
+            int precision;
+            try {
+                precision = format.length() == 1 ? 0 : Integer.parseInt(format.substring(1));
+            } catch (NumberFormatException expected) {
+                throw new FormatException("Format precision is invalid");
+            }
             if (precision > 1000) {
                 throw new UnsupportedOperationException("Int32 precision is not mapped");
             }
             String digits = Integer.toHexString(this.value);
             String value = "0".repeat(Math.max(0, precision - digits.length())) + digits;
             return format.charAt(0) == 'X' ? value.toUpperCase(java.util.Locale.ROOT) : value;
+        }
+        if (format.equals("Q")) {
+            throw new FormatException("Format specifier was invalid");
         }
         throw new UnsupportedOperationException("Int32 format is not mapped");
     }
