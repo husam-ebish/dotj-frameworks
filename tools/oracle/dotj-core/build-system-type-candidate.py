@@ -246,6 +246,11 @@ def main():
     assert general_formats == {"defaultFormat": "42", "paddedPrecision": "42",
                                "lowerCase": "42", "zeroPrecision": "42",
                                "negative": "-42"}
+    binary_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32BinaryFormatBehavior"]
+    assert binary_formats == {"binary": "101010", "binary8": "00101010",
+                              "lowerCase": "00101010",
+                              "negative": "11111111111111111111111111111111",
+                              "roundTripError": None, "roundTripResult": "42"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

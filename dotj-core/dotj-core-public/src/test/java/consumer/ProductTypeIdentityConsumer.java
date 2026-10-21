@@ -443,6 +443,14 @@ public final class ProductTypeIdentityConsumer {
                 || !"-42".equals(new Int32(-42).ToString("G5", provider))) {
             throw new AssertionError("Selected Int32 general format changed");
         }
+        if (!"101010".equals(int32Value.ToString("B", provider))
+                || !"00101010".equals(int32Value.ToString("B8", provider))
+                || !"00101010".equals(int32Value.ToString("b8", provider))
+                || !"11111111111111111111111111111111".equals(
+                        new Int32(-1).ToString("B", provider))
+                || !"42".equals(int32Value.ToString("R", provider))) {
+            throw new AssertionError("Selected Int32 binary/round-trip format changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
