@@ -40,4 +40,6 @@ The formatting carrier now accepts a `ReadOnlySpan<Character>` format view and r
 
 The selected heap carriers now use typed `OfChars` and `OfUtf8Bytes` factories with private array constructors. A [compiled factory audit](evidence/span-factory-types-v1.json) checks all four factory shapes and proves that four mismatched assignments fail Java compilation. Raw types and casts can still bypass Java generic checks; this does not implement CLR span lifetime or `.j` overload resolution.
 
+A selected `System.Globalization.NumberFormatInfo` candidate now supplies group separator, decimal separator and default decimal digits to `Int32` `N` formatting through `IFormatProvider.GetFormat`. The pinned .NET oracle records `12_345:00`, `-42:00` and `42:000`; the packaged Java consumer checks ordinary `ToString` plus Char and UTF-8 Byte span formatting for each. Other format specifiers, provider objects and full culture behavior remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

@@ -540,6 +540,21 @@ static object ObserveUtf8SpanFormat(int value, int length)
     return new { success, bytesWritten,
         text = System.Text.Encoding.UTF8.GetString(destination[..bytesWritten]) };
 }
+static object ObserveInt32ProviderFormat()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = ":",
+        NumberDecimalDigits = 3,
+    };
+    return new
+    {
+        grouped = ((IFormattable)12345).ToString("N2", provider),
+        negative = ((IFormattable)(-42)).ToString("N2", provider),
+        defaultPrecision = ((IFormattable)42).ToString("N", provider),
+    };
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -4903,6 +4918,7 @@ var result = new
         defaultPrecision = ((IFormattable)42).ToString("N",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32ProviderFormatBehavior = ObserveInt32ProviderFormat(),
     selectedInt32CurrencyFormatBehavior = new
     {
         defaultPrecision = ((IFormattable)12345).ToString("C",

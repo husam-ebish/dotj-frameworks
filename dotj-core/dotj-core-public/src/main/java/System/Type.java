@@ -38,6 +38,7 @@ import System.Collections.DictionaryEntry;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Globalization.NumberStyles;
+import System.Globalization.NumberFormatInfo;
 import System.Globalization.CultureNotFoundException;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
@@ -503,6 +504,7 @@ public abstract class Type extends MemberInfo {
             case "System.IO.FileLoadException" -> fromJavaClass(FileLoadException.class);
             case "System.FormatException" -> fromJavaClass(FormatException.class);
             case "System.Globalization.NumberStyles" -> fromJavaClass(NumberStyles.class);
+            case "System.Globalization.NumberFormatInfo" -> fromJavaClass(NumberFormatInfo.class);
             case "System.Globalization.CultureNotFoundException" -> fromJavaClass(CultureNotFoundException.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Reflection.BindingFlags" -> fromJavaClass(BindingFlags.class);
@@ -663,6 +665,8 @@ public abstract class Type extends MemberInfo {
             case "system.io.fileloadexception" -> ignoreCase ? fromJavaClass(FileLoadException.class) : null;
             case "system.formatexception" -> ignoreCase ? fromJavaClass(FormatException.class) : null;
             case "system.globalization.numberstyles" -> ignoreCase ? fromJavaClass(NumberStyles.class) : null;
+            case "system.globalization.numberformatinfo" ->
+                    ignoreCase ? fromJavaClass(NumberFormatInfo.class) : null;
             case "system.globalization.culturenotfoundexception" -> ignoreCase
                     ? fromJavaClass(CultureNotFoundException.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
