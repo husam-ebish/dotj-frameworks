@@ -520,6 +520,10 @@ static string? ObserveMethodArgumentName(Action operation)
     {
         return exception.ParamName;
     }
+    catch (Exception)
+    {
+        return null;
+    }
 }
 static object ObserveSpanFormat(int value, int length)
 {
@@ -753,6 +757,23 @@ var result = new
         convertibleAssignable = typeof(IConvertible).IsAssignableFrom(typeof(DBNull)),
         convertibleInstance = typeof(IConvertible).IsInstanceOfType(DBNull.Value),
         convertibleInterface = typeof(DBNull).GetInterface("System.IConvertible")?.FullName,
+    },
+    selectedDBNullSerializationContractBehavior = new
+    {
+        interfaceName = typeof(System.Runtime.Serialization.ISerializable).FullName,
+        methodName = typeof(System.Runtime.Serialization.ISerializable)
+            .GetMethods().Single().Name,
+        parameterTypes = typeof(System.Runtime.Serialization.ISerializable)
+            .GetMethods().Single().GetParameters()
+            .Select(parameter => parameter.ParameterType.FullName).ToArray(),
+        infoBase = typeof(System.Runtime.Serialization.SerializationInfo).BaseType?.FullName,
+        contextBase = typeof(System.Runtime.Serialization.StreamingContext).BaseType?.FullName,
+        nullInfoError = ObserveMethodError(() =>
+            ((System.Runtime.Serialization.ISerializable)DBNull.Value)
+                .GetObjectData(null!, default)),
+        nullInfoParameter = ObserveMethodArgumentName(() =>
+            ((System.Runtime.Serialization.ISerializable)DBNull.Value)
+                .GetObjectData(null!, default)),
     },
     selectedExceptionToStringBehavior = new
     {

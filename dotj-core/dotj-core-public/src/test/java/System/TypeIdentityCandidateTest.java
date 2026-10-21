@@ -13,6 +13,9 @@ import System.Reflection.MethodInfo;
 import System.Reflection.ParameterInfo;
 import System.Reflection.ParameterAttributes;
 import System.Runtime.CompilerServices.NullableAttribute;
+import System.Runtime.Serialization.ISerializable;
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.StreamingContext;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 
@@ -49,6 +52,30 @@ public final class TypeIdentityCandidateTest {
         IConvertible convertibleNull = DBNull.Value;
         Type convertibleType = Type.fromJavaClass(IConvertible.class);
         Type dbnullType = Type.fromJavaClass(DBNull.class);
+        Type serializableType = Type.fromJavaClass(ISerializable.class);
+        Type[] dbnullInterfaces = dbnullType.GetInterfaces();
+        if (Type.GetType("System.Runtime.Serialization.ISerializable") != serializableType
+                || !serializableType.get_IsInterface()
+                || Type.GetType("System.Runtime.Serialization.SerializationInfo")
+                    != Type.fromJavaClass(SerializationInfo.class)
+                || Type.GetType("System.Runtime.Serialization.StreamingContext")
+                    != Type.fromJavaClass(StreamingContext.class)
+                || !Type.fromJavaClass(StreamingContext.class).get_IsValueType()
+                || dbnullInterfaces.length != 2
+                || dbnullInterfaces[0] != serializableType
+                || dbnullInterfaces[1] != convertibleType
+                || !serializableType.IsAssignableFrom(dbnullType)
+                || !serializableType.IsInstanceOfType(DBNull.Value)
+                || dbnullType.GetInterface("System.Runtime.Serialization.ISerializable")
+                    != serializableType) {
+            throw new AssertionError("Selected DBNull serialization interface metadata changed");
+        }
+        try {
+            ((ISerializable) DBNull.Value).GetObjectData(null, new StreamingContext());
+            throw new AssertionError("Null DBNull serialization info was accepted");
+        } catch (NullReferenceException expected) {
+            // Pinned null-info failure type.
+        }
         if (!convertibleType.IsAssignableFrom(dbnullType)
                 || !convertibleType.IsInstanceOfType(DBNull.Value)
                 || dbnullType.GetInterface("System.IConvertible") != convertibleType
