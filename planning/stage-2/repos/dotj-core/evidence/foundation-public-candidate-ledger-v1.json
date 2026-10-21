@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "d51d25ed834517161988e3e0e32b8515ffeb0ff3b577acd3e39ba30e2884dc1b",
+  "candidateJarSha256": "0b84b6e477467de8f19564d6408d35dd8d9b7678db1a9a6329d3fd23d07b7d78",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -394,9 +394,10 @@
         "public abstract java.lang.String get_Name();",
         "public abstract System.Reflection.MemberTypes get_MemberType();",
         "public abstract System.Type get_DeclaringType();",
-        "public abstract System.Type get_ReflectedType();"
+        "public abstract System.Type get_ReflectedType();",
+        "public boolean get_IsCollectible();"
       ],
-      "disposition": "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties",
+      "disposition": "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties and selected collectibility",
       "qualified": false
     },
     {

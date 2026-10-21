@@ -1720,6 +1720,13 @@ var result = new
         declaringType = type.DeclaringType?.FullName,
         reflectedType = type.ReflectedType?.FullName,
     }).ToArray(),
+    selectedMemberCollectibilityBehavior = new
+    {
+        stringType = typeof(string).IsCollectible,
+        genericListType = typeof(List<string>).IsCollectible,
+        disposableMethod = typeof(IDisposable).GetMethod("Dispose")!.IsCollectible,
+        stringCharsProperty = typeof(string).GetProperty("Chars")!.IsCollectible,
+    },
     selectedNestedOwnerBehavior = new[]
     {
         typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],

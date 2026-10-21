@@ -16,4 +16,8 @@ public abstract class MemberInfo {
     public abstract Type get_DeclaringType();
 
     public abstract Type get_ReflectedType();
+
+    public boolean get_IsCollectible() {
+        return false;
+    }
 }

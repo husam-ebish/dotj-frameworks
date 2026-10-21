@@ -110,10 +110,11 @@ def main():
             assert declarations == ["public abstract java.lang.String get_Name();",
                                     "public abstract System.Reflection.MemberTypes get_MemberType();",
                                     "public abstract System.Type get_DeclaringType();",
-                                    "public abstract System.Type get_ReflectedType();"]
+                                    "public abstract System.Type get_ReflectedType();",
+                                    "public boolean get_IsCollectible();"]
             assert upstream["nameGetterIsAbstract"]
             assert upstream["declaringGetterIsAbstract"] and upstream["reflectedGetterIsAbstract"]
-            disposition = "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties"
+            disposition = "PARTIAL_MEMBERINFO_SURFACE; four selected abstract properties and selected collectibility"
         elif name == "System.Reflection.MemberTypes":
             assert header == "public final class System.Reflection.MemberTypes {"
             assert "public int get_Value();" in declarations
