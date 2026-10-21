@@ -81,6 +81,18 @@ public final class TypeIdentityCandidateTest {
                 }
             }
         }
+        for (Type securityType : new Type[] {string, integer,
+                Type.fromJavaClass(TypeCode.class), Type.fromJavaClass(IDisposable.class),
+                Type.fromJavaClass(Type.class), Type.fromJavaClass(Exception.class),
+                Type.fromJavaClass(List.class),
+                Type.fromJavaClass(List.class).GetGenericArguments()[0],
+                string.MakeArrayType(), string.MakeByRefType()}) {
+            if (!securityType.get_IsSecurityCritical()
+                    || securityType.get_IsSecuritySafeCritical()
+                    || securityType.get_IsSecurityTransparent()) {
+                throw new AssertionError("Selected Type security transparency flags changed");
+            }
+        }
         if (string.get_IsSpecialName()
                 || Type.fromJavaClass(TypeCode.class).get_IsSpecialName()
                 || Type.fromJavaClass(List.class).get_IsSpecialName()

@@ -774,6 +774,16 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedSecurityTransparencyBehavior = new[]
+    {
+        typeof(string), typeof(int), typeof(TypeCode), typeof(IDisposable),
+        typeof(Type), typeof(Exception), typeof(List<>),
+        typeof(List<>).GetGenericArguments()[0], typeof(string[]),
+        typeof(string).MakeByRefType(),
+    }.Select(type => new { name = type.FullName ?? type.Name,
+        isSecurityCritical = type.IsSecurityCritical,
+        isSecuritySafeCritical = type.IsSecuritySafeCritical,
+        isSecurityTransparent = type.IsSecurityTransparent }).ToArray(),
     selectedFunctionPointerFlagBehavior = new[]
     {
         typeof(string), typeof(int), typeof(TypeCode), typeof(IDisposable),
