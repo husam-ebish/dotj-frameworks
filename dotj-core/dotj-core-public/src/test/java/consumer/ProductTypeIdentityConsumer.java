@@ -529,6 +529,14 @@ public final class ProductTypeIdentityConsumer {
         } catch (FileLoadException expected) {
             // Selected pinned assembly name parse error.
         }
+        if (Type.GetType("System.String, SYSTEM.PRIVATE.CORELIB") != string
+                || Type.GetType("System.String, SyStEm.PrIvAtE.CoReLiB") != string
+                || Type.GetType("System.String, System.Prıvate.CoreLib") != null
+                || Type.GetType("System.String, System.Prİvate.CoreLib") != null
+                || Type.GetType("System.String, Systém.Private.CoreLib") != null
+                || Type.GetType("System.String, ｍscorlib") != null) {
+            throw new AssertionError("Selected assembly Unicode casing changed");
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

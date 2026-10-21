@@ -909,6 +909,15 @@ var result = new
         slash = ObserveGetType("System.String, System.Private.CoreLib/Extra", false, false),
         canonicalWithVersion = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2", false, false),
     },
+    selectedAssemblyUnicodeCaseBehavior = new
+    {
+        asciiUpper = ObserveGetType("System.String, SYSTEM.PRIVATE.CORELIB", false, false),
+        asciiMixed = ObserveGetType("System.String, SyStEm.PrIvAtE.CoReLiB", false, false),
+        dotlessI = ObserveGetType("System.String, System.Prıvate.CoreLib", false, false),
+        dottedUpperI = ObserveGetType("System.String, System.Prİvate.CoreLib", false, false),
+        accentedE = ObserveGetType("System.String, Systém.Private.CoreLib", false, false),
+        fullwidthM = ObserveGetType("System.String, ｍscorlib", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
