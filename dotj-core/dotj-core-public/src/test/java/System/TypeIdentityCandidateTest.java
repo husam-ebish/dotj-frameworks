@@ -181,6 +181,26 @@ public final class TypeIdentityCandidateTest {
                 || !(entries instanceof IEnumerator)) {
             throw new AssertionError("Selected serialization enumerator interface changed");
         }
+        Type entryType = Type.fromJavaClass(SerializationEntry.class);
+        if (!entryType.get_IsValueType()
+                || entryType.get_BaseType() != Type.GetType("System.ValueType")
+                || SerializationEntry.class.getConstructors().length != 0) {
+            throw new AssertionError("Selected SerializationEntry type shape changed");
+        }
+        try {
+            var constructor = SerializationEntry.class.getDeclaredConstructor();
+            constructor.setAccessible(true);
+            SerializationEntry defaultEntry = constructor.newInstance();
+            if (defaultEntry.get_Name() != null || defaultEntry.get_ObjectType() != null
+                    || defaultEntry.get_Value() != null
+                    || SerializationEntry.class.getDeclaredMethod("get_Name").getReturnType() != String.class
+                    || SerializationEntry.class.getDeclaredMethod("get_ObjectType").getReturnType() != Type.class
+                    || SerializationEntry.class.getDeclaredMethod("get_Value").getReturnType() != Object.class) {
+                throw new AssertionError("Selected SerializationEntry defaults changed");
+            }
+        } catch (ReflectiveOperationException failure) {
+            throw new AssertionError("Selected SerializationEntry metadata unavailable", failure);
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")

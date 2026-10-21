@@ -1118,6 +1118,23 @@ static object ObserveSerializationInfoEnumeratorInterface()
             is System.Collections.IEnumerator,
     };
 }
+static object ObserveSerializationEntryShape()
+{
+    var type = typeof(System.Runtime.Serialization.SerializationEntry);
+    var empty = default(System.Runtime.Serialization.SerializationEntry);
+    return new
+    {
+        baseType = type.BaseType?.FullName,
+        isValueType = type.IsValueType,
+        publicConstructorCount = type.GetConstructors(BindingFlags.Public | BindingFlags.Instance).Length,
+        properties = type.GetProperties(BindingFlags.Public | BindingFlags.Instance
+            | BindingFlags.DeclaredOnly).Select(property => new { name = property.Name,
+                type = property.PropertyType.FullName }).OrderBy(property => property.name).ToArray(),
+        defaultName = empty.Name,
+        defaultObjectType = empty.ObjectType?.FullName,
+        defaultValue = empty.Value,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1267,6 +1284,7 @@ var result = new
     selectedSerializationInfoMemberNamesBehavior = ObserveSerializationInfoMemberNames(),
     selectedSerializationInfoEnumeratorResetCyclesBehavior = ObserveSerializationInfoEnumeratorResetCycles(),
     selectedSerializationInfoEnumeratorInterfaceBehavior = ObserveSerializationInfoEnumeratorInterface(),
+    selectedSerializationEntryShapeBehavior = ObserveSerializationEntryShape(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

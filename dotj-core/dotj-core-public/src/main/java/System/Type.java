@@ -915,7 +915,8 @@ public abstract class Type extends MemberInfo {
             return fromJavaClass(Number.class);
         }
         if (this.definition == Decimal.class || this.definition == DateTime.class
-                || this.definition == StreamingContext.class) {
+                || this.definition == StreamingContext.class
+                || this.definition == SerializationEntry.class) {
             return fromJavaClass(Number.class);
         }
         if (this.definition == MemberTypes.class || this.definition == BindingFlags.class
@@ -957,6 +958,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == Decimal.class
                         || this.definition == DateTime.class
                         || this.definition == StreamingContext.class
+                        || this.definition == SerializationEntry.class
                         || this.definition == MemberTypes.class
                         || this.definition == BindingFlags.class
                         || this.definition == CallingConventions.class

@@ -10,7 +10,11 @@ public final class SerializationEntry {
     private final Type objectType;
     private final Object value;
 
-    public SerializationEntry(String name, Type objectType, Object value) {
+    SerializationEntry() {
+        this(null, null, null);
+    }
+
+    SerializationEntry(String name, Type objectType, Object value) {
         this.name = name;
         this.objectType = objectType;
         this.value = value;
