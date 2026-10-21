@@ -497,6 +497,18 @@ static object ObserveMethodFlagsParameters(Type type, string? name, BindingFlags
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static string? ObserveMethodError(Action operation)
+{
+    try
+    {
+        operation();
+        return null;
+    }
+    catch (Exception exception)
+    {
+        return exception.GetType().FullName;
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -1131,6 +1143,15 @@ var result = new
         (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
     }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
         text = item.Item1.GetMethod(item.Item2)!.ToString() }).ToArray(),
+    selectedNongenericMethodErrorBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        definitionError = ObserveMethodError(() => item.Item1.GetMethod(item.Item2)!
+            .GetGenericMethodDefinition()),
+        instantiationError = ObserveMethodError(() => item.Item1.GetMethod(item.Item2)!
+            .MakeGenericMethod(Type.EmptyTypes)) }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

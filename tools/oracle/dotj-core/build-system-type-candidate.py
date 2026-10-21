@@ -430,6 +430,14 @@ def main():
          "System.String ToString(System.String, System.IFormatProvider)"),
         ("System.IFormatProvider", "GetFormat", "System.Object GetFormat(System.Type)"),
     ]
+    nongeneric_errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNongenericMethodErrorBehavior"]
+    assert [(row["owner"], row["name"]) for row in nongeneric_errors] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(row["definitionError"] == "System.InvalidOperationException"
+               and row["instantiationError"] == "System.InvalidOperationException"
+               for row in nongeneric_errors)
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

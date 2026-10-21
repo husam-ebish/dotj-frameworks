@@ -1708,6 +1708,32 @@
       "text": "System.Object GetFormat(System.Type)"
     }
   ],
+  "selectedNongenericMethodErrorBehavior": [
+    {
+      "owner": "System.IDisposable",
+      "name": "Dispose",
+      "definitionError": "System.InvalidOperationException",
+      "instantiationError": "System.InvalidOperationException"
+    },
+    {
+      "owner": "System.IComparable",
+      "name": "CompareTo",
+      "definitionError": "System.InvalidOperationException",
+      "instantiationError": "System.InvalidOperationException"
+    },
+    {
+      "owner": "System.IFormattable",
+      "name": "ToString",
+      "definitionError": "System.InvalidOperationException",
+      "instantiationError": "System.InvalidOperationException"
+    },
+    {
+      "owner": "System.IFormatProvider",
+      "name": "GetFormat",
+      "definitionError": "System.InvalidOperationException",
+      "instantiationError": "System.InvalidOperationException"
+    }
+  ],
   "selectedMethodNameBehavior": [
     {
       "owner": "System.IDisposable",
@@ -14967,6 +14993,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "324739453a3e4ef5ee2eae8b6ece96a5d802564c543f28ab310273b8f7b2ff66",
+  "oracleProgramSha256": "303323b8eedb016ff5916a3f0850cc996d531a1d5877817418d88ad245deb4e4",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

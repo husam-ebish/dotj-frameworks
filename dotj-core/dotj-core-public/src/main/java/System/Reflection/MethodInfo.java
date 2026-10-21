@@ -3,6 +3,7 @@
 package System.Reflection;
 
 import System.Type;
+import System.InvalidOperationException;
 
 /** Bounded method reflection descriptor. */
 public abstract class MethodInfo extends MethodBase {
@@ -24,6 +25,14 @@ public abstract class MethodInfo extends MethodBase {
     public abstract MethodInfo GetBaseDefinition();
 
     public abstract String ToString();
+
+    public MethodInfo GetGenericMethodDefinition() {
+        throw new InvalidOperationException("Method is not generic");
+    }
+
+    public MethodInfo MakeGenericMethod(Type[] typeArguments) {
+        throw new InvalidOperationException("Method is not a generic method definition");
+    }
 
     @Override
     public final String toString() {
