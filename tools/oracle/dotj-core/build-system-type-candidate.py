@@ -69,6 +69,7 @@ def main():
         "System.Type GetEnumUnderlyingType()",
         "System.String[] GetEnumNames()",
         "System.Array GetEnumValues()",
+        "System.Array GetEnumValuesAsUnderlyingType()",
         "Boolean IsEnumDefined(System.Object)",
         "System.String GetEnumName(System.Object)",
         "Boolean IsAssignableFrom(System.Type)",
@@ -284,6 +285,16 @@ def main():
         }
     assert enum_values["nonEnum"] == {
         "arrayType": None, "names": None, "values": None,
+        "exception": "System.ArgumentException", "paramName": "enumType",
+    }
+    underlying_values = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumUnderlyingValuesBehavior"]
+    for key in ("typeCode", "memberTypes", "numberStyles"):
+        assert underlying_values[key] == {
+            "arrayType": "System.Int32[]", "values": enum_values[key]["values"],
+            "exception": None, "paramName": None,
+        }
+    assert underlying_values["nonEnum"] == {
+        "arrayType": None, "values": None,
         "exception": "System.ArgumentException", "paramName": "enumType",
     }
     assert enum_names == {
@@ -1405,6 +1416,7 @@ def main():
         "public System.Type GetEnumUnderlyingType();",
         "public java.lang.String[] GetEnumNames();",
         "public java.lang.Object[] GetEnumValues();",
+        "public int[] GetEnumValuesAsUnderlyingType();",
         "public boolean IsEnumDefined(java.lang.Object);",
         "public java.lang.String GetEnumName(java.lang.Object);",
         "public boolean IsAssignableTo(System.Type);",

@@ -187,7 +187,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "55adb4af39093e1674599b869b39a0a9abe14764e95536170089ff6f1047b431",
+  "sourceSha256": "8fcff1c9e078870b802e1b992003abef5c61430559ef2723c65fddde70c6a402",
   "idisposableSourceSha256": "03e7907bdd9aeb3d00e1c58a793446bea5baaf7174e544ba505a220e898da140",
   "icomparableSourceSha256": "6bcbfe9ce519dce4068cb4531bb3dbc3f044b4c9925d011016405e66b2cccc95",
   "iformattableSourceSha256": "5f594291b15b45d4f82e4dfb54a96a6dfdcef3e25fcb5ffcb1ad38eca791fd97",
@@ -290,7 +290,7 @@
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
-  "testSha256": "bae50f5d8da95c17313df0c018816648a7a4a0aeab65747e4009ec508a0dc6af",
+  "testSha256": "3ca26367cd1a39141bb54009004dee819396ae4e3621cf21c5e138f8cf52ed4c",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
   "externalConsumerSha256": "6892386892de73b6282e15c626cbc2427058b55b1f4f133dbefaef2e3440472a",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
@@ -332,6 +332,7 @@
     "public System.Type GetEnumUnderlyingType();",
     "public java.lang.String[] GetEnumNames();",
     "public java.lang.Object[] GetEnumValues();",
+    "public int[] GetEnumValuesAsUnderlyingType();",
     "public boolean IsEnumDefined(java.lang.Object);",
     "public java.lang.String GetEnumName(java.lang.Object);",
     "public boolean IsAssignableTo(System.Type);",
