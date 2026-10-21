@@ -978,6 +978,38 @@
       "nonPublicInstance": []
     }
   ],
+  "selectedNestedTypeFlagsBehavior": {
+    "publicChild": {
+      "result": "PublicChild",
+      "exception": null,
+      "paramName": null
+    },
+    "publicChildNonPublic": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "privateChild": {
+      "result": "PrivateChild",
+      "exception": null,
+      "paramName": null
+    },
+    "privateChildPublic": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "ignoreCase": {
+      "result": "PublicChild",
+      "exception": null,
+      "paramName": null
+    },
+    "nullName": {
+      "result": null,
+      "exception": "System.ArgumentNullException",
+      "paramName": "fullname"
+    }
+  },
   "selectedCustomModifierBehavior": [
     {
       "name": "System.String",
@@ -13945,6 +13977,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "90a0290b2777685b76f7c462455ce0f2586a7d52c80a62366dfcadfe8393e657",
+  "oracleProgramSha256": "23f2320a4dfea2701f032f553ab3dc3551a281d616ec4c692f8691aea8296b93",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

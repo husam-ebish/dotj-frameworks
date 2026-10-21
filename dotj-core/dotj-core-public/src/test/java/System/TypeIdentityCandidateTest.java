@@ -22,6 +22,9 @@ public final class TypeIdentityCandidateTest {
     private static final class PrivateOwnerFixture {
         public static final class PublicChild {
         }
+
+        private static final class PrivateChild {
+        }
     }
 
     public static void main(String[] args) {
@@ -646,6 +649,26 @@ public final class TypeIdentityCandidateTest {
             throw new AssertionError("Selected nested assembly visibility changed");
         }
         Type nestedPrivate = Type.fromJavaClass(NestedPrivateFixture.class);
+        Type nestedFixture = Type.fromJavaClass(PrivateOwnerFixture.class);
+        if (nestedFixture.GetNestedType("PublicChild", BindingFlags.Public)
+                    != Type.fromJavaClass(PrivateOwnerFixture.PublicChild.class)
+                || nestedFixture.GetNestedType("PublicChild", BindingFlags.NonPublic) != null
+                || nestedFixture.GetNestedType("PrivateChild", BindingFlags.NonPublic)
+                    != Type.fromJavaClass(PrivateOwnerFixture.PrivateChild.class)
+                || nestedFixture.GetNestedType("PrivateChild", BindingFlags.Public) != null
+                || nestedFixture.GetNestedType("publicchild",
+                    BindingFlags.Public.or(BindingFlags.IgnoreCase))
+                    != Type.fromJavaClass(PrivateOwnerFixture.PublicChild.class)) {
+            throw new AssertionError("Selected flagged nested-type lookup changed");
+        }
+        try {
+            nestedFixture.GetNestedType(null, BindingFlags.Public);
+            throw new AssertionError("Null flagged nested name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"fullname".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null flagged nested name parameter changed", expected);
+            }
+        }
         if (string.get_IsNestedPrivate() || list.GetGenericArguments()[0].get_IsNestedPrivate()
                 || nestedEntry.get_IsNestedPrivate() || nestedAssembly.get_IsNestedPrivate()
                 || !nestedPrivate.get_IsNestedPrivate() || !nestedPrivate.get_IsNested()) {

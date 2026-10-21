@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "c9b6acd84822e2f3e1cd160c61917afecbf9c6b4976c7c6500be71ed16eb901e",
+  "candidateJarSha256": "28369c49a0aedef17da36255cd2eb528db90cee9503d29a6d99c658c11342670",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -337,6 +337,7 @@
         "public System.Type[] GetInterfaces();",
         "public System.Type GetInterface(java.lang.String);",
         "public System.Type GetNestedType(java.lang.String);",
+        "public System.Type GetNestedType(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Type[] GetNestedTypes();",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",

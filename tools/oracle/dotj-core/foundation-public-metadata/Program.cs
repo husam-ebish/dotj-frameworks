@@ -280,6 +280,19 @@ static object ObserveNestedType(Type type, string? name)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveNestedTypeFlags(Type type, string? name, BindingFlags flags)
+{
+    try
+    {
+        return new { result = type.GetNestedType(name!, flags)?.Name,
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveEnumNames(Type type)
 {
     try
@@ -865,6 +878,15 @@ var result = new
         publicOnly = ObserveMembersFlags(type, BindingFlags.Public),
         nonPublicInstance = ObserveMembersFlags(type, BindingFlags.NonPublic | BindingFlags.Instance),
     }).ToArray(),
+    selectedNestedTypeFlagsBehavior = new
+    {
+        publicChild = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PublicChild", BindingFlags.Public),
+        publicChildNonPublic = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PublicChild", BindingFlags.NonPublic),
+        privateChild = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PrivateChild", BindingFlags.NonPublic),
+        privateChildPublic = ObserveNestedTypeFlags(typeof(ReflectionFixture), "PrivateChild", BindingFlags.Public),
+        ignoreCase = ObserveNestedTypeFlags(typeof(ReflectionFixture), "publicchild", BindingFlags.Public | BindingFlags.IgnoreCase),
+        nullName = ObserveNestedTypeFlags(typeof(ReflectionFixture), null, BindingFlags.Public),
+    },
     selectedCustomModifierBehavior = new[]
     {
         typeof(string), typeof(int), typeof(List<>),
