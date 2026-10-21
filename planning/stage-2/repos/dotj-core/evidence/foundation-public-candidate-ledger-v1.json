@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "8559f86f03164dd270d19c0cb893c294db44740fd4720a9935e605199ee9e70d",
+  "candidateJarSha256": "f9f03dc513bd8d548ace367d483a4021207de554d392555e9ed348c83ca20976",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -324,7 +324,7 @@
         "public java.lang.String ToString(java.lang.String);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
         "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
-        "public <T> boolean TryFormat(System.Span<T>, int[], java.lang.String, System.IFormatProvider);",
+        "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
         "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
         "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
         "public int CompareTo(java.lang.Object);",

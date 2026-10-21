@@ -152,6 +152,10 @@ def main():
         "enough": {"success": True, "bytesWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "bytesWritten": 0, "text": ""},
     }
+    assert metadata["selectedInt32FormatBehavior"] == {
+        "decimal5": "00042", "hexUpper4": "002A", "hexLower4": "002a",
+        "negativeDecimal5": "-00042", "negativeHex": "FFFFFFFF",
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
