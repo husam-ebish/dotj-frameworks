@@ -161,6 +161,10 @@ def main():
     assert metadata["selectedInt32ProviderFormatBehavior"] == {
         "grouped": "12_345:00", "negative": "-42:00", "defaultPrecision": "42:000",
     }
+    assert metadata["selectedInt32NumberGroupSizes"] == {
+        "repeated": "12_34_56_789", "negative": "-12_34_56_789.00",
+        "stopped": "1234_56_789", "parsed": 123456789,
+    }
     assert metadata["selectedInt32NegativeSignBehavior"] == {
         "customParse": -42, "customSuccess": True, "customValue": -42,
         "standardSuccess": False, "standardValue": 0,

@@ -62,4 +62,6 @@ The selected `NumberStyles.Number` path now accepts custom group and decimal sep
 
 Twelve further pinned `NumberStyles.Number` boundaries now run against Java string and both span carriers. The parser rejects a leading group separator and group characters in the fractional part, while accepting a trailing group separator, an empty integer part before zero fractional digits, and selected trailing signs, matching these .NET 10 observations. Other grouping configurations remain open.
 
+The selected `NumberGroupSizes` carrier now copies arrays at its getter and setter and applies repeated and terminal-zero group configurations to `Int32` `N` formatting. The .NET 10 oracle, packaged string output, and Char/UTF-8 span output agree on `12_34_56_789`, `-12_34_56_789.00`, and `1234_56_789`; selected `NumberStyles.Number` parsing also accepts the repeated-group example. Currency and percent group-size settings, invalid size vectors, and broader culture behavior remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

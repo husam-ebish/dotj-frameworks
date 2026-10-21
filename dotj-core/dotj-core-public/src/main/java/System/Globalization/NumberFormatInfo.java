@@ -10,6 +10,7 @@ import System.Type;
 /** Selected mutable numeric symbols used by Int32 N, C and P formatting. */
 public final class NumberFormatInfo implements IFormatProvider {
     private String numberGroupSeparator = ",";
+    private int[] numberGroupSizes = {3};
     private String numberDecimalSeparator = ".";
     private int numberDecimalDigits = 2;
     private String negativeSign = "-";
@@ -33,6 +34,21 @@ public final class NumberFormatInfo implements IFormatProvider {
     public void set_NumberGroupSeparator(String value) {
         if (value == null) throw new ArgumentNullException("value");
         this.numberGroupSeparator = value;
+    }
+
+    public int[] get_NumberGroupSizes() {
+        return this.numberGroupSizes.clone();
+    }
+
+    public void set_NumberGroupSizes(int[] value) {
+        if (value == null) throw new ArgumentNullException("value");
+        for (int index = 0; index < value.length; index++) {
+            if (value[index] < 0 || value[index] > 9
+                    || (value[index] == 0 && index != value.length - 1)) {
+                throw new ArgumentOutOfRangeException("value");
+            }
+        }
+        this.numberGroupSizes = value.clone();
     }
 
     public String get_NumberDecimalSeparator() {
