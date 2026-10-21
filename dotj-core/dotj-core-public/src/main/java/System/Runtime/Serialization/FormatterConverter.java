@@ -397,6 +397,12 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof Long number) {
             return number.toString();
         }
+        if (value instanceof Float number) {
+            return number.toString();
+        }
+        if (value instanceof Double number) {
+            return number.toString();
+        }
         return convertible(value).ToString(null);
     }
 

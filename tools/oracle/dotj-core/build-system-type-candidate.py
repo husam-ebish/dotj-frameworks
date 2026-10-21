@@ -565,6 +565,13 @@ def main():
         "infinityDecimal": "System.OverflowException",
         "nanBoolean": True, "infinitySingle": True, "nanDouble": True,
     }
+    floating_text = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFloatingTextConversionsBehavior"]
+    assert floating_text == {
+        "nanSingle": True, "nanDouble": True,
+        "infinitySingle": True, "infinityDouble": True,
+        "nanText": "NaN", "positiveInfinityText": "Infinity",
+        "negativeInfinityText": "-Infinity",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
