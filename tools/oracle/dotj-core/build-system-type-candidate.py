@@ -257,6 +257,14 @@ def main():
         "emptyObject": None, "emptyString": None, "typedEmptyString": None,
         "types": ["System.Object", "System.Object", "System.String"],
     }
+    getvalue_types = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoGetValueTypesBehavior"]
+    assert getvalue_types == {
+        "textAsObject": "hello", "textAsComparable": "hello",
+        "markerAsObjectSame": True,
+        "markerAsStringError": "System.InvalidCastException",
+        "nullNameError": "System.ArgumentNullException",
+        "nullNameParameter": "name",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

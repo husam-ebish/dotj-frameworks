@@ -140,8 +140,7 @@ public class SerializationInfo {
         if (entry.get_Value() == null) {
             return null;
         }
-        if (type.get_FullName().equals(entry.get_ObjectType().get_FullName())
-                || "System.Object".equals(type.get_FullName())) {
+        if (type.IsAssignableFrom(entry.get_ObjectType())) {
             return entry.get_Value();
         }
         return this.converter.Convert(entry.get_Value(), type);
