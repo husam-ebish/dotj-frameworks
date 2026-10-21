@@ -86,14 +86,29 @@ public final class Decimal implements IConvertible {
     }
 
     public static Decimal Round(Decimal value, int decimals) {
+        return Round(value, decimals, MidpointRounding.ToEven);
+    }
+
+    public static Decimal Round(Decimal value, int decimals, MidpointRounding mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
         }
         if (decimals < 0 || decimals > 28) {
             throw new ArgumentOutOfRangeException("decimals");
         }
+        if (mode == null) {
+            throw new ArgumentException("Invalid midpoint rounding mode", "mode");
+        }
+        RoundingMode javaMode = switch (mode.get_Value()) {
+            case 0 -> RoundingMode.HALF_EVEN;
+            case 1 -> RoundingMode.HALF_UP;
+            case 2 -> RoundingMode.DOWN;
+            case 3 -> RoundingMode.FLOOR;
+            case 4 -> RoundingMode.CEILING;
+            default -> throw new ArgumentException("Invalid midpoint rounding mode", "mode");
+        };
         BigDecimal result = value.value.setScale(
-                Math.min(value.value.scale(), decimals), RoundingMode.HALF_EVEN);
+                Math.min(value.value.scale(), decimals), javaMode);
         boolean negativeZero = result.signum() == 0
                 && (value.value.signum() < 0 || value.negativeZero);
         return new Decimal(result, negativeZero);

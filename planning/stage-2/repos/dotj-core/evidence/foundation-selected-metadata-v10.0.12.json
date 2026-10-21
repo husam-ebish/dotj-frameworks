@@ -25116,6 +25116,440 @@
       "paramName": "decimals"
     }
   },
+  "selectedDecimalRoundModes": {
+    "modes": [
+      {
+        "name": "ToEven",
+        "value": 0
+      },
+      {
+        "name": "AwayFromZero",
+        "value": 1
+      },
+      {
+        "name": "ToZero",
+        "value": 2
+      },
+      {
+        "name": "ToNegativeInfinity",
+        "value": 3
+      },
+      {
+        "name": "ToPositiveInfinity",
+        "value": 4
+      }
+    ],
+    "valid": [
+      {
+        "input": [
+          125,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 0,
+        "result": [
+          12,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 1,
+        "result": [
+          13,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 2,
+        "result": [
+          12,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 3,
+        "result": [
+          12,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 4,
+        "result": [
+          13,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 0,
+        "result": [
+          12,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 1,
+        "result": [
+          13,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 2,
+        "result": [
+          12,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 3,
+        "result": [
+          13,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          125,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 4,
+        "result": [
+          12,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 0,
+        "result": [
+          13,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 1,
+        "result": [
+          13,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 2,
+        "result": [
+          12,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 3,
+        "result": [
+          12,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          131072
+        ],
+        "decimals": 1,
+        "mode": 4,
+        "result": [
+          13,
+          0,
+          0,
+          65536
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 0,
+        "result": [
+          13,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 1,
+        "result": [
+          13,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 2,
+        "result": [
+          12,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 3,
+        "result": [
+          13,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          126,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 4,
+        "result": [
+          12,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          5,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 0,
+        "result": [
+          0,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          5,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 1,
+        "result": [
+          1,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          5,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 2,
+        "result": [
+          0,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          5,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 3,
+        "result": [
+          1,
+          0,
+          0,
+          -2147418112
+        ]
+      },
+      {
+        "input": [
+          5,
+          0,
+          0,
+          -2147352576
+        ],
+        "decimals": 1,
+        "mode": 4,
+        "result": [
+          0,
+          0,
+          0,
+          -2147418112
+        ]
+      }
+    ],
+    "invalidNegative": {
+      "type": "System.ArgumentException",
+      "paramName": "mode"
+    },
+    "invalidFive": {
+      "type": "System.ArgumentException",
+      "paramName": "mode"
+    }
+  },
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -28612,6 +29046,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "53b993b788c8ae65d66d4e1bbd973b81c97301e3b15bfcd484e373ccf33255ec",
+  "oracleProgramSha256": "53b8c659146658c045c9ea42b7797025f23a8c1f5c91f543fe1d01171ab0b949",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

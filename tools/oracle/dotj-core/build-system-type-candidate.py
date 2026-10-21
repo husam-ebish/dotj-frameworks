@@ -39,6 +39,7 @@ EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/do
 EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
                       ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationEntry", "SerializationException", "SerializationInfo", "SerializationInfoEnumerator", "StreamingContext", "StreamingContextStates")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("MidpointRounding.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("ReadOnlySpan.java"))

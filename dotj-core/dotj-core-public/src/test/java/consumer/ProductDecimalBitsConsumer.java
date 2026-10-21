@@ -4,6 +4,7 @@ import System.ArgumentException;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
 import System.Decimal;
+import System.MidpointRounding;
 import System.OverflowException;
 import java.util.Arrays;
 
@@ -198,6 +199,42 @@ public final class ProductDecimalBitsConsumer {
             } catch (ArgumentOutOfRangeException caught) {
                 if (!"decimals".equals(caught.get_ParamName())) {
                     throw new AssertionError("Decimal precision parameter changed");
+                }
+            }
+        }
+        int[][] modeInputs = {
+            {125, 0, 0, 0x00020000}, {125, 0, 0, 0x80020000},
+            {126, 0, 0, 0x00020000}, {126, 0, 0, 0x80020000},
+            {5, 0, 0, 0x80020000},
+        };
+        int[][] modeCoefficients = {
+            {12, 13, 12, 12, 13}, {12, 13, 12, 13, 12},
+            {13, 13, 12, 12, 13}, {13, 13, 12, 13, 12},
+            {0, 1, 0, 1, 0},
+        };
+        for (int valueIndex = 0; valueIndex < modeInputs.length; valueIndex++) {
+            for (int modeValue = 0; modeValue < 5; modeValue++) {
+                MidpointRounding mode = MidpointRounding.FromValue(modeValue);
+                if (mode.get_Value() != modeValue) {
+                    throw new AssertionError("MidpointRounding numeric value changed");
+                }
+                int sign = modeInputs[valueIndex][3] < 0 ? 0x80000000 : 0;
+                int[] expected = {modeCoefficients[valueIndex][modeValue], 0, 0,
+                    sign | 0x00010000};
+                if (!Arrays.equals(Decimal.GetBits(Decimal.Round(
+                        new Decimal(modeInputs[valueIndex]), 1, mode)), expected)) {
+                    throw new AssertionError("Decimal round mode changed: "
+                        + valueIndex + ", " + modeValue);
+                }
+            }
+        }
+        for (int invalidMode : new int[] {-1, 5}) {
+            try {
+                MidpointRounding.FromValue(invalidMode);
+                throw new AssertionError("Invalid midpoint mode accepted");
+            } catch (ArgumentException caught) {
+                if (!"mode".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Midpoint mode parameter changed");
                 }
             }
         }
