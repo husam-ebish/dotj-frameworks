@@ -264,6 +264,8 @@ public final class TypeIdentityCandidateTest {
                     || namedMethod.GetCustomAttributes(true).length != 0
                     || namedMethod.GetCustomAttributes(Type.fromJavaClass(Attribute.class), false).length != 0
                     || namedMethod.GetCustomAttributes(Type.fromJavaClass(Attribute.class), true).length != 0
+                    || namedMethod.IsDefined(Type.fromJavaClass(Attribute.class), false)
+                    || namedMethod.IsDefined(Type.fromJavaClass(Attribute.class), true)
                     || namedMethod.GetCustomAttributes(false)
                         == namedMethod.GetCustomAttributes(false)) {
                 throw new AssertionError("Selected method custom attributes changed");
@@ -274,6 +276,14 @@ public final class TypeIdentityCandidateTest {
             } catch (ArgumentNullException expected) {
                 if (!"attributeType".equals(expected.get_ParamName())) {
                     throw new AssertionError("Null method attribute type parameter changed");
+                }
+            }
+            try {
+                namedMethod.IsDefined(null, false);
+                throw new AssertionError("Null method IsDefined type was accepted");
+            } catch (ArgumentNullException expected) {
+                if (!"attributeType".equals(expected.get_ParamName())) {
+                    throw new AssertionError("Null method IsDefined parameter changed");
                 }
             }
             Object[] returnAttributes = returnParameter.GetCustomAttributes(false);
