@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
-    "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException")]
+    "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException")]
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException")]
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
@@ -37,6 +37,7 @@ EXPECTED_CLASSES = [
     "System/IFormattable.class",
     "System/IO/FileNotFoundException.class",
     "System/IO/IOException.class",
+    "System/ISpanFormattable.class",
     "System/IndexOutOfRangeException.class",
     "System/Int32.class",
     "System/Reflection/MemberInfo.class",

@@ -16,6 +16,7 @@ import System.TypeCode;
 import System.Decimal;
 import System.DateTime;
 import System.Int32;
+import System.ISpanFormattable;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -388,6 +389,25 @@ public final class ProductTypeIdentityConsumer {
                 || !integer.IsInstanceOfType(int32Value)
                 || !convertibleType.IsInstanceOfType(int32Value)) {
             throw new AssertionError("Selected Int32 conversion behavior changed");
+        }
+        ISpanFormattable spanFormattable = int32Value;
+        Type spanType = Type.GetType("System.ISpanFormattable");
+        char[] enough = new char[2];
+        int[] charsWritten = new int[1];
+        boolean enoughResult = spanFormattable.TryFormat(enough, charsWritten, "D", provider);
+        char[] shortBuffer = new char[1];
+        int[] shortWritten = new int[1];
+        boolean shortResult = spanFormattable.TryFormat(shortBuffer, shortWritten, "D", provider);
+        if (spanType == null || !spanType.get_IsInterface()
+                || spanType.GetInterfaces().length != 1
+                || spanType.GetInterfaces()[0] != formattableType
+                || integer.GetInterface("System.ISpanFormattable") != spanType
+                || integer.GetInterface("ISpanFormattable") != spanType
+                || integer.GetInterface("system.ispanformattable", true) != null
+                || !spanType.IsAssignableFrom(integer) || !spanType.IsInstanceOfType(42)
+                || !enoughResult || charsWritten[0] != 2 || !"42".equals(new String(enough))
+                || shortResult || shortWritten[0] != 0) {
+            throw new AssertionError("Selected Int32 span formatting changed");
         }
         if (convertible.GetTypeCode() != TypeCode.Int32
                 || TypeCode.Int32.get_Value() != 9 || TypeCode.String.get_Value() != 18

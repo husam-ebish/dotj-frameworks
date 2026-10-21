@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "4c346eb3360b7aba4e808379ffdd42dcefe2a2e0ef4caa88e1b7196a179ffe37",
-  "typeCount": 20,
+  "candidateJarSha256": "7661d0e63743b6f09e0ef955f2bc3faec9c38533cf18b70ef87acd12b5973d57",
+  "typeCount": 21,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -53,6 +53,22 @@
         "public abstract java.lang.String ToString(java.lang.String, System.IFormatProvider);"
       ],
       "disposition": "SELECTED_INTERFACE_MEMBER; formatting behavior unqualified",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.ISpanFormattable",
+      "upstreamBaseType": null,
+      "upstreamIsInterface": true,
+      "upstreamIsAbstract": true,
+      "upstreamDeclaredNonAccessorMethods": 1,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public interface System.ISpanFormattable extends System.IFormattable {",
+      "javaPublicDeclarations": [
+        "public abstract boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);"
+      ],
+      "disposition": "SELECTED_BUFFER_FORMAT; Java arrays differ from CLR Span/out parameters",
       "qualified": false
     },
     {
@@ -185,7 +201,7 @@
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 0,
       "javaPublicConstructors": 1,
-      "javaPublicHeader": "public final class System.Int32 implements System.IConvertible,System.IFormattable,System.IComparable {",
+      "javaPublicHeader": "public final class System.Int32 implements System.IConvertible,System.ISpanFormattable,System.IComparable {",
       "javaPublicDeclarations": [
         "public System.Int32(int);",
         "public int get_Value();",
@@ -206,6 +222,7 @@
         "public System.DateTime ToDateTime(System.IFormatProvider);",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
         "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
         "public int CompareTo(java.lang.Object);",
         "public boolean equals(java.lang.Object);",

@@ -640,6 +640,18 @@
     "formattedText": "42",
     "compareTo41": 1
   },
+  "selectedSpanFormattingBehavior": {
+    "enough": {
+      "success": true,
+      "charsWritten": 2,
+      "text": "42"
+    },
+    "shortBuffer": {
+      "success": false,
+      "charsWritten": 0,
+      "text": ""
+    }
+  },
   "selectedAssignability": [
     {
       "target": "System.Object",
@@ -738,6 +750,11 @@
     },
     {
       "target": "System.IComparable",
+      "candidate": "System.Int32",
+      "result": true
+    },
+    {
+      "target": "System.ISpanFormattable",
       "candidate": "System.Int32",
       "result": true
     }
@@ -924,6 +941,11 @@
       "target": "System.IComparable",
       "valueType": "System.Int32",
       "result": true
+    },
+    {
+      "target": "System.ISpanFormattable",
+      "valueType": "System.Int32",
+      "result": true
     }
   ],
   "selectedInterfaceBehavior": {
@@ -962,6 +984,9 @@
       "System.Numerics.IMinMaxValue`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
       "System.Numerics.ISignedNumber`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
       "System.IBinaryIntegerParseAndFormatInfo`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+    ],
+    "spanFormattableInterfaces": [
+      "System.IFormattable"
     ],
     "objectMiss": {
       "result": null,
@@ -1067,6 +1092,21 @@
       "result": null,
       "exception": null,
       "paramName": null
+    },
+    "intSpanFormattable": {
+      "result": "System.ISpanFormattable",
+      "exception": null,
+      "paramName": null
+    },
+    "intSpanFormattableShort": {
+      "result": "System.ISpanFormattable",
+      "exception": null,
+      "paramName": null
+    },
+    "intSpanFormattableLower": {
+      "result": null,
+      "exception": null,
+      "paramName": null
     }
   },
   "types": [
@@ -1139,6 +1179,44 @@
             },
             {
               "name": "formatProvider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        }
+      ],
+      "selectedProperties": [],
+      "publicConstructors": []
+    },
+    {
+      "fullName": "System.ISpanFormattable",
+      "baseType": null,
+      "isInterface": true,
+      "isAbstract": true,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 1,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [
+        {
+          "name": "TryFormat",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "destination",
+              "type": "System.Span`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&"
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "provider",
               "type": "System.IFormatProvider"
             }
           ]
@@ -1502,6 +1580,52 @@
           ]
         },
         {
+          "name": "TryFormat",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "destination",
+              "type": "System.Span`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&"
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Destination",
+              "type": "System.Span`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&"
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
           "name": "ToInt32",
           "isStatic": true,
           "returnType": "System.Int32",
@@ -1693,6 +1817,52 @@
             {
               "name": "format",
               "type": "System.String"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "destination",
+              "type": "System.Span`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&"
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Destination",
+              "type": "System.Span`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&"
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
             },
             {
               "name": "provider",
@@ -2242,6 +2412,52 @@
             {
               "name": "format",
               "type": "System.String"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "destination",
+              "type": "System.Span`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "charsWritten",
+              "type": "System.Int32&"
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "TryFormat",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "utf8Destination",
+              "type": "System.Span`1[[System.Byte, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+            },
+            {
+              "name": "bytesWritten",
+              "type": "System.Int32&"
+            },
+            {
+              "name": "format",
+              "type": "System.ReadOnlySpan`1[[System.Char, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
             },
             {
               "name": "provider",
@@ -2983,6 +3199,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "c3fc305bd620c8740e61da680833462aabb969810717ad0d6c99a732f1e02d24",
+  "oracleProgramSha256": "185e7e825e7f327c828bb95290435fae390d2609a91ddc35f5b59685035f1ac6",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

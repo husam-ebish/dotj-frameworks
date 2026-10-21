@@ -3,7 +3,7 @@ package System;
 import java.math.BigInteger;
 
 /** Bounded immutable Int32 value and conversion candidate. */
-public final class Int32 implements IConvertible, IFormattable, IComparable {
+public final class Int32 implements IConvertible, ISpanFormattable, IComparable {
     private final int value;
 
     public Int32(int value) {
@@ -121,6 +121,19 @@ public final class Int32 implements IConvertible, IFormattable, IComparable {
             throw new UnsupportedOperationException("Int32 format is not mapped");
         }
         return Integer.toString(this.value);
+    }
+
+    @Override
+    public boolean TryFormat(char[] destination, int[] charsWritten, String format,
+                             IFormatProvider provider) {
+        String text = this.ToString(format, provider);
+        if (destination.length < text.length()) {
+            charsWritten[0] = 0;
+            return false;
+        }
+        text.getChars(0, text.length(), destination, 0);
+        charsWritten[0] = text.length();
+        return true;
     }
 
     @Override
