@@ -651,6 +651,15 @@ var result = new
         nonHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=gggggggggggggggg", false, false),
         quotedHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=\"7cec85d7bea7798e\"", false, false),
     },
+    selectedAssemblyAttributeOrderBehavior = new
+    {
+        reversedKnown = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=null, Culture=neutral, Version=10.0.0.0", false, false),
+        unknownBeforeKnown = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo, Version=10.0.0.0", false, false),
+        unknownAfterKnown = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, UnknownAttr=foo", false, false),
+        duplicateToken = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=null, PublicKeyToken=null", false, false),
+        duplicateUnknown = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo, UnknownAttr=bar", false, false),
+        duplicateVersionMixedCase = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, version=11.0.0.0", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

@@ -378,6 +378,13 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("shortHex", "longHex", "nonHex")},
     }
+    attribute_order = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyAttributeOrderBehavior"]
+    assert attribute_order == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("reversedKnown", "unknownBeforeKnown", "unknownAfterKnown", "duplicateUnknown")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("duplicateToken", "duplicateVersionMixedCase")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
