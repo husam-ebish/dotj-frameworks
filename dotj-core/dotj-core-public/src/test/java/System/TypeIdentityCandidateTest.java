@@ -661,6 +661,21 @@ public final class TypeIdentityCandidateTest {
                     != Type.fromJavaClass(PrivateOwnerFixture.PublicChild.class)) {
             throw new AssertionError("Selected flagged nested-type lookup changed");
         }
+        Type[] publicNested = nestedFixture.GetNestedTypes(BindingFlags.Public);
+        Type[] privateNested = nestedFixture.GetNestedTypes(BindingFlags.NonPublic);
+        Type[] bothNested = nestedFixture.GetNestedTypes(
+                BindingFlags.Public.or(BindingFlags.NonPublic));
+        if (publicNested.length != 1
+                || publicNested[0] != Type.fromJavaClass(PrivateOwnerFixture.PublicChild.class)
+                || privateNested.length != 1
+                || privateNested[0] != Type.fromJavaClass(PrivateOwnerFixture.PrivateChild.class)
+                || bothNested.length != 2
+                || !java.util.Arrays.asList(bothNested).containsAll(
+                    java.util.Arrays.asList(publicNested[0], privateNested[0]))
+                || nestedFixture.GetNestedTypes(BindingFlags.Default).length != 0
+                || nestedFixture.GetNestedTypes(BindingFlags.Public) == publicNested) {
+            throw new AssertionError("Selected flagged nested-type enumeration changed");
+        }
         try {
             nestedFixture.GetNestedType(null, BindingFlags.Public);
             throw new AssertionError("Null flagged nested name accepted");

@@ -887,6 +887,17 @@ var result = new
         ignoreCase = ObserveNestedTypeFlags(typeof(ReflectionFixture), "publicchild", BindingFlags.Public | BindingFlags.IgnoreCase),
         nullName = ObserveNestedTypeFlags(typeof(ReflectionFixture), null, BindingFlags.Public),
     },
+    selectedNestedTypesFlagsBehavior = new
+    {
+        publicTypes = typeof(ReflectionFixture).GetNestedTypes(BindingFlags.Public)
+            .Select(type => type.Name).ToArray(),
+        nonPublicTypes = typeof(ReflectionFixture).GetNestedTypes(BindingFlags.NonPublic)
+            .Select(type => type.Name).ToArray(),
+        both = typeof(ReflectionFixture).GetNestedTypes(BindingFlags.Public | BindingFlags.NonPublic)
+            .Select(type => type.Name).OrderBy(name => name).ToArray(),
+        none = typeof(ReflectionFixture).GetNestedTypes(BindingFlags.Default)
+            .Select(type => type.Name).ToArray(),
+    },
     selectedCustomModifierBehavior = new[]
     {
         typeof(string), typeof(int), typeof(List<>),
