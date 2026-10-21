@@ -729,6 +729,37 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Missing-assembly culture parameter changed", expected);
             }
         }
+        for (String missingEscapedName : new String[] {
+                "\"Missing\\\"Assembly\", Version=1.2",
+                "Missing\\,Assembly, Version=1.2"}) {
+            try {
+                Type.GetType("System.String, " + missingEscapedName, true);
+                throw new AssertionError("Missing escaped assembly accepted: " + missingEscapedName);
+            } catch (FileNotFoundException expected) {
+                // Selected throwOnError assembly binding failure.
+            }
+        }
+        for (String invalidEscapedVersion : new String[] {
+                "\"Missing\\\"Assembly\", Version=banana",
+                "Missing\\,Assembly, Version=banana"}) {
+            try {
+                Type.GetType("System.String, " + invalidEscapedVersion, true);
+                throw new AssertionError("Invalid escaped Version accepted: " + invalidEscapedVersion);
+            } catch (FileLoadException expected) {
+                // Attribute syntax precedes assembly binding with throwOnError.
+            }
+        }
+        try {
+            Type.GetType("System.String, Missing\\\\, Culture=123", true);
+            throw new AssertionError("Invalid culture accepted with throwOnError");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Escaped culture parameter changed", expected);
+            }
+        }
+        if (Type.GetType("System.String, System.Private.CoreLib\\,Extra, Version=1.2", true) != string) {
+            throw new AssertionError("Escaped CoreLib alias rejected with throwOnError");
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

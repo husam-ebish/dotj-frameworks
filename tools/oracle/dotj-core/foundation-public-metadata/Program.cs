@@ -1024,6 +1024,15 @@ var result = new
         evenBackslashInvalidVersion = ObserveGetType("System.String, Missing\\\\, Version=banana", false, false),
         evenBackslashInvalidCulture = ObserveGetType("System.String, Missing\\\\, Culture=123", false, false),
     },
+    selectedEscapedAssemblyThrowOnErrorBehavior = new
+    {
+        quotedMissing = ObserveGetType("System.String, \"Missing\\\"Assembly\", Version=1.2", true, false),
+        escapedCommaMissing = ObserveGetType("System.String, Missing\\,Assembly, Version=1.2", true, false),
+        quotedInvalidVersion = ObserveGetType("System.String, \"Missing\\\"Assembly\", Version=banana", true, false),
+        escapedCommaInvalidVersion = ObserveGetType("System.String, Missing\\,Assembly, Version=banana", true, false),
+        evenBackslashInvalidCulture = ObserveGetType("System.String, Missing\\\\, Culture=123", true, false),
+        escapedAlias = ObserveGetType("System.String, System.Private.CoreLib\\,Extra, Version=1.2", true, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
