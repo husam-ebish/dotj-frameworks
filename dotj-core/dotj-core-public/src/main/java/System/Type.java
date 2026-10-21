@@ -112,9 +112,13 @@ public abstract class Type extends MemberInfo {
                     String[] attribute = attributes[index].trim().split("=", 2);
                     String key = attribute[0].trim().toLowerCase(Locale.ROOT);
                     String value = attribute.length == 2 ? attribute[1].trim() : "";
+                    boolean extraEquals = value.indexOf('=') >= 0;
+                    if (value.length() >= 2 && value.startsWith("\"") && value.endsWith("\"")) {
+                        value = value.substring(1, value.length() - 1);
+                    }
                     boolean recognized = key.equals("version") || key.equals("culture")
                             || key.equals("publickeytoken");
-                    if (attribute.length != 2 || value.isEmpty()
+                    if (attribute.length != 2 || value.isEmpty() || extraEquals
                             || recognized && !seen.add(key)
                             || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
                             || key.equals("publickeytoken") && !value.equalsIgnoreCase("null")

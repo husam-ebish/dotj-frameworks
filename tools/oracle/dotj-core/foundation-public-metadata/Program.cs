@@ -618,6 +618,17 @@ var result = new
         versionOnePart = ObserveGetType("System.String, System.Private.CoreLib, Version=10", false, false),
         versionFivePart = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2.3.4.5", false, false),
     },
+    selectedAssemblyAttributeDelimiterBehavior = new
+    {
+        quotedCulture = ObserveGetType("System.String, System.Private.CoreLib, Culture=\"neutral\"", false, false),
+        quotedVersion = ObserveGetType("System.String, System.Private.CoreLib, Version=\"10.0.0.0\"", false, false),
+        trailingComma = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0,", false, false),
+        doubleComma = ObserveGetType("System.String, System.Private.CoreLib,, Version=10.0.0.0", false, false),
+        emptyAttribute = ObserveGetType("System.String, System.Private.CoreLib,", false, false),
+        extraEquals = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo=bar", false, false),
+        unknownQuoted = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"foo\"", false, false),
+        tokenQuoted = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=\"null\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
