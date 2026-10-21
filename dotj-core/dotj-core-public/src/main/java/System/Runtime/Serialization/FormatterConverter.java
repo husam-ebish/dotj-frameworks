@@ -9,6 +9,7 @@ import System.FormatException;
 import System.IConvertible;
 import System.Int32;
 import System.InvalidCastException;
+import System.OverflowException;
 import System.Type;
 import System.TypeCode;
 
@@ -45,6 +46,12 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.Boolean".equals(name)) {
             return ToBoolean(value);
         }
+        if ("System.Int64".equals(name)) {
+            return ToInt64(value);
+        }
+        if ("System.Double".equals(name)) {
+            return ToDouble(value);
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -57,6 +64,8 @@ public final class FormatterConverter implements IFormatterConverter {
             case Int32 -> ToInt32(value);
             case String -> ToString(value);
             case Boolean -> ToBoolean(value);
+            case Int64 -> ToInt64(value);
+            case Double -> ToDouble(value);
             default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
         };
     }
@@ -100,6 +109,16 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public double ToDouble(Object value) {
+        if (value instanceof String text) {
+            try {
+                return Double.parseDouble(text.strip());
+            } catch (NumberFormatException ignored) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+        }
+        if (value instanceof Double number) {
+            return number;
+        }
         return convertible(value).ToDouble(null);
     }
 
@@ -116,11 +135,27 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof String text) {
             return Int32.Parse(text).get_Value();
         }
+        if (value instanceof Long number) {
+            if (number < Integer.MIN_VALUE || number > Integer.MAX_VALUE) {
+                throw new OverflowException("Value was outside the range of Int32");
+            }
+            return number.intValue();
+        }
         return convertible(value).ToInt32(null);
     }
 
     @Override
     public long ToInt64(Object value) {
+        if (value instanceof String text) {
+            try {
+                return Long.parseLong(text.strip());
+            } catch (NumberFormatException ignored) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+        }
+        if (value instanceof Long number) {
+            return number;
+        }
         return convertible(value).ToInt64(null);
     }
 

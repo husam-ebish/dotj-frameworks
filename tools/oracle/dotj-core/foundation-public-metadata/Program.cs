@@ -987,6 +987,25 @@ static object ObserveSerializationInfoPrimitiveMembers()
         types,
     };
 }
+static object ObserveSerializationInfoPrimitiveConversions()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("one", 1);
+    info.AddValue("integerText", "17");
+    info.AddValue("decimalText", "1.5");
+    info.AddValue("long", 5L);
+    return new
+    {
+        oneAsBoolean = info.GetBoolean("one"),
+        integerTextAsLong = info.GetInt64("integerText"),
+        decimalTextAsDouble = info.GetDouble("decimalText"),
+        longAsInt = info.GetInt32("long"),
+        integerTextByType = info.GetValue("integerText", typeof(long)),
+        decimalTextByTypeCode = new System.Runtime.Serialization.FormatterConverter()
+            .Convert("1.5", TypeCode.Double),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1129,6 +1148,7 @@ var result = new
     selectedSerializationInfoEnumeratorMutationBehavior = ObserveSerializationInfoEnumeratorMutation(),
     selectedEmptySerializationInfoEnumerationBehavior = ObserveEmptySerializationInfoEnumeration(),
     selectedSerializationInfoPrimitiveMembersBehavior = ObserveSerializationInfoPrimitiveMembers(),
+    selectedSerializationInfoPrimitiveConversionsBehavior = ObserveSerializationInfoPrimitiveConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

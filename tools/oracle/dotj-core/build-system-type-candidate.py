@@ -236,6 +236,12 @@ def main():
     assert primitive_members == {"count": 3, "flag": True, "large": 5000000000,
                                  "ratio": 1.5,
                                  "types": ["System.Boolean", "System.Int64", "System.Double"]}
+    primitive_conversions = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoPrimitiveConversionsBehavior"]
+    assert primitive_conversions == {
+        "oneAsBoolean": True, "integerTextAsLong": 17,
+        "decimalTextAsDouble": 1.5, "longAsInt": 5,
+        "integerTextByType": 17, "decimalTextByTypeCode": 1.5,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
