@@ -2034,6 +2034,31 @@ static object ObserveExceptionDataViewEnumeration()
         valuesClear = Probe(false, value => value.Clear()),
     };
 }
+static object ObserveExceptionDataViewProperties()
+{
+    var dictionary = new Exception("view properties").Data;
+    var keys = dictionary.Keys;
+    var values = dictionary.Values;
+    object syncRoot = dictionary.SyncRoot;
+    object keySyncRoot = keys.SyncRoot;
+    object valueSyncRoot = values.SyncRoot;
+    dictionary.Add("first", 1);
+    return new
+    {
+        dictionarySynchronized = dictionary.IsSynchronized,
+        keysSynchronized = keys.IsSynchronized,
+        valuesSynchronized = values.IsSynchronized,
+        syncRootIsDictionary = ReferenceEquals(syncRoot, dictionary),
+        keySyncRootIsDictionary = ReferenceEquals(keySyncRoot, dictionary),
+        valueSyncRootIsDictionary = ReferenceEquals(valueSyncRoot, dictionary),
+        keySyncRootIsDictionaryRoot = ReferenceEquals(keySyncRoot, syncRoot),
+        valueSyncRootIsDictionaryRoot = ReferenceEquals(valueSyncRoot, syncRoot),
+        repeatedKeyViewSame = ReferenceEquals(keys, dictionary.Keys),
+        repeatedValueViewSame = ReferenceEquals(values, dictionary.Values),
+        keysCount = keys.Count,
+        valuesCount = values.Count,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2231,6 +2256,7 @@ var result = new
     selectedExceptionDataBoundaries = ObserveExceptionDataBoundaries(),
     selectedExceptionDataEnumeratorMutation = ObserveExceptionDataEnumeratorMutation(),
     selectedExceptionDataViewEnumeration = ObserveExceptionDataViewEnumeration(),
+    selectedExceptionDataViewProperties = ObserveExceptionDataViewProperties(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

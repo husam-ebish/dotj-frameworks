@@ -65,6 +65,18 @@ public final class ProductExceptionContractConsumer {
         if (java.util.Map.class.isAssignableFrom(IDictionary.class)) {
             throw new AssertionError("IDictionary exposes Java Map methods");
         }
+        ICollection keyView = data.get_Keys();
+        ICollection valueView = data.get_Values();
+        if (data.get_IsSynchronized() || keyView.get_IsSynchronized()
+                || valueView.get_IsSynchronized()
+                || data.get_SyncRoot() != data
+                || keyView.get_SyncRoot() != data
+                || valueView.get_SyncRoot() != data
+                || keyView == data.get_Keys()
+                || valueView == data.get_Values()
+                || keyView.get_Count() != 1 || valueView.get_Count() != 1) {
+            throw new AssertionError("Selected dictionary view synchronization or identity changed");
+        }
         IDictionary dictionary = new Exception("dictionary").get_Data();
         if (dictionary.get_Count() != 0 || dictionary.get_IsReadOnly()
                 || dictionary.get_IsFixedSize()

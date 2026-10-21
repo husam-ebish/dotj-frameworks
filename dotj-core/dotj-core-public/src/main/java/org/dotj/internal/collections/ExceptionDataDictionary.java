@@ -241,7 +241,7 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
         @Override
         public Object get_SyncRoot() {
-            return this.values;
+            return this.dictionary;
         }
 
         @Override
