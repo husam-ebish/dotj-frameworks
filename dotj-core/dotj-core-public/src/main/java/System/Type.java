@@ -9,6 +9,7 @@ import System.IO.FileLoadException;
 import System.IO.IOException;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
+import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 import System.Globalization.CultureNotFoundException;
 
@@ -1017,6 +1018,13 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsGenericMethodParameter() {
         return false;
+    }
+
+    public GenericParameterAttributes get_GenericParameterAttributes() {
+        if (this.parameterIndex < 0) {
+            throw new InvalidOperationException("Type is not a generic parameter.");
+        }
+        return GenericParameterAttributes.None;
     }
 
     public int get_GenericParameterPosition() {

@@ -150,6 +150,35 @@
     "convertAllParameterIsTypeParameter": false,
     "convertAllParameterIsMethodParameter": true
   },
+  "selectedGenericParameterAttributeBehavior": {
+    "stringType": {
+      "value": null,
+      "exception": "System.InvalidOperationException"
+    },
+    "listParameter": {
+      "value": 0,
+      "exception": null
+    },
+    "dictionaryKeyParameter": {
+      "value": 0,
+      "exception": null
+    },
+    "convertAllParameter": {
+      "value": 0,
+      "exception": null
+    }
+  },
+  "selectedGenericParameterAttributeValues": {
+    "None": 0,
+    "Covariant": 1,
+    "Contravariant": 2,
+    "VarianceMask": 3,
+    "ReferenceTypeConstraint": 4,
+    "NotNullableValueTypeConstraint": 8,
+    "DefaultConstructorConstraint": 16,
+    "SpecialConstraintMask": 28,
+    "AllowByRefLike": 32
+  },
   "selectedGetTypeBehavior": {
     "exact": {
       "result": "System.String",
@@ -11372,6 +11401,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "522da8c41148718aa3b11412a5a803c96b5f3e06029d5d1aee123f0205db95dc",
+  "oracleProgramSha256": "1ffb4b8708181ef20cd9d0dc63d060b31e099c9700d2b85482e155def4b1351c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

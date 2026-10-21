@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "eb9c11561e16b4954402fe9984aa4530393d050c0387f3c9e7c6ff691a03b56d",
+  "oracleEvidenceSha256": "ea5433b8ef99b8250d92aa1f492eb7aa600d95b2bda03b3cd241fc5720edfb37",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "9e836a3a6d262f4281f01baa67f245940fd0d4bff62398e89ffbfeebbb8a5762",
+  "javaCandidateEvidenceSha256": "d16aa80192252131d6a043bfe2b448726336f0a7810347fc06d0f2ca557ea8f4",
   "types": [
     {
       "fullName": "System.Type",
@@ -3455,6 +3455,7 @@
         "public boolean get_IsGenericParameter();",
         "public boolean get_IsGenericTypeParameter();",
         "public boolean get_IsGenericMethodParameter();",
+        "public System.Reflection.GenericParameterAttributes get_GenericParameterAttributes();",
         "public int get_GenericParameterPosition();",
         "public boolean IsEquivalentTo(System.Type);",
         "public boolean Equals(System.Type);"
@@ -3550,6 +3551,7 @@
           "get_ContainsGenericParameters": 1,
           "get_DeclaringType": 1,
           "get_FullName": 1,
+          "get_GenericParameterAttributes": 1,
           "get_GenericParameterPosition": 1,
           "get_GenericTypeArguments": 1,
           "get_HasElementType": 1,
@@ -3623,7 +3625,6 @@
           "DeclaringMethod",
           "DefaultBinder",
           "GUID",
-          "GenericParameterAttributes",
           "IsAnsiClass",
           "IsAutoClass",
           "IsAutoLayout",

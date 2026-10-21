@@ -39,19 +39,19 @@ def main():
             "localIntroductionCommit": commit,
             "introductionEvidence": "Git add event in this repository; not an authorship or originality determination",
         })
-    assert len(rows) == rights["productSourceCount"] == 30
+    assert len(rows) == rights["productSourceCount"] == 31
     assert all(not item["headerHasSpdxIdentifier"] and
                not item["headerHasCopyrightNotice"] and
                not item["headerNamesDotNetFoundation"]
                for item in rights["productSources"])
     record = {
         "schemaVersion": 1,
-        "scope": "30 hashed Java product sources in the built foundation candidate JAR",
+        "scope": "31 hashed Java product sources in the built foundation candidate JAR",
         "artifactEvidence": ARTIFACT.name,
         "jarSha256": artifact["jarSha256"],
         "sourceCount": len(rows),
         "sources": rows,
-        "headerObservation": "No SPDX, copyright, or .NET Foundation text in first 30 lines of the 30 current Java files",
+        "headerObservation": "No SPDX, copyright, or .NET Foundation text in first 30 lines of the 31 current Java files",
         "upstreamNoticeApplicability": "UNRESOLVED: local Git introductions and absent headers do not prove independent authorship or exclude embedded upstream material",
         "releaseQualification": "E01_OPEN",
     }
