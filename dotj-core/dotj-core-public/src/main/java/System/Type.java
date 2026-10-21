@@ -2029,6 +2029,11 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public boolean get_IsConstructedGenericMethod() {
+            return false;
+        }
+
+        @Override
         public boolean get_ContainsGenericParameters() {
             return false;
         }

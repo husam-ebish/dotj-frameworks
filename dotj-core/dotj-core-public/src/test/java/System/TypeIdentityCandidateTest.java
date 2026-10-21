@@ -214,6 +214,7 @@ public final class TypeIdentityCandidateTest {
                     || namedMethod.GetMethodImplementationFlags().get_Value() != 0
                     || namedMethod.get_IsGenericMethod()
                     || namedMethod.get_IsGenericMethodDefinition()
+                    || namedMethod.get_IsConstructedGenericMethod()
                     || namedMethod.get_ContainsGenericParameters()
                     || namedMethod.GetGenericArguments().length != 0
                     || namedMethod.GetBaseDefinition() != namedMethod

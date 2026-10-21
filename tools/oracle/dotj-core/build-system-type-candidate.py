@@ -373,6 +373,7 @@ def main():
         ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
     ]
     assert all(not row["isGenericMethod"] and not row["isGenericMethodDefinition"]
+               and not row["isConstructedGenericMethod"]
                and not row["containsGenericParameters"] and row["genericArguments"] == []
                for row in generic_methods)
     classifications = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodClassificationBehavior"]
