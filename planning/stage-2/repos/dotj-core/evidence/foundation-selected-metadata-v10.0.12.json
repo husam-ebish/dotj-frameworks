@@ -1444,6 +1444,38 @@
       "paramName": null
     }
   },
+  "selectedAssemblyThrowBoundaryBehavior": {
+    "legacyDllThrow": {
+      "result": null,
+      "exception": "System.IO.FileNotFoundException",
+      "paramName": null
+    },
+    "embeddedSpaceThrow": {
+      "result": null,
+      "exception": "System.IO.FileNotFoundException",
+      "paramName": null
+    },
+    "emptyBeforeAttributeThrow": {
+      "result": null,
+      "exception": "System.ArgumentException",
+      "paramName": "typeName@15"
+    },
+    "invalidVersionThrow": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "numericCultureThrow": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    },
+    "acceptedUnknownThrow": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -4870,6 +4902,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "0c1b40ffd7ee00856326cabd1e9e1660efe823221f1fcd8d23499c0f3832b5eb",
+  "oracleProgramSha256": "be4fd4cea10bae182e05e7483ceedce02feeca4580b94bd7186ac8d8f0c6f4c8",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

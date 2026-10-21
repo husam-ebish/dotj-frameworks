@@ -95,6 +95,40 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, \"mscorlib.dll\", Version=4.0.0.0") != null) {
             throw new AssertionError("Selected legacy assembly alias boundary changed");
         }
+        for (String missingAssembly : new String[] {
+                "System.String, mscorlib.dll", "System.String, System. Private.CoreLib"}) {
+            try {
+                Type.GetType(missingAssembly, true);
+                throw new AssertionError("Missing assembly accepted with throwOnError");
+            } catch (FileNotFoundException expected) {
+                // Selected missing-assembly error.
+            }
+        }
+        try {
+            Type.GetType("System.String, , Version=10.0.0.0", true);
+            throw new AssertionError("Empty assembly name accepted with throwOnError");
+        } catch (ArgumentException expected) {
+            if (!"typeName@15".equals(expected.get_ParamName())) {
+                throw new AssertionError("Empty assembly position changed", expected);
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, Version=banana", true);
+            throw new AssertionError("Invalid version accepted with throwOnError");
+        } catch (FileLoadException expected) {
+            // Selected malformed-assembly error.
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, Culture=123", true);
+            throw new AssertionError("Numeric culture accepted with throwOnError");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Numeric culture parameter changed", expected);
+            }
+        }
+        if (Type.GetType("System.String, System.Private.CoreLib, UnknownAttr=foo", true) != string) {
+            throw new AssertionError("Unknown assembly attribute rejected with throwOnError");
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
