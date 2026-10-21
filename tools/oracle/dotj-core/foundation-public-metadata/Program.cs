@@ -579,6 +579,15 @@ var result = new
         invalidNestedInsensitive = ObserveGetType("system.string&[]", false, true),
         invalidNestedSensitive = ObserveGetType("system.string&[]", false, false),
     },
+    selectedAssemblyCaseBehavior = new
+    {
+        coreLibLower = ObserveGetType("System.String, system.private.corelib", false, false),
+        coreLibUpper = ObserveGetType("System.String, SYSTEM.PRIVATE.CORELIB", false, false),
+        legacyUpper = ObserveGetType("System.String, MSCORLIB", false, false),
+        legacyMixed = ObserveGetType("System.String, MsCoRlIb", false, false),
+        unknown = ObserveGetType("System.String, UnknownAssembly", false, false),
+        unknownThrow = ObserveGetType("System.String, UnknownAssembly", true, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

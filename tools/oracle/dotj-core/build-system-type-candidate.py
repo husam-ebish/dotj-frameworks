@@ -326,6 +326,16 @@ def main():
         "invalidNestedInsensitive": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
         "invalidNestedSensitive": {"result": None, "exception": None, "paramName": None},
     }
+    assembly_case = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyCaseBehavior"]
+    assert assembly_case == {
+        "coreLibLower": {"result": "System.String", "exception": None, "paramName": None},
+        "coreLibUpper": {"result": "System.String", "exception": None, "paramName": None},
+        "legacyUpper": {"result": "System.String", "exception": None, "paramName": None},
+        "legacyMixed": {"result": "System.String", "exception": None, "paramName": None},
+        "unknown": {"result": None, "exception": None, "paramName": None},
+        "unknownThrow": {"result": None, "exception": "System.IO.FileNotFoundException",
+                         "paramName": None},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
