@@ -973,6 +973,38 @@ static object ObserveInt32GroupedDecimalStyles()
                 "12_345:00eplus1", "12_345:00"], provider),
     };
 }
+static object ObserveInt32CurrencyFlagStyles()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        CurrencySymbol = "USD",
+        CurrencyGroupSeparator = "_",
+        CurrencyDecimalSeparator = ":",
+        NumberGroupSeparator = ".",
+        NumberDecimalSeparator = "=",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    var symbol = System.Globalization.NumberStyles.AllowCurrencySymbol;
+    var symbolGroup = symbol | System.Globalization.NumberStyles.AllowThousands;
+    var symbolDecimal = symbol | System.Globalization.NumberStyles.AllowDecimalPoint;
+    var symbolExponent = symbol | System.Globalization.NumberStyles.AllowExponent;
+    return new
+    {
+        symbolValue = (int)symbol,
+        symbol = ObserveInt32SingleStyle(symbol,
+            ["USD42", "42USD", "USD 42", " USD42", "~USD42", "USD42:00", "42"], provider),
+        symbolGroupValue = (int)symbolGroup,
+        symbolGroup = ObserveInt32SingleStyle(symbolGroup,
+            ["USD12_345", "12_345USD", "USD_42", "USD12.345", "  USD12_345", "USD12_345:00"], provider),
+        symbolDecimalValue = (int)symbolDecimal,
+        symbolDecimal = ObserveInt32SingleStyle(symbolDecimal,
+            ["USD42:00", "42:00USD", "USD42:5", "USD42=00", "USD12_345:00", "42"], provider),
+        symbolExponentValue = (int)symbolExponent,
+        symbolExponent = ObserveInt32SingleStyle(symbolExponent,
+            ["USD42e1", "42e1USD", "USD42eplus1", "USD42:0e1", "~USD42e1", "USD42e~1"], provider),
+    };
+}
 static object ObserveInt32SingleStyle(System.Globalization.NumberStyles style,
     string[] texts, System.Globalization.NumberFormatInfo provider)
 {
@@ -5379,6 +5411,7 @@ var result = new
     selectedInt32MoreCombinedStyles = ObserveInt32MoreCombinedStyles(),
     selectedInt32TrailingSignStyles = ObserveInt32TrailingSignStyles(),
     selectedInt32GroupedDecimalStyles = ObserveInt32GroupedDecimalStyles(),
+    selectedInt32CurrencyFlagStyles = ObserveInt32CurrencyFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",

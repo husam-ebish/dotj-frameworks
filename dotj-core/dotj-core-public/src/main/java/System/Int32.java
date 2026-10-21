@@ -106,6 +106,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (style == NumberStyles.Any) {
             return selectedParseCurrencyLike(text, provider, true);
         }
+        if ((style.get_Value() & 256) != 0 && (style.get_Value() & ~511) == 0) {
+            return selectedParseCurrencyFlags(text, provider, style);
+        }
         if (style == NumberStyles.BinaryNumber) {
             if (text == null) {
                 throw new ArgumentNullException("s");
@@ -335,6 +338,49 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(-parsed.value);
     }
 
+    private static Int32 selectedParseCurrencyFlags(String text, IFormatProvider provider,
+                                                    NumberStyles style) {
+        if (text == null) throw new ArgumentNullException("s");
+        NumberFormatInfo format = selectedNumberFormatInfo(provider);
+        int flags = style.get_Value();
+        String number = (flags & 1) != 0 ? text.stripLeading() : text;
+        if ((flags & 2) != 0) number = number.stripTrailing();
+        String negativeSign = format == null ? "-" : format.get_NegativeSign();
+        String positiveSign = format == null ? "+" : format.get_PositiveSign();
+        String leadingSign = "";
+        if ((flags & 4) != 0) {
+            if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
+                leadingSign = negativeSign;
+                number = number.substring(negativeSign.length());
+            } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
+                leadingSign = positiveSign;
+                number = number.substring(positiveSign.length());
+            }
+        }
+        String symbol = format == null ? "\u00a4" : format.get_CurrencySymbol();
+        boolean hasSymbol = false;
+        if (!symbol.isEmpty() && number.startsWith(symbol)) {
+            number = number.substring(symbol.length());
+            hasSymbol = true;
+        } else if (!symbol.isEmpty() && number.endsWith(symbol)) {
+            number = number.substring(0, number.length() - symbol.length());
+            hasSymbol = true;
+        }
+        String currencyGroup = format == null ? "," : format.get_CurrencyGroupSeparator();
+        String currencyDecimal = format == null ? "." : format.get_CurrencyDecimalSeparator();
+        boolean currencySeparators = hasSymbol
+                || (!currencyGroup.isEmpty() && number.contains(currencyGroup))
+                || (!currencyDecimal.isEmpty() && number.contains(currencyDecimal));
+        NumberFormatInfo parsingFormat = new NumberFormatInfo();
+        parsingFormat.set_NumberGroupSeparator(currencySeparators ? currencyGroup
+                : format == null ? "," : format.get_NumberGroupSeparator());
+        parsingFormat.set_NumberDecimalSeparator(currencySeparators ? currencyDecimal
+                : format == null ? "." : format.get_NumberDecimalSeparator());
+        parsingFormat.set_NegativeSign(negativeSign);
+        parsingFormat.set_PositiveSign(positiveSign);
+        return selectedParseExtended(leadingSign + number, parsingFormat, style);
+    }
+
     private static Int32 selectedParseExtended(String text, IFormatProvider provider,
                                                NumberStyles style) {
         if (text == null) throw new ArgumentNullException("s");
@@ -418,7 +464,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             number = number.replace(groupSeparator, "");
         }
         String normalized = number + (hasDecimal ? "." + fraction : "");
-        if (!normalized.matches("[0-9]+(\\.[0-9]*)?|\\.[0-9]+")) {
+        if (!(hasDecimal ? normalized.matches("[0-9]+\\.[0-9]*|\\.[0-9]+")
+                : normalized.matches("[0-9]+"))) {
             throw new FormatException("Input string was not in a correct format");
         }
         try {
