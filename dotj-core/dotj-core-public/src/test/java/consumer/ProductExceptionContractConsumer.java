@@ -15,6 +15,7 @@ import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.SerializationInfoEnumerator;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
+import System.Reflection.MemberTypes;
 
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
@@ -164,14 +165,18 @@ public final class ProductExceptionContractConsumer {
             throw new AssertionError("Java constructor stack boundary changed");
         }
         Exception captured = new Exception("capture");
-        if (captured.get_StackTrace() != null) {
+        if (captured.get_StackTrace() != null || captured.get_TargetSite() != null) {
             throw new AssertionError("Selected prethrow stack changed");
         }
         try {
             throw ThrowSite.capture(captured);
         } catch (Exception caught) {
             if (caught != captured || caught.get_StackTrace() == null
-                    || !caught.get_StackTrace().contains("ProductExceptionContractConsumer.main")) {
+                    || !caught.get_StackTrace().contains("ProductExceptionContractConsumer.main")
+                    || caught.get_TargetSite() == null
+                    || !"main".equals(caught.get_TargetSite().get_Name())
+                    || caught.get_TargetSite().get_MemberType() != MemberTypes.Method
+                    || caught.get_TargetSite() != caught.get_TargetSite()) {
                 throw new AssertionError("Selected throw-site capture changed");
             }
         }

@@ -640,6 +640,11 @@ def main():
         "source": "dotj-test", "nullError": "System.ArgumentNullException",
         "nullParameter": "info",
     }
+    target_site = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedExceptionTargetSiteBehavior"]
+    assert target_site == {
+        "beforeNull": True, "afterExists": True,
+        "nameContainsCaller": True, "memberType": "Method", "repeatedSame": True,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

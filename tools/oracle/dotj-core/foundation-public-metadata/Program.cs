@@ -1873,6 +1873,27 @@ static object ObserveExceptionSerialization()
         nullParameter,
     };
 }
+static object ObserveExceptionTargetSite()
+{
+    var exception = new Exception("target");
+    bool beforeNull = exception.TargetSite is null;
+    try
+    {
+        throw exception;
+    }
+    catch (Exception caught)
+    {
+        var target = caught.TargetSite;
+        return new
+        {
+            beforeNull,
+            afterExists = target is not null,
+            nameContainsCaller = target?.Name.Contains("ObserveExceptionTargetSite") ?? false,
+            memberType = target?.MemberType.ToString(),
+            repeatedSame = ReferenceEquals(target, caught.TargetSite),
+        };
+    }
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2065,6 +2086,7 @@ var result = new
     selectedDateTimeTimeOfDayBehavior = ObserveDateTimeTimeOfDay(),
     selectedDateTimeMillisecondsBehavior = ObserveDateTimeMilliseconds(),
     selectedExceptionSerializationBehavior = ObserveExceptionSerialization(),
+    selectedExceptionTargetSiteBehavior = ObserveExceptionTargetSite(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

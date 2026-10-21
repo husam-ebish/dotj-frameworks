@@ -5,6 +5,7 @@ package System;
 import System.Runtime.Serialization.ISerializable;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.StreamingContext;
+import System.Reflection.MethodBase;
 
 /** Selected unchecked Java carrier for the System.Exception candidate hierarchy. */
 public class Exception extends RuntimeException implements ISerializable {
@@ -12,6 +13,8 @@ public class Exception extends RuntimeException implements ISerializable {
     private int hResult = -2146233088;
     private String helpLink;
     private String source;
+    private StackTraceElement targetFrame;
+    private MethodBase targetSite;
 
     public Exception() {
         super();
@@ -94,6 +97,18 @@ public class Exception extends RuntimeException implements ISerializable {
 
     public String get_StackTrace() {
         return org.dotj.internal.throwing.ThrowSite.stackText(this);
+    }
+
+    public MethodBase get_TargetSite() {
+        StackTraceElement frame = org.dotj.internal.throwing.ThrowSite.targetFrame(this);
+        if (frame == null) {
+            return null;
+        }
+        if (!frame.equals(this.targetFrame)) {
+            this.targetFrame = frame;
+            this.targetSite = Type.capturedMethod(frame);
+        }
+        return this.targetSite;
     }
 
     @Override

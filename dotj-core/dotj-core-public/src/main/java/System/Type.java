@@ -86,6 +86,21 @@ public abstract class Type extends MemberInfo {
         return canonical.get(backend).computeIfAbsent(List.of(), key -> new ResolvedType(backend, key));
     }
 
+    static MethodBase capturedMethod(StackTraceElement frame) {
+        try {
+            Class<?> owner = Class.forName(frame.getClassName(), false,
+                    Thread.currentThread().getContextClassLoader());
+            for (java.lang.reflect.Method method : owner.getDeclaredMethods()) {
+                if (method.getName().equals(frame.getMethodName())) {
+                    return new DefaultMethodMember(method, fromJavaClass(owner));
+                }
+            }
+            throw new IllegalStateException("Captured method was not found: " + frame.getMethodName());
+        } catch (ClassNotFoundException error) {
+            throw new IllegalStateException("Captured type was not found: " + frame.getClassName(), error);
+        }
+    }
+
     private static Type arrayOf(Type elementType, int rank) {
         return arrayOf(elementType, rank, rank == 1);
     }
@@ -2107,10 +2122,18 @@ public abstract class Type extends MemberInfo {
     private static final class DefaultMethodMember extends MethodInfo {
         private final String name;
         private final Type owner;
+        private final java.lang.reflect.Method captured;
 
         private DefaultMethodMember(String name, Type owner) {
             this.name = name;
             this.owner = owner;
+            this.captured = null;
+        }
+
+        private DefaultMethodMember(java.lang.reflect.Method captured, Type owner) {
+            this.name = captured.getName();
+            this.owner = owner;
+            this.captured = captured;
         }
 
         @Override
@@ -2125,27 +2148,32 @@ public abstract class Type extends MemberInfo {
 
         @Override
         public boolean get_IsPublic() {
-            return true;
+            return this.captured == null
+                    || java.lang.reflect.Modifier.isPublic(this.captured.getModifiers());
         }
 
         @Override
         public boolean get_IsStatic() {
-            return false;
+            return this.captured != null
+                    && java.lang.reflect.Modifier.isStatic(this.captured.getModifiers());
         }
 
         @Override
         public boolean get_IsAbstract() {
-            return true;
+            return this.captured == null
+                    || java.lang.reflect.Modifier.isAbstract(this.captured.getModifiers());
         }
 
         @Override
         public boolean get_IsVirtual() {
-            return true;
+            return this.captured == null || (!this.get_IsStatic()
+                    && !this.get_IsPrivate() && !this.get_IsFinal());
         }
 
         @Override
         public boolean get_IsFinal() {
-            return false;
+            return this.captured != null
+                    && java.lang.reflect.Modifier.isFinal(this.captured.getModifiers());
         }
 
         @Override
@@ -2160,12 +2188,14 @@ public abstract class Type extends MemberInfo {
 
         @Override
         public boolean get_IsPrivate() {
-            return false;
+            return this.captured != null
+                    && java.lang.reflect.Modifier.isPrivate(this.captured.getModifiers());
         }
 
         @Override
         public boolean get_IsFamily() {
-            return false;
+            return this.captured != null
+                    && java.lang.reflect.Modifier.isProtected(this.captured.getModifiers());
         }
 
         @Override
@@ -2175,12 +2205,13 @@ public abstract class Type extends MemberInfo {
 
         @Override
         public boolean get_IsFamilyOrAssembly() {
-            return false;
+            return this.get_IsFamily();
         }
 
         @Override
         public boolean get_IsAssembly() {
-            return false;
+            return this.captured != null && !this.get_IsPublic()
+                    && !this.get_IsPrivate() && !this.get_IsFamily();
         }
 
         @Override
@@ -2190,7 +2221,8 @@ public abstract class Type extends MemberInfo {
 
         @Override
         public CallingConventions get_CallingConvention() {
-            return CallingConventions.Standard.or(CallingConventions.HasThis);
+            return this.get_IsStatic() ? CallingConventions.Standard
+                    : CallingConventions.Standard.or(CallingConventions.HasThis);
         }
 
         @Override
@@ -2268,6 +2300,9 @@ public abstract class Type extends MemberInfo {
 
         @Override
         public Type get_ReturnType() {
+            if (this.captured != null) {
+                return fromJavaClass(this.captured.getReturnType());
+            }
             return switch (this.name) {
                 case "Dispose" -> fromJavaClass(Void.class);
                 case "CompareTo" -> fromJavaClass(Int32.class);
@@ -2285,6 +2320,15 @@ public abstract class Type extends MemberInfo {
 
         @Override
         public ParameterInfo[] GetParameters() {
+            if (this.captured != null) {
+                java.lang.reflect.Parameter[] parameters = this.captured.getParameters();
+                ParameterInfo[] result = new ParameterInfo[parameters.length];
+                for (int index = 0; index < parameters.length; index++) {
+                    result[index] = new DefaultParameterInfo(parameters[index].getName(),
+                            fromJavaClass(parameters[index].getType()), index, this);
+                }
+                return result;
+            }
             return switch (this.name) {
                 case "Dispose" -> new ParameterInfo[0];
                 case "CompareTo" -> new ParameterInfo[] {

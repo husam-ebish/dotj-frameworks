@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "79da42c8c430ce72a785db647b12fd54d50658dfa1117cf0c45704ecaa5966b2",
+  "oracleEvidenceSha256": "c03aa1a5b75c9986f13a9a18e265cd10888cfc7885f46199f598d87ffe237870",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "82e486be726a53e5996a598e57058dfb698f75862ff9b1124fac2d0c877a27f4",
+  "javaCandidateEvidenceSha256": "6e72423ed3de33352cf3219696ef749e3f1d24a926bf89f997dd574c2624280a",
   "types": [
     {
       "fullName": "System.Type",
@@ -4007,6 +4007,7 @@
         "public java.lang.String ToString();",
         "public System.Type GetType();",
         "public java.lang.String get_StackTrace();",
+        "public System.Reflection.MethodBase get_TargetSite();",
         "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);"
       ],
       "nameLevelComparison": {
@@ -4028,13 +4029,12 @@
           "get_Message": 1,
           "get_Source": 1,
           "get_StackTrace": 1,
+          "get_TargetSite": 1,
           "set_HelpLink": 1,
           "set_Source": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [],
-        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "TargetSite"
-        ],
+        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
     }

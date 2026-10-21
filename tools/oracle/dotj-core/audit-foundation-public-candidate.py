@@ -229,6 +229,8 @@ def main():
             if name == "System.Exception":
                 assert "public java.lang.String get_Message();" in declarations
                 assert "public System.Exception get_InnerException();" in declarations
+                assert "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);" in declarations
+                assert "public System.Reflection.MethodBase get_TargetSite();" in declarations
             if name == "System.ArgumentException":
                 assert "public java.lang.String get_ParamName();" in declarations
             disposition = "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only"
