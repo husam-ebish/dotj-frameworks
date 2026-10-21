@@ -230,6 +230,19 @@ public final class ProductTypeIdentityConsumer {
         } catch (FileLoadException expected) {
             // Selected pinned empty-key error.
         }
+        for (String unknownValue : new String[] {
+                "UnknownAttr=foo:bar", "UnknownAttr=foo/bar", "UnknownAttr=foo;bar",
+                "UnknownAttr=foo?bar", "UnknownAttr=foo, unknownattr=bar"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + unknownValue) != string) {
+                throw new AssertionError("Selected unknown attribute value rejected: " + unknownValue);
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, UnknownAttr=foo=bar");
+            throw new AssertionError("Unquoted equals accepted in unknown attribute");
+        } catch (FileLoadException expected) {
+            // Selected pinned separator error.
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

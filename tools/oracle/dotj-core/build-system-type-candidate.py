@@ -446,6 +446,12 @@ def main():
                        "unknownKeySpace", "unknownKeyDot", "versionKeyHyphen")},
         "emptyKey": {"result": None, "exception": "System.IO.FileLoadException", "paramName": None},
     }
+    unknown_values = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUnknownAssemblyAttributeValueBehavior"]
+    assert unknown_values == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("colon", "slash", "semicolon", "question", "duplicateMixedCase")},
+        "unquotedEquals": {"result": None, "exception": "System.IO.FileLoadException", "paramName": None},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

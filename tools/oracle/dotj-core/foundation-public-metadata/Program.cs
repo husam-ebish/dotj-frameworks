@@ -732,6 +732,15 @@ var result = new
         emptyKey = ObserveGetType("System.String, System.Private.CoreLib, =foo", false, false),
         versionKeyHyphen = ObserveGetType("System.String, System.Private.CoreLib, Ver-sion=10.0.0.0", false, false),
     },
+    selectedUnknownAssemblyAttributeValueBehavior = new
+    {
+        colon = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo:bar", false, false),
+        slash = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo/bar", false, false),
+        semicolon = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo;bar", false, false),
+        question = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo?bar", false, false),
+        unquotedEquals = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo=bar", false, false),
+        duplicateMixedCase = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo, unknownattr=bar", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
