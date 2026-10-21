@@ -127,6 +127,14 @@ public final class ProductTypeIdentityConsumer {
                 || listArray.get_IsGenericType()) {
             throw new AssertionError("Selected CLR array-shape identity changed");
         }
+        if (Type.GetType("System.Object").get_IsSZArray()
+                || !Type.GetType("System.String[]").get_IsSZArray()
+                || !jagged.get_IsSZArray()
+                || Type.GetType("System.String[*]").get_IsSZArray()
+                || rectangular.get_IsSZArray() || rankThree.get_IsSZArray()
+                || !listArray.get_IsSZArray()) {
+            throw new AssertionError("Selected vector array flags changed");
+        }
         if (string.get_IsArray() || string.GetElementType() != null
                 || !Type.GetType("System.String[]").get_IsArray()
                 || Type.GetType("System.String[]").GetElementType() != string

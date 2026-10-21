@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "f897dec21c019ea99ef3b1f86fb7fcba6837e2f342b9814cfcf8a476e836ec21",
+  "candidateJarSha256": "29dd3edd5262babffb0ccc852953f99c5ff6a1b5d752f4adae33a420ab0fae20",
   "typeCount": 27,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -297,6 +297,7 @@
         "public System.Type GetInterface(java.lang.String);",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
+        "public boolean get_IsSZArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",
         "public System.Type GetElementType();",

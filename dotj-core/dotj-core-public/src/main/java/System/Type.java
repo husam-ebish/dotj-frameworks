@@ -656,6 +656,13 @@ public abstract class Type extends MemberInfo {
         return this.definition.isArray();
     }
 
+    public boolean get_IsSZArray() {
+        if (this instanceof ArrayType array) {
+            return array.vector;
+        }
+        return this.definition.isArray();
+    }
+
     public boolean get_IsByRef() {
         return false;
     }

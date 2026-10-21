@@ -855,6 +855,36 @@
       }
     }
   ],
+  "selectedSzArrayBehavior": [
+    {
+      "name": "System.Object",
+      "isSzArray": false
+    },
+    {
+      "name": "System.String[]",
+      "isSzArray": true
+    },
+    {
+      "name": "System.String[][]",
+      "isSzArray": true
+    },
+    {
+      "name": "System.String[*]",
+      "isSzArray": false
+    },
+    {
+      "name": "System.String[,]",
+      "isSzArray": false
+    },
+    {
+      "name": "System.String[,,]",
+      "isSzArray": false
+    },
+    {
+      "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]][]",
+      "isSzArray": true
+    }
+  ],
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -3466,6 +3496,10 @@
           "type": "System.Boolean"
         },
         {
+          "name": "IsSZArray",
+          "type": "System.Boolean"
+        },
+        {
           "name": "GenericTypeArguments",
           "type": "System.Type[]"
         },
@@ -4098,6 +4132,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "dda4dc3cae7ae78df53ac4ba97e23dd6c998438ca93d1ae213a90b808e3a5b4e",
+  "oracleProgramSha256": "9463792ba95855d447931019547eba96480c01e5a1db10f1dfa41e7729ffc438",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

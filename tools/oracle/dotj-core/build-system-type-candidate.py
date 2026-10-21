@@ -77,7 +77,7 @@ def main():
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsGenericTypeDefinition", "ContainsGenericParameters", "IsConstructedGenericType",
-            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
+            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsSZArray", "IsByRef", "IsPointer",
             "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed", "IsPublic", "IsVisible",
             "IsInterface", "IsEnum"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
@@ -264,6 +264,16 @@ def main():
         {"constraints": [], "exception": None}] * 3
     assert [item["observation"] for item in constraints[3:]] == [
         {"constraints": None, "exception": "System.InvalidOperationException"}] * 2
+    sz_arrays = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSzArrayBehavior"]
+    assert [item["name"] for item in sz_arrays[:6]] == [
+        "System.Object", "System.String[]", "System.String[][]",
+        "System.String[*]", "System.String[,]", "System.String[,,]",
+    ]
+    assert sz_arrays[6]["name"].startswith("System.Collections.Generic.List`1[[System.String,")
+    assert sz_arrays[6]["name"].endswith("]][]")
+    assert [item["isSzArray"] for item in sz_arrays] == [
+        False, True, True, False, False, False, True,
+    ]
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
@@ -550,6 +560,7 @@ def main():
         "public System.Type GetInterface(java.lang.String);",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
+        "public boolean get_IsSZArray();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",
         "public System.Type GetElementType();",
