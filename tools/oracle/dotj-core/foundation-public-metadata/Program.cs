@@ -864,6 +864,15 @@ var result = new
         fiveParts = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2.3.4.5", false, false),
         emptyMiddle = ObserveGetType("System.String, System.Private.CoreLib, Version=1..2", false, false),
     },
+    selectedKnownAssemblyAttributeOrderBehavior = new
+    {
+        contentThenRetargetable = ObserveGetType("System.String, System.Private.CoreLib, ContentType=WindowsRuntime, Retargetable=Yes", false, false),
+        retargetableThenContent = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=Yes, ContentType=WindowsRuntime", false, false),
+        architectureThenRetargetable = ObserveGetType("System.String, System.Private.CoreLib, ProcessorArchitecture=X86, Retargetable=Yes", false, false),
+        retargetableThenVersion = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=No, Version=1.2", false, false),
+        cultureThenInvalidToken = ObserveGetType("System.String, System.Private.CoreLib, Culture=123, PublicKeyToken=xyz", false, false),
+        invalidTokenThenCulture = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=xyz, Culture=123", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
