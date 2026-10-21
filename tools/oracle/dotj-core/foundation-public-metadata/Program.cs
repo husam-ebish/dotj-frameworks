@@ -129,6 +129,32 @@ static string? ObserveGenericDefinitionError(Type type)
         return exception.GetType().FullName;
     }
 }
+static object ObserveGenericArgumentCopies()
+{
+    Type open = typeof(Dictionary<,>);
+    Type[] first = open.GetGenericArguments();
+    Type[] second = open.GetGenericArguments();
+    bool distinctArrays = !ReferenceEquals(first, second);
+    bool stableElements = ReferenceEquals(first[0], second[0])
+        && ReferenceEquals(first[1], second[1]);
+    string[] openNames = first.Select(type => type.Name).ToArray();
+    int[] positions = first.Select(type => type.GenericParameterPosition).ToArray();
+    first[0] = typeof(object);
+    bool mutationIsolated = ReferenceEquals(second[0], open.GetGenericArguments()[0]);
+    Type closed = typeof(Dictionary<string, int>);
+    return new
+    {
+        openNames,
+        positions,
+        distinctArrays,
+        stableElements,
+        mutationIsolated,
+        closedNames = closed.GetGenericArguments().Select(type => type.FullName).ToArray(),
+        openTypeArgumentsLength = open.GenericTypeArguments.Length,
+        closedTypeArguments = closed.GenericTypeArguments.Select(type => type.FullName).ToArray(),
+        arrayArgumentsLength = typeof(string[]).GetGenericArguments().Length,
+    };
+}
 static object ObserveSubclass(Type type, Type? parent)
 {
     try
@@ -450,6 +476,7 @@ var result = new
         parameter = ObserveGenericDefinitionError(typeof(List<>).GetGenericArguments()[0]),
         array = ObserveGenericDefinitionError(typeof(string[])),
     },
+    selectedGenericArgumentCopyBehavior = ObserveGenericArgumentCopies(),
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
