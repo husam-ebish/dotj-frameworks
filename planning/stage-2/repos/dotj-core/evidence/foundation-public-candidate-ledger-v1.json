@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "cafc964a0b7ae711b4855a34e94427bffd084c06cac6e2fdd9a730b0512582cc",
-  "typeCount": 18,
+  "candidateJarSha256": "02ecdab8ccb885bed1fa0710dbe3920eab0eea780832bdfad93b8ddd9ee4e4ee",
+  "typeCount": 19,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -96,7 +96,7 @@
         "public abstract float ToSingle(System.IFormatProvider);",
         "public abstract double ToDouble(System.IFormatProvider);",
         "public abstract System.Decimal ToDecimal(System.IFormatProvider);",
-        "public abstract java.time.LocalDateTime ToDateTime(System.IFormatProvider);",
+        "public abstract System.DateTime ToDateTime(System.IFormatProvider);",
         "public abstract java.lang.String ToString(System.IFormatProvider);",
         "public abstract java.lang.Object ToType(System.Type, System.IFormatProvider);"
       ],
@@ -154,6 +154,26 @@
         "public java.lang.String ToString(System.IFormatProvider);"
       ],
       "disposition": "PARTIAL_VALUE_SURFACE; integer construction and invariant text only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.DateTime",
+      "upstreamBaseType": "System.ValueType",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 70,
+      "upstreamDeclaredProperties": 18,
+      "upstreamPublicConstructors": 17,
+      "javaPublicConstructors": 1,
+      "javaPublicHeader": "public final class System.DateTime {",
+      "javaPublicDeclarations": [
+        "public System.DateTime(int, int, int);",
+        "public int get_Year();",
+        "public int get_Month();",
+        "public int get_Day();",
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"
+      ],
+      "disposition": "PARTIAL_VALUE_SURFACE; selected date construction/properties/text only",
       "qualified": false
     },
     {

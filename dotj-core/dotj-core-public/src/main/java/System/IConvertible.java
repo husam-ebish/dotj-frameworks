@@ -30,7 +30,7 @@ public interface IConvertible {
 
     Decimal ToDecimal(IFormatProvider provider);
 
-    java.time.LocalDateTime ToDateTime(IFormatProvider provider);
+    DateTime ToDateTime(IFormatProvider provider);
 
     String ToString(IFormatProvider provider);
 

@@ -10,6 +10,7 @@ Type[] selected = [
     typeof(IConvertible),
     typeof(TypeCode),
     typeof(decimal),
+    typeof(DateTime),
     typeof(Type),
     typeof(MemberInfo),
     typeof(MemberTypes),
@@ -299,6 +300,16 @@ var result = new
         intBits = decimal.GetBits(new decimal(42)),
         isValueType = typeof(decimal).IsValueType,
         baseType = typeof(decimal).BaseType?.FullName,
+    },
+    selectedDateTimeBehavior = new
+    {
+        year = new DateTime(2026, 1, 2).Year,
+        month = new DateTime(2026, 1, 2).Month,
+        day = new DateTime(2026, 1, 2).Day,
+        text = new DateTime(2026, 1, 2)
+            .ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
+        isValueType = typeof(DateTime).IsValueType,
+        baseType = typeof(DateTime).BaseType?.FullName,
     },
     selectedAssignability = new (Type Target, Type? Candidate)[]
     {
