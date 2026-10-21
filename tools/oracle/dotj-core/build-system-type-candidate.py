@@ -355,6 +355,13 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("unknownEmpty", "duplicateCulture", "versionOnePart", "versionFivePart")},
     }
+    attribute_delimiters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyAttributeDelimiterBehavior"]
+    assert attribute_delimiters == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("quotedCulture", "quotedVersion", "unknownQuoted", "tokenQuoted")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("trailingComma", "doubleComma", "emptyAttribute", "extraEquals")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
