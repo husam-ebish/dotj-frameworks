@@ -193,6 +193,18 @@ public abstract class Type extends MemberInfo {
             case "system.string&" -> ignoreCase ? fromJavaClass(String.class).MakeByRefType() : null;
             case "system.string[]&" -> ignoreCase ? fromJavaClass(String[].class).MakeByRefType() : null;
             case "system.string*" -> ignoreCase ? fromJavaClass(String.class).MakePointerType() : null;
+            case "system.string*[]" -> ignoreCase
+                    ? fromJavaClass(String.class).MakePointerType().MakeArrayType() : null;
+            case "system.string*&" -> ignoreCase
+                    ? fromJavaClass(String.class).MakePointerType().MakeByRefType() : null;
+            case "system.string**" -> ignoreCase
+                    ? fromJavaClass(String.class).MakePointerType().MakePointerType() : null;
+            case "system.string&[]" -> {
+                if (ignoreCase) {
+                    throw new TypeLoadException("Array element cannot be by-reference");
+                }
+                yield null;
+            }
             case "system.int32*" -> ignoreCase ? fromJavaClass(Int32.class).MakePointerType() : null;
             case "system.int32[]" -> ignoreCase ? fromJavaClass(int[].class) : null;
             case "system.collections.generic.list`1[system.string]",

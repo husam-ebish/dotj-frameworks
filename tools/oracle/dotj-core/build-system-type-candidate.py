@@ -308,6 +308,15 @@ def main():
         "byRefArray": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
         "byRefArrayThrow": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
     }
+    qualified_nested = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedQualifiedNestedNameBehavior"]
+    assert qualified_nested == {
+        "coreLibArray": {"result": "System.String*[]", "exception": None, "paramName": None},
+        "insensitiveArray": {"result": "System.String*[]", "exception": None, "paramName": None},
+        "sensitiveMiss": {"result": None, "exception": None, "paramName": None},
+        "legacyByRef": {"result": "System.String*&", "exception": None, "paramName": None},
+        "coreLibDoublePointer": {"result": "System.String**", "exception": None, "paramName": None},
+        "invalidByRefArray": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

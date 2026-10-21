@@ -1020,6 +1020,38 @@
       "paramName": null
     }
   },
+  "selectedQualifiedNestedNameBehavior": {
+    "coreLibArray": {
+      "result": "System.String*[]",
+      "exception": null,
+      "paramName": null
+    },
+    "insensitiveArray": {
+      "result": "System.String*[]",
+      "exception": null,
+      "paramName": null
+    },
+    "sensitiveMiss": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "legacyByRef": {
+      "result": "System.String*&",
+      "exception": null,
+      "paramName": null
+    },
+    "coreLibDoublePointer": {
+      "result": "System.String**",
+      "exception": null,
+      "paramName": null
+    },
+    "invalidByRefArray": {
+      "result": null,
+      "exception": "System.TypeLoadException",
+      "paramName": null
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -4275,6 +4307,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "ddedf780a2600cc387ad2e9987764549401aab00745d007cff4e03730106edcf",
+  "oracleProgramSha256": "26fadc65591c679222f126facf83e90ad8c58bcabe36880ab98c00f859d18c3c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

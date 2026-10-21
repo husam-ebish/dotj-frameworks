@@ -236,6 +236,21 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned error type for both overload choices.
             }
         }
+        if (Type.GetType("System.String*[], System.Private.CoreLib") != pointer.MakeArrayType()
+                || Type.GetType("system.string*[], System.Private.CoreLib", false, true)
+                    != pointer.MakeArrayType()
+                || Type.GetType("system.string*[], System.Private.CoreLib", false, false) != null
+                || Type.GetType("System.String*&, mscorlib") != pointer.MakeByRefType()
+                || Type.GetType("System.String**, System.Private.CoreLib")
+                    != pointer.MakePointerType()) {
+            throw new AssertionError("Selected qualified nested type lookup changed");
+        }
+        try {
+            Type.GetType("System.String&[], System.Private.CoreLib", false, false);
+            throw new AssertionError("Qualified by-reference array accepted");
+        } catch (TypeLoadException expected) {
+            // Selected pinned error type.
+        }
         try {
             byReference.MakePointerType();
             throw new AssertionError("Pointer from by-reference type accepted");
