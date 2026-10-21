@@ -391,6 +391,10 @@ public abstract class Type extends MemberInfo {
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
+            case "System.Collections.Generic.Dictionary`2+Entry" ->
+                    fromJavaClass(java.util.Map.Entry.class);
+            case "System.Collections.Generic.Dictionary`2+Entry[]" ->
+                    fromJavaClass(java.util.Map.Entry.class).MakeArrayType();
             case "System.String[]" -> fromJavaClass(String[].class);
             case "System.Boolean[]" -> fromJavaClass(Boolean.class).MakeArrayType();
             case "System.Char[]" -> fromJavaClass(Character.class).MakeArrayType();
@@ -493,6 +497,10 @@ public abstract class Type extends MemberInfo {
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
             case "system.collections.generic.dictionary`2" -> ignoreCase ? fromJavaClass(java.util.Map.class) : null;
+            case "system.collections.generic.dictionary`2+entry" -> ignoreCase
+                    ? fromJavaClass(java.util.Map.Entry.class) : null;
+            case "system.collections.generic.dictionary`2+entry[]" -> ignoreCase
+                    ? fromJavaClass(java.util.Map.Entry.class).MakeArrayType() : null;
             case "system.string[]" -> ignoreCase ? fromJavaClass(String[].class) : null;
             case "system.boolean[]" -> ignoreCase ? fromJavaClass(Boolean.class).MakeArrayType() : null;
             case "system.char[]" -> ignoreCase ? fromJavaClass(Character.class).MakeArrayType() : null;
