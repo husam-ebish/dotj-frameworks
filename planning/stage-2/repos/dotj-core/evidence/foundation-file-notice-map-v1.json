@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "scope": "Built dotj-core foundation candidate JAR, not a release",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "ada7c1917d681938a63c077825e0543a767b7cbbe18c8ee589979a4a0185f074",
+  "jarSha256": "cfd05fd5110c9cbe1d53f646ca607661f66d5120f7ecaeb2099437d474e911b3",
   "sourceToClasses": {
     "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java": [
       "System/IDisposable.class"
@@ -103,7 +103,12 @@
     ]
   },
   "manifestEntry": "META-INF/MANIFEST.MF",
-  "jarNoticeEntries": [],
+  "productLicense": "MIT",
+  "productLicensePath": "dotj-core/LICENSE",
+  "productLicenseEntry": "META-INF/LICENSE",
+  "jarNoticeEntries": [
+    "META-INF/LICENSE"
+  ],
   "observedJdkModuleDependencies": [
     "java.base"
   ],
@@ -118,7 +123,6 @@
     }
   ],
   "decisionInputs": [
-    "Choose and record the dotj-core product license and artifact notice placement.",
     "Review file-level upstream notice applicability to the independently authored selected Java sources and generated classes.",
     "Obtain the repository licensing review required by E01 before public release qualification."
   ],

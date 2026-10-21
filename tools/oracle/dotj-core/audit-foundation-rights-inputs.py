@@ -23,6 +23,10 @@ def main():
     mapping = json.loads(MAPPING.read_text(encoding="utf-8"))
     jar = ROOT / artifact["jarPath"]
     assert sha256(jar) == artifact["jarSha256"] == mapping["jarSha256"]
+    license_file = ROOT / artifact["licensePath"]
+    assert artifact["licensePath"] == "dotj-core/LICENSE"
+    assert sha256(license_file) == artifact["licenseSha256"]
+    assert license_file.read_text(encoding="utf-8").startswith("MIT License\n\nCopyright (c) 2026 dotj Frameworks contributors")
     sources = {item["path"]: item["sha256"] for item in artifact["productSources"]}
     assert set(sources) == set(mapping["sourceToClasses"])
     source_rows = []
@@ -49,15 +53,21 @@ def main():
     )
     with zipfile.ZipFile(jar) as archive:
         entries = archive.namelist()
+        assert archive.read(artifact["licenseEntry"]) == license_file.read_bytes()
     notice_entries = [entry for entry in entries
                       if "LICENSE" in entry.upper() or "NOTICE" in entry.upper()]
     assert entries == artifact["jarEntries"]
     assert notice_entries == mapping["jarNoticeEntries"]
+    assert product_license_files == ["dotj-core/LICENSE"]
+    assert notice_entries == ["META-INF/LICENSE"]
     record = {
         "schemaVersion": 1,
         "scope": "Built foundation candidate JAR only; technical inputs for a licensing decision, not clearance",
         "artifactEvidence": ARTIFACT.name,
         "jarSha256": artifact["jarSha256"],
+        "selectedProductLicense": "MIT",
+        "licensePath": artifact["licensePath"],
+        "licenseSha256": artifact["licenseSha256"],
         "productSourceCount": len(source_rows),
         "productSources": source_rows,
         "productLicenseFilesAtCandidateRoots": product_license_files,
@@ -67,7 +77,7 @@ def main():
             item["path"] for item in mapping["upstreamReferenceEvidenceExcludedFromJar"]
         ],
         "decisionInputs": mapping["decisionInputs"],
-        "status": "TECHNICAL_INPUTS_CAPTURED; E01_RELEASE_REVIEW_OPEN",
+        "status": "MIT_PRODUCT_LICENSE_PACKAGED; E01_UPSTREAM_APPLICABILITY_AND_RELEASE_REVIEW_OPEN",
     }
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     print(f"PASS foundation rights-review inputs: {len(source_rows)} product sources, "
