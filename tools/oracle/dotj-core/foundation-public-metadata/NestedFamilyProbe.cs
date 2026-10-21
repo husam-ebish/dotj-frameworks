@@ -11,4 +11,13 @@ internal class NestedFamilyProbe
     }
 
     public static Type PrivateMarkerType => typeof(PrivateMarker);
+
+    private sealed class PrivateOwner
+    {
+        public sealed class PublicChild
+        {
+        }
+    }
+
+    public static Type PrivateOwnerChildType => typeof(PrivateOwner.PublicChild);
 }

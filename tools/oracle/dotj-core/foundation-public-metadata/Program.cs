@@ -1080,6 +1080,18 @@ var result = new
         typeof(System.Collections.Generic.List<>).MakeGenericType(NestedFamilyProbe.PrivateMarkerType),
         typeof(System.Collections.Generic.List<>).MakeGenericType(NestedFamilyProbe.PrivateMarkerType).MakeArrayType(),
     }.Select(type => new { name = type.FullName, isVisible = type.IsVisible }).ToArray(),
+    selectedNestedParentVisibilityBehavior = new[]
+    {
+        typeof(System.Collections.Generic.List<int>.Enumerator),
+        NestedFamilyProbe.PrivateOwnerChildType,
+    }.Select(type => new
+    {
+        name = type.FullName,
+        isPublic = type.IsPublic,
+        isNestedPublic = type.IsNestedPublic,
+        isVisible = type.IsVisible,
+        declaringVisible = type.DeclaringType!.IsVisible,
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
