@@ -19,6 +19,7 @@ SOURCES += [PRODUCT / "src/main/java/System/Collections" / (name + ".java") for 
             ("IEnumerable", "ICollection", "IDictionary", "IDictionaryEnumerator", "DictionaryEntry")]
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberFormatInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/NullableAttribute.java")
 SOURCES += [PRODUCT / "src/main/java/System/Runtime/Serialization" / (name + ".java") for name in
@@ -65,6 +66,7 @@ EXPECTED_CLASSES = [
     "System/Exception.class",
     "System/FormatException.class",
     "System/Globalization/CultureNotFoundException.class",
+    "System/Globalization/NumberFormatInfo.class",
     "System/Globalization/NumberStyles.class",
     "System/IComparable.class",
     "System/IConvertible.class",
@@ -155,6 +157,9 @@ def main():
     assert metadata["selectedInt32FormatBehavior"] == {
         "decimal5": "00042", "hexUpper4": "002A", "hexLower4": "002a",
         "negativeDecimal5": "-00042", "negativeHex": "FFFFFFFF",
+    }
+    assert metadata["selectedInt32ProviderFormatBehavior"] == {
+        "grouped": "12_345:00", "negative": "-42:00", "defaultPrecision": "42:000",
     }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,

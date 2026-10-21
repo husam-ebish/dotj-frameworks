@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import System.Globalization.NumberStyles;
+import System.Globalization.NumberFormatInfo;
 
 /** Bounded immutable Int32 value and conversion candidate. */
 public final class Int32 implements IConvertible, ISpanFormattable,
@@ -649,9 +650,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return "0".repeat(Math.max(0, precision - digits.length())) + digits;
         }
         if (format.matches("[nN][0-9]*")) {
+            Object supplied = provider == null ? null : provider.GetFormat(
+                    Type.GetType("System.Globalization.NumberFormatInfo"));
+            NumberFormatInfo numberFormat = supplied instanceof NumberFormatInfo info ? info : null;
             int precision;
             try {
-                precision = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+                precision = format.length() == 1
+                        ? (numberFormat == null ? 2 : numberFormat.get_NumberDecimalDigits())
+                        : Integer.parseInt(format.substring(1));
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
@@ -662,12 +668,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             StringBuilder grouped = new StringBuilder();
             for (int index = 0; index < digits.length(); index++) {
                 if (index > 0 && (digits.length() - index) % 3 == 0) {
-                    grouped.append(',');
+                    grouped.append(numberFormat == null ? ","
+                            : numberFormat.get_NumberGroupSeparator());
                 }
                 grouped.append(digits.charAt(index));
             }
             String sign = this.value < 0 ? "-" : "";
-            String fraction = precision == 0 ? "" : "." + "0".repeat(precision);
+            String fraction = precision == 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + "0".repeat(precision);
             return sign + grouped + fraction;
         }
         if (format.matches("[cC][0-9]*")) {

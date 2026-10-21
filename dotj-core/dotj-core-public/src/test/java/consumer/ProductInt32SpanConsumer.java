@@ -5,7 +5,9 @@ import System.FormatException;
 import System.Int32;
 import System.ReadOnlySpan;
 import System.Span;
+import System.Type;
 import System.Globalization.NumberStyles;
+import System.Globalization.NumberFormatInfo;
 import java.nio.charset.StandardCharsets;
 
 /** Selected CLR Char and UTF-8 Byte span parsing against the packaged JAR. */
@@ -22,6 +24,7 @@ public final class ProductInt32SpanConsumer {
         checkFormatSpecifier(new Int32(42), "D5", "00042");
         checkFormatSpecifier(new Int32(42), "X4", "002A");
         checkFormatSpecifier(new Int32(-42), "D5", "-00042");
+        checkProviderFormat();
         java.lang.System.out.println("PASS external selected Int32 span parsing and formatting");
     }
 
@@ -88,6 +91,41 @@ public final class ProductInt32SpanConsumer {
                 || written[0] != expected.length()
                 || !new String(bytes, StandardCharsets.UTF_8).equals(expected)) {
             throw new AssertionError("Byte span precision format changed: " + specifier);
+        }
+    }
+
+    private static void checkProviderFormat() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        provider.set_NumberGroupSeparator("_");
+        provider.set_NumberDecimalSeparator(":");
+        provider.set_NumberDecimalDigits(3);
+        if (provider.GetFormat(Type.GetType("System.Globalization.NumberFormatInfo")) != provider
+                || provider.GetFormat(Type.GetType("System.Int32")) != null) {
+            throw new AssertionError("NumberFormatInfo provider identity changed");
+        }
+        checkProviderVector(new Int32(12345), "N2", "12_345:00", provider);
+        checkProviderVector(new Int32(-42), "N2", "-42:00", provider);
+        checkProviderVector(new Int32(42), "N", "42:000", provider);
+    }
+
+    private static void checkProviderVector(Int32 value, String specifier, String expected,
+                                             NumberFormatInfo provider) {
+        if (!value.ToString(specifier, provider).equals(expected)) {
+            throw new AssertionError("Provider string formatting changed: " + specifier);
+        }
+        ReadOnlySpan<Character> format = ReadOnlySpan.OfChars(specifier.toCharArray());
+        char[] chars = new char[expected.length()];
+        byte[] bytes = new byte[expected.getBytes(StandardCharsets.UTF_8).length];
+        int[] written = {-1};
+        if (!value.TryFormat(Span.OfChars(chars), written, format, provider)
+                || written[0] != chars.length || !new String(chars).equals(expected)) {
+            throw new AssertionError("Provider Char span formatting changed: " + specifier);
+        }
+        written[0] = -1;
+        if (!value.TryFormat(Span.OfUtf8Bytes(bytes), written, format, provider)
+                || written[0] != bytes.length
+                || !new String(bytes, StandardCharsets.UTF_8).equals(expected)) {
+            throw new AssertionError("Provider Byte span formatting changed: " + specifier);
         }
     }
 }
