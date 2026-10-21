@@ -23,11 +23,15 @@ public final class ThrowSite {
     }
 
     public static String stackText(Exception exception) {
-        StackTraceElement[] frames = exception.getStackTrace();
-        if (frames.length < 2 || !MARKER.equals(frames[0])) {
+        StackTraceElement caller = targetFrame(exception);
+        if (caller == null) {
             return null;
         }
-        StackTraceElement caller = frames[1];
         return "   at " + caller.getClassName() + "." + caller.getMethodName();
+    }
+
+    public static StackTraceElement targetFrame(Exception exception) {
+        StackTraceElement[] frames = exception.getStackTrace();
+        return frames.length < 2 || !MARKER.equals(frames[0]) ? null : frames[1];
     }
 }
