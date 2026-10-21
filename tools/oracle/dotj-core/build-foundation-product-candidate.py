@@ -187,6 +187,12 @@ def main():
         "upper": "~4:20E+001", "lower": "4:2e+001",
         "zeroPrecision": "~4E+001",
     }
+    assert metadata["selectedInt32PositiveSignBehavior"] == {
+        "customParse": 42, "customSuccess": True, "customValue": 42,
+        "standardSuccess": False, "standardValue": 0,
+        "positiveExponent": "4.2Eplus001",
+        "negativeExponent": "~4.2Eplus001",
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

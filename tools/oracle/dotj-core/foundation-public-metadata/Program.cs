@@ -654,6 +654,28 @@ static object ObserveInt32ExponentialProvider()
         zeroPrecision = ((IFormattable)(-42)).ToString("E0", provider),
     };
 }
+static object ObserveInt32PositiveSign()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    bool customSuccess = int.TryParse("plus42", System.Globalization.NumberStyles.Integer,
+        provider, out int customValue);
+    bool standardSuccess = int.TryParse("+42", System.Globalization.NumberStyles.Integer,
+        provider, out int standardValue);
+    return new
+    {
+        customParse = int.Parse("plus42", System.Globalization.NumberStyles.Integer, provider),
+        customSuccess,
+        customValue,
+        standardSuccess,
+        standardValue,
+        positiveExponent = ((IFormattable)42).ToString("E1", provider),
+        negativeExponent = ((IFormattable)(-42)).ToString("E1", provider),
+    };
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -5036,6 +5058,7 @@ var result = new
     selectedInt32PercentProviderBehavior = ObserveInt32PercentProvider(),
     selectedInt32FixedProviderBehavior = ObserveInt32FixedProvider(),
     selectedInt32ExponentialProviderBehavior = ObserveInt32ExponentialProvider(),
+    selectedInt32PositiveSignBehavior = ObserveInt32PositiveSign(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",
