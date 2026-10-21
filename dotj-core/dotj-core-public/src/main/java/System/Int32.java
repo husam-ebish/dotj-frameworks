@@ -87,8 +87,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (style == NumberStyles.Number) {
             return selectedParseNumber(text, provider);
         }
-        if (style == NumberStyles.Float) {
-            return selectedParseFloat(text, provider);
+        if (style == NumberStyles.Float || style == NumberStyles.AllowDecimalPoint
+                || style == NumberStyles.AllowExponent) {
+            return selectedParseFloat(text, provider, style);
+        }
+        if (style == NumberStyles.AllowThousands) {
+            return selectedParseThousands(text, provider);
         }
         if (style == NumberStyles.BinaryNumber) {
             if (text == null) {
@@ -211,22 +215,48 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(parsed.intValue());
     }
 
-    private static Int32 selectedParseFloat(String text, IFormatProvider provider) {
+    private static Int32 selectedParseThousands(String text, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("s");
+        NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+        String separator = numberFormat == null ? ","
+                : numberFormat.get_NumberGroupSeparator();
+        if (!separator.isEmpty() && text.startsWith(separator)) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        String digits = separator.isEmpty() ? text : text.replace(separator, "");
+        if (!digits.matches("[0-9]+")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        BigInteger parsed = new BigInteger(digits);
+        if (parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+            throw new OverflowException();
+        }
+        return new Int32(parsed.intValue());
+    }
+
+    private static Int32 selectedParseFloat(String text, IFormatProvider provider,
+                                            NumberStyles style) {
+        if (text == null) throw new ArgumentNullException("s");
+        boolean allowWhitespace = style == NumberStyles.Float;
+        boolean allowLeadingSign = style == NumberStyles.Float;
+        boolean allowDecimal = style != NumberStyles.AllowExponent;
+        boolean allowExponent = style != NumberStyles.AllowDecimalPoint;
         NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
         String decimalSeparator = numberFormat == null ? "."
                 : numberFormat.get_NumberDecimalSeparator();
         String negativeSign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
         String positiveSign = numberFormat == null ? "+" : numberFormat.get_PositiveSign();
-        String number = text.strip();
+        String number = allowWhitespace ? text.strip() : text;
         boolean negative = false;
-        if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
+        if (allowLeadingSign && !negativeSign.isEmpty() && number.startsWith(negativeSign)) {
             number = number.substring(negativeSign.length());
             negative = true;
-        } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
+        } else if (allowLeadingSign && !positiveSign.isEmpty()
+                && number.startsWith(positiveSign)) {
             number = number.substring(positiveSign.length());
         }
-        int exponentIndex = Math.max(number.indexOf('e'), number.indexOf('E'));
+        int exponentIndex = allowExponent
+                ? Math.max(number.indexOf('e'), number.indexOf('E')) : -1;
         int exponent = 0;
         if (exponentIndex >= 0) {
             String exponentText = number.substring(exponentIndex + 1);
@@ -249,7 +279,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (exponent > 1000) throw new OverflowException();
             if (exponentNegative) exponent = -exponent;
         }
-        if (!decimalSeparator.isEmpty()) {
+        if (allowDecimal && !decimalSeparator.isEmpty()) {
             int separatorIndex = number.indexOf(decimalSeparator);
             if (separatorIndex >= 0) {
                 number = number.substring(0, separatorIndex) + "."
