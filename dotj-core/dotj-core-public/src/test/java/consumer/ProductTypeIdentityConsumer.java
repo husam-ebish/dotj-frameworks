@@ -915,6 +915,15 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Dictionary assembly-qualified round trip changed");
             }
         }
+        Type listInt = definition.MakeGenericType(new Type[] {integer});
+        for (Type nestedGeneric : new Type[] {
+                definition.MakeGenericType(new Type[] {first}),
+                dictionary.MakeGenericType(new Type[] {string, listInt}),
+                dictionary.MakeGenericType(new Type[] {first, listInt})}) {
+            if (Type.GetType(nestedGeneric.get_AssemblyQualifiedName()) != nestedGeneric) {
+                throw new AssertionError("Nested generic assembly-qualified round trip changed");
+            }
+        }
         if (Type.GetType("System.String[]") == null
                 || Type.GetType("System.String[]") != Type.GetType("system.string[]", false, true)
                 || Type.GetType("System.String[], System.Private.CoreLib") != Type.GetType("System.String[]")

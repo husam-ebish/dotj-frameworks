@@ -165,6 +165,13 @@ def main():
     assert "[[System.Int32, " in dictionary_names[2]["FullName"]
     assert "],[System.String, " in dictionary_names[3]["FullName"]
     assert "],[System.Int32, " in dictionary_names[4]["FullName"]
+    nested_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedGenericQualifiedRoundTrip"]
+    assert len(nested_names) == 3
+    assert all(item["sameReference"] and item["AssemblyQualifiedName"] ==
+               item["FullName"] + corelib_identity for item in nested_names)
+    assert nested_names[0]["FullName"].startswith("System.Collections.Generic.List`1[[System.Collections.Generic.List`1[[")
+    assert all(item["FullName"].startswith("System.Collections.Generic.Dictionary`2[[")
+               for item in nested_names[1:])
     member_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberTypeBehavior"]
     assert member_type["enumValues"] == [
         {"name": name, "value": value} for name, value in (

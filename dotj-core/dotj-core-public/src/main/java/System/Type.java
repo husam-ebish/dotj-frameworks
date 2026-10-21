@@ -123,16 +123,36 @@ public abstract class Type extends MemberInfo {
         if (arity == 0) {
             return null;
         }
-        String[] argumentNames = name.substring(start + 2, name.length() - 2).split("\\],\\[", -1);
-        if (argumentNames.length != arity) {
+        String argumentText = name.substring(start + 2, name.length() - 2);
+        java.util.ArrayList<String> argumentNames = new java.util.ArrayList<>();
+        int depth = 0;
+        int argumentStart = 0;
+        for (int offset = 0; offset < argumentText.length(); offset++) {
+            char character = argumentText.charAt(offset);
+            if (character == '[') {
+                depth++;
+            } else if (character == ']') {
+                if (depth > 0) {
+                    depth--;
+                } else if (argumentText.startsWith("],[", offset)) {
+                    argumentNames.add(argumentText.substring(argumentStart, offset));
+                    offset += 2;
+                    argumentStart = offset + 1;
+                } else {
+                    return null;
+                }
+            }
+        }
+        if (depth != 0) {
+            return null;
+        }
+        argumentNames.add(argumentText.substring(argumentStart));
+        if (argumentNames.size() != arity) {
             return null;
         }
         Type[] arguments = new Type[arity];
         for (int index = 0; index < arity; index++) {
-            String argumentName = argumentNames[index];
-            if (argumentName.indexOf('[') >= 0 || argumentName.indexOf(']') >= 0) {
-                return null;
-            }
+            String argumentName = argumentNames.get(index);
             Type argument = GetType(argumentName);
             if (argument == null || !argumentName.equals(argument.get_AssemblyQualifiedName())) {
                 return null;
