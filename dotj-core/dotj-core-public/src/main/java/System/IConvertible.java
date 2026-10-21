@@ -2,7 +2,7 @@ package System;
 
 /** Bounded subset of the public conversion contract; other members remain open. */
 public interface IConvertible {
-    int GetTypeCode();
+    TypeCode GetTypeCode();
 
     boolean ToBoolean(IFormatProvider provider);
 

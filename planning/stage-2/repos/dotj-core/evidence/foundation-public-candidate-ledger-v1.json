@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "ff658bdb55b8dd2d3e4bb5705fbee4091198f2e35efe5c5b57a2048b7ee2585c",
-  "typeCount": 16,
+  "candidateJarSha256": "6769faabdb28b98842be7dbd38781bc5086573b390acbfe4265f106a813ebf65",
+  "typeCount": 17,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -82,7 +82,7 @@
       "javaPublicConstructors": 0,
       "javaPublicHeader": "public interface System.IConvertible {",
       "javaPublicDeclarations": [
-        "public abstract int GetTypeCode();",
+        "public abstract System.TypeCode GetTypeCode();",
         "public abstract boolean ToBoolean(System.IFormatProvider);",
         "public abstract char ToChar(System.IFormatProvider);",
         "public abstract byte ToSByte(System.IFormatProvider);",
@@ -101,6 +101,42 @@
         "public abstract java.lang.Object ToType(System.Type, System.IFormatProvider);"
       ],
       "disposition": "SELECTED_INTERFACE_METHOD_NAMES; 17 methods, backend return types and conversion behavior unqualified",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.TypeCode",
+      "upstreamBaseType": "System.Enum",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public final class System.TypeCode extends java.lang.Enum<System.TypeCode> {",
+      "javaPublicDeclarations": [
+        "public static final System.TypeCode Empty;",
+        "public static final System.TypeCode Object;",
+        "public static final System.TypeCode DBNull;",
+        "public static final System.TypeCode Boolean;",
+        "public static final System.TypeCode Char;",
+        "public static final System.TypeCode SByte;",
+        "public static final System.TypeCode Byte;",
+        "public static final System.TypeCode Int16;",
+        "public static final System.TypeCode UInt16;",
+        "public static final System.TypeCode Int32;",
+        "public static final System.TypeCode UInt32;",
+        "public static final System.TypeCode Int64;",
+        "public static final System.TypeCode UInt64;",
+        "public static final System.TypeCode Single;",
+        "public static final System.TypeCode Double;",
+        "public static final System.TypeCode Decimal;",
+        "public static final System.TypeCode DateTime;",
+        "public static final System.TypeCode String;",
+        "public static System.TypeCode[] values();",
+        "public static System.TypeCode valueOf(java.lang.String);",
+        "public int get_Value();"
+      ],
+      "disposition": "SELECTED_ENUM_VALUES; Java enum differs from CLR Enum",
       "qualified": false
     },
     {

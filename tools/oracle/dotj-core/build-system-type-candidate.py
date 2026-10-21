@@ -18,6 +18,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
+EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 IDISPOSABLE_SOURCE = SOURCE.with_name("IDisposable.java")
 ICOMPARABLE_SOURCE = SOURCE.with_name("IComparable.java")
 IFORMATTABLE_SOURCE = SOURCE.with_name("IFormattable.java")
@@ -180,6 +181,13 @@ def main():
         "enumBase": "System.Enum", "baseBase": "System.ValueType",
         "underlying": "System.Int32", "nonEnumError": "System.ArgumentException",
     }
+    type_codes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedTypeCodeValues"]
+    assert [(item["name"], item["number"]) for item in type_codes] == [
+        ("Empty", 0), ("Object", 1), ("DBNull", 2), ("Boolean", 3), ("Char", 4),
+        ("SByte", 5), ("Byte", 6), ("Int16", 7), ("UInt16", 8), ("Int32", 9),
+        ("UInt32", 10), ("Int64", 11), ("UInt64", 12), ("Single", 13),
+        ("Double", 14), ("Decimal", 15), ("DateTime", 16), ("String", 18),
+    ]
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,
