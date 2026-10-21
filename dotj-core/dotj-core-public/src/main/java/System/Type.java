@@ -1911,6 +1911,36 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public boolean get_IsSpecialName() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsConstructor() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsPrivate() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsFamily() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsAssembly() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsHideBySig() {
+            return true;
+        }
+
+        @Override
         public boolean get_IsGenericMethod() {
             return false;
         }

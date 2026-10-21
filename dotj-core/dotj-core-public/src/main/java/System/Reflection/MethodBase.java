@@ -18,4 +18,16 @@ public abstract class MethodBase extends MemberInfo {
     public abstract boolean get_IsVirtual();
 
     public abstract boolean get_IsFinal();
+
+    public abstract boolean get_IsSpecialName();
+
+    public abstract boolean get_IsConstructor();
+
+    public abstract boolean get_IsPrivate();
+
+    public abstract boolean get_IsFamily();
+
+    public abstract boolean get_IsAssembly();
+
+    public abstract boolean get_IsHideBySig();
 }
