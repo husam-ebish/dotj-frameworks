@@ -954,6 +954,15 @@ var result = new
         quotedInvalidVersion = ObserveGetType("System.String, \"System.Private.CoreLib\", Version=banana", false, false),
         quotedCommaVersion = ObserveGetType("System.String, \"System.Private.CoreLib,Extra\", Version=1.2", false, false),
     },
+    selectedQuotedAssemblyNamePunctuationBehavior = new
+    {
+        singleQuotedComma = ObserveGetType("System.String, 'System.Private.CoreLib,Extra'", false, false),
+        commaUnknownAttribute = ObserveGetType("System.String, \"System.Private.CoreLib,Extra\", UnknownAttr=foo", false, false),
+        commaInvalidVersion = ObserveGetType("System.String, \"System.Private.CoreLib,Extra\", Version=banana", false, false),
+        quotedEqualsVersion = ObserveGetType("System.String, \"System.Private.CoreLib=Extra\", Version=1.2", false, false),
+        singleQuotedEquals = ObserveGetType("System.String, 'System.Private.CoreLib=Extra'", false, false),
+        quotedCommaToken = ObserveGetType("System.String, \"System.Private.CoreLib,Extra\", PublicKeyToken=null", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
