@@ -59,6 +59,16 @@ public final class TypeIdentityCandidateTest {
                 || string.GetNestedType("Entry") != null) {
             throw new AssertionError("Selected public nested Type lookup changed");
         }
+        Type[] nestedTypes = map.GetNestedTypes();
+        if (nestedTypes.length != 1 || nestedTypes[0] != nestedEntry
+                || string.GetNestedTypes().length != 0
+                || map.MakeArrayType().GetNestedTypes().length != 0) {
+            throw new AssertionError("Selected public nested Type enumeration changed");
+        }
+        nestedTypes[0] = string;
+        if (map.GetNestedTypes()[0] != nestedEntry) {
+            throw new AssertionError("Nested Type enumeration escaped by reference");
+        }
         try {
             map.GetNestedType(null);
             throw new AssertionError("Null nested Type name accepted");
