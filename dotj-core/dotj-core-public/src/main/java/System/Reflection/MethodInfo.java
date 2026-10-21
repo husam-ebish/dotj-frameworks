@@ -37,6 +37,13 @@ public abstract class MethodInfo extends MethodBase {
         return new Object[0];
     }
 
+    public Object[] GetCustomAttributes(Type attributeType, boolean inherit) {
+        if (attributeType == null) {
+            throw new ArgumentNullException("attributeType");
+        }
+        return new Object[0];
+    }
+
     public MethodInfo MakeGenericMethod(Type[] typeArguments) {
         if (typeArguments == null) {
             throw new ArgumentNullException("methodInstantiation");

@@ -501,6 +501,9 @@ def main():
     ]
     assert all(row["direct"] == [] and row["inherited"] == []
                for row in method_attributes)
+    method_attribute_filter = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodAttributeFilterBehavior"]
+    assert method_attribute_filter == {"direct": [], "inherited": [],
+        "nullError": "System.ArgumentNullException", "nullParameter": "attributeType"}
     nongeneric_errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNongenericMethodErrorBehavior"]
     assert [(row["owner"], row["name"]) for row in nongeneric_errors] == [
         ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
