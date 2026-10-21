@@ -53,6 +53,16 @@ string? sourceBeforeSet = sourceException.Source;
 sourceException.Source = "selected.component";
 string? sourceAfterSet = sourceException.Source;
 sourceException.Source = null;
+Exception stackBeforeThrow = new("before throw");
+Exception stackAfterThrow = null!;
+try
+{
+    throw new Exception("after throw");
+}
+catch (Exception caught)
+{
+    stackAfterThrow = caught;
+}
 Exception dataException = new("data");
 System.Collections.IDictionary data = dataException.Data;
 bool dataStartsEmpty = data.Count == 0;
@@ -383,6 +393,13 @@ var result = new
         argumentType = new ArgumentException("argument").GetType().FullName,
         invalidOperationType = new InvalidOperationException("invalid").GetType().FullName,
         repeatedReference = ReferenceEquals(new Exception().GetType(), new Exception().GetType()),
+    },
+    selectedExceptionStackBoundary = new
+    {
+        prethrowStackIsNull = stackBeforeThrow.StackTrace is null,
+        prethrowTargetSiteIsNull = stackBeforeThrow.TargetSite is null,
+        thrownStackNonEmpty = !string.IsNullOrEmpty(stackAfterThrow.StackTrace),
+        thrownTargetSitePresent = stackAfterThrow.TargetSite is not null,
     },
     selectedGetTypeBehavior = new
     {

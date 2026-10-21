@@ -109,6 +109,9 @@ public final class ProductExceptionContractConsumer {
                 || new Exception().GetType() != new Exception().GetType()) {
             throw new AssertionError("Selected exception runtime Type identity changed");
         }
+        if (new Exception("before throw").getStackTrace().length == 0) {
+            throw new AssertionError("Java constructor stack boundary changed");
+        }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5
