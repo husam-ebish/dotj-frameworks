@@ -258,6 +258,21 @@ public final class TypeIdentityCandidateTest {
                 || nullEntryA.Equals(textEntry)) {
             throw new AssertionError("Selected SerializationEntry type equality changed");
         }
+        SerializationInfo duplicateState = new SerializationInfo(dbnullType, selectedConverter);
+        duplicateState.AddValue("item", 42);
+        try {
+            duplicateState.AddValue("item", 99);
+            throw new AssertionError("Duplicate serialization write was accepted");
+        } catch (SerializationException expected) {
+            // Pinned selected CLR failure type.
+        }
+        SerializationInfoEnumerator duplicateCursor = duplicateState.GetEnumerator();
+        if (duplicateState.get_MemberCount() != 1 || duplicateState.GetInt32("item") != 42
+                || !duplicateCursor.MoveNext()
+                || !Integer.valueOf(42).equals(duplicateCursor.get_Value())
+                || duplicateCursor.MoveNext()) {
+            throw new AssertionError("Rejected duplicate changed serialization state");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")
