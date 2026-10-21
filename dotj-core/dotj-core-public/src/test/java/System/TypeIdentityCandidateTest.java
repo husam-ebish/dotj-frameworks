@@ -2,6 +2,9 @@ package System;
 
 import java.util.List;
 import java.util.Map;
+import System.Reflection.MemberTypes;
+import System.Reflection.GenericParameterAttributes;
+import System.Globalization.NumberStyles;
 
 /** Exercises selected Type identity and null boundaries against the candidate implementation. */
 public final class TypeIdentityCandidateTest {
@@ -23,6 +26,40 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        Type typeCodeEnum = Type.fromJavaClass(TypeCode.class);
+        Type memberTypesEnum = Type.fromJavaClass(MemberTypes.class);
+        String[] typeCodeNames = typeCodeEnum.GetEnumNames();
+        if (typeCodeNames.length != 18 || !"Empty".equals(typeCodeNames[0])
+                || !"String".equals(typeCodeNames[17])
+                || !java.util.Arrays.equals(memberTypesEnum.GetEnumNames(), new String[] {
+                    "Constructor", "Event", "Field", "Method", "Property",
+                    "TypeInfo", "Custom", "NestedType", "All"})
+                || !java.util.Arrays.equals(Type.fromJavaClass(GenericParameterAttributes.class)
+                        .GetEnumNames(), new String[] {"None", "Covariant", "Contravariant",
+                            "VarianceMask", "ReferenceTypeConstraint",
+                            "NotNullableValueTypeConstraint", "DefaultConstructorConstraint",
+                            "SpecialConstraintMask", "AllowByRefLike"})
+                || !java.util.Arrays.equals(Type.fromJavaClass(NumberStyles.class)
+                        .GetEnumNames(), new String[] {"None", "AllowLeadingWhite",
+                            "AllowTrailingWhite", "AllowLeadingSign", "Integer",
+                            "AllowTrailingSign", "AllowParentheses", "AllowDecimalPoint",
+                            "AllowThousands", "Number", "AllowExponent", "Float",
+                            "AllowCurrencySymbol", "Currency", "Any", "AllowHexSpecifier",
+                            "HexNumber", "AllowBinarySpecifier", "BinaryNumber"})) {
+            throw new AssertionError("Selected enum names changed");
+        }
+        typeCodeNames[0] = "changed";
+        if (!"Empty".equals(typeCodeEnum.GetEnumNames()[0])) {
+            throw new AssertionError("Enum name array escaped by reference");
+        }
+        try {
+            integer.GetEnumNames();
+            throw new AssertionError("Non-enum GetEnumNames accepted");
+        } catch (ArgumentException expected) {
+            if (!"enumType".equals(expected.get_ParamName())) {
+                throw new AssertionError("Non-enum parameter identity changed", expected);
+            }
+        }
         if (integer != Type.fromJavaClass(Int32.class) || integer != Type.fromJavaClass(int.class)
                 || integer != Type.GetType("System.Int32")) {
             throw new AssertionError("Int32 public facade and primitive backend identities diverged");
