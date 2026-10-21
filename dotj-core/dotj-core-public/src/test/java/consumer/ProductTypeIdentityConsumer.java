@@ -440,6 +440,18 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned component overflow.
             }
         }
+        if (Type.GetType("System.String, System.Private.CoreLib, Version=1.2.3.4") != string) {
+            throw new AssertionError("Selected four-component Version rejected");
+        }
+        for (String invalidVersionGrammar : new String[] {
+                "+1.2", "-1.2", "1 .2", "1. 2", "1.2.3.4.5", "1..2"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, Version=" + invalidVersionGrammar);
+                throw new AssertionError("Invalid Version grammar accepted: " + invalidVersionGrammar);
+            } catch (FileLoadException expected) {
+                // Selected pinned Version syntax error.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
