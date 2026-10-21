@@ -1058,6 +1058,17 @@ var result = new
         containsGenericParameters = item.Item1.GetMethod(item.Item2)!.ContainsGenericParameters,
         genericArguments = item.Item1.GetMethod(item.Item2)!.GetGenericArguments()
             .Select(type => type.FullName).ToArray() }).ToArray(),
+    selectedMethodClassificationBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        isSpecialName = item.Item1.GetMethod(item.Item2)!.IsSpecialName,
+        isConstructor = item.Item1.GetMethod(item.Item2)!.IsConstructor,
+        isPrivate = item.Item1.GetMethod(item.Item2)!.IsPrivate,
+        isFamily = item.Item1.GetMethod(item.Item2)!.IsFamily,
+        isAssembly = item.Item1.GetMethod(item.Item2)!.IsAssembly,
+        isHideBySig = item.Item1.GetMethod(item.Item2)!.IsHideBySig }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

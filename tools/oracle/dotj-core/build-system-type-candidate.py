@@ -365,6 +365,14 @@ def main():
     assert all(not row["isGenericMethod"] and not row["isGenericMethodDefinition"]
                and not row["containsGenericParameters"] and row["genericArguments"] == []
                for row in generic_methods)
+    classifications = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodClassificationBehavior"]
+    assert [(row["owner"], row["name"]) for row in classifications] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(not any(row[key] for key in
+                       ("isSpecialName", "isConstructor", "isPrivate", "isFamily", "isAssembly"))
+               and row["isHideBySig"] for row in classifications)
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [
