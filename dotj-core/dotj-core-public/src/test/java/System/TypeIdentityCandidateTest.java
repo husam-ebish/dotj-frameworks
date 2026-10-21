@@ -15,6 +15,7 @@ import System.Reflection.ParameterAttributes;
 import System.Runtime.CompilerServices.NullableAttribute;
 import System.Runtime.Serialization.ISerializable;
 import System.Runtime.Serialization.IFormatterConverter;
+import System.Runtime.Serialization.FormatterConverter;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
@@ -100,6 +101,32 @@ public final class TypeIdentityCandidateTest {
             if (!"converter".equals(expected.get_ParamName())) {
                 throw new AssertionError("Null SerializationInfo converter parameter changed");
             }
+        }
+        FormatterConverter selectedConverter = new FormatterConverter();
+        if (Type.GetType("System.Runtime.Serialization.FormatterConverter")
+                    != Type.fromJavaClass(FormatterConverter.class)
+                || !(selectedConverter instanceof IFormatterConverter)
+                || selectedConverter.ToInt32(42) != 42
+                || selectedConverter.ToInt32("17") != 17
+                || !"42".equals(selectedConverter.ToString(42))
+                || !selectedConverter.ToBoolean(1)
+                || !Integer.valueOf(17).equals(selectedConverter.Convert("17", Type.GetType("System.Int32")))
+                || !Integer.valueOf(17).equals(selectedConverter.Convert("17", TypeCode.Int32))) {
+            throw new AssertionError("Selected FormatterConverter behavior changed");
+        }
+        try {
+            selectedConverter.ToInt32(null);
+            throw new AssertionError("Null FormatterConverter value was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null FormatterConverter parameter changed");
+            }
+        }
+        try {
+            selectedConverter.ToInt32("oops");
+            throw new AssertionError("Malformed FormatterConverter value was accepted");
+        } catch (FormatException expected) {
+            // Matches the pinned selected CLR failure type.
         }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
         StreamingContext defaultContext = new StreamingContext();

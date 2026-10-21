@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "84efbda195a1b365d0fe1123417b3765c3b20cadd8a12a72a03db4fabd262af8",
+  "jarSha256": "ea6f694f76d98db3df1f11b04b1645880abc26f71ecf0fd33fa8d0959586f098",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 48,
+  "sourceCount": 49,
   "directNameMatchedCount": 46,
-  "directNameMissingCount": 2,
+  "directNameMissingCount": 3,
   "rows": [
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/ArgumentException.java",
@@ -579,8 +579,24 @@
       "supplementalAdjacencyEvidence": null
     },
     {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/FormatterConverter.java",
+      "productSha256": "b3884a5d432dcda2da7310c4c754e5ebe7a4f407c0d0dbbc16c619ff8c869215",
+      "classEntries": [
+        "System/Runtime/Serialization/FormatterConverter$1.class",
+        "System/Runtime/Serialization/FormatterConverter.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "dab38c958acfdc788bd895efd886832f07849f35",
+      "directNameMatchedUpstreamFile": "NOT_FOUND_AT_PINNED_PATH",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/Serialization/FormatterConverter.cs",
+      "upstreamSha256": null,
+      "sharedIdentifierShinglesOfLength12": null,
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/Serialization/IFormatterConverter.java",
-      "productSha256": "4986334867c76110b7a1d73788467d44ec8e87e16d024ccd15eab40c6f12d5d2",
+      "productSha256": "17a99175149b993b6f5452b15c8b6c79fcd3695911e7a7797e4368b3d7c1bb28",
       "classEntries": [
         "System/Runtime/Serialization/IFormatterConverter.class"
       ],
@@ -670,7 +686,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "fe5f625e4a71372870ee0ae80ea46968ccc7390e6ca21d9f66d1da6811fa8397",
+      "productSha256": "e284fde5ed4c70fc0be81dace1f04584ad136031152cd9a31564ee9ada5b36b7",
       "classEntries": [
         "System/Type.class",
         "System/Type$1.class",

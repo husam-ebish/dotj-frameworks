@@ -33,7 +33,7 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
-                      ("IFormatterConverter", "ISerializable", "SerializationInfo", "StreamingContext", "StreamingContextStates")]
+                      ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationInfo", "StreamingContext", "StreamingContextStates")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
@@ -135,6 +135,16 @@ def main():
     assert info_construction["nullTypeParameter"] == "type"
     assert info_construction["nullConverterError"] == "System.ArgumentNullException"
     assert info_construction["nullConverterParameter"] == "converter"
+    formatter = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFormatterConverterBehavior"]
+    assert formatter == {
+        "constructorCount": 1,
+        "interfaceName": "System.Runtime.Serialization.IFormatterConverter",
+        "integer": 42, "stringInteger": 17, "integerText": "42",
+        "integerBoolean": True, "byType": 17, "byTypeCode": 17,
+        "nullIntegerError": "System.ArgumentNullException",
+        "nullIntegerParameter": "value",
+        "badIntegerError": "System.FormatException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
