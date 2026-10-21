@@ -1074,6 +1074,12 @@ var result = new
         isNestedPublic = type.IsNestedPublic,
         isVisible = type.IsVisible,
     }).ToArray(),
+    selectedGenericArgumentVisibilityBehavior = new[]
+    {
+        typeof(System.Collections.Generic.List<string>),
+        typeof(System.Collections.Generic.List<>).MakeGenericType(NestedFamilyProbe.PrivateMarkerType),
+        typeof(System.Collections.Generic.List<>).MakeGenericType(NestedFamilyProbe.PrivateMarkerType).MakeArrayType(),
+    }.Select(type => new { name = type.FullName, isVisible = type.IsVisible }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),

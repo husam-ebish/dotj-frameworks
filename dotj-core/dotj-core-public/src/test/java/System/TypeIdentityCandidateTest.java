@@ -48,6 +48,12 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        Type privateArgument = Type.fromJavaClass(NestedPrivateFixture.class);
+        Type privateList = list.MakeGenericType(new Type[] {privateArgument});
+        if (privateList.get_IsVisible() || privateList.MakeArrayType().get_IsVisible()
+                || !list.MakeGenericType(new Type[] {string}).get_IsVisible()) {
+            throw new AssertionError("Selected generic argument visibility changed");
+        }
         if (nestedEntry.get_IsPublic() || !nestedEntry.get_IsNestedPublic()
                 || !nestedEntry.get_IsVisible()
                 || Type.fromJavaClass(NestedPrivateFixture.class).get_IsVisible()) {
