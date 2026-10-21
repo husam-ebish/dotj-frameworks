@@ -679,6 +679,15 @@ var result = new
         legacyExe = ObserveGetType("System.String, mscorlib.exe", false, false),
         legacyWithVersion = ObserveGetType("System.String, \"mscorlib.dll\", Version=4.0.0.0", false, false),
     },
+    selectedAssemblyThrowBoundaryBehavior = new
+    {
+        legacyDllThrow = ObserveGetType("System.String, mscorlib.dll", true, false),
+        embeddedSpaceThrow = ObserveGetType("System.String, System. Private.CoreLib", true, false),
+        emptyBeforeAttributeThrow = ObserveGetType("System.String, , Version=10.0.0.0", true, false),
+        invalidVersionThrow = ObserveGetType("System.String, System.Private.CoreLib, Version=banana", true, false),
+        numericCultureThrow = ObserveGetType("System.String, System.Private.CoreLib, Culture=123", true, false),
+        acceptedUnknownThrow = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo", true, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

@@ -105,6 +105,13 @@ public abstract class Type extends MemberInfo {
                 return null;
             }
             String assemblyName = assembly.split(",", 2)[0].trim();
+            if (assemblyName.isEmpty() && assembly.indexOf(',') >= 0) {
+                if (throwOnError) {
+                    throw new ArgumentException("Invalid assembly name",
+                            "typeName@" + typeName.indexOf(',', assemblySeparator + 1));
+                }
+                return null;
+            }
             if (assemblyName.length() >= 2 && assemblyName.startsWith("\"")
                     && assemblyName.endsWith("\"")) {
                 assemblyName = assemblyName.substring(1, assemblyName.length() - 1);

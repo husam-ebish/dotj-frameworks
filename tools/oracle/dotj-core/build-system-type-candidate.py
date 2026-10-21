@@ -399,6 +399,15 @@ def main():
         **{key: {"result": None, "exception": None, "paramName": None}
            for key in ("legacyDll", "legacyQuotedDll", "legacyExe", "legacyWithVersion")},
     }
+    throw_bounds = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyThrowBoundaryBehavior"]
+    assert throw_bounds == {
+        **{key: {"result": None, "exception": "System.IO.FileNotFoundException", "paramName": None}
+           for key in ("legacyDllThrow", "embeddedSpaceThrow")},
+        "emptyBeforeAttributeThrow": {"result": None, "exception": "System.ArgumentException", "paramName": "typeName@15"},
+        "invalidVersionThrow": {"result": None, "exception": "System.IO.FileLoadException", "paramName": None},
+        "numericCultureThrow": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
+        "acceptedUnknownThrow": {"result": "System.String", "exception": None, "paramName": None},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
