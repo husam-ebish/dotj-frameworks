@@ -983,6 +983,18 @@ public abstract class Type extends MemberInfo {
         throw new InvalidOperationException("Type is not a function pointer");
     }
 
+    public boolean get_IsSecurityCritical() {
+        return true;
+    }
+
+    public boolean get_IsSecuritySafeCritical() {
+        return false;
+    }
+
+    public boolean get_IsSecurityTransparent() {
+        return false;
+    }
+
     @Override
     public MemberTypes get_MemberType() {
         return MemberTypes.TypeInfo;

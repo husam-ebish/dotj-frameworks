@@ -231,6 +231,10 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    security_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSecurityTransparencyBehavior"]
+    assert len(security_flags) == 10 and all(
+        row["isSecurityCritical"] and not row["isSecuritySafeCritical"]
+        and not row["isSecurityTransparent"] for row in security_flags)
     non_function_pointer = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNonFunctionPointerQueryBehavior"]
     assert [row["name"] for row in non_function_pointer] == ["System.String", "System.String*"]
     assert all(row[key] == "System.InvalidOperationException"
@@ -1474,6 +1478,9 @@ def main():
         "public System.Type GetFunctionPointerReturnType();",
         "public System.Type[] GetFunctionPointerParameterTypes();",
         "public System.Type[] GetFunctionPointerCallingConventions();",
+        "public boolean get_IsSecurityCritical();",
+        "public boolean get_IsSecuritySafeCritical();",
+        "public boolean get_IsSecurityTransparent();",
         "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",
