@@ -971,6 +971,18 @@ public abstract class Type extends MemberInfo {
         return false;
     }
 
+    public Type GetFunctionPointerReturnType() {
+        throw new InvalidOperationException("Type is not a function pointer");
+    }
+
+    public Type[] GetFunctionPointerParameterTypes() {
+        throw new InvalidOperationException("Type is not a function pointer");
+    }
+
+    public Type[] GetFunctionPointerCallingConventions() {
+        throw new InvalidOperationException("Type is not a function pointer");
+    }
+
     @Override
     public MemberTypes get_MemberType() {
         return MemberTypes.TypeInfo;

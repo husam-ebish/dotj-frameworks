@@ -231,6 +231,11 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    non_function_pointer = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNonFunctionPointerQueryBehavior"]
+    assert [row["name"] for row in non_function_pointer] == ["System.String", "System.String*"]
+    assert all(row[key] == "System.InvalidOperationException"
+               for row in non_function_pointer
+               for key in ("returnTypeError", "parameterTypesError", "callingConventionsError"))
     function_pointer_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFunctionPointerFlagBehavior"]
     assert len(function_pointer_flags) == 8 and all(
         not row["isFunctionPointer"] and not row["isUnmanagedFunctionPointer"]
@@ -1466,6 +1471,9 @@ def main():
         "public boolean get_IsSignatureType();",
         "public boolean get_IsFunctionPointer();",
         "public boolean get_IsUnmanagedFunctionPointer();",
+        "public System.Type GetFunctionPointerReturnType();",
+        "public System.Type[] GetFunctionPointerParameterTypes();",
+        "public System.Type[] GetFunctionPointerCallingConventions();",
         "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",

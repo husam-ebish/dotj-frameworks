@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "de10c8176533899a2bbedb1a6aacab749ec5dd677f6af616e34148702f337531",
+  "candidateJarSha256": "6a75e3abdad259f639743214b426ca6294d941a9c9d62e035d5711f55363f86c",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -306,6 +306,9 @@
         "public boolean get_IsSignatureType();",
         "public boolean get_IsFunctionPointer();",
         "public boolean get_IsUnmanagedFunctionPointer();",
+        "public System.Type GetFunctionPointerReturnType();",
+        "public System.Type[] GetFunctionPointerParameterTypes();",
+        "public System.Type[] GetFunctionPointerCallingConventions();",
         "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",
