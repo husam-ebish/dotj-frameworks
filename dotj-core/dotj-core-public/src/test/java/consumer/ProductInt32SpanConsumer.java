@@ -11,12 +11,12 @@ import java.nio.charset.StandardCharsets;
 /** Selected CLR Char and UTF-8 Byte span parsing against the packaged JAR. */
 public final class ProductInt32SpanConsumer {
     public static void main(String[] args) {
-        check(new ReadOnlySpan<Character>(" -7 ".toCharArray()),
-                new ReadOnlySpan<Character>("FF".toCharArray()),
-                new ReadOnlySpan<Character>("oops".toCharArray()));
-        check(new ReadOnlySpan<Byte>(" -7 ".getBytes(StandardCharsets.UTF_8)),
-                new ReadOnlySpan<Byte>("FF".getBytes(StandardCharsets.UTF_8)),
-                new ReadOnlySpan<Byte>("oops".getBytes(StandardCharsets.UTF_8)));
+        check(ReadOnlySpan.OfChars(" -7 ".toCharArray()),
+                ReadOnlySpan.OfChars("FF".toCharArray()),
+                ReadOnlySpan.OfChars("oops".toCharArray()));
+        check(ReadOnlySpan.OfUtf8Bytes(" -7 ".getBytes(StandardCharsets.UTF_8)),
+                ReadOnlySpan.OfUtf8Bytes("FF".getBytes(StandardCharsets.UTF_8)),
+                ReadOnlySpan.OfUtf8Bytes("oops".getBytes(StandardCharsets.UTF_8)));
         checkFormat(new Int32(42), new char[] {'#', '#', '#', '#'},
                 new byte[] {'#', '#', '#', '#'});
         checkFormatSpecifier(new Int32(42), "D5", "00042");
@@ -49,24 +49,24 @@ public final class ProductInt32SpanConsumer {
 
     private static void checkFormat(Int32 value, char[] chars, byte[] bytes) {
         int[] written = {-1};
-        ReadOnlySpan<Character> format = new ReadOnlySpan<>("#D#".toCharArray(), 1, 1);
-        if (!value.TryFormat(new Span<Character>(chars, 1, 2), written, format, null)
+        ReadOnlySpan<Character> format = ReadOnlySpan.OfChars("#D#".toCharArray(), 1, 1);
+        if (!value.TryFormat(Span.OfChars(chars, 1, 2), written, format, null)
                 || written[0] != 2 || !new String(chars).equals("#42#")) {
             throw new AssertionError("Char span format changed");
         }
         written[0] = -1;
-        if (!value.TryFormat(new Span<Byte>(bytes, 1, 2), written, format, null)
+        if (!value.TryFormat(Span.OfUtf8Bytes(bytes, 1, 2), written, format, null)
                 || written[0] != 2
                 || !new String(bytes, StandardCharsets.UTF_8).equals("#42#")) {
             throw new AssertionError("UTF-8 Byte span format changed");
         }
         written[0] = -1;
-        if (value.TryFormat(new Span<Character>(chars, 1, 1), written, format, null)
+        if (value.TryFormat(Span.OfChars(chars, 1, 1), written, format, null)
                 || written[0] != 0 || !new String(chars).equals("#42#")) {
             throw new AssertionError("Short Char span modified destination");
         }
         written[0] = -1;
-        if (value.TryFormat(new Span<Byte>(bytes, 1, 1), written, format, null)
+        if (value.TryFormat(Span.OfUtf8Bytes(bytes, 1, 1), written, format, null)
                 || written[0] != 0
                 || !new String(bytes, StandardCharsets.UTF_8).equals("#42#")) {
             throw new AssertionError("Short Byte span modified destination");
@@ -77,14 +77,14 @@ public final class ProductInt32SpanConsumer {
         char[] chars = new char[expected.length()];
         byte[] bytes = new byte[expected.length()];
         int[] written = {-1};
-        ReadOnlySpan<Character> format = new ReadOnlySpan<>(
+        ReadOnlySpan<Character> format = ReadOnlySpan.OfChars(
                 ("#" + specifier + "#").toCharArray(), 1, specifier.length());
-        if (!value.TryFormat(new Span<Character>(chars), written, format, null)
+        if (!value.TryFormat(Span.OfChars(chars), written, format, null)
                 || written[0] != expected.length() || !new String(chars).equals(expected)) {
             throw new AssertionError("Char span precision format changed: " + specifier);
         }
         written[0] = -1;
-        if (!value.TryFormat(new Span<Byte>(bytes), written, format, null)
+        if (!value.TryFormat(Span.OfUtf8Bytes(bytes), written, format, null)
                 || written[0] != expected.length()
                 || !new String(bytes, StandardCharsets.UTF_8).equals(expected)) {
             throw new AssertionError("Byte span precision format changed: " + specifier);

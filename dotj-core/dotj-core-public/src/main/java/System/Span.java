@@ -11,15 +11,23 @@ public final class Span<T> {
     private final int offset;
     private final int length;
 
-    public Span(char[] values) {
-        this(values, 0, values == null ? 0 : values.length);
+    public static Span<Character> OfChars(char[] values) {
+        return OfChars(values, 0, values == null ? 0 : values.length);
     }
 
-    public Span(byte[] values) {
-        this(values, 0, values == null ? 0 : values.length);
+    public static Span<Character> OfChars(char[] values, int offset, int length) {
+        return new Span<>(values, offset, length);
     }
 
-    public Span(char[] values, int offset, int length) {
+    public static Span<Byte> OfUtf8Bytes(byte[] values) {
+        return OfUtf8Bytes(values, 0, values == null ? 0 : values.length);
+    }
+
+    public static Span<Byte> OfUtf8Bytes(byte[] values, int offset, int length) {
+        return new Span<>(values, offset, length);
+    }
+
+    private Span(char[] values, int offset, int length) {
         if (values == null) throw new ArgumentNullException("values");
         checkRange(values.length, offset, length);
         this.chars = values;
@@ -28,7 +36,7 @@ public final class Span<T> {
         this.length = length;
     }
 
-    public Span(byte[] values, int offset, int length) {
+    private Span(byte[] values, int offset, int length) {
         if (values == null) throw new ArgumentNullException("values");
         checkRange(values.length, offset, length);
         this.chars = null;
