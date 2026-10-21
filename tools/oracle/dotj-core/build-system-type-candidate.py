@@ -18,6 +18,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException", "FileLoadException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBase.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodBody.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/ParameterInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
@@ -438,6 +439,14 @@ def main():
     assert all(row["definitionError"] == "System.InvalidOperationException"
                and row["instantiationError"] == "System.InvalidOperationException"
                for row in nongeneric_errors)
+    abstract_bodies = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAbstractMethodBodyBehavior"]
+    assert abstract_bodies["type"] == {"name": "System.Reflection.MethodBody",
+        "parent": "System.Object", "isAbstract": False}
+    assert [(row["owner"], row["name"]) for row in abstract_bodies["methods"]] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(not row["hasBody"] for row in abstract_bodies["methods"])
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

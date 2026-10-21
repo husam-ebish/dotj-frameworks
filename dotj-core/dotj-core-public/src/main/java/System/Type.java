@@ -17,6 +17,7 @@ import System.Reflection.MemberTypes;
 import System.Reflection.BindingFlags;
 import System.Reflection.CallingConventions;
 import System.Reflection.MethodImplAttributes;
+import System.Reflection.MethodBody;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 import System.Globalization.CultureNotFoundException;
@@ -410,6 +411,7 @@ public abstract class Type extends MemberInfo {
             case "System.Reflection.MemberInfo" -> fromJavaClass(MemberInfo.class);
             case "System.Reflection.MethodBase" -> fromJavaClass(MethodBase.class);
             case "System.Reflection.MethodInfo" -> fromJavaClass(MethodInfo.class);
+            case "System.Reflection.MethodBody" -> fromJavaClass(MethodBody.class);
             case "System.Reflection.ParameterInfo" -> fromJavaClass(ParameterInfo.class);
             case "System.Void" -> fromJavaClass(Void.class);
             case "System.Exception" -> fromJavaClass(Exception.class);
@@ -521,6 +523,7 @@ public abstract class Type extends MemberInfo {
             case "system.reflection.memberinfo" -> ignoreCase ? fromJavaClass(MemberInfo.class) : null;
             case "system.reflection.methodbase" -> ignoreCase ? fromJavaClass(MethodBase.class) : null;
             case "system.reflection.methodinfo" -> ignoreCase ? fromJavaClass(MethodInfo.class) : null;
+            case "system.reflection.methodbody" -> ignoreCase ? fromJavaClass(MethodBody.class) : null;
             case "system.reflection.parameterinfo" -> ignoreCase ? fromJavaClass(ParameterInfo.class) : null;
             case "system.void" -> ignoreCase ? fromJavaClass(Void.class) : null;
             case "system.exception" -> ignoreCase ? fromJavaClass(Exception.class) : null;
@@ -2008,6 +2011,11 @@ public abstract class Type extends MemberInfo {
         @Override
         public MethodImplAttributes GetMethodImplementationFlags() {
             return MethodImplAttributes.IL;
+        }
+
+        @Override
+        public MethodBody GetMethodBody() {
+            return null;
         }
 
         @Override
