@@ -939,6 +939,28 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        if (!"79228162514264337593543950335".equals(
+                    Decimal.Parse("79228162514264337593543950335").ToString(null))
+                || !"-79228162514264337593543950335".equals(
+                    Decimal.Parse("-79228162514264337593543950335").ToString(null))) {
+            throw new AssertionError("Selected Decimal integer limits changed");
+        }
+        for (String text : new String[] {
+                "79228162514264337593543950336",
+                "-79228162514264337593543950336"}) {
+            try {
+                Decimal.Parse(text);
+                throw new AssertionError("Out-of-range Decimal text accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToDecimal("79228162514264337593543950336");
+            throw new AssertionError("Out-of-range formatter Decimal text accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
         if (!Float.isNaN(selectedConverter.ToSingle("NaN"))
                 || !Double.isNaN(selectedConverter.ToDouble("NaN"))
                 || !Float.isInfinite(selectedConverter.ToSingle("Infinity"))

@@ -8,6 +8,8 @@ import java.math.RoundingMode;
 
 /** Bounded immutable Decimal candidate for integer construction and invariant text. */
 public final class Decimal implements IConvertible {
+    private static final BigDecimal MAX_MAGNITUDE =
+            new BigDecimal("79228162514264337593543950335");
     private final BigDecimal value;
 
     public Decimal(int value) {
@@ -30,7 +32,11 @@ public final class Decimal implements IConvertible {
         if (!trimmed.matches("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)")) {
             throw new FormatException("Input string was not in a correct format");
         }
-        return new Decimal(new BigDecimal(trimmed));
+        BigDecimal parsed = new BigDecimal(trimmed);
+        if (parsed.abs().compareTo(MAX_MAGNITUDE) > 0) {
+            throw new OverflowException("Value was outside the range of Decimal");
+        }
+        return new Decimal(parsed);
     }
 
     public String ToString(IFormatProvider provider) {

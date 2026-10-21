@@ -900,6 +900,13 @@
     "emptyText": "System.FormatException",
     "nullValue": "System.ArgumentNullException"
   },
+  "selectedDecimalIntegerLimitsBehavior": {
+    "maximum": "79228162514264337593543950335",
+    "minimum": "-79228162514264337593543950335",
+    "maximumPlusOne": "System.OverflowException",
+    "minimumMinusOne": "System.OverflowException",
+    "converterOverflow": "System.OverflowException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16342,6 +16349,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "4ea2d4ec39d3c19c66335a9a092d64bd67e41ae4363c0ce341a19b6bdeadfba2",
+  "oracleProgramSha256": "9e03eb1fca469b60ad8080688b1fac4b9c3f893adab516cb089fc96ff51ab6cd",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
