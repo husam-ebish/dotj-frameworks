@@ -1409,6 +1409,25 @@ static object ObserveUInt32ConvertibleContract()
         dateTime = ObserveMethodError(() => value.ToDateTime(null)),
     };
 }
+static object ObserveUnsignedFormatterRoutes()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("u16Text", "60000");
+    info.AddValue("u32Text", "4000000000");
+    return new
+    {
+        u16Text = info.GetUInt16("u16Text"),
+        u32Text = info.GetUInt32("u32Text"),
+        u16Type = converter.Convert("60000", typeof(ushort)),
+        u32TypeCode = converter.Convert("4000000000", TypeCode.UInt32),
+        u16Overflow = ObserveMethodError(() => converter.ToUInt16("65536")),
+        u32Overflow = ObserveMethodError(() => converter.ToUInt32("4294967296")),
+        negativeOverflow = ObserveMethodError(() => converter.ToUInt32("-1")),
+        format = ObserveMethodError(() => converter.ToUInt16("bad")),
+        nullValue = ObserveMethodError(() => converter.ToUInt32(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1572,6 +1591,7 @@ var result = new
     selectedByteToTypeContractBehavior = ObserveByteToTypeContract(),
     selectedUInt16ConvertibleContractBehavior = ObserveUInt16ConvertibleContract(),
     selectedUInt32ConvertibleContractBehavior = ObserveUInt32ConvertibleContract(),
+    selectedUnsignedFormatterRoutesBehavior = ObserveUnsignedFormatterRoutes(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

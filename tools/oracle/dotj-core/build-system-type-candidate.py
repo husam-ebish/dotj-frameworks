@@ -411,6 +411,16 @@ def main():
         "byteOverflow": "System.OverflowException",
         "dateTime": "System.InvalidCastException",
     }
+    unsigned_routes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUnsignedFormatterRoutesBehavior"]
+    assert unsigned_routes == {
+        "u16Text": 60000, "u32Text": 4000000000,
+        "u16Type": 60000, "u32TypeCode": 4000000000,
+        "u16Overflow": "System.OverflowException",
+        "u32Overflow": "System.OverflowException",
+        "negativeOverflow": "System.OverflowException",
+        "format": "System.FormatException",
+        "nullValue": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
