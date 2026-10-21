@@ -465,6 +465,13 @@ def main():
         "impossible": "System.FormatException",
         "nullValue": "System.ArgumentNullException",
     }
+    char_routes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCharFormatterRoutesBehavior"]
+    assert char_routes == {
+        "text": "Q", "type": "Q", "typeCode": "Q",
+        "integer": "A", "empty": "System.FormatException",
+        "longText": "System.FormatException",
+        "nullValue": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

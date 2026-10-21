@@ -79,6 +79,9 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.DateTime".equals(name)) {
             return ToDateTime(value);
         }
+        if ("System.Char".equals(name)) {
+            return ToChar(value);
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -102,6 +105,7 @@ public final class FormatterConverter implements IFormatterConverter {
             case UInt64 -> ToUInt64(value);
             case Decimal -> ToDecimal(value);
             case DateTime -> ToDateTime(value);
+            case Char -> ToChar(value);
             default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
         };
     }
@@ -137,6 +141,15 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public char ToChar(Object value) {
+        if (value instanceof String text) {
+            if (text.length() != 1) {
+                throw new FormatException("String must be exactly one character");
+            }
+            return text.charAt(0);
+        }
+        if (value instanceof Character character) {
+            return character;
+        }
         return convertible(value).ToChar(null);
     }
 

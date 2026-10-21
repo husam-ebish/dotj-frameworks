@@ -561,6 +561,30 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        SerializationInfo charText = new SerializationInfo(dbnullType, selectedConverter);
+        charText.AddValue("charText", "Q");
+        if (charText.GetChar("charText") != 'Q'
+                || !Character.valueOf('Q').equals(selectedConverter.Convert(
+                    "Q", Type.GetType("System.Char")))
+                || !Character.valueOf('Q').equals(selectedConverter.Convert(
+                    "Q", TypeCode.Char))
+                || selectedConverter.ToChar(65) != 'A') {
+            throw new AssertionError("Selected Char formatter routes changed");
+        }
+        for (String value : new String[] {"", "AB"}) {
+            try {
+                selectedConverter.ToChar(value);
+                throw new AssertionError("Invalid Char text accepted");
+            } catch (FormatException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToChar(null);
+            throw new AssertionError("Null Char accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));

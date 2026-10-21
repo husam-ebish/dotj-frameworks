@@ -1511,6 +1511,22 @@ static object ObserveDateTimeFormatterRoutes()
         nullValue = ObserveMethodError(() => converter.ToDateTime(null!)),
     };
 }
+static object ObserveCharFormatterRoutes()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("charText", "Q");
+    return new
+    {
+        text = info.GetChar("charText").ToString(),
+        type = converter.Convert("Q", typeof(char)).ToString(),
+        typeCode = converter.Convert("Q", TypeCode.Char).ToString(),
+        integer = converter.ToChar(65).ToString(),
+        empty = ObserveMethodError(() => converter.ToChar("")),
+        longText = ObserveMethodError(() => converter.ToChar("AB")),
+        nullValue = ObserveMethodError(() => converter.ToChar(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1680,6 +1696,7 @@ var result = new
     selectedUInt64FormatterRoutesBehavior = ObserveUInt64FormatterRoutes(),
     selectedDecimalFormatterRoutesBehavior = ObserveDecimalFormatterRoutes(),
     selectedDateTimeFormatterRoutesBehavior = ObserveDateTimeFormatterRoutes(),
+    selectedCharFormatterRoutesBehavior = ObserveCharFormatterRoutes(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
