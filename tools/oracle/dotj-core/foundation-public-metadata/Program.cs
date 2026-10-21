@@ -1751,6 +1751,18 @@ static object ObserveDecimalIntegerLimits()
         converterOverflow = ObserveMethodError(() => converter.ToDecimal("79228162514264337593543950336")),
     };
 }
+static object ObserveFloatingTextGrammar()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    return new
+    {
+        decimalSingle = converter.ToSingle(" 1.25 "),
+        exponentDouble = converter.ToDouble("1.25e2"),
+        singleSuffix = ObserveMethodError(() => converter.ToSingle("1.25f")),
+        doubleSuffix = ObserveMethodError(() => converter.ToDouble("1.25d")),
+        hexadecimalFloat = ObserveMethodError(() => converter.ToDouble("0x1p0")),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1936,6 +1948,7 @@ var result = new
     selectedFloatingTextConversionsBehavior = ObserveFloatingTextConversions(),
     selectedBooleanTextConversionsBehavior = ObserveBooleanTextConversions(),
     selectedDecimalIntegerLimitsBehavior = ObserveDecimalIntegerLimits(),
+    selectedFloatingTextGrammarBehavior = ObserveFloatingTextGrammar(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

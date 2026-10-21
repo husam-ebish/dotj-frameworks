@@ -244,7 +244,7 @@ public final class FormatterConverter implements IFormatterConverter {
     public double ToDouble(Object value) {
         if (value instanceof String text) {
             try {
-                return Double.parseDouble(text.strip());
+                return Double.parseDouble(checkedFloatingText(text));
             } catch (NumberFormatException ignored) {
                 throw new FormatException("Input string was not in a correct format");
             }
@@ -361,7 +361,7 @@ public final class FormatterConverter implements IFormatterConverter {
     public float ToSingle(Object value) {
         if (value instanceof String text) {
             try {
-                return Float.parseFloat(text.strip());
+                return Float.parseFloat(checkedFloatingText(text));
             } catch (NumberFormatException ignored) {
                 throw new FormatException("Input string was not in a correct format");
             }
@@ -382,6 +382,18 @@ public final class FormatterConverter implements IFormatterConverter {
             throw new OverflowException("Value was outside the range of Int32");
         }
         return (int) rounded;
+    }
+
+    private static String checkedFloatingText(String text) {
+        String trimmed = text.strip();
+        if (!trimmed.matches("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[eE][+-]?[0-9]+)?")
+                && !trimmed.equals("NaN")
+                && !trimmed.equals("Infinity")
+                && !trimmed.equals("+Infinity")
+                && !trimmed.equals("-Infinity")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        return trimmed;
     }
 
     @Override

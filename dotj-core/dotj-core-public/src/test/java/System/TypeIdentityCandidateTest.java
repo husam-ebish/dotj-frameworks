@@ -970,6 +970,24 @@ public final class TypeIdentityCandidateTest {
                 || !"-Infinity".equals(selectedConverter.ToString(Double.NEGATIVE_INFINITY))) {
             throw new AssertionError("Selected floating text conversions changed");
         }
+        if (selectedConverter.ToSingle(" 1.25 ") != 1.25f
+                || selectedConverter.ToDouble("1.25e2") != 125d) {
+            throw new AssertionError("Selected floating decimal grammar changed");
+        }
+        for (String text : new String[] {"1.25f", "1.25d", "0x1p0"}) {
+            try {
+                selectedConverter.ToDouble(text);
+                throw new AssertionError("Java-only floating text accepted");
+            } catch (FormatException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToSingle("1.25f");
+            throw new AssertionError("Java-only Single text accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
         for (Object value : new Object[] {"256", -1}) {
             try {
                 selectedConverter.ToByte(value);

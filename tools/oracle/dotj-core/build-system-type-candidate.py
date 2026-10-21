@@ -587,6 +587,13 @@ def main():
         "minimumMinusOne": "System.OverflowException",
         "converterOverflow": "System.OverflowException",
     }
+    floating_grammar = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFloatingTextGrammarBehavior"]
+    assert floating_grammar == {
+        "decimalSingle": 1.25, "exponentDouble": 125,
+        "singleSuffix": "System.FormatException",
+        "doubleSuffix": "System.FormatException",
+        "hexadecimalFloat": "System.FormatException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
