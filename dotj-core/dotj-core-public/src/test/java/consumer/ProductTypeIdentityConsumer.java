@@ -135,6 +135,15 @@ public final class ProductTypeIdentityConsumer {
                 || !listArray.get_IsSZArray()) {
             throw new AssertionError("Selected vector array flags changed");
         }
+        if (Type.GetType("System.Object").get_IsVariableBoundArray()
+                || Type.GetType("System.String[]").get_IsVariableBoundArray()
+                || jagged.get_IsVariableBoundArray()
+                || !Type.GetType("System.String[*]").get_IsVariableBoundArray()
+                || !rectangular.get_IsVariableBoundArray()
+                || !rankThree.get_IsVariableBoundArray()
+                || listArray.get_IsVariableBoundArray()) {
+            throw new AssertionError("Selected variable-bound array flags changed");
+        }
         if (string.get_IsArray() || string.GetElementType() != null
                 || !Type.GetType("System.String[]").get_IsArray()
                 || Type.GetType("System.String[]").GetElementType() != string
