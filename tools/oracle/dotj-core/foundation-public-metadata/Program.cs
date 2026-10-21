@@ -523,6 +523,19 @@ var result = new
         minimum = ((IFormattable)int.MinValue).ToString("E2",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32CustomFormatBehavior = new
+    {
+        padded = ((IFormattable)42).ToString("000000",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativePadded = ((IFormattable)(-42)).ToString("000000",
+            System.Globalization.CultureInfo.InvariantCulture),
+        grouped = ((IFormattable)12345).ToString("#,##0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        groupedFixed = ((IFormattable)12345).ToString("#,##0.00",
+            System.Globalization.CultureInfo.InvariantCulture),
+        fixedTwo = ((IFormattable)42).ToString("0.00",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
