@@ -602,6 +602,13 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("accentedRetargetable", "dottedArchitecture", "dotlessContent", "accentedTokenNull")},
     }
+    alias_suffixes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyAliasSuffixBehavior"]
+    assert alias_suffixes == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("upperDll", "lowerDll", "quotedUpperDll", "singleQuotedDll")},
+        **{key: {"result": None, "exception": None, "paramName": None}
+           for key in ("legacyUpperDll", "legacySingleQuotedDll")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
