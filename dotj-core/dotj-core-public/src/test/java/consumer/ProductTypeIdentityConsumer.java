@@ -109,6 +109,15 @@ public final class ProductTypeIdentityConsumer {
                 // Pinned malformed-identity error, including with throwOnError=false.
             }
         }
+        for (String invalidToken : new String[] {
+                "123456789abcdef", "123456789abcdef01", "gggggggggggggggg"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, PublicKeyToken=" + invalidToken);
+                throw new AssertionError("Invalid token accepted: " + invalidToken);
+            } catch (FileLoadException expected) {
+                // Selected pinned token format error.
+            }
+        }
         for (String valid : new String[] {
                 "version=10.0.0.0", "CULTURE=neutral", "Publickeytoken=null",
                 "Version = 10.0.0.0", " Version=10.0.0.0", "Culture=\"neutral\"",
@@ -117,6 +126,13 @@ public final class ProductTypeIdentityConsumer {
                 "Culture=en_US", "Culture=not-a-real-culture"}) {
             if (Type.GetType("System.String, System.Private.CoreLib, " + valid) != string) {
                 throw new AssertionError("Selected assembly attribute spelling rejected: " + valid);
+            }
+        }
+        for (String validToken : new String[] {
+                "7CEC85D7BEA7798E", "0000000000000000", "NULL",
+                "\"7cec85d7bea7798e\""}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, PublicKeyToken=" + validToken) != string) {
+                throw new AssertionError("Selected public key token rejected: " + validToken);
             }
         }
         try {
