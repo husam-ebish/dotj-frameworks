@@ -212,6 +212,24 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             return format.equals("0;0;'zero'") ? digits : "minus " + digits;
         }
+        if (format.equals("[>=100]0;[<0]'neg '0;'small '0")) {
+            if (this.value == 0) {
+                return "small 0";
+            }
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            if (this.value < 0) {
+                if (digits.length() > 2) {
+                    throw new UnsupportedOperationException("Int32 bracket literal range is not mapped");
+                }
+                String padded = "0".repeat(2 - digits.length()) + digits;
+                return "[<" + padded.charAt(0) + "]neg " + padded.charAt(1);
+            }
+            if (digits.length() > 3) {
+                throw new UnsupportedOperationException("Int32 bracket literal range is not mapped");
+            }
+            String padded = "0".repeat(3 - digits.length()) + digits;
+            return "[>=1" + padded.charAt(0) + padded.charAt(1) + "]" + padded.charAt(2);
+        }
         if (format.equals("0\\%")) {
             return Integer.toString(this.value) + "%";
         }

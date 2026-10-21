@@ -525,6 +525,14 @@ public final class ProductTypeIdentityConsumer {
                 || !"minus 42".equals(new Int32(-42).ToString("0;'minus '0;'zero'", provider))) {
             throw new AssertionError("Selected Int32 quoted sections changed");
         }
+        String bracketPattern = "[>=100]0;[<0]'neg '0;'small '0";
+        if (!"[>=115]0".equals(new Int32(150).ToString(bracketPattern, provider))
+                || !"[>=110]0".equals(new Int32(100).ToString(bracketPattern, provider))
+                || !"[>=104]2".equals(int32Value.ToString(bracketPattern, provider))
+                || !"[<4]neg 2".equals(new Int32(-42).ToString(bracketPattern, provider))
+                || !"small 0".equals(new Int32(0).ToString(bracketPattern, provider))) {
+            throw new AssertionError("Selected Int32 bracket literals changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

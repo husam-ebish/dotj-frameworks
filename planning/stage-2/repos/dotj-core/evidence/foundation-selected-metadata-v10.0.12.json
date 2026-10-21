@@ -764,6 +764,13 @@
     "unsignedNegative": "42",
     "labeledNegative": "minus 42"
   },
+  "selectedInt32BracketLiteralBehavior": {
+    "above": "[>=115]0",
+    "boundary": "[>=110]0",
+    "below": "[>=104]2",
+    "negative": "[<4]neg 2",
+    "zero": "small 0"
+  },
   "selectedInt32FormatErrors": {
     "unknownSpecifier": "System.FormatException",
     "negativeDecimalPrecision": null,
@@ -3652,6 +3659,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "46a252768e62f868392b9970a694da460730325ad5c82aed0f32adb40257c1e2",
+  "oracleProgramSha256": "f9c62b9b656c0c8d9e136faf0388c83af5c29fef2fdc9230aa4c66ea4eac1d3d",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

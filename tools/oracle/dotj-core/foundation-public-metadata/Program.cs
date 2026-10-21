@@ -632,6 +632,19 @@ var result = new
         labeledNegative = ((IFormattable)(-42)).ToString("0;'minus '0;'zero'",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32BracketLiteralBehavior = new
+    {
+        above = ((IFormattable)150).ToString("[>=100]0;[<0]'neg '0;'small '0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        boundary = ((IFormattable)100).ToString("[>=100]0;[<0]'neg '0;'small '0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        below = ((IFormattable)42).ToString("[>=100]0;[<0]'neg '0;'small '0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-42)).ToString("[>=100]0;[<0]'neg '0;'small '0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zero = ((IFormattable)0).ToString("[>=100]0;[<0]'neg '0;'small '0",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
