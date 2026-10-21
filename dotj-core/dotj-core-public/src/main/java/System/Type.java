@@ -1184,6 +1184,11 @@ public abstract class Type extends MemberInfo {
         return this.get_FullName();
     }
 
+    @Override
+    public String toString() {
+        return this.ToString();
+    }
+
     public boolean Equals(Type other) {
         return this == other;
     }

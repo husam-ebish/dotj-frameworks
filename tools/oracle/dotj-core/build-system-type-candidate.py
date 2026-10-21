@@ -1034,6 +1034,16 @@ def main():
         "System.Collections.Generic.Dictionary`2[System.String,System.Collections.Generic.List`1[System.Int32]]",
         "System.Collections.Generic.List`1[T][]", "T[]",
     ]
+    primitive_array_texts = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveArrayToStringBehavior"]
+    assert [row["name"] for row in primitive_array_texts] == [
+        "System.Boolean", "System.Char", "System.Byte", "System.Int16",
+        "System.Int64", "System.Single", "System.Double",
+    ]
+    assert all(row["vector"] == row["name"] + "[]"
+               and row["variableBound"] == row["name"] + "[*]"
+               and row["rankTwo"] == row["name"] + "[,]"
+               and row["rankThree"] == row["name"] + "[,,]"
+               for row in primitive_array_texts)
     parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
     assert parameter_attributes == {
         "stringType": {"value": None, "exception": "System.InvalidOperationException"},
@@ -1190,6 +1200,7 @@ def main():
         "public int get_GenericParameterPosition();",
         "public boolean IsEquivalentTo(System.Type);",
         "public java.lang.String ToString();",
+        "public java.lang.String toString();",
         "public boolean Equals(System.Type);",
     ], members
     null_exception = run("javap", "-public", "-classpath", str(CLASSES),

@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "1b8bbc74634cdedf3cf1972b3b4c224bfe3b36ae08c9eddfad5857b10bc5332b",
+  "oracleEvidenceSha256": "2d5c9bc0210bfef1eacb90ac79a0732e67f4d9abf3737bced625515c74483e37",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "9a353ffa36d4a79bc32ee92d239b2242b8d5b446c030e70f8691e72296bd6e62",
+  "javaCandidateEvidenceSha256": "9358e79e2858becfd64d4cccfe4ff4a6243b0c75ca3d1d98157690aab4de8737",
   "types": [
     {
       "fullName": "System.Type",
@@ -3459,6 +3459,7 @@
         "public int get_GenericParameterPosition();",
         "public boolean IsEquivalentTo(System.Type);",
         "public java.lang.String ToString();",
+        "public java.lang.String toString();",
         "public boolean Equals(System.Type);"
       ],
       "nameLevelComparison": {
@@ -3579,7 +3580,8 @@
           "get_IsVisible": 1,
           "get_Namespace": 1,
           "get_ReflectedType": 1,
-          "get_UnderlyingSystemType": 1
+          "get_UnderlyingSystemType": 1,
+          "toString": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "FindInterfaces",
