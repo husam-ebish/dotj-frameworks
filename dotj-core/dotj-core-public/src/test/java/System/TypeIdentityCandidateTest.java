@@ -53,6 +53,11 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        if (Type.GetType(nestedEntry.get_AssemblyQualifiedName()) != nestedEntry
+                || Type.GetType(nestedEntry.MakeArrayType().get_AssemblyQualifiedName())
+                        != nestedEntry.MakeArrayType()) {
+            throw new AssertionError("Nested Type assembly-qualified round trip changed");
+        }
         Type privateOwnerChild = Type.fromJavaClass(PrivateOwnerFixture.PublicChild.class);
         Type publicNestedArray = nestedEntry.MakeArrayType();
         Type privateNestedArray = Type.fromJavaClass(NestedPrivateFixture.class).MakeArrayType();

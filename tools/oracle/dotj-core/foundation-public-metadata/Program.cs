@@ -1104,6 +1104,18 @@ var result = new
         isVisible = type.IsVisible,
         isNested = type.IsNested,
     }).ToArray(),
+    selectedNestedQualifiedRoundTripBehavior = new[]
+    {
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!,
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!.MakeArrayType(),
+    }.Select(type => new
+    {
+        name = type.FullName,
+        qualified = type.AssemblyQualifiedName,
+        sameReference = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
