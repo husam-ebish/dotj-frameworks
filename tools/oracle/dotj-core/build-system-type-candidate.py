@@ -74,6 +74,7 @@ def main():
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
         "System.Type GetNestedType(System.String)",
+        "System.Type[] GetNestedTypes()",
     }
     signatures = {method["signature"] for method in metadata["methods"]}
     assert selected <= signatures
@@ -251,6 +252,17 @@ def main():
         "missing": {"result": None, "exception": None, "paramName": None},
         "nullName": {"result": None, "exception": "System.ArgumentNullException", "paramName": "fullname"},
     }
+    nested_enumeration = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedEnumerationBehavior"]
+    assert nested_enumeration == [
+        {"owner": "System.Collections.Generic.List`1", "publicNested": ["System.Collections.Generic.List`1+Enumerator"]},
+        {"owner": "System.Object", "publicNested": []},
+        {"owner": "System.Collections.Generic.Dictionary`2", "publicNested": [
+            "System.Collections.Generic.Dictionary`2+AlternateLookup`1",
+            "System.Collections.Generic.Dictionary`2+Enumerator",
+            "System.Collections.Generic.Dictionary`2+KeyCollection",
+            "System.Collections.Generic.Dictionary`2+ValueCollection",
+        ]},
+    ]
     nested_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedPublicVisibilityBehavior"]
     assert [(row["isPublic"], row["isNestedPublic"], row["isVisible"])
             for row in nested_visibility] == [
@@ -1316,6 +1328,7 @@ def main():
         "public System.Type[] GetInterfaces();",
         "public System.Type GetInterface(java.lang.String);",
         "public System.Type GetNestedType(java.lang.String);",
+        "public System.Type[] GetNestedTypes();",
         "public System.Type GetInterface(java.lang.String, boolean);",
         "public boolean get_IsArray();",
         "public boolean get_IsSZArray();",

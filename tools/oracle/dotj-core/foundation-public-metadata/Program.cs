@@ -1080,6 +1080,15 @@ var result = new
         missing = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), "Missing"),
         nullName = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), null),
     },
+    selectedNestedEnumerationBehavior = new[]
+    {
+        typeof(System.Collections.Generic.List<>), typeof(object),
+        typeof(System.Collections.Generic.Dictionary<,>),
+    }.Select(type => new
+    {
+        owner = type.FullName,
+        publicNested = type.GetNestedTypes().Select(nested => nested.FullName).ToArray(),
+    }).ToArray(),
     selectedNestedPublicVisibilityBehavior = new[]
     {
         typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
