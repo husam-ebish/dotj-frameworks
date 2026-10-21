@@ -10,6 +10,9 @@ import System.Globalization.NumberStyles;
 /** Bounded immutable Int32 value and conversion candidate. */
 public final class Int32 implements IConvertible, ISpanFormattable,
         IUtf8SpanFormattable, IComparable {
+    public static final int MaxValue = Integer.MAX_VALUE;
+    public static final int MinValue = Integer.MIN_VALUE;
+
     public static Int32 Parse(String text) {
         if (text == null) {
             throw new ArgumentNullException("s");

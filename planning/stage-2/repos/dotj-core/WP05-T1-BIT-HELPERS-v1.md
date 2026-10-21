@@ -24,4 +24,6 @@ Thirteen pinned `Decimal` inputs cover both decimal extrema, fractional values a
 
 An exact declared-method review found that name-level coverage concealed ordinary overload gaps. The candidate now adds typed `CompareTo(Int32)`, `Parse(String, NumberStyles)`, `Parse(String, IFormatProvider)`, `TryParse(String, IFormatProvider, out Int32)`, `ToString()` and `ToString(String)` routes. The oracle and packaged consumer cover selected comparison, parse, error, out-result and formatting behavior. Span and UTF-8 overloads, full culture behavior and CLR generic numeric interface contracts remain open.
 
+The declared field inventory also identifies literal `Int32.MinValue` and `Int32.MaxValue`. The candidate exposes these as public Java `int` constants and checks their compiled declarations and extrema in the packaged consumer. CLR value-type field metadata and the broader `.j` ABI remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
