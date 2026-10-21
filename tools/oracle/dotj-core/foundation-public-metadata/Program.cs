@@ -1099,6 +1099,14 @@ var result = new
         closedEnumeration = typeof(System.Collections.Generic.Dictionary<string, int>)
             .GetNestedTypes().Select(nested => nested.FullName).ToArray(),
     },
+    selectedNonpublicNestedQueryBehavior = new
+    {
+        publicOnly = ObserveNestedType(typeof(System.Collections.Generic.Dictionary<,>), "Entry"),
+        nonpublic = typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", BindingFlags.NonPublic)?.FullName,
+        publicEnumerationContainsEntry = typeof(System.Collections.Generic.Dictionary<,>)
+            .GetNestedTypes().Any(nested => nested.Name == "Entry"),
+    },
     selectedNestedPublicVisibilityBehavior = new[]
     {
         typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],

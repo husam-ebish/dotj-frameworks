@@ -76,6 +76,12 @@ public final class TypeIdentityCandidateTest {
                 || closedNestedTypes.length != 1 || closedNestedTypes[0] != nestedEntry) {
             throw new AssertionError("Constructed generic owner nested Type identity changed");
         }
+        Type testOwner = Type.fromJavaClass(TypeIdentityCandidateTest.class);
+        if (testOwner.GetNestedType("NestedPrivateFixture") != null
+                || testOwner.GetNestedType("PrivateOwnerFixture") != null
+                || testOwner.GetNestedTypes().length != 0) {
+            throw new AssertionError("Nonpublic nested Type escaped public query");
+        }
         try {
             map.GetNestedType(null);
             throw new AssertionError("Null nested Type name accepted");
