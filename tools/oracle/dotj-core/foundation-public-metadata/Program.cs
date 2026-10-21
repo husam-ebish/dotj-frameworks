@@ -1828,6 +1828,51 @@ static object ObserveDateTimeMilliseconds()
         convertedMillisecond = ((IConvertible)constructed).ToDateTime(invariant).Millisecond,
     };
 }
+static object ObserveExceptionSerialization()
+{
+    var inner = new InvalidOperationException("inner");
+    var exception = new Exception("boom", inner)
+    {
+        HelpLink = "https://example.test/help",
+        Source = "dotj-test",
+    };
+    var info = new System.Runtime.Serialization.SerializationInfo(
+        typeof(Exception), new System.Runtime.Serialization.FormatterConverter());
+    var context = new System.Runtime.Serialization.StreamingContext(
+        System.Runtime.Serialization.StreamingContextStates.All);
+#pragma warning disable SYSLIB0051
+    exception.GetObjectData(info, context);
+    var nullError = ObserveMethodError(() => exception.GetObjectData(null!, context));
+    var nullParameter = ObserveMethodArgumentName(() => exception.GetObjectData(null!, context));
+#pragma warning restore SYSLIB0051
+    var names = new List<string>();
+    var enumerator = info.GetEnumerator();
+    while (enumerator.MoveNext())
+    {
+        names.Add(enumerator.Name);
+    }
+    return new
+    {
+        interfaces = typeof(Exception).GetInterfaces()
+            .Select(type => type.FullName).ToArray(),
+        count = info.MemberCount,
+        names,
+        className = info.GetString("ClassName"),
+        message = info.GetString("Message"),
+        dataIsNull = info.GetValue("Data", typeof(System.Collections.IDictionary)) is null,
+        innerSame = ReferenceEquals(info.GetValue("InnerException", typeof(Exception)), inner),
+        stackTraceString = info.GetString("StackTraceString"),
+        remoteStackTraceString = info.GetString("RemoteStackTraceString"),
+        remoteStackIndex = info.GetInt32("RemoteStackIndex"),
+        exceptionMethod = info.GetString("ExceptionMethod"),
+        watsonBucketsIsNull = info.GetValue("WatsonBuckets", typeof(byte[])) is null,
+        hResult = info.GetInt32("HResult"),
+        helpUrl = info.GetString("HelpURL"),
+        source = info.GetString("Source"),
+        nullError,
+        nullParameter,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2019,6 +2064,7 @@ var result = new
     selectedInt32BinaryStyleBehavior = ObserveInt32BinaryStyle(),
     selectedDateTimeTimeOfDayBehavior = ObserveDateTimeTimeOfDay(),
     selectedDateTimeMillisecondsBehavior = ObserveDateTimeMilliseconds(),
+    selectedExceptionSerializationBehavior = ObserveExceptionSerialization(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

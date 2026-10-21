@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "e4dffc927166e9a3a92088d5500b2be9a8cc82519aed22c31d97270677460f76",
+  "oracleEvidenceSha256": "79da42c8c430ce72a785db647b12fd54d50658dfa1117cf0c45704ecaa5966b2",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "fd0c908fdb482f4992c804e2b79a0c434a937155d7e016c76d4799e8dd552738",
+  "javaCandidateEvidenceSha256": "82e486be726a53e5996a598e57058dfb698f75862ff9b1124fac2d0c877a27f4",
   "types": [
     {
       "fullName": "System.Type",
@@ -3990,7 +3990,7 @@
         "events": [],
         "nestedPublicTypes": []
       },
-      "javaCandidatePublicHeader": "public class System.Exception extends java.lang.RuntimeException {",
+      "javaCandidatePublicHeader": "public class System.Exception extends java.lang.RuntimeException implements System.Runtime.Serialization.ISerializable {",
       "javaCandidateDeclaredPublicDeclarations": [
         "public System.Exception();",
         "public System.Exception(java.lang.String);",
@@ -4006,7 +4006,8 @@
         "public void set_Source(java.lang.String);",
         "public java.lang.String ToString();",
         "public System.Type GetType();",
-        "public java.lang.String get_StackTrace();"
+        "public java.lang.String get_StackTrace();",
+        "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -4017,6 +4018,7 @@
         },
         "javaCandidateDeclaredMethodOverloads": {
           "GetBaseException": 1,
+          "GetObjectData": 1,
           "GetType": 1,
           "ToString": 1,
           "get_Data": 1,
@@ -4029,9 +4031,7 @@
           "set_HelpLink": 1,
           "set_Source": 1
         },
-        "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "GetObjectData"
-        ],
+        "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
           "TargetSite"
         ],

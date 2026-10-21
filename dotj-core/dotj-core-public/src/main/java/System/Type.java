@@ -1423,7 +1423,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IConvertible.class && candidate.definition == DBNull.class) {
             return true;
         }
-        if (this.definition == ISerializable.class && candidate.definition == DBNull.class) {
+        if (this.definition == ISerializable.class
+                && (candidate.definition == DBNull.class || candidate.definition == Exception.class)) {
             return true;
         }
         if (this.definition == ISpanFormattable.class && candidate.definition == Int32.class) {
@@ -1501,7 +1502,7 @@ public abstract class Type extends MemberInfo {
                     || value instanceof DateTime || value instanceof Decimal;
         }
         if (this.definition == ISerializable.class) {
-            return value instanceof DBNull;
+            return value instanceof DBNull || value instanceof Exception;
         }
         if (this.definition == ISpanFormattable.class) {
             return value instanceof Integer || value instanceof Int32;
@@ -1750,6 +1751,9 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
+        if (this.definition == Exception.class) {
+            return new Type[] {fromJavaClass(ISerializable.class)};
+        }
         if (this.definition == SerializationInfoEnumerator.class) {
             return new Type[] {fromJavaClass(IEnumerator.class)};
         }

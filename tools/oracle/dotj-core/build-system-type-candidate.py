@@ -625,6 +625,21 @@ def main():
         "parsedText": "2026-01-02 03:04:05.123",
         "convertedMillisecond": 123,
     }
+    exception_serialization = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedExceptionSerializationBehavior"]
+    assert exception_serialization == {
+        "interfaces": ["System.Runtime.Serialization.ISerializable"],
+        "count": 12,
+        "names": ["ClassName", "Message", "Data", "InnerException", "HelpURL",
+                  "StackTraceString", "RemoteStackTraceString", "RemoteStackIndex",
+                  "ExceptionMethod", "HResult", "Source", "WatsonBuckets"],
+        "className": "System.Exception", "message": "boom", "dataIsNull": True,
+        "innerSame": True, "stackTraceString": None,
+        "remoteStackTraceString": None, "remoteStackIndex": 0,
+        "exceptionMethod": None, "watsonBucketsIsNull": True,
+        "hResult": -2146233088, "helpUrl": "https://example.test/help",
+        "source": "dotj-test", "nullError": "System.ArgumentNullException",
+        "nullParameter": "info",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
