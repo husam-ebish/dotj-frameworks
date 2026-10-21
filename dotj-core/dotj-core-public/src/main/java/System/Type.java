@@ -427,6 +427,10 @@ public abstract class Type extends MemberInfo {
                 || this.get_IsEnum();
     }
 
+    public boolean get_IsPublic() {
+        return this.parameterIndex < 0;
+    }
+
     public boolean get_IsClass() {
         return !this.get_IsValueType() && !this.get_IsInterface();
     }

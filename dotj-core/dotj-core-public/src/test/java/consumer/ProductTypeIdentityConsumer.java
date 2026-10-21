@@ -252,6 +252,14 @@ public final class ProductTypeIdentityConsumer {
                 || definition.get_IsSealed()) {
             throw new AssertionError("Selected sealed type flags changed");
         }
+        if (!object.get_IsPublic() || !string.get_IsPublic() || !integer.get_IsPublic()
+                || !valueType.get_IsPublic() || !arrayBase.get_IsPublic()
+                || !Type.GetType("System.IComparable").get_IsPublic()
+                || !definition.get_IsPublic() || !first.get_IsPublic()
+                || !Type.GetType("System.String[]").get_IsPublic()
+                || !byReference.get_IsPublic()) {
+            throw new AssertionError("Selected public type flags changed");
+        }
         if (disposalType == null || memberTypesType == null
                 || !disposalType.get_IsInterface() || disposalType.get_IsClass()
                 || disposalType.get_IsValueType() || disposalType.get_IsEnum()

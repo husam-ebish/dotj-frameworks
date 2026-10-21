@@ -77,7 +77,7 @@ def main():
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
-            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed",
+            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed", "IsPublic",
             "IsInterface", "IsEnum"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
@@ -209,6 +209,14 @@ def main():
     assert [item["isSealed"] for item in sealed] == [
         False, True, True, False, False, False, False, True, True, False,
     ]
+    public = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPublicBehavior"]
+    assert [item["name"] for item in public[:7]] == [
+        "System.Object", "System.String", "System.Int32", "System.ValueType",
+        "System.Array", "System.IComparable", "System.Collections.Generic.List`1",
+    ]
+    assert public[7]["name"].startswith("System.Collections.Generic.List`1[[System.String,")
+    assert [item["name"] for item in public[8:]] == ["System.String[]", "System.String&"]
+    assert [item["isPublic"] for item in public] == [True] * 10
     enum_base = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumBaseBehavior"]
     assert enum_base == {
         "enumBase": "System.Enum", "baseBase": "System.ValueType",
@@ -469,6 +477,7 @@ def main():
         "public boolean get_IsPrimitive();",
         "public boolean get_IsAbstract();",
         "public boolean get_IsSealed();",
+        "public boolean get_IsPublic();",
         "public boolean get_IsClass();",
         "public boolean get_IsInterface();",
         "public boolean get_IsEnum();",
