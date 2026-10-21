@@ -13,6 +13,8 @@ import System.Globalization.CultureNotFoundException;
 
 /** Bounded candidate for closed generic identity; not a complete System.Type surface. */
 public abstract class Type extends MemberInfo {
+    private static final String CORELIB_IDENTITY = "System.Private.CoreLib, Version=10.0.0.0, "
+            + "Culture=neutral, PublicKeyToken=7cec85d7bea7798e";
     private static final ClassValue<ConcurrentHashMap<List<Type>, Type>> canonical =
             new ClassValue<>() {
                 @Override
@@ -282,7 +284,8 @@ public abstract class Type extends MemberInfo {
             case "System.Int32*" -> fromJavaClass(Int32.class).MakePointerType();
             case "System.Int32[]" -> fromJavaClass(int[].class);
             case "System.Collections.Generic.List`1[System.String]",
-                    "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]" ->
+                    "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]",
+                    "System.Collections.Generic.List`1[[System.String, " + CORELIB_IDENTITY + "]]" ->
                     fromJavaClass(java.util.List.class).MakeGenericType(new Type[] {fromJavaClass(String.class)});
             case "System.Collections.Generic.Dictionary`2[System.String,System.Int32]",
                     "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]" ->
@@ -504,18 +507,15 @@ public abstract class Type extends MemberInfo {
             if (index != 0) {
                 constructed.append(',');
             }
-            constructed.append('[').append(argument)
-                    .append(", System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, ")
-                    .append("PublicKeyToken=7cec85d7bea7798e]");
+            constructed.append('[').append(argument).append(", ")
+                    .append(CORELIB_IDENTITY).append(']');
         }
         return constructed.append(']').toString();
     }
 
     public String get_AssemblyQualifiedName() {
         String fullName = this.get_FullName();
-        return fullName == null ? null : fullName
-                + ", System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, "
-                + "PublicKeyToken=7cec85d7bea7798e";
+        return fullName == null ? null : fullName + ", " + CORELIB_IDENTITY;
     }
 
     public String get_Namespace() {
