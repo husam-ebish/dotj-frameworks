@@ -1262,6 +1262,14 @@ var result = new
     selectedBindingFlagsValues = Enum.GetNames<BindingFlags>()
         .Select(name => new { name, value = (int)Enum.Parse<BindingFlags>(name) })
         .ToArray(),
+    selectedBindingCombinationBehavior = new
+    {
+        value = (int)(BindingFlags.Public | BindingFlags.Instance),
+        hasPublic = (BindingFlags.Public | BindingFlags.Instance).HasFlag(BindingFlags.Public),
+        hasInstance = (BindingFlags.Public | BindingFlags.Instance).HasFlag(BindingFlags.Instance),
+        named = typeof(BindingFlags).IsEnumDefined(BindingFlags.Public | BindingFlags.Instance),
+        enumName = typeof(BindingFlags).GetEnumName(BindingFlags.Public | BindingFlags.Instance),
+    },
     selectedMemberOwnerBehavior = new[]
     {
         typeof(string), typeof(List<>), typeof(List<string>),
