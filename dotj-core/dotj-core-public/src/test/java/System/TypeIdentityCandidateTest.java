@@ -36,6 +36,10 @@ public final class TypeIdentityCandidateTest {
     public static void main(String[] args) {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
+        if (Type.GetType("System.DBNull") != Type.fromJavaClass(DBNull.class)
+                || DBNull.Value == null) {
+            throw new AssertionError("Selected DBNull identity changed");
+        }
         if (string.get_IsCollectible()
                 || Type.fromJavaClass(List.class).get_IsCollectible()) {
             throw new AssertionError("Selected type collectibility changed");
@@ -268,6 +272,8 @@ public final class TypeIdentityCandidateTest {
                     || returnParameter.get_Position() != -1
                     || returnParameter.get_IsOptional()
                     || returnParameter.get_HasDefaultValue()
+                    || returnParameter.get_DefaultValue() != DBNull.Value
+                    || returnParameter.get_RawDefaultValue() != DBNull.Value
                     || returnParameter.get_IsIn() || returnParameter.get_IsOut()
                     || returnParameter.get_IsRetval() || returnParameter.get_IsLcid()
                     || returnParameter.GetOptionalCustomModifiers().length != 0
@@ -299,6 +305,8 @@ public final class TypeIdentityCandidateTest {
                 }
                 if (parameters[parameterIndex].get_IsOptional()
                         || parameters[parameterIndex].get_HasDefaultValue()
+                        || parameters[parameterIndex].get_DefaultValue() != DBNull.Value
+                        || parameters[parameterIndex].get_RawDefaultValue() != DBNull.Value
                         || parameters[parameterIndex].get_IsIn()
                         || parameters[parameterIndex].get_IsOut()
                         || parameters[parameterIndex].get_IsRetval()

@@ -47,7 +47,11 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "ec4c184c4ebb24d678e9fcde91bc2d8003d15027f6a60d8668a0c02b111de205"
+      "sha256": "584bdb1c6a38c7ff103c3d69a0ac795b7559802a25c020b3374b0a4de6730f36"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/DBNull.java",
+      "sha256": "460d80dad1eccd7a904d94d3c9e36ec08ec0a7e79b7b62e37f142ebbf1470bb2"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -127,7 +131,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/ParameterInfo.java",
-      "sha256": "882cc7686a58b5e5deb38be9bc5c2181bb0caf62710053d2f88474b990fa0c63"
+      "sha256": "71d1f188824aecf9b6800b1ce7a139e49e54dbcae973c7cba1d87ce7f2ae9a0e"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberTypes.java",
@@ -155,7 +159,7 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "f7e2a3072bde4345e63d9244d1016589a211b8d808a524845bbfe817a9b5fe99",
+  "jarSha256": "7a09b1c3ca408cb3aeda7e09622e7eb6017004a6766f6f660880671c697881f6",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -164,6 +168,7 @@
     "META-INF/LICENSE",
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
+    "System/DBNull.class",
     "System/DateTime.class",
     "System/Decimal.class",
     "System/Exception.class",
@@ -214,6 +219,7 @@
   "classSha256": {
     "System/ArgumentException.class": "ab97277688577c73a2e3d06762821eae08974d241926488e4ab3baa9f7e18185",
     "System/ArgumentNullException.class": "5965bb39ec9bbc7c15d84f316d65c1b42510c741653c5520a9f94e62a64a25ed",
+    "System/DBNull.class": "9a7137269c8e46a0a33d7c82171420b104e561fe2dd2ce5c91f24b962232ab01",
     "System/DateTime.class": "f44490269a535736b1c07df288b8ad9daf58adb5683bc52f1ca6eda761997386",
     "System/Decimal.class": "ba3f12183bddba0bf3d225caf1afdf891d2eea55ba20f6353115e590a1c099ea",
     "System/Exception.class": "26172910a0846a651f978afbb28307a5bf8985b2c4cf60cc11f011349f27276c",
@@ -244,19 +250,19 @@
     "System/Reflection/MethodBody.class": "5cdf48e820ca943946c1c6d18e6a7945963275baf86ae3ba2ffeed47d9607279",
     "System/Reflection/MethodImplAttributes.class": "436c5c852df62704d8961113933bf999e0a3b986e6d5b7d849c1fb84090c02c2",
     "System/Reflection/MethodInfo.class": "eb1214b2f00ea69e972241470f0f9c27834702cd6a149a12d7c9a9f00ed17ea0",
-    "System/Reflection/ParameterInfo.class": "7e9ce86ba5b258c161ed610ed10a2667b329d011773159e6c3e3a605584af2ff",
+    "System/Reflection/ParameterInfo.class": "9349559c8aa7787452cdfc55735b4146bafd8bd2f22c07349006cae872bd4ebe",
     "System/SystemException.class": "de15e69523d424b191ef078434ba7e9154e63cf550ec658609f2a816a62e368b",
     "System/Type$1.class": "849b3ea717d1e8028c2fd490cdf7927ca871fd15b9b37ebe779d0b087086abd0",
     "System/Type$2.class": "78666a28922db0976bc76bf893e7d94e34c83f184d5d83d6a1e460fe434eb48a",
-    "System/Type$ArrayType.class": "ee19df1fe859b8a9cbb2f3300e9e0ede86305615bfe3e549a6097be17b29099c",
-    "System/Type$ByRefType.class": "91ae8abb986d23cfd53b4f1e4145f0ec8da46f7c7ca6b4924c43401d03350781",
-    "System/Type$DefaultMethodMember.class": "2cc1dfcc4ea4196348b5a5482f6c1e6dccbe67ab1a848e33c9fef01d418e72eb",
-    "System/Type$DefaultParameterInfo.class": "778b668bfa6b1981bf3ac96739cae38ceeb87244f71a9d201be811e18cb0256a",
-    "System/Type$DefaultPropertyMember.class": "f0666eb9943a788280c02070e4fe1667b9669243997304d561a8ee0d7c79abf5",
-    "System/Type$GenericParameterType.class": "0fbeb68d3f6b7878c063176ad1a38637226662efc5fb631b06cda1ea1727e6cb",
-    "System/Type$PointerType.class": "fa378ee5935a5250896fd6763cae61657dc028ff3fc168ab89a5aea889113a71",
-    "System/Type$ResolvedType.class": "f3c8c9cbde44c7e253bc1370940c9d9764d6e89992646d6309837e327ec843aa",
-    "System/Type.class": "2eb8ee52158cb0fa1d6fd9f90e2ce82e9fee3e27c6850fab882325abfd183850",
+    "System/Type$ArrayType.class": "11a7157b8aa9a7261ef1c917050f1fbf4b476f27c7a32c17b717e90bb8dd3cb3",
+    "System/Type$ByRefType.class": "cc568e40d67be15b93e627da44ec4f68a6e49c64d304dbf74744dbe713417d06",
+    "System/Type$DefaultMethodMember.class": "db0c461c892939a2137df430f15b3412d46fb7bcdc39ffaff17ee4023a95df69",
+    "System/Type$DefaultParameterInfo.class": "8247062a413032fbde093a211ec9c7e6adb6fcd215cfb47ecd732ca4162b0c2e",
+    "System/Type$DefaultPropertyMember.class": "49be4a3f988d8a5640b3ecd9a895f7a51807dd93e2426ff15c6a33c434e9d216",
+    "System/Type$GenericParameterType.class": "a916aae1e3d2f9017bcdad28d3b737855f9b5c3867bb9772cbca0e4adda508d4",
+    "System/Type$PointerType.class": "5a6a40a0be4ace5a566edf942dca23de6f7950ed083619d3d247ae5a6bc3e5c0",
+    "System/Type$ResolvedType.class": "5804fb289c72e5369cd393c828cc972315de16fa1b82c7b2a475293e2ea94156",
+    "System/Type.class": "dd5de63c2868fc9a04f8cd2805aab8587a12c701af354b0f4d3165eefccd44bd",
     "System/TypeCode.class": "5f6956717c868ad4b0c4eb615505de94484bd689c0ee71825a7769f7b94d2c6e",
     "System/TypeLoadException.class": "3c9398389a065487de5b6ba064da95cbcd77c8dd7dab8f289559cccebabe16cc",
     "org/dotj/internal/throwing/ThrowSite.class": "aac0ec55aba9352680a787d24422f741c8cea67698dadfc33eef79d72344c280"

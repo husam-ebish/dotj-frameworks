@@ -408,6 +408,7 @@ public abstract class Type extends MemberInfo {
             case "System.IConvertible" -> fromJavaClass(IConvertible.class);
             case "System.TypeCode" -> fromJavaClass(TypeCode.class);
             case "System.Type" -> fromJavaClass(Type.class);
+            case "System.DBNull" -> fromJavaClass(DBNull.class);
             case "System.Reflection.MemberInfo" -> fromJavaClass(MemberInfo.class);
             case "System.Reflection.MethodBase" -> fromJavaClass(MethodBase.class);
             case "System.Reflection.MethodInfo" -> fromJavaClass(MethodInfo.class);
@@ -520,6 +521,7 @@ public abstract class Type extends MemberInfo {
             case "system.iconvertible" -> ignoreCase ? fromJavaClass(IConvertible.class) : null;
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
             case "system.type" -> ignoreCase ? fromJavaClass(Type.class) : null;
+            case "system.dbnull" -> ignoreCase ? fromJavaClass(DBNull.class) : null;
             case "system.reflection.memberinfo" -> ignoreCase ? fromJavaClass(MemberInfo.class) : null;
             case "system.reflection.methodbase" -> ignoreCase ? fromJavaClass(MethodBase.class) : null;
             case "system.reflection.methodinfo" -> ignoreCase ? fromJavaClass(MethodInfo.class) : null;

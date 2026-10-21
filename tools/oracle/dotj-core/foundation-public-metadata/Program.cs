@@ -1065,6 +1065,18 @@ var result = new
                 isIn = parameter.IsIn, isOut = parameter.IsOut,
                 isRetval = parameter.IsRetval, isLcid = parameter.IsLcid })
             .ToArray() }).ToArray(),
+    selectedParameterDefaultValueBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        parameters = item.Item1.GetMethod(item.Item2)!.GetParameters()
+            .Append(item.Item1.GetMethod(item.Item2)!.ReturnParameter)
+            .Select(parameter => new { position = parameter.Position,
+                defaultType = parameter.DefaultValue?.GetType().FullName,
+                rawDefaultType = parameter.RawDefaultValue?.GetType().FullName,
+                sameReference = ReferenceEquals(parameter.DefaultValue, parameter.RawDefaultValue) })
+            .ToArray() }).ToArray(),
     selectedParameterModifierBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
