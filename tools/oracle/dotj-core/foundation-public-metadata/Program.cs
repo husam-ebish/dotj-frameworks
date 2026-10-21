@@ -1147,6 +1147,20 @@ var result = new
         nullParameter = ObserveMethodArgumentName(() => typeof(IFormattable).GetMethod("ToString")!
             .ReturnParameter.GetCustomAttributes((Type)null!, false)),
     },
+    selectedParameterIsDefinedBehavior = new
+    {
+        returnBase = typeof(IFormattable).GetMethod("ToString")!.ReturnParameter
+            .IsDefined(typeof(Attribute), false),
+        returnExact = typeof(IFormattable).GetMethod("ToString")!.ReturnParameter
+            .IsDefined(typeof(IFormattable).GetMethod("ToString")!.ReturnParameter
+                .GetCustomAttributes(false)[0].GetType(), true),
+        inputBase = typeof(IFormattable).GetMethod("ToString")!.GetParameters()[0]
+            .IsDefined(typeof(Attribute), false),
+        nullError = ObserveMethodError(() => typeof(IFormattable).GetMethod("ToString")!
+            .ReturnParameter.IsDefined((Type)null!, false)),
+        nullParameter = ObserveMethodArgumentName(() => typeof(IFormattable).GetMethod("ToString")!
+            .ReturnParameter.IsDefined((Type)null!, false)),
+    },
     selectedParameterTextBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

@@ -94,6 +94,10 @@ public class ParameterInfo {
         return new Object[0];
     }
 
+    public boolean IsDefined(Type attributeType, boolean inherit) {
+        return this.GetCustomAttributes(attributeType, inherit).length != 0;
+    }
+
     public Type[] GetOptionalCustomModifiers() {
         return new Type[0];
     }
