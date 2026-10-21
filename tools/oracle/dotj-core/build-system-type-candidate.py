@@ -479,6 +479,16 @@ def main():
            for key in ("invalidVersionFirst", "invalidCultureFirst", "unknownAssemblyInvalidVersion",
                        "unknownAssemblyInvalidVersionThrow", "invalidContentFirst")},
     }
+    unknown_assembly_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUnknownAssemblyAttributeBehavior"]
+    assert unknown_assembly_attributes == {
+        **{key: {"result": None, "exception": None, "paramName": None}
+           for key in ("validVersion", "unknownAttribute")},
+        **{key: {"result": None, "exception": "System.IO.FileNotFoundException", "paramName": None}
+           for key in ("validVersionThrow", "unknownAttributeThrow")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("invalidToken", "duplicateVersion")},
+        "invalidCulture": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

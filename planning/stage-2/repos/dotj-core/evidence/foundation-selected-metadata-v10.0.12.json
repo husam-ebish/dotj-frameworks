@@ -1791,6 +1791,43 @@
       "paramName": null
     }
   },
+  "selectedUnknownAssemblyAttributeBehavior": {
+    "validVersion": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "validVersionThrow": {
+      "result": null,
+      "exception": "System.IO.FileNotFoundException",
+      "paramName": null
+    },
+    "invalidCulture": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    },
+    "invalidToken": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "unknownAttribute": {
+      "result": null,
+      "exception": null,
+      "paramName": null
+    },
+    "unknownAttributeThrow": {
+      "result": null,
+      "exception": "System.IO.FileNotFoundException",
+      "paramName": null
+    },
+    "duplicateVersion": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -5217,6 +5254,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "50b0fd7b6a5ff6b56394f6a730b83d405ba7ae2001e49a6eb78d73bc064d3254",
+  "oracleProgramSha256": "7410e42a421d5427af0c4c79e5d561c86b4b462db75dd267aec312cf8f412582",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
