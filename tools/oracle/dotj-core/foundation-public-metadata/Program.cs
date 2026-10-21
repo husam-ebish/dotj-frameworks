@@ -702,6 +702,24 @@ static object ObserveInt32NumberStyleProvider()
         standardSignValue,
     };
 }
+static object ObserveInt32NumberStyleBoundaries()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = ":",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    string[] texts = ["_123", "123_", "12__345", "42:", "42:0_0", "42:5",
+        "42::0", "12_:00", "42plus", "42~", "~42plus", ":00"];
+    return texts.Select(text =>
+    {
+        bool success = int.TryParse(text, System.Globalization.NumberStyles.Number,
+            provider, out int value);
+        return new { text, success, value };
+    }).ToArray();
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -5086,6 +5104,7 @@ var result = new
     selectedInt32ExponentialProviderBehavior = ObserveInt32ExponentialProvider(),
     selectedInt32PositiveSignBehavior = ObserveInt32PositiveSign(),
     selectedInt32NumberStyleProviderBehavior = ObserveInt32NumberStyleProvider(),
+    selectedInt32NumberStyleBoundaries = ObserveInt32NumberStyleBoundaries(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",

@@ -199,6 +199,15 @@ def main():
         "fractionalSuccess": False, "fractionalValue": 0,
         "standardSignSuccess": False, "standardSignValue": 0,
     }
+    boundary_texts = ["_123", "123_", "12__345", "42:", "42:0_0", "42:5",
+                      "42::0", "12_:00", "42plus", "42~", "~42plus", ":00"]
+    boundary_success = [False, True, True, True, False, False,
+                        False, True, True, True, False, True]
+    boundary_values = [0, 123, 12345, 42, 0, 0, 0, 12, 42, -42, 0, 0]
+    assert metadata["selectedInt32NumberStyleBoundaries"] == [
+        {"text": text, "success": success, "value": value}
+        for text, success, value in zip(boundary_texts, boundary_success, boundary_values)
+    ]
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

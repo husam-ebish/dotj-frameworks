@@ -22574,6 +22574,68 @@
     "standardSignSuccess": false,
     "standardSignValue": 0
   },
+  "selectedInt32NumberStyleBoundaries": [
+    {
+      "text": "_123",
+      "success": false,
+      "value": 0
+    },
+    {
+      "text": "123_",
+      "success": true,
+      "value": 123
+    },
+    {
+      "text": "12__345",
+      "success": true,
+      "value": 12345
+    },
+    {
+      "text": "42:",
+      "success": true,
+      "value": 42
+    },
+    {
+      "text": "42:0_0",
+      "success": false,
+      "value": 0
+    },
+    {
+      "text": "42:5",
+      "success": false,
+      "value": 0
+    },
+    {
+      "text": "42::0",
+      "success": false,
+      "value": 0
+    },
+    {
+      "text": "12_:00",
+      "success": true,
+      "value": 12
+    },
+    {
+      "text": "42plus",
+      "success": true,
+      "value": 42
+    },
+    {
+      "text": "42~",
+      "success": true,
+      "value": -42
+    },
+    {
+      "text": "~42plus",
+      "success": false,
+      "value": 0
+    },
+    {
+      "text": ":00",
+      "success": true,
+      "value": 0
+    }
+  ],
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -25909,6 +25971,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "2d2205d2fdb55f497a132236ec17b01fde6c6c952e8e6de25064475c63eb86e0",
+  "oracleProgramSha256": "d1a71ba924c339f0a44e5b1b5ba84e5e31ee6ba188c4b96c0ccb122ccef502a0",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
