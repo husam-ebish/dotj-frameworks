@@ -6,6 +6,8 @@ import System.ArgumentNullException;
 import System.Type;
 import System.Decimal;
 import System.DateTime;
+import System.OverflowException;
+import java.math.BigInteger;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.ArrayList;
@@ -100,11 +102,13 @@ public class SerializationInfo {
                 : value instanceof String ? Type.GetType("System.String")
                 : value instanceof Boolean ? Type.GetType("System.Boolean")
                 : value instanceof Long ? Type.GetType("System.Int64")
+                : value instanceof Short ? Type.GetType("System.Int16")
                 : value instanceof Double ? Type.GetType("System.Double")
                 : value instanceof Character ? Type.GetType("System.Char")
                 : value instanceof Float ? Type.GetType("System.Single")
                 : value instanceof Decimal ? Type.GetType("System.Decimal")
                 : value instanceof DateTime ? Type.GetType("System.DateTime")
+                : value instanceof BigInteger ? Type.GetType("System.UInt64")
                 : Type.GetType("System.Object");
         this.AddValue(name, value, type);
     }
@@ -144,6 +148,17 @@ public class SerializationInfo {
 
     public void AddValue(String name, float value) {
         this.AddValue(name, Float.valueOf(value));
+    }
+
+    public void AddValue(String name, short value) {
+        this.AddValue(name, Short.valueOf(value));
+    }
+
+    public void AddValue(String name, BigInteger value) {
+        if (value != null && (value.signum() < 0 || value.bitLength() > 64)) {
+            throw new OverflowException("Value was outside the range of UInt64");
+        }
+        this.AddValue(name, (Object) value);
     }
 
     public void AddValue(String name, Decimal value) {
@@ -212,6 +227,16 @@ public class SerializationInfo {
     public DateTime GetDateTime(String name) {
         Object value = this.member(name).get_Value();
         return value instanceof DateTime date ? date : this.converter.ToDateTime(value);
+    }
+
+    public short GetInt16(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof Short number ? number : this.converter.ToInt16(value);
+    }
+
+    public BigInteger GetUInt64(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof BigInteger number ? number : this.converter.ToUInt64(value);
     }
 
     public SerializationInfoEnumerator GetEnumerator() {
