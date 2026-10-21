@@ -41,6 +41,17 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("Selected MemberInfo Name inheritance changed");
         }
         Type integer = Type.GetType("System.Int32");
+        if (Type.GetTypeCode(null) != TypeCode.Empty
+                || Type.GetTypeCode(Type.GetType("System.Object")) != TypeCode.Object
+                || Type.GetTypeCode(string) != TypeCode.String
+                || Type.GetTypeCode(integer) != TypeCode.Int32
+                || Type.GetTypeCode(Type.GetType("System.Decimal")) != TypeCode.Decimal
+                || Type.GetTypeCode(Type.GetType("System.DateTime")) != TypeCode.DateTime
+                || Type.GetTypeCode(Type.GetType("System.Reflection.MemberTypes")) != TypeCode.Int32
+                || Type.GetTypeCode(Type.GetType("System.String[]")) != TypeCode.Object
+                || Type.GetTypeCode(definition) != TypeCode.Object) {
+            throw new AssertionError("Selected Type.GetTypeCode values changed");
+        }
         if (definition == null || string == null || integer == null
                 || Type.GetType("System.Unknown") != null) {
             throw new AssertionError("Selected type-name lookup changed");

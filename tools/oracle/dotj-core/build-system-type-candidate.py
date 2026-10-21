@@ -990,6 +990,7 @@ def main():
     assert "public abstract class System.Type" in public
     members = [line.strip() for line in public.splitlines() if line.strip().endswith(";")]
     assert members == [
+        "public static System.TypeCode GetTypeCode(System.Type);",
         "public static System.Type GetType(java.lang.String);",
         "public static System.Type GetType(java.lang.String, boolean);",
         "public static System.Type GetType(java.lang.String, boolean, boolean);",
