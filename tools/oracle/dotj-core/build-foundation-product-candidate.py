@@ -336,6 +336,34 @@ def main():
             ]),
         )
     }
+    trailing_styles = {
+        "trailing": (8, ["42~", "42plus", "~42"], [-42, 42, 0],
+                     [None, None, "Format"]),
+        "groupedTrailing": (72, ["12_345~", "12_345plus", "~12_345",
+                                 " 12_345~", "12_345:00~", "12__345~"],
+                            [-12345, 12345, 0, 0, 0, -12345],
+                            [None, None, "Format", "Format", "Format", None]),
+        "paddedTrailing": (75, [" 12_345~ ", "12_345plus", "~12_345",
+                                "12_345:00~"],
+                           [-12345, 12345, 0, 0],
+                           [None, None, "Format", "Format"]),
+        "bothSigns": (76, ["~12_345", "12_345~", "~12_345~",
+                           "plus12_345~", "12_345plus"],
+                      [-12345, -12345, 0, 0, 12345],
+                      [None, None, "Format", "Format", None]),
+    }
+    assert metadata["selectedInt32TrailingSignStyles"] == {
+        key: value
+        for name, (flags, texts, values, errors) in trailing_styles.items()
+        for key, value in (
+            (name + "Value", flags),
+            (name, [
+                {"text": text, "success": error is None, "value": value,
+                 "error": None if error is None else f"System.{error}Exception"}
+                for text, value, error in zip(texts, values, errors)
+            ]),
+        )
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

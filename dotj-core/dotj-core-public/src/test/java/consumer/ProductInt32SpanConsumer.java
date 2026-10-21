@@ -280,6 +280,43 @@ public final class ProductInt32SpanConsumer {
         checkAnyStyle();
         checkCombinedStyles(numberStyle);
         checkMoreCombinedStyles();
+        checkTrailingSignStyles();
+    }
+
+    private static void checkTrailingSignStyles() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        provider.set_NumberGroupSeparator("_");
+        provider.set_PositiveSign("plus");
+        provider.set_NegativeSign("~");
+        NumberStyles groupedTrailing = NumberStyles.AllowThousands.Or(
+                NumberStyles.AllowTrailingSign);
+        NumberStyles paddedTrailing = NumberStyles.AllowLeadingWhite.Or(
+                NumberStyles.AllowTrailingWhite).Or(groupedTrailing);
+        NumberStyles bothSigns = NumberStyles.AllowLeadingSign.Or(groupedTrailing);
+        if (groupedTrailing.get_Value() != 72 || paddedTrailing.get_Value() != 75
+                || bothSigns.get_Value() != 76) {
+            throw new AssertionError("Trailing-sign style values changed");
+        }
+        checkSingleStyleVectors(NumberStyles.AllowTrailingSign, provider,
+                new String[] {"42~", "42plus", "~42"},
+                new int[] {-42, 42, 0},
+                new Class<?>[] {null, null, FormatException.class});
+        checkSingleStyleVectors(groupedTrailing, provider,
+                new String[] {"12_345~", "12_345plus", "~12_345", " 12_345~",
+                        "12_345:00~", "12__345~"},
+                new int[] {-12345, 12345, 0, 0, 0, -12345},
+                new Class<?>[] {null, null, FormatException.class, FormatException.class,
+                        FormatException.class, null});
+        checkSingleStyleVectors(paddedTrailing, provider,
+                new String[] {" 12_345~ ", "12_345plus", "~12_345", "12_345:00~"},
+                new int[] {-12345, 12345, 0, 0},
+                new Class<?>[] {null, null, FormatException.class, FormatException.class});
+        checkSingleStyleVectors(bothSigns, provider,
+                new String[] {"~12_345", "12_345~", "~12_345~",
+                        "plus12_345~", "12_345plus"},
+                new int[] {-12345, -12345, 0, 0, 12345},
+                new Class<?>[] {null, null, FormatException.class,
+                        FormatException.class, null});
     }
 
     private static void checkMoreCombinedStyles() {

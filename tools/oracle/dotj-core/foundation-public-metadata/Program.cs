@@ -912,6 +912,36 @@ static object ObserveInt32MoreCombinedStyles()
             ["~4:2e1", "plus4:2e1", " 4:2e1", "4:2e~1", "42"], provider),
     };
 }
+static object ObserveInt32TrailingSignStyles()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    var groupedTrailing = System.Globalization.NumberStyles.AllowThousands
+        | System.Globalization.NumberStyles.AllowTrailingSign;
+    var paddedTrailing = System.Globalization.NumberStyles.AllowLeadingWhite
+        | System.Globalization.NumberStyles.AllowTrailingWhite
+        | groupedTrailing;
+    var bothSigns = System.Globalization.NumberStyles.AllowLeadingSign | groupedTrailing;
+    return new
+    {
+        trailingValue = (int)System.Globalization.NumberStyles.AllowTrailingSign,
+        trailing = ObserveInt32SingleStyle(System.Globalization.NumberStyles.AllowTrailingSign,
+            ["42~", "42plus", "~42"], provider),
+        groupedTrailingValue = (int)groupedTrailing,
+        groupedTrailing = ObserveInt32SingleStyle(groupedTrailing,
+            ["12_345~", "12_345plus", "~12_345", " 12_345~", "12_345:00~", "12__345~"], provider),
+        paddedTrailingValue = (int)paddedTrailing,
+        paddedTrailing = ObserveInt32SingleStyle(paddedTrailing,
+            [" 12_345~ ", "12_345plus", "~12_345", "12_345:00~"], provider),
+        bothSignsValue = (int)bothSigns,
+        bothSigns = ObserveInt32SingleStyle(bothSigns,
+            ["~12_345", "12_345~", "~12_345~", "plus12_345~", "12_345plus"], provider),
+    };
+}
 static object ObserveInt32SingleStyle(System.Globalization.NumberStyles style,
     string[] texts, System.Globalization.NumberFormatInfo provider)
 {
@@ -5316,6 +5346,7 @@ var result = new
     selectedInt32AnyStyle = ObserveInt32AnyStyle(),
     selectedInt32CombinedStyles = ObserveInt32CombinedStyles(),
     selectedInt32MoreCombinedStyles = ObserveInt32MoreCombinedStyles(),
+    selectedInt32TrailingSignStyles = ObserveInt32TrailingSignStyles(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",
