@@ -1129,6 +1129,18 @@ var result = new
         definition = type.GetGenericTypeDefinition().FullName,
         arguments = type.GetGenericArguments().Select(argument => argument.FullName).ToArray(),
     }).ToArray(),
+    selectedNestedConstructedLookupBehavior = new[]
+    {
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!
+            .MakeGenericType(typeof(string), typeof(int)),
+    }.Select(type => new
+    {
+        name = type.FullName,
+        qualified = type.AssemblyQualifiedName,
+        fullNameSameReference = ReferenceEquals(type, Type.GetType(type.FullName!)),
+        qualifiedSameReference = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
