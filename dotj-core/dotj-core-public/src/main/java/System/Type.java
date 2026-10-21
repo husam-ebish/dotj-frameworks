@@ -51,7 +51,9 @@ public abstract class Type extends MemberInfo {
         if (definition == null) {
             throw new NullPointerException("definition");
         }
-        return canonical.get(definition).computeIfAbsent(List.of(), key -> new ResolvedType(definition, key));
+        Class<?> backend = definition == Integer.class || definition == int.class
+                ? Int32.class : definition;
+        return canonical.get(backend).computeIfAbsent(List.of(), key -> new ResolvedType(backend, key));
     }
 
     private static Type arrayOf(Type elementType, int rank) {
@@ -108,7 +110,7 @@ public abstract class Type extends MemberInfo {
         String key = ignoreCase ? name.toLowerCase(Locale.ROOT) : name;
         Type resolved = switch (key) {
             case "System.String" -> fromJavaClass(String.class);
-            case "System.Int32" -> fromJavaClass(Integer.class);
+            case "System.Int32" -> fromJavaClass(Int32.class);
             case "System.Object" -> fromJavaClass(Object.class);
             case "System.ValueType" -> fromJavaClass(Number.class);
             case "System.Array" -> fromJavaClass(java.lang.reflect.Array.class);
@@ -132,7 +134,7 @@ public abstract class Type extends MemberInfo {
             case "System.String&" -> fromJavaClass(String.class).MakeByRefType();
             case "System.String[]&" -> fromJavaClass(String[].class).MakeByRefType();
             case "System.String*" -> fromJavaClass(String.class).MakePointerType();
-            case "System.Int32*" -> fromJavaClass(Integer.class).MakePointerType();
+            case "System.Int32*" -> fromJavaClass(Int32.class).MakePointerType();
             case "System.Int32[]" -> fromJavaClass(int[].class);
             case "System.Collections.Generic.List`1[System.String]",
                     "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib]]" ->
@@ -140,15 +142,15 @@ public abstract class Type extends MemberInfo {
             case "System.Collections.Generic.Dictionary`2[System.String,System.Int32]",
                     "System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib],[System.Int32, System.Private.CoreLib]]" ->
                     fromJavaClass(java.util.Map.class).MakeGenericType(
-                            new Type[] {fromJavaClass(String.class), fromJavaClass(Integer.class)});
+                            new Type[] {fromJavaClass(String.class), fromJavaClass(Int32.class)});
             case "System.Collections.Generic.Dictionary`2[System.Int32,System.String]" ->
                     fromJavaClass(java.util.Map.class).MakeGenericType(
-                            new Type[] {fromJavaClass(Integer.class), fromJavaClass(String.class)});
+                            new Type[] {fromJavaClass(Int32.class), fromJavaClass(String.class)});
             case "System.Collections.Generic.List`1[System.String][]" ->
                     arrayOf(fromJavaClass(java.util.List.class)
                             .MakeGenericType(new Type[] {fromJavaClass(String.class)}), 1);
             case "system.string" -> ignoreCase ? fromJavaClass(String.class) : null;
-            case "system.int32" -> ignoreCase ? fromJavaClass(Integer.class) : null;
+            case "system.int32" -> ignoreCase ? fromJavaClass(Int32.class) : null;
             case "system.object" -> ignoreCase ? fromJavaClass(Object.class) : null;
             case "system.valuetype" -> ignoreCase ? fromJavaClass(Number.class) : null;
             case "system.array" -> ignoreCase ? fromJavaClass(java.lang.reflect.Array.class) : null;
@@ -172,7 +174,7 @@ public abstract class Type extends MemberInfo {
             case "system.string&" -> ignoreCase ? fromJavaClass(String.class).MakeByRefType() : null;
             case "system.string[]&" -> ignoreCase ? fromJavaClass(String[].class).MakeByRefType() : null;
             case "system.string*" -> ignoreCase ? fromJavaClass(String.class).MakePointerType() : null;
-            case "system.int32*" -> ignoreCase ? fromJavaClass(Integer.class).MakePointerType() : null;
+            case "system.int32*" -> ignoreCase ? fromJavaClass(Int32.class).MakePointerType() : null;
             case "system.int32[]" -> ignoreCase ? fromJavaClass(int[].class) : null;
             case "system.collections.generic.list`1[system.string]",
                     "system.collections.generic.list`1[[system.string, system.private.corelib]]" ->
@@ -210,7 +212,7 @@ public abstract class Type extends MemberInfo {
         if (this == fromJavaClass(String.class)) {
             return fromJavaClass(String[].class);
         }
-        if (this == fromJavaClass(Integer.class)) {
+        if (this == fromJavaClass(Int32.class)) {
             return fromJavaClass(int[].class);
         }
         if (this == fromJavaClass(String[].class)) {
@@ -281,7 +283,7 @@ public abstract class Type extends MemberInfo {
             return this.GetElementType().get_Name() + "[]";
         }
         if (this.definition == String.class) return "String";
-        if (this.definition == Integer.class) return "Int32";
+        if (this.definition == Int32.class) return "Int32";
         if (this.definition == Object.class) return "Object";
         if (this.definition == Number.class) return "ValueType";
         if (this.definition == java.lang.reflect.Array.class) return "Array";
@@ -337,7 +339,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == java.util.List.class || this.definition == java.util.Map.class) {
             return "System.Collections.Generic";
         }
-        if (this.definition == String.class || this.definition == Integer.class
+        if (this.definition == String.class || this.definition == Int32.class
                 || this.definition == Object.class || this.definition == Number.class
                 || this.definition == java.lang.reflect.Array.class || this.definition == Enum.class) {
             return "System";
@@ -365,7 +367,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Object.class && this.parameterIndex < 0) {
             return null;
         }
-        if (this.definition == Integer.class) {
+        if (this.definition == Int32.class) {
             return fromJavaClass(Number.class);
         }
         if (this.definition == Decimal.class || this.definition == DateTime.class) {
@@ -388,7 +390,7 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsValueType() {
         return this.parameterIndex < 0
-                && (this.definition == Integer.class || this.definition == Decimal.class
+                && (this.definition == Int32.class || this.definition == Decimal.class
                         || this.definition == DateTime.class
                         || this.definition == MemberTypes.class
                         || this.definition == TypeCode.class);
@@ -412,7 +414,7 @@ public abstract class Type extends MemberInfo {
         if (!this.get_IsEnum()) {
             throw new ArgumentException("Type must be an enum");
         }
-        return fromJavaClass(Integer.class);
+        return fromJavaClass(Int32.class);
     }
 
     public boolean IsAssignableFrom(Type candidate) {
@@ -425,10 +427,10 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IComparable.class && candidate.definition == String.class) {
             return true;
         }
-        if (this.definition == IFormattable.class && candidate.definition == Integer.class) {
+        if (this.definition == IFormattable.class && candidate.definition == Int32.class) {
             return true;
         }
-        if (this.definition == IConvertible.class && candidate.definition == Integer.class) {
+        if (this.definition == IConvertible.class && candidate.definition == Int32.class) {
             return true;
         }
         if (candidate.get_IsByRef() || candidate.get_IsPointer()) {
@@ -475,14 +477,15 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this.definition == Number.class) {
-            return value instanceof Integer || value instanceof Decimal || value instanceof DateTime
+            return value instanceof Integer || value instanceof Int32
+                    || value instanceof Decimal || value instanceof DateTime
                     || value instanceof MemberTypes || value instanceof TypeCode;
         }
         if (this.definition == Enum.class) {
             return value instanceof MemberTypes || value instanceof TypeCode;
         }
         if (this.definition == IComparable.class) {
-            return value instanceof String || value instanceof Int32;
+            return value instanceof String || value instanceof Integer || value instanceof Int32;
         }
         if (this.definition == IFormattable.class) {
             return value instanceof Integer || value instanceof Int32;
@@ -490,7 +493,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IConvertible.class) {
             return value instanceof Integer || value instanceof Int32;
         }
-        if (this.definition == Integer.class && value instanceof Int32) {
+        if (this.definition == Int32.class && value instanceof Integer) {
             return true;
         }
         if (this.definition == java.lang.reflect.Array.class) {
@@ -531,7 +534,7 @@ public abstract class Type extends MemberInfo {
                 return null;
             }
         }
-        if (this.definition == Integer.class) {
+        if (this.definition == Int32.class) {
             if (fullname.equals("System.IFormattable") || fullname.equals("IFormattable")) {
                 return fromJavaClass(IFormattable.class);
             }

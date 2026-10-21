@@ -9,6 +9,17 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        if (integer != Type.fromJavaClass(Int32.class) || integer != Type.fromJavaClass(int.class)
+                || integer != Type.GetType("System.Int32")) {
+            throw new AssertionError("Int32 public facade and primitive backend identities diverged");
+        }
+        Type integerArray = Type.GetType("System.Int32[]");
+        Type dictionary = Type.GetType("System.Collections.Generic.Dictionary`2[System.String,System.Int32]");
+        if (integerArray.GetElementType() != integer || integer.MakeArrayType() != integerArray
+                || dictionary.GetGenericArguments()[1] != integer
+                || integer.MakePointerType() != Type.GetType("System.Int32*")) {
+            throw new AssertionError("Int32 array, generic or pointer identity diverged");
+        }
         Type longer = Type.fromJavaClass(Long.class);
         Type[] firstArguments = {string};
         Type first = list.MakeGenericType(firstArguments);
