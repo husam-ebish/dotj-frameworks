@@ -302,6 +302,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     private static long selectedCreateSource(Object value) {
+        if (value instanceof Byte source) return source.get_Value();
+        if (value instanceof SByte source) return source.get_Value();
+        if (value instanceof UInt16 source) return source.get_Value();
+        if (value instanceof UInt32 source) return source.get_Value();
         if (value instanceof Long source) return source;
         if (value instanceof Integer source) return source.longValue();
         if (value instanceof Int32 source) return source.value;

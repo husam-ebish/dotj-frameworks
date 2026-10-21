@@ -967,6 +967,20 @@ def main():
         "tryNull": False, "tryNullResult": 0,
         "textDefault": "42", "textFormat": "0042", "textNegative": "-0042",
     }
+    assert [(item["sourceType"], item["value"], item["checkedValue"],
+             item["checkedError"], item["saturated"], item["truncated"])
+            for item in foundation["selectedInt32CreateSmallIntegrals"]] == [
+                ("System.Byte", "0", 0, None, 0, 0),
+                ("System.Byte", "255", 255, None, 255, 255),
+                ("System.SByte", "-128", -128, None, -128, -128),
+                ("System.SByte", "127", 127, None, 127, 127),
+                ("System.UInt16", "0", 0, None, 0, 0),
+                ("System.UInt16", "65535", 65535, None, 65535, 65535),
+                ("System.UInt32", "0", 0, None, 0, 0),
+                ("System.UInt32", "2147483647", 2147483647, None, 2147483647, 2147483647),
+                ("System.UInt32", "2147483648", None, "System.OverflowException", 2147483647, -2147483648),
+                ("System.UInt32", "4294967295", None, "System.OverflowException", 2147483647, -1),
+            ]
     assert {
         "Int32 CompareTo(Int32)",
         "Int32 Parse(System.String, System.Globalization.NumberStyles)",

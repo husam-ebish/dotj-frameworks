@@ -26,4 +26,6 @@ An exact declared-method review found that name-level coverage concealed ordinar
 
 The declared field inventory also identifies literal `Int32.MinValue` and `Int32.MaxValue`. The candidate exposes these as public Java `int` constants and checks their compiled declarations and extrema in the packaged consumer. CLR value-type field metadata and the broader `.j` ABI remain open.
 
+The selected generic creation methods now accept product `Byte`, `SByte`, `UInt16` and `UInt32` carriers. Ten pinned CLR inputs cover their endpoints; `UInt32` values above `Int32.MaxValue` overflow in checked creation, clamp in saturating creation and retain their low 32 bits in truncating creation. The packaged consumer checks these paths. Other numeric carriers and complete `INumberBase<TOther>` constraints remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

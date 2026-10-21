@@ -2119,6 +2119,88 @@
     "textFormat": "0042",
     "textNegative": "-0042"
   },
+  "selectedInt32CreateSmallIntegrals": [
+    {
+      "sourceType": "System.Byte",
+      "value": "0",
+      "checkedValue": 0,
+      "checkedError": null,
+      "saturated": 0,
+      "truncated": 0
+    },
+    {
+      "sourceType": "System.Byte",
+      "value": "255",
+      "checkedValue": 255,
+      "checkedError": null,
+      "saturated": 255,
+      "truncated": 255
+    },
+    {
+      "sourceType": "System.SByte",
+      "value": "-128",
+      "checkedValue": -128,
+      "checkedError": null,
+      "saturated": -128,
+      "truncated": -128
+    },
+    {
+      "sourceType": "System.SByte",
+      "value": "127",
+      "checkedValue": 127,
+      "checkedError": null,
+      "saturated": 127,
+      "truncated": 127
+    },
+    {
+      "sourceType": "System.UInt16",
+      "value": "0",
+      "checkedValue": 0,
+      "checkedError": null,
+      "saturated": 0,
+      "truncated": 0
+    },
+    {
+      "sourceType": "System.UInt16",
+      "value": "65535",
+      "checkedValue": 65535,
+      "checkedError": null,
+      "saturated": 65535,
+      "truncated": 65535
+    },
+    {
+      "sourceType": "System.UInt32",
+      "value": "0",
+      "checkedValue": 0,
+      "checkedError": null,
+      "saturated": 0,
+      "truncated": 0
+    },
+    {
+      "sourceType": "System.UInt32",
+      "value": "2147483647",
+      "checkedValue": 2147483647,
+      "checkedError": null,
+      "saturated": 2147483647,
+      "truncated": 2147483647
+    },
+    {
+      "sourceType": "System.UInt32",
+      "value": "2147483648",
+      "checkedValue": null,
+      "checkedError": "System.OverflowException",
+      "saturated": 2147483647,
+      "truncated": -2147483648
+    },
+    {
+      "sourceType": "System.UInt32",
+      "value": "4294967295",
+      "checkedValue": null,
+      "checkedError": "System.OverflowException",
+      "saturated": 2147483647,
+      "truncated": -1
+    }
+  ],
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -25743,6 +25825,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "d095003168100daaf54e0651605b534cb6d72b5c321fef853ea6bbc039d47729",
+  "oracleProgramSha256": "39cf9f0700773f31294191375f912146d9f2ed9e357273db842bbd100fe46044",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
