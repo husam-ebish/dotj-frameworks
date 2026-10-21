@@ -639,6 +639,15 @@ var result = new
         assemblyLookupIdentity = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
         insensitiveLookupIdentity = ReferenceEquals(type, Type.GetType(type.FullName!.ToLowerInvariant(), false, true)),
     }).ToArray(),
+    selectedTypeToStringBehavior = new[]
+    {
+        typeof(string), typeof(int), typeof(string[]), typeof(string[,]),
+        typeof(string).MakeByRefType(), typeof(string).MakePointerType(),
+        typeof(System.Collections.Generic.List<>),
+        typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
+        typeof(System.Collections.Generic.List<string>),
+        typeof(System.Collections.Generic.Dictionary<string, int>),
+    }.Select(type => new { fullName = type.FullName, text = type.ToString() }).ToArray(),
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),

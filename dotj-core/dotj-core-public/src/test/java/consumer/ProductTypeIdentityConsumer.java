@@ -2051,6 +2051,20 @@ public final class ProductTypeIdentityConsumer {
         if (parameter.get_AssemblyQualifiedName() != null) {
             throw new AssertionError("Generic parameter gained an assembly-qualified name");
         }
+        Type[] toStringTypes = {string, integer, Type.GetType("System.String[]"),
+                Type.GetType("System.String[,]"), string.MakeByRefType(),
+                string.MakePointerType(), definition, parameter, first,
+                Type.GetType("System.Collections.Generic.Dictionary`2[System.String,System.Int32]")};
+        String[] typeTexts = {"System.String", "System.Int32", "System.String[]",
+                "System.String[,]", "System.String&", "System.String*",
+                "System.Collections.Generic.List`1[T]", "T",
+                "System.Collections.Generic.List`1[System.String]",
+                "System.Collections.Generic.Dictionary`2[System.String,System.Int32]"};
+        for (int index = 0; index < toStringTypes.length; index++) {
+            if (!typeTexts[index].equals(toStringTypes[index].ToString())) {
+                throw new AssertionError("Selected Type.ToString changed at " + index);
+            }
+        }
         for (Type selected : new Type[] {string, integer, definition, first,
                 Type.GetType("System.String[]"), parameter}) {
             if (selected.get_UnderlyingSystemType() != selected) {
