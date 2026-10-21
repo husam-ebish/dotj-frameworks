@@ -297,6 +297,25 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Null Double parameter changed");
             }
         }
+        SerializationInfo objects = new SerializationInfo(dbnullType, selectedConverter);
+        Object objectMarker = new Object();
+        objects.AddValue("item", objectMarker);
+        objects.AddValue("empty", (Object) null);
+        objects.AddValue("typedEmpty", null, Type.GetType("System.String"));
+        SerializationInfoEnumerator objectEntries = objects.GetEnumerator();
+        if (objects.get_MemberCount() != 3
+                || objects.GetValue("item", Type.GetType("System.Object")) != objectMarker
+                || objects.GetValue("empty", Type.GetType("System.Object")) != null
+                || objects.GetValue("empty", Type.GetType("System.String")) != null
+                || objects.GetString("typedEmpty") != null
+                || !objectEntries.MoveNext()
+                || !"System.Object".equals(objectEntries.get_ObjectType().get_FullName())
+                || !objectEntries.MoveNext()
+                || !"System.Object".equals(objectEntries.get_ObjectType().get_FullName())
+                || !objectEntries.MoveNext()
+                || !"System.String".equals(objectEntries.get_ObjectType().get_FullName())) {
+            throw new AssertionError("Selected object serialization members changed");
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }

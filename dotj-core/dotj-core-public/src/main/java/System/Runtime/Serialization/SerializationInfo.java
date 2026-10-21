@@ -137,6 +137,9 @@ public class SerializationInfo {
             throw new ArgumentNullException("type");
         }
         SerializationEntry entry = this.member(name);
+        if (entry.get_Value() == null) {
+            return null;
+        }
         if (type.get_FullName().equals(entry.get_ObjectType().get_FullName())
                 || "System.Object".equals(type.get_FullName())) {
             return entry.get_Value();

@@ -251,6 +251,12 @@ def main():
         "nullLong": "System.ArgumentNullException", "nullLongParameter": "value",
         "nullDouble": "System.ArgumentNullException", "nullDoubleParameter": "value",
     }
+    object_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoObjectMembersBehavior"]
+    assert object_members == {
+        "count": 3, "markerSame": True,
+        "emptyObject": None, "emptyString": None, "typedEmptyString": None,
+        "types": ["System.Object", "System.Object", "System.String"],
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
