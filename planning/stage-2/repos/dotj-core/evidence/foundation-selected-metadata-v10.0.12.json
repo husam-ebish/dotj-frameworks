@@ -51,6 +51,29 @@
     "providerText": "",
     "typeCode": "DBNull"
   },
+  "selectedDBNullConversionBehavior": {
+    "isConvertible": true,
+    "toBoolean": "System.InvalidCastException",
+    "toChar": "System.InvalidCastException",
+    "toSByte": "System.InvalidCastException",
+    "toByte": "System.InvalidCastException",
+    "toInt16": "System.InvalidCastException",
+    "toUInt16": "System.InvalidCastException",
+    "toInt32": "System.InvalidCastException",
+    "toUInt32": "System.InvalidCastException",
+    "toInt64": "System.InvalidCastException",
+    "toUInt64": "System.InvalidCastException",
+    "toSingle": "System.InvalidCastException",
+    "toDouble": "System.InvalidCastException",
+    "toDecimal": "System.InvalidCastException",
+    "toDateTime": "System.InvalidCastException",
+    "toTypeString": null,
+    "toTypeStringText": "",
+    "toTypeSelf": null,
+    "toTypeSelfSameReference": true,
+    "toTypeNull": "System.ArgumentNullException",
+    "toTypeNullParameter": "targetType"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15493,6 +15516,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "8c9cd0f138bd3ec238eb1b843a34e49f4f7beae2dfa80b58ef4d51776dd10930",
+  "oracleProgramSha256": "51655a2be12870db3b26da4fc09bbdb20961c6d5aaaba1dec255d79ce03ad89f",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -721,6 +721,32 @@ var result = new
         providerText = DBNull.Value.ToString(System.Globalization.CultureInfo.InvariantCulture),
         typeCode = DBNull.Value.GetTypeCode().ToString(),
     },
+    selectedDBNullConversionBehavior = new
+    {
+        isConvertible = DBNull.Value is IConvertible,
+        toBoolean = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToBoolean(null)),
+        toChar = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToChar(null)),
+        toSByte = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToSByte(null)),
+        toByte = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToByte(null)),
+        toInt16 = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToInt16(null)),
+        toUInt16 = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToUInt16(null)),
+        toInt32 = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToInt32(null)),
+        toUInt32 = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToUInt32(null)),
+        toInt64 = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToInt64(null)),
+        toUInt64 = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToUInt64(null)),
+        toSingle = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToSingle(null)),
+        toDouble = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToDouble(null)),
+        toDecimal = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToDecimal(null)),
+        toDateTime = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToDateTime(null)),
+        toTypeString = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToType(typeof(string), null)),
+        toTypeStringText = ((IConvertible)DBNull.Value).ToType(typeof(string), null) as string,
+        toTypeSelf = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToType(typeof(DBNull), null)),
+        toTypeSelfSameReference = ReferenceEquals(
+            ((IConvertible)DBNull.Value).ToType(typeof(DBNull), null), DBNull.Value),
+        toTypeNull = ObserveMethodError(() => ((IConvertible)DBNull.Value).ToType(null!, null)),
+        toTypeNullParameter = ObserveMethodArgumentName(() =>
+            ((IConvertible)DBNull.Value).ToType(null!, null)),
+    },
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

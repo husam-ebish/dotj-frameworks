@@ -71,6 +71,18 @@ def main():
     dbnull = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDBNullBehavior"]
     assert dbnull == {"fullName": "System.DBNull", "sameReference": True,
                       "text": "", "providerText": "", "typeCode": "DBNull"}
+    dbnull_conversions = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDBNullConversionBehavior"]
+    assert dbnull_conversions["isConvertible"]
+    assert all(dbnull_conversions[key] == "System.InvalidCastException" for key in (
+        "toBoolean", "toChar", "toSByte", "toByte", "toInt16", "toUInt16",
+        "toInt32", "toUInt32", "toInt64", "toUInt64", "toSingle", "toDouble",
+        "toDecimal", "toDateTime"))
+    assert dbnull_conversions["toTypeString"] is None
+    assert dbnull_conversions["toTypeStringText"] == ""
+    assert dbnull_conversions["toTypeSelf"] is None
+    assert dbnull_conversions["toTypeSelfSameReference"]
+    assert dbnull_conversions["toTypeNull"] == "System.ArgumentNullException"
+    assert dbnull_conversions["toTypeNullParameter"] == "targetType"
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
