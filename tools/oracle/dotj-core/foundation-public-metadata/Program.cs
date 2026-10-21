@@ -567,6 +567,19 @@ var result = new
         negativeActive = ((IFormattable)(-42)).ToString("0‰",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32CommaScalingBehavior = new
+    {
+        single = ((IFormattable)12345).ToString("0,",
+            System.Globalization.CultureInfo.InvariantCulture),
+        doubleScale = ((IFormattable)1234567).ToString("0,,",
+            System.Globalization.CultureInfo.InvariantCulture),
+        grouped = ((IFormattable)1234567).ToString("#,##0,",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-12345)).ToString("0,",
+            System.Globalization.CultureInfo.InvariantCulture),
+        halfway = ((IFormattable)999500).ToString("0,",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

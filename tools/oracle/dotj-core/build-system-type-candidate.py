@@ -276,6 +276,9 @@ def main():
     per_mille = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32PerMilleBehavior"]
     assert per_mille == {"escaped": "42\u2030", "active": "42000\u2030",
                          "negativeEscaped": "-42\u2030", "negativeActive": "-42000\u2030"}
+    comma_scaling = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32CommaScalingBehavior"]
+    assert comma_scaling == {"single": "12", "doubleScale": "1", "grouped": "1,235",
+                             "negative": "-12", "halfway": "1000"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
