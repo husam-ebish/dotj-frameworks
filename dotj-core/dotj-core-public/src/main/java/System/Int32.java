@@ -26,6 +26,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(parsed.intValue());
     }
 
+    public static Int32 Parse(String text, NumberStyles style) {
+        return Parse(text, style, null);
+    }
+
+    public static Int32 Parse(String text, IFormatProvider provider) {
+        return Parse(text, NumberStyles.Integer, provider);
+    }
+
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (style == NumberStyles.Integer) {
             return Parse(text);
@@ -81,6 +89,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         } catch (FormatException | OverflowException expected) {
             return false;
         }
+    }
+
+    public static boolean TryParse(String text, IFormatProvider provider, Int32[] result) {
+        return TryParse(text, NumberStyles.Integer, provider, result);
     }
 
     public static boolean TryParse(String text, NumberStyles style,
@@ -421,6 +433,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return Integer.toString(this.value);
     }
 
+    public String ToString() {
+        return this.ToString((IFormatProvider)null);
+    }
+
+    public String ToString(String format) {
+        return this.ToString(format, null);
+    }
+
     @Override
     public String ToString(String format, IFormatProvider provider) {
         if (format == null || format.isEmpty() || format.equals("D")) {
@@ -750,6 +770,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return Integer.compare(this.value, other);
         }
         throw new ArgumentException("Object must be Int32", "obj");
+    }
+
+    public int CompareTo(Int32 value) {
+        return Integer.compare(this.value, value.value);
     }
 
     @Override
