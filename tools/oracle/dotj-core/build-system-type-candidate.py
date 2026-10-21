@@ -504,6 +504,12 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("oneNibble", "nonHex")},
     }
+    key_token = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPublicKeyTokenInteractionBehavior"]
+    assert key_token == {
+        key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+        for key in ("bothNull", "keyThenNullToken", "tokenThenKey", "keyThenToken",
+                    "tokenThenInvalidKey", "invalidTokenThenKey")
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
