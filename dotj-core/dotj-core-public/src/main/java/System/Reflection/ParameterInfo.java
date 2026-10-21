@@ -42,6 +42,22 @@ public class ParameterInfo {
         return false;
     }
 
+    public boolean get_IsIn() {
+        return false;
+    }
+
+    public boolean get_IsOut() {
+        return false;
+    }
+
+    public boolean get_IsRetval() {
+        return false;
+    }
+
+    public boolean get_IsLcid() {
+        return false;
+    }
+
     public Type[] GetOptionalCustomModifiers() {
         return new Type[0];
     }

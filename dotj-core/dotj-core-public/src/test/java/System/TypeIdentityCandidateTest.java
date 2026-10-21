@@ -268,6 +268,8 @@ public final class TypeIdentityCandidateTest {
                     || returnParameter.get_Position() != -1
                     || returnParameter.get_IsOptional()
                     || returnParameter.get_HasDefaultValue()
+                    || returnParameter.get_IsIn() || returnParameter.get_IsOut()
+                    || returnParameter.get_IsRetval() || returnParameter.get_IsLcid()
                     || returnParameter.GetOptionalCustomModifiers().length != 0
                     || returnParameter.GetRequiredCustomModifiers().length != 0
                     || !java.util.Objects.equals(returnParameter.get_Name(),
@@ -297,6 +299,10 @@ public final class TypeIdentityCandidateTest {
                 }
                 if (parameters[parameterIndex].get_IsOptional()
                         || parameters[parameterIndex].get_HasDefaultValue()
+                        || parameters[parameterIndex].get_IsIn()
+                        || parameters[parameterIndex].get_IsOut()
+                        || parameters[parameterIndex].get_IsRetval()
+                        || parameters[parameterIndex].get_IsLcid()
                         || parameters[parameterIndex].GetOptionalCustomModifiers().length != 0
                         || parameters[parameterIndex].GetRequiredCustomModifiers().length != 0) {
                     throw new AssertionError("Selected parameter default flags changed");

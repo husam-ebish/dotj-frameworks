@@ -1061,7 +1061,9 @@ var result = new
         parameters = item.Item1.GetMethod(item.Item2)!.GetParameters()
             .Append(item.Item1.GetMethod(item.Item2)!.ReturnParameter)
             .Select(parameter => new { position = parameter.Position,
-                isOptional = parameter.IsOptional, hasDefaultValue = parameter.HasDefaultValue })
+                isOptional = parameter.IsOptional, hasDefaultValue = parameter.HasDefaultValue,
+                isIn = parameter.IsIn, isOut = parameter.IsOut,
+                isRetval = parameter.IsRetval, isLcid = parameter.IsLcid })
             .ToArray() }).ToArray(),
     selectedParameterModifierBehavior = new[]
     {

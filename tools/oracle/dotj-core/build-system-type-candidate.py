@@ -360,6 +360,7 @@ def main():
     assert [len(row["parameters"]) for row in parameter_flags] == [1, 2, 3, 2]
     assert [row["parameters"][-1]["position"] for row in parameter_flags] == [-1] * 4
     assert all(not parameter["isOptional"] and not parameter["hasDefaultValue"]
+               and not any(parameter[key] for key in ("isIn", "isOut", "isRetval", "isLcid"))
                for row in parameter_flags for parameter in row["parameters"])
     parameter_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterModifierBehavior"]
     assert [len(row["parameters"]) for row in parameter_modifiers] == [1, 2, 3, 2]
