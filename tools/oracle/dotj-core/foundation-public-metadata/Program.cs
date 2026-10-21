@@ -775,6 +775,22 @@ var result = new
             ((System.Runtime.Serialization.ISerializable)DBNull.Value)
                 .GetObjectData(null!, default)),
     },
+    selectedStreamingContextBehavior = new
+    {
+        values = Enum.GetNames<System.Runtime.Serialization.StreamingContextStates>()
+            .Select(name => new { name, value = (int)Enum.Parse<
+                System.Runtime.Serialization.StreamingContextStates>(name) }).ToArray(),
+        defaultState = (int)default(System.Runtime.Serialization.StreamingContext).State,
+        defaultContext = default(System.Runtime.Serialization.StreamingContext).Context,
+        oneArgState = (int)new System.Runtime.Serialization.StreamingContext(
+            System.Runtime.Serialization.StreamingContextStates.CrossProcess).State,
+        oneArgContext = new System.Runtime.Serialization.StreamingContext(
+            System.Runtime.Serialization.StreamingContextStates.CrossProcess).Context,
+        twoArgState = (int)new System.Runtime.Serialization.StreamingContext(
+            System.Runtime.Serialization.StreamingContextStates.Other, "marker").State,
+        twoArgContext = new System.Runtime.Serialization.StreamingContext(
+            System.Runtime.Serialization.StreamingContextStates.Other, "marker").Context,
+    },
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

@@ -95,6 +95,52 @@
     "nullInfoError": "System.NullReferenceException",
     "nullInfoParameter": null
   },
+  "selectedStreamingContextBehavior": {
+    "values": [
+      {
+        "name": "CrossProcess",
+        "value": 1
+      },
+      {
+        "name": "CrossMachine",
+        "value": 2
+      },
+      {
+        "name": "File",
+        "value": 4
+      },
+      {
+        "name": "Persistence",
+        "value": 8
+      },
+      {
+        "name": "Remoting",
+        "value": 16
+      },
+      {
+        "name": "Other",
+        "value": 32
+      },
+      {
+        "name": "Clone",
+        "value": 64
+      },
+      {
+        "name": "CrossAppDomain",
+        "value": 128
+      },
+      {
+        "name": "All",
+        "value": 255
+      }
+    ],
+    "defaultState": 0,
+    "defaultContext": null,
+    "oneArgState": 1,
+    "oneArgContext": null,
+    "twoArgState": 32,
+    "twoArgContext": "marker"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15537,6 +15583,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "4ffb60babb8ce495daee28882689831201cd40d83c60d866bd7d038c3914a693",
+  "oracleProgramSha256": "cb22d3597b57baf7447774744ddc3b18b579c86ff2ecea4e2f0f1f02d6fe693f",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

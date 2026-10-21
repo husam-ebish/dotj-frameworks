@@ -57,8 +57,8 @@ def main():
     assert jar_hash == mapping["jarSha256"] == queue["jarSha256"]
     assert jar_hash == packet["candidateJarSha256"]
     assert sha256(ROOT / artifact["jarPath"]) == jar_hash
-    assert len(artifact["productSources"]) == queue["sourceCount"] == 46
-    assert len(artifact["jarEntries"]) == 58
+    assert len(artifact["productSources"]) == queue["sourceCount"] == 47
+    assert len(artifact["jarEntries"]) == 59
     assert packet["productLicense"]["identifier"] == "MIT"
     assert packet["qualification"] == "E01_OPEN; NOT_RELEASE_QUALIFIED"
     assert len(packet["openDecisions"]) == 3
@@ -77,8 +77,8 @@ def main():
         "scope": "Current dotj-core public foundation candidate and bounded E01 inputs",
         "checks": list(CHECKS),
         "candidateJarSha256": jar_hash,
-        "productSourceCount": 46,
-        "jarEntryCount": 58,
+        "productSourceCount": 47,
+        "jarEntryCount": 59,
         "evidenceSha256": {
             name: sha256(EVIDENCE / name) for name in evidence_files
         },
@@ -88,7 +88,7 @@ def main():
         "releaseQualified": False,
     }
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-    print("PASS public foundation candidate gate: 17 checks, 46 sources, MIT, E01 open")
+    print("PASS public foundation candidate gate: 17 checks, 47 sources, MIT, E01 open")
 
 
 if __name__ == "__main__":

@@ -33,7 +33,7 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
-                      ("ISerializable", "SerializationInfo", "StreamingContext")]
+                      ("ISerializable", "SerializationInfo", "StreamingContext", "StreamingContextStates")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
@@ -101,6 +101,16 @@ def main():
         "infoBase": "System.Object", "contextBase": "System.ValueType",
         "nullInfoError": "System.NullReferenceException", "nullInfoParameter": None,
     }
+    context = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedStreamingContextBehavior"]
+    assert context["values"] == [
+        {"name": name, "value": value} for name, value in (
+            ("CrossProcess", 1), ("CrossMachine", 2), ("File", 4),
+            ("Persistence", 8), ("Remoting", 16), ("Other", 32),
+            ("Clone", 64), ("CrossAppDomain", 128), ("All", 255))]
+    assert {key: context[key] for key in ("defaultState", "defaultContext",
+        "oneArgState", "oneArgContext", "twoArgState", "twoArgContext")} == {
+        "defaultState": 0, "defaultContext": None, "oneArgState": 1,
+        "oneArgContext": None, "twoArgState": 32, "twoArgContext": "marker"}
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
