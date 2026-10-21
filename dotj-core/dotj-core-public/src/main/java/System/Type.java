@@ -1897,6 +1897,12 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public ParameterInfo get_ReturnParameter() {
+            return new DefaultParameterInfo(this.name.equals("ToString") ? "" : null,
+                    this.get_ReturnType(), -1);
+        }
+
+        @Override
         public ParameterInfo[] GetParameters() {
             return switch (this.name) {
                 case "Dispose" -> new ParameterInfo[0];
