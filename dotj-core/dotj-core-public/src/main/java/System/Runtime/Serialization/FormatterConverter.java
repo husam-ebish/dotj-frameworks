@@ -147,10 +147,14 @@ public final class FormatterConverter implements IFormatterConverter {
     @Override
     public long ToInt64(Object value) {
         if (value instanceof String text) {
-            try {
-                return Long.parseLong(text.strip());
-            } catch (NumberFormatException ignored) {
+            String trimmed = text.strip();
+            if (!trimmed.matches("[+-]?[0-9]+")) {
                 throw new FormatException("Input string was not in a correct format");
+            }
+            try {
+                return Long.parseLong(trimmed);
+            } catch (NumberFormatException ignored) {
+                throw new OverflowException("Value was outside the range of Int64");
             }
         }
         if (value instanceof Long number) {
