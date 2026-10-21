@@ -2032,6 +2032,15 @@ public final class ProductTypeIdentityConsumer {
                         != attributesType) {
             throw new AssertionError("GenericParameterAttributes Type identity changed");
         }
+        Type[] definitionKinds = {string, integer, Type.GetType("System.IDisposable"),
+                attributesType, definition, first, parameter, Type.GetType("System.String[]"),
+                Type.GetType("System.String[,]"), string.MakeByRefType(),
+                string.MakePointerType(), definition.MakeArrayType()};
+        for (int index = 0; index < definitionKinds.length; index++) {
+            if (definitionKinds[index].get_IsTypeDefinition() != (index < 5)) {
+                throw new AssertionError("Selected IsTypeDefinition changed at " + index);
+            }
+        }
         int[] attributeValues = {0, 1, 2, 3, 4, 8, 16, 28, 32};
         GenericParameterAttributes[] attributes = GenericParameterAttributes.values();
         if (attributes.length != attributeValues.length) {

@@ -1034,6 +1034,8 @@ def main():
         "System.Collections.Generic.Dictionary`2[System.String,System.Collections.Generic.List`1[System.Int32]]",
         "System.Collections.Generic.List`1[T][]", "T[]",
     ]
+    definition_kinds = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedTypeDefinitionBehavior"]
+    assert [row["result"] for row in definition_kinds] == [True] * 5 + [False] * 7
     primitive_array_texts = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveArrayToStringBehavior"]
     assert [row["name"] for row in primitive_array_texts] == [
         "System.Boolean", "System.Char", "System.Byte", "System.Int16",
@@ -1191,6 +1193,7 @@ def main():
         "public int GetArrayRank();",
         "public boolean get_IsGenericType();",
         "public boolean get_IsGenericTypeDefinition();",
+        "public boolean get_IsTypeDefinition();",
         "public boolean get_ContainsGenericParameters();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",
