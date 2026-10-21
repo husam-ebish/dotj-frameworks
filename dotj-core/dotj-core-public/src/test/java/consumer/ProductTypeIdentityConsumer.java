@@ -2080,6 +2080,21 @@ public final class ProductTypeIdentityConsumer {
             if (!nestedTexts[index].equals(nestedTextTypes[index].ToString())) {
                 throw new AssertionError("Nested Type.ToString changed at " + index);
             }
+            if (!nestedTextTypes[index].ToString().equals(nestedTextTypes[index].toString())) {
+                throw new AssertionError("Java Type.toString bridge changed at " + index);
+            }
+        }
+        for (Type element : primitiveTypes) {
+            String name = element.get_FullName();
+            Type[] shapes = {element.MakeArrayType(), element.MakeArrayType(1),
+                    element.MakeArrayType(2), element.MakeArrayType(3)};
+            String[] suffixes = {"[]", "[*]", "[,]", "[,,]"};
+            for (int index = 0; index < shapes.length; index++) {
+                if (!(name + suffixes[index]).equals(shapes[index].ToString())
+                        || !shapes[index].ToString().equals(shapes[index].toString())) {
+                    throw new AssertionError("Selected primitive array text changed: " + name);
+                }
+            }
         }
         for (Type selected : new Type[] {string, integer, definition, first,
                 Type.GetType("System.String[]"), parameter}) {

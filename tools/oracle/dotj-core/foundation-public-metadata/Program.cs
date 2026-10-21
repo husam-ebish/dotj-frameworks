@@ -657,6 +657,18 @@ var result = new
         typeof(System.Collections.Generic.List<>).MakeArrayType(),
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0].MakeArrayType(),
     }.Select(type => new { fullName = type.FullName, text = type.ToString() }).ToArray(),
+    selectedPrimitiveArrayToStringBehavior = new[]
+    {
+        typeof(bool), typeof(char), typeof(byte), typeof(short),
+        typeof(long), typeof(float), typeof(double),
+    }.Select(type => new
+    {
+        name = type.FullName,
+        vector = type.MakeArrayType().ToString(),
+        variableBound = type.MakeArrayType(1).ToString(),
+        rankTwo = type.MakeArrayType(2).ToString(),
+        rankThree = type.MakeArrayType(3).ToString(),
+    }).ToArray(),
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),
