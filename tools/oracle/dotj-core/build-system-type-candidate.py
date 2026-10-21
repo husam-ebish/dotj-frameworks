@@ -111,6 +111,13 @@ def main():
         "oneArgState", "oneArgContext", "twoArgState", "twoArgContext")} == {
         "defaultState": 0, "defaultContext": None, "oneArgState": 1,
         "oneArgContext": None, "twoArgState": 32, "twoArgContext": "marker"}
+    context_equality = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedStreamingContextEqualityBehavior"]
+    assert context_equality == {
+        "defaultEquals": True, "sameStateSameContext": True,
+        "sameStateDifferentContext": False, "differentStateSameContext": False,
+        "sameHash": True, "text": "System.Runtime.Serialization.StreamingContext",
+        "defaultText": "System.Runtime.Serialization.StreamingContext",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
