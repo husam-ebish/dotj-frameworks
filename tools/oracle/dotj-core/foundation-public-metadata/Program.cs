@@ -1135,6 +1135,28 @@ static object ObserveSerializationEntryShape()
         defaultValue = empty.Value,
     };
 }
+static object ObserveSerializationEntryValueSnapshot()
+{
+    var values = new List<int> { 1 };
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("values", values, typeof(List<int>));
+    var cursor = info.GetEnumerator();
+    cursor.MoveNext();
+    var entry = cursor.Current;
+    info.AddValue("second", 2);
+    values.Add(3);
+    return new
+    {
+        entryName = entry.Name,
+        entryType = entry.ObjectType.FullName,
+        sameValueReference = ReferenceEquals(entry.Value, values),
+        updatedValueCount = ((List<int>)entry.Value).Count,
+        entryNameAfterAdd = entry.Name,
+        cursorHasSecond = cursor.MoveNext(),
+        freshMemberCount = info.MemberCount,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1285,6 +1307,7 @@ var result = new
     selectedSerializationInfoEnumeratorResetCyclesBehavior = ObserveSerializationInfoEnumeratorResetCycles(),
     selectedSerializationInfoEnumeratorInterfaceBehavior = ObserveSerializationInfoEnumeratorInterface(),
     selectedSerializationEntryShapeBehavior = ObserveSerializationEntryShape(),
+    selectedSerializationEntryValueSnapshotBehavior = ObserveSerializationEntryValueSnapshot(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
