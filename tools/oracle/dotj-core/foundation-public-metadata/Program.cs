@@ -722,6 +722,16 @@ var result = new
         unknownBackslash = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\\b\"", false, false),
         cultureBackslashQuote = ObserveGetType("System.String, System.Private.CoreLib, Culture=\"en\\\"US\"", false, false),
     },
+    selectedAssemblyAttributeKeyBoundaryBehavior = new
+    {
+        versionKeySpaces = ObserveGetType("System.String, System.Private.CoreLib,  Version  =10.0.0.0", false, false),
+        cultureKeySpaces = ObserveGetType("System.String, System.Private.CoreLib, Culture  =neutral", false, false),
+        tokenKeySpaces = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken =null", false, false),
+        unknownKeySpace = ObserveGetType("System.String, System.Private.CoreLib, Unknown Attr=foo", false, false),
+        unknownKeyDot = ObserveGetType("System.String, System.Private.CoreLib, Unknown.Attr=foo", false, false),
+        emptyKey = ObserveGetType("System.String, System.Private.CoreLib, =foo", false, false),
+        versionKeyHyphen = ObserveGetType("System.String, System.Private.CoreLib, Ver-sion=10.0.0.0", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

@@ -217,6 +217,19 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Escaped quote culture parameter changed", expected);
             }
         }
+        for (String keyForm : new String[] {
+                " Version  =10.0.0.0", "Culture  =neutral", "PublicKeyToken =null",
+                "Unknown Attr=foo", "Unknown.Attr=foo", "Ver-sion=10.0.0.0"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + keyForm) != string) {
+                throw new AssertionError("Selected assembly attribute key rejected: " + keyForm);
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, =foo");
+            throw new AssertionError("Empty assembly attribute key accepted");
+        } catch (FileLoadException expected) {
+            // Selected pinned empty-key error.
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
