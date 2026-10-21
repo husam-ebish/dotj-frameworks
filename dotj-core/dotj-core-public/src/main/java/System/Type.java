@@ -691,6 +691,10 @@ public abstract class Type extends MemberInfo {
         return parent == null ? null : fromJavaClass(parent);
     }
 
+    public Type get_UnderlyingSystemType() {
+        return this;
+    }
+
     public boolean get_IsValueType() {
         return this.parameterIndex < 0
                 && (this.definition == Int32.class || this.definition == Decimal.class

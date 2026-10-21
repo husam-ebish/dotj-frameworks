@@ -1851,6 +1851,12 @@ public final class ProductTypeIdentityConsumer {
         if (parameter.get_AssemblyQualifiedName() != null) {
             throw new AssertionError("Generic parameter gained an assembly-qualified name");
         }
+        for (Type selected : new Type[] {string, integer, definition, first,
+                Type.GetType("System.String[]"), parameter}) {
+            if (selected.get_UnderlyingSystemType() != selected) {
+                throw new AssertionError("Selected underlying Type identity changed: " + selected.get_Name());
+            }
+        }
         for (String selectedCoreLibName : new String[] {
                 "System.IDisposable", "System.IComparable", "System.IFormattable",
                 "System.ISpanFormattable", "System.IUtf8SpanFormattable", "System.IFormatProvider",

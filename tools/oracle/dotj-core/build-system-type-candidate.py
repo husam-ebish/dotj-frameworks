@@ -914,6 +914,10 @@ def main():
         "nullValue": {"success": False, "value": 0},
     }
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
+    underlying = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUnderlyingSystemTypeBehavior"]
+    assert set(underlying) == {"stringSelf", "int32Self", "genericDefinitionSelf",
+                               "closedGenericSelf", "arraySelf", "genericParameterSelf"}
+    assert all(underlying.values())
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,
         True, False, False, True, False, True, True, True, True, True, True,
@@ -1011,6 +1015,7 @@ def main():
         "public System.Type get_DeclaringType();",
         "public System.Type get_ReflectedType();",
         "public System.Type get_BaseType();",
+        "public System.Type get_UnderlyingSystemType();",
         "public boolean get_IsValueType();",
         "public boolean get_IsPrimitive();",
         "public boolean get_IsAbstract();",

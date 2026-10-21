@@ -491,6 +491,18 @@ var result = new
             .IsEquivalentTo(typeof(System.Collections.Generic.List<int>)),
         vectorRankTwo = typeof(string[]).IsEquivalentTo(typeof(string[,])),
     },
+    selectedUnderlyingSystemTypeBehavior = new
+    {
+        stringSelf = ReferenceEquals(typeof(string).UnderlyingSystemType, typeof(string)),
+        int32Self = ReferenceEquals(typeof(int).UnderlyingSystemType, typeof(int)),
+        genericDefinitionSelf = ReferenceEquals(typeof(System.Collections.Generic.List<>).UnderlyingSystemType,
+            typeof(System.Collections.Generic.List<>)),
+        closedGenericSelf = ReferenceEquals(typeof(System.Collections.Generic.List<string>).UnderlyingSystemType,
+            typeof(System.Collections.Generic.List<string>)),
+        arraySelf = ReferenceEquals(typeof(string[]).UnderlyingSystemType, typeof(string[])),
+        genericParameterSelf = ReferenceEquals(typeof(System.Collections.Generic.List<>).GetGenericArguments()[0]
+            .UnderlyingSystemType, typeof(System.Collections.Generic.List<>).GetGenericArguments()[0]),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),
