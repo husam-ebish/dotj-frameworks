@@ -263,6 +263,19 @@ def main():
         ]
         for name, (texts, values, errors) in single_styles.items()
     }
+    currency_texts = ["USD12_345:00", "(USD12_345:00)", "~USD12_345:00",
+                      "plusUSD12_345:00", "12_345:00USD", "USD 12_345:00",
+                      "12_345:00 USD", "12_345:00", "12.345=00", "USD12.345=00",
+                      "USD42:5", "USD_42", "USD42e1", "  USD42  ", "USD42~", "USD42plus"]
+    currency_values = [12345, -12345, -12345, 12345, 12345, 12345, 12345,
+                       12345, 12345, 0, 0, 0, 0, 42, -42, 42]
+    currency_errors = [None] * 9 + ["Format", "Overflow", "Format", "Format"] \
+        + [None] * 3
+    assert metadata["selectedInt32CurrencyStyle"] == [
+        {"text": text, "success": error is None, "value": value,
+         "error": None if error is None else f"System.{error}Exception"}
+        for text, value, error in zip(currency_texts, currency_values, currency_errors)
+    ]
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

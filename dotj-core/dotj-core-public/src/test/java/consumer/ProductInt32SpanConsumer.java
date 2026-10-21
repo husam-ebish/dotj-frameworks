@@ -276,6 +276,28 @@ public final class ProductInt32SpanConsumer {
         checkNumberBoundaries(numberStyle);
         checkFloatStyle(numberStyle);
         checkSingleStyles(numberStyle);
+        checkCurrencyStyle();
+    }
+
+    private static void checkCurrencyStyle() {
+        NumberFormatInfo provider = new NumberFormatInfo();
+        provider.set_CurrencySymbol("USD");
+        provider.set_CurrencyGroupSeparator("_");
+        provider.set_CurrencyDecimalSeparator(":");
+        provider.set_NumberGroupSeparator(".");
+        provider.set_NumberDecimalSeparator("=");
+        provider.set_PositiveSign("plus");
+        provider.set_NegativeSign("~");
+        checkSingleStyleVectors(NumberStyles.Currency, provider,
+                new String[] {"USD12_345:00", "(USD12_345:00)", "~USD12_345:00",
+                        "plusUSD12_345:00", "12_345:00USD", "USD 12_345:00",
+                        "12_345:00 USD", "12_345:00", "12.345=00", "USD12.345=00",
+                        "USD42:5", "USD_42", "USD42e1", "  USD42  ", "USD42~", "USD42plus"},
+                new int[] {12345, -12345, -12345, 12345, 12345, 12345, 12345,
+                        12345, 12345, 0, 0, 0, 0, 42, -42, 42},
+                new Class<?>[] {null, null, null, null, null, null, null, null,
+                        null, FormatException.class, OverflowException.class,
+                        FormatException.class, FormatException.class, null, null, null});
     }
 
     private static void checkSingleStyles(NumberFormatInfo provider) {

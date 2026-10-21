@@ -94,6 +94,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (style == NumberStyles.AllowThousands) {
             return selectedParseThousands(text, provider);
         }
+        if (style == NumberStyles.Currency) {
+            return selectedParseCurrency(text, provider);
+        }
         if (style == NumberStyles.BinaryNumber) {
             if (text == null) {
                 throw new ArgumentNullException("s");
@@ -232,6 +235,54 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             throw new OverflowException();
         }
         return new Int32(parsed.intValue());
+    }
+
+    private static Int32 selectedParseCurrency(String text, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("s");
+        NumberFormatInfo format = selectedNumberFormatInfo(provider);
+        String symbol = format == null ? "\u00a4" : format.get_CurrencySymbol();
+        String negativeSign = format == null ? "-" : format.get_NegativeSign();
+        String positiveSign = format == null ? "+" : format.get_PositiveSign();
+        String number = text.strip();
+        boolean parentheses = number.startsWith("(") && number.endsWith(")");
+        if (parentheses) number = number.substring(1, number.length() - 1).strip();
+        String leadingSign = "";
+        if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
+            leadingSign = negativeSign;
+            number = number.substring(negativeSign.length()).strip();
+        } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
+            leadingSign = positiveSign;
+            number = number.substring(positiveSign.length()).strip();
+        }
+        boolean hasSymbol = false;
+        if (!symbol.isEmpty() && number.startsWith(symbol)) {
+            number = number.substring(symbol.length()).strip();
+            hasSymbol = true;
+        } else if (!symbol.isEmpty() && number.endsWith(symbol)) {
+            number = number.substring(0, number.length() - symbol.length()).strip();
+            hasSymbol = true;
+        }
+        if (parentheses && (!leadingSign.isEmpty()
+                || (!negativeSign.isEmpty() && number.endsWith(negativeSign))
+                || (!positiveSign.isEmpty() && number.endsWith(positiveSign)))) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        String currencyGroup = format == null ? "," : format.get_CurrencyGroupSeparator();
+        String currencyDecimal = format == null ? "." : format.get_CurrencyDecimalSeparator();
+        boolean useCurrencySeparators = hasSymbol
+                || (!currencyGroup.isEmpty() && number.contains(currencyGroup))
+                || (!currencyDecimal.isEmpty() && number.contains(currencyDecimal));
+        NumberFormatInfo parsingFormat = new NumberFormatInfo();
+        parsingFormat.set_NumberGroupSeparator(useCurrencySeparators ? currencyGroup
+                : format == null ? "," : format.get_NumberGroupSeparator());
+        parsingFormat.set_NumberDecimalSeparator(useCurrencySeparators ? currencyDecimal
+                : format == null ? "." : format.get_NumberDecimalSeparator());
+        parsingFormat.set_NegativeSign(negativeSign);
+        parsingFormat.set_PositiveSign(positiveSign);
+        Int32 parsed = selectedParseNumber(leadingSign + number, parsingFormat);
+        if (!parentheses) return parsed;
+        if (parsed.value == Integer.MIN_VALUE) throw new OverflowException();
+        return new Int32(-parsed.value);
     }
 
     private static Int32 selectedParseFloat(String text, IFormatProvider provider,
