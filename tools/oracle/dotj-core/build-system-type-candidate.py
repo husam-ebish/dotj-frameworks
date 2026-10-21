@@ -13,7 +13,7 @@ SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
-                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException")]
+                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException")]
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
@@ -205,6 +205,11 @@ def main():
     assert int32 == {"typeCode": "Int32", "booleanValue": True,
                      "charValue": "*", "intValue": 42, "decimalText": "42",
                      "text": "42", "formattedText": "42", "compareTo41": 1}
+    errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
+    assert errors == {"byteOverflow": "System.OverflowException",
+                      "unsignedOverflow": "System.OverflowException",
+                      "charOverflow": "System.OverflowException",
+                      "invalidDateTime": "System.InvalidCastException"}
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,

@@ -25,6 +25,8 @@ Type[] selected = [
     typeof(IndexOutOfRangeException),
     typeof(System.IO.IOException),
     typeof(System.IO.FileNotFoundException),
+    typeof(OverflowException),
+    typeof(InvalidCastException),
 ];
 
 BindingFlags declaredPublic = BindingFlags.Public | BindingFlags.DeclaredOnly
@@ -152,6 +154,18 @@ static object ObserveUtf8SpanFormat(int value, int length)
         out int bytesWritten, "D", System.Globalization.CultureInfo.InvariantCulture);
     return new { success, bytesWritten,
         text = System.Text.Encoding.UTF8.GetString(destination[..bytesWritten]) };
+}
+static string? ObserveInt32Error(Action operation)
+{
+    try
+    {
+        operation();
+        return null;
+    }
+    catch (Exception exception)
+    {
+        return exception.GetType().FullName;
+    }
 }
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
@@ -340,6 +354,17 @@ var result = new
         text = ((IConvertible)42).ToString(System.Globalization.CultureInfo.InvariantCulture),
         formattedText = ((IFormattable)42).ToString("D", System.Globalization.CultureInfo.InvariantCulture),
         compareTo41 = ((IComparable)42).CompareTo(41),
+    },
+    selectedInt32ConversionErrors = new
+    {
+        byteOverflow = ObserveInt32Error(() => ((IConvertible)300)
+            .ToByte(System.Globalization.CultureInfo.InvariantCulture)),
+        unsignedOverflow = ObserveInt32Error(() => ((IConvertible)(-1))
+            .ToUInt32(System.Globalization.CultureInfo.InvariantCulture)),
+        charOverflow = ObserveInt32Error(() => ((IConvertible)70000)
+            .ToChar(System.Globalization.CultureInfo.InvariantCulture)),
+        invalidDateTime = ObserveInt32Error(() => ((IConvertible)42)
+            .ToDateTime(System.Globalization.CultureInfo.InvariantCulture)),
     },
     selectedSpanFormattingBehavior = new
     {

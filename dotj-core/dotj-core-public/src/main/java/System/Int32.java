@@ -28,7 +28,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public char ToChar(IFormatProvider provider) {
         if (this.value < Character.MIN_VALUE || this.value > Character.MAX_VALUE) {
-            throw new ArithmeticException("Value cannot be represented as Char");
+            throw new OverflowException("Value cannot be represented as Char");
         }
         return (char)this.value;
     }
@@ -36,7 +36,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public byte ToSByte(IFormatProvider provider) {
         if (this.value < Byte.MIN_VALUE || this.value > Byte.MAX_VALUE) {
-            throw new ArithmeticException("Value cannot be represented as SByte");
+            throw new OverflowException("Value cannot be represented as SByte");
         }
         return (byte)this.value;
     }
@@ -44,7 +44,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public short ToByte(IFormatProvider provider) {
         if (this.value < 0 || this.value > 255) {
-            throw new ArithmeticException("Value cannot be represented as Byte");
+            throw new OverflowException("Value cannot be represented as Byte");
         }
         return (short)this.value;
     }
@@ -52,7 +52,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public short ToInt16(IFormatProvider provider) {
         if (this.value < Short.MIN_VALUE || this.value > Short.MAX_VALUE) {
-            throw new ArithmeticException("Value cannot be represented as Int16");
+            throw new OverflowException("Value cannot be represented as Int16");
         }
         return (short)this.value;
     }
@@ -60,7 +60,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public int ToUInt16(IFormatProvider provider) {
         if (this.value < 0 || this.value > 65535) {
-            throw new ArithmeticException("Value cannot be represented as UInt16");
+            throw new OverflowException("Value cannot be represented as UInt16");
         }
         return this.value;
     }
@@ -73,7 +73,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public long ToUInt32(IFormatProvider provider) {
         if (this.value < 0) {
-            throw new ArithmeticException("Value cannot be represented as UInt32");
+            throw new OverflowException("Value cannot be represented as UInt32");
         }
         return this.value;
     }
@@ -86,7 +86,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     @Override
     public BigInteger ToUInt64(IFormatProvider provider) {
         if (this.value < 0) {
-            throw new ArithmeticException("Value cannot be represented as UInt64");
+            throw new OverflowException("Value cannot be represented as UInt64");
         }
         return BigInteger.valueOf(this.value);
     }
@@ -108,7 +108,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public DateTime ToDateTime(IFormatProvider provider) {
-        throw new UnsupportedOperationException("Int32 to DateTime conversion is not mapped");
+        throw new InvalidCastException("Int32 cannot be converted to DateTime");
     }
 
     @Override

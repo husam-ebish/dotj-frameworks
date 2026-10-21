@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "5328ab21ab372e532ccc4c5a4e47e378307d6bdd9c13d1114fd857ab1986efc9",
-  "typeCount": 22,
+  "candidateJarSha256": "08e253b6ae5d86030492426cd59940fc3d0e0b5419a578760c31a0d13771b622",
+  "typeCount": 24,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -499,6 +499,43 @@
         "public java.lang.String get_FileName();"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.OverflowException",
+      "upstreamBaseType": "System.ArithmeticException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 3,
+      "javaPublicConstructors": 3,
+      "javaPublicHeader": "public class System.OverflowException extends System.SystemException {",
+      "javaPublicDeclarations": [
+        "public System.OverflowException();",
+        "public System.OverflowException(java.lang.String);",
+        "public System.OverflowException(java.lang.String, System.Exception);"
+      ],
+      "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.InvalidCastException",
+      "upstreamBaseType": "System.SystemException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 4,
+      "javaPublicConstructors": 4,
+      "javaPublicHeader": "public class System.InvalidCastException extends System.SystemException {",
+      "javaPublicDeclarations": [
+        "public System.InvalidCastException();",
+        "public System.InvalidCastException(java.lang.String);",
+        "public System.InvalidCastException(java.lang.String, System.Exception);",
+        "public System.InvalidCastException(java.lang.String, int);"
+      ],
+      "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; errorCode/HRESULT semantics open",
       "qualified": false
     }
   ],

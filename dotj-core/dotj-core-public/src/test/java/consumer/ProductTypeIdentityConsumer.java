@@ -16,6 +16,8 @@ import System.TypeCode;
 import System.Decimal;
 import System.DateTime;
 import System.Int32;
+import System.OverflowException;
+import System.InvalidCastException;
 import System.ISpanFormattable;
 import System.IUtf8SpanFormattable;
 import System.Reflection.MemberInfo;
@@ -390,6 +392,34 @@ public final class ProductTypeIdentityConsumer {
                 || !integer.IsInstanceOfType(int32Value)
                 || !convertibleType.IsInstanceOfType(int32Value)) {
             throw new AssertionError("Selected Int32 conversion behavior changed");
+        }
+        try {
+            new Int32(300).ToByte(provider);
+            throw new AssertionError("Byte overflow accepted");
+        } catch (OverflowException expected) {
+            // Selected exception identity.
+        }
+        try {
+            new Int32(-1).ToUInt32(provider);
+            throw new AssertionError("Unsigned overflow accepted");
+        } catch (OverflowException expected) {
+            // Selected exception identity.
+        }
+        try {
+            new Int32(70000).ToChar(provider);
+            throw new AssertionError("Char overflow accepted");
+        } catch (OverflowException expected) {
+            // Selected exception identity.
+        }
+        try {
+            int32Value.ToDateTime(provider);
+            throw new AssertionError("Int32 converted to DateTime");
+        } catch (InvalidCastException expected) {
+            // Selected exception identity.
+        }
+        if (Type.GetType("System.OverflowException") == null
+                || Type.GetType("System.InvalidCastException") == null) {
+            throw new AssertionError("Selected conversion exception identities changed");
         }
         ISpanFormattable spanFormattable = int32Value;
         Type spanType = Type.GetType("System.ISpanFormattable");
