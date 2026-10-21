@@ -1852,6 +1852,16 @@ public final class ProductTypeIdentityConsumer {
         if (parameter.get_GenericParameterAttributes() != GenericParameterAttributes.None) {
             throw new AssertionError("Selected generic parameter attributes changed");
         }
+        int[] attributeValues = {0, 1, 2, 3, 4, 8, 16, 28, 32};
+        GenericParameterAttributes[] attributes = GenericParameterAttributes.values();
+        if (attributes.length != attributeValues.length) {
+            throw new AssertionError("Generic parameter attribute enum shape changed");
+        }
+        for (int index = 0; index < attributes.length; index++) {
+            if (attributes[index].get_Value() != attributeValues[index]) {
+                throw new AssertionError("Generic parameter attribute value changed");
+            }
+        }
         try {
             string.get_GenericParameterAttributes();
             throw new AssertionError("Nonparameter attributes unexpectedly available");

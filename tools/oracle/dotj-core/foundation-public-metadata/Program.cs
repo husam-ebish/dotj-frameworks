@@ -534,6 +534,8 @@ var result = new
         dictionaryKeyParameter = ObserveGenericParameterAttributes(typeof(System.Collections.Generic.Dictionary<,>).GetGenericArguments()[0]),
         convertAllParameter = ObserveGenericParameterAttributes(typeof(System.Collections.Generic.List<>).GetMethod("ConvertAll")!.GetGenericArguments()[0]),
     },
+    selectedGenericParameterAttributeValues = Enum.GetNames<GenericParameterAttributes>()
+        .ToDictionary(name => name, name => (int)Enum.Parse<GenericParameterAttributes>(name)),
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),

@@ -932,6 +932,13 @@ def main():
         "dictionaryKeyParameter": {"value": 0, "exception": None},
         "convertAllParameter": {"value": 0, "exception": None},
     }
+    attribute_values = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeValues"]
+    assert attribute_values == {
+        "None": 0, "Covariant": 1, "Contravariant": 2, "VarianceMask": 3,
+        "ReferenceTypeConstraint": 4, "NotNullableValueTypeConstraint": 8,
+        "DefaultConstructorConstraint": 16, "SpecialConstraintMask": 28,
+        "AllowByRefLike": 32,
+    }
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,
         True, False, False, True, False, True, True, True, True, True, True,
