@@ -70,6 +70,7 @@ def main():
         "licenseSha256": artifact["licenseSha256"],
         "productSourceCount": len(source_rows),
         "productSources": source_rows,
+        "localSourceIntroductionEvidence": "foundation-source-provenance-v1.json",
         "productLicenseFilesAtCandidateRoots": product_license_files,
         "jarNoticeEntries": notice_entries,
         "observedJdkModuleDependencies": mapping["observedJdkModuleDependencies"],
