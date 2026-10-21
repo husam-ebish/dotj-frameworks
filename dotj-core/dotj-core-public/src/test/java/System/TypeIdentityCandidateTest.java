@@ -247,6 +247,17 @@ public final class TypeIdentityCandidateTest {
                 || !"System.Runtime.Serialization.SerializationEntry".equals(firstEntry.ToString())) {
             throw new AssertionError("Selected SerializationEntry equality changed");
         }
+        SerializationEntry textEntry = serializationEntry("same", Type.GetType("System.String"));
+        SerializationEntry objectTypedEntry = serializationEntry("same", Type.GetType("System.Object"));
+        SerializationEntry changedValueEntry = serializationEntry("different", Type.GetType("System.String"));
+        SerializationEntry nullEntryA = serializationEntry(null, Type.GetType("System.String"));
+        SerializationEntry nullEntryB = serializationEntry(null, Type.GetType("System.String"));
+        if (textEntry.Equals(objectTypedEntry) || textEntry.Equals(changedValueEntry)
+                || !nullEntryA.Equals(nullEntryB)
+                || nullEntryA.GetHashCode() != nullEntryB.GetHashCode()
+                || nullEntryA.Equals(textEntry)) {
+            throw new AssertionError("Selected SerializationEntry type equality changed");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")
@@ -1848,5 +1859,14 @@ public final class TypeIdentityCandidateTest {
         } catch (InvalidOperationException expected) {
             // Pinned selected CLR failure type.
         }
+    }
+
+    private static SerializationEntry serializationEntry(Object value, Type declaredType) {
+        SerializationInfo info = new SerializationInfo(Type.GetType("System.DBNull"),
+                new FormatterConverter());
+        info.AddValue("item", value, declaredType);
+        SerializationInfoEnumerator cursor = info.GetEnumerator();
+        cursor.MoveNext();
+        return cursor.get_Current();
     }
 }

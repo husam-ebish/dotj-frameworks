@@ -319,6 +319,12 @@ def main():
         "defaultText": "System.Runtime.Serialization.SerializationEntry",
         "populatedText": "System.Runtime.Serialization.SerializationEntry",
     }
+    entry_type_equality = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationEntryTypeEqualityBehavior"]
+    assert entry_type_equality == {
+        "differentDeclaredTypeEqual": False, "differentValueEqual": False,
+        "sameNullEqual": True, "sameNullHash": True,
+        "nullVersusTextEqual": False,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
