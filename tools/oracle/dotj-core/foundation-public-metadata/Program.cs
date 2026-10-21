@@ -1557,6 +1557,23 @@ static object ObserveFormatterTypeCodeBoundaries()
         nullToDBNull = ObserveMethodError(() => converter.Convert(null!, TypeCode.DBNull)),
     };
 }
+static object ObserveSerializationGetValueConversions()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("u64", ulong.MaxValue);
+    info.AddValue("u32", (uint)4000000000);
+    info.AddValue("byte", (byte)200);
+    info.AddValue("dateText", "2024-02-29");
+    return new
+    {
+        u64String = info.GetValue("u64", typeof(string)),
+        u32String = info.GetValue("u32", typeof(string)),
+        byteString = info.GetValue("byte", typeof(string)),
+        date = ((DateTime)info.GetValue("dateText", typeof(DateTime))!).ToString("yyyy-MM-dd"),
+        u32ToInt32 = ObserveMethodError(() => info.GetValue("u32", typeof(int))),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1729,6 +1746,7 @@ var result = new
     selectedCharFormatterRoutesBehavior = ObserveCharFormatterRoutes(),
     selectedFormatterObjectRoutesBehavior = ObserveFormatterObjectRoutes(),
     selectedFormatterTypeCodeBoundariesBehavior = ObserveFormatterTypeCodeBoundaries(),
+    selectedSerializationGetValueConversionsBehavior = ObserveSerializationGetValueConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

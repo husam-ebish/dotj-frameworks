@@ -302,6 +302,12 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof String text) {
             return text;
         }
+        if (value instanceof java.math.BigInteger unsigned) {
+            if (unsigned.signum() < 0 || unsigned.bitLength() > 64) {
+                throw new OverflowException("Value was outside the range of UInt64");
+            }
+            return unsigned.toString();
+        }
         return convertible(value).ToString(null);
     }
 

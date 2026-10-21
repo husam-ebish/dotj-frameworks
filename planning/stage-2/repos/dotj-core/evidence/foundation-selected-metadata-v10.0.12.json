@@ -788,6 +788,13 @@
     "dbNullToEmpty": "System.InvalidCastException",
     "nullToDBNull": "System.ArgumentNullException"
   },
+  "selectedSerializationGetValueConversionsBehavior": {
+    "u64String": "18446744073709551615",
+    "u32String": "4000000000",
+    "byteString": "200",
+    "date": "2024-02-29",
+    "u32ToInt32": "System.OverflowException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16230,6 +16237,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "26118b8b74e5090b42c50172eebd7fdf7035cc9e786fdce75f476dd8fa98d73c",
+  "oracleProgramSha256": "394869b12bbd45e3a5e0fba2c11070a18ef660da0f256f043c5182cfc004a17c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
