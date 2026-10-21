@@ -1042,6 +1042,7 @@ def main():
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",
         "public int get_GenericParameterPosition();",
+        "public boolean IsEquivalentTo(System.Type);",
         "public boolean Equals(System.Type);",
     ], members
     null_exception = run("javap", "-public", "-classpath", str(CLASSES),
