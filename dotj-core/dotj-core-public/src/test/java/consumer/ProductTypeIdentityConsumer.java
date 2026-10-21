@@ -135,6 +135,25 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected public key token rejected: " + validToken);
             }
         }
+        for (String validAttributes : new String[] {
+                "PublicKeyToken=null, Culture=neutral, Version=10.0.0.0",
+                "UnknownAttr=foo, Version=10.0.0.0",
+                "Version=10.0.0.0, UnknownAttr=foo",
+                "UnknownAttr=foo, UnknownAttr=bar"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + validAttributes) != string) {
+                throw new AssertionError("Selected attribute order rejected: " + validAttributes);
+            }
+        }
+        for (String duplicate : new String[] {
+                "PublicKeyToken=null, PublicKeyToken=null",
+                "Version=10.0.0.0, version=11.0.0.0"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + duplicate);
+                throw new AssertionError("Duplicate known attribute accepted: " + duplicate);
+            } catch (FileLoadException expected) {
+                // Selected pinned duplicate error.
+            }
+        }
         try {
             Type.GetType("System.String, System.Private.CoreLib, Culture=123");
             throw new AssertionError("Numeric culture accepted");
