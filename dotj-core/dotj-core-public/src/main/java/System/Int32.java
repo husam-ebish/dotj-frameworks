@@ -808,14 +808,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 throw new UnsupportedOperationException("Int32 precision is not mapped");
             }
             String digits = BigInteger.valueOf(this.value).abs().toString();
-            StringBuilder grouped = new StringBuilder();
-            for (int index = 0; index < digits.length(); index++) {
-                if (index > 0 && (digits.length() - index) % 3 == 0) {
-                    grouped.append(numberFormat == null ? ","
-                            : numberFormat.get_CurrencyGroupSeparator());
-                }
-                grouped.append(digits.charAt(index));
-            }
+            String grouped = selectedGroupDigits(digits, numberFormat == null
+                    ? new int[] {3} : numberFormat.get_CurrencyGroupSizes(),
+                    numberFormat == null ? "," : numberFormat.get_CurrencyGroupSeparator());
             String fraction = precision == 0 ? "" : (numberFormat == null ? "."
                     : numberFormat.get_CurrencyDecimalSeparator()) + "0".repeat(precision);
             String symbol = numberFormat == null ? "\u00a4"
@@ -861,14 +856,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             String digits = BigInteger.valueOf(this.value).abs()
                     .multiply(BigInteger.valueOf(100)).toString();
-            StringBuilder grouped = new StringBuilder();
-            for (int index = 0; index < digits.length(); index++) {
-                if (index > 0 && (digits.length() - index) % 3 == 0) {
-                    grouped.append(numberFormat == null ? ","
-                            : numberFormat.get_PercentGroupSeparator());
-                }
-                grouped.append(digits.charAt(index));
-            }
+            String grouped = selectedGroupDigits(digits, numberFormat == null
+                    ? new int[] {3} : numberFormat.get_PercentGroupSizes(),
+                    numberFormat == null ? "," : numberFormat.get_PercentGroupSeparator());
             String sign = this.value < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign()) : "";
             String fraction = precision == 0 ? "" : (numberFormat == null ? "."

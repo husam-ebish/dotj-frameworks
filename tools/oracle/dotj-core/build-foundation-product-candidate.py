@@ -165,6 +165,11 @@ def main():
         "repeated": "12_34_56_789", "negative": "-12_34_56_789.00",
         "stopped": "1234_56_789", "parsed": 123456789,
     }
+    assert metadata["selectedInt32CurrencyPercentGroupSizes"] == {
+        "currency": "USD12_34_56_789",
+        "negativeCurrency": "(USD12_34_56_789)",
+        "percent": "42_00 pct", "negativePercent": "-42_00 pct",
+    }
     assert metadata["selectedInt32NegativeSignBehavior"] == {
         "customParse": -42, "customSuccess": True, "customValue": -42,
         "standardSuccess": False, "standardValue": 0,
