@@ -397,6 +397,20 @@ public final class ProductTypeIdentityConsumer {
                 }
             }
         }
+        if (Type.GetType("System.String, System.Private.CoreLib, Culture=en_US") != string) {
+            throw new AssertionError("Selected underscore culture rejected");
+        }
+        for (String invalidSeparator : new String[] {
+                "en.US", "en--US", "en-", "-US", "en/US", "en@US"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, Culture=" + invalidSeparator);
+                throw new AssertionError("Invalid culture separator accepted: " + invalidSeparator);
+            } catch (CultureNotFoundException expected) {
+                if (!"name".equals(expected.get_ParamName())) {
+                    throw new AssertionError("Culture separator parameter changed", expected);
+                }
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

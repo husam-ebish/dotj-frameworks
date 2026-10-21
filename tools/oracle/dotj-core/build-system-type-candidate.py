@@ -517,6 +517,12 @@ def main():
         **{key: {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"}
            for key in ("invariant", "nullText")},
     }
+    culture_separators = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCultureSeparatorBehavior"]
+    assert culture_separators == {
+        "underscore": {"result": "System.String", "exception": None, "paramName": None},
+        **{key: {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"}
+           for key in ("dot", "doubleHyphen", "trailingHyphen", "leadingHyphen", "slash", "atSign")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

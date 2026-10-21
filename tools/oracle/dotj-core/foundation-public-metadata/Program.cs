@@ -826,6 +826,16 @@ var result = new
         nullText = ObserveGetType("System.String, System.Private.CoreLib, Culture=null", false, false),
         shortLocale = ObserveGetType("System.String, System.Private.CoreLib, Culture=iv", false, false),
     },
+    selectedCultureSeparatorBehavior = new
+    {
+        underscore = ObserveGetType("System.String, System.Private.CoreLib, Culture=en_US", false, false),
+        dot = ObserveGetType("System.String, System.Private.CoreLib, Culture=en.US", false, false),
+        doubleHyphen = ObserveGetType("System.String, System.Private.CoreLib, Culture=en--US", false, false),
+        trailingHyphen = ObserveGetType("System.String, System.Private.CoreLib, Culture=en-", false, false),
+        leadingHyphen = ObserveGetType("System.String, System.Private.CoreLib, Culture=-US", false, false),
+        slash = ObserveGetType("System.String, System.Private.CoreLib, Culture=en/US", false, false),
+        atSign = ObserveGetType("System.String, System.Private.CoreLib, Culture=en@US", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
