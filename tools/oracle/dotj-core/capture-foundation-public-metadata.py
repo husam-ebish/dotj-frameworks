@@ -17,7 +17,10 @@ def main():
     result = subprocess.run(["dotnet", "run", "--project", str(PROJECT),
                              "--configuration", "Release", "--no-launch-profile"],
                             cwd=ROOT, capture_output=True, text=True, check=True)
-    record = json.loads(result.stdout)
+    json_start = result.stdout.find("{")
+    if json_start < 0:
+        raise RuntimeError(f"Oracle did not emit JSON: {result.stdout}\n{result.stderr}")
+    record = json.loads(result.stdout[json_start:])
     baseline = json.loads((EVIDENCE / "api-shapes-v10.0.12/system-type.json").read_text(encoding="utf-8"))
     assert record["runtimeVersion"] == "10.0.12"
     assert record["coreLibSha256"] == baseline["assemblySha256"]

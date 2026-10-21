@@ -410,6 +410,12 @@ var result = new
         type.AssemblyQualifiedName,
         sameReference = ReferenceEquals(Type.GetType(type.AssemblyQualifiedName), type),
     }).ToArray(),
+    selectedCoreLibCaseLookup = selected.Select(type => new
+    {
+        fullName = type.FullName,
+        lowerSensitive = ObserveGetType(type.FullName!.ToLowerInvariant(), false, false),
+        lowerInsensitive = ObserveGetType(type.FullName!.ToLowerInvariant(), false, true),
+    }).ToArray(),
     selectedMemberTypeBehavior = new
     {
         enumValues = Enum.GetValues<MemberTypes>()

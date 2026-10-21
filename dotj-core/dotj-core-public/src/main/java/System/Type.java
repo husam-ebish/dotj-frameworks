@@ -373,6 +373,15 @@ public abstract class Type extends MemberInfo {
             case "system.iconvertible" -> ignoreCase ? fromJavaClass(IConvertible.class) : null;
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
             case "system.type" -> ignoreCase ? fromJavaClass(Type.class) : null;
+            case "system.reflection.memberinfo" -> ignoreCase ? fromJavaClass(MemberInfo.class) : null;
+            case "system.exception" -> ignoreCase ? fromJavaClass(Exception.class) : null;
+            case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
+            case "system.argumentexception" -> ignoreCase ? fromJavaClass(ArgumentException.class) : null;
+            case "system.argumentnullexception" -> ignoreCase ? fromJavaClass(ArgumentNullException.class) : null;
+            case "system.typeloadexception" -> ignoreCase ? fromJavaClass(TypeLoadException.class) : null;
+            case "system.indexoutofrangeexception" -> ignoreCase ? fromJavaClass(IndexOutOfRangeException.class) : null;
+            case "system.io.ioexception" -> ignoreCase ? fromJavaClass(IOException.class) : null;
+            case "system.io.filenotfoundexception" -> ignoreCase ? fromJavaClass(FileNotFoundException.class) : null;
             case "system.decimal" -> ignoreCase ? fromJavaClass(Decimal.class) : null;
             case "system.datetime" -> ignoreCase ? fromJavaClass(DateTime.class) : null;
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;

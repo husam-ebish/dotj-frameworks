@@ -161,6 +161,12 @@ def main():
     assert all(item["qualifiedNameRoundTripSameReference"] and
                item["assemblyQualifiedName"] == item["fullName"] + corelib_identity
                for item in selected_corelib_types)
+    corelib_case = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCoreLibCaseLookup"]
+    assert len(corelib_case) == 29
+    assert all(item["lowerSensitive"] == {"result": None, "exception": None, "paramName": None}
+               and item["lowerInsensitive"] == {
+                   "result": item["fullName"], "exception": None, "paramName": None}
+               for item in corelib_case)
     dictionary_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDictionaryQualifiedRoundTrip"]
     assert len(dictionary_names) == 5
     assert all(item["sameReference"] and item["AssemblyQualifiedName"] ==
