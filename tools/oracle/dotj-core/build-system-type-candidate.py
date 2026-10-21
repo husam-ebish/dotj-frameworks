@@ -27,6 +27,7 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/CallingConventions.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodImplAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("DBNull.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
@@ -362,6 +363,12 @@ def main():
     assert all(not parameter["isOptional"] and not parameter["hasDefaultValue"]
                and not any(parameter[key] for key in ("isIn", "isOut", "isRetval", "isLcid"))
                for row in parameter_flags for parameter in row["parameters"])
+    default_values = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterDefaultValueBehavior"]
+    assert [len(row["parameters"]) for row in default_values] == [1, 2, 3, 2]
+    assert all(parameter["defaultType"] == "System.DBNull"
+               and parameter["rawDefaultType"] == "System.DBNull"
+               and parameter["sameReference"]
+               for row in default_values for parameter in row["parameters"])
     parameter_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterModifierBehavior"]
     assert [len(row["parameters"]) for row in parameter_modifiers] == [1, 2, 3, 2]
     assert all(parameter["optional"] == [] and parameter["required"] == []

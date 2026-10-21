@@ -3,6 +3,7 @@
 package System.Reflection;
 
 import System.Type;
+import System.DBNull;
 
 /** Selected parameter metadata for bounded method descriptors. */
 public class ParameterInfo {
@@ -40,6 +41,14 @@ public class ParameterInfo {
 
     public boolean get_HasDefaultValue() {
         return false;
+    }
+
+    public Object get_DefaultValue() {
+        return DBNull.Value;
+    }
+
+    public Object get_RawDefaultValue() {
+        return DBNull.Value;
     }
 
     public boolean get_IsIn() {
