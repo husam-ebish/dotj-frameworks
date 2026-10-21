@@ -87,6 +87,14 @@ def main():
         "baseType": "System.InvalidOperationException",
         "baseMessage": "root",
     }
+    assert metadata["selectedExceptionDataBehavior"] == {
+        "startsEmpty": True,
+        "sameReference": True,
+        "storedValue": "value",
+        "countAfterInsert": 1,
+        "separateInstance": True,
+        "secondStartsEmpty": True,
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 

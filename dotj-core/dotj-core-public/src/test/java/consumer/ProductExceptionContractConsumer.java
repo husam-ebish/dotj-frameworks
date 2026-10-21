@@ -36,6 +36,17 @@ public final class ProductExceptionContractConsumer {
                 || !"root".equals(chain.GetBaseException().get_Message())) {
             throw new AssertionError("Selected base exception chain changed");
         }
+        Exception withData = new Exception("data");
+        java.util.Map<Object, Object> data = withData.get_Data();
+        if (!data.isEmpty() || withData.get_Data() != data) {
+            throw new AssertionError("Selected exception data identity changed");
+        }
+        data.put("key", "value");
+        Exception otherData = new Exception("other");
+        if (withData.get_Data().size() != 1 || !"value".equals(withData.get_Data().get("key"))
+                || otherData.get_Data() == data || !otherData.get_Data().isEmpty()) {
+            throw new AssertionError("Selected exception data isolation changed");
+        }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5
