@@ -47,6 +47,17 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Selected Type layout flags changed");
             }
         }
+        for (Type interopType : new Type[] {string, integer,
+                Type.fromJavaClass(Type.class), Type.fromJavaClass(Exception.class),
+                Type.fromJavaClass(IDisposable.class), Type.fromJavaClass(List.class),
+                Type.fromJavaClass(List.class).GetGenericArguments()[0],
+                string.MakeArrayType(), string.MakeByRefType()}) {
+            if (interopType.get_IsImport() || interopType.get_IsCOMObject()
+                    || interopType.get_IsContextful() || interopType.get_IsMarshalByRef()
+                    || interopType.get_IsSignatureType()) {
+                throw new AssertionError("Selected Type interop flags changed");
+            }
+        }
         if (string.get_IsSpecialName()
                 || Type.fromJavaClass(TypeCode.class).get_IsSpecialName()
                 || Type.fromJavaClass(List.class).get_IsSpecialName()

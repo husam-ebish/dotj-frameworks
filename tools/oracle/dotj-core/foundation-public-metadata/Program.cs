@@ -762,6 +762,16 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedInteropTypeFlagBehavior = new[]
+    {
+        typeof(string), typeof(int), typeof(Type), typeof(Exception),
+        typeof(IDisposable), typeof(List<>),
+        typeof(List<>).GetGenericArguments()[0], typeof(string[]),
+        typeof(string).MakeByRefType(),
+    }.Select(type => new { name = type.FullName ?? type.Name,
+        isImport = type.IsImport, isCOMObject = type.IsCOMObject,
+        isContextful = type.IsContextful, isMarshalByRef = type.IsMarshalByRef,
+        isSignatureType = type.IsSignatureType }).ToArray(),
     selectedLayoutBehavior = new[]
     {
         typeof(string), typeof(int), typeof(TypeCode), typeof(IDisposable),
