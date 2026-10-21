@@ -673,6 +673,16 @@ def main():
         "evenBackslashInvalidCulture": {
             "result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
     }
+    escaped_throw = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEscapedAssemblyThrowOnErrorBehavior"]
+    assert escaped_throw == {
+        **{key: {"result": None, "exception": "System.IO.FileNotFoundException", "paramName": None}
+           for key in ("quotedMissing", "escapedCommaMissing")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("quotedInvalidVersion", "escapedCommaInvalidVersion")},
+        "evenBackslashInvalidCulture": {
+            "result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
+        "escapedAlias": {"result": "System.String", "exception": None, "paramName": None},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
