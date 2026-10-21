@@ -630,6 +630,27 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        SerializationInfo crossTypeMembers = new SerializationInfo(dbnullType, selectedConverter);
+        crossTypeMembers.AddValue("u64", new java.math.BigInteger("18446744073709551615"));
+        crossTypeMembers.AddValue("u32", new UInt32(4000000000L));
+        crossTypeMembers.AddValue("byte", new Byte(200));
+        crossTypeMembers.AddValue("dateText", "2024-02-29");
+        if (!"18446744073709551615".equals(crossTypeMembers.GetValue(
+                    "u64", Type.GetType("System.String")))
+                || !"4000000000".equals(crossTypeMembers.GetValue(
+                    "u32", Type.GetType("System.String")))
+                || !"200".equals(crossTypeMembers.GetValue(
+                    "byte", Type.GetType("System.String")))
+                || !"2024-02-29".equals(((DateTime) crossTypeMembers.GetValue(
+                    "dateText", Type.GetType("System.DateTime"))).ToString("yyyy-MM-dd", null))) {
+            throw new AssertionError("Selected GetValue cross-type conversions changed");
+        }
+        try {
+            crossTypeMembers.GetValue("u32", Type.GetType("System.Int32"));
+            throw new AssertionError("UInt32 GetValue narrowing accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));
