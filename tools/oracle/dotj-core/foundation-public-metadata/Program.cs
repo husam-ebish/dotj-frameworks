@@ -1712,6 +1712,20 @@ static object ObserveFloatingExceptionalBoundaries()
         nanDouble = double.IsNaN(converter.ToDouble(float.NaN)),
     };
 }
+static object ObserveFloatingTextConversions()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    return new
+    {
+        nanSingle = float.IsNaN(converter.ToSingle("NaN")),
+        nanDouble = double.IsNaN(converter.ToDouble("NaN")),
+        infinitySingle = float.IsPositiveInfinity(converter.ToSingle("Infinity")),
+        infinityDouble = double.IsNegativeInfinity(converter.ToDouble("-Infinity")),
+        nanText = converter.ToString(float.NaN),
+        positiveInfinityText = converter.ToString(double.PositiveInfinity),
+        negativeInfinityText = converter.ToString(double.NegativeInfinity),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1894,6 +1908,7 @@ var result = new
     selectedInt64WideningConversionsBehavior = ObserveInt64WideningConversions(),
     selectedFloatingFormatterConversionsBehavior = ObserveFloatingFormatterConversions(),
     selectedFloatingExceptionalBoundariesBehavior = ObserveFloatingExceptionalBoundaries(),
+    selectedFloatingTextConversionsBehavior = ObserveFloatingTextConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

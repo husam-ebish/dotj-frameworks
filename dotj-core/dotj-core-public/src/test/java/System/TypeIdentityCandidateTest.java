@@ -920,6 +920,15 @@ public final class TypeIdentityCandidateTest {
                 || !Double.isNaN(selectedConverter.ToDouble(Float.NaN))) {
             throw new AssertionError("Selected exceptional floating values changed");
         }
+        if (!Float.isNaN(selectedConverter.ToSingle("NaN"))
+                || !Double.isNaN(selectedConverter.ToDouble("NaN"))
+                || !Float.isInfinite(selectedConverter.ToSingle("Infinity"))
+                || !Double.isInfinite(selectedConverter.ToDouble("-Infinity"))
+                || !"NaN".equals(selectedConverter.ToString(Float.NaN))
+                || !"Infinity".equals(selectedConverter.ToString(Double.POSITIVE_INFINITY))
+                || !"-Infinity".equals(selectedConverter.ToString(Double.NEGATIVE_INFINITY))) {
+            throw new AssertionError("Selected floating text conversions changed");
+        }
         for (Object value : new Object[] {"256", -1}) {
             try {
                 selectedConverter.ToByte(value);
