@@ -1093,6 +1093,15 @@ var result = new
         baseOwner = item.Item1.GetMethod(item.Item2)!.GetBaseDefinition().DeclaringType?.FullName,
         sameReference = ReferenceEquals(item.Item1.GetMethod(item.Item2),
             item.Item1.GetMethod(item.Item2)!.GetBaseDefinition()) }).ToArray(),
+    selectedMethodSecurityBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        isSecurityCritical = item.Item1.GetMethod(item.Item2)!.IsSecurityCritical,
+        isSecuritySafeCritical = item.Item1.GetMethod(item.Item2)!.IsSecuritySafeCritical,
+        isSecurityTransparent = item.Item1.GetMethod(item.Item2)!.IsSecurityTransparent })
+        .ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

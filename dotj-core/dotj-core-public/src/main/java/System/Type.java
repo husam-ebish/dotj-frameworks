@@ -1968,6 +1968,21 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public boolean get_IsSecurityCritical() {
+            return true;
+        }
+
+        @Override
+        public boolean get_IsSecuritySafeCritical() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsSecurityTransparent() {
+            return false;
+        }
+
+        @Override
         public boolean get_IsGenericMethod() {
             return false;
         }

@@ -1496,6 +1496,36 @@
       "sameReference": true
     }
   ],
+  "selectedMethodSecurityBehavior": [
+    {
+      "owner": "System.IDisposable",
+      "name": "Dispose",
+      "isSecurityCritical": true,
+      "isSecuritySafeCritical": false,
+      "isSecurityTransparent": false
+    },
+    {
+      "owner": "System.IComparable",
+      "name": "CompareTo",
+      "isSecurityCritical": true,
+      "isSecuritySafeCritical": false,
+      "isSecurityTransparent": false
+    },
+    {
+      "owner": "System.IFormattable",
+      "name": "ToString",
+      "isSecurityCritical": true,
+      "isSecuritySafeCritical": false,
+      "isSecurityTransparent": false
+    },
+    {
+      "owner": "System.IFormatProvider",
+      "name": "GetFormat",
+      "isSecurityCritical": true,
+      "isSecuritySafeCritical": false,
+      "isSecurityTransparent": false
+    }
+  ],
   "selectedMethodNameBehavior": [
     {
       "owner": "System.IDisposable",
@@ -14755,6 +14785,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "b7bae674365a78504098964304048ec3e5710c73632188833104b8f74d391ad3",
+  "oracleProgramSha256": "d7f853f1a8b157a701da34eac025662192743a1a74db0073e31e0746e771d926",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
