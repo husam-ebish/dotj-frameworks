@@ -915,6 +915,53 @@
       "isVariableBoundArray": false
     }
   ],
+  "selectedHasElementTypeBehavior": [
+    {
+      "name": "System.Object",
+      "hasElementType": false,
+      "elementType": null
+    },
+    {
+      "name": "System.Int32",
+      "hasElementType": false,
+      "elementType": null
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "hasElementType": false,
+      "elementType": null
+    },
+    {
+      "name": "System.Collections.Generic.List`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "hasElementType": false,
+      "elementType": null
+    },
+    {
+      "name": "System.String[]",
+      "hasElementType": true,
+      "elementType": "System.String"
+    },
+    {
+      "name": "System.String[,]",
+      "hasElementType": true,
+      "elementType": "System.String"
+    },
+    {
+      "name": "System.String[*]",
+      "hasElementType": true,
+      "elementType": "System.String"
+    },
+    {
+      "name": "System.String&",
+      "hasElementType": true,
+      "elementType": "System.String"
+    },
+    {
+      "name": "System.String*",
+      "hasElementType": true,
+      "elementType": "System.String"
+    }
+  ],
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -3534,6 +3581,10 @@
           "type": "System.Boolean"
         },
         {
+          "name": "HasElementType",
+          "type": "System.Boolean"
+        },
+        {
           "name": "GenericTypeArguments",
           "type": "System.Type[]"
         },
@@ -4166,6 +4217,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "436d3cac40c20a3e33c7800aa5f63cc2977ae2468b314188f18e3284ab7fd495",
+  "oracleProgramSha256": "a92fe248aa180ec0b24ce28cf72f8950b6d0b61977796c79623c0d8e3402d6a7",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -77,7 +77,7 @@ def main():
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsGenericTypeDefinition", "ContainsGenericParameters", "IsConstructedGenericType",
-            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsSZArray", "IsVariableBoundArray", "IsByRef", "IsPointer",
+            "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsSZArray", "IsVariableBoundArray", "HasElementType", "IsByRef", "IsPointer",
             "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed", "IsPublic", "IsVisible",
             "IsInterface", "IsEnum"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
@@ -279,6 +279,17 @@ def main():
     assert [item["isVariableBoundArray"] for item in variable_arrays] == [
         False, False, False, True, True, True, False,
     ]
+    elements = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedHasElementTypeBehavior"]
+    assert [item["name"] for item in elements[:3]] == [
+        "System.Object", "System.Int32", "System.Collections.Generic.List`1",
+    ]
+    assert elements[3]["name"].startswith("System.Collections.Generic.List`1[[System.String,")
+    assert [item["name"] for item in elements[4:]] == [
+        "System.String[]", "System.String[,]", "System.String[*]",
+        "System.String&", "System.String*",
+    ]
+    assert [item["hasElementType"] for item in elements] == [False] * 4 + [True] * 5
+    assert [item["elementType"] for item in elements] == [None] * 4 + ["System.String"] * 5
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
@@ -567,6 +578,7 @@ def main():
         "public boolean get_IsArray();",
         "public boolean get_IsSZArray();",
         "public boolean get_IsVariableBoundArray();",
+        "public boolean get_HasElementType();",
         "public boolean get_IsByRef();",
         "public boolean get_IsPointer();",
         "public System.Type GetElementType();",
