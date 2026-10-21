@@ -30,7 +30,7 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
-                      ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationException", "SerializationInfo", "StreamingContext", "StreamingContextStates")]
+                      ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationEntry", "SerializationException", "SerializationInfo", "SerializationInfoEnumerator", "StreamingContext", "StreamingContextStates")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))

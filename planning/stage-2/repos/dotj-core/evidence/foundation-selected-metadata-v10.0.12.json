@@ -320,6 +320,25 @@
     "missingError": "System.Runtime.Serialization.SerializationException",
     "exceptionBase": "System.SystemException"
   },
+  "selectedSerializationInfoEnumerationBehavior": {
+    "enumeratorType": "System.Runtime.Serialization.SerializationInfoEnumerator",
+    "entryType": "System.Runtime.Serialization.SerializationEntry",
+    "entries": [
+      {
+        "name": "age",
+        "type": "System.Int32",
+        "value": "42",
+        "currentName": "age"
+      },
+      {
+        "name": "name",
+        "type": "System.String",
+        "value": "Ada",
+        "currentName": "name"
+      }
+    ],
+    "afterReset": "age"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15762,6 +15781,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "98818c991ebec72083209a09984ba2071718a041a870eed332f2d5557ca708ae",
+  "oracleProgramSha256": "988a0302935187fa298031fab0e809863cf71cc99e5d27c8be57cb47e95a5b9f",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
