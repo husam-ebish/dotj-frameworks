@@ -8,4 +8,21 @@ public final class DBNull {
 
     private DBNull() {
     }
+
+    public String ToString() {
+        return "";
+    }
+
+    public String ToString(IFormatProvider provider) {
+        return "";
+    }
+
+    public TypeCode GetTypeCode() {
+        return TypeCode.DBNull;
+    }
+
+    @Override
+    public String toString() {
+        return this.ToString();
+    }
 }

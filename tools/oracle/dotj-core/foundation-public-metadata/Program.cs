@@ -672,6 +672,14 @@ var result = new
         afterReset = sourceException.Source,
         separateInstance = new Exception("other").Source,
     },
+    selectedDBNullBehavior = new
+    {
+        fullName = DBNull.Value.GetType().FullName,
+        sameReference = ReferenceEquals(DBNull.Value, DBNull.Value),
+        text = DBNull.Value.ToString(),
+        providerText = DBNull.Value.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        typeCode = DBNull.Value.GetTypeCode().ToString(),
+    },
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
