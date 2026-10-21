@@ -20,4 +20,6 @@ public abstract class MethodInfo extends MethodBase {
     public abstract boolean get_ContainsGenericParameters();
 
     public abstract Type[] GetGenericArguments();
+
+    public abstract MethodInfo GetBaseDefinition();
 }

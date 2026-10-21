@@ -184,6 +184,7 @@ public final class TypeIdentityCandidateTest {
                     || namedMethod.get_IsGenericMethodDefinition()
                     || namedMethod.get_ContainsGenericParameters()
                     || namedMethod.GetGenericArguments().length != 0
+                    || namedMethod.GetBaseDefinition() != namedMethod
                     || namedMethod.get_ReturnType() != interfaceMethodReturns[index]
                     || owner.GetMethod(interfaceMethodNames[index]
                         .toLowerCase(java.util.Locale.ROOT)) != null

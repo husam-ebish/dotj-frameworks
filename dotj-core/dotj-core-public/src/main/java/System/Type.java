@@ -1988,6 +1988,11 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public MethodInfo GetBaseDefinition() {
+            return this;
+        }
+
+        @Override
         public Type get_ReturnType() {
             return switch (this.name) {
                 case "Dispose" -> fromJavaClass(Void.class);
