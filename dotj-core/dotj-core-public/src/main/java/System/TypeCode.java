@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System;
 
 /** Pinned TypeCode names and values; Java enum representation is provisional. */

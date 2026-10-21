@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System.IO;
 
 import System.Exception;

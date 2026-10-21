@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System;
 
 /** Bounded span-formatting contract using Java arrays for the selected buffer case. */

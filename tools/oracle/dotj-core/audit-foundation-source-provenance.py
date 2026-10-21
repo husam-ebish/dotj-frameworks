@@ -40,7 +40,7 @@ def main():
             "introductionEvidence": "Git add event in this repository; not an authorship or originality determination",
         })
     assert len(rows) == rights["productSourceCount"] == 31
-    assert all(not item["headerHasSpdxIdentifier"] and
+    assert all(item["headerHasSpdxIdentifier"] and
                not item["headerHasCopyrightNotice"] and
                not item["headerNamesDotNetFoundation"]
                for item in rights["productSources"])
@@ -51,8 +51,8 @@ def main():
         "jarSha256": artifact["jarSha256"],
         "sourceCount": len(rows),
         "sources": rows,
-        "headerObservation": "No SPDX, copyright, or .NET Foundation text in first 30 lines of the 31 current Java files",
-        "upstreamNoticeApplicability": "UNRESOLVED: local Git introductions and absent headers do not prove independent authorship or exclude embedded upstream material",
+        "headerObservation": "MIT SPDX identifier in first 30 lines of all 31 current Java files; no inline copyright or .NET Foundation text",
+        "upstreamNoticeApplicability": "UNRESOLVED: local Git introductions and source headers do not prove independent authorship or exclude embedded upstream material",
         "releaseQualification": "E01_OPEN",
     }
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")

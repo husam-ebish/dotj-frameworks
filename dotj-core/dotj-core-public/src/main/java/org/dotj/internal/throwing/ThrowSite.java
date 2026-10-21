@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package org.dotj.internal.throwing;
 
 import System.Exception;

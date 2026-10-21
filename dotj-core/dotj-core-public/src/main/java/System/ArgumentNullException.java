@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System;
 
 /** Selected null-argument exception candidate; message localization remains open. */

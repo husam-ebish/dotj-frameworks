@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System.Reflection;
 
 /** Selected reflection member-kind values; Java enum representation remains provisional. */

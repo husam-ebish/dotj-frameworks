@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System;
 
 /** Selected Type.GetType missing-name exception candidate. */

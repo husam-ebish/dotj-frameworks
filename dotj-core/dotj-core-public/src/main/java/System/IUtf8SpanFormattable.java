@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System;
 
 /** Bounded UTF-8 formatting contract using Java byte arrays for the selected case. */

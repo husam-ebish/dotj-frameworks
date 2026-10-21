@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System;
 
 /** Bounded subset of the public conversion contract; other members remain open. */

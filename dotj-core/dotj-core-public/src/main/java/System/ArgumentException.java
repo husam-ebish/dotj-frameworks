@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System;
 
 /** Selected System.ArgumentException parameter identity candidate. */
