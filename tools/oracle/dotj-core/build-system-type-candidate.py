@@ -150,6 +150,11 @@ def main():
     ]
     assert names[-1]["FullName"] is None
     assert names[3]["FullName"] == observed["listStringSimple"]["result"]
+    corelib_identity = ", System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e"
+    assert [item["AssemblyQualifiedName"] for item in names] == [
+        None if item["FullName"] is None else item["FullName"] + corelib_identity
+        for item in names
+    ]
     member_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberTypeBehavior"]
     assert member_type["enumValues"] == [
         {"name": name, "value": value} for name, value in (
@@ -954,6 +959,7 @@ def main():
         "public System.Type[] GetGenericParameterConstraints();",
         "public System.Type[] get_GenericTypeArguments();",
         "public java.lang.String get_FullName();",
+        "public java.lang.String get_AssemblyQualifiedName();",
         "public java.lang.String get_Namespace();",
         "public System.Type get_DeclaringType();",
         "public System.Type get_ReflectedType();",

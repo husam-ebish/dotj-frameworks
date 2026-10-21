@@ -385,6 +385,7 @@ var result = new
     {
         type.Name,
         type.FullName,
+        type.AssemblyQualifiedName,
         type.Namespace,
     }).ToArray(),
     selectedMemberTypeBehavior = new

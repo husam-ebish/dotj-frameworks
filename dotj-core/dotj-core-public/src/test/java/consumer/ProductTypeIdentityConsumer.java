@@ -1743,6 +1743,17 @@ public final class ProductTypeIdentityConsumer {
                 || !"System.Collections.Generic".equals(parameter.get_Namespace())) {
             throw new AssertionError("Selected Type name projections changed");
         }
+        String corelibIdentity = ", System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, "
+                + "PublicKeyToken=7cec85d7bea7798e";
+        for (Type selected : new Type[] {string, integer, definition, first,
+                Type.GetType("System.String[]"), rectangular, byReference, pointer}) {
+            if (!(selected.get_FullName() + corelibIdentity).equals(selected.get_AssemblyQualifiedName())) {
+                throw new AssertionError("Selected assembly-qualified type name changed: " + selected.get_Name());
+            }
+        }
+        if (parameter.get_AssemblyQualifiedName() != null) {
+            throw new AssertionError("Generic parameter gained an assembly-qualified name");
+        }
         if (!parameter.get_IsGenericParameter() || parameter.get_GenericParameterPosition() != 0
                 || parameter != definition.GetGenericArguments()[0]) {
             throw new AssertionError("External generic parameter identity changed");
