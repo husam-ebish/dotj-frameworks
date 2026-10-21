@@ -85,6 +85,28 @@ public abstract class Type extends MemberInfo {
         return (backslashes & 1) != 0;
     }
 
+    private static java.util.ArrayList<String> splitAssemblyParts(String assembly) {
+        java.util.ArrayList<String> parts = new java.util.ArrayList<>();
+        StringBuilder part = new StringBuilder();
+        char quote = 0;
+        for (int offset = 0; offset < assembly.length(); offset++) {
+            char character = assembly.charAt(offset);
+            if ((character == '"' || character == '\'')
+                    && !isEscapedAt(assembly, offset)
+                    && (quote == 0 || quote == character)) {
+                quote = quote == 0 ? character : 0;
+            }
+            if (character == ',' && quote == 0 && !isEscapedAt(assembly, offset)) {
+                parts.add(part.toString());
+                part.setLength(0);
+            } else {
+                part.append(character);
+            }
+        }
+        parts.add(part.toString());
+        return parts;
+    }
+
     /** Selected CoreLib names only; assembly resolution remains open. */
     public static Type GetType(String typeName, boolean throwOnError, boolean ignoreCase) {
         if (typeName == null) {
@@ -112,21 +134,8 @@ public abstract class Type extends MemberInfo {
                 }
                 return null;
             }
-            int nameEnd = assembly.length();
-            char nameQuote = 0;
-            for (int offset = 0; offset < assembly.length(); offset++) {
-                char character = assembly.charAt(offset);
-                if ((character == '"' || character == '\'')
-                        && !isEscapedAt(assembly, offset)
-                        && (nameQuote == 0 || nameQuote == character)) {
-                    nameQuote = nameQuote == 0 ? character : 0;
-                } else if (character == ',' && nameQuote == 0
-                        && !isEscapedAt(assembly, offset)) {
-                    nameEnd = offset;
-                    break;
-                }
-            }
-            String assemblyName = assembly.substring(0, nameEnd).trim();
+            java.util.ArrayList<String> attributes = splitAssemblyParts(assembly);
+            String assemblyName = attributes.get(0).trim();
             if (assemblyName.equalsIgnoreCase("\"System.Private.CoreLib,Extra\"")
                     || assemblyName.equalsIgnoreCase("'System.Private.CoreLib,Extra'")) {
                 assemblyName = "System.Private.CoreLib";
@@ -165,25 +174,6 @@ public abstract class Type extends MemberInfo {
             boolean knownAssembly = asciiAssemblyName
                     && (assemblyName.equalsIgnoreCase("System.Private.CoreLib")
                             || assemblyName.equalsIgnoreCase("mscorlib"));
-                java.util.ArrayList<String> attributes = new java.util.ArrayList<>();
-                StringBuilder attributeText = new StringBuilder();
-                char attributeQuote = 0;
-                for (int offset = 0; offset < assembly.length(); offset++) {
-                    char character = assembly.charAt(offset);
-                    if ((character == '"' || character == '\'')
-                            && !isEscapedAt(assembly, offset)
-                            && (attributeQuote == 0 || attributeQuote == character)) {
-                        attributeQuote = attributeQuote == 0 ? character : 0;
-                    }
-                    if (character == ',' && attributeQuote == 0
-                            && !isEscapedAt(assembly, offset)) {
-                        attributes.add(attributeText.toString());
-                        attributeText.setLength(0);
-                    } else {
-                        attributeText.append(character);
-                    }
-                }
-                attributes.add(attributeText.toString());
                 java.util.HashSet<String> seen = new java.util.HashSet<>();
                 String invalidCulture = null;
                 for (int index = 1; index < attributes.size(); index++) {
