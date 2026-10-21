@@ -11,11 +11,23 @@ public final class ReadOnlySpan<T> {
     private final int offset;
     private final int length;
 
-    public ReadOnlySpan(char[] values) {
-        this(values, 0, values == null ? 0 : values.length);
+    public static ReadOnlySpan<Character> OfChars(char[] values) {
+        return OfChars(values, 0, values == null ? 0 : values.length);
     }
 
-    public ReadOnlySpan(char[] values, int offset, int length) {
+    public static ReadOnlySpan<Character> OfChars(char[] values, int offset, int length) {
+        return new ReadOnlySpan<>(values, offset, length);
+    }
+
+    public static ReadOnlySpan<Byte> OfUtf8Bytes(byte[] values) {
+        return OfUtf8Bytes(values, 0, values == null ? 0 : values.length);
+    }
+
+    public static ReadOnlySpan<Byte> OfUtf8Bytes(byte[] values, int offset, int length) {
+        return new ReadOnlySpan<>(values, offset, length);
+    }
+
+    private ReadOnlySpan(char[] values, int offset, int length) {
         if (values == null) throw new ArgumentNullException("values");
         checkRange(values.length, offset, length);
         this.chars = values;
@@ -24,11 +36,7 @@ public final class ReadOnlySpan<T> {
         this.length = length;
     }
 
-    public ReadOnlySpan(byte[] values) {
-        this(values, 0, values == null ? 0 : values.length);
-    }
-
-    public ReadOnlySpan(byte[] values, int offset, int length) {
+    private ReadOnlySpan(byte[] values, int offset, int length) {
         if (values == null) throw new ArgumentNullException("values");
         checkRange(values.length, offset, length);
         this.chars = null;

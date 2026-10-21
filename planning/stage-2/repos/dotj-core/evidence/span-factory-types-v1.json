@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected Java Span and ReadOnlySpan factory type safety",
+  "candidateJarSha256": "815a1b55a40136342a4d5fcf64012e5158163db31fd8d699c86d32d87ae7b009",
+  "declarations": {
+    "System.Span": {
+      "charFactories": [
+        "public static System.Span<java.lang.Character> OfChars(char[]);",
+        "public static System.Span<java.lang.Character> OfChars(char[], int, int);"
+      ],
+      "byteFactories": [
+        "public static System.Span<System.Byte> OfUtf8Bytes(byte[]);",
+        "public static System.Span<System.Byte> OfUtf8Bytes(byte[], int, int);"
+      ],
+      "publicConstructors": 0
+    },
+    "System.ReadOnlySpan": {
+      "charFactories": [
+        "public static System.ReadOnlySpan<java.lang.Character> OfChars(char[]);",
+        "public static System.ReadOnlySpan<java.lang.Character> OfChars(char[], int, int);"
+      ],
+      "byteFactories": [
+        "public static System.ReadOnlySpan<System.Byte> OfUtf8Bytes(byte[]);",
+        "public static System.ReadOnlySpan<System.Byte> OfUtf8Bytes(byte[], int, int);"
+      ],
+      "publicConstructors": 0
+    }
+  },
+  "negativeCompileProbeCount": 4,
+  "negativeCompileProbes": [
+    "Span<Character> wrong = Span.OfUtf8Bytes(new byte[1]);",
+    "Span<Byte> wrong = Span.OfChars(new char[1]);",
+    "ReadOnlySpan<Character> wrong = ReadOnlySpan.OfUtf8Bytes(new byte[1]);",
+    "ReadOnlySpan<Byte> wrong = ReadOnlySpan.OfChars(new char[1]);"
+  ],
+  "status": "TYPED_JAVA_FACTORY_BOUNDARY_PASS; CLR_SPAN_AND_FRONTEND_QUALIFICATION_OPEN",
+  "limitation": "Java raw types and casts can bypass generic checks. These heap carriers do not implement CLR byref-like lifetime or source overload resolution."
+}

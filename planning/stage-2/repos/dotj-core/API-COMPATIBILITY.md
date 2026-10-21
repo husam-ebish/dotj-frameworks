@@ -22,6 +22,8 @@ The selected Char and UTF-8 Byte `TryFormat` paths also share one generic mutabl
 
 The supplemental carrier takes the format as a sliced `ReadOnlySpan<Character>`, preserving the selected CLR parameter shape before JVM erasure. It has pinned decimal and hexadecimal precision vectors, but still lacks source-type-directed overload resolution and complete provider semantics.
 
+Both heap span carriers expose element-specific factories; [the compiled type audit](evidence/span-factory-types-v1.json) verifies their generic return types and rejects mismatched Java assignments. The factories are backend carriers, not CLR public API qualification.
+
 ## N01 tasks
 
 1. `DJ-001-N01-T1`: Extract the complete semantic upstream public surface for the selected slice, preserving exact namespace/type/member spelling, casing, overloads, generic arity, parameter identities and property/event metadata.
