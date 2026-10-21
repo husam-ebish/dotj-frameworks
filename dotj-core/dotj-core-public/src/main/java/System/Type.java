@@ -114,11 +114,11 @@ public abstract class Type extends MemberInfo {
                     String value = attribute.length == 2 ? attribute[1].trim() : "";
                     boolean recognized = key.equals("version") || key.equals("culture")
                             || key.equals("publickeytoken");
-                    if (recognized && (!seen.add(key)
-                            || value.isEmpty()
+                    if (attribute.length != 2 || value.isEmpty()
+                            || recognized && !seen.add(key)
                             || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
                             || key.equals("publickeytoken") && !value.equalsIgnoreCase("null")
-                                    && !value.matches("[0-9a-fA-F]{16}"))) {
+                                    && !value.matches("[0-9a-fA-F]{16}")) {
                         throw new FileLoadException("Invalid assembly identity: " + assembly);
                     }
                 }

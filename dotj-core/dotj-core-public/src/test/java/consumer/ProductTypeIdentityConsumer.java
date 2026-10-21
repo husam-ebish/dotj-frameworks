@@ -97,12 +97,20 @@ public final class ProductTypeIdentityConsumer {
         }
         for (String invalid : new String[] {
                 "Version=banana", "Culture=", "PublicKeyToken=xyz",
-                "Version=10.0.0.0, Version=11.0.0.0"}) {
+                "Version=10.0.0.0, Version=11.0.0.0", "UnknownAttr=",
+                "Culture=neutral, Culture=en-US", "Version=10", "Version=1.2.3.4.5"}) {
             try {
                 Type.GetType("System.String, System.Private.CoreLib, " + invalid);
                 throw new AssertionError("Invalid assembly attribute accepted: " + invalid);
             } catch (FileLoadException expected) {
                 // Pinned malformed-identity error, including with throwOnError=false.
+            }
+        }
+        for (String valid : new String[] {
+                "version=10.0.0.0", "CULTURE=neutral", "Publickeytoken=null",
+                "Version = 10.0.0.0", " Version=10.0.0.0"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + valid) != string) {
+                throw new AssertionError("Selected assembly attribute spelling rejected: " + valid);
             }
         }
         if (Type.GetType("") != null || Type.GetType(" System.String") != string

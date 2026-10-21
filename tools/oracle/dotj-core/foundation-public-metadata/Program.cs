@@ -606,6 +606,18 @@ var result = new
         unknownAttribute = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo", false, false),
         duplicateVersion = ObserveGetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Version=11.0.0.0", false, false),
     },
+    selectedAssemblyAttributeCasingBehavior = new
+    {
+        versionLower = ObserveGetType("System.String, System.Private.CoreLib, version=10.0.0.0", false, false),
+        cultureUpper = ObserveGetType("System.String, System.Private.CoreLib, CULTURE=neutral", false, false),
+        tokenMixed = ObserveGetType("System.String, System.Private.CoreLib, Publickeytoken=null", false, false),
+        spacesAroundEquals = ObserveGetType("System.String, System.Private.CoreLib, Version = 10.0.0.0", false, false),
+        spacesAfterComma = ObserveGetType("System.String, System.Private.CoreLib,  Version=10.0.0.0", false, false),
+        unknownEmpty = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=", false, false),
+        duplicateCulture = ObserveGetType("System.String, System.Private.CoreLib, Culture=neutral, Culture=en-US", false, false),
+        versionOnePart = ObserveGetType("System.String, System.Private.CoreLib, Version=10", false, false),
+        versionFivePart = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2.3.4.5", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
