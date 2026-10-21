@@ -385,6 +385,13 @@ def main():
     ]
     assert all(row["value"] == 33 and row["standard"] and row["hasThis"]
                for row in calling_conventions["methods"])
+    base_definitions = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodBaseDefinitionBehavior"]
+    assert [(row["owner"], row["name"]) for row in base_definitions] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(row["baseName"] == row["name"] and row["baseOwner"] == row["owner"]
+               and row["sameReference"] for row in base_definitions)
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

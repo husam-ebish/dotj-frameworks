@@ -1084,6 +1084,15 @@ var result = new
             hasThis = item.Item1.GetMethod(item.Item2)!.CallingConvention.HasFlag(CallingConventions.HasThis) })
             .ToArray(),
     },
+    selectedMethodBaseDefinitionBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        baseName = item.Item1.GetMethod(item.Item2)!.GetBaseDefinition().Name,
+        baseOwner = item.Item1.GetMethod(item.Item2)!.GetBaseDefinition().DeclaringType?.FullName,
+        sameReference = ReferenceEquals(item.Item1.GetMethod(item.Item2),
+            item.Item1.GetMethod(item.Item2)!.GetBaseDefinition()) }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
