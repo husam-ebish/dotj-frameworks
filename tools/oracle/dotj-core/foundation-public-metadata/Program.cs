@@ -810,6 +810,14 @@ var result = new
             declaring = member.DeclaringType?.FullName,
             reflected = member.ReflectedType?.FullName,
         }).ToArray() }).ToArray(),
+    selectedInterfaceMemberMissBehavior = new[]
+    {
+        (typeof(IDisposable), "dispose"), (typeof(IDisposable), "Missing"),
+        (typeof(IComparable), "compareto"),
+        (typeof(IFormattable), "tostring"),
+        (typeof(IFormatProvider), "getformat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        query = ObserveMemberName(item.Item1, item.Item2) }).ToArray(),
     selectedMemberNameBehavior = new
     {
         stringChars = ObserveMemberName(typeof(string), "Chars"),

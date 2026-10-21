@@ -51,6 +51,11 @@ public final class TypeIdentityCandidateTest {
                     || members == owner.GetMembers()) {
                 throw new AssertionError("Selected interface member inventory changed");
             }
+            if (owner.GetMember(interfaceMethodNames[index]
+                    .toLowerCase(java.util.Locale.ROOT)).length != 0
+                    || owner.GetMember("Missing").length != 0) {
+                throw new AssertionError("Interface member case-sensitive miss changed");
+            }
         }
         if (string.GetMember("Chars").length != 1
                 || !"Chars".equals(string.GetMember("Chars")[0].get_Name())

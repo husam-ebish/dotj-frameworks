@@ -236,6 +236,10 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    interface_misses = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInterfaceMemberMissBehavior"]
+    assert len(interface_misses) == 5 and all(
+        row["query"] == {"members": [], "exception": None, "paramName": None}
+        for row in interface_misses)
     interface_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInterfaceMemberEnumeration"]
     assert [(row["owner"], row["members"][0]["name"])
             for row in interface_members] == [

@@ -1275,6 +1275,9 @@ public abstract class Type extends MemberInfo {
         if (interfaceMethod != null && interfaceMethod.equals(name)) {
             return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
         }
+        if (interfaceMethod != null) {
+            return new MemberInfo[0];
+        }
         if (name.equals("Missing") || this.definition == String.class && name.equals("chars")) {
             return new MemberInfo[0];
         }
