@@ -550,6 +550,13 @@ def main():
         "uint64Text": "5000000000",
         "negativeUInt64": "System.OverflowException",
     }
+    floating_routes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFloatingFormatterConversionsBehavior"]
+    assert floating_routes == {
+        "doubleToSingle": 1.25, "singleToDouble": 1.25,
+        "doubleToDecimal": "1.25", "singleToDecimal": "1.25",
+        "midpointEven": 2, "midpointUp": 4, "doubleBoolean": True,
+        "hugeInt32": "System.OverflowException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

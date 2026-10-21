@@ -153,6 +153,12 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof Long number) {
             return number != 0;
         }
+        if (value instanceof Float number) {
+            return number != 0f;
+        }
+        if (value instanceof Double number) {
+            return number != 0d;
+        }
         return convertible(value).ToBoolean(null);
     }
 
@@ -218,6 +224,12 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof Long number) {
             return new Decimal(number);
         }
+        if (value instanceof Float number) {
+            return Decimal.Parse(number.toString());
+        }
+        if (value instanceof Double number) {
+            return Decimal.Parse(number.toString());
+        }
         return convertible(value).ToDecimal(null);
     }
 
@@ -234,6 +246,9 @@ public final class FormatterConverter implements IFormatterConverter {
             return number;
         }
         if (value instanceof Long number) {
+            return number.doubleValue();
+        }
+        if (value instanceof Float number) {
             return number.doubleValue();
         }
         return convertible(value).ToDouble(null);
@@ -275,6 +290,12 @@ public final class FormatterConverter implements IFormatterConverter {
                 throw new OverflowException("Value was outside the range of Int32");
             }
             return unsigned.intValue();
+        }
+        if (value instanceof Double number) {
+            return roundedInt32(number);
+        }
+        if (value instanceof Float number) {
+            return roundedInt32(number.doubleValue());
         }
         return convertible(value).ToInt32(null);
     }
@@ -341,7 +362,19 @@ public final class FormatterConverter implements IFormatterConverter {
         if (value instanceof Float number) {
             return number;
         }
+        if (value instanceof Double number) {
+            return number.floatValue();
+        }
         return convertible(value).ToSingle(null);
+    }
+
+    private static int roundedInt32(double value) {
+        double rounded = Math.rint(value);
+        if (!Double.isFinite(rounded) || rounded < Integer.MIN_VALUE
+                || rounded > Integer.MAX_VALUE) {
+            throw new OverflowException("Value was outside the range of Int32");
+        }
+        return (int) rounded;
     }
 
     @Override
