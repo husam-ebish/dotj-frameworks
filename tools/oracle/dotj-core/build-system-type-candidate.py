@@ -507,6 +507,14 @@ def main():
         "byteValue": "System.InvalidCastException",
         "selfTypeSame": False,
     }
+    decimal_convertible = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDecimalConvertibleContractBehavior"]
+    assert decimal_convertible == {
+        "implements": True, "typeCode": "Decimal",
+        "int32": 12, "roundedUp": 14, "doubleValue": 12.5,
+        "boolean": True, "text": "12.5", "selfValue": "12.5",
+        "charValue": "System.InvalidCastException",
+        "dateTime": "System.InvalidCastException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

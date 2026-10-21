@@ -1590,6 +1590,24 @@ static object ObserveDateTimeConvertibleContract()
         selfTypeSame = ReferenceEquals(date, convertible.ToType(typeof(DateTime), null)),
     };
 }
+static object ObserveDecimalConvertibleContract()
+{
+    decimal value = 12.5m;
+    IConvertible convertible = value;
+    return new
+    {
+        implements = typeof(IConvertible).IsAssignableFrom(typeof(decimal)),
+        typeCode = convertible.GetTypeCode().ToString(),
+        int32 = convertible.ToInt32(null),
+        roundedUp = ((IConvertible)13.5m).ToInt32(null),
+        doubleValue = convertible.ToDouble(null),
+        boolean = convertible.ToBoolean(null),
+        text = convertible.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        selfValue = convertible.ToDecimal(null).ToString(),
+        charValue = ObserveMethodError(() => convertible.ToChar(null)),
+        dateTime = ObserveMethodError(() => convertible.ToDateTime(null)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1764,6 +1782,7 @@ var result = new
     selectedFormatterTypeCodeBoundariesBehavior = ObserveFormatterTypeCodeBoundaries(),
     selectedSerializationGetValueConversionsBehavior = ObserveSerializationGetValueConversions(),
     selectedDateTimeConvertibleContractBehavior = ObserveDateTimeConvertibleContract(),
+    selectedDecimalConvertibleContractBehavior = ObserveDecimalConvertibleContract(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
