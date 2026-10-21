@@ -22,7 +22,7 @@ def run(*args, contains):
 
 def gate(source):
     assert source.is_dir(), "A pinned source root is required"
-    wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 16 Java fixtures and 5 .NET oracles")
+    wp01 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp01-fixtures.ps1"), contains="PASS: 17 Java fixtures and 5 .NET oracles")
     wp02 = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-wp02-java-fixtures.ps1"), contains="PASS: 15 internal WP-02 Java fixtures")
     async_output = run("powershell", "-NoProfile", "-File", str(ORACLE / "run-async-java-fixtures.ps1"),
                        contains="PASS: internal timed wait cases")
@@ -55,7 +55,7 @@ def gate(source):
         "sourceCommit": upstream["sourceCommit"],
         "runtimeVersion": "10.0.12",
         "coreLibSha256": CORELIB_HASH,
-        "wp01JavaFixtures": 16,
+        "wp01JavaFixtures": 17,
         "wp01DotnetOracles": 5,
         "wp02InternalJavaFixtures": 15,
         "wp02ReferenceCases": 10,
@@ -76,7 +76,7 @@ def gate(source):
     }
     output = EVIDENCE / "foundation-gate-v10.0.12.json"
     output.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
-    print("PASS bounded foundation gate: WP-01 16+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 57 reference cases + 5 Java fixtures")
+    print("PASS bounded foundation gate: WP-01 17+5, WP-02 15 Java + 10 upstream, async 3 pairs + 3 collisions + 57 reference cases + 5 Java fixtures")
 
 
 if __name__ == "__main__":
