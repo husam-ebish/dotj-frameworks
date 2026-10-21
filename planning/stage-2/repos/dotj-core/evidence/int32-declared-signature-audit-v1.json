@@ -2,12 +2,17 @@
   "schemaVersion": 1,
   "scope": "Declared public System.Int32 methods and fields in pinned CoreLib versus compiled Java candidate",
   "surfaceEvidence": "foundation-semantic-surface-v1.json",
-  "surfaceSha256": "0b73262d63f3c54cb48700fc7e025ae340996521599b31adcd246b295bfc00a4",
+  "surfaceSha256": "6d8a8af0c38a3262c274636c98f0f5ed384f96bcc41a233956b9656c21f78365",
   "upstreamMethodCount": 53,
   "projectedCandidateMethodCount": 43,
   "missingProjectedSignatureCount": 10,
   "erasureCollapsedOverloadGroupCount": 5,
   "erasureCollapsedUpstreamMethodCount": 10,
+  "formatCarrierDeclaration": "public <T> boolean TryFormat(System.Span<T>, int[], java.lang.String, System.IFormatProvider);",
+  "formatCarrierUpstreamSignatures": [
+    "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+    "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)"
+  ],
   "extraJavaPublicMethodCount": 18,
   "upstreamFields": [
     {
@@ -983,5 +988,5 @@
     }
   ],
   "status": "PROJECTION_AUDIT_ONLY; SPAN_ERASURE/VALUE_TYPE_ABI, BEHAVIOR, E02 AND N01 OPEN",
-  "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Five generic ReadOnlySpan carrier methods collapse ten distinct CLR overloads. Extra Java methods include public interface bridges and carrier helpers."
+  "limitation": "A projected declaration is a name/staticness/arity/type-shape match, not CLR semantic or JVM ABI equivalence. Five generic ReadOnlySpan carrier methods collapse ten distinct CLR parsing overloads; one generic Span carrier maps two already-projected formatting overloads. Extra Java methods include public interface bridges and carrier helpers."
 }
