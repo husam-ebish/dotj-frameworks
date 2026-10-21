@@ -890,6 +890,17 @@ def main():
                 "Int32 CreateSaturating[TOther](TOther)",
                 "Int32 CreateTruncating[TOther](TOther)",
             }
+    assert [(item["value"], item["checkedValue"], item["checkedError"],
+             item["saturated"], item["truncated"])
+            for item in foundation["selectedInt32CreateFromBigInteger"]] == [
+                ("-1208925819614629174706176", None, "System.OverflowException", -2147483648, 0),
+                ("-2147483649", None, "System.OverflowException", -2147483648, 2147483647),
+                ("-2147483648", -2147483648, None, -2147483648, -2147483648),
+                ("-3", -3, None, -3, -3), ("0", 0, None, 0, 0), ("3", 3, None, 3, 3),
+                ("2147483647", 2147483647, None, 2147483647, 2147483647),
+                ("2147483648", None, "System.OverflowException", 2147483647, -2147483648),
+                ("1208925819614629174706176", None, "System.OverflowException", 2147483647, 0),
+            ]
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

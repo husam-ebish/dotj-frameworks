@@ -7,6 +7,7 @@ import System.Int32;
 import System.OverflowException;
 import System.Type;
 import System.ValueTuple;
+import java.math.BigInteger;
 
 /** Pinned signed Int32 arithmetic observations against the packaged JAR. */
 public final class ProductInt32ArithmeticConsumer {
@@ -154,6 +155,27 @@ public final class ProductInt32ArithmeticConsumer {
                 || Int32.CreateSaturating(42).get_Value() != 42
                 || Int32.CreateTruncating(42).get_Value() != 42) {
             throw new AssertionError("Selected Int32.Create self conversion changed");
+        }
+        String[] wideValues = {
+                "-1208925819614629174706176", "-2147483649", "-2147483648",
+                "-3", "0", "3", "2147483647", "2147483648",
+                "1208925819614629174706176",
+        };
+        int[] wideSaturated = {Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE,
+                -3, 0, 3, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE};
+        int[] wideTruncated = {0, Integer.MAX_VALUE, Integer.MIN_VALUE,
+                -3, 0, 3, Integer.MAX_VALUE, Integer.MIN_VALUE, 0};
+        for (int index = 0; index < wideValues.length; index++) {
+            BigInteger source = new BigInteger(wideValues[index]);
+            if (index < 2 || index > 6) {
+                expectOverflow(() -> Int32.CreateChecked(source));
+            } else if (Int32.CreateChecked(source).get_Value() != source.intValue()) {
+                throw new AssertionError("Int32.CreateChecked BigInteger changed");
+            }
+            if (Int32.CreateSaturating(source).get_Value() != wideSaturated[index]
+                    || Int32.CreateTruncating(source).get_Value() != wideTruncated[index]) {
+                throw new AssertionError("Int32.Create BigInteger conversion changed");
+            }
         }
         java.lang.System.out.println("PASS external selected Int32 signed arithmetic");
     }
