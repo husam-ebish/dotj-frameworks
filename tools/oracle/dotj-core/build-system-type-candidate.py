@@ -307,6 +307,16 @@ def main():
         "disposableMethods": [{"name": "Dispose", "kind": "Method"}],
         "publicOnly": [], "nonPublicInstance": [],
     }
+    method_returns = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodReturnBehavior"]
+    assert method_returns["voidType"] == {"name": "Void", "fullName": "System.Void",
+        "baseType": "System.ValueType", "isValueType": True, "isPrimitive": True}
+    assert [(row["owner"], row["name"], row["returnType"])
+            for row in method_returns["methods"]] == [
+        ("System.IDisposable", "Dispose", "System.Void"),
+        ("System.IComparable", "CompareTo", "System.Int32"),
+        ("System.IFormattable", "ToString", "System.String"),
+        ("System.IFormatProvider", "GetFormat", "System.Object"),
+    ]
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

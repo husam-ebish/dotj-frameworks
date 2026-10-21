@@ -1045,6 +1045,37 @@
     "publicOnly": [],
     "nonPublicInstance": []
   },
+  "selectedMethodReturnBehavior": {
+    "voidType": {
+      "name": "Void",
+      "fullName": "System.Void",
+      "baseType": "System.ValueType",
+      "isValueType": true,
+      "isPrimitive": true
+    },
+    "methods": [
+      {
+        "owner": "System.IDisposable",
+        "name": "Dispose",
+        "returnType": "System.Void"
+      },
+      {
+        "owner": "System.IComparable",
+        "name": "CompareTo",
+        "returnType": "System.Int32"
+      },
+      {
+        "owner": "System.IFormattable",
+        "name": "ToString",
+        "returnType": "System.String"
+      },
+      {
+        "owner": "System.IFormatProvider",
+        "name": "GetFormat",
+        "returnType": "System.Object"
+      }
+    ]
+  },
   "selectedMethodNameBehavior": [
     {
       "owner": "System.IDisposable",
@@ -14304,6 +14335,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "27f63d89f5962ab189713f9cee5a153a630740430a4cdb48e1d1f44a903929e5",
+  "oracleProgramSha256": "03713322b5ec2236b819d336f4c4df32257334ebb69f42c67824711aef408569",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

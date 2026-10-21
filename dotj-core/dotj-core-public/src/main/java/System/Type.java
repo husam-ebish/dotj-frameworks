@@ -407,6 +407,7 @@ public abstract class Type extends MemberInfo {
             case "System.Reflection.MemberInfo" -> fromJavaClass(MemberInfo.class);
             case "System.Reflection.MethodBase" -> fromJavaClass(MethodBase.class);
             case "System.Reflection.MethodInfo" -> fromJavaClass(MethodInfo.class);
+            case "System.Void" -> fromJavaClass(Void.class);
             case "System.Exception" -> fromJavaClass(Exception.class);
             case "System.SystemException" -> fromJavaClass(SystemException.class);
             case "System.ArgumentException" -> fromJavaClass(ArgumentException.class);
@@ -514,6 +515,7 @@ public abstract class Type extends MemberInfo {
             case "system.reflection.memberinfo" -> ignoreCase ? fromJavaClass(MemberInfo.class) : null;
             case "system.reflection.methodbase" -> ignoreCase ? fromJavaClass(MethodBase.class) : null;
             case "system.reflection.methodinfo" -> ignoreCase ? fromJavaClass(MethodInfo.class) : null;
+            case "system.void" -> ignoreCase ? fromJavaClass(Void.class) : null;
             case "system.exception" -> ignoreCase ? fromJavaClass(Exception.class) : null;
             case "system.systemexception" -> ignoreCase ? fromJavaClass(SystemException.class) : null;
             case "system.argumentexception" -> ignoreCase ? fromJavaClass(ArgumentException.class) : null;
@@ -722,6 +724,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Float.class) return "Single";
         if (this.definition == Double.class) return "Double";
         if (this.definition == Byte.class) return "Byte";
+        if (this.definition == Void.class) return "Void";
         if (this.definition == Int32.class) return "Int32";
         if (this.definition == Object.class) return "Object";
         if (this.definition == Number.class) return "ValueType";
@@ -795,6 +798,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Float.class
                 || this.definition == Double.class
                 || this.definition == Byte.class
+                || this.definition == Void.class
                 || this.definition == Int32.class
                 || this.definition == Object.class || this.definition == Number.class
                 || this.definition == java.lang.reflect.Array.class || this.definition == Enum.class) {
@@ -827,7 +831,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Object.class && this.parameterIndex < 0) {
             return null;
         }
-        if (this.definition == Int32.class || this.definition == Boolean.class
+        if (this.definition == Int32.class || this.definition == Void.class
+                || this.definition == Boolean.class
                 || this.definition == Character.class || this.definition == Short.class
                 || this.definition == Long.class || this.definition == Float.class
                 || this.definition == Double.class || this.definition == Byte.class) {
@@ -860,7 +865,8 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsValueType() {
         return this.parameterIndex < 0
-                && (this.definition == Int32.class || this.definition == Boolean.class
+                && (this.definition == Int32.class || this.definition == Void.class
+                        || this.definition == Boolean.class
                         || this.definition == Character.class
                         || this.definition == Short.class
                         || this.definition == Long.class
@@ -876,7 +882,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsPrimitive() {
-        return this.definition == Int32.class || this.definition == Boolean.class
+        return this.definition == Int32.class || this.definition == Void.class
+                || this.definition == Boolean.class
                 || this.definition == Character.class || this.definition == Short.class
                 || this.definition == Long.class || this.definition == Float.class
                 || this.definition == Double.class || this.definition == Byte.class;
@@ -898,7 +905,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Float.class
                 || this.definition == Double.class
                 || this.definition == Byte.class
-                || this.definition == Int32.class
+                || this.definition == Int32.class || this.definition == Void.class
                 || this.definition == Decimal.class || this.definition == DateTime.class
                 || this.get_IsEnum();
     }
@@ -1873,6 +1880,17 @@ public abstract class Type extends MemberInfo {
         @Override
         public MemberTypes get_MemberType() {
             return MemberTypes.Method;
+        }
+
+        @Override
+        public Type get_ReturnType() {
+            return switch (this.name) {
+                case "Dispose" -> fromJavaClass(Void.class);
+                case "CompareTo" -> fromJavaClass(Int32.class);
+                case "ToString" -> fromJavaClass(String.class);
+                case "GetFormat" -> fromJavaClass(Object.class);
+                default -> throw new UnsupportedOperationException("Method return type is not mapped");
+            };
         }
 
         @Override
