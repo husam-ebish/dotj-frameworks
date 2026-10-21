@@ -889,7 +889,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == String.class || this.definition == Boolean.class
                 || this.definition == Character.class
                 || this.definition == Short.class
-                || this.definition == Long.class
+                || this.definition == Long.class || this.definition == BigInteger.class
                 || this.definition == Float.class
                 || this.definition == Double.class
                 || this.definition == Byte.class || this.definition == SByte.class

@@ -70,6 +70,9 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.Single".equals(name)) {
             return ToSingle(value);
         }
+        if ("System.UInt64".equals(name)) {
+            return ToUInt64(value);
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -90,6 +93,7 @@ public final class FormatterConverter implements IFormatterConverter {
             case UInt32 -> ToUInt32(value);
             case Int16 -> ToInt16(value);
             case Single -> ToSingle(value);
+            case UInt64 -> ToUInt64(value);
             default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
         };
     }
@@ -272,6 +276,19 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public java.math.BigInteger ToUInt64(Object value) {
+        if (value instanceof String text) {
+            java.math.BigInteger parsed = parseByteText(text);
+            if (parsed.signum() < 0 || parsed.bitLength() > 64) {
+                throw new OverflowException("Value was outside the range of UInt64");
+            }
+            return parsed;
+        }
+        if (value instanceof java.math.BigInteger number) {
+            if (number.signum() < 0 || number.bitLength() > 64) {
+                throw new OverflowException("Value was outside the range of UInt64");
+            }
+            return number;
+        }
         return convertible(value).ToUInt64(null);
     }
 }

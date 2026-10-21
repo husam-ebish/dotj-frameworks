@@ -441,6 +441,16 @@ def main():
         "singleFormat": "System.FormatException",
         "singleNull": "System.ArgumentNullException",
     }
+    uint64_routes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUInt64FormatterRoutesBehavior"]
+    assert uint64_routes == {
+        "text": "18446744073709551615",
+        "type": "18446744073709551615",
+        "typeCode": "18446744073709551615",
+        "overflow": "System.OverflowException",
+        "negative": "System.OverflowException",
+        "format": "System.FormatException",
+        "nullValue": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
