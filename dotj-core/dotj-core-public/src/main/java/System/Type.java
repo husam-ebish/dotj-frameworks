@@ -934,7 +934,7 @@ public abstract class Type extends MemberInfo {
 
     public Type GetEnumUnderlyingType() {
         if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum");
+            throw new ArgumentException("Type must be an enum", "enumType");
         }
         return fromJavaClass(Int32.class);
     }
