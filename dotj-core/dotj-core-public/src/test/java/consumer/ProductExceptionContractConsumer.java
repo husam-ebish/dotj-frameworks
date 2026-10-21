@@ -124,6 +124,10 @@ public final class ProductExceptionContractConsumer {
         }
         IDictionaryEnumerator boundaryEnumerator = dictionary.GetEnumerator();
         expectInvalidEnumerator(() -> boundaryEnumerator.get_Entry());
+        verifyEnumeratorMutation(value -> value.Add("third", 3));
+        verifyEnumeratorMutation(value -> value.set_Item("second", 20));
+        verifyEnumeratorMutation(value -> value.Remove("second"));
+        verifyEnumeratorMutation(IDictionary::Clear);
         while (boundaryEnumerator.MoveNext()) {
             // Advance beyond the final entry.
         }
@@ -286,5 +290,21 @@ public final class ProductExceptionContractConsumer {
         } catch (InvalidOperationException expected) {
             // Pinned CLR failure type.
         }
+    }
+
+    private static void verifyEnumeratorMutation(java.util.function.Consumer<IDictionary> mutation) {
+        IDictionary value = new Exception("enumerator").get_Data();
+        value.Add("first", 1);
+        value.Add("second", 2);
+        IDictionaryEnumerator enumerator = value.GetEnumerator();
+        if (!enumerator.MoveNext()) {
+            throw new AssertionError("Dictionary enumerator did not move to first entry");
+        }
+        mutation.accept(value);
+        if (!"first".equals(enumerator.get_Entry().get_Key())) {
+            throw new AssertionError("Enumerator current entry changed after mutation");
+        }
+        expectInvalidEnumerator(() -> enumerator.MoveNext());
+        expectInvalidEnumerator(enumerator::Reset);
     }
 }

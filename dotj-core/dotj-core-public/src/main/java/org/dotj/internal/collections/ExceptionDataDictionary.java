@@ -19,6 +19,33 @@ import java.util.Map;
 /** Mutable per-exception dictionary for the selected CLR Data paths. */
 public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
         implements IDictionary {
+    private long version;
+
+    @Override
+    public Object put(Object key, Object value) {
+        Object previous = super.put(key, value);
+        this.version++;
+        return previous;
+    }
+
+    @Override
+    public Object remove(Object key) {
+        if (!this.containsKey(key)) {
+            return null;
+        }
+        Object previous = super.remove(key);
+        this.version++;
+        return previous;
+    }
+
+    @Override
+    public void clear() {
+        if (!this.isEmpty()) {
+            super.clear();
+            this.version++;
+        }
+    }
+
     @Override
     public Object get_Item(Object key) {
         requireKey(key);
@@ -124,16 +151,19 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
     private static final class EntryEnumerator implements IDictionaryEnumerator {
         private final ExceptionDataDictionary dictionary;
+        private final long version;
         private Iterator<Map.Entry<Object, Object>> iterator;
         private Map.Entry<Object, Object> current;
 
         private EntryEnumerator(ExceptionDataDictionary dictionary) {
             this.dictionary = dictionary;
+            this.version = dictionary.version;
             this.iterator = dictionary.entrySet().iterator();
         }
 
         @Override
         public boolean MoveNext() {
+            this.requireUnchanged();
             if (!this.iterator.hasNext()) {
                 this.current = null;
                 return false;
@@ -144,8 +174,15 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
         @Override
         public void Reset() {
+            this.requireUnchanged();
             this.iterator = this.dictionary.entrySet().iterator();
             this.current = null;
+        }
+
+        private void requireUnchanged() {
+            if (this.dictionary.version != this.version) {
+                throw new InvalidOperationException("Collection was modified during enumeration");
+            }
         }
 
         @Override

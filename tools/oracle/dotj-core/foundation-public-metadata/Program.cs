@@ -1981,6 +1981,29 @@ static object ObserveExceptionDataBoundaries()
     return new { nullAdd, nullContains, nullRead, nullWrite, nullRemove,
         containsNullValue, nullValue, objectKeyRetained, beforeMove, afterEnd };
 }
+static object ObserveExceptionDataEnumeratorMutation()
+{
+    object Probe(Action<System.Collections.IDictionary> mutate)
+    {
+        var dictionary = new Exception("enumerator").Data;
+        dictionary.Add("first", 1);
+        dictionary.Add("second", 2);
+        var enumerator = dictionary.GetEnumerator();
+        bool firstMoved = enumerator.MoveNext();
+        mutate(dictionary);
+        string? currentError = ObserveMethodError(() => { _ = enumerator.Entry; });
+        string? moveError = ObserveMethodError(() => { _ = enumerator.MoveNext(); });
+        string? resetError = ObserveMethodError(() => enumerator.Reset());
+        return new { firstMoved, currentError, moveError, resetError };
+    }
+    return new
+    {
+        add = Probe(dictionary => dictionary.Add("third", 3)),
+        replace = Probe(dictionary => dictionary["second"] = 20),
+        remove = Probe(dictionary => dictionary.Remove("second")),
+        clear = Probe(dictionary => dictionary.Clear()),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2176,6 +2199,7 @@ var result = new
     selectedExceptionTargetSiteBehavior = ObserveExceptionTargetSite(),
     selectedExceptionDataDictionaryBehavior = ObserveExceptionDataDictionary(),
     selectedExceptionDataBoundaries = ObserveExceptionDataBoundaries(),
+    selectedExceptionDataEnumeratorMutation = ObserveExceptionDataEnumeratorMutation(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

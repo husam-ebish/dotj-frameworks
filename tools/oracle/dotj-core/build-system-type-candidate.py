@@ -679,6 +679,14 @@ def main():
         "beforeMove": "System.InvalidOperationException",
         "afterEnd": "System.InvalidOperationException",
     }
+    mutation = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedExceptionDataEnumeratorMutation"]
+    assert set(mutation) == {"add", "replace", "remove", "clear"}
+    assert all(value == {
+        "firstMoved": True,
+        "currentError": None,
+        "moveError": "System.InvalidOperationException",
+        "resetError": "System.InvalidOperationException",
+    } for value in mutation.values())
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
