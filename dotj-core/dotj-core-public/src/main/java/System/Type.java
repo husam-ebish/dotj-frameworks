@@ -511,6 +511,13 @@ public abstract class Type extends MemberInfo {
         return constructed.append(']').toString();
     }
 
+    public String get_AssemblyQualifiedName() {
+        String fullName = this.get_FullName();
+        return fullName == null ? null : fullName
+                + ", System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, "
+                + "PublicKeyToken=7cec85d7bea7798e";
+    }
+
     public String get_Namespace() {
         if (this instanceof ArrayType array) {
             return array.elementType.get_Namespace();
