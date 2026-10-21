@@ -312,6 +312,10 @@ def main():
     assert nested_composite_lookup[0]["name"].endswith("]][]&")
     assert nested_composite_lookup[0]["fullNameSameReference"]
     assert nested_composite_lookup[0]["qualifiedSameReference"]
+    nested_misses = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedLookupMissBehavior"]
+    assert [row["outcome"] for row in nested_misses] == [
+        "null", "null", "System.ArgumentException",
+    ]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",

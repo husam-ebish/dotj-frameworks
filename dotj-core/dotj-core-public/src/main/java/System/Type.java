@@ -219,6 +219,9 @@ public abstract class Type extends MemberInfo {
         }
         argumentNames.add(argumentText.substring(argumentStart));
         if (argumentNames.size() != arity) {
+            if (selectedDefinition.endsWith("+Entry") || selectedDefinition.endsWith("+entry")) {
+                throw new ArgumentException("Generic argument count does not match nested type arity");
+            }
             return null;
         }
         Type[] arguments = new Type[arity];

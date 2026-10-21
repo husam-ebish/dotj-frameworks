@@ -6609,6 +6609,20 @@
       "qualifiedSameReference": true
     }
   ],
+  "selectedNestedLookupMissBehavior": [
+    {
+      "name": "System.Collections.Generic.Dictionary`2+entry",
+      "outcome": "null"
+    },
+    {
+      "name": "System.Collections.Generic.Dictionary`2+Missing",
+      "outcome": "null"
+    },
+    {
+      "name": "System.Collections.Generic.Dictionary`2+Entry[[System.String, System.Private.CoreLib]]",
+      "outcome": "System.ArgumentException"
+    }
+  ],
   "selectedBaseTypeBehavior": [
     {
       "name": "System.Object",
@@ -12460,6 +12474,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "98e3e058ac70e02110b9b2de6dc9705546ddeaa904d9cfd4bac1755181ac48f7",
+  "oracleProgramSha256": "5036242d138d44d52789a5dd15366edb7adda583f3de0ff8a4f766293a19bff5",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

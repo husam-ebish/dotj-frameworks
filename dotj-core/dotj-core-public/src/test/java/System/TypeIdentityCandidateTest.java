@@ -53,6 +53,16 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        if (Type.GetType("System.Collections.Generic.Dictionary`2+entry") != null
+                || Type.GetType("System.Collections.Generic.Dictionary`2+Missing") != null) {
+            throw new AssertionError("Selected nested Type misses changed");
+        }
+        try {
+            Type.GetType("System.Collections.Generic.Dictionary`2+Entry[[System.String, System.Private.CoreLib]]");
+            throw new AssertionError("Wrong nested generic arity was accepted");
+        } catch (ArgumentException expected) {
+            // The CLR also rejects this arity even with throwOnError=false.
+        }
         Type closedEntry = nestedEntry.MakeGenericType(new Type[] {string, integer});
         Type closedEntryByRef = closedEntry.MakeByRefType();
         Type closedEntryPointer = closedEntry.MakePointerType();
