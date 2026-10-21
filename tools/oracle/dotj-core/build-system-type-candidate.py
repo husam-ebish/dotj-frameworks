@@ -557,6 +557,14 @@ def main():
         "midpointEven": 2, "midpointUp": 4, "doubleBoolean": True,
         "hugeInt32": "System.OverflowException",
     }
+    exceptional_floats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFloatingExceptionalBoundariesBehavior"]
+    assert exceptional_floats == {
+        "nanInt32": "System.OverflowException",
+        "infinityInt32": "System.OverflowException",
+        "nanDecimal": "System.OverflowException",
+        "infinityDecimal": "System.OverflowException",
+        "nanBoolean": True, "infinitySingle": True, "nanDouble": True,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

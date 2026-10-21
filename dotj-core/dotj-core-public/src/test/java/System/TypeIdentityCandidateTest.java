@@ -901,6 +901,25 @@ public final class TypeIdentityCandidateTest {
         } catch (OverflowException expected) {
             // Pinned CLR failure type.
         }
+        for (double value : new double[] {Double.NaN, Double.POSITIVE_INFINITY}) {
+            try {
+                selectedConverter.ToInt32(value);
+                throw new AssertionError("Exceptional Double to Int32 accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+            try {
+                selectedConverter.ToDecimal(value);
+                throw new AssertionError("Exceptional Double to Decimal accepted");
+            } catch (OverflowException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        if (!selectedConverter.ToBoolean(Double.NaN)
+                || !Float.isInfinite(selectedConverter.ToSingle(Double.POSITIVE_INFINITY))
+                || !Double.isNaN(selectedConverter.ToDouble(Float.NaN))) {
+            throw new AssertionError("Selected exceptional floating values changed");
+        }
         for (Object value : new Object[] {"256", -1}) {
             try {
                 selectedConverter.ToByte(value);

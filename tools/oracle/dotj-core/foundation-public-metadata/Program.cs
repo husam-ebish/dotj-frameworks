@@ -1698,6 +1698,20 @@ static object ObserveFloatingFormatterConversions()
         hugeInt32 = ObserveMethodError(() => converter.ToInt32(double.MaxValue)),
     };
 }
+static object ObserveFloatingExceptionalBoundaries()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    return new
+    {
+        nanInt32 = ObserveMethodError(() => converter.ToInt32(double.NaN)),
+        infinityInt32 = ObserveMethodError(() => converter.ToInt32(double.PositiveInfinity)),
+        nanDecimal = ObserveMethodError(() => converter.ToDecimal(double.NaN)),
+        infinityDecimal = ObserveMethodError(() => converter.ToDecimal(double.PositiveInfinity)),
+        nanBoolean = converter.ToBoolean(double.NaN),
+        infinitySingle = float.IsPositiveInfinity(converter.ToSingle(double.PositiveInfinity)),
+        nanDouble = double.IsNaN(converter.ToDouble(float.NaN)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1879,6 +1893,7 @@ var result = new
     selectedInt64NarrowingConversionsBehavior = ObserveInt64NarrowingConversions(),
     selectedInt64WideningConversionsBehavior = ObserveInt64WideningConversions(),
     selectedFloatingFormatterConversionsBehavior = ObserveFloatingFormatterConversions(),
+    selectedFloatingExceptionalBoundariesBehavior = ObserveFloatingExceptionalBoundaries(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
