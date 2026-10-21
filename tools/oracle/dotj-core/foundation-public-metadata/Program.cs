@@ -569,6 +569,22 @@ var result = new
         qualifiedLowerInsensitive = Type.GetType(
             (name + ", System.Private.CoreLib").ToLowerInvariant(), false, true)?.FullName,
     }).ToArray(),
+    selectedPrimitiveVectorBehavior = new[]
+    {
+        typeof(bool[]), typeof(char[]), typeof(byte[]), typeof(short[]),
+        typeof(long[]), typeof(float[]), typeof(double[]),
+    }.Select(type => new
+    {
+        name = type.Name,
+        fullName = type.FullName,
+        elementFullName = type.GetElementType()?.FullName,
+        rank = type.GetArrayRank(),
+        isVector = type.IsSZArray,
+        typeCode = Type.GetTypeCode(type).ToString(),
+        lookupIdentity = ReferenceEquals(type, Type.GetType(type.FullName!)),
+        assemblyLookupIdentity = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
+        insensitiveLookupIdentity = ReferenceEquals(type, Type.GetType(type.FullName!.ToLowerInvariant(), false, true)),
+    }).ToArray(),
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),
