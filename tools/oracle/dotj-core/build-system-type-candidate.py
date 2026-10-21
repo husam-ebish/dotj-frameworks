@@ -231,6 +231,11 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    interop_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInteropTypeFlagBehavior"]
+    assert len(interop_flags) == 9 and all(
+        not any(row[key] for key in ("isImport", "isCOMObject", "isContextful",
+                                     "isMarshalByRef", "isSignatureType"))
+        for row in interop_flags)
     layout = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedLayoutBehavior"]
     assert [(row["isAutoLayout"], row["isLayoutSequential"], row["isExplicitLayout"])
             for row in layout] == [
@@ -1450,6 +1455,11 @@ def main():
         "public boolean get_IsAutoLayout();",
         "public boolean get_IsLayoutSequential();",
         "public boolean get_IsExplicitLayout();",
+        "public boolean get_IsImport();",
+        "public boolean get_IsCOMObject();",
+        "public boolean get_IsContextful();",
+        "public boolean get_IsMarshalByRef();",
+        "public boolean get_IsSignatureType();",
         "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",

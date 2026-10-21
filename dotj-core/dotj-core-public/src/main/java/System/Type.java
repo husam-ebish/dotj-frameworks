@@ -943,6 +943,26 @@ public abstract class Type extends MemberInfo {
         return false;
     }
 
+    public boolean get_IsImport() {
+        return false;
+    }
+
+    public boolean get_IsCOMObject() {
+        return false;
+    }
+
+    public boolean get_IsContextful() {
+        return false;
+    }
+
+    public boolean get_IsMarshalByRef() {
+        return false;
+    }
+
+    public boolean get_IsSignatureType() {
+        return false;
+    }
+
     @Override
     public MemberTypes get_MemberType() {
         return MemberTypes.TypeInfo;
