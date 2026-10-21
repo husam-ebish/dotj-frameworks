@@ -189,6 +189,13 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format.equals("D-1") || format.equals("X-1")) {
             return format;
         }
+        if (format.equals("0;(0);zero")) {
+            if (this.value == 0) {
+                return "zero";
+            }
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            return this.value < 0 ? "(" + digits + ")" : digits;
+        }
         if (format.matches("0+")) {
             String digits = BigInteger.valueOf(this.value).abs().toString();
             String sign = this.value < 0 ? "-" : "";

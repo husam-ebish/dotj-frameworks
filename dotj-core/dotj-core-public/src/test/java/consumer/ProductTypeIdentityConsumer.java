@@ -473,6 +473,11 @@ public final class ProductTypeIdentityConsumer {
                 || !"42.00".equals(int32Value.ToString("0.00", provider))) {
             throw new AssertionError("Selected Int32 custom numeric format changed");
         }
+        if (!"42".equals(int32Value.ToString("0;(0);zero", provider))
+                || !"(42)".equals(new Int32(-42).ToString("0;(0);zero", provider))
+                || !"zero".equals(new Int32(0).ToString("0;(0);zero", provider))) {
+            throw new AssertionError("Selected Int32 custom sections changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

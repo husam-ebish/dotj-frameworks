@@ -536,6 +536,15 @@ var result = new
         fixedTwo = ((IFormattable)42).ToString("0.00",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32CustomSectionBehavior = new
+    {
+        positive = ((IFormattable)42).ToString("0;(0);zero",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-42)).ToString("0;(0);zero",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zero = ((IFormattable)0).ToString("0;(0);zero",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
