@@ -21,6 +21,19 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(parsed.intValue());
     }
 
+    public static boolean TryParse(String text, Int32[] result) {
+        result[0] = new Int32(0);
+        if (text == null) {
+            return false;
+        }
+        try {
+            result[0] = Parse(text);
+            return true;
+        } catch (FormatException | OverflowException expected) {
+            return false;
+        }
+    }
+
     private final int value;
 
     public Int32(int value) {

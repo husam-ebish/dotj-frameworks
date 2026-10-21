@@ -446,6 +446,15 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Int32.Parse null parameter changed", expected);
             }
         }
+        Int32[] parsedResult = new Int32[1];
+        if (!Int32.TryParse("42", parsedResult) || parsedResult[0].get_Value() != 42
+                || !Int32.TryParse(" 42 ", parsedResult) || parsedResult[0].get_Value() != 42
+                || !Int32.TryParse("-7", parsedResult) || parsedResult[0].get_Value() != -7
+                || Int32.TryParse("oops", parsedResult) || parsedResult[0].get_Value() != 0
+                || Int32.TryParse("2147483648", parsedResult) || parsedResult[0].get_Value() != 0
+                || Int32.TryParse(null, parsedResult) || parsedResult[0].get_Value() != 0) {
+            throw new AssertionError("Selected Int32.TryParse behavior changed");
+        }
         ISpanFormattable spanFormattable = int32Value;
         Type spanType = Type.GetType("System.ISpanFormattable");
         char[] enough = new char[2];

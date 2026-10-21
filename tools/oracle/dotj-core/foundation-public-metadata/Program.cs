@@ -181,6 +181,11 @@ static object ObserveInt32Parse(string? text)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveInt32TryParse(string? text)
+{
+    bool success = int.TryParse(text, out int value);
+    return new { success, value };
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -387,6 +392,15 @@ var result = new
         invalid = ObserveInt32Parse("oops"),
         overflow = ObserveInt32Parse("2147483648"),
         nullValue = ObserveInt32Parse(null),
+    },
+    selectedInt32TryParseBehavior = new
+    {
+        number = ObserveInt32TryParse("42"),
+        padded = ObserveInt32TryParse(" 42 "),
+        negative = ObserveInt32TryParse("-7"),
+        invalid = ObserveInt32TryParse("oops"),
+        overflow = ObserveInt32TryParse("2147483648"),
+        nullValue = ObserveInt32TryParse(null),
     },
     selectedSpanFormattingBehavior = new
     {
