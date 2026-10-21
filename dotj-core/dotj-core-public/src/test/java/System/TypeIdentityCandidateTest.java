@@ -26,6 +26,22 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        if (!string.get_IsSerializable() || !integer.get_IsSerializable()
+                || !Type.fromJavaClass(TypeCode.class).get_IsSerializable()
+                || !Type.fromJavaClass(Exception.class).get_IsSerializable()
+                || !Type.fromJavaClass(List.class).get_IsSerializable()
+                || !Type.fromJavaClass(List.class)
+                        .MakeGenericType(new Type[] {string}).get_IsSerializable()
+                || !string.MakeArrayType().get_IsSerializable()
+                || !Type.fromJavaClass(IDisposable.class).MakeArrayType()
+                        .get_IsSerializable()
+                || Type.fromJavaClass(IDisposable.class).get_IsSerializable()
+                || Type.fromJavaClass(Type.class).get_IsSerializable()
+                || Type.fromJavaClass(List.class).GetGenericArguments()[0]
+                        .get_IsSerializable()
+                || string.MakeByRefType().get_IsSerializable()) {
+            throw new AssertionError("Selected Type serializable flag changed");
+        }
         if (string.get_MemberType() != MemberTypes.TypeInfo
                 || string.MakeArrayType().get_MemberType() != MemberTypes.TypeInfo
                 || string.MakeByRefType().get_MemberType() != MemberTypes.TypeInfo

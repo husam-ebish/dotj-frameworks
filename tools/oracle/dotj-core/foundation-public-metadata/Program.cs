@@ -762,6 +762,14 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedSerializableBehavior = new[]
+    {
+        typeof(string), typeof(int), typeof(TypeCode), typeof(IDisposable),
+        typeof(Type), typeof(Exception), typeof(List<>), typeof(List<string>),
+        typeof(List<>).GetGenericArguments()[0], typeof(string[]),
+        typeof(IDisposable[]), typeof(string).MakeByRefType(),
+    }.Select(type => new { name = type.FullName ?? type.Name,
+        isSerializable = type.IsSerializable }).ToArray(),
     selectedNotPublicBehavior = new[]
     {
         typeof(string), typeof(NestedFamilyProbe),
