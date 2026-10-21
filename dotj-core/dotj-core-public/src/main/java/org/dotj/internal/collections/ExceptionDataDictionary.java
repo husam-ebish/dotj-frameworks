@@ -60,12 +60,12 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
     @Override
     public ICollection get_Keys() {
-        return new CollectionView(this.keySet());
+        return new CollectionView(this, this.keySet());
     }
 
     @Override
     public ICollection get_Values() {
-        return new CollectionView(this.values());
+        return new CollectionView(this, this.values());
     }
 
     @Override
@@ -211,9 +211,11 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
     private static final class CollectionView extends AbstractCollection<Object>
             implements ICollection {
+        private final ExceptionDataDictionary dictionary;
         private final java.util.Collection<Object> values;
 
-        private CollectionView(java.util.Collection<Object> values) {
+        private CollectionView(ExceptionDataDictionary dictionary, java.util.Collection<Object> values) {
+            this.dictionary = dictionary;
             this.values = values;
         }
 
@@ -249,23 +251,28 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
         @Override
         public IEnumerator GetEnumerator() {
-            return new ValueEnumerator(this.values);
+            return new ValueEnumerator(this.dictionary, this.values);
         }
     }
 
     private static final class ValueEnumerator implements IEnumerator {
+        private final ExceptionDataDictionary dictionary;
+        private final long version;
         private final java.util.Collection<Object> values;
         private Iterator<Object> iterator;
         private Object current;
         private boolean positioned;
 
-        private ValueEnumerator(java.util.Collection<Object> values) {
+        private ValueEnumerator(ExceptionDataDictionary dictionary, java.util.Collection<Object> values) {
+            this.dictionary = dictionary;
+            this.version = dictionary.version;
             this.values = values;
             this.iterator = values.iterator();
         }
 
         @Override
         public boolean MoveNext() {
+            this.requireUnchanged();
             if (!this.iterator.hasNext()) {
                 this.positioned = false;
                 return false;
@@ -277,8 +284,15 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
         @Override
         public void Reset() {
+            this.requireUnchanged();
             this.iterator = this.values.iterator();
             this.positioned = false;
+        }
+
+        private void requireUnchanged() {
+            if (this.dictionary.version != this.version) {
+                throw new InvalidOperationException("Collection was modified during enumeration");
+            }
         }
 
         @Override

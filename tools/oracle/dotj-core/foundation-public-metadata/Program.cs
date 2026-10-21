@@ -2004,6 +2004,36 @@ static object ObserveExceptionDataEnumeratorMutation()
         clear = Probe(dictionary => dictionary.Clear()),
     };
 }
+static object ObserveExceptionDataViewEnumeration()
+{
+    object Probe(bool keys, Action<System.Collections.IDictionary> mutate)
+    {
+        var dictionary = new Exception("views").Data;
+        dictionary.Add("first", 1);
+        dictionary.Add("second", 2);
+        var view = keys ? dictionary.Keys : dictionary.Values;
+        var enumerator = view.GetEnumerator();
+        bool firstMoved = enumerator.MoveNext();
+        object? firstCurrent = enumerator.Current;
+        mutate(dictionary);
+        string? currentError = ObserveMethodError(() => { _ = enumerator.Current; });
+        string? moveError = ObserveMethodError(() => { _ = enumerator.MoveNext(); });
+        string? resetError = ObserveMethodError(() => enumerator.Reset());
+        return new { firstMoved, firstCurrent, currentError, moveError, resetError,
+            liveCount = view.Count };
+    }
+    return new
+    {
+        keysAdd = Probe(true, value => value.Add("third", 3)),
+        keysReplace = Probe(true, value => value["second"] = 20),
+        keysRemove = Probe(true, value => value.Remove("second")),
+        keysClear = Probe(true, value => value.Clear()),
+        valuesAdd = Probe(false, value => value.Add("third", 3)),
+        valuesReplace = Probe(false, value => value["second"] = 20),
+        valuesRemove = Probe(false, value => value.Remove("second")),
+        valuesClear = Probe(false, value => value.Clear()),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2200,6 +2230,7 @@ var result = new
     selectedExceptionDataDictionaryBehavior = ObserveExceptionDataDictionary(),
     selectedExceptionDataBoundaries = ObserveExceptionDataBoundaries(),
     selectedExceptionDataEnumeratorMutation = ObserveExceptionDataEnumeratorMutation(),
+    selectedExceptionDataViewEnumeration = ObserveExceptionDataViewEnumeration(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

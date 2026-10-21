@@ -687,6 +687,19 @@ def main():
         "moveError": "System.InvalidOperationException",
         "resetError": "System.InvalidOperationException",
     } for value in mutation.values())
+    views = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedExceptionDataViewEnumeration"]
+    assert set(views) == {prefix + action for prefix in ("keys", "values")
+                          for action in ("Add", "Replace", "Remove", "Clear")}
+    for name, value in views.items():
+        assert value == {
+            "firstMoved": True,
+            "firstCurrent": "first" if name.startswith("keys") else 1,
+            "currentError": None,
+            "moveError": "System.InvalidOperationException",
+            "resetError": "System.InvalidOperationException",
+            "liveCount": {"Add": 3, "Replace": 2, "Remove": 1, "Clear": 0}[
+                name.removeprefix("keys").removeprefix("values")],
+        }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
