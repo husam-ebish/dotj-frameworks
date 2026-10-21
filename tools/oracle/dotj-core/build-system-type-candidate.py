@@ -21,6 +21,7 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
 IDISPOSABLE_SOURCE = SOURCE.with_name("IDisposable.java")
 ICOMPARABLE_SOURCE = SOURCE.with_name("IComparable.java")
 IFORMATTABLE_SOURCE = SOURCE.with_name("IFormattable.java")
@@ -198,6 +199,10 @@ def main():
     assert date_time == {"year": 2026, "month": 1, "day": 2,
                          "text": "2026-01-02", "isValueType": True,
                          "baseType": "System.ValueType"}
+    int32 = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32Behavior"]
+    assert int32 == {"typeCode": "Int32", "booleanValue": True,
+                     "charValue": "*", "intValue": 42, "decimalText": "42",
+                     "text": "42", "formattedText": "42", "compareTo41": 1}
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,

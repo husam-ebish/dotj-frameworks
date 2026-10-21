@@ -11,6 +11,7 @@ Type[] selected = [
     typeof(TypeCode),
     typeof(decimal),
     typeof(DateTime),
+    typeof(int),
     typeof(Type),
     typeof(MemberInfo),
     typeof(MemberTypes),
@@ -310,6 +311,18 @@ var result = new
             .ToString("yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture),
         isValueType = typeof(DateTime).IsValueType,
         baseType = typeof(DateTime).BaseType?.FullName,
+    },
+    selectedInt32Behavior = new
+    {
+        typeCode = ((IConvertible)42).GetTypeCode().ToString(),
+        booleanValue = ((IConvertible)42).ToBoolean(System.Globalization.CultureInfo.InvariantCulture),
+        charValue = ((IConvertible)42).ToChar(System.Globalization.CultureInfo.InvariantCulture),
+        intValue = ((IConvertible)42).ToInt32(System.Globalization.CultureInfo.InvariantCulture),
+        decimalText = ((IConvertible)42).ToDecimal(System.Globalization.CultureInfo.InvariantCulture)
+            .ToString(System.Globalization.CultureInfo.InvariantCulture),
+        text = ((IConvertible)42).ToString(System.Globalization.CultureInfo.InvariantCulture),
+        formattedText = ((IFormattable)42).ToString("D", System.Globalization.CultureInfo.InvariantCulture),
+        compareTo41 = ((IComparable)42).CompareTo(41),
     },
     selectedAssignability = new (Type Target, Type? Candidate)[]
     {

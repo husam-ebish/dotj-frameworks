@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "02ecdab8ccb885bed1fa0710dbe3920eab0eea780832bdfad93b8ddd9ee4e4ee",
-  "typeCount": 19,
+  "candidateJarSha256": "005fba970ed166edb98a82fa57e70ef488280bb33004e533fd1ba54aa48e13ce",
+  "typeCount": 20,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -174,6 +174,44 @@
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"
       ],
       "disposition": "PARTIAL_VALUE_SURFACE; selected date construction/properties/text only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Int32",
+      "upstreamBaseType": "System.ValueType",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 53,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 1,
+      "javaPublicHeader": "public final class System.Int32 implements System.IConvertible,System.IFormattable,System.IComparable {",
+      "javaPublicDeclarations": [
+        "public System.Int32(int);",
+        "public int get_Value();",
+        "public System.TypeCode GetTypeCode();",
+        "public boolean ToBoolean(System.IFormatProvider);",
+        "public char ToChar(System.IFormatProvider);",
+        "public byte ToSByte(System.IFormatProvider);",
+        "public short ToByte(System.IFormatProvider);",
+        "public short ToInt16(System.IFormatProvider);",
+        "public int ToUInt16(System.IFormatProvider);",
+        "public int ToInt32(System.IFormatProvider);",
+        "public long ToUInt32(System.IFormatProvider);",
+        "public long ToInt64(System.IFormatProvider);",
+        "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public float ToSingle(System.IFormatProvider);",
+        "public double ToDouble(System.IFormatProvider);",
+        "public System.Decimal ToDecimal(System.IFormatProvider);",
+        "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.String ToString(System.IFormatProvider);",
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
+        "public int CompareTo(java.lang.Object);",
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();"
+      ],
+      "disposition": "PARTIAL_VALUE_SURFACE; selected conversion and comparison behavior only",
       "qualified": false
     },
     {
