@@ -15,6 +15,7 @@ import System.IConvertible;
 import System.TypeCode;
 import System.Decimal;
 import System.DateTime;
+import System.Int32;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -365,6 +366,22 @@ public final class ProductTypeIdentityConsumer {
             }
         };
         Type convertibleType = Type.GetType("System.IConvertible");
+        Int32 int32Value = new Int32(42);
+        IConvertible int32Conversion = int32Value;
+        IFormattable int32Formatting = int32Value;
+        IComparable int32Comparison = int32Value;
+        if (int32Conversion.GetTypeCode() != TypeCode.Int32
+                || !int32Conversion.ToBoolean(provider)
+                || int32Conversion.ToChar(provider) != '*'
+                || int32Conversion.ToInt32(provider) != 42
+                || !"42".equals(int32Conversion.ToDecimal(provider).ToString(provider))
+                || !"42".equals(int32Conversion.ToString(provider))
+                || !"42".equals(int32Formatting.ToString("D", provider))
+                || int32Comparison.CompareTo(new Int32(41)) != 1
+                || !integer.IsInstanceOfType(int32Value)
+                || !convertibleType.IsInstanceOfType(int32Value)) {
+            throw new AssertionError("Selected Int32 conversion behavior changed");
+        }
         if (convertible.GetTypeCode() != TypeCode.Int32
                 || TypeCode.Int32.get_Value() != 9 || TypeCode.String.get_Value() != 18
                 || !Type.GetType("System.TypeCode").get_IsEnum()

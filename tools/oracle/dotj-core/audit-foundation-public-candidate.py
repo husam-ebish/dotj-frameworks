@@ -38,6 +38,9 @@ def main():
         elif name == "System.DateTime":
             assert constructors == ["public System.DateTime(int, int, int);"]
             assert len(upstream["publicConstructors"]) == 17
+        elif name == "System.Int32":
+            assert constructors == ["public System.Int32(int);"]
+            assert len(upstream["publicConstructors"]) == 0
         else:
             assert len(constructors) == len(upstream["publicConstructors"])
         if name == "System.IDisposable":
@@ -120,6 +123,14 @@ def main():
                                     "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 70
             disposition = "PARTIAL_VALUE_SURFACE; selected date construction/properties/text only"
+        elif name == "System.Int32":
+            assert header.startswith("public final class System.Int32")
+            assert "public System.TypeCode GetTypeCode();" in declarations
+            assert "public int ToInt32(System.IFormatProvider);" in declarations
+            assert "public System.Decimal ToDecimal(System.IFormatProvider);" in declarations
+            assert "public int CompareTo(java.lang.Object);" in declarations
+            assert upstream["declaredPublicMethodCount"] == 53
+            disposition = "PARTIAL_VALUE_SURFACE; selected conversion and comparison behavior only"
         else:
             assert header.startswith("public class " + name)
             if name == "System.Exception":
@@ -142,7 +153,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 19
+    assert len(records) == 20
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -161,7 +172,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS nineteen selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS twenty selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":

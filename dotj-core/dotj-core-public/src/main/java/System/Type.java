@@ -482,13 +482,16 @@ public abstract class Type extends MemberInfo {
             return value instanceof MemberTypes || value instanceof TypeCode;
         }
         if (this.definition == IComparable.class) {
-            return value instanceof String;
+            return value instanceof String || value instanceof Int32;
         }
         if (this.definition == IFormattable.class) {
-            return value instanceof Integer;
+            return value instanceof Integer || value instanceof Int32;
         }
         if (this.definition == IConvertible.class) {
-            return value instanceof Integer;
+            return value instanceof Integer || value instanceof Int32;
+        }
+        if (this.definition == Integer.class && value instanceof Int32) {
+            return true;
         }
         if (this.definition == java.lang.reflect.Array.class) {
             return value.getClass().isArray();
