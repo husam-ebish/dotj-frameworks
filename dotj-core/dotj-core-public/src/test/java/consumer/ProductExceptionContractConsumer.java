@@ -6,6 +6,7 @@ import System.Exception;
 import System.SystemException;
 import System.InvalidOperationException;
 import System.Type;
+import org.dotj.internal.throwing.ThrowSite;
 import System.IO.FileLoadException;
 import System.Globalization.CultureNotFoundException;
 
@@ -111,6 +112,18 @@ public final class ProductExceptionContractConsumer {
         }
         if (new Exception("before throw").getStackTrace().length == 0) {
             throw new AssertionError("Java constructor stack boundary changed");
+        }
+        Exception captured = new Exception("capture");
+        if (captured.get_StackTrace() != null) {
+            throw new AssertionError("Selected prethrow stack changed");
+        }
+        try {
+            throw ThrowSite.capture(captured);
+        } catch (Exception caught) {
+            if (caught != captured || caught.get_StackTrace() == null
+                    || !caught.get_StackTrace().contains("ProductExceptionContractConsumer.main")) {
+                throw new AssertionError("Selected throw-site capture changed");
+            }
         }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3

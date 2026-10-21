@@ -18,6 +18,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
+SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/throwing/ThrowSite.java")
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
@@ -63,6 +64,7 @@ EXPECTED_CLASSES = [
     "System/Type.class",
     "System/TypeCode.class",
     "System/TypeLoadException.class",
+    "org/dotj/internal/throwing/ThrowSite.class",
 ]
 
 
