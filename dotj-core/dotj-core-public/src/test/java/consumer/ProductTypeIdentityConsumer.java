@@ -620,6 +620,21 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, \"System.Private.CoreLib\\\\Extra\"") != null) {
             throw new AssertionError("Selected escaped punctuation name resolved");
         }
+        for (String escapedNameAttribute : new String[] {
+                "System.Private.CoreLib\\,Extra, Version=1.2",
+                "\"System.Private.CoreLib\\,Extra\", Version=1.2",
+                "'System.Private.CoreLib\\,Extra', Version=1.2",
+                "System.Private.CoreLib\\,Extra, UnknownAttr=foo"}) {
+            if (Type.GetType("System.String, " + escapedNameAttribute) != string) {
+                throw new AssertionError("Selected escaped name attribute rejected: " + escapedNameAttribute);
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib\\,Extra, Version=banana");
+            throw new AssertionError("Invalid Version after escaped comma accepted");
+        } catch (FileLoadException expected) {
+            // Selected pinned malformed attribute result.
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
