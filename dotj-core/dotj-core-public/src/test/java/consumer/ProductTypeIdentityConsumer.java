@@ -436,6 +436,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"4,200.00 %".equals(int32Value.ToString("P", provider))) {
             throw new AssertionError("Selected Int32 percent format changed");
         }
+        if (!"42".equals(int32Value.ToString("G", provider))
+                || !"42".equals(int32Value.ToString("G5", provider))
+                || !"42".equals(int32Value.ToString("g5", provider))
+                || !"42".equals(int32Value.ToString("G0", provider))
+                || !"-42".equals(new Int32(-42).ToString("G5", provider))) {
+            throw new AssertionError("Selected Int32 general format changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
