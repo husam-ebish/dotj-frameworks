@@ -299,6 +299,15 @@ def main():
         "arrayByRef": {"result": "System.String[]&", "exception": None},
         "byRefPointer": {"result": None, "exception": "System.TypeLoadException"},
     }
+    nested_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedTypeNameBehavior"]
+    assert nested_names == {
+        "pointerArray": {"result": "System.String*[]", "exception": None, "paramName": None},
+        "pointerByRef": {"result": "System.String*&", "exception": None, "paramName": None},
+        "arrayByRef": {"result": "System.String[]&", "exception": None, "paramName": None},
+        "doublePointer": {"result": "System.String**", "exception": None, "paramName": None},
+        "byRefArray": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
+        "byRefArrayThrow": {"result": None, "exception": "System.TypeLoadException", "paramName": None},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
