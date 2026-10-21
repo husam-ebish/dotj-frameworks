@@ -1218,6 +1218,22 @@ var result = new
         fullNameSameReference = ReferenceEquals(type, Type.GetType(type.FullName!)),
         qualifiedSameReference = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
     }).ToArray(),
+    selectedNestedLookupMissBehavior = new[]
+    {
+        "System.Collections.Generic.Dictionary`2+entry",
+        "System.Collections.Generic.Dictionary`2+Missing",
+        "System.Collections.Generic.Dictionary`2+Entry[[System.String, System.Private.CoreLib]]",
+    }.Select(name =>
+    {
+        try
+        {
+            return new { name, outcome = Type.GetType(name, throwOnError: false)?.FullName ?? "null" };
+        }
+        catch (Exception error)
+        {
+            return new { name, outcome = error.GetType().FullName ?? error.GetType().Name };
+        }
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
