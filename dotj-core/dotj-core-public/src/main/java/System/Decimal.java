@@ -114,6 +114,14 @@ public final class Decimal implements IConvertible {
         return new Decimal(result, negativeZero);
     }
 
+    public static Decimal Round(Decimal value) {
+        return Round(value, 0, MidpointRounding.ToEven);
+    }
+
+    public static Decimal Round(Decimal value, MidpointRounding mode) {
+        return Round(value, 0, mode);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

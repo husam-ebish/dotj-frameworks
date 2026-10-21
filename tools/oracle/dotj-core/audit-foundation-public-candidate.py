@@ -146,6 +146,8 @@ def main():
                                     "public static System.Decimal Ceiling(System.Decimal);",
                                     "public static System.Decimal Round(System.Decimal, int);",
                                     "public static System.Decimal Round(System.Decimal, int, System.MidpointRounding);",
+                                    "public static System.Decimal Round(System.Decimal);",
+                                    "public static System.Decimal Round(System.Decimal, System.MidpointRounding);",
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
