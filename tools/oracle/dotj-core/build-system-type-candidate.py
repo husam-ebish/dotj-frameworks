@@ -291,6 +291,10 @@ def main():
     quoted_sections = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32QuotedSectionBehavior"]
     assert quoted_sections == {"positive": "42", "negative": "[42]", "zero": "none",
                                "unsignedNegative": "42", "labeledNegative": "minus 42"}
+    bracket_literals = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32BracketLiteralBehavior"]
+    assert bracket_literals == {"above": "[>=115]0", "boundary": "[>=110]0",
+                                "below": "[>=104]2", "negative": "[<4]neg 2",
+                                "zero": "small 0"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
