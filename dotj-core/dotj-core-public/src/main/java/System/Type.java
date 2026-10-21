@@ -151,6 +151,10 @@ public abstract class Type extends MemberInfo {
     }
 
     private static Type resolveSelectedCoreLibGeneric(String name, boolean ignoreCase) {
+        if (name.endsWith("&")) {
+            Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 1), ignoreCase);
+            return element == null ? null : element.MakeByRefType();
+        }
         if (name.endsWith("[]")) {
             Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 2), ignoreCase);
             return element == null ? null : element.MakeArrayType();
