@@ -383,6 +383,16 @@ def main():
         "sbyteToByte": "System.OverflowException",
         "byteToDateTime": "System.InvalidCastException",
     }
+    byte_to_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedByteToTypeContractBehavior"]
+    assert byte_to_type == {
+        "byteSelf": "System.Byte", "sbyteSelf": "System.SByte",
+        "byteInt": 200, "sbyteInt": -5,
+        "byteString": "200", "sbyteString": "-5",
+        "byteDecimal": "200", "sbyteDecimal": "-5",
+        "byteToSByte": "System.OverflowException",
+        "sbyteToByte": "System.OverflowException",
+        "byteNull": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
