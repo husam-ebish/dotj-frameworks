@@ -183,10 +183,28 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public String ToString(String format, IFormatProvider provider) {
-        if (format != null && !format.isEmpty() && !format.equals("D")) {
-            throw new UnsupportedOperationException("Int32 format is not mapped");
+        if (format == null || format.isEmpty() || format.equals("D")) {
+            return Integer.toString(this.value);
         }
-        return Integer.toString(this.value);
+        if (format.matches("[dD][0-9]+")) {
+            int precision = Integer.parseInt(format.substring(1));
+            if (precision > 1000) {
+                throw new UnsupportedOperationException("Int32 precision is not mapped");
+            }
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            String sign = this.value < 0 ? "-" : "";
+            return sign + "0".repeat(Math.max(0, precision - digits.length())) + digits;
+        }
+        if (format.matches("[xX][0-9]*")) {
+            int precision = format.length() == 1 ? 0 : Integer.parseInt(format.substring(1));
+            if (precision > 1000) {
+                throw new UnsupportedOperationException("Int32 precision is not mapped");
+            }
+            String digits = Integer.toHexString(this.value);
+            String value = "0".repeat(Math.max(0, precision - digits.length())) + digits;
+            return format.charAt(0) == 'X' ? value.toUpperCase(java.util.Locale.ROOT) : value;
+        }
+        throw new UnsupportedOperationException("Int32 format is not mapped");
     }
 
     @Override

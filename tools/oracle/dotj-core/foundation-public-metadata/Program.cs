@@ -396,6 +396,14 @@ var result = new
         formattedText = ((IFormattable)42).ToString("D", System.Globalization.CultureInfo.InvariantCulture),
         compareTo41 = ((IComparable)42).CompareTo(41),
     },
+    selectedInt32FormatBehavior = new
+    {
+        decimal5 = ((IFormattable)42).ToString("D5", System.Globalization.CultureInfo.InvariantCulture),
+        hexUpper4 = ((IFormattable)42).ToString("X4", System.Globalization.CultureInfo.InvariantCulture),
+        hexLower4 = ((IFormattable)42).ToString("x4", System.Globalization.CultureInfo.InvariantCulture),
+        negativeDecimal5 = ((IFormattable)(-42)).ToString("D5", System.Globalization.CultureInfo.InvariantCulture),
+        negativeHex = ((IFormattable)(-1)).ToString("X", System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32ConversionErrors = new
     {
         byteOverflow = ObserveInt32Error(() => ((IConvertible)300)

@@ -206,6 +206,10 @@ def main():
     assert int32 == {"typeCode": "Int32", "booleanValue": True,
                      "charValue": "*", "intValue": 42, "decimalText": "42",
                      "text": "42", "formattedText": "42", "compareTo41": 1}
+    formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32FormatBehavior"]
+    assert formats == {"decimal5": "00042", "hexUpper4": "002A",
+                       "hexLower4": "002a", "negativeDecimal5": "-00042",
+                       "negativeHex": "FFFFFFFF"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
