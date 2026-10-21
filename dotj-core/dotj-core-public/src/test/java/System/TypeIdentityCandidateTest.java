@@ -55,6 +55,12 @@ public final class TypeIdentityCandidateTest {
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
         Type closedEntry = nestedEntry.MakeGenericType(new Type[] {string, integer});
         Type closedEntryArray = closedEntry.MakeArrayType();
+        Type closedEntryRectangle = closedEntry.MakeArrayType(2);
+        if (Type.GetType(closedEntryRectangle.get_FullName()) != closedEntryRectangle
+                || Type.GetType(closedEntryRectangle.get_AssemblyQualifiedName())
+                        != closedEntryRectangle) {
+            throw new AssertionError("Constructed nested rectangular lookup changed");
+        }
         if (Type.GetType(closedEntryArray.get_FullName()) != closedEntryArray
                 || Type.GetType(closedEntryArray.get_AssemblyQualifiedName()) != closedEntryArray) {
             throw new AssertionError("Constructed nested array lookup changed");

@@ -155,6 +155,10 @@ public abstract class Type extends MemberInfo {
             Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 2), ignoreCase);
             return element == null ? null : element.MakeArrayType();
         }
+        if (name.endsWith("[,]")) {
+            Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 3), ignoreCase);
+            return element == null ? null : element.MakeArrayType(2);
+        }
         int start = name.indexOf("[[");
         if (start < 0 || !name.endsWith("]]")) {
             return null;
