@@ -963,6 +963,14 @@ public abstract class Type extends MemberInfo {
         return false;
     }
 
+    public boolean get_IsFunctionPointer() {
+        return false;
+    }
+
+    public boolean get_IsUnmanagedFunctionPointer() {
+        return false;
+    }
+
     @Override
     public MemberTypes get_MemberType() {
         return MemberTypes.TypeInfo;

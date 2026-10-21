@@ -187,7 +187,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "e9a6630dfdae601eceee04cf5f9f23f85f5721a52147df85577194993247ebdd",
+  "sourceSha256": "e50bcbe140be89983bdb13c1af1a2566b17957f606e404937dce61fbd8b570f4",
   "idisposableSourceSha256": "03e7907bdd9aeb3d00e1c58a793446bea5baaf7174e544ba505a220e898da140",
   "icomparableSourceSha256": "6bcbfe9ce519dce4068cb4531bb3dbc3f044b4c9925d011016405e66b2cccc95",
   "iformattableSourceSha256": "5f594291b15b45d4f82e4dfb54a96a6dfdcef3e25fcb5ffcb1ad38eca791fd97",
@@ -290,7 +290,7 @@
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
-  "testSha256": "a40b3de0f703613b7ec1e53f5b353514eeb39c7ea252d2caff9c97bb0309d3ad",
+  "testSha256": "cc890a0069ca10c7c996d432538de9952b9e4c61b6711a1919f2d3eb92806c6b",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
   "externalConsumerSha256": "6892386892de73b6282e15c626cbc2427058b55b1f4f133dbefaef2e3440472a",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
@@ -339,6 +339,8 @@
     "public boolean get_IsContextful();",
     "public boolean get_IsMarshalByRef();",
     "public boolean get_IsSignatureType();",
+    "public boolean get_IsFunctionPointer();",
+    "public boolean get_IsUnmanagedFunctionPointer();",
     "public System.Reflection.MemberTypes get_MemberType();",
     "public boolean get_IsVisible();",
     "public boolean get_IsClass();",

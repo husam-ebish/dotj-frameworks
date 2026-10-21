@@ -58,6 +58,16 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Selected Type interop flags changed");
             }
         }
+        for (Type pointerKind : new Type[] {string, integer,
+                Type.fromJavaClass(TypeCode.class), Type.fromJavaClass(IDisposable.class),
+                Type.fromJavaClass(List.class),
+                Type.fromJavaClass(List.class).GetGenericArguments()[0],
+                string.MakeArrayType(), string.MakePointerType()}) {
+            if (pointerKind.get_IsFunctionPointer()
+                    || pointerKind.get_IsUnmanagedFunctionPointer()) {
+                throw new AssertionError("Selected function-pointer flags changed");
+            }
+        }
         if (string.get_IsSpecialName()
                 || Type.fromJavaClass(TypeCode.class).get_IsSpecialName()
                 || Type.fromJavaClass(List.class).get_IsSpecialName()

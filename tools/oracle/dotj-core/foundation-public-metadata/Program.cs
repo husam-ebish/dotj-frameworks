@@ -762,6 +762,14 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedFunctionPointerFlagBehavior = new[]
+    {
+        typeof(string), typeof(int), typeof(TypeCode), typeof(IDisposable),
+        typeof(List<>), typeof(List<>).GetGenericArguments()[0],
+        typeof(string[]), typeof(string).MakePointerType(),
+    }.Select(type => new { name = type.FullName ?? type.Name,
+        isFunctionPointer = type.IsFunctionPointer,
+        isUnmanagedFunctionPointer = type.IsUnmanagedFunctionPointer }).ToArray(),
     selectedInteropTypeFlagBehavior = new[]
     {
         typeof(string), typeof(int), typeof(Type), typeof(Exception),
