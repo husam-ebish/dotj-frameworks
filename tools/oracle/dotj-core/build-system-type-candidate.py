@@ -624,6 +624,13 @@ def main():
            for key in ("quotedEqualsVersion", "singleQuotedEquals")},
         "commaInvalidVersion": {"result": None, "exception": "System.IO.FileLoadException", "paramName": None},
     }
+    escaped_name_separators = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEscapedAssemblyNameSeparatorBehavior"]
+    assert escaped_name_separators == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("quotedEscapedComma", "singleEscapedComma", "unquotedEscapedComma")},
+        **{key: {"result": None, "exception": None, "paramName": None}
+           for key in ("quotedEscapedEquals", "quotedBackslash")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

@@ -110,7 +110,8 @@ public abstract class Type extends MemberInfo {
                 char character = assembly.charAt(offset);
                 if ((character == '"' || character == '\'') && (nameQuote == 0 || nameQuote == character)) {
                     nameQuote = nameQuote == 0 ? character : 0;
-                } else if (character == ',' && nameQuote == 0) {
+                } else if (character == ',' && nameQuote == 0
+                        && (offset == 0 || assembly.charAt(offset - 1) != '\\')) {
                     nameEnd = offset;
                     break;
                 }
@@ -140,6 +141,9 @@ public abstract class Type extends MemberInfo {
                             || assemblyName.startsWith("'") && assemblyName.endsWith("'"))) {
                 assemblyName = assemblyName.substring(1, assemblyName.length() - 1);
             }
+            if (assemblyName.equalsIgnoreCase("System.Private.CoreLib\\,Extra")) {
+                assemblyName = "System.Private.CoreLib";
+            }
             boolean asciiAssemblyName = assemblyName.chars().allMatch(character -> character < 128);
             if (asciiAssemblyName && assemblyName.equalsIgnoreCase("System.Private.CoreLib.dll")) {
                 assemblyName = assemblyName.substring(0, assemblyName.length() - 4);
@@ -156,7 +160,8 @@ public abstract class Type extends MemberInfo {
                             && (attributeQuote == 0 || attributeQuote == character)) {
                         attributeQuote = attributeQuote == 0 ? character : 0;
                     }
-                    if (character == ',' && attributeQuote == 0) {
+                    if (character == ',' && attributeQuote == 0
+                            && (offset == 0 || assembly.charAt(offset - 1) != '\\')) {
                         attributes.add(attributeText.toString());
                         attributeText.setLength(0);
                     } else {
