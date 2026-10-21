@@ -346,6 +346,16 @@ def main():
         ("System.IFormattable", "ToString", {"name": "", "type": "System.String", "position": -1}),
         ("System.IFormatProvider", "GetFormat", {"name": None, "type": "System.Object", "position": -1}),
     ]
+    parameter_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterMemberBehavior"]
+    assert [(row["owner"], row["name"], len(row["parameterMembers"]))
+            for row in parameter_members] == [
+        ("System.IDisposable", "Dispose", 0), ("System.IComparable", "CompareTo", 1),
+        ("System.IFormattable", "ToString", 2), ("System.IFormatProvider", "GetFormat", 1),
+    ]
+    assert all(row["returnMember"] == row["name"] and row["returnSameReference"]
+               and all(parameter == {"name": row["name"], "sameReference": True}
+                       for parameter in row["parameterMembers"])
+               for row in parameter_members)
     parameter_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterFlagBehavior"]
     assert [len(row["parameters"]) for row in parameter_flags] == [1, 2, 3, 2]
     assert [row["parameters"][-1]["position"] for row in parameter_flags] == [-1] * 4

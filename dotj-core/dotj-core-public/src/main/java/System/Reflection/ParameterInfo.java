@@ -9,11 +9,13 @@ public class ParameterInfo {
     private final String name;
     private final Type parameterType;
     private final int position;
+    private final MemberInfo member;
 
-    protected ParameterInfo(String name, Type parameterType, int position) {
+    protected ParameterInfo(String name, Type parameterType, int position, MemberInfo member) {
         this.name = name;
         this.parameterType = parameterType;
         this.position = position;
+        this.member = member;
     }
 
     public String get_Name() {
@@ -26,6 +28,10 @@ public class ParameterInfo {
 
     public int get_Position() {
         return this.position;
+    }
+
+    public MemberInfo get_Member() {
+        return this.member;
     }
 
     public boolean get_IsOptional() {

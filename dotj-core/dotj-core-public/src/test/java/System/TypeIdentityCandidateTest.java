@@ -264,6 +264,7 @@ public final class TypeIdentityCandidateTest {
                 // Pinned nongeneric operation error.
             }
             if (returnParameter.get_ParameterType() != interfaceMethodReturns[index]
+                    || returnParameter.get_Member() != namedMethod
                     || returnParameter.get_Position() != -1
                     || returnParameter.get_IsOptional()
                     || returnParameter.get_HasDefaultValue()
@@ -284,6 +285,7 @@ public final class TypeIdentityCandidateTest {
             for (int parameterIndex = 0; parameterIndex < parameters.length; parameterIndex++) {
                 if (!interfaceParameterNames[index][parameterIndex]
                         .equals(parameters[parameterIndex].get_Name())
+                        || parameters[parameterIndex].get_Member() != namedMethod
                         || parameters[parameterIndex].get_ParameterType()
                             != interfaceMethodParameters[index][parameterIndex]
                         || parameters[parameterIndex].get_Position() != parameterIndex) {
