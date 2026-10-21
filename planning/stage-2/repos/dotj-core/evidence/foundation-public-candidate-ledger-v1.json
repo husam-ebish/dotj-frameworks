@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "af816c572dbefe4d644abff79c111c538633c5286549804265ae539aa2488f52",
+  "candidateJarSha256": "12b5af0e1a9ed28edafd189bdffc063ebf8a369e414ab017731ecabe82ac86f5",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -837,7 +837,7 @@
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 0,
       "javaPublicConstructors": 0,
-      "javaPublicHeader": "public final class System.Globalization.NumberStyles extends java.lang.Enum<System.Globalization.NumberStyles> {",
+      "javaPublicHeader": "public final class System.Globalization.NumberStyles {",
       "javaPublicDeclarations": [
         "public static final System.Globalization.NumberStyles None;",
         "public static final System.Globalization.NumberStyles AllowLeadingWhite;",
@@ -858,11 +858,14 @@
         "public static final System.Globalization.NumberStyles HexNumber;",
         "public static final System.Globalization.NumberStyles AllowBinarySpecifier;",
         "public static final System.Globalization.NumberStyles BinaryNumber;",
+        "public int get_Value();",
+        "public java.lang.String get_Name();",
+        "public System.Globalization.NumberStyles Or(System.Globalization.NumberStyles);",
         "public static System.Globalization.NumberStyles[] values();",
-        "public static System.Globalization.NumberStyles valueOf(java.lang.String);",
-        "public int get_Value();"
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();"
       ],
-      "disposition": "SELECTED_ENUM_VALUES; Java enum differs from CLR flags enum",
+      "disposition": "SELECTED_FLAG_VALUES; immutable Java carrier plus Type enum projection; CLR ABI open",
       "qualified": false
     }
   ],

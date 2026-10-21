@@ -287,6 +287,31 @@ def main():
         {"text": text, "success": error is None, "value": value, "error": error}
         for text, value, error in zip(any_texts, any_values, any_errors)
     ]
+    combined_styles = {
+        "signThousands": (
+            68, ["~12_345", "12_345", " 12_345", "12_345~", "12_345:00", "plus12_345"],
+            [-12345, 12345, 0, 0, 0, 12345],
+            [None, None, "Format", "Format", "Format", None]),
+        "paddedThousands": (
+            67, [" 12_345 ", "~12_345", "12_345", "12_345:00"],
+            [12345, 0, 12345, 0], [None, "Format", None, "Format"]),
+        "decimalExponent": (
+            160, ["4:2e1", "420e~1", "~4:2e1", " 42", "4:2e0", "42", "12_345"],
+            [42, 42, 0, 0, 0, 42, 0],
+            [None, None, "Format", "Format", "Overflow", None, "Format"]),
+    }
+    assert metadata["selectedInt32CombinedStyles"] == {
+        key: value
+        for name, (flags, texts, values, errors) in combined_styles.items()
+        for key, value in (
+            (name + "Value", flags),
+            (name, [
+                {"text": text, "success": error is None, "value": value,
+                 "error": None if error is None else f"System.{error}Exception"}
+                for text, value, error in zip(texts, values, errors)
+            ]),
+        )
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,

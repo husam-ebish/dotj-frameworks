@@ -222,10 +222,14 @@ def main():
             assert "public java.lang.String get_InvalidCultureName();" in declarations
             disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; culture semantics and exact messages open"
         elif name == "System.Globalization.NumberStyles":
-            assert "extends java.lang.Enum<System.Globalization.NumberStyles>" in header
+            assert header == "public final class System.Globalization.NumberStyles {"
             assert "public int get_Value();" in declarations
+            assert "public System.Globalization.NumberStyles Or(System.Globalization.NumberStyles);" in declarations
+            assert "public static System.Globalization.NumberStyles[] values();" in declarations
+            assert sum(line.startswith("public static final System.Globalization.NumberStyles ")
+                       for line in declarations) == 19
             assert upstream["declaredPublicMethodCount"] == 0
-            disposition = "SELECTED_ENUM_VALUES; Java enum differs from CLR flags enum"
+            disposition = "SELECTED_FLAG_VALUES; immutable Java carrier plus Type enum projection; CLR ABI open"
         else:
             assert header.startswith("public class " + name)
             if name == "System.Exception":

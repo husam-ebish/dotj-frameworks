@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "d0497d4a86370d7eabbbcc7a7f3cd07c28a77ec1a279212498f7fa91d1e5a8cd",
+  "oracleEvidenceSha256": "66ff9a8f0795e1255b1d55421ebd956a1fa7017c01c123ea9b912e87f5083805",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "9bc0b06222496f802e3dba1013a35fc13e98cd14d2ebbf267073f4dbf3790314",
+  "javaCandidateEvidenceSha256": "5f91a9fa81199a4ab704dc008f0c782448288d6d669b03c6382c399dfdcd919c",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 113,
   "nameLevelMissingPublicGetterCount": 33,
@@ -13500,7 +13500,7 @@
         "events": [],
         "nestedPublicTypes": []
       },
-      "javaCandidatePublicHeader": "public final class System.Globalization.NumberStyles extends java.lang.Enum<System.Globalization.NumberStyles> {",
+      "javaCandidatePublicHeader": "public final class System.Globalization.NumberStyles {",
       "javaCandidateDeclaredPublicDeclarations": [
         "public static final System.Globalization.NumberStyles None;",
         "public static final System.Globalization.NumberStyles AllowLeadingWhite;",
@@ -13521,15 +13521,21 @@
         "public static final System.Globalization.NumberStyles HexNumber;",
         "public static final System.Globalization.NumberStyles AllowBinarySpecifier;",
         "public static final System.Globalization.NumberStyles BinaryNumber;",
+        "public int get_Value();",
+        "public java.lang.String get_Name();",
+        "public System.Globalization.NumberStyles Or(System.Globalization.NumberStyles);",
         "public static System.Globalization.NumberStyles[] values();",
-        "public static System.Globalization.NumberStyles valueOf(java.lang.String);",
-        "public int get_Value();"
+        "public boolean equals(java.lang.Object);",
+        "public int hashCode();"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {},
         "javaCandidateDeclaredMethodOverloads": {
+          "Or": 1,
+          "equals": 1,
+          "get_Name": 1,
           "get_Value": 1,
-          "valueOf": 1,
+          "hashCode": 1,
           "values": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [],

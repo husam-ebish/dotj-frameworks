@@ -76,4 +76,6 @@ The named `NumberStyles.Currency` path now handles selected symbol placement, pa
 
 The named `NumberStyles.Any` path now combines selected currency and number separator rules with decimal, exponent, sign, grouping and parentheses parsing. Seventeen pinned .NET 10 vectors run through packaged string and both span carriers, with fractional overflow cases checked by exception type. Arbitrary composed flags and broader culture behavior remain open.
 
+The `NumberStyles` Java carrier now represents unnamed bitwise combinations through `Or`, while retaining the named values and the selected `System.Type` enum projection. Three composed styles with flag values 68, 67 and 160 have seventeen pinned .NET 10 parse vectors across packaged string and both span carriers. Other flag combinations and the complete CLR enum ABI remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

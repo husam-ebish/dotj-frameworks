@@ -23101,6 +23101,119 @@
       "error": null
     }
   ],
+  "selectedInt32CombinedStyles": {
+    "signThousandsValue": 68,
+    "signThousands": [
+      {
+        "text": "~12_345",
+        "success": true,
+        "value": -12345,
+        "error": null
+      },
+      {
+        "text": "12_345",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": " 12_345",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12_345~",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12_345:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "plus12_345",
+        "success": true,
+        "value": 12345,
+        "error": null
+      }
+    ],
+    "paddedThousandsValue": 67,
+    "paddedThousands": [
+      {
+        "text": " 12_345 ",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "~12_345",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12_345",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "12_345:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ],
+    "decimalExponentValue": 160,
+    "decimalExponent": [
+      {
+        "text": "4:2e1",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "420e~1",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "~4:2e1",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": " 42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "4:2e0",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      },
+      {
+        "text": "42",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "12_345",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ]
+  },
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -26436,6 +26549,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "a0cce4ab4adf151bd24c5c8e870a7d14dd50b38b7afb3de5c77d7ce69df6f66b",
+  "oracleProgramSha256": "34ba369092a10698e6d725732bff86d70747531224796b0b338a5ef09cf071a5",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

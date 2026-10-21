@@ -278,6 +278,42 @@ public final class ProductInt32SpanConsumer {
         checkSingleStyles(numberStyle);
         checkCurrencyStyle();
         checkAnyStyle();
+        checkCombinedStyles(numberStyle);
+    }
+
+    private static void checkCombinedStyles(NumberFormatInfo provider) {
+        NumberStyles signThousands = NumberStyles.AllowLeadingSign.Or(
+                NumberStyles.AllowThousands);
+        NumberStyles paddedThousands = NumberStyles.AllowLeadingWhite.Or(
+                NumberStyles.AllowTrailingWhite).Or(NumberStyles.AllowThousands);
+        NumberStyles decimalExponent = NumberStyles.AllowDecimalPoint.Or(
+                NumberStyles.AllowExponent);
+        if (signThousands.get_Value() != 68 || paddedThousands.get_Value() != 67
+                || decimalExponent.get_Value() != 160
+                || !signThousands.equals(NumberStyles.AllowThousands.Or(
+                        NumberStyles.AllowLeadingSign))
+                || signThousands.hashCode() != NumberStyles.AllowThousands.Or(
+                        NumberStyles.AllowLeadingSign).hashCode()
+                || NumberStyles.AllowLeadingWhite.Or(NumberStyles.AllowTrailingWhite)
+                .Or(NumberStyles.AllowLeadingSign) != NumberStyles.Integer) {
+            throw new AssertionError("NumberStyles flag composition changed");
+        }
+        checkSingleStyleVectors(signThousands, provider,
+                new String[] {"~12_345", "12_345", " 12_345", "12_345~",
+                        "12_345:00", "plus12_345"},
+                new int[] {-12345, 12345, 0, 0, 0, 12345},
+                new Class<?>[] {null, null, FormatException.class, FormatException.class,
+                        FormatException.class, null});
+        checkSingleStyleVectors(paddedThousands, provider,
+                new String[] {" 12_345 ", "~12_345", "12_345", "12_345:00"},
+                new int[] {12345, 0, 12345, 0},
+                new Class<?>[] {null, FormatException.class, null, FormatException.class});
+        checkSingleStyleVectors(decimalExponent, provider,
+                new String[] {"4:2e1", "420e~1", "~4:2e1", " 42", "4:2e0",
+                        "42", "12_345"},
+                new int[] {42, 42, 0, 0, 0, 42, 0},
+                new Class<?>[] {null, null, FormatException.class, FormatException.class,
+                        OverflowException.class, null, FormatException.class});
     }
 
     private static void checkAnyStyle() {
