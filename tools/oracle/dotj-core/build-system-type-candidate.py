@@ -332,6 +332,14 @@ def main():
         ("System.IFormatProvider", "GetFormat", [
             {"name": "formatType", "type": "System.Type", "position": 0}]),
     ]
+    return_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedReturnParameterBehavior"]
+    assert [(row["owner"], row["name"], row["parameter"])
+            for row in return_parameters] == [
+        ("System.IDisposable", "Dispose", {"name": None, "type": "System.Void", "position": -1}),
+        ("System.IComparable", "CompareTo", {"name": None, "type": "System.Int32", "position": -1}),
+        ("System.IFormattable", "ToString", {"name": "", "type": "System.String", "position": -1}),
+        ("System.IFormatProvider", "GetFormat", {"name": None, "type": "System.Object", "position": -1}),
+    ]
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

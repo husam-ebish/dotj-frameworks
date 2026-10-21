@@ -162,6 +162,14 @@ public final class TypeIdentityCandidateTest {
                     || owner.GetMethod("Missing") != null) {
                 throw new AssertionError("Selected typed method-name lookup changed");
             }
+            ParameterInfo returnParameter = namedMethod.get_ReturnParameter();
+            if (returnParameter.get_ParameterType() != interfaceMethodReturns[index]
+                    || returnParameter.get_Position() != -1
+                    || !java.util.Objects.equals(returnParameter.get_Name(),
+                        index == 2 ? "" : null)
+                    || returnParameter == namedMethod.get_ReturnParameter()) {
+                throw new AssertionError("Selected return parameter metadata changed");
+            }
             ParameterInfo[] parameters = namedMethod.GetParameters();
             if (parameters.length != interfaceMethodParameters[index].length
                     || parameters == namedMethod.GetParameters()) {

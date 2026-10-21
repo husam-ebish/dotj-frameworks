@@ -10,4 +10,6 @@ public abstract class MethodInfo extends MethodBase {
     }
 
     public abstract Type get_ReturnType();
+
+    public abstract ParameterInfo get_ReturnParameter();
 }

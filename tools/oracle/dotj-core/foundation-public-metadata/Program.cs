@@ -1007,6 +1007,14 @@ var result = new
                     type = parameter.ParameterType.FullName, position = parameter.Position })
                 .ToArray() }).ToArray(),
     },
+    selectedReturnParameterBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        parameter = new { name = item.Item1.GetMethod(item.Item2)!.ReturnParameter.Name,
+            type = item.Item1.GetMethod(item.Item2)!.ReturnParameter.ParameterType.FullName,
+            position = item.Item1.GetMethod(item.Item2)!.ReturnParameter.Position } }).ToArray(),
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
