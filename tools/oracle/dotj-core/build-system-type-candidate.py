@@ -271,6 +271,12 @@ def main():
     assert nested_constructed[0]["isConstructed"]
     assert nested_constructed[0]["definition"] == "System.Collections.Generic.Dictionary`2+Entry"
     assert nested_constructed[0]["arguments"] == ["System.String", "System.Int32"]
+    nested_constructed_lookup = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedConstructedLookupBehavior"]
+    assert len(nested_constructed_lookup) == 1
+    assert nested_constructed_lookup[0]["name"].startswith(
+        "System.Collections.Generic.Dictionary`2+Entry[[System.String,")
+    assert nested_constructed_lookup[0]["fullNameSameReference"]
+    assert nested_constructed_lookup[0]["qualifiedSameReference"]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",

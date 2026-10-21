@@ -54,6 +54,10 @@ public final class TypeIdentityCandidateTest {
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
         Type closedEntry = nestedEntry.MakeGenericType(new Type[] {string, integer});
+        if (Type.GetType(closedEntry.get_FullName()) != closedEntry
+                || Type.GetType(closedEntry.get_AssemblyQualifiedName()) != closedEntry) {
+            throw new AssertionError("Constructed nested Type lookup changed");
+        }
         if (closedEntry != nestedEntry.MakeGenericType(new Type[] {string, integer})
                 || closedEntry.GetGenericTypeDefinition() != nestedEntry
                 || !closedEntry.get_IsConstructedGenericType()

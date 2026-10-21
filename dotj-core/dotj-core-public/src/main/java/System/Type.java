@@ -163,6 +163,8 @@ public abstract class Type extends MemberInfo {
         int arity = switch (selectedDefinition) {
             case "System.Collections.Generic.List`1", "system.collections.generic.list`1" -> 1;
             case "System.Collections.Generic.Dictionary`2", "system.collections.generic.dictionary`2" -> 2;
+            case "System.Collections.Generic.Dictionary`2+Entry",
+                    "system.collections.generic.dictionary`2+entry" -> 2;
             default -> 0;
         };
         if (arity == 0) {
@@ -209,7 +211,10 @@ public abstract class Type extends MemberInfo {
             arguments[index] = argument;
         }
         String canonicalDefinitionName = arity == 1
-                ? "System.Collections.Generic.List`1" : "System.Collections.Generic.Dictionary`2";
+                ? "System.Collections.Generic.List`1"
+                : selectedDefinition.endsWith("+Entry") || selectedDefinition.endsWith("+entry")
+                        ? "System.Collections.Generic.Dictionary`2+Entry"
+                        : "System.Collections.Generic.Dictionary`2";
         return GetType(canonicalDefinitionName).MakeGenericType(arguments);
     }
 
