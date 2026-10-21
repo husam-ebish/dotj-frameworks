@@ -3,15 +3,22 @@
 package System;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
 public final class DateTime implements IConvertible {
-    private final LocalDate date;
+    private final LocalDateTime date;
 
     public DateTime(int year, int month, int day) {
-        this.date = LocalDate.of(year, month, day);
+        this.date = LocalDate.of(year, month, day).atStartOfDay();
+    }
+
+    public DateTime(int year, int month, int day, int hourOfDay,
+                    int minuteOfHour, int secondOfMinute) {
+        this.date = LocalDateTime.of(year, month, day,
+                hourOfDay, minuteOfHour, secondOfMinute);
     }
 
     public static DateTime Parse(String text) {
@@ -19,10 +26,16 @@ public final class DateTime implements IConvertible {
             throw new ArgumentNullException("s");
         }
         try {
-            LocalDate parsed = LocalDate.parse(text.strip(), DateTimeFormatter.ISO_LOCAL_DATE);
-            return new DateTime(parsed.getYear(), parsed.getMonthValue(), parsed.getDayOfMonth());
+            LocalDateTime parsed = LocalDateTime.parse(text.strip(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+            return new DateTime(parsed.getYear(), parsed.getMonthValue(), parsed.getDayOfMonth(),
+                    parsed.getHour(), parsed.getMinute(), parsed.getSecond());
         } catch (DateTimeParseException ignored) {
-            throw new FormatException("Input string was not in a correct format");
+            try {
+                LocalDate parsed = LocalDate.parse(text.strip(), DateTimeFormatter.ISO_LOCAL_DATE);
+                return new DateTime(parsed.getYear(), parsed.getMonthValue(), parsed.getDayOfMonth());
+            } catch (DateTimeParseException invalid) {
+                throw new FormatException("Input string was not in a correct format");
+            }
         }
     }
 
@@ -36,6 +49,18 @@ public final class DateTime implements IConvertible {
 
     public int get_Day() {
         return this.date.getDayOfMonth();
+    }
+
+    public int get_Hour() {
+        return this.date.getHour();
+    }
+
+    public int get_Minute() {
+        return this.date.getMinute();
+    }
+
+    public int get_Second() {
+        return this.date.getSecond();
     }
 
     @Override
@@ -110,13 +135,15 @@ public final class DateTime implements IConvertible {
 
     @Override
     public DateTime ToDateTime(IFormatProvider provider) {
-        return new DateTime(this.get_Year(), this.get_Month(), this.get_Day());
+        return new DateTime(this.get_Year(), this.get_Month(), this.get_Day(),
+                this.get_Hour(), this.get_Minute(), this.get_Second());
     }
 
     @Override
     public String ToString(IFormatProvider provider) {
-        return String.format(java.util.Locale.ROOT, "%02d/%02d/%04d 00:00:00",
-                this.get_Month(), this.get_Day(), this.get_Year());
+        return String.format(java.util.Locale.ROOT, "%02d/%02d/%04d %02d:%02d:%02d",
+                this.get_Month(), this.get_Day(), this.get_Year(),
+                this.get_Hour(), this.get_Minute(), this.get_Second());
     }
 
     @Override
@@ -134,9 +161,12 @@ public final class DateTime implements IConvertible {
     }
 
     public String ToString(String format, IFormatProvider provider) {
-        if (!"yyyy-MM-dd".equals(format)) {
-            throw new UnsupportedOperationException("DateTime format is not mapped for this candidate");
+        if ("yyyy-MM-dd".equals(format)) {
+            return this.date.format(DateTimeFormatter.ISO_LOCAL_DATE);
         }
-        return this.date.format(DateTimeFormatter.ISO_LOCAL_DATE);
+        if ("yyyy-MM-dd HH:mm:ss".equals(format)) {
+            return this.date.format(DateTimeFormatter.ofPattern(format, java.util.Locale.ROOT));
+        }
+        throw new UnsupportedOperationException("DateTime format is not mapped for this candidate");
     }
 }

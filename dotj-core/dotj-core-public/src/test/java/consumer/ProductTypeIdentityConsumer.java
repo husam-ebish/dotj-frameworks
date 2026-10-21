@@ -2021,6 +2021,17 @@ public final class ProductTypeIdentityConsumer {
                 || !convertibleType.IsInstanceOfType(42)) {
             throw new AssertionError("Selected IConvertible contract changed");
         }
+        DateTime timed = new DateTime(2026, 1, 2, 3, 4, 5);
+        DateTime timedParsed = DateTime.Parse("2026-01-02T03:04:05");
+        if (timed.get_Hour() != 3 || timed.get_Minute() != 4 || timed.get_Second() != 5
+                || !"2026-01-02 03:04:05".equals(
+                        timed.ToString("yyyy-MM-dd HH:mm:ss", provider))
+                || !"2026-01-02 03:04:05".equals(
+                        timedParsed.ToString("yyyy-MM-dd HH:mm:ss", provider))
+                || timed.ToDateTime(provider) == timed
+                || timed.ToDateTime(provider).get_Second() != 5) {
+            throw new AssertionError("Selected DateTime time-of-day changed");
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition

@@ -1799,6 +1799,21 @@ static object ObserveInt32BinaryStyle()
         tryPrefix = int.TryParse("0b101010", style, invariant, out _),
     };
 }
+static object ObserveDateTimeTimeOfDay()
+{
+    var invariant = System.Globalization.CultureInfo.InvariantCulture;
+    var constructed = new DateTime(2026, 1, 2, 3, 4, 5);
+    var parsed = DateTime.Parse("2026-01-02T03:04:05", invariant);
+    return new
+    {
+        constructedHour = constructed.Hour,
+        constructedMinute = constructed.Minute,
+        constructedSecond = constructed.Second,
+        constructedText = constructed.ToString("yyyy-MM-dd HH:mm:ss", invariant),
+        parsedText = parsed.ToString("yyyy-MM-dd HH:mm:ss", invariant),
+        convertedSame = ((IConvertible)constructed).ToDateTime(invariant) == constructed,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1988,6 +2003,7 @@ var result = new
     selectedDecimalGroupedTextBehavior = ObserveDecimalGroupedText(),
     selectedInt32NoneStyleBehavior = ObserveInt32NoneStyle(),
     selectedInt32BinaryStyleBehavior = ObserveInt32BinaryStyle(),
+    selectedDateTimeTimeOfDayBehavior = ObserveDateTimeTimeOfDay(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
