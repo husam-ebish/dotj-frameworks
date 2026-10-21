@@ -33,7 +33,7 @@ def main():
         declarations = [line for line in lines if line.startswith("public ") and line.endswith(";")]
         constructors = [line for line in declarations if line.startswith("public " + name + "(")]
         if name == "System.Decimal":
-            assert constructors == ["public System.Decimal(int);"]
+            assert constructors == ["public System.Decimal(int);", "public System.Decimal(long);"]
             assert len(upstream["publicConstructors"]) == 9
         elif name == "System.DateTime":
             assert constructors == ["public System.DateTime(int, int, int);"]
@@ -133,10 +133,10 @@ def main():
             disposition = "SELECTED_ENUM_VALUES; Java enum differs from CLR Enum"
         elif name == "System.Decimal":
             assert header == "public final class System.Decimal {"
-            assert declarations == ["public System.Decimal(int);",
+            assert declarations == ["public System.Decimal(int);", "public System.Decimal(long);",
                                     "public java.lang.String ToString(System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 78
-            disposition = "PARTIAL_VALUE_SURFACE; integer construction and invariant text only"
+            disposition = "PARTIAL_VALUE_SURFACE; int/long construction and invariant text only"
         elif name == "System.DateTime":
             assert header == "public final class System.DateTime {"
             assert declarations == ["public System.DateTime(int, int, int);",

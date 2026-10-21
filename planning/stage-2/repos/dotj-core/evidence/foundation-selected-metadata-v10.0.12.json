@@ -690,6 +690,18 @@
     "int16Overflow": "System.OverflowException",
     "dateTime": "System.InvalidCastException"
   },
+  "selectedUInt32ConvertibleContractBehavior": {
+    "implements": true,
+    "typeCode": "UInt32",
+    "int64": 4000000000,
+    "uint32": 4000000000,
+    "uint64Text": "4000000000",
+    "decimalText": "4000000000",
+    "text": "4000000000",
+    "int32Overflow": "System.OverflowException",
+    "byteOverflow": "System.OverflowException",
+    "dateTime": "System.InvalidCastException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16132,6 +16144,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "0a880a125c1f5be11b6ca1b171654b9ae0494b6a5b7a4a2cf3d7fae3f1066748",
+  "oracleProgramSha256": "862767b1070e0783ef94ad0af95fab89735302a173d4405f43fbeacd9586ea88",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

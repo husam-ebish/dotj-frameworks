@@ -1392,6 +1392,23 @@ static object ObserveUInt16ConvertibleContract()
         dateTime = ObserveMethodError(() => value.ToDateTime(null)),
     };
 }
+static object ObserveUInt32ConvertibleContract()
+{
+    IConvertible value = (uint)4000000000;
+    return new
+    {
+        implements = typeof(IConvertible).IsAssignableFrom(typeof(uint)),
+        typeCode = value.GetTypeCode().ToString(),
+        int64 = value.ToInt64(null),
+        uint32 = value.ToUInt32(null),
+        uint64Text = value.ToUInt64(null).ToString(),
+        decimalText = value.ToDecimal(null).ToString(),
+        text = value.ToString(null),
+        int32Overflow = ObserveMethodError(() => value.ToInt32(null)),
+        byteOverflow = ObserveMethodError(() => value.ToByte(null)),
+        dateTime = ObserveMethodError(() => value.ToDateTime(null)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1554,6 +1571,7 @@ var result = new
     selectedByteConvertibleContractBehavior = ObserveByteConvertibleContract(),
     selectedByteToTypeContractBehavior = ObserveByteToTypeContract(),
     selectedUInt16ConvertibleContractBehavior = ObserveUInt16ConvertibleContract(),
+    selectedUInt32ConvertibleContractBehavior = ObserveUInt32ConvertibleContract(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
