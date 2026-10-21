@@ -918,6 +918,15 @@ var result = new
         accentedE = ObserveGetType("System.String, Systém.Private.CoreLib", false, false),
         fullwidthM = ObserveGetType("System.String, ｍscorlib", false, false),
     },
+    selectedAssemblyAttributeUnicodeKeyBehavior = new
+    {
+        dotlessVersion = ObserveGetType("System.String, System.Private.CoreLib, Versıon=banana", false, false),
+        dottedUpperVersion = ObserveGetType("System.String, System.Private.CoreLib, VERSİON=banana", false, false),
+        dotlessToken = ObserveGetType("System.String, System.Private.CoreLib, PublıcKeyToken=xyz", false, false),
+        accentedRetargetable = ObserveGetType("System.String, System.Private.CoreLib, Retargetablé=blah", false, false),
+        unicodeThenVersion = ObserveGetType("System.String, System.Private.CoreLib, Versıon=banana, Version=1.2", false, false),
+        versionThenUnicode = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2, VERSİON=banana", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),

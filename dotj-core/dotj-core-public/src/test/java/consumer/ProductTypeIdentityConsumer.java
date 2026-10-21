@@ -537,6 +537,14 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, ｍscorlib") != null) {
             throw new AssertionError("Selected assembly Unicode casing changed");
         }
+        for (String unicodeKey : new String[] {
+                "Versıon=banana", "VERSİON=banana", "PublıcKeyToken=xyz",
+                "Retargetablé=blah", "Versıon=banana, Version=1.2",
+                "Version=1.2, VERSİON=banana"}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + unicodeKey) != string) {
+                throw new AssertionError("Selected Unicode attribute key rejected: " + unicodeKey);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
