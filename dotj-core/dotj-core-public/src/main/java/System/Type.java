@@ -109,7 +109,7 @@ public abstract class Type extends MemberInfo {
                     && assemblyName.endsWith("\"")) {
                 assemblyName = assemblyName.substring(1, assemblyName.length() - 1);
             }
-            if (assemblyName.toLowerCase(Locale.ROOT).endsWith(".dll")) {
+            if (assemblyName.equalsIgnoreCase("System.Private.CoreLib.dll")) {
                 assemblyName = assemblyName.substring(0, assemblyName.length() - 4);
             }
             if (assemblyName.equalsIgnoreCase("System.Private.CoreLib")

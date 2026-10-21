@@ -670,6 +670,15 @@ var result = new
         emptyBeforeAttribute = ObserveGetType("System.String, , Version=10.0.0.0", false, false),
         legacyOuterSpace = ObserveGetType("System.String,  mscorlib  ", false, false),
     },
+    selectedLegacyAssemblyAliasBehavior = new
+    {
+        legacyDll = ObserveGetType("System.String, mscorlib.dll", false, false),
+        legacyQuoted = ObserveGetType("System.String, \"mscorlib\"", false, false),
+        legacyQuotedDll = ObserveGetType("System.String, \"mscorlib.dll\"", false, false),
+        coreLibUpperDll = ObserveGetType("System.String, SYSTEM.PRIVATE.CORELIB.DLL", false, false),
+        legacyExe = ObserveGetType("System.String, mscorlib.exe", false, false),
+        legacyWithVersion = ObserveGetType("System.String, \"mscorlib.dll\", Version=4.0.0.0", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
