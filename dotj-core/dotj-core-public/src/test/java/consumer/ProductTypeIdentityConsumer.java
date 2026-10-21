@@ -2065,6 +2065,22 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected Type.ToString changed at " + index);
             }
         }
+        Type nestedList = definition.MakeGenericType(new Type[] {first});
+        Type listOfInt = definition.MakeGenericType(new Type[] {integer});
+        Type nestedDictionary = Type.GetType("System.Collections.Generic.Dictionary`2")
+                .MakeGenericType(new Type[] {string, listOfInt});
+        Type[] nestedTextTypes = {first.MakeArrayType(), first.MakeArrayType(2), nestedList,
+                nestedDictionary, definition.MakeArrayType(), parameter.MakeArrayType()};
+        String[] nestedTexts = {"System.Collections.Generic.List`1[System.String][]",
+                "System.Collections.Generic.List`1[System.String][,]",
+                "System.Collections.Generic.List`1[System.Collections.Generic.List`1[System.String]]",
+                "System.Collections.Generic.Dictionary`2[System.String,System.Collections.Generic.List`1[System.Int32]]",
+                "System.Collections.Generic.List`1[T][]", "T[]"};
+        for (int index = 0; index < nestedTexts.length; index++) {
+            if (!nestedTexts[index].equals(nestedTextTypes[index].ToString())) {
+                throw new AssertionError("Nested Type.ToString changed at " + index);
+            }
+        }
         for (Type selected : new Type[] {string, integer, definition, first,
                 Type.GetType("System.String[]"), parameter}) {
             if (selected.get_UnderlyingSystemType() != selected) {

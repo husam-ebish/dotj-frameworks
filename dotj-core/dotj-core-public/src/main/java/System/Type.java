@@ -1160,6 +1160,15 @@ public abstract class Type extends MemberInfo {
         if (this.get_IsGenericParameter()) {
             return this.get_Name();
         }
+        if (this instanceof ArrayType array) {
+            return array.elementType.ToString() + arraySuffix(array.rank, array.vector);
+        }
+        if (this.definition.isArray()) {
+            return this.GetElementType().ToString() + "[]";
+        }
+        if (this.get_IsByRef() || this.get_IsPointer()) {
+            return this.GetElementType().ToString() + (this.get_IsByRef() ? "&" : "*");
+        }
         if (this.get_IsGenericType()) {
             Type[] typeArguments = this.GetGenericArguments();
             StringBuilder result = new StringBuilder(this.get_Namespace())
