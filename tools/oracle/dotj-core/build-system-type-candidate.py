@@ -265,6 +265,12 @@ def main():
         "System.Collections.Generic.Dictionary`2+Entry",
         "System.Collections.Generic.Dictionary`2+Entry[]",
     ]
+    nested_constructed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedConstructedIdentityBehavior"]
+    assert len(nested_constructed) == 1
+    assert nested_constructed[0]["text"] == "System.Collections.Generic.Dictionary`2+Entry[System.String,System.Int32]"
+    assert nested_constructed[0]["isConstructed"]
+    assert nested_constructed[0]["definition"] == "System.Collections.Generic.Dictionary`2+Entry"
+    assert nested_constructed[0]["arguments"] == ["System.String", "System.Int32"]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",

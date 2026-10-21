@@ -1116,6 +1116,19 @@ var result = new
         qualified = type.AssemblyQualifiedName,
         sameReference = ReferenceEquals(type, Type.GetType(type.AssemblyQualifiedName!)),
     }).ToArray(),
+    selectedNestedConstructedIdentityBehavior = new[]
+    {
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!
+            .MakeGenericType(typeof(string), typeof(int)),
+    }.Select(type => new
+    {
+        name = type.FullName,
+        text = type.ToString(),
+        isConstructed = type.IsConstructedGenericType,
+        definition = type.GetGenericTypeDefinition().FullName,
+        arguments = type.GetGenericArguments().Select(argument => argument.FullName).ToArray(),
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),

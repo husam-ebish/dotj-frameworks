@@ -53,6 +53,16 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        Type closedEntry = nestedEntry.MakeGenericType(new Type[] {string, integer});
+        if (closedEntry != nestedEntry.MakeGenericType(new Type[] {string, integer})
+                || closedEntry.GetGenericTypeDefinition() != nestedEntry
+                || !closedEntry.get_IsConstructedGenericType()
+                || !"System.Collections.Generic.Dictionary`2+Entry[System.String,System.Int32]"
+                        .equals(closedEntry.ToString())
+                || closedEntry.GetGenericArguments()[0] != string
+                || closedEntry.GetGenericArguments()[1] != integer) {
+            throw new AssertionError("Nested constructed generic identity changed");
+        }
         if (Type.GetType(nestedEntry.get_AssemblyQualifiedName()) != nestedEntry
                 || Type.GetType(nestedEntry.MakeArrayType().get_AssemblyQualifiedName())
                         != nestedEntry.MakeArrayType()) {
