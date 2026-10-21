@@ -8,6 +8,7 @@ Type[] selected = [
     typeof(IFormattable),
     typeof(IFormatProvider),
     typeof(IConvertible),
+    typeof(TypeCode),
     typeof(Type),
     typeof(MemberInfo),
     typeof(MemberTypes),
@@ -287,6 +288,8 @@ var result = new
         underlying = typeof(MemberTypes).GetEnumUnderlyingType().FullName,
         nonEnumError = ObserveNonEnumUnderlying(),
     },
+    selectedTypeCodeValues = Enum.GetValues<TypeCode>()
+        .Select(value => new { name = value.ToString(), number = (int)value }).ToArray(),
     selectedAssignability = new (Type Target, Type? Candidate)[]
     {
         (typeof(object), typeof(string)),

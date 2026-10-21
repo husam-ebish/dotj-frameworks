@@ -12,6 +12,7 @@ import System.IComparable;
 import System.IFormattable;
 import System.IFormatProvider;
 import System.IConvertible;
+import System.TypeCode;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -335,7 +336,7 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("Selected formatting interface contract changed");
         }
         IConvertible convertible = new IConvertible() {
-            public int GetTypeCode() { return 9; }
+            public TypeCode GetTypeCode() { return TypeCode.Int32; }
             public boolean ToBoolean(IFormatProvider formatProvider) { return true; }
             public char ToChar(IFormatProvider formatProvider) { return '*'; }
             public byte ToSByte(IFormatProvider formatProvider) { return 42; }
@@ -362,7 +363,9 @@ public final class ProductTypeIdentityConsumer {
             }
         };
         Type convertibleType = Type.GetType("System.IConvertible");
-        if (convertible.GetTypeCode() != 9
+        if (convertible.GetTypeCode() != TypeCode.Int32
+                || TypeCode.Int32.get_Value() != 9 || TypeCode.String.get_Value() != 18
+                || !Type.GetType("System.TypeCode").get_IsEnum()
                 || !convertible.ToBoolean(provider) || convertible.ToChar(provider) != '*'
                 || convertible.ToSByte(provider) != 42 || convertible.ToByte(provider) != 42
                 || convertible.ToInt16(provider) != 42 || convertible.ToUInt16(provider) != 42

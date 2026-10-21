@@ -51,7 +51,7 @@ def main():
         elif name == "System.IConvertible":
             assert "public interface System.IConvertible" in header
             assert declarations == [
-                "public abstract int GetTypeCode();",
+                "public abstract System.TypeCode GetTypeCode();",
                 "public abstract boolean ToBoolean(System.IFormatProvider);",
                 "public abstract char ToChar(System.IFormatProvider);",
                 "public abstract byte ToSByte(System.IFormatProvider);",
@@ -94,6 +94,11 @@ def main():
             assert "extends java.lang.Enum<System.Reflection.MemberTypes>" in header
             assert "public int get_Value();" in declarations
             disposition = "PARTIAL_ENUM_SURFACE; selected values only, Java enum differs from CLR Enum"
+        elif name == "System.TypeCode":
+            assert "extends java.lang.Enum<System.TypeCode>" in header
+            assert "public int get_Value();" in declarations
+            assert upstream["declaredPublicMethodCount"] == 0
+            disposition = "SELECTED_ENUM_VALUES; Java enum differs from CLR Enum"
         else:
             assert header.startswith("public class " + name)
             if name == "System.Exception":
@@ -116,7 +121,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 16
+    assert len(records) == 17
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -135,7 +140,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS sixteen selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS seventeen selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":
