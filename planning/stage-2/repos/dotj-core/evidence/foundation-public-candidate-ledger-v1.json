@@ -4,7 +4,7 @@
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
   "candidateJarSha256": "b332e7a11a5e5b9c4b2e9abe4137b453c76730925dc5692f4208179093b90685",
-  "typeCount": 29,
+  "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -369,6 +369,33 @@
         "public int get_Value();"
       ],
       "disposition": "PARTIAL_ENUM_SURFACE; selected values only, Java enum differs from CLR Enum",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Reflection.GenericParameterAttributes",
+      "upstreamBaseType": "System.Enum",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public final class System.Reflection.GenericParameterAttributes extends java.lang.Enum<System.Reflection.GenericParameterAttributes> {",
+      "javaPublicDeclarations": [
+        "public static final System.Reflection.GenericParameterAttributes None;",
+        "public static final System.Reflection.GenericParameterAttributes Covariant;",
+        "public static final System.Reflection.GenericParameterAttributes Contravariant;",
+        "public static final System.Reflection.GenericParameterAttributes VarianceMask;",
+        "public static final System.Reflection.GenericParameterAttributes ReferenceTypeConstraint;",
+        "public static final System.Reflection.GenericParameterAttributes NotNullableValueTypeConstraint;",
+        "public static final System.Reflection.GenericParameterAttributes DefaultConstructorConstraint;",
+        "public static final System.Reflection.GenericParameterAttributes SpecialConstraintMask;",
+        "public static final System.Reflection.GenericParameterAttributes AllowByRefLike;",
+        "public static System.Reflection.GenericParameterAttributes[] values();",
+        "public static System.Reflection.GenericParameterAttributes valueOf(java.lang.String);",
+        "public int get_Value();"
+      ],
+      "disposition": "SELECTED_ENUM_VALUES; Java enum differs from CLR flags enum",
       "qualified": false
     },
     {

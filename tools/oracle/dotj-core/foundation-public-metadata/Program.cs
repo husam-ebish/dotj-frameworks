@@ -17,6 +17,7 @@ Type[] selected = [
     typeof(Type),
     typeof(MemberInfo),
     typeof(MemberTypes),
+    typeof(GenericParameterAttributes),
     typeof(Exception),
     typeof(SystemException),
     typeof(ArgumentException),

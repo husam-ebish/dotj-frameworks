@@ -2072,7 +2072,8 @@ public final class ProductTypeIdentityConsumer {
                 "System.IO.FileNotFoundException", "System.IO.FileLoadException",
                 "System.Globalization.CultureNotFoundException", "System.OverflowException",
                 "System.InvalidCastException", "System.InvalidOperationException",
-                "System.FormatException", "System.Globalization.NumberStyles"}) {
+                "System.FormatException", "System.Globalization.NumberStyles",
+                "System.Reflection.GenericParameterAttributes"}) {
             Type selectedCoreLibType = Type.GetType(selectedCoreLibName);
             if (selectedCoreLibType == null
                     || !(selectedCoreLibName + corelibIdentity)
