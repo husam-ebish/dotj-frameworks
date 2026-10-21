@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 36 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 37 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "598795544034f51147dfc47fa8223f64285742ea69880c3a7429735ef1ea6626",
+  "jarSha256": "30092a4e74246f9c45be407c843124b031c03f93b8fa2cfdea22acbfeefb9207",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -316,13 +316,24 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodBase.java",
-      "productSha256": "547535d2f53812fa6d782eeb4db00383ebbe3db15d2c29c7e6f4535bf43f8acd",
+      "productSha256": "2ff0a1a46c2991260ca90b8ff355b57babd323966b25b7193b1c435207ceb5ec",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Reflection/MethodBase.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Reflection/MethodBase.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "3e431a5854a94e66ff239e6441a8d6efbb150fda8177ec3bc1ad226dd97d2a0b",
-      "productIdentifierCount": 85,
+      "productIdentifierCount": 89,
       "upstreamIdentifierCount": 806,
+      "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodImplAttributes.java",
+      "productSha256": "dc7a6229bf6f210dcba2eb0c7d1f89d8a4600c6bf174deb962c1350092c0c931",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Reflection/MethodImplAttributes.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Reflection/MethodImplAttributes.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "cccb00e5b368e48079b25b86b501ef4c390747296da89d0990c8411c0427c4ae",
+      "productIdentifierCount": 300,
+      "upstreamIdentifierCount": 184,
       "sharedIdentifierShinglesOfLength12": 0
     },
     {
@@ -360,12 +371,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "98ab51ead34ad58bf3203558b9393999f7342ca49ef9235d438304c718e1d1f2",
+      "productSha256": "ba199fb00c69c918f86e247e0723b21e17eb2d29a911b5e83f78977cdafe0adb",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
-      "productIdentifierCount": 7697,
+      "productIdentifierCount": 7780,
       "upstreamIdentifierCount": 3542,
       "sharedIdentifierShinglesOfLength12": 0
     },

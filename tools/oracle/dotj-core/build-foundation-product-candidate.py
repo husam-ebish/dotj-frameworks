@@ -23,6 +23,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Reflection/ParameterInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/BindingFlags.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/CallingConventions.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodImplAttributes.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/GenericParameterAttributes.java")
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/throwing/ThrowSite.java")
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
@@ -64,6 +65,7 @@ EXPECTED_CLASSES = [
     "System/Reflection/MemberInfo.class",
     "System/Reflection/MemberTypes.class",
     "System/Reflection/MethodBase.class",
+    "System/Reflection/MethodImplAttributes.class",
     "System/Reflection/MethodInfo.class",
     "System/Reflection/ParameterInfo.class",
     "System/SystemException.class",

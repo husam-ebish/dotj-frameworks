@@ -1102,6 +1102,20 @@ var result = new
         isSecuritySafeCritical = item.Item1.GetMethod(item.Item2)!.IsSecuritySafeCritical,
         isSecurityTransparent = item.Item1.GetMethod(item.Item2)!.IsSecurityTransparent })
         .ToArray(),
+    selectedMethodImplementationBehavior = new
+    {
+        values = Enum.GetNames<MethodImplAttributes>()
+            .Select(name => new { name, value = (int)Enum.Parse<MethodImplAttributes>(name) })
+            .ToArray(),
+        methods = new[]
+        {
+            (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+            (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+        }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+            value = (int)item.Item1.GetMethod(item.Item2)!.GetMethodImplementationFlags(),
+            text = item.Item1.GetMethod(item.Item2)!.GetMethodImplementationFlags().ToString() })
+            .ToArray(),
+    },
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

@@ -24,6 +24,7 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/CallingConventions.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodImplAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
@@ -399,6 +400,21 @@ def main():
     ]
     assert all(row["isSecurityCritical"] and not row["isSecuritySafeCritical"]
                and not row["isSecurityTransparent"] for row in method_security)
+    implementations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodImplementationBehavior"]
+    assert implementations["values"] == [
+        {"name": name, "value": value} for name, value in (
+            ("IL", 0), ("Managed", 0), ("Native", 1), ("OPTIL", 2),
+            ("CodeTypeMask", 3), ("Runtime", 3), ("ManagedMask", 4),
+            ("Unmanaged", 4), ("NoInlining", 8), ("ForwardRef", 16),
+            ("Synchronized", 32), ("NoOptimization", 64), ("PreserveSig", 128),
+            ("AggressiveInlining", 256), ("AggressiveOptimization", 512),
+            ("InternalCall", 4096), ("Async", 8192), ("MaxMethodImplVal", 65535))]
+    assert [(row["owner"], row["name"]) for row in implementations["methods"]] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(row["value"] == 0 and row["text"] == "IL"
+               for row in implementations["methods"])
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [
