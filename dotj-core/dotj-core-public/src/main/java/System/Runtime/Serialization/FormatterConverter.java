@@ -30,6 +30,9 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public Object Convert(Object value, Type type) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
         if (type == null) {
             throw new ArgumentNullException("type");
         }
@@ -87,10 +90,23 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public Object Convert(Object value, TypeCode typeCode) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
         if (typeCode == null) {
             throw new InvalidCastException("TypeCode is required");
         }
         return switch (typeCode) {
+            case Object -> {
+                if (value instanceof IConvertible || value instanceof Integer
+                        || value instanceof String || value instanceof Boolean
+                        || value instanceof Long || value instanceof Short
+                        || value instanceof Float || value instanceof Double
+                        || value instanceof Character) {
+                    yield value;
+                }
+                throw new InvalidCastException("Object must implement IConvertible");
+            }
             case Int32 -> ToInt32(value);
             case String -> ToString(value);
             case Boolean -> ToBoolean(value);

@@ -472,6 +472,16 @@ def main():
         "longText": "System.FormatException",
         "nullValue": "System.ArgumentNullException",
     }
+    object_routes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedFormatterObjectRoutesBehavior"]
+    assert object_routes == {
+        "objectTypeSame": True, "objectCodeSame": True,
+        "plainObjectType": None,
+        "plainObjectCode": "System.InvalidCastException",
+        "integerCode": 42,
+        "nullType": "System.ArgumentNullException",
+        "nullCode": "System.ArgumentNullException",
+        "nullTarget": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

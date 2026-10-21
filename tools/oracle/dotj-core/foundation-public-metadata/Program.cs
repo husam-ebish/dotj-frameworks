@@ -1527,6 +1527,23 @@ static object ObserveCharFormatterRoutes()
         nullValue = ObserveMethodError(() => converter.ToChar(null!)),
     };
 }
+static object ObserveFormatterObjectRoutes()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    object token = new object();
+    object number = 42;
+    return new
+    {
+        objectTypeSame = ReferenceEquals(number, converter.Convert(number, typeof(object))),
+        objectCodeSame = ReferenceEquals(number, converter.Convert(number, TypeCode.Object)),
+        plainObjectType = ObserveMethodError(() => converter.Convert(token, typeof(object))),
+        plainObjectCode = ObserveMethodError(() => converter.Convert(token, TypeCode.Object)),
+        integerCode = converter.Convert(42, TypeCode.Object),
+        nullType = ObserveMethodError(() => converter.Convert(null!, typeof(object))),
+        nullCode = ObserveMethodError(() => converter.Convert(null!, TypeCode.Object)),
+        nullTarget = ObserveMethodError(() => converter.Convert(token, (Type)null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1697,6 +1714,7 @@ var result = new
     selectedDecimalFormatterRoutesBehavior = ObserveDecimalFormatterRoutes(),
     selectedDateTimeFormatterRoutesBehavior = ObserveDateTimeFormatterRoutes(),
     selectedCharFormatterRoutesBehavior = ObserveCharFormatterRoutes(),
+    selectedFormatterObjectRoutesBehavior = ObserveFormatterObjectRoutes(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

@@ -585,6 +585,32 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        Object convertibleObject = Integer.valueOf(42);
+        Object plainObject = new Object();
+        if (selectedConverter.Convert(convertibleObject, Type.GetType("System.Object")) != convertibleObject
+                || selectedConverter.Convert(convertibleObject, TypeCode.Object) != convertibleObject
+                || selectedConverter.Convert(plainObject, Type.GetType("System.Object")) != plainObject
+                || !Integer.valueOf(42).equals(selectedConverter.Convert(42, TypeCode.Object))) {
+            throw new AssertionError("Selected formatter Object routes changed");
+        }
+        try {
+            selectedConverter.Convert(plainObject, TypeCode.Object);
+            throw new AssertionError("Plain object accepted as TypeCode.Object");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.Convert(null, Type.GetType("System.Object"));
+            throw new AssertionError("Null Object Type conversion accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.Convert(null, TypeCode.Object);
+            throw new AssertionError("Null Object TypeCode conversion accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));
