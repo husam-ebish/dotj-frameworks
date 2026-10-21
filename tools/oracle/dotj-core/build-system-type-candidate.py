@@ -88,6 +88,7 @@ def main():
         "System.Reflection.MemberInfo[] GetMembers()",
         "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
         "System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags)",
+        "System.Reflection.MethodInfo[] GetMethods()",
         "System.Reflection.MethodInfo GetMethod(System.String)",
         "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags)",
         "System.Type[] GetRequiredCustomModifiers()",
@@ -326,6 +327,16 @@ def main():
                                        "exception": None, "paramName": None}
     assert flagged_method["nullName"] == {"result": None, "kind": None,
         "exception": "System.ArgumentNullException", "paramName": "name"}
+    default_methods = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodEnumerationBehavior"]
+    assert [(row["owner"], row["methods"][0]["name"])
+            for row in default_methods] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(len(row["methods"]) == 1
+               and row["methods"][0]["kind"] == "Method"
+               and row["methods"][0]["declaring"] == row["owner"]
+               for row in default_methods)
     member_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberNameBehavior"]
     for key, name in (("stringChars", "Chars"), ("listItem", "Item")):
         assert member_name[key] == {"members": [{"name": name, "kind": "Property"}],
@@ -1663,6 +1674,7 @@ def main():
         "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags);",
         "public System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags);",
+        "public System.Reflection.MethodInfo[] GetMethods();",
         "public System.Reflection.MethodInfo GetMethod(java.lang.String);",
         "public System.Reflection.MethodInfo GetMethod(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",

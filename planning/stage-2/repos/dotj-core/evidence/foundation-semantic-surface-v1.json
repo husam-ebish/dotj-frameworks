@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "c829d5d6fea5989c5be1ee17b47eb7eae25ac9a0ea98e7079ccd4a72517735be",
+  "oracleEvidenceSha256": "f351a0688ee03ec2e0faf3705caa0497d9b0d5a60d60fdf74287272ae19e6f9d",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "036ef6638420841ff9c57e2ba95fc3a62a22f4b021e20a24643c77f6c9a0dee9",
+  "javaCandidateEvidenceSha256": "c47e8470074b52bc1b1e7c7c7162d172f80e2f46e64cabdb906e7fd04f841a70",
   "types": [
     {
       "fullName": "System.Type",
@@ -3471,6 +3471,7 @@
         "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags);",
         "public System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags);",
+        "public System.Reflection.MethodInfo[] GetMethods();",
         "public System.Reflection.MethodInfo GetMethod(java.lang.String);",
         "public System.Reflection.MethodInfo GetMethod(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
@@ -3597,7 +3598,7 @@
           "GetMember": 3,
           "GetMembers": 2,
           "GetMethod": 2,
-          "GetMethods": 1,
+          "GetMethods": 2,
           "GetNestedType": 2,
           "GetNestedTypes": 2,
           "GetOptionalCustomModifiers": 1,
