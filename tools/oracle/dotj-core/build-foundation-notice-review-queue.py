@@ -62,6 +62,8 @@ def main():
             "sharedIdentifierShinglesOfLength12": upstream[path].get(
                 "sharedIdentifierShinglesOfLength12"),
             "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+            "supplementalAdjacencyEvidence": "throw-site-upstream-adjacency-v1.json"
+            if path.endswith("/org/dotj/internal/throwing/ThrowSite.java") else None,
         })
 
     found = sum(row["directNameMatchedUpstreamFile"] == "FOUND" for row in rows)
