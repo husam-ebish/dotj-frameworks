@@ -700,6 +700,20 @@ def main():
             "liveCount": {"Add": 3, "Replace": 2, "Remove": 1, "Clear": 0}[
                 name.removeprefix("keys").removeprefix("values")],
         }
+    assert json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedExceptionDataViewProperties"] == {
+        "dictionarySynchronized": False,
+        "keysSynchronized": False,
+        "valuesSynchronized": False,
+        "syncRootIsDictionary": True,
+        "keySyncRootIsDictionary": True,
+        "valueSyncRootIsDictionary": True,
+        "keySyncRootIsDictionaryRoot": True,
+        "valueSyncRootIsDictionaryRoot": True,
+        "repeatedKeyViewSame": False,
+        "repeatedValueViewSame": False,
+        "keysCount": 1,
+        "valuesCount": 1,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
