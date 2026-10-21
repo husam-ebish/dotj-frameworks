@@ -1008,6 +1008,17 @@ def main():
                and row["isVariableBound"] and row["typeCode"] == "Object"
                and row["lookupIdentity"] and row["assemblyLookupIdentity"]
                and row["insensitiveLookupIdentity"] for row in primitive_rank_three)
+    primitive_variable = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveVariableBoundBehavior"]
+    assert [row["elementFullName"] for row in primitive_variable] == [
+        "System.Boolean", "System.Char", "System.Byte", "System.Int16",
+        "System.Int64", "System.Single", "System.Double",
+    ]
+    assert all(row["name"] == row["elementFullName"].removeprefix("System.") + "[*]"
+               and row["fullName"] == row["elementFullName"] + "[*]"
+               and row["rank"] == 1 and not row["isVector"]
+               and row["isVariableBound"] and row["typeCode"] == "Object"
+               and row["lookupIdentity"] and row["assemblyLookupIdentity"]
+               and row["insensitiveLookupIdentity"] for row in primitive_variable)
     parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
     assert parameter_attributes == {
         "stringType": {"value": None, "exception": "System.InvalidOperationException"},
