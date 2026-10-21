@@ -1960,6 +1960,27 @@ static object ObserveExceptionDataDictionary()
         isFixedSize = dictionary.IsFixedSize,
     };
 }
+static object ObserveExceptionDataBoundaries()
+{
+    var dictionary = new Exception("boundaries").Data;
+    string nullAdd = ObserveMethodError(() => dictionary.Add(null!, "value"));
+    string nullContains = ObserveMethodError(() => dictionary.Contains(null!));
+    string nullRead = ObserveMethodError(() => { _ = dictionary[null!]; });
+    string nullWrite = ObserveMethodError(() => dictionary[null!] = "value");
+    string nullRemove = ObserveMethodError(() => dictionary.Remove(null!));
+    dictionary.Add("nullable", null);
+    bool containsNullValue = dictionary.Contains("nullable");
+    object? nullValue = dictionary["nullable"];
+    object key = new();
+    dictionary.Add(key, 42);
+    bool objectKeyRetained = dictionary.Contains(key) && (int)dictionary[key]! == 42;
+    var enumerator = dictionary.GetEnumerator();
+    string beforeMove = ObserveMethodError(() => { _ = enumerator.Entry; });
+    while (enumerator.MoveNext()) { }
+    string afterEnd = ObserveMethodError(() => { _ = enumerator.Entry; });
+    return new { nullAdd, nullContains, nullRead, nullWrite, nullRemove,
+        containsNullValue, nullValue, objectKeyRetained, beforeMove, afterEnd };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2154,6 +2175,7 @@ var result = new
     selectedExceptionSerializationBehavior = ObserveExceptionSerialization(),
     selectedExceptionTargetSiteBehavior = ObserveExceptionTargetSite(),
     selectedExceptionDataDictionaryBehavior = ObserveExceptionDataDictionary(),
+    selectedExceptionDataBoundaries = ObserveExceptionDataBoundaries(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

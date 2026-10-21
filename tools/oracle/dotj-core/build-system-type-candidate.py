@@ -667,6 +667,18 @@ def main():
         "replacedValue": "second", "countAfterRemove": 0,
         "countAfterClear": 0, "isReadOnly": False, "isFixedSize": False,
     }
+    assert json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedExceptionDataBoundaries"] == {
+        "nullAdd": "System.ArgumentNullException",
+        "nullContains": "System.ArgumentNullException",
+        "nullRead": "System.ArgumentNullException",
+        "nullWrite": "System.ArgumentNullException",
+        "nullRemove": "System.ArgumentNullException",
+        "containsNullValue": True,
+        "nullValue": None,
+        "objectKeyRetained": True,
+        "beforeMove": "System.InvalidOperationException",
+        "afterEnd": "System.InvalidOperationException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

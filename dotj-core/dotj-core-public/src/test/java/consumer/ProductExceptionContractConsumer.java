@@ -110,6 +110,24 @@ public final class ProductExceptionContractConsumer {
         if (dictionary.get_Count() != 0) {
             throw new AssertionError("Selected IDictionary clear changed");
         }
+        expectNullKey(() -> dictionary.Add(null, "value"));
+        expectNullKey(() -> dictionary.Contains(null));
+        expectNullKey(() -> dictionary.get_Item(null));
+        expectNullKey(() -> dictionary.set_Item(null, "value"));
+        expectNullKey(() -> dictionary.Remove(null));
+        dictionary.Add("nullable", null);
+        Object objectKey = new Object();
+        dictionary.Add(objectKey, 42);
+        if (!dictionary.Contains("nullable") || dictionary.get_Item("nullable") != null
+                || !dictionary.Contains(objectKey) || !Integer.valueOf(42).equals(dictionary.get_Item(objectKey))) {
+            throw new AssertionError("Selected IDictionary key or null-value boundary changed");
+        }
+        IDictionaryEnumerator boundaryEnumerator = dictionary.GetEnumerator();
+        expectInvalidEnumerator(() -> boundaryEnumerator.get_Entry());
+        while (boundaryEnumerator.MoveNext()) {
+            // Advance beyond the final entry.
+        }
+        expectInvalidEnumerator(() -> boundaryEnumerator.get_Entry());
         if (new Exception().get_HResult() != -2146233088
                 || new Exception("message").get_HResult() != -2146233088
                 || new Exception("outer", inner).get_HResult() != -2146233088
@@ -248,5 +266,25 @@ public final class ProductExceptionContractConsumer {
             throw new AssertionError("Selected exception constructor counts changed");
         }
         java.lang.System.out.println("PASS external selected Exception constructors and inner identity");
+    }
+
+    private static void expectNullKey(Runnable operation) {
+        try {
+            operation.run();
+            throw new AssertionError("Null dictionary key accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"key".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null dictionary key parameter changed");
+            }
+        }
+    }
+
+    private static void expectInvalidEnumerator(Runnable operation) {
+        try {
+            operation.run();
+            throw new AssertionError("Unpositioned dictionary enumerator accepted");
+        } catch (InvalidOperationException expected) {
+            // Pinned CLR failure type.
+        }
     }
 }
