@@ -1261,6 +1261,22 @@ public abstract class Type extends MemberInfo {
         return this.definition.isInstance(value);
     }
 
+    public MemberInfo[] GetMember(String name) {
+        if (name == null) {
+            throw new ArgumentNullException("name");
+        }
+        if (this.definition == String.class && name.equals("Chars")) {
+            return new MemberInfo[] {new DefaultPropertyMember("Chars", this)};
+        }
+        if (this.definition == java.util.List.class && name.equals("Item")) {
+            return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
+        }
+        if (name.equals("Missing") || this.definition == String.class && name.equals("chars")) {
+            return new MemberInfo[0];
+        }
+        throw new UnsupportedOperationException("Member lookup is not mapped for this candidate name");
+    }
+
     public MemberInfo[] GetDefaultMembers() {
         if (this.definition == String.class && !this.get_HasElementType()) {
             return new MemberInfo[] {new DefaultPropertyMember("Chars", this)};

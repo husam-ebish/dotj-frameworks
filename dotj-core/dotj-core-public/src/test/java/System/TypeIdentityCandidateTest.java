@@ -34,6 +34,23 @@ public final class TypeIdentityCandidateTest {
         }
         Type closedList = Type.fromJavaClass(List.class)
                 .MakeGenericType(new Type[] {string});
+        if (string.GetMember("Chars").length != 1
+                || !"Chars".equals(string.GetMember("Chars")[0].get_Name())
+                || string.GetMember("Chars")[0].get_MemberType() != MemberTypes.Property
+                || string.GetMember("chars").length != 0
+                || string.GetMember("Missing").length != 0
+                || Type.fromJavaClass(List.class).GetMember("Item").length != 1
+                || Type.fromJavaClass(Object.class).GetMember("Missing").length != 0) {
+            throw new AssertionError("Selected member name lookup changed");
+        }
+        try {
+            string.GetMember(null);
+            throw new AssertionError("Null member name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null member name parameter changed", expected);
+            }
+        }
         for (Type defaultOwner : new Type[] {string, Type.fromJavaClass(List.class),
                 closedList}) {
             MemberInfo[] defaults = defaultOwner.GetDefaultMembers();
