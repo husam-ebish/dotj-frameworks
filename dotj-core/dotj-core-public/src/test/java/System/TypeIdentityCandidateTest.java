@@ -201,6 +201,26 @@ public final class TypeIdentityCandidateTest {
         } catch (ReflectiveOperationException failure) {
             throw new AssertionError("Selected SerializationEntry metadata unavailable", failure);
         }
+        java.util.ArrayList<Integer> retainedValues = new java.util.ArrayList<>(List.of(1));
+        Type listOfInt = Type.fromJavaClass(List.class).MakeGenericType(
+                new Type[] {Type.GetType("System.Int32")});
+        SerializationInfo retainedInfo = new SerializationInfo(dbnullType, selectedConverter);
+        retainedInfo.AddValue("values", retainedValues, listOfInt);
+        SerializationInfoEnumerator retainedCursor = retainedInfo.GetEnumerator();
+        if (!retainedCursor.MoveNext()) {
+            throw new AssertionError("Retained serialization entry was absent");
+        }
+        SerializationEntry retainedEntry = retainedCursor.get_Current();
+        retainedInfo.AddValue("second", 2);
+        retainedValues.add(3);
+        if (!"values".equals(retainedEntry.get_Name())
+                || !listOfInt.get_FullName().equals(retainedEntry.get_ObjectType().get_FullName())
+                || retainedEntry.get_Value() != retainedValues
+                || retainedValues.size() != 2
+                || retainedCursor.MoveNext()
+                || retainedInfo.get_MemberCount() != 2) {
+            throw new AssertionError("Selected SerializationEntry value snapshot changed");
+        }
         if (Type.GetType("System.Runtime.Serialization.SerializationEntry")
                     != Type.fromJavaClass(SerializationEntry.class)
                 || Type.GetType("System.Runtime.Serialization.SerializationInfoEnumerator")

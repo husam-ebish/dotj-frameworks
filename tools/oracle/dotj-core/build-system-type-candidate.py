@@ -303,6 +303,14 @@ def main():
         ],
         "defaultName": None, "defaultObjectType": None, "defaultValue": None,
     }
+    entry_value = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationEntryValueSnapshotBehavior"]
+    assert entry_value == {
+        "entryName": "values",
+        "entryType": "System.Collections.Generic.List`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "sameValueReference": True, "updatedValueCount": 2,
+        "entryNameAfterAdd": "values", "cursorHasSecond": False,
+        "freshMemberCount": 2,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
