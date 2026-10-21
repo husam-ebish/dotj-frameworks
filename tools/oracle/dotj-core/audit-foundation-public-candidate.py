@@ -229,6 +229,7 @@ def main():
             if name == "System.Exception":
                 assert "public java.lang.String get_Message();" in declarations
                 assert "public System.Exception get_InnerException();" in declarations
+                assert "public System.Collections.IDictionary get_Data();" in declarations
                 assert "public void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext);" in declarations
                 assert "public System.Reflection.MethodBase get_TargetSite();" in declarations
             if name == "System.ArgumentException":
@@ -249,6 +250,13 @@ def main():
             "qualified": False,
         })
     assert len(records) == 30
+    dictionary_api = subprocess.run(
+        ["javap", "-public", "-classpath", str(jar), "System.Collections.IDictionary"],
+        cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    assert "public interface System.Collections.IDictionary extends System.Collections.ICollection" in dictionary_api
+    assert "public abstract System.Collections.ICollection get_Keys();" in dictionary_api
+    assert "public abstract System.Collections.IDictionaryEnumerator GetEnumerator();" in dictionary_api
+    assert "public abstract void Add(java.lang.Object, java.lang.Object);" in dictionary_api
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70

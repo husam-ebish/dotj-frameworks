@@ -1894,6 +1894,72 @@ static object ObserveExceptionTargetSite()
         };
     }
 }
+static object ObserveExceptionDataDictionary()
+{
+    var dictionary = new Exception("data").Data;
+    int initialCount = dictionary.Count;
+    dictionary.Add("key", "first");
+    bool containsAfterAdd = dictionary.Contains("key");
+    object? firstValue = dictionary["key"];
+    int keysCount = dictionary.Keys.Count;
+    int valuesCount = dictionary.Values.Count;
+    var enumerator = dictionary.GetEnumerator();
+    bool enumeratorMoved = enumerator.MoveNext();
+    object? enumeratedKey = enumerator.Key;
+    object? enumeratedValue = enumerator.Value;
+    var copiedEntries = new System.Collections.DictionaryEntry[1];
+    dictionary.CopyTo(copiedEntries, 0);
+    object? copiedKey = copiedEntries[0].Key;
+    object? copiedValue = copiedEntries[0].Value;
+    string duplicateError = ObserveMethodError(() => dictionary.Add("key", "duplicate"));
+    dictionary["key"] = "second";
+    object? replacedValue = dictionary["key"];
+    dictionary.Remove("key");
+    int countAfterRemove = dictionary.Count;
+    dictionary.Add("another", 42);
+    dictionary.Clear();
+    return new
+    {
+        interfaceName = typeof(System.Collections.IDictionary).FullName,
+        interfaceMethods = typeof(System.Collections.IDictionary)
+            .GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+            .Where(method => !method.IsSpecialName).Select(method => method.Name).ToArray(),
+        interfaceProperties = typeof(System.Collections.IDictionary)
+            .GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+            .Select(property => property.Name).ToArray(),
+        baseInterfaces = typeof(System.Collections.IDictionary).GetInterfaces()
+            .Select(type => type.FullName).ToArray(),
+        collectionMethods = typeof(System.Collections.ICollection)
+            .GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+            .Where(method => !method.IsSpecialName).Select(method => method.Name).ToArray(),
+        collectionProperties = typeof(System.Collections.ICollection)
+            .GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+            .Select(property => property.Name).ToArray(),
+        enumerableMethods = typeof(System.Collections.IEnumerable)
+            .GetMethods(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+            .Select(method => method.Name).ToArray(),
+        enumeratorProperties = typeof(System.Collections.IDictionaryEnumerator)
+            .GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.DeclaredOnly)
+            .Select(property => property.Name).ToArray(),
+        entryIsValueType = typeof(System.Collections.DictionaryEntry).IsValueType,
+        initialCount,
+        containsAfterAdd,
+        firstValue,
+        keysCount,
+        valuesCount,
+        enumeratorMoved,
+        enumeratedKey,
+        enumeratedValue,
+        copiedKey,
+        copiedValue,
+        duplicateError,
+        replacedValue,
+        countAfterRemove,
+        countAfterClear = dictionary.Count,
+        isReadOnly = dictionary.IsReadOnly,
+        isFixedSize = dictionary.IsFixedSize,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2087,6 +2153,7 @@ var result = new
     selectedDateTimeMillisecondsBehavior = ObserveDateTimeMilliseconds(),
     selectedExceptionSerializationBehavior = ObserveExceptionSerialization(),
     selectedExceptionTargetSiteBehavior = ObserveExceptionTargetSite(),
+    selectedExceptionDataDictionaryBehavior = ObserveExceptionDataDictionary(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

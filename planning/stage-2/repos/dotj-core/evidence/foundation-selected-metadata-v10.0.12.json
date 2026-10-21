@@ -989,6 +989,60 @@
     "memberType": "Method",
     "repeatedSame": true
   },
+  "selectedExceptionDataDictionaryBehavior": {
+    "interfaceName": "System.Collections.IDictionary",
+    "interfaceMethods": [
+      "Contains",
+      "Add",
+      "Clear",
+      "GetEnumerator",
+      "Remove"
+    ],
+    "interfaceProperties": [
+      "Item",
+      "Keys",
+      "Values",
+      "IsReadOnly",
+      "IsFixedSize"
+    ],
+    "baseInterfaces": [
+      "System.Collections.ICollection",
+      "System.Collections.IEnumerable"
+    ],
+    "collectionMethods": [
+      "CopyTo"
+    ],
+    "collectionProperties": [
+      "Count",
+      "SyncRoot",
+      "IsSynchronized"
+    ],
+    "enumerableMethods": [
+      "GetEnumerator"
+    ],
+    "enumeratorProperties": [
+      "Key",
+      "Value",
+      "Entry"
+    ],
+    "entryIsValueType": true,
+    "initialCount": 0,
+    "containsAfterAdd": true,
+    "firstValue": "first",
+    "keysCount": 1,
+    "valuesCount": 1,
+    "enumeratorMoved": true,
+    "enumeratedKey": "key",
+    "enumeratedValue": "first",
+    "copiedKey": "key",
+    "copiedValue": "first",
+    "duplicateError": "System.ArgumentException",
+    "replacedValue": "second",
+    "countAfterRemove": 0,
+    "countAfterClear": 0,
+    "isReadOnly": false,
+    "isFixedSize": false
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16431,6 +16485,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "f8b8519528c09d74e5863be4f9fb6bac79d17357c62d55e498ee338f715ed16a",
+  "oracleProgramSha256": "d9ff669ade5243f6821a5ada421a3c29b66020a1a620e3c42e37d67a68ff5c42",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -33,6 +33,9 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Collections/IEnumerator.java")
+EXCEPTION_SOURCES += [SOURCE.parent / "Collections" / (name + ".java") for name in
+                      ("IEnumerable", "ICollection", "IDictionary", "IDictionaryEnumerator", "DictionaryEntry")]
+EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
                       ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationEntry", "SerializationException", "SerializationInfo", "SerializationInfoEnumerator", "StreamingContext", "StreamingContextStates")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
@@ -644,6 +647,25 @@ def main():
     assert target_site == {
         "beforeNull": True, "afterExists": True,
         "nameContainsCaller": True, "memberType": "Method", "repeatedSame": True,
+    }
+    data_dictionary = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedExceptionDataDictionaryBehavior"]
+    assert data_dictionary == {
+        "interfaceName": "System.Collections.IDictionary",
+        "interfaceMethods": ["Contains", "Add", "Clear", "GetEnumerator", "Remove"],
+        "interfaceProperties": ["Item", "Keys", "Values", "IsReadOnly", "IsFixedSize"],
+        "baseInterfaces": ["System.Collections.ICollection", "System.Collections.IEnumerable"],
+        "collectionMethods": ["CopyTo"],
+        "collectionProperties": ["Count", "SyncRoot", "IsSynchronized"],
+        "enumerableMethods": ["GetEnumerator"],
+        "enumeratorProperties": ["Key", "Value", "Entry"],
+        "entryIsValueType": True,
+        "initialCount": 0, "containsAfterAdd": True, "firstValue": "first",
+        "keysCount": 1, "valuesCount": 1, "enumeratorMoved": True,
+        "enumeratedKey": "key", "enumeratedValue": "first",
+        "copiedKey": "key", "copiedValue": "first",
+        "duplicateError": "System.ArgumentException",
+        "replacedValue": "second", "countAfterRemove": 0,
+        "countAfterClear": 0, "isReadOnly": False, "isFixedSize": False,
     }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
