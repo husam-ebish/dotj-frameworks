@@ -6638,6 +6638,53 @@
       "value": 1027
     }
   ],
+  "selectedEnumDefinedBehavior": {
+    "enumValue": {
+      "result": true,
+      "exception": null,
+      "paramName": null
+    },
+    "integerValue": {
+      "result": true,
+      "exception": null,
+      "paramName": null
+    },
+    "exactName": {
+      "result": true,
+      "exception": null,
+      "paramName": null
+    },
+    "lowerName": {
+      "result": false,
+      "exception": null,
+      "paramName": null
+    },
+    "missingName": {
+      "result": false,
+      "exception": null,
+      "paramName": null
+    },
+    "missingValue": {
+      "result": false,
+      "exception": null,
+      "paramName": null
+    },
+    "wrongEnumType": {
+      "result": null,
+      "exception": "System.ArgumentException",
+      "paramName": null
+    },
+    "nullValue": {
+      "result": null,
+      "exception": "System.ArgumentNullException",
+      "paramName": "value"
+    },
+    "nonEnumOwner": {
+      "result": null,
+      "exception": "System.ArgumentException",
+      "paramName": "enumType"
+    }
+  },
   "selectedNestedEnumerationBehavior": [
     {
       "owner": "System.Collections.Generic.List`1",
@@ -12773,6 +12820,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "c8e738134bc42c9e16c8f68ae84d0acd10f55ee449c5c35ae38332f43e5b596a",
+  "oracleProgramSha256": "8ccbc8b28ceeca4c3ee5f090b1895890f11a14d4692806b0c2d666a0e622b44e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

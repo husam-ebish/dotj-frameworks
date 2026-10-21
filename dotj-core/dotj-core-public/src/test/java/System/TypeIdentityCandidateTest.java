@@ -52,6 +52,38 @@ public final class TypeIdentityCandidateTest {
         if (!"Empty".equals(typeCodeEnum.GetEnumNames()[0])) {
             throw new AssertionError("Enum name array escaped by reference");
         }
+        if (!typeCodeEnum.IsEnumDefined(TypeCode.Empty)
+                || !typeCodeEnum.IsEnumDefined(0)
+                || !typeCodeEnum.IsEnumDefined("Empty")
+                || typeCodeEnum.IsEnumDefined("empty")
+                || typeCodeEnum.IsEnumDefined("Missing")
+                || typeCodeEnum.IsEnumDefined(17)) {
+            throw new AssertionError("Selected enum-defined membership changed");
+        }
+        try {
+            memberTypesEnum.IsEnumDefined(TypeCode.Empty);
+            throw new AssertionError("Foreign enum value accepted");
+        } catch (ArgumentException expected) {
+            if (expected.get_ParamName() != null) {
+                throw new AssertionError("Foreign enum parameter identity changed", expected);
+            }
+        }
+        try {
+            typeCodeEnum.IsEnumDefined(null);
+            throw new AssertionError("Null enum value accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null enum parameter identity changed", expected);
+            }
+        }
+        try {
+            integer.IsEnumDefined(0);
+            throw new AssertionError("Non-enum owner accepted enum value");
+        } catch (ArgumentException expected) {
+            if (!"enumType".equals(expected.get_ParamName())) {
+                throw new AssertionError("Non-enum owner parameter identity changed", expected);
+            }
+        }
         try {
             integer.GetEnumNames();
             throw new AssertionError("Non-enum GetEnumNames accepted");
