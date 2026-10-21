@@ -900,6 +900,15 @@ var result = new
         nestedDoubleInSingle = ObserveGetType("System.String, '\"System.Private.CoreLib\"'", false, false),
         nestedSingleInDouble = ObserveGetType("System.String, \"'System.Private.CoreLib'\"", false, false),
     },
+    selectedAssemblyNamePunctuationBehavior = new
+    {
+        quotedComma = ObserveGetType("System.String, \"System.Private.CoreLib,Extra\"", false, false),
+        quotedEquals = ObserveGetType("System.String, \"System.Private.CoreLib=Extra\"", false, false),
+        unquotedEquals = ObserveGetType("System.String, System.Private.CoreLib=Extra", false, false),
+        semicolon = ObserveGetType("System.String, System.Private.CoreLib;Extra", false, false),
+        slash = ObserveGetType("System.String, System.Private.CoreLib/Extra", false, false),
+        canonicalWithVersion = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
