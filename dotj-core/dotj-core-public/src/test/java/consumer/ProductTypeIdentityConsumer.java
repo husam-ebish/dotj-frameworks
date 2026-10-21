@@ -18,6 +18,7 @@ import System.DateTime;
 import System.Int32;
 import System.OverflowException;
 import System.InvalidCastException;
+import System.FormatException;
 import System.ISpanFormattable;
 import System.IUtf8SpanFormattable;
 import System.Reflection.MemberInfo;
@@ -418,8 +419,32 @@ public final class ProductTypeIdentityConsumer {
             // Selected exception identity.
         }
         if (Type.GetType("System.OverflowException") == null
-                || Type.GetType("System.InvalidCastException") == null) {
+                || Type.GetType("System.InvalidCastException") == null
+                || Type.GetType("System.FormatException") == null) {
             throw new AssertionError("Selected conversion exception identities changed");
+        }
+        if (Int32.Parse("42").get_Value() != 42 || Int32.Parse(" 42 ").get_Value() != 42) {
+            throw new AssertionError("Selected Int32.Parse values changed");
+        }
+        try {
+            Int32.Parse("oops");
+            throw new AssertionError("Invalid Int32 parsed");
+        } catch (FormatException expected) {
+            // Selected exception identity.
+        }
+        try {
+            Int32.Parse("2147483648");
+            throw new AssertionError("Out-of-range Int32 parsed");
+        } catch (OverflowException expected) {
+            // Selected exception identity.
+        }
+        try {
+            Int32.Parse(null);
+            throw new AssertionError("Null Int32 parsed");
+        } catch (ArgumentNullException expected) {
+            if (!"s".equals(expected.get_ParamName())) {
+                throw new AssertionError("Int32.Parse null parameter changed", expected);
+            }
         }
         ISpanFormattable spanFormattable = int32Value;
         Type spanType = Type.GetType("System.ISpanFormattable");

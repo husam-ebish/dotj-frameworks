@@ -13,7 +13,7 @@ SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
-                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException")]
+                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "FormatException")]
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
@@ -210,6 +210,14 @@ def main():
                       "unsignedOverflow": "System.OverflowException",
                       "charOverflow": "System.OverflowException",
                       "invalidDateTime": "System.InvalidCastException"}
+    parsed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ParseBehavior"]
+    assert parsed == {
+        "number": {"result": 42, "exception": None, "paramName": None},
+        "padded": {"result": 42, "exception": None, "paramName": None},
+        "invalid": {"result": None, "exception": "System.FormatException", "paramName": None},
+        "overflow": {"result": None, "exception": "System.OverflowException", "paramName": None},
+        "nullValue": {"result": None, "exception": "System.ArgumentNullException", "paramName": "s"},
+    }
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,

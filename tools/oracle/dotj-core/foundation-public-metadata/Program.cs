@@ -27,6 +27,7 @@ Type[] selected = [
     typeof(System.IO.FileNotFoundException),
     typeof(OverflowException),
     typeof(InvalidCastException),
+    typeof(FormatException),
 ];
 
 BindingFlags declaredPublic = BindingFlags.Public | BindingFlags.DeclaredOnly
@@ -165,6 +166,19 @@ static string? ObserveInt32Error(Action operation)
     catch (Exception exception)
     {
         return exception.GetType().FullName;
+    }
+}
+static object ObserveInt32Parse(string? text)
+{
+    try
+    {
+        return new { result = (int?)int.Parse(text!), exception = (string?)null,
+            paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (int?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
     }
 }
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
@@ -365,6 +379,14 @@ var result = new
             .ToChar(System.Globalization.CultureInfo.InvariantCulture)),
         invalidDateTime = ObserveInt32Error(() => ((IConvertible)42)
             .ToDateTime(System.Globalization.CultureInfo.InvariantCulture)),
+    },
+    selectedInt32ParseBehavior = new
+    {
+        number = ObserveInt32Parse("42"),
+        padded = ObserveInt32Parse(" 42 "),
+        invalid = ObserveInt32Parse("oops"),
+        overflow = ObserveInt32Parse("2147483648"),
+        nullValue = ObserveInt32Parse(null),
     },
     selectedSpanFormattingBehavior = new
     {
