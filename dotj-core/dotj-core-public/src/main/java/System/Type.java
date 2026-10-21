@@ -1484,6 +1484,22 @@ public abstract class Type extends MemberInfo {
         return matches ? new DefaultMethodMember(interfaceMethod, this) : null;
     }
 
+    public MethodInfo GetMethod(String name, BindingFlags flags, Type[] types) {
+        if (name == null) {
+            throw new ArgumentNullException("name");
+        }
+        if (types == null) {
+            throw new ArgumentNullException("types");
+        }
+        for (Type type : types) {
+            if (type == null) {
+                throw new ArgumentNullException("types");
+            }
+        }
+        MethodInfo named = this.GetMethod(name, flags);
+        return named == null ? null : this.GetMethod(named.get_Name(), types);
+    }
+
     private String selectedInterfaceMethodName() {
         if (this.definition == IDisposable.class) {
             return "Dispose";

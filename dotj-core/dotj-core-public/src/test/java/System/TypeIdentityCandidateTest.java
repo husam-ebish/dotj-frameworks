@@ -162,6 +162,18 @@ public final class TypeIdentityCandidateTest {
                         new Type[] {Type.fromJavaClass(Integer.class)}) != null) {
                 throw new AssertionError("Selected method parameter lookup changed");
             }
+            if (owner.GetMethod(interfaceMethodNames[index], publicInstance,
+                    interfaceMethodParameters[index]) == null
+                    || owner.GetMethod(interfaceMethodNames[index], BindingFlags.Public,
+                        interfaceMethodParameters[index]) != null
+                    || owner.GetMethod(interfaceMethodNames[index], publicInstance,
+                        new Type[] {Type.fromJavaClass(Integer.class)}) != null
+                    || owner.GetMethod(interfaceMethodNames[index]
+                        .toLowerCase(java.util.Locale.ROOT),
+                        publicInstance.or(BindingFlags.IgnoreCase),
+                        interfaceMethodParameters[index]) == null) {
+                throw new AssertionError("Selected flagged method parameter lookup changed");
+            }
         }
         for (int index = 0; index < 3; index++) {
             try {
@@ -178,6 +190,14 @@ public final class TypeIdentityCandidateTest {
                 if (!expectedName.equals(expected.get_ParamName())) {
                     throw new AssertionError("Null method lookup parameter changed", expected);
                 }
+            }
+        }
+        try {
+            interfaceOwners[0].GetMethod("Dispose", publicInstance, (Type[]) null);
+            throw new AssertionError("Null flagged method parameter array accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"types".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null flagged method parameter name changed", expected);
             }
         }
         try {

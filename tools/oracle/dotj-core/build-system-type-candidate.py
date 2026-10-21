@@ -92,6 +92,7 @@ def main():
         "System.Reflection.MethodInfo GetMethod(System.String)",
         "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags)",
         "System.Reflection.MethodInfo GetMethod(System.String, System.Type[])",
+        "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Type[])",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
@@ -348,6 +349,16 @@ def main():
     for key, parameter in (("nullName", "name"), ("nullArray", "types"),
                            ("nullElement", "types")):
         assert method_parameters[key] == {"result": None, "kind": None,
+            "exception": "System.ArgumentNullException", "paramName": parameter}
+    flagged_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodFlagsParameterBehavior"]
+    for key in ("dispose", "ignoreCase"):
+        assert flagged_parameters[key] == {"result": "Dispose", "kind": "Method",
+                                           "exception": None, "paramName": None}
+    for key in ("publicOnly", "wrongTypes"):
+        assert flagged_parameters[key] == {"result": None, "kind": None,
+                                           "exception": None, "paramName": None}
+    for key, parameter in (("nullName", "name"), ("nullArray", "types")):
+        assert flagged_parameters[key] == {"result": None, "kind": None,
             "exception": "System.ArgumentNullException", "paramName": parameter}
     member_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberNameBehavior"]
     for key, name in (("stringChars", "Chars"), ("listItem", "Item")):
@@ -1690,6 +1701,7 @@ def main():
         "public System.Reflection.MethodInfo GetMethod(java.lang.String);",
         "public System.Reflection.MethodInfo GetMethod(java.lang.String, System.Reflection.BindingFlags);",
         "public System.Reflection.MethodInfo GetMethod(java.lang.String, System.Type[]);",
+        "public System.Reflection.MethodInfo GetMethod(java.lang.String, System.Reflection.BindingFlags, System.Type[]);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",

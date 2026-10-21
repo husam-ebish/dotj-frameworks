@@ -482,6 +482,21 @@ static object ObserveMethodParameters(Type type, string? name, Type[]? parameter
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveMethodFlagsParameters(Type type, string? name, BindingFlags flags, Type[]? parameters)
+{
+    try
+    {
+        MethodInfo? method = type.GetMethod(name!, flags, parameters!);
+        return new { result = method?.Name, kind = method?.MemberType.ToString(),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { result = (string?)null, kind = (string?)null,
+            exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -1003,6 +1018,21 @@ var result = new
         nullName = ObserveMethodParameters(typeof(IDisposable), null, Type.EmptyTypes),
         nullArray = ObserveMethodParameters(typeof(IDisposable), "Dispose", null),
         nullElement = ObserveMethodParameters(typeof(IDisposable), "Dispose", new Type[] {null!}),
+    },
+    selectedMethodFlagsParameterBehavior = new
+    {
+        dispose = ObserveMethodFlagsParameters(typeof(IDisposable), "Dispose",
+            BindingFlags.Public | BindingFlags.Instance, Type.EmptyTypes),
+        publicOnly = ObserveMethodFlagsParameters(typeof(IDisposable), "Dispose",
+            BindingFlags.Public, Type.EmptyTypes),
+        ignoreCase = ObserveMethodFlagsParameters(typeof(IDisposable), "dispose",
+            BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase, Type.EmptyTypes),
+        wrongTypes = ObserveMethodFlagsParameters(typeof(IDisposable), "Dispose",
+            BindingFlags.Public | BindingFlags.Instance, new[] {typeof(object)}),
+        nullName = ObserveMethodFlagsParameters(typeof(IDisposable), null,
+            BindingFlags.Public | BindingFlags.Instance, Type.EmptyTypes),
+        nullArray = ObserveMethodFlagsParameters(typeof(IDisposable), "Dispose",
+            BindingFlags.Public | BindingFlags.Instance, null),
     },
     selectedNestedTypeFlagsBehavior = new
     {
