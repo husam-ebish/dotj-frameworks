@@ -60,6 +60,7 @@ def main():
         "Boolean Equals(System.Type)",
         "System.Type GetGenericTypeDefinition()",
         "System.Type[] GetGenericArguments()",
+        "System.Type[] GetGenericParameterConstraints()",
         "System.Type MakeGenericType(System.Type[])",
         "System.Type GetType(System.String)",
         "System.Type GetEnumUnderlyingType()",
@@ -255,6 +256,14 @@ def main():
         "closedTypeArguments": ["System.String", "System.Int32"],
         "arrayArgumentsLength": 0,
     }
+    constraints = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterConstraintBehavior"]
+    assert [item["name"] for item in constraints] == [
+        "T", "TKey", "TValue", "System.Object", "System.Collections.Generic.List`1",
+    ]
+    assert [item["observation"] for item in constraints[:3]] == [
+        {"constraints": [], "exception": None}] * 3
+    assert [item["observation"] for item in constraints[3:]] == [
+        {"constraints": None, "exception": "System.InvalidOperationException"}] * 2
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
@@ -517,6 +526,7 @@ def main():
         "public System.Type MakePointerType();",
         "public System.Type GetGenericTypeDefinition();",
         "public System.Type[] GetGenericArguments();",
+        "public System.Type[] GetGenericParameterConstraints();",
         "public System.Type[] get_GenericTypeArguments();",
         "public java.lang.String get_FullName();",
         "public java.lang.String get_Namespace();",

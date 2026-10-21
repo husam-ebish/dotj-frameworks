@@ -274,6 +274,13 @@ public abstract class Type extends MemberInfo {
         return this.arguments.toArray(Type[]::new);
     }
 
+    public Type[] GetGenericParameterConstraints() {
+        if (!this.get_IsGenericParameter()) {
+            throw new InvalidOperationException("Not a generic parameter");
+        }
+        return new Type[0];
+    }
+
     public Type[] get_GenericTypeArguments() {
         return this.arguments.toArray(Type[]::new);
     }

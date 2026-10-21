@@ -155,6 +155,19 @@ static object ObserveGenericArgumentCopies()
         arrayArgumentsLength = typeof(string[]).GetGenericArguments().Length,
     };
 }
+static object ObserveGenericParameterConstraints(Type type)
+{
+    try
+    {
+        return new { constraints = type.GetGenericParameterConstraints()
+                .Select(constraint => constraint.FullName).ToArray(), exception = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { constraints = (string?[]?)null,
+            exception = exception.GetType().FullName };
+    }
+}
 static object ObserveSubclass(Type type, Type? parent)
 {
     try
@@ -477,6 +490,17 @@ var result = new
         array = ObserveGenericDefinitionError(typeof(string[])),
     },
     selectedGenericArgumentCopyBehavior = ObserveGenericArgumentCopies(),
+    selectedGenericParameterConstraintBehavior = new[]
+    {
+        typeof(List<>).GetGenericArguments()[0],
+        typeof(Dictionary<,>).GetGenericArguments()[0],
+        typeof(Dictionary<,>).GetGenericArguments()[1],
+        typeof(object), typeof(List<>),
+    }.Select(type => new
+    {
+        name = type.FullName ?? type.Name,
+        observation = ObserveGenericParameterConstraints(type),
+    }).ToArray(),
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
@@ -995,7 +1019,7 @@ var result = new
         selectedMethods = type.GetMethods(declaredPublic)
             .Where(method => !method.IsSpecialName && (type == typeof(IConvertible) ||
                 method.Name is "Dispose" or "CompareTo" or "ToString" or "TryFormat" or "ToInt32" or "GetFormat" or "Equals" or "GetType" or "MakeGenericType"
-                    or "GetGenericArguments" or "GetGenericTypeDefinition"
+                    or "GetGenericArguments" or "GetGenericTypeDefinition" or "GetGenericParameterConstraints"
                     or "GetElementType" or "GetArrayRank" or "MakeArrayType" or "MakeByRefType"
                     or "MakePointerType"))
             .Select(method => new
