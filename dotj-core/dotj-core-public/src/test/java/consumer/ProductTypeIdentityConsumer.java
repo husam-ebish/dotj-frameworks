@@ -87,6 +87,14 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, , Version=10.0.0.0") != null) {
             throw new AssertionError("Selected assembly simple-name boundary changed");
         }
+        if (Type.GetType("System.String, \"mscorlib\"") != string
+                || Type.GetType("System.String, SYSTEM.PRIVATE.CORELIB.DLL") != string
+                || Type.GetType("System.String, mscorlib.dll") != null
+                || Type.GetType("System.String, \"mscorlib.dll\"") != null
+                || Type.GetType("System.String, mscorlib.exe") != null
+                || Type.GetType("System.String, \"mscorlib.dll\", Version=4.0.0.0") != null) {
+            throw new AssertionError("Selected legacy assembly alias boundary changed");
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");
