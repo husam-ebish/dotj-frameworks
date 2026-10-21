@@ -1805,6 +1805,17 @@ public final class ProductTypeIdentityConsumer {
                     || Type.GetType(lowerQualifiedName, false, true) != selectedCoreLibType) {
                 throw new AssertionError("Selected qualified case lookup changed: " + selectedCoreLibName);
             }
+            for (String lowerCaseForm : new String[] {lowerName, lowerQualifiedName}) {
+                try {
+                    Type.GetType(lowerCaseForm, true, false);
+                    throw new AssertionError("Sensitive lowercase lookup accepted: " + lowerCaseForm);
+                } catch (TypeLoadException expected) {
+                    // Selected pinned case-sensitive throw behavior.
+                }
+                if (Type.GetType(lowerCaseForm, true, true) != selectedCoreLibType) {
+                    throw new AssertionError("Insensitive lowercase throw lookup changed: " + lowerCaseForm);
+                }
+            }
         }
         if (!parameter.get_IsGenericParameter() || parameter.get_GenericParameterPosition() != 0
                 || parameter != definition.GetGenericArguments()[0]) {
