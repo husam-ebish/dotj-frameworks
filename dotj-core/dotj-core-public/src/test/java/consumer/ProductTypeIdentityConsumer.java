@@ -533,6 +533,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"small 0".equals(new Int32(0).ToString(bracketPattern, provider))) {
             throw new AssertionError("Selected Int32 bracket literals changed");
         }
+        if (!"0".equals(new Int32(-1).ToString("0,", provider))
+                || !"0.0".equals(new Int32(-1).ToString("0,.0", provider))
+                || !"0".equals(new Int32(-1).ToString("0,.##", provider))
+                || !"-0.1".equals(new Int32(-50).ToString("0,.0", provider))
+                || !"0.1".equals(new Int32(50).ToString("0,.0", provider))) {
+            throw new AssertionError("Selected Int32 near-zero scaling changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
