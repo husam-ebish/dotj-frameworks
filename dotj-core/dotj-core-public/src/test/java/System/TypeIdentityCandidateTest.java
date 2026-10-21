@@ -12,6 +12,7 @@ import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
 import System.Reflection.ParameterInfo;
 import System.Reflection.ParameterAttributes;
+import System.Runtime.CompilerServices.NullableAttribute;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 
@@ -89,6 +90,14 @@ public final class TypeIdentityCandidateTest {
         Type methodInfoType = Type.fromJavaClass(MethodInfo.class);
         Type parameterInfoType = Type.fromJavaClass(ParameterInfo.class);
         Type parameterAttributesType = Type.fromJavaClass(ParameterAttributes.class);
+        if (Type.GetType("System.Attribute") != Type.fromJavaClass(Attribute.class)
+                || !Type.fromJavaClass(Attribute.class).get_IsAbstract()
+                || Type.GetType("System.Runtime.CompilerServices.NullableAttribute")
+                    != Type.fromJavaClass(NullableAttribute.class)
+                || Type.fromJavaClass(NullableAttribute.class).get_BaseType()
+                    != Type.fromJavaClass(Attribute.class)) {
+            throw new AssertionError("Selected attribute hierarchy changed");
+        }
         if (Type.GetType("System.Reflection.ParameterAttributes") != parameterAttributesType
                 || !parameterAttributesType.get_IsEnum()
                 || parameterAttributesType.GetEnumNames().length != 11
@@ -251,6 +260,20 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Selected typed method-name lookup changed");
             }
             ParameterInfo returnParameter = namedMethod.get_ReturnParameter();
+            Object[] returnAttributes = returnParameter.GetCustomAttributes(false);
+            Object[] inheritedReturnAttributes = returnParameter.GetCustomAttributes(true);
+            if (index == 2) {
+                if (returnAttributes.length != 1
+                        || inheritedReturnAttributes.length != 1
+                        || !(returnAttributes[0] instanceof NullableAttribute annotation)
+                        || annotation.NullableFlags.length != 1
+                        || annotation.NullableFlags[0] != 1
+                        || !(inheritedReturnAttributes[0] instanceof NullableAttribute)) {
+                    throw new AssertionError("Selected nullable return attribute changed");
+                }
+            } else if (returnAttributes.length != 0 || inheritedReturnAttributes.length != 0) {
+                throw new AssertionError("Unexpected selected return attribute");
+            }
             if (namedMethod.GetMethodBody() != null) {
                 throw new AssertionError("Abstract interface method supplied a body");
             }
@@ -326,6 +349,8 @@ public final class TypeIdentityCandidateTest {
                         || parameters[parameterIndex].get_IsRetval()
                         || parameters[parameterIndex].get_IsLcid()
                         || parameters[parameterIndex].get_Attributes() != ParameterAttributes.None
+                        || parameters[parameterIndex].GetCustomAttributes(false).length != 0
+                        || parameters[parameterIndex].GetCustomAttributes(true).length != 0
                         || parameters[parameterIndex].GetOptionalCustomModifiers().length != 0
                         || parameters[parameterIndex].GetRequiredCustomModifiers().length != 0) {
                     throw new AssertionError("Selected parameter default flags changed");

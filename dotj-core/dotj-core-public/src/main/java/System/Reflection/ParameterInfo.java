@@ -4,6 +4,7 @@ package System.Reflection;
 
 import System.Type;
 import System.DBNull;
+import System.Runtime.CompilerServices.NullableAttribute;
 
 /** Selected parameter metadata for bounded method descriptors. */
 public class ParameterInfo {
@@ -69,6 +70,15 @@ public class ParameterInfo {
 
     public ParameterAttributes get_Attributes() {
         return ParameterAttributes.None;
+    }
+
+    public Object[] GetCustomAttributes(boolean inherit) {
+        if (this.position == -1 && this.member != null
+                && "System.IFormattable".equals(this.member.get_DeclaringType().get_FullName())
+                && "ToString".equals(this.member.get_Name())) {
+            return new Object[] { new NullableAttribute((byte) 1) };
+        }
+        return new Object[0];
     }
 
     public Type[] GetOptionalCustomModifiers() {

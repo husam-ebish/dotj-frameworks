@@ -1574,6 +1574,80 @@
       ]
     }
   ],
+  "selectedParameterCustomAttributeBehavior": [
+    {
+      "owner": "System.IDisposable",
+      "name": "Dispose",
+      "parameters": [
+        {
+          "position": -1,
+          "direct": [],
+          "inherited": []
+        }
+      ]
+    },
+    {
+      "owner": "System.IComparable",
+      "name": "CompareTo",
+      "parameters": [
+        {
+          "position": 0,
+          "direct": [],
+          "inherited": []
+        },
+        {
+          "position": -1,
+          "direct": [],
+          "inherited": []
+        }
+      ]
+    },
+    {
+      "owner": "System.IFormattable",
+      "name": "ToString",
+      "parameters": [
+        {
+          "position": 0,
+          "direct": [],
+          "inherited": []
+        },
+        {
+          "position": 1,
+          "direct": [],
+          "inherited": []
+        },
+        {
+          "position": -1,
+          "direct": [
+            {
+              "type": "System.Runtime.CompilerServices.NullableAttribute",
+              "baseType": "System.Attribute",
+              "flags": "AQ=="
+            }
+          ],
+          "inherited": [
+            "System.Runtime.CompilerServices.NullableAttribute"
+          ]
+        }
+      ]
+    },
+    {
+      "owner": "System.IFormatProvider",
+      "name": "GetFormat",
+      "parameters": [
+        {
+          "position": 0,
+          "direct": [],
+          "inherited": []
+        },
+        {
+          "position": -1,
+          "direct": [],
+          "inherited": []
+        }
+      ]
+    }
+  ],
   "selectedParameterTextBehavior": [
     {
       "owner": "System.IDisposable",
@@ -15328,6 +15402,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "438caf02c936d648a8cd59dc436332a312d4077dd39ed6d6e4d631602e9ad528",
+  "oracleProgramSha256": "10ee783e3968ba06a912032cc99d1c4d95bd0730043493d08491c997a9d71352",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

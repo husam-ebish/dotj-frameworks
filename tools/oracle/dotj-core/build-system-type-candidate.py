@@ -29,6 +29,8 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/CallingConventions.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodImplAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DBNull.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
+EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
@@ -383,6 +385,18 @@ def main():
     assert all(attribute["value"] == 0 and attribute["text"] == "None"
                for row in parameter_attributes["methods"]
                for attribute in row["attributes"])
+    custom_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterCustomAttributeBehavior"]
+    assert [len(row["parameters"]) for row in custom_attributes] == [1, 2, 3, 2]
+    assert all(parameter["direct"] == [] and parameter["inherited"] == []
+               for row_index, row in enumerate(custom_attributes)
+               for parameter_index, parameter in enumerate(row["parameters"])
+               if (row_index, parameter_index) != (2, 2))
+    assert custom_attributes[2]["parameters"][2] == {
+        "position": -1,
+        "direct": [{"type": "System.Runtime.CompilerServices.NullableAttribute",
+                    "baseType": "System.Attribute", "flags": "AQ=="}],
+        "inherited": ["System.Runtime.CompilerServices.NullableAttribute"],
+    }
     parameter_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterModifierBehavior"]
     assert [len(row["parameters"]) for row in parameter_modifiers] == [1, 2, 3, 2]
     assert all(parameter["optional"] == [] and parameter["required"] == []

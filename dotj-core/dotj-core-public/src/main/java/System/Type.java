@@ -20,6 +20,7 @@ import System.Reflection.MethodImplAttributes;
 import System.Reflection.MethodBody;
 import System.Reflection.GenericParameterAttributes;
 import System.Reflection.ParameterAttributes;
+import System.Runtime.CompilerServices.NullableAttribute;
 import System.Globalization.NumberStyles;
 import System.Globalization.CultureNotFoundException;
 
@@ -410,6 +411,9 @@ public abstract class Type extends MemberInfo {
             case "System.TypeCode" -> fromJavaClass(TypeCode.class);
             case "System.Type" -> fromJavaClass(Type.class);
             case "System.DBNull" -> fromJavaClass(DBNull.class);
+            case "System.Attribute" -> fromJavaClass(Attribute.class);
+            case "System.Runtime.CompilerServices.NullableAttribute" ->
+                    fromJavaClass(NullableAttribute.class);
             case "System.Reflection.MemberInfo" -> fromJavaClass(MemberInfo.class);
             case "System.Reflection.MethodBase" -> fromJavaClass(MethodBase.class);
             case "System.Reflection.MethodInfo" -> fromJavaClass(MethodInfo.class);
@@ -524,6 +528,9 @@ public abstract class Type extends MemberInfo {
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
             case "system.type" -> ignoreCase ? fromJavaClass(Type.class) : null;
             case "system.dbnull" -> ignoreCase ? fromJavaClass(DBNull.class) : null;
+            case "system.attribute" -> ignoreCase ? fromJavaClass(Attribute.class) : null;
+            case "system.runtime.compilerservices.nullableattribute" -> ignoreCase
+                    ? fromJavaClass(NullableAttribute.class) : null;
             case "system.reflection.memberinfo" -> ignoreCase ? fromJavaClass(MemberInfo.class) : null;
             case "system.reflection.methodbase" -> ignoreCase ? fromJavaClass(MethodBase.class) : null;
             case "system.reflection.methodinfo" -> ignoreCase ? fromJavaClass(MethodInfo.class) : null;
@@ -920,6 +927,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Enum.class || this.definition == java.lang.reflect.Array.class
                 || this.definition == MemberInfo.class || this.definition == MethodBase.class
                 || this.definition == MethodInfo.class
+                || this.definition == Attribute.class
                 || this.get_IsInterface();
     }
 

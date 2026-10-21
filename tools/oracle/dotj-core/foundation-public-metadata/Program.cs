@@ -1114,6 +1114,22 @@ var result = new
                 required = parameter.GetRequiredCustomModifiers()
                     .Select(type => type.FullName).ToArray() })
             .ToArray() }).ToArray(),
+    selectedParameterCustomAttributeBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        parameters = item.Item1.GetMethod(item.Item2)!.GetParameters()
+            .Append(item.Item1.GetMethod(item.Item2)!.ReturnParameter)
+            .Select(parameter => new { position = parameter.Position,
+                direct = parameter.GetCustomAttributes(false)
+                    .Select(value => new { type = value.GetType().FullName,
+                        baseType = value.GetType().BaseType?.FullName,
+                        flags = value.GetType().GetField("NullableFlags")?.GetValue(value) as byte[] })
+                    .ToArray(),
+                inherited = parameter.GetCustomAttributes(true)
+                    .Select(value => value.GetType().FullName).ToArray() })
+            .ToArray() }).ToArray(),
     selectedParameterTextBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

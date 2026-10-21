@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 40 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 42 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "b4a6f674737a5b1212987ad196cad18c233388b6c79c8f5fa88be6a5a4cdbe79",
+  "jarSha256": "1ef498a1629054e8b684c2d0854d427d27c8a3874ba6f32007dfccbf1326d74a",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -26,6 +26,17 @@
       "upstreamSha256": "a4a74455bc2c18eb52a6b603db8013218e38cc8e6905af787044e66b471af19a",
       "productIdentifierCount": 54,
       "upstreamIdentifierCount": 407,
+      "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Attribute.java",
+      "productSha256": "6a3ce7cebaa34d32e6e5fb0ab8aff71c0fba7102a00712175eb420eb14047400",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Attribute.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Attribute.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "6a723f8aa3dbd895b9c5e956007b59340cf027c1d5b79c10c0ef853d09e27700",
+      "productIdentifierCount": 19,
+      "upstreamIdentifierCount": 463,
       "sharedIdentifierShinglesOfLength12": 0
     },
     {
@@ -382,13 +393,24 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Reflection/ParameterInfo.java",
-      "productSha256": "e051b2f069f1dd28534478762a8efa0d77d8eef5045e548d79627b60ee1a8bcd",
+      "productSha256": "4091a7b41802b2ccab7b76d63aec70e49132013f9febfcf431a323f8246f54ea",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Reflection/ParameterInfo.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Reflection/ParameterInfo.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "12e0e2b88317a8a767d7edb8e1ca68110ad3f8c88e231745bf17211ec95e67b6",
-      "productIdentifierCount": 181,
+      "productIdentifierCount": 218,
       "upstreamIdentifierCount": 379,
+      "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Runtime/CompilerServices/NullableAttribute.java",
+      "productSha256": "3080ad9688eb90939bb869e9481bb4c8b0f0b439cc1e8c23b01a0f4f0b7ee2a0",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/NullableAttribute.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Runtime/CompilerServices/NullableAttribute.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "cdbf5617b48fc0025397cdcaec7fc0cae2508ce05d18727ee5ebd879f4b993c2",
+      "productIdentifierCount": 39,
+      "upstreamIdentifierCount": 126,
       "sharedIdentifierShinglesOfLength12": 0
     },
     {
@@ -404,12 +426,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "5c114e60dca3b7029af8592484e4ac71d05c4e52ffc8aa096e797d6602149c9e",
+      "productSha256": "1fd759ab81fa8e3b31a73b4dd954416a354c0f8970fa38e50067f352a103ed76",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
-      "productIdentifierCount": 7943,
+      "productIdentifierCount": 7984,
       "upstreamIdentifierCount": 3542,
       "sharedIdentifierShinglesOfLength12": 0
     },
