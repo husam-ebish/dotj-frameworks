@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System.Reflection;
 
 /** Selected CLR generic parameter attribute names and values. */

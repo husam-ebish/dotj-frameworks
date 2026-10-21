@@ -35,6 +35,7 @@ def main():
         assert sha256(path) == sources[relative_path]
         text = path.read_text(encoding="utf-8")
         header = "\n".join(text.splitlines()[:30])
+        assert text.startswith("// SPDX-License-Identifier: MIT\n\n"), relative_path
         source_rows.append({
             "path": relative_path,
             "sha256": sources[relative_path],

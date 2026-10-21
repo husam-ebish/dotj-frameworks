@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System.Globalization;
 
 /** Selected NumberStyles flag values; Java enum representation is provisional. */

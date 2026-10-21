@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+
 package System;
 
 /** Selected unchecked Java carrier for the System.Exception candidate hierarchy. */
