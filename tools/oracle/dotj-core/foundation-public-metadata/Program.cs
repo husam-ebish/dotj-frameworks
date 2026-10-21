@@ -997,6 +997,15 @@ var result = new
         quotedThree = ObserveGetType("System.String, \"System.Private.CoreLib\\\\\\,Extra\"", false, false),
         singleTwo = ObserveGetType("System.String, 'System.Private.CoreLib\\\\,Extra'", false, false),
     },
+    selectedAssemblyQuoteEscapeParityBehavior = new
+    {
+        doubleTwo = ObserveGetType("System.String, \"System.Private.CoreLib\\\\\"", false, false),
+        doubleThree = ObserveGetType("System.String, \"System.Private.CoreLib\\\\\\\"", false, false),
+        singleTwo = ObserveGetType("System.String, 'System.Private.CoreLib\\\\'", false, false),
+        singleThree = ObserveGetType("System.String, 'System.Private.CoreLib\\\\\\'", false, false),
+        unquotedDoubleTwo = ObserveGetType("System.String, System.Private.CoreLib\\\\\"", false, false),
+        unquotedDoubleThree = ObserveGetType("System.String, System.Private.CoreLib\\\\\\\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
