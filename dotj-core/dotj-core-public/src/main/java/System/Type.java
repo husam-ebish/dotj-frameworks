@@ -667,6 +667,10 @@ public abstract class Type extends MemberInfo {
         return this.get_IsArray() && !this.get_IsSZArray();
     }
 
+    public boolean get_HasElementType() {
+        return this.GetElementType() != null;
+    }
+
     public boolean get_IsByRef() {
         return false;
     }

@@ -191,6 +191,18 @@ public final class ProductTypeIdentityConsumer {
                 || integer.MakePointerType() != Type.GetType("System.Int32*")) {
             throw new AssertionError("Selected pointer type identity changed");
         }
+        if (Type.GetType("System.Object").get_HasElementType()
+                || integer.get_HasElementType() || definition.get_HasElementType()
+                || first.get_HasElementType()
+                || !Type.GetType("System.String[]").get_HasElementType()
+                || !rectangular.get_HasElementType()
+                || !Type.GetType("System.String[*]").get_HasElementType()
+                || !byReference.get_HasElementType() || !pointer.get_HasElementType()
+                || rectangular.GetElementType() != string
+                || byReference.GetElementType() != string
+                || pointer.GetElementType() != string) {
+            throw new AssertionError("Selected element type flags changed");
+        }
         try {
             byReference.MakePointerType();
             throw new AssertionError("Pointer from by-reference type accepted");
