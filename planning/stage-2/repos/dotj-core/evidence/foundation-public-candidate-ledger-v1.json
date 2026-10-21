@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "40d79110b89f84678a45e282d2a05226435c4c3fbd863b29d1bc7236c87c3c1d",
+  "candidateJarSha256": "727cdf2e5a7f58ee6508d62c07ea75e3d6e72fdfe5dca0c49d4839ed50cfe850",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -288,6 +288,9 @@
         "public static System.Int32 CopySign(System.Int32, System.Int32);",
         "public static long BigMul(System.Int32, System.Int32);",
         "public static System.ValueTuple<System.Int32, System.Int32> DivRem(System.Int32, System.Int32);",
+        "public static <TOther> System.Int32 CreateChecked(TOther);",
+        "public static <TOther> System.Int32 CreateSaturating(TOther);",
+        "public static <TOther> System.Int32 CreateTruncating(TOther);",
         "public boolean Equals(System.Int32);",
         "public boolean Equals(java.lang.Object);",
         "public System.Int32 GetHashCode();",

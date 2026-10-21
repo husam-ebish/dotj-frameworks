@@ -217,6 +217,31 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 new Int32(left.value % right.value));
     }
 
+    public static <TOther> Int32 CreateChecked(TOther value) {
+        long source = selectedCreateSource(value);
+        if (source < Integer.MIN_VALUE || source > Integer.MAX_VALUE) {
+            throw new OverflowException();
+        }
+        return new Int32((int)source);
+    }
+
+    public static <TOther> Int32 CreateSaturating(TOther value) {
+        long source = selectedCreateSource(value);
+        return new Int32((int)Math.max(Integer.MIN_VALUE,
+                Math.min(Integer.MAX_VALUE, source)));
+    }
+
+    public static <TOther> Int32 CreateTruncating(TOther value) {
+        return new Int32((int)selectedCreateSource(value));
+    }
+
+    private static long selectedCreateSource(Object value) {
+        if (value instanceof Long source) return source;
+        if (value instanceof Integer source) return source.longValue();
+        if (value instanceof Int32 source) return source.value;
+        throw new UnsupportedOperationException("Selected Int32.Create source type is not mapped");
+    }
+
     public boolean Equals(Int32 obj) {
         return obj != null && this.value == obj.value;
     }
