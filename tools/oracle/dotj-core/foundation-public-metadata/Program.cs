@@ -495,6 +495,18 @@ var result = new
         isAssignableToValueType = typeof(char).IsAssignableTo(typeof(ValueType)),
         typeCode = Type.GetTypeCode(typeof(char)).ToString(),
     },
+    selectedInt16TypeIdentityBehavior = new
+    {
+        name = typeof(short).Name,
+        fullName = typeof(short).FullName,
+        baseType = typeof(short).BaseType?.FullName,
+        isPrimitive = typeof(short).IsPrimitive,
+        isValueType = typeof(short).IsValueType,
+        isSealed = typeof(short).IsSealed,
+        isClass = typeof(short).IsClass,
+        isAssignableToValueType = typeof(short).IsAssignableTo(typeof(ValueType)),
+        typeCode = Type.GetTypeCode(typeof(short)).ToString(),
+    },
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),

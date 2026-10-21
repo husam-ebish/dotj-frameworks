@@ -937,6 +937,12 @@ def main():
         "isPrimitive": True, "isValueType": True, "isSealed": True, "isClass": False,
         "isAssignableToValueType": True, "typeCode": "Char",
     }
+    int16_identity = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt16TypeIdentityBehavior"]
+    assert int16_identity == {
+        "name": "Int16", "fullName": "System.Int16", "baseType": "System.ValueType",
+        "isPrimitive": True, "isValueType": True, "isSealed": True, "isClass": False,
+        "isAssignableToValueType": True, "typeCode": "Int16",
+    }
     parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
     assert parameter_attributes == {
         "stringType": {"value": None, "exception": "System.InvalidOperationException"},

@@ -85,6 +85,17 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetTypeCode(charType) != TypeCode.Char) {
             throw new AssertionError("Selected Char Type identity changed");
         }
+        Type int16Type = Type.GetType("System.Int16");
+        if (int16Type == null || int16Type != primitiveTypes[3]
+                || !"Int16".equals(int16Type.get_Name())
+                || !"System.Int16".equals(int16Type.get_FullName())
+                || !"System.ValueType".equals(int16Type.get_BaseType().get_FullName())
+                || !int16Type.get_IsPrimitive() || !int16Type.get_IsValueType()
+                || !int16Type.get_IsSealed() || int16Type.get_IsClass()
+                || !int16Type.IsAssignableTo(Type.GetType("System.ValueType"))
+                || Type.GetTypeCode(int16Type) != TypeCode.Int16) {
+            throw new AssertionError("Selected Int16 Type identity changed");
+        }
         Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
         if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
                 || mixedTypes[2] != Type.GetType("System.Exception")
