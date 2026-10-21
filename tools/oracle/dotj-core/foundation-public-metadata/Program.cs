@@ -618,6 +618,21 @@ if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
 {
     throw new InvalidOperationException("Selected exception constructor observation changed.");
 }
+static object ObserveSelectedAttributeInstance()
+{
+    ParameterInfo parameter = typeof(IFormattable).GetMethod("ToString")!.ReturnParameter;
+    Attribute first = (Attribute)parameter.GetCustomAttributes(false)[0];
+    Attribute second = (Attribute)parameter.GetCustomAttributes(false)[0];
+    return new
+    {
+        sameReference = ReferenceEquals(first, second),
+        equalsRepeat = first.Equals(second),
+        matchesRepeat = first.Match(second),
+        typeId = ((Type)first.TypeId).FullName,
+        typeIdEqualsType = ReferenceEquals(first.TypeId, first.GetType()),
+        isDefault = first.IsDefaultAttribute(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1130,6 +1145,7 @@ var result = new
                 inherited = parameter.GetCustomAttributes(true)
                     .Select(value => value.GetType().FullName).ToArray() })
             .ToArray() }).ToArray(),
+    selectedAttributeInstanceBehavior = ObserveSelectedAttributeInstance(),
     selectedParameterAttributeFilterBehavior = new
     {
         returnBase = typeof(IFormattable).GetMethod("ToString")!.ReturnParameter

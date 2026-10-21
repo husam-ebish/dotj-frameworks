@@ -401,6 +401,11 @@ def main():
                     "baseType": "System.Attribute", "flags": "AQ=="}],
         "inherited": ["System.Runtime.CompilerServices.NullableAttribute"],
     }
+    attribute_instance = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAttributeInstanceBehavior"]
+    assert attribute_instance == {"sameReference": False, "equalsRepeat": True,
+        "matchesRepeat": True,
+        "typeId": "System.Runtime.CompilerServices.NullableAttribute",
+        "typeIdEqualsType": True, "isDefault": False}
     attribute_filter = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterAttributeFilterBehavior"]
     assert attribute_filter == {
         "returnBase": ["System.Runtime.CompilerServices.NullableAttribute"],

@@ -317,6 +317,12 @@ public final class TypeIdentityCandidateTest {
                         || !(returnAttributes[0] instanceof NullableAttribute annotation)
                         || annotation.NullableFlags.length != 1
                         || annotation.NullableFlags[0] != 1
+                        || returnAttributes[0] == inheritedReturnAttributes[0]
+                        || !annotation.Equals(inheritedReturnAttributes[0])
+                        || !annotation.Match(inheritedReturnAttributes[0])
+                        || annotation.get_TypeId()
+                            != Type.fromJavaClass(NullableAttribute.class)
+                        || annotation.IsDefaultAttribute()
                         || !(inheritedReturnAttributes[0] instanceof NullableAttribute)) {
                     throw new AssertionError("Selected nullable return attribute changed");
                 }
