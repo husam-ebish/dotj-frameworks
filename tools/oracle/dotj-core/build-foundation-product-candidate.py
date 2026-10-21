@@ -213,6 +213,21 @@ def main():
         ([12300, 0, 0, 131072], [123, 0, 0, 0]),
         ([1, 0, 0, -2147352576], [0, 0, 0, -2147483648]),
     ]
+    floor_ceiling = metadata["selectedDecimalFloorCeiling"]
+    assert [entry["input"] for entry in floor_ceiling] == [
+        entry["input"] for entry in metadata["selectedDecimalTruncate"]]
+    assert [(entry["floor"], entry["ceiling"]) for entry in floor_ceiling] == [
+        ([123, 0, 0, 0], [124, 0, 0, 0]),
+        ([124, 0, 0, -2147483648], [123, 0, 0, -2147483648]),
+        ([0, 0, 0, 0], [1, 0, 0, 0]),
+        ([1, 0, 0, -2147483648], [0, 0, 0, -2147483648]),
+        ([0, 0, 0, -2147483648], [0, 0, 0, -2147483648]),
+        ([0, 0, 0, 0], [1, 0, 0, 0]),
+        ([-1, -1, -1, 0], [-1, -1, -1, 0]),
+        ([-1, -1, -1, -2147483648], [-1, -1, -1, -2147483648]),
+        ([123, 0, 0, 0], [123, 0, 0, 0]),
+        ([1, 0, 0, -2147483648], [0, 0, 0, -2147483648]),
+    ]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},

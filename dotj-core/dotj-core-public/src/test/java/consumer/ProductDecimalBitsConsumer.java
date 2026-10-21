@@ -146,6 +146,28 @@ public final class ProductDecimalBitsConsumer {
                 throw new AssertionError("Decimal truncate changed: " + index);
             }
         }
+        int[][] floorExpected = {
+            {123, 0, 0, 0}, {124, 0, 0, 0x80000000},
+            {0, 0, 0, 0}, {1, 0, 0, 0x80000000},
+            {0, 0, 0, 0x80000000}, {0, 0, 0, 0},
+            {-1, -1, -1, 0}, {-1, -1, -1, 0x80000000},
+            {123, 0, 0, 0}, {1, 0, 0, 0x80000000},
+        };
+        int[][] ceilingExpected = {
+            {124, 0, 0, 0}, {123, 0, 0, 0x80000000},
+            {1, 0, 0, 0}, {0, 0, 0, 0x80000000},
+            {0, 0, 0, 0x80000000}, {1, 0, 0, 0},
+            {-1, -1, -1, 0}, {-1, -1, -1, 0x80000000},
+            {123, 0, 0, 0}, {0, 0, 0, 0x80000000},
+        };
+        for (int index = 0; index < truncateInput.length; index++) {
+            Decimal value = new Decimal(truncateInput[index]);
+            if (!Arrays.equals(Decimal.GetBits(Decimal.Floor(value)), floorExpected[index])
+                    || !Arrays.equals(Decimal.GetBits(Decimal.Ceiling(value)),
+                            ceilingExpected[index])) {
+                throw new AssertionError("Decimal floor or ceiling changed: " + index);
+            }
+        }
         java.lang.System.out.println("PASS external selected Decimal bits");
     }
 }
