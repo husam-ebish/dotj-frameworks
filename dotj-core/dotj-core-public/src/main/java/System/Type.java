@@ -1299,6 +1299,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IConvertible.class && candidate.definition == Int32.class) {
             return true;
         }
+        if (this.definition == IConvertible.class && candidate.definition == DBNull.class) {
+            return true;
+        }
         if (this.definition == ISpanFormattable.class && candidate.definition == Int32.class) {
             return true;
         }
@@ -1368,7 +1371,7 @@ public abstract class Type extends MemberInfo {
             return value instanceof Integer || value instanceof Int32;
         }
         if (this.definition == IConvertible.class) {
-            return value instanceof Integer || value instanceof Int32;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DBNull;
         }
         if (this.definition == ISpanFormattable.class) {
             return value instanceof Integer || value instanceof Int32;
@@ -1707,6 +1710,17 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == Object.class || this.definition == IDisposable.class) {
             return null;
+        }
+        if (this.definition == DBNull.class) {
+            if (fullname.equals("System.IConvertible") || fullname.equals("IConvertible")
+                    || ignoreCase && (fullname.equalsIgnoreCase("System.IConvertible")
+                        || fullname.equalsIgnoreCase("IConvertible"))) {
+                return fromJavaClass(IConvertible.class);
+            }
+            if (fullname.equals("system.iconvertible")) {
+                return null;
+            }
+            throw new UnsupportedOperationException("DBNull interface lookup is not mapped for this name");
         }
         if (this.definition == String.class) {
             if (fullname.equals("System.IComparable") || fullname.equals("IComparable")) {

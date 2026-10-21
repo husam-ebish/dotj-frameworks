@@ -747,6 +747,13 @@ var result = new
         toTypeNullParameter = ObserveMethodArgumentName(() =>
             ((IConvertible)DBNull.Value).ToType(null!, null)),
     },
+    selectedDBNullInterfaceBehavior = new
+    {
+        interfaces = typeof(DBNull).GetInterfaces().Select(type => type.FullName).ToArray(),
+        convertibleAssignable = typeof(IConvertible).IsAssignableFrom(typeof(DBNull)),
+        convertibleInstance = typeof(IConvertible).IsInstanceOfType(DBNull.Value),
+        convertibleInterface = typeof(DBNull).GetInterface("System.IConvertible")?.FullName,
+    },
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

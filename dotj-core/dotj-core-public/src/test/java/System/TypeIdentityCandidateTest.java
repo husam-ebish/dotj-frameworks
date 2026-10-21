@@ -47,6 +47,15 @@ public final class TypeIdentityCandidateTest {
             throw new AssertionError("Selected DBNull identity changed");
         }
         IConvertible convertibleNull = DBNull.Value;
+        Type convertibleType = Type.fromJavaClass(IConvertible.class);
+        Type dbnullType = Type.fromJavaClass(DBNull.class);
+        if (!convertibleType.IsAssignableFrom(dbnullType)
+                || !convertibleType.IsInstanceOfType(DBNull.Value)
+                || dbnullType.GetInterface("System.IConvertible") != convertibleType
+                || dbnullType.GetInterface("system.iconvertible") != null
+                || dbnullType.GetInterface("system.iconvertible", true) != convertibleType) {
+            throw new AssertionError("Selected DBNull IConvertible metadata changed");
+        }
         if (!"".equals(convertibleNull.ToType(Type.fromJavaClass(String.class), null))
                 || convertibleNull.ToType(Type.fromJavaClass(DBNull.class), null) != DBNull.Value) {
             throw new AssertionError("Selected DBNull ToType outcomes changed");
