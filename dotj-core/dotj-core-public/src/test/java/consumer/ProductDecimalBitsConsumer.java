@@ -302,6 +302,48 @@ public final class ProductDecimalBitsConsumer {
                 throw new AssertionError("Decimal Negate changed: " + index);
             }
         }
+        int[][] addOperands = {
+            {0, 0, 0, 0}, {0, 0, 0, 0x80020000},
+            {100, 0, 0, 0x00020000}, {2, 0, 0, 0},
+            {125, 0, 0, 0x80020000}, {125, 0, 0, 0x00020000},
+            {1, 0, 0, 0x001c0000}, {-1, -1, -1, 0},
+            {1, 0, 0, 0}, {1, 0, 0, 0x80000000},
+            {-1, -1, -1, 0x80000000}, {1, 0, 0, 0x00010000},
+            {5, 0, 0, 0x00010000}, {5, 0, 0, 0x80010000},
+        };
+        int[][] addPairs = {
+            {0, 0}, {1, 1}, {1, 0}, {0, 1}, {2, 3},
+            {2, 4}, {5, 4}, {4, 5}, {6, 6}, {7, 0},
+            {7, 8}, {7, 9}, {10, 9}, {7, 10}, {10, 7},
+            {7, 11}, {7, 6}, {12, 12}, {13, 12}, {13, 13}, {8, 9},
+        };
+        int[][] addExpected = {
+            {0, 0, 0, 0}, {0, 0, 0, 0x80020000},
+            {0, 0, 0, 0x80020000}, {0, 0, 0, 0x80020000},
+            {300, 0, 0, 0x00020000}, {25, 0, 0, 0x80020000},
+            {0, 0, 0, 0x00020000}, {0, 0, 0, 0x80020000},
+            {2, 0, 0, 0x001c0000}, {-1, -1, -1, 0},
+            null, {-2, -1, -1, 0}, null, {0, 0, 0, 0},
+            {0, 0, 0, 0x80000000}, {-1, -1, -1, 0},
+            {-1, -1, -1, 0}, {10, 0, 0, 0x00010000},
+            {0, 0, 0, 0x80010000}, {10, 0, 0, 0x80010000},
+            {0, 0, 0, 0},
+        };
+        for (int index = 0; index < addPairs.length; index++) {
+            int[] pair = addPairs[index];
+            try {
+                int[] bits = Decimal.GetBits(Decimal.Add(
+                        new Decimal(addOperands[pair[0]]),
+                        new Decimal(addOperands[pair[1]])));
+                if (addExpected[index] == null || !Arrays.equals(bits, addExpected[index])) {
+                    throw new AssertionError("Decimal Add changed: " + index);
+                }
+            } catch (OverflowException caught) {
+                if (addExpected[index] != null) {
+                    throw new AssertionError("Decimal Add overflow changed: " + index, caught);
+                }
+            }
+        }
         java.lang.System.out.println("PASS external selected Decimal bits");
     }
 }

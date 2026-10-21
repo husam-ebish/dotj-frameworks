@@ -144,6 +144,19 @@ public final class Decimal implements IConvertible {
                 value.value.signum() == 0 && !value.negativeZero);
     }
 
+    public static Decimal Add(Decimal left, Decimal right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        BigDecimal sum = left.value.add(right.value);
+        boolean negativeZero = sum.signum() < 0 || (sum.signum() == 0
+                && (left.value.signum() < 0 || left.negativeZero || right.negativeZero));
+        return bounded(sum, negativeZero);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
@@ -164,13 +177,15 @@ public final class Decimal implements IConvertible {
             throw new FormatException("Input string was not in a correct format");
         }
         BigDecimal parsed = new BigDecimal(trimmed.replace(",", ""));
-        boolean negativeZero = parsed.signum() == 0 && trimmed.startsWith("-");
+        return bounded(parsed, trimmed.startsWith("-"));
+    }
+
+    private static Decimal bounded(BigDecimal parsed, boolean negativeZero) {
         for (int scale = Math.min(parsed.scale(), 28); scale >= 0; scale--) {
             BigDecimal rounded = parsed.setScale(scale, RoundingMode.HALF_EVEN);
             if (rounded.unscaledValue().abs().bitLength() <= 96
                     && rounded.abs().compareTo(MAX_MAGNITUDE) <= 0) {
-                return new Decimal(rounded, negativeZero
-                        || (rounded.signum() == 0 && trimmed.startsWith("-")));
+                return new Decimal(rounded, rounded.signum() == 0 && negativeZero);
             }
         }
         throw new OverflowException("Value was outside the range of Decimal");

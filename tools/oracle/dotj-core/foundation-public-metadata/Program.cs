@@ -1365,6 +1365,52 @@ static object ObserveDecimalNegate()
         negated = decimal.GetBits(decimal.Negate(new decimal(bits))),
     }).ToArray();
 }
+static object ObserveDecimalAdd()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        (zero, zero),
+        (negativeZero, negativeZero),
+        (negativeZero, zero),
+        (zero, negativeZero),
+        ([100, 0, 0, 0x00020000], [2, 0, 0, 0]),
+        ([100, 0, 0, 0x00020000], [125, 0, 0, unchecked((int)0x80020000)]),
+        ([125, 0, 0, 0x00020000], [125, 0, 0, unchecked((int)0x80020000)]),
+        ([125, 0, 0, unchecked((int)0x80020000)], [125, 0, 0, 0x00020000]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x001c0000]),
+        (max, zero),
+        (max, [1, 0, 0, 0]),
+        (max, [1, 0, 0, unchecked((int)0x80000000)]),
+        (min, [1, 0, 0, unchecked((int)0x80000000)]),
+        (max, min),
+        (min, max),
+        (max, [1, 0, 0, 0x00010000]),
+        (max, [1, 0, 0, 0x001c0000]),
+        ([5, 0, 0, 0x00010000], [5, 0, 0, 0x00010000]),
+        ([5, 0, 0, unchecked((int)0x80010000)], [5, 0, 0, 0x00010000]),
+        ([5, 0, 0, unchecked((int)0x80010000)],
+            [5, 0, 0, unchecked((int)0x80010000)]),
+        ([1, 0, 0, 0], [1, 0, 0, unchecked((int)0x80000000)]),
+    };
+    return inputs.Select(input =>
+    {
+        try
+        {
+            decimal sum = decimal.Add(new decimal(input.left), new decimal(input.right));
+            return new { left = input.left, right = input.right,
+                result = decimal.GetBits(sum), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { left = input.left, right = input.right,
+                result = (int[]?)null, error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5841,6 +5887,7 @@ var result = new
     selectedDecimalRoundOverloads = ObserveDecimalRoundOverloads(),
     selectedDecimalAbsSign = ObserveDecimalAbsSign(),
     selectedDecimalNegate = ObserveDecimalNegate(),
+    selectedDecimalAdd = ObserveDecimalAdd(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

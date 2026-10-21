@@ -302,6 +302,32 @@ def main():
     assert [(entry["input"], entry["negated"])
             for entry in metadata["selectedDecimalNegate"]] == [
         (bits, [*bits[:3], bits[3] ^ -2147483648]) for bits in negate_inputs]
+    add_operands = ([0, 0, 0, 0], [0, 0, 0, -2147352576],
+                    [100, 0, 0, 131072], [2, 0, 0, 0],
+                    [125, 0, 0, -2147352576], [125, 0, 0, 131072],
+                    [1, 0, 0, 1835008], [-1, -1, -1, 0],
+                    [1, 0, 0, 0], [1, 0, 0, -2147483648],
+                    [-1, -1, -1, -2147483648], [1, 0, 0, 65536],
+                    [5, 0, 0, 65536], [5, 0, 0, -2147418112])
+    add_pairs = ((0, 0), (1, 1), (1, 0), (0, 1), (2, 3),
+                 (2, 4), (5, 4), (4, 5), (6, 6), (7, 0),
+                 (7, 8), (7, 9), (10, 9), (7, 10), (10, 7),
+                 (7, 11), (7, 6), (12, 12), (13, 12), (13, 13), (8, 9))
+    add_results = ([0, 0, 0, 0], [0, 0, 0, -2147352576],
+                   [0, 0, 0, -2147352576], [0, 0, 0, -2147352576],
+                   [300, 0, 0, 131072], [25, 0, 0, -2147352576],
+                   [0, 0, 0, 131072], [0, 0, 0, -2147352576],
+                   [2, 0, 0, 1835008], [-1, -1, -1, 0],
+                   None, [-2, -1, -1, 0], None,
+                   [0, 0, 0, 0], [0, 0, 0, -2147483648],
+                   [-1, -1, -1, 0], [-1, -1, -1, 0],
+                   [10, 0, 0, 65536], [0, 0, 0, -2147418112],
+                   [10, 0, 0, -2147418112], [0, 0, 0, 0])
+    assert [(entry["left"], entry["right"], entry["result"], entry["error"])
+            for entry in metadata["selectedDecimalAdd"]] == [
+        (add_operands[left], add_operands[right], result,
+         "System.OverflowException" if result is None else None)
+        for (left, right), result in zip(add_pairs, add_results)]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
