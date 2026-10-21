@@ -478,6 +478,12 @@ public final class ProductTypeIdentityConsumer {
                 || !"zero".equals(new Int32(0).ToString("0;(0);zero", provider))) {
             throw new AssertionError("Selected Int32 custom sections changed");
         }
+        if (!"42%".equals(int32Value.ToString("0\\%", provider))
+                || !"4200%".equals(int32Value.ToString("0%", provider))
+                || !"-42%".equals(new Int32(-42).ToString("0\\%", provider))
+                || !"-4200%".equals(new Int32(-42).ToString("0%", provider))) {
+            throw new AssertionError("Selected Int32 escaped percent changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
