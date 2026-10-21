@@ -1734,6 +1734,35 @@
       "instantiationError": "System.InvalidOperationException"
     }
   ],
+  "selectedAbstractMethodBodyBehavior": {
+    "type": {
+      "name": "System.Reflection.MethodBody",
+      "parent": "System.Object",
+      "isAbstract": false
+    },
+    "methods": [
+      {
+        "owner": "System.IDisposable",
+        "name": "Dispose",
+        "hasBody": false
+      },
+      {
+        "owner": "System.IComparable",
+        "name": "CompareTo",
+        "hasBody": false
+      },
+      {
+        "owner": "System.IFormattable",
+        "name": "ToString",
+        "hasBody": false
+      },
+      {
+        "owner": "System.IFormatProvider",
+        "name": "GetFormat",
+        "hasBody": false
+      }
+    ]
+  },
   "selectedMethodNameBehavior": [
     {
       "owner": "System.IDisposable",
@@ -14993,6 +15022,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "303323b8eedb016ff5916a3f0850cc996d531a1d5877817418d88ad245deb4e4",
+  "oracleProgramSha256": "ace1541479059c264ad5b71106837065e40e0605ab89a5e2179764f8f2ffd367",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

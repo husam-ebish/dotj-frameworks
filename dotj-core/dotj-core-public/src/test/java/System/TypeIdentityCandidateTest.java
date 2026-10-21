@@ -6,6 +6,7 @@ import System.Reflection.MemberTypes;
 import System.Reflection.BindingFlags;
 import System.Reflection.CallingConventions;
 import System.Reflection.MethodImplAttributes;
+import System.Reflection.MethodBody;
 import System.Reflection.MemberInfo;
 import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
@@ -74,6 +75,12 @@ public final class TypeIdentityCandidateTest {
         Type methodBaseType = Type.fromJavaClass(MethodBase.class);
         Type methodInfoType = Type.fromJavaClass(MethodInfo.class);
         Type parameterInfoType = Type.fromJavaClass(ParameterInfo.class);
+        Type methodBodyType = Type.fromJavaClass(MethodBody.class);
+        if (Type.GetType("System.Reflection.MethodBody") != methodBodyType
+                || methodBodyType.get_BaseType() != Type.fromJavaClass(Object.class)
+                || methodBodyType.get_IsAbstract()) {
+            throw new AssertionError("Selected MethodBody identity changed");
+        }
         if (Type.GetType("System.Reflection.ParameterInfo") != parameterInfoType
                 || parameterInfoType.get_BaseType() != Type.fromJavaClass(Object.class)
                 || parameterInfoType.get_IsAbstract()) {
@@ -219,6 +226,9 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Selected typed method-name lookup changed");
             }
             ParameterInfo returnParameter = namedMethod.get_ReturnParameter();
+            if (namedMethod.GetMethodBody() != null) {
+                throw new AssertionError("Abstract interface method supplied a body");
+            }
             try {
                 namedMethod.GetGenericMethodDefinition();
                 throw new AssertionError("Nongeneric method supplied a generic definition");

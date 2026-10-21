@@ -1152,6 +1152,18 @@ var result = new
             .GetGenericMethodDefinition()),
         instantiationError = ObserveMethodError(() => item.Item1.GetMethod(item.Item2)!
             .MakeGenericMethod(Type.EmptyTypes)) }).ToArray(),
+    selectedAbstractMethodBodyBehavior = new
+    {
+        type = new { name = typeof(MethodBody).FullName,
+            parent = typeof(MethodBody).BaseType?.FullName,
+            isAbstract = typeof(MethodBody).IsAbstract },
+        methods = new[]
+        {
+            (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+            (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+        }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+            hasBody = item.Item1.GetMethod(item.Item2)!.GetMethodBody() is not null }).ToArray(),
+    },
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

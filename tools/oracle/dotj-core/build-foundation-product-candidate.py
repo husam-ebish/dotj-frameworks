@@ -18,6 +18,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBody.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/ParameterInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
@@ -65,6 +66,7 @@ EXPECTED_CLASSES = [
     "System/Reflection/MemberInfo.class",
     "System/Reflection/MemberTypes.class",
     "System/Reflection/MethodBase.class",
+    "System/Reflection/MethodBody.class",
     "System/Reflection/MethodImplAttributes.class",
     "System/Reflection/MethodInfo.class",
     "System/Reflection/ParameterInfo.class",
