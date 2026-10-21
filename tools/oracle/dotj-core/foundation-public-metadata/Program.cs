@@ -1076,6 +1076,7 @@ var result = new
     }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
         isGenericMethod = item.Item1.GetMethod(item.Item2)!.IsGenericMethod,
         isGenericMethodDefinition = item.Item1.GetMethod(item.Item2)!.IsGenericMethodDefinition,
+        isConstructedGenericMethod = item.Item1.GetMethod(item.Item2)!.IsConstructedGenericMethod,
         containsGenericParameters = item.Item1.GetMethod(item.Item2)!.ContainsGenericParameters,
         genericArguments = item.Item1.GetMethod(item.Item2)!.GetGenericArguments()
             .Select(type => type.FullName).ToArray() }).ToArray(),
