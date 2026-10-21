@@ -1246,6 +1246,19 @@ var result = new
         insensitiveSameReference = ReferenceEquals(type,
             Type.GetType(type.FullName!.ToLowerInvariant(), throwOnError: false, ignoreCase: true)),
     }).ToArray(),
+    selectedNestedQualifiedIgnoreCaseBehavior = new[]
+    {
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!
+            .MakeGenericType(typeof(string), typeof(int)),
+    }.Select(type => new
+    {
+        lower = type.AssemblyQualifiedName!.ToLowerInvariant(),
+        exactMiss = Type.GetType(type.AssemblyQualifiedName!.ToLowerInvariant()) is null,
+        insensitiveSameReference = ReferenceEquals(type,
+            Type.GetType(type.AssemblyQualifiedName!.ToLowerInvariant(),
+                throwOnError: false, ignoreCase: true)),
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),

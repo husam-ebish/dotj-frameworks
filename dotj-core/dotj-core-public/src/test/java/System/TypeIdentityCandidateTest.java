@@ -64,6 +64,12 @@ public final class TypeIdentityCandidateTest {
             // The CLR also rejects this arity even with throwOnError=false.
         }
         Type closedEntry = nestedEntry.MakeGenericType(new Type[] {string, integer});
+        String lowerEntryQualified = closedEntry.get_AssemblyQualifiedName()
+                .toLowerCase(java.util.Locale.ROOT);
+        if (Type.GetType(lowerEntryQualified, false, true) != closedEntry
+                || Type.GetType(lowerEntryQualified) != null) {
+            throw new AssertionError("Constructed nested qualified ignore-case lookup changed");
+        }
         if (Type.GetType(closedEntry.get_FullName().toLowerCase(java.util.Locale.ROOT), false, true)
                 != closedEntry
                 || Type.GetType(closedEntry.get_FullName().toLowerCase(java.util.Locale.ROOT)) != null) {
