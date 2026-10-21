@@ -1069,6 +1069,21 @@ var result = new
         isFamily = item.Item1.GetMethod(item.Item2)!.IsFamily,
         isAssembly = item.Item1.GetMethod(item.Item2)!.IsAssembly,
         isHideBySig = item.Item1.GetMethod(item.Item2)!.IsHideBySig }).ToArray(),
+    selectedCallingConventionBehavior = new
+    {
+        values = Enum.GetNames<CallingConventions>()
+            .Select(name => new { name, value = (int)Enum.Parse<CallingConventions>(name) })
+            .ToArray(),
+        methods = new[]
+        {
+            (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+            (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+        }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+            value = (int)item.Item1.GetMethod(item.Item2)!.CallingConvention,
+            standard = item.Item1.GetMethod(item.Item2)!.CallingConvention.HasFlag(CallingConventions.Standard),
+            hasThis = item.Item1.GetMethod(item.Item2)!.CallingConvention.HasFlag(CallingConventions.HasThis) })
+            .ToArray(),
+    },
     selectedMethodNameBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

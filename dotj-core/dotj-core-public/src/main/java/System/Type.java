@@ -15,6 +15,7 @@ import System.Reflection.MethodInfo;
 import System.Reflection.ParameterInfo;
 import System.Reflection.MemberTypes;
 import System.Reflection.BindingFlags;
+import System.Reflection.CallingConventions;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 import System.Globalization.CultureNotFoundException;
@@ -429,6 +430,7 @@ public abstract class Type extends MemberInfo {
             case "System.Globalization.CultureNotFoundException" -> fromJavaClass(CultureNotFoundException.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Reflection.BindingFlags" -> fromJavaClass(BindingFlags.class);
+            case "System.Reflection.CallingConventions" -> fromJavaClass(CallingConventions.class);
             case "System.Reflection.GenericParameterAttributes" ->
                     fromJavaClass(GenericParameterAttributes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
@@ -540,6 +542,8 @@ public abstract class Type extends MemberInfo {
                     ? fromJavaClass(CultureNotFoundException.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.reflection.bindingflags" -> ignoreCase ? fromJavaClass(BindingFlags.class) : null;
+            case "system.reflection.callingconventions" -> ignoreCase
+                    ? fromJavaClass(CallingConventions.class) : null;
             case "system.reflection.genericparameterattributes" -> ignoreCase
                     ? fromJavaClass(GenericParameterAttributes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
@@ -845,6 +849,7 @@ public abstract class Type extends MemberInfo {
             return fromJavaClass(Number.class);
         }
         if (this.definition == MemberTypes.class || this.definition == BindingFlags.class
+                || this.definition == CallingConventions.class
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class) {
@@ -880,6 +885,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == DateTime.class
                         || this.definition == MemberTypes.class
                         || this.definition == BindingFlags.class
+                        || this.definition == CallingConventions.class
                         || this.definition == GenericParameterAttributes.class
                         || this.definition == TypeCode.class || this.definition == NumberStyles.class);
     }
@@ -1054,6 +1060,7 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsEnum() {
         return this.definition == MemberTypes.class || this.definition == BindingFlags.class
+                || this.definition == CallingConventions.class
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class;
@@ -1120,6 +1127,9 @@ public abstract class Type extends MemberInfo {
             if (value instanceof MemberTypes member) {
                 return member.get_Name() != null;
             }
+            if (value instanceof CallingConventions convention) {
+                return convention.get_Name() != null;
+            }
             return true;
         }
         if (value instanceof Integer number) {
@@ -1150,10 +1160,13 @@ public abstract class Type extends MemberInfo {
             if (value instanceof MemberTypes member) {
                 return member.get_Name();
             }
+            if (value instanceof CallingConventions convention) {
+                return convention.get_Name();
+            }
             return ((java.lang.Enum<?>) value).name();
         }
         if (value instanceof java.lang.Enum<?> || value instanceof BindingFlags
-                || value instanceof MemberTypes) {
+                || value instanceof MemberTypes || value instanceof CallingConventions) {
             return null;
         }
         if (value instanceof Integer || value instanceof Long
@@ -1176,6 +1189,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == MemberTypes.class) {
             return MemberTypes.values();
         }
+        if (this.definition == CallingConventions.class) {
+            return CallingConventions.values();
+        }
         return this.definition.getEnumConstants();
     }
 
@@ -1185,6 +1201,9 @@ public abstract class Type extends MemberInfo {
         }
         if (constant instanceof MemberTypes member) {
             return member.get_Name();
+        }
+        if (constant instanceof CallingConventions convention) {
+            return convention.get_Name();
         }
         return ((java.lang.Enum<?>) constant).name();
     }
@@ -1198,6 +1217,9 @@ public abstract class Type extends MemberInfo {
         }
         if (constant instanceof BindingFlags flags) {
             return flags.get_Value();
+        }
+        if (constant instanceof CallingConventions convention) {
+            return convention.get_Value();
         }
         if (constant instanceof GenericParameterAttributes attributes) {
             return attributes.get_Value();
@@ -1938,6 +1960,11 @@ public abstract class Type extends MemberInfo {
         @Override
         public boolean get_IsHideBySig() {
             return true;
+        }
+
+        @Override
+        public CallingConventions get_CallingConvention() {
+            return CallingConventions.Standard.or(CallingConventions.HasThis);
         }
 
         @Override
