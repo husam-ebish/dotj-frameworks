@@ -490,6 +490,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"-42000\u2030".equals(new Int32(-42).ToString("0\u2030", provider))) {
             throw new AssertionError("Selected Int32 per-mille formatting changed");
         }
+        if (!"12".equals(groupedValue.ToString("0,", provider))
+                || !"1".equals(new Int32(1234567).ToString("0,,", provider))
+                || !"1,235".equals(new Int32(1234567).ToString("#,##0,", provider))
+                || !"-12".equals(new Int32(-12345).ToString("0,", provider))
+                || !"1000".equals(new Int32(999500).ToString("0,", provider))) {
+            throw new AssertionError("Selected Int32 comma scaling changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");

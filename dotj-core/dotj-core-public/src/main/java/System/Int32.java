@@ -1,6 +1,8 @@
 package System;
 
 import java.math.BigInteger;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import System.Globalization.NumberStyles;
 
 /** Bounded immutable Int32 value and conversion candidate. */
@@ -207,6 +209,15 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         }
         if (format.equals("0\u2030")) {
             return BigInteger.valueOf(this.value).multiply(BigInteger.valueOf(1000)) + "\u2030";
+        }
+        if (format.equals("0,") || format.equals("0,,") || format.equals("#,##0,")) {
+            long divisor = format.equals("0,,") ? 1_000_000L : 1_000L;
+            int scaled = BigDecimal.valueOf(this.value)
+                    .divide(BigDecimal.valueOf(divisor), 0, RoundingMode.HALF_UP)
+                    .intValueExact();
+            return format.equals("#,##0,")
+                    ? new Int32(scaled).ToString("N0", provider)
+                    : Integer.toString(scaled);
         }
         if (format.matches("0+")) {
             String digits = BigInteger.valueOf(this.value).abs().toString();
