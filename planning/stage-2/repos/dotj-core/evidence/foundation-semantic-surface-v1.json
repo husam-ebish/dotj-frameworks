@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "1dc0880ceea1a2672c8d2edbf9ac29305dea267998e6e061fde6548d656a8c73",
+  "oracleEvidenceSha256": "80677f9aa2e37e7cdb526c58967691faad5b94dc7eaa68c5b7e48fe351b94639",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "bbd5c203ea7575f3e259c2d85458cf809fc25387afce27bacceedc0a71210d97",
+  "javaCandidateEvidenceSha256": "ae1f2886cb60d8fb279015dcc695b82c6d461fb62f8635e67fbcc726a60048d3",
   "types": [
     {
       "fullName": "System.Type",
@@ -3931,7 +3931,8 @@
         "public System.Exception(java.lang.String);",
         "public System.Exception(java.lang.String, System.Exception);",
         "public java.lang.String get_Message();",
-        "public System.Exception get_InnerException();"
+        "public System.Exception get_InnerException();",
+        "public System.Exception GetBaseException();"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -3941,11 +3942,11 @@
           "ToString": 1
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "GetBaseException": 1,
           "get_InnerException": 1,
           "get_Message": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "GetBaseException",
           "GetObjectData",
           "GetType",
           "ToString"

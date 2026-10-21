@@ -21,4 +21,13 @@ public class Exception extends RuntimeException {
     public Exception get_InnerException() {
         return this.getCause() instanceof Exception innerException ? innerException : null;
     }
+
+    public Exception GetBaseException() {
+        java.util.IdentityHashMap<Exception, Boolean> visited = new java.util.IdentityHashMap<>();
+        Exception current = this;
+        while (current.get_InnerException() != null && visited.put(current, Boolean.TRUE) == null) {
+            current = current.get_InnerException();
+        }
+        return current;
+    }
 }

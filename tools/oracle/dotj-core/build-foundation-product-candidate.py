@@ -77,6 +77,16 @@ def run(*command):
 def main():
     type_evidence = json.loads((EVIDENCE_ROOT / "system-type-identity-candidate-v1.json").read_text(encoding="utf-8"))
     disposal_evidence = json.loads((EVIDENCE_ROOT / "idisposable-product-v1.json").read_text(encoding="utf-8"))
+    metadata = json.loads((EVIDENCE_ROOT / "foundation-selected-metadata-v10.0.12.json").read_text(encoding="utf-8"))
+    assert metadata["selectedBaseExceptionBehavior"] == {
+        "standaloneIsSelf": True,
+        "rootIsSelf": True,
+        "middleReturnsRoot": True,
+        "chainReturnsRoot": True,
+        "chainInnerPreserved": True,
+        "baseType": "System.InvalidOperationException",
+        "baseMessage": "root",
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 
