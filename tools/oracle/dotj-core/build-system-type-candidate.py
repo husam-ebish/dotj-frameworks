@@ -40,6 +40,8 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("UInt16.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("UInt32.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("Byte.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("SByte.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/NumberStyles.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Globalization/CultureNotFoundException.java")
 EXCEPTION_SOURCES.append(ROOT / "dotj-core/dotj-core-public/src/main/java/org/dotj/internal/throwing/ThrowSite.java")
@@ -351,6 +353,12 @@ def main():
         "count": 2, "u16": 60000, "u32": 4000000000,
         "types": ["System.UInt16", "System.UInt32"],
         "u16TypeCode": "UInt16", "u32TypeCode": "UInt32",
+    }
+    byte_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoByteMembersBehavior"]
+    assert byte_members == {
+        "count": 2, "byteValue": 200, "sbyteValue": -5,
+        "types": ["System.Byte", "System.SByte"],
+        "byteTypeCode": "Byte", "sbyteTypeCode": "SByte",
     }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]

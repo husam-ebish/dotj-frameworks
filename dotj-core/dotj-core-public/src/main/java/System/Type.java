@@ -81,7 +81,8 @@ public abstract class Type extends MemberInfo {
             throw new NullPointerException("definition");
         }
         Class<?> backend = definition == Integer.class || definition == int.class
-                ? Int32.class : definition;
+                ? Int32.class : definition == java.lang.Byte.class || definition == byte.class
+                ? Byte.class : definition;
         return canonical.get(backend).computeIfAbsent(List.of(), key -> new ResolvedType(backend, key));
     }
 
@@ -105,7 +106,9 @@ public abstract class Type extends MemberInfo {
         if (type.definition == String.class) return TypeCode.String;
         if (type.definition == Boolean.class || type.definition == boolean.class) return TypeCode.Boolean;
         if (type.definition == Character.class || type.definition == char.class) return TypeCode.Char;
-        if (type.definition == Byte.class || type.definition == byte.class) return TypeCode.Byte;
+        if (type.definition == Byte.class || type.definition == java.lang.Byte.class
+                || type.definition == byte.class) return TypeCode.Byte;
+        if (type.definition == SByte.class) return TypeCode.SByte;
         if (type.definition == Short.class || type.definition == short.class) return TypeCode.Int16;
         if (type.definition == Int32.class) return TypeCode.Int32;
         if (type.definition == Long.class || type.definition == long.class) return TypeCode.Int64;
@@ -414,6 +417,7 @@ public abstract class Type extends MemberInfo {
             case "System.Single" -> fromJavaClass(Float.class);
             case "System.Double" -> fromJavaClass(Double.class);
             case "System.Byte" -> fromJavaClass(Byte.class);
+            case "System.SByte" -> fromJavaClass(SByte.class);
             case "System.Int32" -> fromJavaClass(Int32.class);
             case "System.Object" -> fromJavaClass(Object.class);
             case "System.ValueType" -> fromJavaClass(Number.class);
@@ -544,6 +548,7 @@ public abstract class Type extends MemberInfo {
             case "system.boolean" -> ignoreCase ? fromJavaClass(Boolean.class) : null;
             case "system.char" -> ignoreCase ? fromJavaClass(Character.class) : null;
             case "system.byte" -> ignoreCase ? fromJavaClass(Byte.class) : null;
+            case "system.sbyte" -> ignoreCase ? fromJavaClass(SByte.class) : null;
             case "system.int16" -> ignoreCase ? fromJavaClass(Short.class) : null;
             case "system.int64" -> ignoreCase ? fromJavaClass(Long.class) : null;
             case "system.uint64" -> ignoreCase ? fromJavaClass(BigInteger.class) : null;
@@ -812,7 +817,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == UInt32.class) return "UInt32";
         if (this.definition == Float.class) return "Single";
         if (this.definition == Double.class) return "Double";
-        if (this.definition == Byte.class) return "Byte";
+        if (this.definition == Byte.class || this.definition == java.lang.Byte.class) return "Byte";
+        if (this.definition == SByte.class) return "SByte";
         if (this.definition == Void.class) return "Void";
         if (this.definition == Int32.class) return "Int32";
         if (this.definition == Object.class) return "Object";
@@ -886,7 +892,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Long.class
                 || this.definition == Float.class
                 || this.definition == Double.class
-                || this.definition == Byte.class
+                || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == Void.class
                 || this.definition == Int32.class
                 || this.definition == Object.class || this.definition == Number.class
@@ -926,7 +932,8 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Long.class || this.definition == BigInteger.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Float.class
-                || this.definition == Double.class || this.definition == Byte.class) {
+                || this.definition == Double.class || this.definition == Byte.class
+                || this.definition == SByte.class) {
             return fromJavaClass(Number.class);
         }
         if (this.definition == Decimal.class || this.definition == DateTime.class
@@ -971,7 +978,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == UInt16.class || this.definition == UInt32.class
                         || this.definition == Float.class
                         || this.definition == Double.class
-                        || this.definition == Byte.class
+                        || this.definition == Byte.class || this.definition == SByte.class
                         || this.definition == Decimal.class
                         || this.definition == DateTime.class
                         || this.definition == StreamingContext.class
@@ -993,7 +1000,8 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Long.class || this.definition == BigInteger.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Float.class
-                || this.definition == Double.class || this.definition == Byte.class;
+                || this.definition == Double.class || this.definition == Byte.class
+                || this.definition == SByte.class;
     }
 
     public boolean get_IsAbstract() {
@@ -1012,7 +1020,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Long.class
                 || this.definition == Float.class
                 || this.definition == Double.class
-                || this.definition == Byte.class
+                || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == Int32.class || this.definition == Void.class
                 || this.definition == Decimal.class || this.definition == DateTime.class
                 || this.definition == StreamingContext.class
@@ -1290,7 +1298,7 @@ public abstract class Type extends MemberInfo {
             return null;
         }
         if (value instanceof Integer || value instanceof Long
-                || value instanceof Short || value instanceof Byte) {
+                || value instanceof Short || value instanceof java.lang.Byte) {
             long number = ((Number) value).longValue();
             for (Object constant : this.enumConstants()) {
                 if (enumNumericValue(constant) == number) {
