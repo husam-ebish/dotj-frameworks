@@ -516,6 +516,28 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        SerializationInfo decimalText = new SerializationInfo(dbnullType, selectedConverter);
+        decimalText.AddValue("decimalText", "12.5");
+        if (!"12.5".equals(decimalText.GetDecimal("decimalText").ToString(null))
+                || !"12.5".equals(((Decimal) selectedConverter.Convert(
+                    "12.5", Type.GetType("System.Decimal"))).ToString(null))
+                || !"12.5".equals(((Decimal) selectedConverter.Convert(
+                    "12.5", TypeCode.Decimal)).ToString(null))
+                || !"42".equals(selectedConverter.ToDecimal(42).ToString(null))) {
+            throw new AssertionError("Selected Decimal formatter routes changed");
+        }
+        try {
+            selectedConverter.ToDecimal("bad");
+            throw new AssertionError("Invalid Decimal text accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToDecimal(null);
+            throw new AssertionError("Null Decimal accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));

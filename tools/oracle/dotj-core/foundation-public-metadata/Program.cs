@@ -1481,6 +1481,21 @@ static object ObserveUInt64FormatterRoutes()
         nullValue = ObserveMethodError(() => converter.ToUInt64(null!)),
     };
 }
+static object ObserveDecimalFormatterRoutes()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("decimalText", "12.5");
+    return new
+    {
+        text = info.GetDecimal("decimalText").ToString(),
+        type = converter.Convert("12.5", typeof(decimal)).ToString(),
+        typeCode = converter.Convert("12.5", TypeCode.Decimal).ToString(),
+        integer = converter.ToDecimal(42).ToString(),
+        format = ObserveMethodError(() => converter.ToDecimal("bad")),
+        nullValue = ObserveMethodError(() => converter.ToDecimal(null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1648,6 +1663,7 @@ var result = new
     selectedUnsignedToTypeContractBehavior = ObserveUnsignedToTypeContract(),
     selectedInt16SingleFormatterRoutesBehavior = ObserveInt16SingleFormatterRoutes(),
     selectedUInt64FormatterRoutesBehavior = ObserveUInt64FormatterRoutes(),
+    selectedDecimalFormatterRoutesBehavior = ObserveDecimalFormatterRoutes(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

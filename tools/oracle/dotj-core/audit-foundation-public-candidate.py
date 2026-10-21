@@ -134,9 +134,10 @@ def main():
         elif name == "System.Decimal":
             assert header == "public final class System.Decimal {"
             assert declarations == ["public System.Decimal(int);", "public System.Decimal(long);",
+                                    "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 78
-            disposition = "PARTIAL_VALUE_SURFACE; int/long construction and invariant text only"
+            disposition = "PARTIAL_VALUE_SURFACE; int/long construction, selected Parse and invariant text"
         elif name == "System.DateTime":
             assert header == "public final class System.DateTime {"
             assert declarations == ["public System.DateTime(int, int, int);",
