@@ -37,7 +37,7 @@ SOURCES.append(PRODUCT / "src/main/java/System/Reflection/GenericParameterAttrib
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/throwing/ThrowSite.java")
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer",
-    "ProductInt32BitConsumer")]
+    "ProductInt32BitConsumer", "ProductInt32ArithmeticConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -295,10 +295,12 @@ def main():
     type_result = run("java", "-cp", classpath, "consumer.ProductTypeIdentityConsumer").strip()
     exception_result = run("java", "-cp", classpath, "consumer.ProductExceptionContractConsumer").strip()
     int32_result = run("java", "-cp", classpath, "consumer.ProductInt32BitConsumer").strip()
+    arithmetic_result = run("java", "-cp", classpath, "consumer.ProductInt32ArithmeticConsumer").strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
     assert int32_result == "PASS external selected Int32 bit helpers"
+    assert arithmetic_result == "PASS external selected Int32 signed arithmetic"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
@@ -313,6 +315,7 @@ def main():
         "typeConsumer": type_result,
         "exceptionConsumer": exception_result,
         "int32BitConsumer": int32_result,
+        "int32ArithmeticConsumer": arithmetic_result,
         "exceptionStackBoundary": {
             "dotNetPrethrowStackNull": True,
             "dotNetThrownStackNonEmpty": True,

@@ -778,6 +778,42 @@ def main():
                and [parameter["type"] for parameter in item["parameters"]] ==
                (["System.Int32", "System.Int32"] if item["name"].startswith("Rotate") else ["System.Int32"])
                for item in declared_bit_methods)
+    arithmetic = foundation["selectedInt32SignedArithmetic"]
+    assert [(item["value"], item["abs"], item["absError"], item["sign"])
+            for item in arithmetic["unary"]] == [
+                (-2147483648, None, "System.OverflowException", -1),
+                (-3, 3, None, -1), (-1, 1, None, -1), (0, 0, None, 0),
+                (1, 1, None, 1), (3, 3, None, 1), (2147483647, 2147483647, None, 1),
+            ]
+    assert [(item["x"], item["y"], item["max"], item["min"],
+             item["maxMagnitude"], item["minMagnitude"])
+            for item in arithmetic["pairs"]] == [
+                (2, 3, 3, 2, 3, 2), (-3, 3, 3, -3, 3, -3),
+                (-2147483648, 2147483647, 2147483647, -2147483648,
+                 -2147483648, 2147483647),
+                (0, 0, 0, 0, 0, 0), (-3, -3, -3, -3, -3, -3),
+            ]
+    assert [(item["value"], item["min"], item["max"], item["result"],
+             item["error"], item["errorParam"])
+            for item in arithmetic["clamps"]] == [
+                (5, 0, 10, 5, None, None), (-5, 0, 10, 0, None, None),
+                (15, 0, 10, 10, None, None), (0, 10, 0, None, "System.ArgumentException", None),
+            ]
+    assert [(item["value"], item["sign"], item["result"], item["error"])
+            for item in arithmetic["copies"]] == [
+                (-3, 1, 3, None), (3, -1, -3, None),
+                (-2147483648, -1, -2147483648, None),
+                (-2147483648, 1, None, "System.OverflowException"), (0, -1, 0, None),
+            ]
+    arithmetic_names = {"Abs": 1, "Sign": 1, "Max": 2, "Min": 2,
+                        "MaxMagnitude": 2, "MinMagnitude": 2, "Clamp": 3, "CopySign": 2}
+    declared_arithmetic = [item for item in int32_surface["methods"]
+                           if item["name"] in arithmetic_names]
+    assert {item["name"] for item in declared_arithmetic} == set(arithmetic_names)
+    assert all(item["isStatic"] and item["returnType"] == "System.Int32"
+               and [parameter["type"] for parameter in item["parameters"]] ==
+               ["System.Int32"] * arithmetic_names[item["name"]]
+               for item in declared_arithmetic)
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

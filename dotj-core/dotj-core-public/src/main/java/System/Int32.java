@@ -154,6 +154,54 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(Integer.rotateRight(value.value, rotateAmount.value));
     }
 
+    public static Int32 Abs(Int32 value) {
+        if (value.value == Integer.MIN_VALUE) {
+            throw new OverflowException("Negating the minimum Int32 exceeds its range");
+        }
+        return new Int32(Math.abs(value.value));
+    }
+
+    public static Int32 Sign(Int32 value) {
+        return new Int32(Integer.compare(value.value, 0));
+    }
+
+    public static Int32 Max(Int32 x, Int32 y) {
+        return new Int32(Math.max(x.value, y.value));
+    }
+
+    public static Int32 Min(Int32 x, Int32 y) {
+        return new Int32(Math.min(x.value, y.value));
+    }
+
+    public static Int32 MaxMagnitude(Int32 x, Int32 y) {
+        long xMagnitude = Math.abs((long)x.value);
+        long yMagnitude = Math.abs((long)y.value);
+        return new Int32(xMagnitude == yMagnitude ? Math.max(x.value, y.value)
+                : (xMagnitude > yMagnitude ? x.value : y.value));
+    }
+
+    public static Int32 MinMagnitude(Int32 x, Int32 y) {
+        long xMagnitude = Math.abs((long)x.value);
+        long yMagnitude = Math.abs((long)y.value);
+        return new Int32(xMagnitude == yMagnitude ? Math.min(x.value, y.value)
+                : (xMagnitude < yMagnitude ? x.value : y.value));
+    }
+
+    public static Int32 Clamp(Int32 value, Int32 min, Int32 max) {
+        if (min.value > max.value) {
+            throw new ArgumentException("Minimum exceeds maximum");
+        }
+        return new Int32(Math.max(min.value, Math.min(value.value, max.value)));
+    }
+
+    public static Int32 CopySign(Int32 value, Int32 sign) {
+        long magnitude = Math.abs((long)value.value);
+        if (sign.value >= 0 && magnitude > Integer.MAX_VALUE) {
+            throw new OverflowException("Signed magnitude exceeds Int32 range");
+        }
+        return new Int32((int)(sign.value < 0 ? -magnitude : magnitude));
+    }
+
     @Override
     public TypeCode GetTypeCode() {
         return TypeCode.Int32;

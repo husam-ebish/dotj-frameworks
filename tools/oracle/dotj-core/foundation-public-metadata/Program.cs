@@ -2144,6 +2144,43 @@ static object ObserveInt32BitHelpers()
         }).ToArray(),
     };
 }
+static object ObserveInt32SignedArithmetic()
+{
+    int[] values = [int.MinValue, -3, -1, 0, 1, 3, int.MaxValue];
+    (int X, int Y)[] pairs = [(2, 3), (-3, 3), (int.MinValue, int.MaxValue), (0, 0), (-3, -3)];
+    (int Value, int Min, int Max)[] clamps = [(5, 0, 10), (-5, 0, 10), (15, 0, 10), (0, 10, 0)];
+    (int Value, int Sign)[] signs = [(-3, 1), (3, -1), (int.MinValue, -1), (int.MinValue, 1), (0, -1)];
+    return new
+    {
+        unary = values.Select(value => new
+        {
+            value,
+            abs = value == int.MinValue ? (int?)null : int.Abs(value),
+            absError = ObserveMethodError(() => { _ = int.Abs(value); }),
+            sign = int.Sign(value),
+        }).ToArray(),
+        pairs = pairs.Select(pair => new
+        {
+            x = pair.X, y = pair.Y,
+            max = int.Max(pair.X, pair.Y), min = int.Min(pair.X, pair.Y),
+            maxMagnitude = int.MaxMagnitude(pair.X, pair.Y),
+            minMagnitude = int.MinMagnitude(pair.X, pair.Y),
+        }).ToArray(),
+        clamps = clamps.Select(item => new
+        {
+            value = item.Value, min = item.Min, max = item.Max,
+            result = item.Min > item.Max ? (int?)null : int.Clamp(item.Value, item.Min, item.Max),
+            error = ObserveMethodError(() => { _ = int.Clamp(item.Value, item.Min, item.Max); }),
+            errorParam = ObserveMethodArgumentName(() => { _ = int.Clamp(item.Value, item.Min, item.Max); }),
+        }).ToArray(),
+        copies = signs.Select(item => new
+        {
+            value = item.Value, sign = item.Sign,
+            result = item.Value == int.MinValue && item.Sign >= 0 ? (int?)null : int.CopySign(item.Value, item.Sign),
+            error = ObserveMethodError(() => { _ = int.CopySign(item.Value, item.Sign); }),
+        }).ToArray(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2345,6 +2382,7 @@ var result = new
     selectedExceptionDataCopyToBoundaries = ObserveExceptionDataCopyToBoundaries(),
     selectedArgumentOutOfRangeConstructors = ObserveArgumentOutOfRangeConstructors(),
     selectedInt32BitHelpers = ObserveInt32BitHelpers(),
+    selectedInt32SignedArithmetic = ObserveInt32SignedArithmetic(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
