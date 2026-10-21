@@ -11,7 +11,6 @@ EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence"
 METADATA = EVIDENCE / "foundation-selected-metadata-v10.0.12.json"
 LEDGER = EVIDENCE / "foundation-public-candidate-ledger-v1.json"
 OUTPUT = EVIDENCE / "foundation-semantic-surface-v1.json"
-TARGETS = ("System.Type", "System.Exception")
 
 
 def sha256(path):
@@ -29,13 +28,14 @@ def main():
     ledger = json.loads(LEDGER.read_text(encoding="utf-8"))
     upstream = {item["fullName"]: item for item in metadata["completeDeclaredSurface"]}
     java = {item["upstreamFullName"]: item for item in ledger["types"]}
-    assert set(upstream) == set(TARGETS)
-    assert all(name in java for name in TARGETS)
+    targets = [item["fullName"] for item in metadata["types"]]
+    assert len(targets) == len(set(targets)) == 30
+    assert set(upstream) == set(java) == set(targets)
     assert len(upstream["System.Type"]["methods"]) == 181
     assert len(upstream["System.Type"]["properties"]) == 70
     assert len(upstream["System.Exception"]["constructors"]) == 3
     records = []
-    for name in TARGETS:
+    for name in targets:
         observed = upstream[name]
         candidate = java[name]
         methods = [method for method in observed["methods"] if not method["isSpecialName"]]
@@ -64,6 +64,10 @@ def main():
                 "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review",
             },
         })
+    missing_methods = sum(len(record["nameLevelComparison"]["upstreamMethodNamesAbsentFromJavaDeclarations"])
+                          for record in records)
+    missing_getters = sum(len(record["nameLevelComparison"]["upstreamPublicPropertyGettersAbsentFromJavaDeclarations"])
+                          for record in records)
     output = {
         "schemaVersion": 1,
         "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
@@ -72,12 +76,15 @@ def main():
         "oracleEvidenceSha256": sha256(METADATA),
         "javaCandidateEvidence": LEDGER.name,
         "javaCandidateEvidenceSha256": sha256(LEDGER),
+        "selectedTypeCount": len(records),
+        "nameLevelMissingMethodCount": missing_methods,
+        "nameLevelMissingPublicGetterCount": missing_getters,
         "types": records,
-        "status": "DECLARED_PUBLIC_METADATA_EXTRACTED_FOR_TWO_TYPES; E02_SOURCE_ATTRIBUTION_AND_N01_EXACT_MAPPING_OPEN",
+        "status": "DECLARED_PUBLIC_METADATA_EXTRACTED_FOR_30_TYPES; E02_SOURCE_ATTRIBUTION_AND_N01_EXACT_MAPPING_OPEN",
     }
     OUTPUT.write_text(json.dumps(output, indent=2) + "\n", encoding="utf-8")
-    print("PASS declared public semantic surface: System.Type 181 methods/70 properties; "
-          "System.Exception 3 constructors")
+    print(f"PASS declared public semantic surface: {len(records)} types; "
+          f"{missing_methods} method names and {missing_getters} public getters absent at name level")
 
 
 if __name__ == "__main__":
