@@ -1775,6 +1775,26 @@ public final class ProductTypeIdentityConsumer {
         if (parameter.get_AssemblyQualifiedName() != null) {
             throw new AssertionError("Generic parameter gained an assembly-qualified name");
         }
+        for (String selectedCoreLibName : new String[] {
+                "System.IDisposable", "System.IComparable", "System.IFormattable",
+                "System.ISpanFormattable", "System.IUtf8SpanFormattable", "System.IFormatProvider",
+                "System.IConvertible", "System.TypeCode", "System.Decimal", "System.DateTime",
+                "System.Int32", "System.Type", "System.Reflection.MemberInfo",
+                "System.Reflection.MemberTypes", "System.Exception", "System.SystemException",
+                "System.ArgumentException", "System.ArgumentNullException", "System.TypeLoadException",
+                "System.IndexOutOfRangeException", "System.IO.IOException",
+                "System.IO.FileNotFoundException", "System.IO.FileLoadException",
+                "System.Globalization.CultureNotFoundException", "System.OverflowException",
+                "System.InvalidCastException", "System.InvalidOperationException",
+                "System.FormatException", "System.Globalization.NumberStyles"}) {
+            Type selectedCoreLibType = Type.GetType(selectedCoreLibName);
+            if (selectedCoreLibType == null
+                    || !(selectedCoreLibName + corelibIdentity)
+                            .equals(selectedCoreLibType.get_AssemblyQualifiedName())
+                    || Type.GetType(selectedCoreLibType.get_AssemblyQualifiedName()) != selectedCoreLibType) {
+                throw new AssertionError("Selected CoreLib identity round trip changed: " + selectedCoreLibName);
+            }
+        }
         if (!parameter.get_IsGenericParameter() || parameter.get_GenericParameterPosition() != 0
                 || parameter != definition.GetGenericArguments()[0]) {
             throw new AssertionError("External generic parameter identity changed");

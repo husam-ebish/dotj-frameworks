@@ -156,6 +156,11 @@ def main():
         for item in names
     ]
     assert [item["roundTripSameReference"] for item in names] == [True] * 8 + [False]
+    selected_corelib_types = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["types"]
+    assert len(selected_corelib_types) == 29
+    assert all(item["qualifiedNameRoundTripSameReference"] and
+               item["assemblyQualifiedName"] == item["fullName"] + corelib_identity
+               for item in selected_corelib_types)
     dictionary_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDictionaryQualifiedRoundTrip"]
     assert len(dictionary_names) == 5
     assert all(item["sameReference"] and item["AssemblyQualifiedName"] ==
