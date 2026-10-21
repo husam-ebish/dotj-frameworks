@@ -676,6 +676,22 @@ public abstract class Type extends MemberInfo {
         return this.get_IsGenericType() && this.arguments.isEmpty();
     }
 
+    public boolean get_ContainsGenericParameters() {
+        if (this.get_IsGenericParameter() || this.get_IsGenericTypeDefinition()) {
+            return true;
+        }
+        for (Type argument : this.arguments) {
+            if (argument.get_ContainsGenericParameters()) {
+                return true;
+            }
+        }
+        if (this.get_IsArray() || this.get_IsByRef() || this.get_IsPointer()) {
+            Type element = this.GetElementType();
+            return element != null && element.get_ContainsGenericParameters();
+        }
+        return false;
+    }
+
     public boolean get_IsConstructedGenericType() {
         return this.parameterIndex < 0 && !this.arguments.isEmpty();
     }

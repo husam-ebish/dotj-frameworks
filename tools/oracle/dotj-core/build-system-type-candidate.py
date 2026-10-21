@@ -75,7 +75,7 @@ def main():
     assert any(method["signature"] == "System.Type GetType(System.String)" and method["isStatic"]
                for method in metadata["methods"])
     properties = {item["Name"] for item in metadata["properties"]}
-    assert {"GenericTypeArguments", "IsGenericType", "IsGenericTypeDefinition", "IsConstructedGenericType",
+    assert {"GenericTypeArguments", "IsGenericType", "IsGenericTypeDefinition", "ContainsGenericParameters", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
             "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed", "IsPublic", "IsVisible",
             "IsInterface", "IsEnum"} <= properties
@@ -238,6 +238,18 @@ def main():
     assert [item["name"] for item in generic_definitions[6:]] == ["T", "System.String[]"]
     assert [item["isGenericTypeDefinition"] for item in generic_definitions] == [
         False, False, True, False, True, False, False, False,
+    ]
+    contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
+    assert contains_parameters[0]["name"] == "System.Object"
+    assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
+    assert contains_parameters[2]["name"].startswith("System.Collections.Generic.List`1[[System.String,")
+    assert contains_parameters[3]["name"] == "System.Collections.Generic.Dictionary`2"
+    assert contains_parameters[4]["name"].startswith("System.Collections.Generic.Dictionary`2[[System.String,")
+    assert [item["name"] for item in contains_parameters[5:]] == [
+        "T", "System.Collections.Generic.List`1[]", "System.Collections.Generic.List`1",
+    ]
+    assert [item["containsGenericParameters"] for item in contains_parameters] == [
+        False, True, False, True, False, True, True, True,
     ]
     enum_base = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumBaseBehavior"]
     assert enum_base == {
@@ -518,6 +530,7 @@ def main():
         "public int GetArrayRank();",
         "public boolean get_IsGenericType();",
         "public boolean get_IsGenericTypeDefinition();",
+        "public boolean get_ContainsGenericParameters();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",
         "public int get_GenericParameterPosition();",

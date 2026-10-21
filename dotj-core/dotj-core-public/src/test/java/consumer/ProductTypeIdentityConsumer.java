@@ -213,6 +213,17 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String[]").get_IsGenericTypeDefinition()) {
             throw new AssertionError("Selected generic definition flags changed");
         }
+        if (Type.GetType("System.Object").get_ContainsGenericParameters()
+                || !definition.get_ContainsGenericParameters()
+                || first.get_ContainsGenericParameters()
+                || !dictionaryDefinition.get_ContainsGenericParameters()
+                || dictionaryConstructed.get_ContainsGenericParameters()
+                || !parameter.get_ContainsGenericParameters()
+                || !definition.MakeArrayType().get_ContainsGenericParameters()
+                || !definition.MakeGenericType(new Type[] {parameter})
+                        .get_ContainsGenericParameters()) {
+            throw new AssertionError("Selected contained generic parameters changed");
+        }
         Type object = Type.GetType("System.Object");
         Type valueType = Type.GetType("System.ValueType");
         Type arrayBase = Type.GetType("System.Array");
