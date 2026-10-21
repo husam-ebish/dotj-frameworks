@@ -1261,6 +1261,20 @@ public abstract class Type extends MemberInfo {
         return this.definition.isInstance(value);
     }
 
+    public MemberInfo[] GetDefaultMembers() {
+        if (this.definition == String.class && !this.get_HasElementType()) {
+            return new MemberInfo[] {new DefaultPropertyMember("Chars", this)};
+        }
+        if (this.definition == java.util.List.class && !this.get_HasElementType()) {
+            return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
+        }
+        if (this.definition == Object.class || this.definition == IDisposable.class
+                || this.definition == TypeCode.class) {
+            return new MemberInfo[0];
+        }
+        throw new UnsupportedOperationException("Default members are not mapped for this candidate type");
+    }
+
     public Type[] GetOptionalCustomModifiers() {
         return new Type[0];
     }
@@ -1544,6 +1558,36 @@ public abstract class Type extends MemberInfo {
 
     public boolean Equals(Type other) {
         return this == other;
+    }
+
+    private static final class DefaultPropertyMember extends MemberInfo {
+        private final String name;
+        private final Type owner;
+
+        private DefaultPropertyMember(String name, Type owner) {
+            this.name = name;
+            this.owner = owner;
+        }
+
+        @Override
+        public String get_Name() {
+            return this.name;
+        }
+
+        @Override
+        public MemberTypes get_MemberType() {
+            return MemberTypes.Property;
+        }
+
+        @Override
+        public Type get_DeclaringType() {
+            return this.owner;
+        }
+
+        @Override
+        public Type get_ReflectedType() {
+            return this.owner;
+        }
     }
 
     private static final class ResolvedType extends Type {

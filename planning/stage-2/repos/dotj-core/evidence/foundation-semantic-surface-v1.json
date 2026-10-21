@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "1bbf6023fdada76ee05eb16d53e75a21450a6d8c5e58fecca8f71b96a756a5c1",
+  "oracleEvidenceSha256": "125272a27e71785a1bf04613375106a0d29e7171d7b0839215dc12f7e558acca",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "41433df15df91d2c844821798d4915c613a4288a05f7b90361fffa2dbeba7616",
+  "javaCandidateEvidenceSha256": "91e31dbea5ce58f103d0cd02676077426e64a8b918a12b2b86ad0726aed4a660",
   "types": [
     {
       "fullName": "System.Type",
@@ -3465,6 +3465,7 @@
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
+        "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
         "public System.Type[] GetInterfaces();",
@@ -3567,6 +3568,7 @@
         "javaCandidateDeclaredMethodOverloads": {
           "Equals": 1,
           "GetArrayRank": 1,
+          "GetDefaultMembers": 1,
           "GetElementType": 1,
           "GetEnumName": 1,
           "GetEnumNames": 1,
@@ -3666,7 +3668,6 @@
           "FindMembers",
           "GetConstructor",
           "GetConstructors",
-          "GetDefaultMembers",
           "GetEvent",
           "GetEvents",
           "GetField",

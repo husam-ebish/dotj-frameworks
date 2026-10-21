@@ -78,6 +78,7 @@ def main():
         "Boolean IsInstanceOfType(System.Object)",
         "System.Type[] GetInterfaces()",
         "System.Type[] GetOptionalCustomModifiers()",
+        "System.Reflection.MemberInfo[] GetDefaultMembers()",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
@@ -233,6 +234,14 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    default_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDefaultMemberBehavior"]
+    assert [row["members"] for row in default_members[:3]] == [[], [], []]
+    assert [row["members"][0]["name"] for row in default_members[3:]] == ["Chars", "Item", "Item"]
+    assert all(len(row["members"]) == 1
+               and row["members"][0]["kind"] == "Property"
+               and row["members"][0]["declaring"] == row["name"]
+               and row["members"][0]["reflected"] == row["name"]
+               for row in default_members[3:])
     custom_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCustomModifierBehavior"]
     assert len(custom_modifiers) == 7 and all(
         row["optional"] == [] and row["required"] == [] for row in custom_modifiers)
@@ -1501,6 +1510,7 @@ def main():
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
+        "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
         "public System.Type[] GetInterfaces();",
