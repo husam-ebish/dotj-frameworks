@@ -44,6 +44,12 @@
     "afterReset": null,
     "separateInstance": null
   },
+  "selectedExceptionToStringBehavior": {
+    "exceptionWithMessage": "System.Exception: message",
+    "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
+    "argumentWithParameter": "System.ArgumentException: invalid (Parameter 'value')",
+    "invalidOperation": "System.InvalidOperationException: invalid"
+  },
   "selectedGetTypeBehavior": {
     "exact": {
       "result": "System.String",
@@ -11266,6 +11272,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "cab88c254465030d6ebec1a0609cb7d9fb26475db4bd9c1c4c1647c60400e367",
+  "oracleProgramSha256": "5fa9ca1ab2d428620e62ca9b2cbbd1961cac06cdf979402409e48f5ce75e8320",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -66,4 +66,13 @@ public class Exception extends RuntimeException {
     public void set_Source(String value) {
         this.source = value;
     }
+
+    public String ToString() {
+        String typeName = this.getClass().getName();
+        String message = this.get_Message();
+        if (message == null) {
+            message = "Exception of type '" + typeName + "' was thrown.";
+        }
+        return typeName + ": " + message;
+    }
 }

@@ -114,6 +114,12 @@ def main():
         "afterReset": None,
         "separateInstance": None,
     }
+    assert metadata["selectedExceptionToStringBehavior"] == {
+        "exceptionWithMessage": "System.Exception: message",
+        "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
+        "argumentWithParameter": "System.ArgumentException: invalid (Parameter 'value')",
+        "invalidOperation": "System.InvalidOperationException: invalid",
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 

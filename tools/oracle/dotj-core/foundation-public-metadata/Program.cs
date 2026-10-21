@@ -364,6 +364,13 @@ var result = new
         afterReset = sourceException.Source,
         separateInstance = new Exception("other").Source,
     },
+    selectedExceptionToStringBehavior = new
+    {
+        exceptionWithMessage = new Exception("message").ToString(),
+        exceptionWithoutMessage = new Exception().ToString(),
+        argumentWithParameter = new ArgumentException("invalid", "value").ToString(),
+        invalidOperation = new InvalidOperationException("invalid").ToString(),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),
