@@ -2341,6 +2341,36 @@ static object ObserveInt32CreateFromDecimal()
         truncated = int.CreateTruncating(value),
     }).ToArray();
 }
+static object ObserveInt32OrdinaryOverloads()
+{
+    int.TryParse(" -7 ", System.Globalization.CultureInfo.InvariantCulture, out int parsed);
+    bool invalid = int.TryParse("oops", System.Globalization.CultureInfo.InvariantCulture,
+        out int invalidResult);
+    bool nullValue = int.TryParse((string?)null, System.Globalization.CultureInfo.InvariantCulture,
+        out int nullResult);
+    return new
+    {
+        comparisons = new (int Left, int Right)[]
+        { (5, 3), (3, 5), (3, 3), (int.MinValue, int.MaxValue),
+          (int.MaxValue, int.MinValue) }
+            .Select(item => new { left = item.Left, right = item.Right,
+                result = item.Left.CompareTo(item.Right) }).ToArray(),
+        parseHex = int.Parse("FF", System.Globalization.NumberStyles.HexNumber),
+        parseProvider = int.Parse(" -7 ", System.Globalization.CultureInfo.InvariantCulture),
+        parseInvalidError = ObserveMethodError(() =>
+        { _ = int.Parse("oops", System.Globalization.CultureInfo.InvariantCulture); }),
+        parseNullError = ObserveMethodError(() =>
+        { _ = int.Parse((string)null!, System.Globalization.CultureInfo.InvariantCulture); }),
+        tryParsed = parsed,
+        tryInvalid = invalid,
+        tryInvalidResult = invalidResult,
+        tryNull = nullValue,
+        tryNullResult = nullResult,
+        textDefault = 42.ToString(),
+        textFormat = 42.ToString("D4"),
+        textNegative = (-42).ToString("D4"),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2550,6 +2580,7 @@ var result = new
     selectedInt32CreateFromDouble = ObserveInt32CreateFromDouble(),
     selectedInt32CreateFromSingle = ObserveInt32CreateFromSingle(),
     selectedInt32CreateFromDecimal = ObserveInt32CreateFromDecimal(),
+    selectedInt32OrdinaryOverloads = ObserveInt32OrdinaryOverloads(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

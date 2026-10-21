@@ -948,6 +948,28 @@ def main():
                 ("2147483648", None, "System.OverflowException", 2147483647, 2147483647),
                 ("79228162514264337593543950335", None, "System.OverflowException", 2147483647, 2147483647),
             ]
+    assert foundation["selectedInt32OrdinaryOverloads"] == {
+        "comparisons": [
+            {"left": 5, "right": 3, "result": 1},
+            {"left": 3, "right": 5, "result": -1},
+            {"left": 3, "right": 3, "result": 0},
+            {"left": -2147483648, "right": 2147483647, "result": -1},
+            {"left": 2147483647, "right": -2147483648, "result": 1},
+        ],
+        "parseHex": 255, "parseProvider": -7,
+        "parseInvalidError": "System.FormatException",
+        "parseNullError": "System.ArgumentNullException",
+        "tryParsed": -7, "tryInvalid": False, "tryInvalidResult": 0,
+        "tryNull": False, "tryNullResult": 0,
+        "textDefault": "42", "textFormat": "0042", "textNegative": "-0042",
+    }
+    assert {
+        "Int32 CompareTo(Int32)",
+        "Int32 Parse(System.String, System.Globalization.NumberStyles)",
+        "Int32 Parse(System.String, System.IFormatProvider)",
+        "Boolean TryParse(System.String, System.IFormatProvider, Int32 ByRef)",
+        "System.String ToString()", "System.String ToString(System.String)",
+    } <= {item["signature"] for item in int32_surface["methods"]}
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

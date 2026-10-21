@@ -2078,6 +2078,47 @@
       "truncated": 2147483647
     }
   ],
+  "selectedInt32OrdinaryOverloads": {
+    "comparisons": [
+      {
+        "left": 5,
+        "right": 3,
+        "result": 1
+      },
+      {
+        "left": 3,
+        "right": 5,
+        "result": -1
+      },
+      {
+        "left": 3,
+        "right": 3,
+        "result": 0
+      },
+      {
+        "left": -2147483648,
+        "right": 2147483647,
+        "result": -1
+      },
+      {
+        "left": 2147483647,
+        "right": -2147483648,
+        "result": 1
+      }
+    ],
+    "parseHex": 255,
+    "parseProvider": -7,
+    "parseInvalidError": "System.FormatException",
+    "parseNullError": "System.ArgumentNullException",
+    "tryParsed": -7,
+    "tryInvalid": false,
+    "tryInvalidResult": 0,
+    "tryNull": false,
+    "tryNullResult": 0,
+    "textDefault": "42",
+    "textFormat": "0042",
+    "textNegative": "-0042"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -25702,6 +25743,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "329fce4b8e496c48b74853d5cdad3ffd3ace680455a8a35290bfda5095645e71",
+  "oracleProgramSha256": "d095003168100daaf54e0651605b534cb6d72b5c321fef853ea6bbc039d47729",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

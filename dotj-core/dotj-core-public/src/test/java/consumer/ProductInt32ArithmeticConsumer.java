@@ -1,13 +1,17 @@
 package consumer;
 
 import System.ArgumentException;
+import System.ArgumentNullException;
 import System.ArithmeticException;
 import System.DivideByZeroException;
 import System.Decimal;
+import System.FormatException;
+import System.IFormatProvider;
 import System.Int32;
 import System.OverflowException;
 import System.Type;
 import System.ValueTuple;
+import System.Globalization.NumberStyles;
 import java.math.BigInteger;
 
 /** Pinned signed Int32 arithmetic observations against the packaged JAR. */
@@ -238,6 +242,44 @@ public final class ProductInt32ArithmeticConsumer {
                     || Int32.CreateTruncating(source).get_Value() != decimalResults[index]) {
                 throw new AssertionError("Int32.Create Decimal conversion changed");
             }
+        }
+        int[][] comparisons = {{5, 3, 1}, {3, 5, -1}, {3, 3, 0},
+                {Integer.MIN_VALUE, Integer.MAX_VALUE, -1},
+                {Integer.MAX_VALUE, Integer.MIN_VALUE, 1}};
+        for (int[] expected : comparisons) {
+            if (new Int32(expected[0]).CompareTo(new Int32(expected[1])) != expected[2]) {
+                throw new AssertionError("Int32.CompareTo typed overload changed");
+            }
+        }
+        if (Int32.Parse("FF", NumberStyles.HexNumber).get_Value() != 255
+                || Int32.Parse(" -7 ", (IFormatProvider)null).get_Value() != -7) {
+            throw new AssertionError("Int32.Parse ordinary overload changed");
+        }
+        try {
+            Int32.Parse("oops", (IFormatProvider)null);
+            throw new AssertionError("Invalid Int32.Parse input accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR error type.
+        }
+        try {
+            Int32.Parse(null, (IFormatProvider)null);
+            throw new AssertionError("Null Int32.Parse input accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR error type.
+        }
+        Int32[] parsed = new Int32[1];
+        if (!Int32.TryParse(" -7 ", (IFormatProvider)null, parsed)
+                || parsed[0].get_Value() != -7
+                || Int32.TryParse("oops", (IFormatProvider)null, parsed)
+                || parsed[0].get_Value() != 0
+                || Int32.TryParse(null, (IFormatProvider)null, parsed)
+                || parsed[0].get_Value() != 0) {
+            throw new AssertionError("Int32.TryParse provider overload changed");
+        }
+        if (!"42".equals(new Int32(42).ToString())
+                || !"0042".equals(new Int32(42).ToString("D4"))
+                || !"-0042".equals(new Int32(-42).ToString("D4"))) {
+            throw new AssertionError("Int32.ToString ordinary overload changed");
         }
         java.lang.System.out.println("PASS external selected Int32 signed arithmetic");
     }

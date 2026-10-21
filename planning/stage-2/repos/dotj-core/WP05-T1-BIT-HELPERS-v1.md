@@ -22,4 +22,6 @@ Fourteen pinned `Single` inputs cover representable values around both `Int32` b
 
 Thirteen pinned `Decimal` inputs cover both decimal extrema, fractional values around the `Int32` bounds and zero. The packaged consumer verifies checked overflow and fractional truncation; both saturating and truncating creation clamp out-of-range decimal inputs in the observed CLR implementation. Remaining numeric source types and generic interface constraints remain open.
 
+An exact declared-method review found that name-level coverage concealed ordinary overload gaps. The candidate now adds typed `CompareTo(Int32)`, `Parse(String, NumberStyles)`, `Parse(String, IFormatProvider)`, `TryParse(String, IFormatProvider, out Int32)`, `ToString()` and `ToString(String)` routes. The oracle and packaged consumer cover selected comparison, parse, error, out-result and formatting behavior. Span and UTF-8 overloads, full culture behavior and CLR generic numeric interface contracts remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
