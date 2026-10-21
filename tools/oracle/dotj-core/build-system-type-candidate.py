@@ -1425,6 +1425,7 @@ def main():
         "public boolean get_IsSealed();",
         "public boolean get_IsPublic();",
         "public boolean get_IsNotPublic();",
+        "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",
         "public boolean get_IsInterface();",

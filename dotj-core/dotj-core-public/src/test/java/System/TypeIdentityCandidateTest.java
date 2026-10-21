@@ -26,6 +26,14 @@ public final class TypeIdentityCandidateTest {
         Type list = Type.fromJavaClass(List.class);
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
+        if (string.get_MemberType() != MemberTypes.TypeInfo
+                || string.MakeArrayType().get_MemberType() != MemberTypes.TypeInfo
+                || string.MakeByRefType().get_MemberType() != MemberTypes.TypeInfo
+                || string.MakePointerType().get_MemberType() != MemberTypes.TypeInfo
+                || Type.fromJavaClass(List.class).GetGenericArguments()[0]
+                        .get_MemberType() != MemberTypes.TypeInfo) {
+            throw new AssertionError("Selected Type member kind changed");
+        }
         Type packagePrivate = Type.fromJavaClass(PackagePrivateTypeFixture.class);
         if (!packagePrivate.get_IsNotPublic() || packagePrivate.get_IsPublic()
                 || string.get_IsNotPublic()

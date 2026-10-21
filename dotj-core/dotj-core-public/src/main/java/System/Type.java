@@ -903,6 +903,11 @@ public abstract class Type extends MemberInfo {
                 && !java.lang.reflect.Modifier.isPublic(this.definition.getModifiers());
     }
 
+    @Override
+    public MemberTypes get_MemberType() {
+        return MemberTypes.TypeInfo;
+    }
+
     public boolean get_IsVisible() {
         if (this.parameterIndex >= 0) {
             return true;
@@ -1451,10 +1456,6 @@ public abstract class Type extends MemberInfo {
             return this.nameCore();
         }
 
-        @Override
-        public MemberTypes get_MemberType() {
-            return MemberTypes.TypeInfo;
-        }
     }
 
     private static final class GenericParameterType extends Type {
@@ -1467,10 +1468,6 @@ public abstract class Type extends MemberInfo {
             return this.nameCore();
         }
 
-        @Override
-        public MemberTypes get_MemberType() {
-            return MemberTypes.TypeInfo;
-        }
     }
 
     private static final class ArrayType extends Type {
@@ -1488,11 +1485,6 @@ public abstract class Type extends MemberInfo {
         @Override
         public String get_Name() {
             return this.nameCore();
-        }
-
-        @Override
-        public MemberTypes get_MemberType() {
-            return MemberTypes.TypeInfo;
         }
 
         @Override
@@ -1525,11 +1517,6 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
-        public MemberTypes get_MemberType() {
-            return MemberTypes.TypeInfo;
-        }
-
-        @Override
         public boolean get_IsByRef() {
             return true;
         }
@@ -1551,11 +1538,6 @@ public abstract class Type extends MemberInfo {
         @Override
         public String get_Name() {
             return this.nameCore();
-        }
-
-        @Override
-        public MemberTypes get_MemberType() {
-            return MemberTypes.TypeInfo;
         }
 
         @Override
