@@ -108,7 +108,8 @@ def main():
                        if item["name"] == "TryFormat" and not item["isStatic"]
                        and item["genericArity"] == 1
                        and item["parameters"] == ["System.Span<T>", "int[]",
-                                                   "java.lang.String", "System.IFormatProvider"]]
+                                                   "System.ReadOnlySpan<java.lang.Character>",
+                                                   "System.IFormatProvider"]]
     assert len(format_carriers) == 1, format_carriers
     matched = set()
     results = []

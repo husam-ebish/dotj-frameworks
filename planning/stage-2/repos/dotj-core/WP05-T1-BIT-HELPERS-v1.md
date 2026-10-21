@@ -36,4 +36,6 @@ The [erasure contract](evidence/int32-erasure-contract-v1.json) reruns a javac n
 
 A mutable `Span<T>` carrier now supports the selected `Int32.TryFormat` Char and UTF-8 Byte paths with array-backed subviews. The packaged consumer checks the pinned `42` success and short-buffer failure vectors, written counts and unchanged bytes outside the view. Java erasure maps the two CLR formatting signatures to one supplemental Java carrier; the existing array interface methods remain. The heap carrier and generic overload do not establish CLR span lifetime, interface ABI or exact public signature equivalence.
 
+The formatting carrier now accepts a `ReadOnlySpan<Character>` format view and reads only its selected slice. The packaged consumer also checks pinned `D5` and `X4` results for both destination element types, including negative decimal precision. `ReadOnlySpan<T>` remains heap-backed and can be constructed with a mismatched generic argument; source-type validation still belongs in the future `.j` frontend.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

@@ -20,6 +20,8 @@ The selected [Int32 erasure contract](evidence/int32-erasure-contract-v1.json) i
 
 The selected Char and UTF-8 Byte `TryFormat` paths also share one generic mutable `Span<T>` carrier. The [signature audit](evidence/int32-declared-signature-audit-v1.json) records its two CLR source signatures separately and the erasure contract proves the Java name clash. The array-backed implementation passes the pinned short-buffer and success vectors but does not provide CLR byref-like span semantics.
 
+The supplemental carrier takes the format as a sliced `ReadOnlySpan<Character>`, preserving the selected CLR parameter shape before JVM erasure. It has pinned decimal and hexadecimal precision vectors, but still lacks source-type-directed overload resolution and complete provider semantics.
+
 ## N01 tasks
 
 1. `DJ-001-N01-T1`: Extract the complete semantic upstream public surface for the selected slice, preserving exact namespace/type/member spelling, casing, overloads, generic arity, parameter identities and property/event metadata.
