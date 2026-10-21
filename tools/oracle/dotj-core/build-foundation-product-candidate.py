@@ -14,6 +14,7 @@ SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
     "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "Type", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "FormatException")]
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException")]
+SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberTypes.java")
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
@@ -31,6 +32,7 @@ EXPECTED_CLASSES = [
     "System/Decimal.class",
     "System/Exception.class",
     "System/FormatException.class",
+    "System/Globalization/NumberStyles.class",
     "System/IComparable.class",
     "System/IConvertible.class",
     "System/IDisposable.class",

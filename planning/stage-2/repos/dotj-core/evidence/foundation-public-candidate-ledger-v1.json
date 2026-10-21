@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "7fd97dcbe5831bfd8bee5fd7814da78decd91f32d52f8655f5c1956f24379183",
-  "typeCount": 25,
+  "candidateJarSha256": "ca56f6d1b1d684918fdca2eab51c8c1a6355ef7468fbc450cdffcbc15b835a3b",
+  "typeCount": 26,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -220,6 +220,7 @@
       "javaPublicHeader": "public final class System.Int32 implements System.IConvertible,System.ISpanFormattable,System.IUtf8SpanFormattable,System.IComparable {",
       "javaPublicDeclarations": [
         "public static System.Int32 Parse(java.lang.String);",
+        "public static System.Int32 Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.Int32[]);",
         "public System.Int32(int);",
         "public int get_Value();",
@@ -556,6 +557,28 @@
         "public System.FormatException(java.lang.String, System.Exception);"
       ],
       "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.Globalization.NumberStyles",
+      "upstreamBaseType": "System.Enum",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 0,
+      "upstreamDeclaredProperties": 0,
+      "upstreamPublicConstructors": 0,
+      "javaPublicConstructors": 0,
+      "javaPublicHeader": "public final class System.Globalization.NumberStyles extends java.lang.Enum<System.Globalization.NumberStyles> {",
+      "javaPublicDeclarations": [
+        "public static final System.Globalization.NumberStyles None;",
+        "public static final System.Globalization.NumberStyles Integer;",
+        "public static final System.Globalization.NumberStyles AllowHexSpecifier;",
+        "public static final System.Globalization.NumberStyles HexNumber;",
+        "public static System.Globalization.NumberStyles[] values();",
+        "public static System.Globalization.NumberStyles valueOf(java.lang.String);",
+        "public int get_Value();"
+      ],
+      "disposition": "SELECTED_ENUM_VALUES; Java enum differs from CLR flags enum",
       "qualified": false
     }
   ],

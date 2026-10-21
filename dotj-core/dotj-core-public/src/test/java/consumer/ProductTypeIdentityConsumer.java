@@ -19,6 +19,7 @@ import System.Int32;
 import System.OverflowException;
 import System.InvalidCastException;
 import System.FormatException;
+import System.Globalization.NumberStyles;
 import System.ISpanFormattable;
 import System.IUtf8SpanFormattable;
 import System.Reflection.MemberInfo;
@@ -425,6 +426,35 @@ public final class ProductTypeIdentityConsumer {
         }
         if (Int32.Parse("42").get_Value() != 42 || Int32.Parse(" 42 ").get_Value() != 42) {
             throw new AssertionError("Selected Int32.Parse values changed");
+        }
+        if (NumberStyles.None.get_Value() != 0 || NumberStyles.Integer.get_Value() != 7
+                || NumberStyles.AllowHexSpecifier.get_Value() != 512
+                || NumberStyles.HexNumber.get_Value() != 515
+                || Int32.Parse("FF", NumberStyles.HexNumber, provider).get_Value() != 255
+                || Int32.Parse(" FF ", NumberStyles.HexNumber, provider).get_Value() != 255
+                || Int32.Parse("FFFFFFFF", NumberStyles.HexNumber, provider).get_Value() != -1
+                || !Type.GetType("System.Globalization.NumberStyles").get_IsEnum()) {
+            throw new AssertionError("Selected hexadecimal Int32.Parse values changed");
+        }
+        try {
+            Int32.Parse("100000000", NumberStyles.HexNumber, provider);
+            throw new AssertionError("Hexadecimal overflow accepted");
+        } catch (OverflowException expected) {
+            // Selected exception identity.
+        }
+        try {
+            Int32.Parse("0xFF", NumberStyles.HexNumber, provider);
+            throw new AssertionError("Hexadecimal prefix accepted");
+        } catch (FormatException expected) {
+            // Selected exception identity.
+        }
+        try {
+            Int32.Parse(null, NumberStyles.HexNumber, provider);
+            throw new AssertionError("Null hexadecimal Int32 parsed");
+        } catch (ArgumentNullException expected) {
+            if (!"s".equals(expected.get_ParamName())) {
+                throw new AssertionError("Hexadecimal parse null parameter changed", expected);
+            }
         }
         try {
             Int32.Parse("oops");

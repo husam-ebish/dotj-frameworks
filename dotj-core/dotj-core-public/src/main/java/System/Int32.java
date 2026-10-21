@@ -1,6 +1,7 @@
 package System;
 
 import java.math.BigInteger;
+import System.Globalization.NumberStyles;
 
 /** Bounded immutable Int32 value and conversion candidate. */
 public final class Int32 implements IConvertible, ISpanFormattable,
@@ -16,6 +17,27 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         BigInteger parsed = new BigInteger(trimmed);
         if (parsed.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
                 || parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+            throw new OverflowException("Value was outside the range of Int32");
+        }
+        return new Int32(parsed.intValue());
+    }
+
+    public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
+        if (style == NumberStyles.Integer || style == NumberStyles.None) {
+            return Parse(text);
+        }
+        if (style != NumberStyles.HexNumber) {
+            throw new UnsupportedOperationException("NumberStyles value is not mapped");
+        }
+        if (text == null) {
+            throw new ArgumentNullException("s");
+        }
+        String trimmed = text.strip();
+        if (!trimmed.matches("[0-9a-fA-F]+")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        BigInteger parsed = new BigInteger(trimmed, 16);
+        if (parsed.compareTo(BigInteger.valueOf(0xffff_ffffL)) > 0) {
             throw new OverflowException("Value was outside the range of Int32");
         }
         return new Int32(parsed.intValue());
