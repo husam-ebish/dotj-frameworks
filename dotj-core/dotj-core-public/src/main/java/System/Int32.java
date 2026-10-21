@@ -48,6 +48,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
+        if (style == null) throw new ArgumentNullException("style");
         if (style == NumberStyles.Integer) {
             if (text != null) {
                 NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
@@ -88,11 +89,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return selectedParseNumber(text, provider);
         }
         if (style == NumberStyles.Float || style == NumberStyles.AllowDecimalPoint
-                || style == NumberStyles.AllowExponent) {
+                || style == NumberStyles.AllowExponent || style.get_Value() == 160) {
             return selectedParseFloat(text, provider, style);
         }
-        if (style == NumberStyles.AllowThousands) {
-            return selectedParseThousands(text, provider);
+        if (style == NumberStyles.AllowThousands || style.get_Value() == 68
+                || style.get_Value() == 67) {
+            return selectedParseThousands(text, provider, style);
         }
         if (style == NumberStyles.Currency) {
             return selectedParseCurrencyLike(text, provider, false);
@@ -221,20 +223,39 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return new Int32(parsed.intValue());
     }
 
-    private static Int32 selectedParseThousands(String text, IFormatProvider provider) {
+    private static Int32 selectedParseThousands(String text, IFormatProvider provider,
+                                                NumberStyles style) {
         if (text == null) throw new ArgumentNullException("s");
         NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
         String separator = numberFormat == null ? ","
                 : numberFormat.get_NumberGroupSeparator();
-        if (!separator.isEmpty() && text.startsWith(separator)) {
+        int flags = style.get_Value();
+        String number = (flags & 1) != 0 ? text.stripLeading() : text;
+        if ((flags & 2) != 0) number = number.stripTrailing();
+        boolean negative = false;
+        if ((flags & 4) != 0) {
+            String negativeSign = numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign();
+            String positiveSign = numberFormat == null ? "+"
+                    : numberFormat.get_PositiveSign();
+            if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
+                number = number.substring(negativeSign.length());
+                negative = true;
+            } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
+                number = number.substring(positiveSign.length());
+            }
+        }
+        if (!separator.isEmpty() && number.startsWith(separator)) {
             throw new FormatException("Input string was not in a correct format");
         }
-        String digits = separator.isEmpty() ? text : text.replace(separator, "");
+        String digits = separator.isEmpty() ? number : number.replace(separator, "");
         if (!digits.matches("[0-9]+")) {
             throw new FormatException("Input string was not in a correct format");
         }
         BigInteger parsed = new BigInteger(digits);
-        if (parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+        if (negative) parsed = parsed.negate();
+        if (parsed.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                || parsed.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
             throw new OverflowException();
         }
         return new Int32(parsed.intValue());
@@ -303,16 +324,19 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     private static Int32 selectedParseFloat(String text, IFormatProvider provider,
                                             NumberStyles style) {
         if (text == null) throw new ArgumentNullException("s");
-        boolean allowWhitespace = style == NumberStyles.Float;
-        boolean allowLeadingSign = style == NumberStyles.Float;
-        boolean allowDecimal = style != NumberStyles.AllowExponent;
-        boolean allowExponent = style != NumberStyles.AllowDecimalPoint;
+        int flags = style.get_Value();
+        boolean allowLeadingWhite = (flags & 1) != 0;
+        boolean allowTrailingWhite = (flags & 2) != 0;
+        boolean allowLeadingSign = (flags & 4) != 0;
+        boolean allowDecimal = (flags & 32) != 0;
+        boolean allowExponent = (flags & 128) != 0;
         NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
         String decimalSeparator = numberFormat == null ? "."
                 : numberFormat.get_NumberDecimalSeparator();
         String negativeSign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
         String positiveSign = numberFormat == null ? "+" : numberFormat.get_PositiveSign();
-        String number = allowWhitespace ? text.strip() : text;
+        String number = allowLeadingWhite ? text.stripLeading() : text;
+        if (allowTrailingWhite) number = number.stripTrailing();
         boolean negative = false;
         if (allowLeadingSign && !negativeSign.isEmpty() && number.startsWith(negativeSign)) {
             number = number.substring(negativeSign.length());

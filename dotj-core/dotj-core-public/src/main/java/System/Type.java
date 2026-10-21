@@ -1368,6 +1368,9 @@ public abstract class Type extends MemberInfo {
     }
 
     private Object[] enumConstants() {
+        if (this.definition == NumberStyles.class) {
+            return NumberStyles.values();
+        }
         if (this.definition == BindingFlags.class) {
             return BindingFlags.values();
         }
@@ -1387,6 +1390,9 @@ public abstract class Type extends MemberInfo {
     }
 
     private static String enumConstantName(Object constant) {
+        if (constant instanceof NumberStyles style) {
+            return style.get_Name();
+        }
         if (constant instanceof BindingFlags flags) {
             return flags.get_Name();
         }

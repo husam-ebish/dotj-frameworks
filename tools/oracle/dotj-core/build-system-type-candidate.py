@@ -75,7 +75,10 @@ def sha256(path):
 
 
 def run(*command):
-    return subprocess.run(command, cwd=ROOT, check=True, capture_output=True, text=True).stdout
+    result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+    if result.returncode:
+        raise RuntimeError(f"Command failed: {command[0]}\n{result.stderr}")
+    return result.stdout
 
 
 def main():
