@@ -611,6 +611,25 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        if (selectedConverter.Convert(DBNull.Value, Type.GetType("System.DBNull")) != DBNull.Value) {
+            throw new AssertionError("Selected DBNull Type conversion changed");
+        }
+        for (Object value : new Object[] {DBNull.Value, Integer.valueOf(42)}) {
+            for (TypeCode code : new TypeCode[] {TypeCode.DBNull, TypeCode.Empty}) {
+                try {
+                    selectedConverter.Convert(value, code);
+                    throw new AssertionError("Unsupported TypeCode conversion accepted");
+                } catch (InvalidCastException expected) {
+                    // Pinned CLR failure type.
+                }
+            }
+        }
+        try {
+            selectedConverter.Convert(null, TypeCode.DBNull);
+            throw new AssertionError("Null DBNull TypeCode conversion accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));

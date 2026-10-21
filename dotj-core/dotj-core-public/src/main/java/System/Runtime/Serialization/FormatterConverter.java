@@ -4,6 +4,7 @@ package System.Runtime.Serialization;
 
 import System.ArgumentNullException;
 import System.DateTime;
+import System.DBNull;
 import System.Decimal;
 import System.FormatException;
 import System.IConvertible;
@@ -85,6 +86,9 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.Char".equals(name)) {
             return ToChar(value);
         }
+        if ("System.DBNull".equals(name) && value == DBNull.Value) {
+            return value;
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -107,6 +111,8 @@ public final class FormatterConverter implements IFormatterConverter {
                 }
                 throw new InvalidCastException("Object must implement IConvertible");
             }
+            case Empty, DBNull -> throw new InvalidCastException(
+                    "Value cannot be converted to this TypeCode");
             case Int32 -> ToInt32(value);
             case String -> ToString(value);
             case Boolean -> ToBoolean(value);

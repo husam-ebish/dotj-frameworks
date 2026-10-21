@@ -1544,6 +1544,19 @@ static object ObserveFormatterObjectRoutes()
         nullTarget = ObserveMethodError(() => converter.Convert(token, (Type)null!)),
     };
 }
+static object ObserveFormatterTypeCodeBoundaries()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    return new
+    {
+        dbNullCode = ObserveMethodError(() => converter.Convert(DBNull.Value, TypeCode.DBNull)),
+        dbNullType = ObserveMethodError(() => converter.Convert(DBNull.Value, typeof(DBNull))),
+        integerToDBNull = ObserveMethodError(() => converter.Convert(42, TypeCode.DBNull)),
+        integerToEmpty = ObserveMethodError(() => converter.Convert(42, TypeCode.Empty)),
+        dbNullToEmpty = ObserveMethodError(() => converter.Convert(DBNull.Value, TypeCode.Empty)),
+        nullToDBNull = ObserveMethodError(() => converter.Convert(null!, TypeCode.DBNull)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1715,6 +1728,7 @@ var result = new
     selectedDateTimeFormatterRoutesBehavior = ObserveDateTimeFormatterRoutes(),
     selectedCharFormatterRoutesBehavior = ObserveCharFormatterRoutes(),
     selectedFormatterObjectRoutesBehavior = ObserveFormatterObjectRoutes(),
+    selectedFormatterTypeCodeBoundariesBehavior = ObserveFormatterTypeCodeBoundaries(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
