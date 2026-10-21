@@ -231,6 +231,8 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    special_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSpecialNameBehavior"]
+    assert len(special_name) == 7 and all(not row["isSpecialName"] for row in special_name)
     serializable = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializableBehavior"]
     assert [row["isSerializable"] for row in serializable] == [
         True, True, True, False, False, True, True, True,
@@ -1431,6 +1433,7 @@ def main():
         "public boolean get_IsPublic();",
         "public boolean get_IsNotPublic();",
         "public boolean get_IsSerializable();",
+        "public boolean get_IsSpecialName();",
         "public System.Reflection.MemberTypes get_MemberType();",
         "public boolean get_IsVisible();",
         "public boolean get_IsClass();",

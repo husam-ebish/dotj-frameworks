@@ -915,6 +915,10 @@ public abstract class Type extends MemberInfo {
                 || Exception.class.isAssignableFrom(this.definition);
     }
 
+    public boolean get_IsSpecialName() {
+        return false;
+    }
+
     @Override
     public MemberTypes get_MemberType() {
         return MemberTypes.TypeInfo;
