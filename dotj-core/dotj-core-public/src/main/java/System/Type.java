@@ -1417,6 +1417,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IConvertible.class && candidate.definition == DateTime.class) {
             return true;
         }
+        if (this.definition == IConvertible.class && candidate.definition == Decimal.class) {
+            return true;
+        }
         if (this.definition == IConvertible.class && candidate.definition == DBNull.class) {
             return true;
         }
@@ -1495,7 +1498,7 @@ public abstract class Type extends MemberInfo {
             return value instanceof Integer || value instanceof Int32 || value instanceof DBNull
                     || value instanceof Byte || value instanceof SByte
                     || value instanceof UInt16 || value instanceof UInt32
-                    || value instanceof DateTime;
+                    || value instanceof DateTime || value instanceof Decimal;
         }
         if (this.definition == ISerializable.class) {
             return value instanceof DBNull;
@@ -1756,7 +1759,7 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
-                || this.definition == DateTime.class) {
+                || this.definition == DateTime.class || this.definition == Decimal.class) {
             return new Type[] {fromJavaClass(IConvertible.class)};
         }
         if (this.definition == Object.class || this.definition == IDisposable.class

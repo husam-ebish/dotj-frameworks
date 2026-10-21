@@ -680,6 +680,29 @@ public final class TypeIdentityCandidateTest {
         } catch (InvalidCastException expected) {
             // Pinned CLR failure type.
         }
+        IConvertible decimalConvertible = Decimal.Parse("12.5");
+        if (!Type.GetType("System.Decimal").IsAssignableTo(Type.GetType("System.IConvertible"))
+                || decimalConvertible.GetTypeCode() != TypeCode.Decimal
+                || decimalConvertible.ToInt32(null) != 12
+                || Decimal.Parse("13.5").ToInt32(null) != 14
+                || decimalConvertible.ToDouble(null) != 12.5d
+                || !decimalConvertible.ToBoolean(null)
+                || !"12.5".equals(decimalConvertible.ToString(null))
+                || !"12.5".equals(decimalConvertible.ToDecimal(null).ToString(null))) {
+            throw new AssertionError("Selected Decimal IConvertible values changed");
+        }
+        try {
+            decimalConvertible.ToChar(null);
+            throw new AssertionError("Decimal to Char accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            decimalConvertible.ToDateTime(null);
+            throw new AssertionError("Decimal to DateTime accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));

@@ -132,12 +132,28 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 0
             disposition = "SELECTED_ENUM_VALUES; Java enum differs from CLR Enum"
         elif name == "System.Decimal":
-            assert header == "public final class System.Decimal {"
+            assert header == "public final class System.Decimal implements System.IConvertible {"
             assert declarations == ["public System.Decimal(int);", "public System.Decimal(long);",
                                     "public static System.Decimal Parse(java.lang.String);",
-                                    "public java.lang.String ToString(System.IFormatProvider);"]
+                                    "public java.lang.String ToString(System.IFormatProvider);",
+                                    "public System.TypeCode GetTypeCode();",
+                                    "public boolean ToBoolean(System.IFormatProvider);",
+                                    "public char ToChar(System.IFormatProvider);",
+                                    "public byte ToSByte(System.IFormatProvider);",
+                                    "public short ToByte(System.IFormatProvider);",
+                                    "public short ToInt16(System.IFormatProvider);",
+                                    "public int ToUInt16(System.IFormatProvider);",
+                                    "public int ToInt32(System.IFormatProvider);",
+                                    "public long ToUInt32(System.IFormatProvider);",
+                                    "public long ToInt64(System.IFormatProvider);",
+                                    "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+                                    "public float ToSingle(System.IFormatProvider);",
+                                    "public double ToDouble(System.IFormatProvider);",
+                                    "public System.Decimal ToDecimal(System.IFormatProvider);",
+                                    "public System.DateTime ToDateTime(System.IFormatProvider);",
+                                    "public java.lang.Object ToType(System.Type, System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 78
-            disposition = "PARTIAL_VALUE_SURFACE; int/long construction, selected Parse and invariant text"
+            disposition = "PARTIAL_VALUE_SURFACE; selected Decimal IConvertible, Parse and invariant text"
         elif name == "System.DateTime":
             assert header == "public final class System.DateTime implements System.IConvertible {"
             assert declarations == ["public System.DateTime(int, int, int);",
