@@ -1572,6 +1572,8 @@ var result = new
     types = selected.Select(type => new
     {
         fullName = type.FullName,
+        assemblyQualifiedName = type.AssemblyQualifiedName,
+        qualifiedNameRoundTripSameReference = ReferenceEquals(Type.GetType(type.AssemblyQualifiedName), type),
         baseType = type.BaseType?.FullName,
         isInterface = type.IsInterface,
         isAbstract = type.IsAbstract,
