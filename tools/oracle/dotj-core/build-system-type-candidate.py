@@ -82,6 +82,7 @@ def main():
         "System.Reflection.MemberInfo[] GetDefaultMembers()",
         "System.Reflection.MemberInfo[] GetMember(System.String)",
         "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.BindingFlags)",
+        "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags)",
         "System.Reflection.MemberInfo[] GetMembers()",
         "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
         "System.Type[] GetRequiredCustomModifiers()",
@@ -312,6 +313,19 @@ def main():
     for key in ("publicOnly", "instanceOnly", "nonPublic"):
         assert member_flags[key] == {"members": [], "exception": None, "paramName": None}
     assert member_flags["nullName"] == {
+        "members": None, "exception": "System.ArgumentNullException", "paramName": "name",
+    }
+    member_kinds = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberKindsBehavior"]
+    for key in ("property", "all"):
+        assert member_kinds[key] == {"members": [{"name": "Chars", "kind": "Property"}],
+                                     "exception": None, "paramName": None}
+    assert member_kinds["disposeMethod"] == {
+        "members": [{"name": "Dispose", "kind": "Method"}],
+        "exception": None, "paramName": None,
+    }
+    for key in ("methodMiss", "disposePropertyMiss"):
+        assert member_kinds[key] == {"members": [], "exception": None, "paramName": None}
+    assert member_kinds["nullName"] == {
         "members": None, "exception": "System.ArgumentNullException", "paramName": "name",
     }
     default_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDefaultMemberBehavior"]
@@ -1606,6 +1620,7 @@ def main():
         "public boolean IsInstanceOfType(java.lang.Object);",
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String);",
         "public System.Reflection.MemberInfo[] GetMember(java.lang.String, System.Reflection.BindingFlags);",
+        "public System.Reflection.MemberInfo[] GetMember(java.lang.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetMembers();",
         "public System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",

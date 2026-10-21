@@ -1336,6 +1336,23 @@ public abstract class Type extends MemberInfo {
         throw new UnsupportedOperationException("Flagged member lookup is not mapped for this candidate name");
     }
 
+    public MemberInfo[] GetMember(String name, MemberTypes memberTypes, BindingFlags flags) {
+        if (name == null) {
+            throw new ArgumentNullException("name");
+        }
+        if (memberTypes == null) {
+            throw new NullPointerException("memberTypes");
+        }
+        MemberInfo[] matches = this.GetMember(name, flags);
+        java.util.ArrayList<MemberInfo> selected = new java.util.ArrayList<>();
+        for (MemberInfo member : matches) {
+            if (memberTypes == MemberTypes.All || member.get_MemberType() == memberTypes) {
+                selected.add(member);
+            }
+        }
+        return selected.toArray(new MemberInfo[0]);
+    }
+
     public MemberInfo[] GetMembers() {
         String interfaceMethod = this.selectedInterfaceMethodName();
         if (interfaceMethod != null) {
