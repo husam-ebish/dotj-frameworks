@@ -3,6 +3,7 @@
 package System.Runtime.Serialization;
 
 import System.Type;
+import java.util.Objects;
 
 /** Name, declared type and value of a selected serialization member. */
 public final class SerializationEntry {
@@ -30,5 +31,37 @@ public final class SerializationEntry {
 
     public Object get_Value() {
         return this.value;
+    }
+
+    public boolean Equals(Object other) {
+        return this.equals(other);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof SerializationEntry entry)) {
+            return false;
+        }
+        return Objects.equals(this.name, entry.name)
+                && Objects.equals(this.objectType, entry.objectType)
+                && Objects.equals(this.value, entry.value);
+    }
+
+    public int GetHashCode() {
+        return this.hashCode();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.name, this.objectType, this.value);
+    }
+
+    public String ToString() {
+        return "System.Runtime.Serialization.SerializationEntry";
+    }
+
+    @Override
+    public String toString() {
+        return this.ToString();
     }
 }
