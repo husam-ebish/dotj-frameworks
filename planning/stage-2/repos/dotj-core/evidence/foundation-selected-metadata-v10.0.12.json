@@ -614,6 +614,48 @@
       "isAbstract": false
     }
   ],
+  "selectedSealedBehavior": [
+    {
+      "name": "System.Object",
+      "isSealed": false
+    },
+    {
+      "name": "System.String",
+      "isSealed": true
+    },
+    {
+      "name": "System.Int32",
+      "isSealed": true
+    },
+    {
+      "name": "System.Type",
+      "isSealed": false
+    },
+    {
+      "name": "System.ValueType",
+      "isSealed": false
+    },
+    {
+      "name": "System.Array",
+      "isSealed": false
+    },
+    {
+      "name": "System.IDisposable",
+      "isSealed": false
+    },
+    {
+      "name": "System.TypeCode",
+      "isSealed": true
+    },
+    {
+      "name": "System.Decimal",
+      "isSealed": true
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "isSealed": false
+    }
+  ],
   "selectedEnumBaseBehavior": {
     "enumBase": "System.Enum",
     "baseBase": "System.ValueType",
@@ -3193,6 +3235,10 @@
           "type": "System.Boolean"
         },
         {
+          "name": "IsSealed",
+          "type": "System.Boolean"
+        },
+        {
           "name": "IsClass",
           "type": "System.Boolean"
         },
@@ -3765,6 +3811,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "82739ef287493fc2e93f4eb74a1c765cb1334e37795eaff64817734909adc072",
+  "oracleProgramSha256": "07d2dcdd6be58584ade2aae43801c3dd80b6ba6c5ff170ab7738f45c90fbbeb4",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
