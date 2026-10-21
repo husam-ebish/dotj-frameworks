@@ -69,6 +69,13 @@ public final class TypeIdentityCandidateTest {
         if (map.GetNestedTypes()[0] != nestedEntry) {
             throw new AssertionError("Nested Type enumeration escaped by reference");
         }
+        Type closedMap = map.MakeGenericType(new Type[] {string, integer});
+        Type[] closedNestedTypes = closedMap.GetNestedTypes();
+        if (closedMap.GetNestedType("Entry") != nestedEntry
+                || closedMap.GetNestedType("entry") != null
+                || closedNestedTypes.length != 1 || closedNestedTypes[0] != nestedEntry) {
+            throw new AssertionError("Constructed generic owner nested Type identity changed");
+        }
         try {
             map.GetNestedType(null);
             throw new AssertionError("Null nested Type name accepted");
