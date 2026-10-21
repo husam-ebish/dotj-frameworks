@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "f8bb6a0ca33ec33308e5808a94a50b9c9494c4eeb7233d116bb23205c2dab013",
+  "candidateJarSha256": "2420460d4cd51a4d60557a529e63b3e1b55f4a5dfa72163f77356c956cfeda58",
   "typeCount": 29,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -378,7 +378,8 @@
         "public System.Exception(java.lang.String, System.Exception);",
         "public java.lang.String get_Message();",
         "public System.Exception get_InnerException();",
-        "public System.Exception GetBaseException();"
+        "public System.Exception GetBaseException();",
+        "public java.util.Map<java.lang.Object, java.lang.Object> get_Data();"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
       "qualified": false

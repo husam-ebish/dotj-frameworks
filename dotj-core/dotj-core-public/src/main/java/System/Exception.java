@@ -2,6 +2,8 @@ package System;
 
 /** Selected unchecked Java carrier for the System.Exception candidate hierarchy. */
 public class Exception extends RuntimeException {
+    private java.util.Map<Object, Object> data;
+
     public Exception() {
         super();
     }
@@ -29,5 +31,12 @@ public class Exception extends RuntimeException {
             current = current.get_InnerException();
         }
         return current;
+    }
+
+    public java.util.Map<Object, Object> get_Data() {
+        if (this.data == null) {
+            this.data = new java.util.HashMap<>();
+        }
+        return this.data;
     }
 }

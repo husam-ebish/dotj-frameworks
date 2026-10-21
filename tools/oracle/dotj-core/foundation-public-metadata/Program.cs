@@ -43,6 +43,11 @@ Exception rootException = new InvalidOperationException("root");
 Exception middleException = new("middle", rootException);
 Exception chainException = new ArgumentException("outer", "value", middleException);
 Exception standaloneException = new("standalone");
+Exception dataException = new("data");
+System.Collections.IDictionary data = dataException.Data;
+bool dataStartsEmpty = data.Count == 0;
+data["key"] = "value";
+System.Collections.IDictionary secondData = new Exception("other").Data;
 static object ObserveGetType(string? name, bool throwOnError, bool ignoreCase)
 {
     try
@@ -317,6 +322,15 @@ var result = new
         chainInnerPreserved = ReferenceEquals(chainException.InnerException, middleException),
         baseType = chainException.GetBaseException().GetType().FullName,
         baseMessage = chainException.GetBaseException().Message,
+    },
+    selectedExceptionDataBehavior = new
+    {
+        startsEmpty = dataStartsEmpty,
+        sameReference = ReferenceEquals(data, dataException.Data),
+        storedValue = dataException.Data["key"] as string,
+        countAfterInsert = dataException.Data.Count,
+        separateInstance = !ReferenceEquals(data, secondData),
+        secondStartsEmpty = secondData.Count == 0,
     },
     selectedGetTypeBehavior = new
     {
