@@ -46,6 +46,43 @@ public final class TypeIdentityCandidateTest {
                 || DBNull.Value.GetTypeCode() != TypeCode.DBNull) {
             throw new AssertionError("Selected DBNull identity changed");
         }
+        IConvertible convertibleNull = DBNull.Value;
+        if (!"".equals(convertibleNull.ToType(Type.fromJavaClass(String.class), null))
+                || convertibleNull.ToType(Type.fromJavaClass(DBNull.class), null) != DBNull.Value) {
+            throw new AssertionError("Selected DBNull ToType outcomes changed");
+        }
+        try {
+            convertibleNull.ToType(null, null);
+            throw new AssertionError("Null DBNull target type was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"targetType".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null DBNull target parameter changed");
+            }
+        }
+        Runnable[] invalidDbNullConversions = {
+            () -> convertibleNull.ToBoolean(null),
+            () -> convertibleNull.ToChar(null),
+            () -> convertibleNull.ToSByte(null),
+            () -> convertibleNull.ToByte(null),
+            () -> convertibleNull.ToInt16(null),
+            () -> convertibleNull.ToUInt16(null),
+            () -> convertibleNull.ToInt32(null),
+            () -> convertibleNull.ToUInt32(null),
+            () -> convertibleNull.ToInt64(null),
+            () -> convertibleNull.ToUInt64(null),
+            () -> convertibleNull.ToSingle(null),
+            () -> convertibleNull.ToDouble(null),
+            () -> convertibleNull.ToDecimal(null),
+            () -> convertibleNull.ToDateTime(null)
+        };
+        for (Runnable conversion : invalidDbNullConversions) {
+            try {
+                conversion.run();
+                throw new AssertionError("DBNull numeric or date conversion succeeded");
+            } catch (InvalidCastException expected) {
+                // Pinned invalid cast behavior.
+            }
+        }
         if (string.get_IsCollectible()
                 || Type.fromJavaClass(List.class).get_IsCollectible()) {
             throw new AssertionError("Selected type collectibility changed");
