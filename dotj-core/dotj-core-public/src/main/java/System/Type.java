@@ -118,6 +118,7 @@ public abstract class Type extends MemberInfo {
             case "System.IFormatProvider" -> fromJavaClass(IFormatProvider.class);
             case "System.IConvertible" -> fromJavaClass(IConvertible.class);
             case "System.TypeCode" -> fromJavaClass(TypeCode.class);
+            case "System.Decimal" -> fromJavaClass(Decimal.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
@@ -156,6 +157,7 @@ public abstract class Type extends MemberInfo {
             case "system.iformatprovider" -> ignoreCase ? fromJavaClass(IFormatProvider.class) : null;
             case "system.iconvertible" -> ignoreCase ? fromJavaClass(IConvertible.class) : null;
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
+            case "system.decimal" -> ignoreCase ? fromJavaClass(Decimal.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
@@ -364,6 +366,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Integer.class) {
             return fromJavaClass(Number.class);
         }
+        if (this.definition == Decimal.class) {
+            return fromJavaClass(Number.class);
+        }
         if (this.definition == MemberTypes.class || this.definition == TypeCode.class) {
             return fromJavaClass(Enum.class);
         }
@@ -381,7 +386,8 @@ public abstract class Type extends MemberInfo {
 
     public boolean get_IsValueType() {
         return this.parameterIndex < 0
-                && (this.definition == Integer.class || this.definition == MemberTypes.class
+                && (this.definition == Integer.class || this.definition == Decimal.class
+                        || this.definition == MemberTypes.class
                         || this.definition == TypeCode.class);
     }
 
@@ -466,7 +472,8 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this.definition == Number.class) {
-            return value instanceof Integer || value instanceof MemberTypes || value instanceof TypeCode;
+            return value instanceof Integer || value instanceof Decimal
+                    || value instanceof MemberTypes || value instanceof TypeCode;
         }
         if (this.definition == Enum.class) {
             return value instanceof MemberTypes || value instanceof TypeCode;

@@ -22,7 +22,7 @@ def main():
     assert record["runtimeVersion"] == "10.0.12"
     assert record["coreLibSha256"] == baseline["assemblySha256"]
     by_name = {item["fullName"]: item for item in record["types"]}
-    assert len(by_name) == 17
+    assert len(by_name) == 18
     assert by_name["System.IDisposable"]["declaredPublicMethodCount"] == 1
     assert by_name["System.Type"]["declaredPublicPropertyCount"] == 70
     assert by_name["System.Type"]["baseType"] == "System.Reflection.MemberInfo"
@@ -31,7 +31,7 @@ def main():
     record["oracleProgramSha256"] = hashlib.sha256(PROGRAM.read_bytes()).hexdigest()
     record["scope"] = "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
-    print("PASS pinned seventeen-type foundation metadata capture")
+    print("PASS pinned eighteen-type foundation metadata capture")
 
 
 if __name__ == "__main__":

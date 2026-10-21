@@ -28,7 +28,7 @@ public interface IConvertible {
 
     double ToDouble(IFormatProvider provider);
 
-    java.math.BigDecimal ToDecimal(IFormatProvider provider);
+    Decimal ToDecimal(IFormatProvider provider);
 
     java.time.LocalDateTime ToDateTime(IFormatProvider provider);
 

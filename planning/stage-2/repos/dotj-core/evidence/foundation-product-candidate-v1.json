@@ -19,15 +19,19 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/IConvertible.java",
-      "sha256": "0269e553c316ec02fcb052bbb19326453e72f327587e7d73c311da0595abb7d5"
+      "sha256": "fdf9bd246718200819f89374629fa7a604d6e742d41448affe933fff7f1b3453"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/TypeCode.java",
-      "sha256": "beb0af3e6e395c60d7ad3703214aa0db69ab502b1b241c268f53892d437c91f0"
+      "sha256": "7705f36bbbe265ea5af5cb5ec19e48e72be78b33e003fa2ecbdcc824ee2fd293"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Decimal.java",
+      "sha256": "db405c011f474ab48a5d718eebe83db725ab8956a746d567d9b9f4fcb140175b"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "ee016b80f6129847be6fe25ac0e1a69d8f1fd3f6a19df4d00025148c67f0ea98"
+      "sha256": "4733aaf07f9110302f6c2a56555ca14b2164efcf0538d3dc2778f2ce50aebd50"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
@@ -71,11 +75,12 @@
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "6769faabdb28b98842be7dbd38781bc5086573b390acbfe4265f106a813ebf65",
+  "jarSha256": "cafc964a0b7ae711b4855a34e94427bffd084c06cac6e2fdd9a730b0512582cc",
   "jarEntries": [
     "META-INF/MANIFEST.MF",
     "System/ArgumentException.class",
     "System/ArgumentNullException.class",
+    "System/Decimal.class",
     "System/Exception.class",
     "System/IComparable.class",
     "System/IConvertible.class",
@@ -102,9 +107,10 @@
   "classSha256": {
     "System/ArgumentException.class": "ff5916353a148f42cd6024d7acc1eeb755c94671064b87a44fa9862a41c566ce",
     "System/ArgumentNullException.class": "5205ae5f1bb78d022c4d07bc8de08db8a938537b6a5433c2b6243d949ce6dccf",
+    "System/Decimal.class": "f072d7710d862a6a8c2d5f1aeb266853b2aca3344a99a5ff7f5a7cb288bbfdd1",
     "System/Exception.class": "ec46b472c6bd47b0cc155d3167f9b3218e611659182fe149ab479462757900f8",
     "System/IComparable.class": "a3790e8568a32d4ea4d40c4c2f3bd2e3198cbf07ddcd8f25d994f716c62de227",
-    "System/IConvertible.class": "1425c2869490fb689cdf10e0059d147e62e5a2855bf80a5f35a6b92cc78770ab",
+    "System/IConvertible.class": "83b455957f834c23cdbee63340ffccd7e90504e32071ba2cb770336ced27c950",
     "System/IDisposable.class": "e308da2ce34102fc8c31e2d96beb0b54aba33b05aabe0e1e63196fb87ae5687b",
     "System/IFormatProvider.class": "8a9414053ba96284aafa6b6c25ca98792d85498b40bf046aa503c9bf1fc590e9",
     "System/IFormattable.class": "b3ca1e61f164d79774bafe705513ff85078977eba9fc6a189a817928300a1f05",
@@ -116,12 +122,12 @@
     "System/SystemException.class": "8a0ce898bd9a9a53c79f403b1685f06fd421a639e972bab3d2cb083581b3d169",
     "System/Type$1.class": "4f5977e37914e696b854d5e2bb796fee8dbdafcb06c7b7be0e8ed55682345021",
     "System/Type$2.class": "eefcfdd001453aa8c7547d0955b107a4c4a58ef3174f5bc8855cfd3bf35441da",
-    "System/Type$ArrayType.class": "08a90f2ace66c26f1a8c21e9075412ef5e1999ff5a6b655a5dea027aeb528205",
-    "System/Type$ByRefType.class": "f9fb6ea4948df797347e58a853409b34aedcc9acdb19f43b49aa913bde15f398",
-    "System/Type$GenericParameterType.class": "602a51839a9c4ef136a9c8b6ade8bff7e8baa5e93c9f04632f691a4a48ee5837",
-    "System/Type$PointerType.class": "f8808bc72d6b7cfe2e4456b544cfac5f35532bf29fd5c56f043f2b27a7add91e",
-    "System/Type$ResolvedType.class": "b8a19ee6bccd3ae60f089201f02d93cc39a990ca305abd5def4233c0cb8ca412",
-    "System/Type.class": "2cc444168c10052910f8e5fbf3b4bcd61ba1c4058f85705973ddab44e0372721",
+    "System/Type$ArrayType.class": "fb764f97249801b67421b106fde2431671b0e315f209c4388d9721d4deff2305",
+    "System/Type$ByRefType.class": "10a7a92de6f0cfa44d5f93e286c04a3ffd9ab9be8fa3c85f0d646158d4502c51",
+    "System/Type$GenericParameterType.class": "58eb9092f90d5acf7601742228d7d9c81a264a2431c5f10b1b0022bd4a739e0b",
+    "System/Type$PointerType.class": "65c153a38780d9803a73545ac587f7b64fb9863503400b2b7739cdfb3e5315f7",
+    "System/Type$ResolvedType.class": "1f55d9af5429617f55a44660a7766f02a210e1cff3f446c4e8321f228165d8f4",
+    "System/Type.class": "ad18bc48c23bcca0c506399a313c8cbbfeaddc8f6c20c8e66ab963a6bc98e85d",
     "System/TypeCode.class": "c752b76fce1df9da0441528ef7b8d2806e034a2a94741544ceaa1378b8a7f595",
     "System/TypeLoadException.class": "5abf39d1265d20b8756e5215d23b19be75c13fb33def2c35f0736daf1ced4fac"
   },

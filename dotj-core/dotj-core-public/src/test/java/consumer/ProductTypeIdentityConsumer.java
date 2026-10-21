@@ -13,6 +13,7 @@ import System.IFormattable;
 import System.IFormatProvider;
 import System.IConvertible;
 import System.TypeCode;
+import System.Decimal;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 
@@ -351,8 +352,8 @@ public final class ProductTypeIdentityConsumer {
             }
             public float ToSingle(IFormatProvider formatProvider) { return 42; }
             public double ToDouble(IFormatProvider formatProvider) { return 42; }
-            public java.math.BigDecimal ToDecimal(IFormatProvider formatProvider) {
-                return java.math.BigDecimal.valueOf(42);
+            public Decimal ToDecimal(IFormatProvider formatProvider) {
+                return new Decimal(42);
             }
             public java.time.LocalDateTime ToDateTime(IFormatProvider formatProvider) {
                 return java.time.LocalDateTime.of(2026, 1, 2, 0, 0);
@@ -373,7 +374,8 @@ public final class ProductTypeIdentityConsumer {
                 || convertible.ToInt64(provider) != 42
                 || !java.math.BigInteger.valueOf(42).equals(convertible.ToUInt64(provider))
                 || convertible.ToSingle(provider) != 42 || convertible.ToDouble(provider) != 42
-                || !java.math.BigDecimal.valueOf(42).equals(convertible.ToDecimal(provider))
+                || !"42".equals(convertible.ToDecimal(provider).ToString(provider))
+                || !Type.GetType("System.Decimal").get_IsValueType()
                 || convertible.ToDateTime(provider).getYear() != 2026
                 || !"42".equals(convertible.ToString(provider))
                 || !Integer.valueOf(42).equals(convertible.ToType(integer, provider))
