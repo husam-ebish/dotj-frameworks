@@ -427,7 +427,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 signed = true;
             }
         }
-        int exponent = 0;
+        BigInteger exponent = BigInteger.ZERO;
         int exponentIndex = Math.max(number.indexOf('e'), number.indexOf('E'));
         if ((flags & 128) != 0 && exponentIndex >= 0) {
             String exponentText = number.substring(exponentIndex + 1);
@@ -442,13 +442,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (!exponentText.matches("[0-9]+")) {
                 throw new FormatException("Input string was not in a correct format");
             }
-            try {
-                exponent = Integer.parseInt(exponentText);
-            } catch (NumberFormatException expected) {
-                throw new OverflowException();
-            }
-            if (exponent > 1000) throw new OverflowException();
-            if (exponentNegative) exponent = -exponent;
+            exponent = new BigInteger(exponentText);
+            if (exponentNegative) exponent = exponent.negate();
         }
         boolean hasDecimal = false;
         String fraction = "";
@@ -475,18 +470,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 : normalized.matches("[0-9]+"))) {
             throw new FormatException("Input string was not in a correct format");
         }
-        try {
-            BigDecimal parsed = new BigDecimal(normalized).scaleByPowerOfTen(exponent);
-            if (negative) parsed = parsed.negate();
-            BigInteger exact = parsed.toBigIntegerExact();
-            if (exact.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
-                    || exact.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
-                throw new OverflowException();
-            }
-            return new Int32(exact.intValue());
-        } catch (java.lang.ArithmeticException expected) {
-            throw new OverflowException();
-        }
+        return selectedIntegralDecimal(normalized, exponent, negative);
     }
 
     private static Int32 selectedParseFloat(String text, IFormatProvider provider,
@@ -515,7 +499,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         }
         int exponentIndex = allowExponent
                 ? Math.max(number.indexOf('e'), number.indexOf('E')) : -1;
-        int exponent = 0;
+        BigInteger exponent = BigInteger.ZERO;
         if (exponentIndex >= 0) {
             String exponentText = number.substring(exponentIndex + 1);
             number = number.substring(0, exponentIndex);
@@ -529,13 +513,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (!exponentText.matches("[0-9]+")) {
                 throw new FormatException("Input string was not in a correct format");
             }
-            try {
-                exponent = Integer.parseInt(exponentText);
-            } catch (NumberFormatException expected) {
-                throw new OverflowException();
-            }
-            if (exponent > 1000) throw new OverflowException();
-            if (exponentNegative) exponent = -exponent;
+            exponent = new BigInteger(exponentText);
+            if (exponentNegative) exponent = exponent.negate();
         }
         if (allowDecimal && !decimalSeparator.isEmpty()) {
             int separatorIndex = number.indexOf(decimalSeparator);
@@ -547,18 +526,37 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (!number.matches("[0-9]+(\\.[0-9]*)?|\\.[0-9]+")) {
             throw new FormatException("Input string was not in a correct format");
         }
-        try {
-            BigDecimal parsed = new BigDecimal(number).scaleByPowerOfTen(exponent);
-            if (negative) parsed = parsed.negate();
-            BigInteger exact = parsed.toBigIntegerExact();
-            if (exact.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
-                    || exact.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+        return selectedIntegralDecimal(number, exponent, negative);
+    }
+
+    private static Int32 selectedIntegralDecimal(String normalized, BigInteger exponent,
+                                                 boolean negative) {
+        BigDecimal decimal = new BigDecimal(normalized);
+        BigInteger coefficient = decimal.unscaledValue();
+        if (coefficient.signum() == 0) return new Int32(0);
+        if (negative) coefficient = coefficient.negate();
+        BigInteger shift = exponent.subtract(BigInteger.valueOf(decimal.scale()));
+        int digits = coefficient.abs().toString().length();
+        if (shift.signum() >= 0) {
+            if (shift.compareTo(BigInteger.valueOf(10 - digits)) > 0) {
                 throw new OverflowException();
             }
-            return new Int32(exact.intValue());
-        } catch (java.lang.ArithmeticException expected) {
+            coefficient = coefficient.multiply(BigInteger.TEN.pow(shift.intValue()));
+        } else {
+            BigInteger required = shift.negate();
+            if (required.compareTo(BigInteger.valueOf(digits)) > 0) {
+                throw new OverflowException();
+            }
+            BigInteger[] quotient = coefficient.divideAndRemainder(
+                    BigInteger.TEN.pow(required.intValue()));
+            if (quotient[1].signum() != 0) throw new OverflowException();
+            coefficient = quotient[0];
+        }
+        if (coefficient.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                || coefficient.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
             throw new OverflowException();
         }
+        return new Int32(coefficient.intValue());
     }
 
     public static boolean TryParse(String text, Int32[] result) {

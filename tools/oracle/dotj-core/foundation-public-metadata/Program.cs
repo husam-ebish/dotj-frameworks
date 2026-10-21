@@ -1089,6 +1089,20 @@ static object ObserveInt32StyleValidationPrecedence()
         validNullValue,
     };
 }
+static object ObserveInt32ExponentLimits()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = ":",
+        PositiveSign = "plus",
+        NegativeSign = "~",
+    };
+    string[] texts = ["0e1001", "0e999999999", "0e2147483647", "0e2147483648",
+        "1e1001", "1e999999999", "1e~1001", "0e~1001", "0e~999999999",
+        "0e~2147483648", "2147483647", "~2147483648", "2147483648",
+        "~2147483649", "214748364:7e1", "214748364:8e1"];
+    return ObserveInt32SingleStyle(System.Globalization.NumberStyles.Float, texts, provider);
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5554,6 +5568,7 @@ var result = new
     selectedInt32CurrencyFlagStyles = ObserveInt32CurrencyFlagStyles(),
     selectedInt32RadixFlagStyles = ObserveInt32RadixFlagStyles(),
     selectedInt32StyleValidationPrecedence = ObserveInt32StyleValidationPrecedence(),
+    selectedInt32ExponentLimits = ObserveInt32ExponentLimits(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
