@@ -240,6 +240,15 @@ def main():
         "prefix": {"result": None, "exception": "System.FormatException", "paramName": None},
         "nullValue": {"result": None, "exception": "System.ArgumentNullException", "paramName": "s"},
     }
+    hex_try = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32HexTryParseBehavior"]
+    assert hex_try == {
+        "uppercase": {"success": True, "value": 255},
+        "padded": {"success": True, "value": 255},
+        "allBits": {"success": True, "value": -1},
+        "overflow": {"success": False, "value": 0},
+        "prefix": {"success": False, "value": 0},
+        "nullValue": {"success": False, "value": 0},
+    }
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,

@@ -485,6 +485,20 @@ public final class ProductTypeIdentityConsumer {
                 || Int32.TryParse(null, parsedResult) || parsedResult[0].get_Value() != 0) {
             throw new AssertionError("Selected Int32.TryParse behavior changed");
         }
+        if (!Int32.TryParse("FF", NumberStyles.HexNumber, provider, parsedResult)
+                || parsedResult[0].get_Value() != 255
+                || !Int32.TryParse(" FF ", NumberStyles.HexNumber, provider, parsedResult)
+                || parsedResult[0].get_Value() != 255
+                || !Int32.TryParse("FFFFFFFF", NumberStyles.HexNumber, provider, parsedResult)
+                || parsedResult[0].get_Value() != -1
+                || Int32.TryParse("100000000", NumberStyles.HexNumber, provider, parsedResult)
+                || parsedResult[0].get_Value() != 0
+                || Int32.TryParse("0xFF", NumberStyles.HexNumber, provider, parsedResult)
+                || parsedResult[0].get_Value() != 0
+                || Int32.TryParse(null, NumberStyles.HexNumber, provider, parsedResult)
+                || parsedResult[0].get_Value() != 0) {
+            throw new AssertionError("Selected hexadecimal Int32.TryParse behavior changed");
+        }
         ISpanFormattable spanFormattable = int32Value;
         Type spanType = Type.GetType("System.ISpanFormattable");
         char[] enough = new char[2];

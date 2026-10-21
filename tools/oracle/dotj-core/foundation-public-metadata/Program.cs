@@ -202,6 +202,12 @@ static object ObserveInt32HexParse(string? text)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveInt32HexTryParse(string? text)
+{
+    bool success = int.TryParse(text, System.Globalization.NumberStyles.HexNumber,
+        System.Globalization.CultureInfo.InvariantCulture, out int value);
+    return new { success, value };
+}
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
     || nullArgument.ParamName != "typeName" || nullArgument.Message != "missing type (Parameter 'typeName')")
@@ -433,6 +439,15 @@ var result = new
         overflow = ObserveInt32HexParse("100000000"),
         prefix = ObserveInt32HexParse("0xFF"),
         nullValue = ObserveInt32HexParse(null),
+    },
+    selectedInt32HexTryParseBehavior = new
+    {
+        uppercase = ObserveInt32HexTryParse("FF"),
+        padded = ObserveInt32HexTryParse(" FF "),
+        allBits = ObserveInt32HexTryParse("FFFFFFFF"),
+        overflow = ObserveInt32HexTryParse("100000000"),
+        prefix = ObserveInt32HexTryParse("0xFF"),
+        nullValue = ObserveInt32HexTryParse(null),
     },
     selectedSpanFormattingBehavior = new
     {

@@ -56,6 +56,20 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         }
     }
 
+    public static boolean TryParse(String text, NumberStyles style,
+                                   IFormatProvider provider, Int32[] result) {
+        result[0] = new Int32(0);
+        if (text == null) {
+            return false;
+        }
+        try {
+            result[0] = Parse(text, style, provider);
+            return true;
+        } catch (FormatException | OverflowException expected) {
+            return false;
+        }
+    }
+
     private final int value;
 
     public Int32(int value) {
