@@ -440,6 +440,9 @@ def main():
     ]
     assert all(row["definitionError"] == "System.InvalidOperationException"
                and row["instantiationError"] == "System.InvalidOperationException"
+               and row["nullInstantiationError"] == "System.ArgumentNullException"
+               and row["nullInstantiationParameter"] == "methodInstantiation"
+               and row["nonemptyInstantiationError"] == "System.InvalidOperationException"
                for row in nongeneric_errors)
     abstract_bodies = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAbstractMethodBodyBehavior"]
     assert abstract_bodies["type"] == {"name": "System.Reflection.MethodBody",

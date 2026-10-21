@@ -244,6 +244,20 @@ public final class TypeIdentityCandidateTest {
             } catch (InvalidOperationException expected) {
                 // Pinned nongeneric operation error.
             }
+            try {
+                namedMethod.MakeGenericMethod(null);
+                throw new AssertionError("Null method instantiation was accepted");
+            } catch (ArgumentNullException expected) {
+                if (!"methodInstantiation".equals(expected.get_ParamName())) {
+                    throw new AssertionError("Null method instantiation parameter changed");
+                }
+            }
+            try {
+                namedMethod.MakeGenericMethod(new Type[] { Type.fromJavaClass(String.class) });
+                throw new AssertionError("Nongeneric method accepted a type argument");
+            } catch (InvalidOperationException expected) {
+                // Pinned nongeneric operation error.
+            }
             if (returnParameter.get_ParameterType() != interfaceMethodReturns[index]
                     || returnParameter.get_Position() != -1
                     || returnParameter.get_IsOptional()

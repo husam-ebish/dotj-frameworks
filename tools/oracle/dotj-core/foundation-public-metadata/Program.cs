@@ -509,6 +509,18 @@ static string? ObserveMethodError(Action operation)
         return exception.GetType().FullName;
     }
 }
+static string? ObserveMethodArgumentName(Action operation)
+{
+    try
+    {
+        operation();
+        return null;
+    }
+    catch (ArgumentException exception)
+    {
+        return exception.ParamName;
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -1154,7 +1166,13 @@ var result = new
         definitionError = ObserveMethodError(() => item.Item1.GetMethod(item.Item2)!
             .GetGenericMethodDefinition()),
         instantiationError = ObserveMethodError(() => item.Item1.GetMethod(item.Item2)!
-            .MakeGenericMethod(Type.EmptyTypes)) }).ToArray(),
+            .MakeGenericMethod(Type.EmptyTypes)),
+        nullInstantiationError = ObserveMethodError(() => item.Item1.GetMethod(item.Item2)!
+            .MakeGenericMethod((Type[]?)null!)),
+        nullInstantiationParameter = ObserveMethodArgumentName(() => item.Item1.GetMethod(item.Item2)!
+            .MakeGenericMethod((Type[]?)null!)),
+        nonemptyInstantiationError = ObserveMethodError(() => item.Item1.GetMethod(item.Item2)!
+            .MakeGenericMethod(typeof(string))) }).ToArray(),
     selectedAbstractMethodBodyBehavior = new
     {
         type = new { name = typeof(MethodBody).FullName,
