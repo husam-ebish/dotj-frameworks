@@ -931,6 +931,18 @@ public abstract class Type extends MemberInfo {
         return false;
     }
 
+    public boolean get_IsAutoLayout() {
+        return this.definition != Int32.class;
+    }
+
+    public boolean get_IsLayoutSequential() {
+        return this.definition == Int32.class;
+    }
+
+    public boolean get_IsExplicitLayout() {
+        return false;
+    }
+
     @Override
     public MemberTypes get_MemberType() {
         return MemberTypes.TypeInfo;
