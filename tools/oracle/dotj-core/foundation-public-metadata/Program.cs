@@ -854,6 +854,26 @@ static object ObserveSerializationInfoTypeMetadata()
         nullSetTypeParameter = ObserveMethodArgumentName(() => info.SetType(null!)),
     };
 }
+static object ObserveSerializationInfoNameValidation()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    var nullFullError = ObserveMethodError(() => info.FullTypeName = null!);
+    var nullFullParameter = ObserveMethodArgumentName(() => info.FullTypeName = null!);
+    var emptyFullError = ObserveMethodError(() => info.FullTypeName = "");
+    var nullAssemblyError = ObserveMethodError(() => info.AssemblyName = null!);
+    var nullAssemblyParameter = ObserveMethodArgumentName(() => info.AssemblyName = null!);
+    var emptyAssemblyError = ObserveMethodError(() => info.AssemblyName = "");
+    return new
+    {
+        nullFullError, nullFullParameter, emptyFullError,
+        nullAssemblyError, nullAssemblyParameter, emptyAssemblyError,
+        fullNameAfterErrors = info.FullTypeName,
+        assemblyNameAfterErrors = info.AssemblyName,
+        fullExplicitAfterErrors = info.IsFullTypeNameSetExplicit,
+        assemblyExplicitAfterErrors = info.IsAssemblyNameSetExplicit,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -990,6 +1010,7 @@ var result = new
     selectedSerializationInfoTypedValuesBehavior = ObserveSerializationInfoTypedValues(),
     selectedSerializationInfoConversionBoundariesBehavior = ObserveSerializationInfoConversionBoundaries(),
     selectedSerializationInfoTypeMetadataBehavior = ObserveSerializationInfoTypeMetadata(),
+    selectedSerializationInfoNameValidationBehavior = ObserveSerializationInfoNameValidation(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
