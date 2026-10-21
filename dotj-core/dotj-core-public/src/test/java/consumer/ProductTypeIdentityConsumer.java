@@ -1851,6 +1851,22 @@ public final class ProductTypeIdentityConsumer {
                 || !Type.GetType("System.Globalization.NumberStyles").get_IsEnum()) {
             throw new AssertionError("Selected hexadecimal Int32.Parse values changed");
         }
+        if (Int32.Parse("42", NumberStyles.None, provider).get_Value() != 42) {
+            throw new AssertionError("NumberStyles.None decimal digits changed");
+        }
+        for (String text : new String[] {"+42", " 42", "42 "}) {
+            try {
+                Int32.Parse(text, NumberStyles.None, provider);
+                throw new AssertionError("NumberStyles.None accepted sign or whitespace");
+            } catch (FormatException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        Int32[] noneResult = new Int32[1];
+        if (Int32.TryParse("+42", NumberStyles.None, provider, noneResult)
+                || noneResult[0].get_Value() != 0) {
+            throw new AssertionError("NumberStyles.None TryParse changed");
+        }
         try {
             Int32.Parse("100000000", NumberStyles.HexNumber, provider);
             throw new AssertionError("Hexadecimal overflow accepted");

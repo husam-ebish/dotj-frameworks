@@ -1772,6 +1772,19 @@ static object ObserveDecimalGroupedText()
         negativeGrouped = decimal.Parse("-1,234.50", invariant).ToString(invariant),
     };
 }
+static object ObserveInt32NoneStyle()
+{
+    var style = System.Globalization.NumberStyles.None;
+    var invariant = System.Globalization.CultureInfo.InvariantCulture;
+    return new
+    {
+        digits = int.Parse("42", style, invariant),
+        leadingSign = ObserveMethodError(() => int.Parse("+42", style, invariant)),
+        leadingSpace = ObserveMethodError(() => int.Parse(" 42", style, invariant)),
+        trailingSpace = ObserveMethodError(() => int.Parse("42 ", style, invariant)),
+        tryLeadingSign = int.TryParse("+42", style, invariant, out _),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1959,6 +1972,7 @@ var result = new
     selectedDecimalIntegerLimitsBehavior = ObserveDecimalIntegerLimits(),
     selectedFloatingTextGrammarBehavior = ObserveFloatingTextGrammar(),
     selectedDecimalGroupedTextBehavior = ObserveDecimalGroupedText(),
+    selectedInt32NoneStyleBehavior = ObserveInt32NoneStyle(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

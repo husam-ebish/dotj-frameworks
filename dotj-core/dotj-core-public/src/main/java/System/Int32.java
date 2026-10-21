@@ -27,7 +27,16 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
-        if (style == NumberStyles.Integer || style == NumberStyles.None) {
+        if (style == NumberStyles.Integer) {
+            return Parse(text);
+        }
+        if (style == NumberStyles.None) {
+            if (text == null) {
+                throw new ArgumentNullException("s");
+            }
+            if (!text.matches("[0-9]+")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
             return Parse(text);
         }
         if (style != NumberStyles.HexNumber) {
