@@ -182,6 +182,24 @@ def main():
     assert word_patterns["scale29"] == {
         "type": "System.ArgumentOutOfRangeException", "paramName": "scale"}
     assert word_patterns["scale255"] == word_patterns["scale29"]
+    parse_bounds = metadata["selectedDecimalParseBounds"]
+    assert [(entry["text"], entry["bits"], entry["error"])
+            for entry in parse_bounds] == [
+        ("0", [0, 0, 0, 0], None),
+        ("-0.00", [0, 0, 0, -2147352576], None),
+        *[(text, [268435456, 1042612833, 542101086, 1835008], None)
+          for text in ("1.0000000000000000000000000000",
+                       "1.00000000000000000000000000000")],
+        ("0.00000000000000000000000000005", [0, 0, 0, 1835008], None),
+        ("0.00000000000000000000000000006", [1, 0, 0, 1835008], None),
+        ("-0.00000000000000000000000000006", [1, 0, 0, -2145648640], None),
+        ("79228162514264337593543950335", [-1, -1, -1, 0], None),
+        ("79228162514264337593543950335.0", [-1, -1, -1, 0], None),
+        ("79228162514264337593543950336", None, "System.OverflowException"),
+        ("79228162514264337593543950335.4", [-1, -1, -1, 0], None),
+        ("79228162514264337593543950334.5", [-2, -1, -1, 0], None),
+        ("79228162514264337593543950335.5", None, "System.OverflowException"),
+    ]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},

@@ -83,10 +83,16 @@ public final class Decimal implements IConvertible {
             throw new FormatException("Input string was not in a correct format");
         }
         BigDecimal parsed = new BigDecimal(trimmed.replace(",", ""));
-        if (parsed.abs().compareTo(MAX_MAGNITUDE) > 0) {
-            throw new OverflowException("Value was outside the range of Decimal");
+        boolean negativeZero = parsed.signum() == 0 && trimmed.startsWith("-");
+        for (int scale = Math.min(parsed.scale(), 28); scale >= 0; scale--) {
+            BigDecimal rounded = parsed.setScale(scale, RoundingMode.HALF_EVEN);
+            if (rounded.unscaledValue().abs().bitLength() <= 96
+                    && rounded.abs().compareTo(MAX_MAGNITUDE) <= 0) {
+                return new Decimal(rounded, negativeZero
+                        || (rounded.signum() == 0 && trimmed.startsWith("-")));
+            }
         }
-        return new Decimal(parsed, parsed.signum() == 0 && trimmed.startsWith("-"));
+        throw new OverflowException("Value was outside the range of Decimal");
     }
 
     public String ToString(IFormatProvider provider) {

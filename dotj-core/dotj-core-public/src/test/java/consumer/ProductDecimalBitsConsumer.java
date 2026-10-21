@@ -4,6 +4,7 @@ import System.ArgumentException;
 import System.ArgumentNullException;
 import System.ArgumentOutOfRangeException;
 import System.Decimal;
+import System.OverflowException;
 import java.util.Arrays;
 
 /** Selected decimal bit patterns checked outside the product JAR. */
@@ -89,6 +90,40 @@ public final class ProductDecimalBitsConsumer {
                 if (!"scale".equals(caught.get_ParamName())) {
                     throw new AssertionError("Invalid scale parameter changed");
                 }
+            }
+        }
+        String[] parsedTexts = {
+            "0", "-0.00", "1.0000000000000000000000000000",
+            "1.00000000000000000000000000000",
+            "0.00000000000000000000000000005",
+            "0.00000000000000000000000000006",
+            "-0.00000000000000000000000000006",
+            "79228162514264337593543950335",
+            "79228162514264337593543950335.0",
+            "79228162514264337593543950335.4",
+            "79228162514264337593543950334.5",
+        };
+        int[][] parsedBits = {
+            {0, 0, 0, 0}, {0, 0, 0, 0x80020000},
+            {268435456, 1042612833, 542101086, 0x001c0000},
+            {268435456, 1042612833, 542101086, 0x001c0000},
+            {0, 0, 0, 0x001c0000}, {1, 0, 0, 0x001c0000},
+            {1, 0, 0, 0x801c0000}, {-1, -1, -1, 0},
+            {-1, -1, -1, 0}, {-1, -1, -1, 0}, {-2, -1, -1, 0},
+        };
+        for (int index = 0; index < parsedTexts.length; index++) {
+            if (!Arrays.equals(Decimal.GetBits(Decimal.Parse(parsedTexts[index])), parsedBits[index])) {
+                throw new AssertionError("Decimal parse bounds changed: " + parsedTexts[index]);
+            }
+        }
+        for (String text : new String[] {
+                "79228162514264337593543950336",
+                "79228162514264337593543950335.5"}) {
+            try {
+                Decimal.Parse(text);
+                throw new AssertionError("Out-of-range Decimal accepted: " + text);
+            } catch (OverflowException caught) {
+                // Pinned .NET 10 boundary.
             }
         }
         java.lang.System.out.println("PASS external selected Decimal bits");

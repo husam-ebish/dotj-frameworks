@@ -1170,6 +1170,37 @@ static object ObserveDecimalWordConstructor()
         scale255 = ObserveInt32StyleError(() => new decimal(1, 0, 0, true, 255)),
     };
 }
+static object ObserveDecimalParseBounds()
+{
+    string[] texts =
+    [
+        "0", "-0.00", "1.0000000000000000000000000000",
+        "1.00000000000000000000000000000",
+        "0.00000000000000000000000000005",
+        "0.00000000000000000000000000006",
+        "-0.00000000000000000000000000006",
+        "79228162514264337593543950335",
+        "79228162514264337593543950335.0",
+        "79228162514264337593543950336",
+        "79228162514264337593543950335.4",
+        "79228162514264337593543950334.5",
+        "79228162514264337593543950335.5",
+    ];
+    return texts.Select(text =>
+    {
+        try
+        {
+            decimal value = decimal.Parse(text,
+                System.Globalization.CultureInfo.InvariantCulture);
+            return new { text, bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { text, bits = (int[]?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5638,6 +5669,7 @@ var result = new
     selectedInt32ExponentLimits = ObserveInt32ExponentLimits(),
     selectedDecimalBitPatterns = ObserveDecimalBitPatterns(),
     selectedDecimalWordConstructor = ObserveDecimalWordConstructor(),
+    selectedDecimalParseBounds = ObserveDecimalParseBounds(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
