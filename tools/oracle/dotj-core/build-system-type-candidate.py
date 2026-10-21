@@ -194,6 +194,15 @@ def main():
         "nullSetTypeError": "System.ArgumentNullException",
         "nullSetTypeParameter": "type",
     }
+    name_validation = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoNameValidationBehavior"]
+    assert name_validation == {
+        "nullFullError": "System.ArgumentNullException", "nullFullParameter": "value",
+        "emptyFullError": None,
+        "nullAssemblyError": "System.ArgumentNullException", "nullAssemblyParameter": "value",
+        "emptyAssemblyError": None,
+        "fullNameAfterErrors": "", "assemblyNameAfterErrors": "",
+        "fullExplicitAfterErrors": True, "assemblyExplicitAfterErrors": True,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

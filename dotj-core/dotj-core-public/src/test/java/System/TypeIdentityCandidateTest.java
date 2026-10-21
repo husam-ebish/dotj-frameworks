@@ -277,6 +277,30 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Null serialization type parameter changed");
             }
         }
+        SerializationInfo names = new SerializationInfo(dbnullType, selectedConverter);
+        try {
+            names.set_FullTypeName(null);
+            throw new AssertionError("Null serialization full name was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null serialization full name parameter changed");
+            }
+        }
+        try {
+            names.set_AssemblyName(null);
+            throw new AssertionError("Null serialization assembly name was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null serialization assembly name parameter changed");
+            }
+        }
+        names.set_FullTypeName("");
+        names.set_AssemblyName("");
+        if (!"".equals(names.get_FullTypeName()) || !"".equals(names.get_AssemblyName())
+                || !names.get_IsFullTypeNameSetExplicit()
+                || !names.get_IsAssemblyNameSetExplicit()) {
+            throw new AssertionError("Empty serialization names changed");
+        }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
         StreamingContext defaultContext = new StreamingContext();
         StreamingContext processContext = new StreamingContext(StreamingContextStates.CrossProcess);
