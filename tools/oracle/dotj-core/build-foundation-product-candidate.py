@@ -167,6 +167,21 @@ def main():
         **{name: {"type": "System.ArgumentException", "paramName": None}
            for name in ("threeWords", "fiveWords", "reservedBit", "scale29")},
     }
+    word_patterns = metadata["selectedDecimalWordConstructor"]
+    assert [(entry["input"], entry["bits"])
+            for entry in word_patterns["valid"]] == [
+        ([lo, mid, hi, negative, scale],
+         [lo, mid, hi, (scale << 16) | (-2147483648 if negative else 0)])
+        for lo, mid, hi, negative, scale in (
+            (42, 0, 0, False, 0), (12345, 0, 0, False, 2),
+            (12345, 0, 0, True, 2), (0, 0, 0, True, 0),
+            (0, 0, 0, True, 2), (-1, -1, -1, False, 0),
+            (-1, -1, -1, True, 0), (1, 0, 0, False, 28),
+            (-1, -1, -1, True, 28),
+        )]
+    assert word_patterns["scale29"] == {
+        "type": "System.ArgumentOutOfRangeException", "paramName": "scale"}
+    assert word_patterns["scale255"] == word_patterns["scale29"]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
