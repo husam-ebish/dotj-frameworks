@@ -907,6 +907,12 @@ public final class ProductTypeIdentityConsumer {
                     != dictionary.MakeGenericType(new Type[] {integer, string})) {
             throw new AssertionError("Selected Dictionary name lookup changed");
         }
+        for (Type selectedDictionary : new Type[] {dictionary, dictionaryStringInt,
+                dictionary.MakeGenericType(new Type[] {integer, string})}) {
+            if (Type.GetType(selectedDictionary.get_AssemblyQualifiedName()) != selectedDictionary) {
+                throw new AssertionError("Dictionary assembly-qualified round trip changed");
+            }
+        }
         if (Type.GetType("System.String[]") == null
                 || Type.GetType("System.String[]") != Type.GetType("system.string[]", false, true)
                 || Type.GetType("System.String[], System.Private.CoreLib") != Type.GetType("System.String[]")
