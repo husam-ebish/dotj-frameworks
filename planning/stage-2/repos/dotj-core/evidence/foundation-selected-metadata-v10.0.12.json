@@ -1199,6 +1199,43 @@
     ],
     "argumentOutOfRangeHResult": -2146233086
   },
+  "selectedArgumentOutOfRangeConstructors": [
+    {
+      "paramName": null,
+      "message": "Specified argument was out of the range of valid values.",
+      "actualValue": null,
+      "innerSame": false,
+      "hResult": -2146233086
+    },
+    {
+      "paramName": "index",
+      "message": "Specified argument was out of the range of valid values. (Parameter 'index')",
+      "actualValue": null,
+      "innerSame": false,
+      "hResult": -2146233086
+    },
+    {
+      "paramName": "index",
+      "message": "custom (Parameter 'index')",
+      "actualValue": null,
+      "innerSame": false,
+      "hResult": -2146233086
+    },
+    {
+      "paramName": null,
+      "message": "custom",
+      "actualValue": null,
+      "innerSame": true,
+      "hResult": -2146233086
+    },
+    {
+      "paramName": "index",
+      "message": "custom (Parameter 'index')\r\nActual value was 42.",
+      "actualValue": 42,
+      "innerSame": false,
+      "hResult": -2146233086
+    }
+  ],
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16641,6 +16678,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "91d74a4822595f1db1b5d74aa86d4e008fa62add56c89ff828ebb8c1b34f8123",
+  "oracleProgramSha256": "1b81996f842bf45a89d6029173befb14c1a1ad20f6de0d59f32c5f62bf44051c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

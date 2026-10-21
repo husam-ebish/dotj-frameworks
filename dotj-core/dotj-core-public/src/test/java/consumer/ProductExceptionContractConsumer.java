@@ -176,6 +176,28 @@ public final class ProductExceptionContractConsumer {
         expectCopyError(() -> copyDictionary.CopyTo(new Object[0], 0), ArgumentException.class, "index");
         expectCopyError(() -> copyDictionary.CopyTo(new String[1], 0), InvalidCastException.class, null);
         expectCopyError(() -> copyDictionary.CopyTo(new Object[1][1], 0), ArgumentException.class, null);
+        ArgumentOutOfRangeException defaultRange = new ArgumentOutOfRangeException();
+        ArgumentOutOfRangeException namedRange = new ArgumentOutOfRangeException("index");
+        ArgumentOutOfRangeException messageRange = new ArgumentOutOfRangeException("index", "custom");
+        ArgumentOutOfRangeException innerRange = new ArgumentOutOfRangeException("custom", inner);
+        ArgumentOutOfRangeException actualRange = new ArgumentOutOfRangeException("index", 42, "custom");
+        if (!"Specified argument was out of the range of valid values.".equals(defaultRange.get_Message())
+                || defaultRange.get_ParamName() != null || defaultRange.get_ActualValue() != null
+                || !"Specified argument was out of the range of valid values. (Parameter 'index')"
+                        .equals(namedRange.get_Message())
+                || !"custom (Parameter 'index')".equals(messageRange.get_Message())
+                || !"custom".equals(innerRange.get_Message())
+                || innerRange.get_InnerException() != inner
+                || !"custom (Parameter 'index')\r\nActual value was 42."
+                        .equals(actualRange.get_Message())
+                || !Integer.valueOf(42).equals(actualRange.get_ActualValue())
+                || defaultRange.get_HResult() != -2146233086
+                || namedRange.get_HResult() != -2146233086
+                || messageRange.get_HResult() != -2146233086
+                || innerRange.get_HResult() != -2146233086
+                || actualRange.get_HResult() != -2146233086) {
+            throw new AssertionError("Selected out-of-range constructor behavior changed");
+        }
         while (boundaryEnumerator.MoveNext()) {
             // Advance beyond the final entry.
         }
