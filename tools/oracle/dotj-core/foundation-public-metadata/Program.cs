@@ -787,6 +787,16 @@ var result = new
         unknownAttributeThrow = ObserveGetType("System.String, Missing.Assembly, UnknownAttr=foo", true, false),
         duplicateVersion = ObserveGetType("System.String, Missing.Assembly, Version=1.2.3.4, Version=2.3.4.5", false, false),
     },
+    selectedAssemblyAttributeAliasBehavior = new
+    {
+        lowerArchitecture = ObserveGetType("System.String, System.Private.CoreLib, processorarchitecture=msil", false, false),
+        upperRetargetable = ObserveGetType("System.String, System.Private.CoreLib, RETARGETABLE=YES", false, false),
+        lowerContentType = ObserveGetType("System.String, System.Private.CoreLib, contenttype=windowsruntime", false, false),
+        publicKeyNull = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=null", false, false),
+        publicKeyGarbage = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=xyz", false, false),
+        cultureInfoAlias = ObserveGetType("System.String, System.Private.CoreLib, CultureInfo=neutral", false, false),
+        duplicateRetargetableCase = ObserveGetType("System.String, System.Private.CoreLib, Retargetable=Yes, retargetable=No", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
