@@ -421,6 +421,16 @@ def main():
         "format": "System.FormatException",
         "nullValue": "System.ArgumentNullException",
     }
+    unsigned_to_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedUnsignedToTypeContractBehavior"]
+    assert unsigned_to_type == {
+        "u16Self": "System.UInt16", "u32Self": "System.UInt32",
+        "u16ToUInt32": 60000, "u16ToInt32": 60000,
+        "u32ToInt64": 4000000000, "u32ToDecimal": "4000000000",
+        "u32ToString": "4000000000",
+        "u32ToInt32": "System.OverflowException",
+        "u32ToUInt16": "System.OverflowException",
+        "u16Null": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
