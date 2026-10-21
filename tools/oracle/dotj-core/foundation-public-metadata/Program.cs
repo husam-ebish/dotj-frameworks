@@ -919,6 +919,32 @@ static object ObserveSerializationInfoEnumeratorBoundaries()
         afterValue = ObserveMethodError(() => { _ = cursor.Value; }),
     };
 }
+static object ObserveSerializationInfoEnumeratorMutation()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("first", 1);
+    var cursor = info.GetEnumerator();
+    info.AddValue("second", 2);
+    var observed = new List<string>();
+    while (cursor.MoveNext())
+    {
+        observed.Add(cursor.Name);
+    }
+    cursor.Reset();
+    var afterReset = new List<string>();
+    while (cursor.MoveNext())
+    {
+        afterReset.Add(cursor.Name);
+    }
+    var fresh = info.GetEnumerator();
+    var freshNames = new List<string>();
+    while (fresh.MoveNext())
+    {
+        freshNames.Add(fresh.Name);
+    }
+    return new { memberCount = info.MemberCount, observed, afterReset, freshNames };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1058,6 +1084,7 @@ var result = new
     selectedSerializationInfoNameValidationBehavior = ObserveSerializationInfoNameValidation(),
     selectedSerializationInfoSetTypeResetBehavior = ObserveSerializationInfoSetTypeReset(),
     selectedSerializationInfoEnumeratorBoundariesBehavior = ObserveSerializationInfoEnumeratorBoundaries(),
+    selectedSerializationInfoEnumeratorMutationBehavior = ObserveSerializationInfoEnumeratorMutation(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
