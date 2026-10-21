@@ -39,6 +39,14 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Selected Type character-set flags changed");
             }
         }
+        for (Type layoutType : characterSetTypes) {
+            boolean sequential = layoutType == integer;
+            if (layoutType.get_IsAutoLayout() == sequential
+                    || layoutType.get_IsLayoutSequential() != sequential
+                    || layoutType.get_IsExplicitLayout()) {
+                throw new AssertionError("Selected Type layout flags changed");
+            }
+        }
         if (string.get_IsSpecialName()
                 || Type.fromJavaClass(TypeCode.class).get_IsSpecialName()
                 || Type.fromJavaClass(List.class).get_IsSpecialName()
