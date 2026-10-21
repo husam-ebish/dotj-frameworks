@@ -427,6 +427,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IComparable.class && candidate.definition == String.class) {
             return true;
         }
+        if (this.definition == IComparable.class && candidate.definition == Int32.class) {
+            return true;
+        }
         if (this.definition == IFormattable.class && candidate.definition == Int32.class) {
             return true;
         }
@@ -535,6 +538,12 @@ public abstract class Type extends MemberInfo {
             }
         }
         if (this.definition == Int32.class) {
+            if (fullname.equals("System.IComparable") || fullname.equals("IComparable")) {
+                return fromJavaClass(IComparable.class);
+            }
+            if (fullname.equals("system.icomparable")) {
+                return null;
+            }
             if (fullname.equals("System.IFormattable") || fullname.equals("IFormattable")) {
                 return fromJavaClass(IFormattable.class);
             }
