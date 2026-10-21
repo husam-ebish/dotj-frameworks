@@ -244,6 +244,14 @@ public final class ProductTypeIdentityConsumer {
                 || definition.get_IsAbstract()) {
             throw new AssertionError("Selected abstract type flags changed");
         }
+        if (object.get_IsSealed() || !string.get_IsSealed() || !integer.get_IsSealed()
+                || Type.GetType("System.Type").get_IsSealed() || valueType.get_IsSealed()
+                || arrayBase.get_IsSealed() || disposalType.get_IsSealed()
+                || !Type.GetType("System.TypeCode").get_IsSealed()
+                || !Type.GetType("System.Decimal").get_IsSealed()
+                || definition.get_IsSealed()) {
+            throw new AssertionError("Selected sealed type flags changed");
+        }
         if (disposalType == null || memberTypesType == null
                 || !disposalType.get_IsInterface() || disposalType.get_IsClass()
                 || disposalType.get_IsValueType() || disposalType.get_IsEnum()

@@ -421,6 +421,12 @@ public abstract class Type extends MemberInfo {
                 || this.get_IsInterface();
     }
 
+    public boolean get_IsSealed() {
+        return this.definition == String.class || this.definition == Int32.class
+                || this.definition == Decimal.class || this.definition == DateTime.class
+                || this.get_IsEnum();
+    }
+
     public boolean get_IsClass() {
         return !this.get_IsValueType() && !this.get_IsInterface();
     }
