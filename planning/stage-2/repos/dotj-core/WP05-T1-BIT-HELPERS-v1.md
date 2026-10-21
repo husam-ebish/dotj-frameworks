@@ -64,6 +64,8 @@ Twelve further pinned `NumberStyles.Number` boundaries now run against Java stri
 
 The selected `NumberGroupSizes` carrier now copies arrays at its getter and setter and applies repeated and terminal-zero group configurations to `Int32` `N` formatting. The .NET 10 oracle, packaged string output, and Char/UTF-8 span output agree on `12_34_56_789`, `-12_34_56_789.00`, and `1234_56_789`; selected `NumberStyles.Number` parsing also accepts the repeated-group example. Invalid size vectors and broader culture behavior remain open.
 
-Selected `CurrencyGroupSizes` and `PercentGroupSizes` now use the same defensive-copy carrier and group their respective `Int32` `C` and `P` formats. The oracle and packaged consumer agree on positive and negative custom group-size examples in string and span formatting. Invalid size vectors and broader culture behavior remain open.
+Selected `CurrencyGroupSizes` and `PercentGroupSizes` now use the same defensive-copy carrier and group their respective `Int32` `C` and `P` formats. The oracle and packaged consumer agree on positive and negative custom group-size examples in string and span formatting. Broader culture behavior remains open.
+
+The pinned .NET 10 oracle now covers selected group-size setter boundaries: empty, zero-only and terminal-zero arrays are accepted; negative, over-nine and interior-zero sizes throw `ArgumentException`, while a null array throws `ArgumentNullException`. The packaged Java consumer checks those exception types and accepted assignments. Unobserved error messages and culture behavior remain open.
 
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

@@ -3,6 +3,7 @@
 package System.Globalization;
 
 import System.ArgumentNullException;
+import System.ArgumentException;
 import System.ArgumentOutOfRangeException;
 import System.IFormatProvider;
 import System.Type;
@@ -52,7 +53,7 @@ public final class NumberFormatInfo implements IFormatProvider {
         for (int index = 0; index < value.length; index++) {
             if (value[index] < 0 || value[index] > 9
                     || (value[index] == 0 && index != value.length - 1)) {
-                throw new ArgumentOutOfRangeException("value");
+                throw new ArgumentException("Invalid group size", "value");
             }
         }
     }

@@ -22522,6 +22522,19 @@
     "percent": "42_00 pct",
     "negativePercent": "-42_00 pct"
   },
+  "selectedInt32GroupSizeBoundaries": {
+    "nullNumber": "System.ArgumentNullException",
+    "emptyNumber": null,
+    "zeroNumber": null,
+    "negativeNumber": "System.ArgumentException",
+    "tenNumber": "System.ArgumentException",
+    "interiorZeroNumber": "System.ArgumentException",
+    "terminalZeroNumber": null,
+    "negativeCurrency": "System.ArgumentException",
+    "interiorZeroCurrency": "System.ArgumentException",
+    "negativePercent": "System.ArgumentException",
+    "interiorZeroPercent": "System.ArgumentException"
+  },
   "selectedInt32NegativeSignBehavior": {
     "customParse": -42,
     "customSuccess": true,
@@ -25983,6 +25996,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "4ad608bdfd950cfc18e197f07318d2820b72a818201d69f99e6ceddec2130293",
+  "oracleProgramSha256": "7aa4214cd8e9789b6dc9a8ec01f47222b62bf87bcd86d1c2cb0859e843a9301c",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
