@@ -4,6 +4,7 @@ package System;
 public class Exception extends RuntimeException {
     private java.util.Map<Object, Object> data;
     private int hResult = -2146233088;
+    private String helpLink;
 
     public Exception() {
         super();
@@ -47,5 +48,13 @@ public class Exception extends RuntimeException {
 
     protected void set_HResult(int value) {
         this.hResult = value;
+    }
+
+    public String get_HelpLink() {
+        return this.helpLink;
+    }
+
+    public void set_HelpLink(String value) {
+        this.helpLink = value;
     }
 }

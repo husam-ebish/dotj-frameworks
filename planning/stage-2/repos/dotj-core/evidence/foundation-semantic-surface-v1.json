@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "b0986aa9ea0cdff970300d9e164c5982353ef50af4b43c716b779a4cbee00c90",
+  "oracleEvidenceSha256": "c1adb50f870eba90d1d83729ea706186025005e31b364cec02c6549ed3310a47",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "28e0468fc083d9850176eb9962cc1fd15c220ee202d2219e2ae3ab9f5087c364",
+  "javaCandidateEvidenceSha256": "f5c1c3bb19d7bbff600a0996ff65d7b3732eae132404f29521adaecbf51d0399",
   "types": [
     {
       "fullName": "System.Type",
@@ -3934,7 +3934,9 @@
         "public System.Exception get_InnerException();",
         "public System.Exception GetBaseException();",
         "public java.util.Map<java.lang.Object, java.lang.Object> get_Data();",
-        "public int get_HResult();"
+        "public int get_HResult();",
+        "public java.lang.String get_HelpLink();",
+        "public void set_HelpLink(java.lang.String);"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -3947,8 +3949,10 @@
           "GetBaseException": 1,
           "get_Data": 1,
           "get_HResult": 1,
+          "get_HelpLink": 1,
           "get_InnerException": 1,
-          "get_Message": 1
+          "get_Message": 1,
+          "set_HelpLink": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "GetObjectData",
@@ -3956,7 +3960,6 @@
           "ToString"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "HelpLink",
           "Source",
           "StackTrace",
           "TargetSite"

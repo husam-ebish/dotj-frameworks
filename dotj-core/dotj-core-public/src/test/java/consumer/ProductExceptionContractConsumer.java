@@ -54,6 +54,19 @@ public final class ProductExceptionContractConsumer {
                 || new InvalidOperationException("invalid").get_HResult() != -2146233079) {
             throw new AssertionError("Selected exception HResult values changed");
         }
+        Exception withHelpLink = new Exception("help");
+        if (withHelpLink.get_HelpLink() != null) {
+            throw new AssertionError("Selected HelpLink default changed");
+        }
+        withHelpLink.set_HelpLink("https://example.invalid/help");
+        if (!"https://example.invalid/help".equals(withHelpLink.get_HelpLink())
+                || new Exception("other").get_HelpLink() != null) {
+            throw new AssertionError("Selected HelpLink mutation changed");
+        }
+        withHelpLink.set_HelpLink(null);
+        if (withHelpLink.get_HelpLink() != null) {
+            throw new AssertionError("Selected HelpLink reset changed");
+        }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5

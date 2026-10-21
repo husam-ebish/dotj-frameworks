@@ -43,6 +43,11 @@ Exception rootException = new InvalidOperationException("root");
 Exception middleException = new("middle", rootException);
 Exception chainException = new ArgumentException("outer", "value", middleException);
 Exception standaloneException = new("standalone");
+Exception helpLinkException = new("help");
+bool helpLinkStartsNull = helpLinkException.HelpLink is null;
+helpLinkException.HelpLink = "https://example.invalid/help";
+string? helpLinkAfterSet = helpLinkException.HelpLink;
+helpLinkException.HelpLink = null;
 Exception dataException = new("data");
 System.Collections.IDictionary data = dataException.Data;
 bool dataStartsEmpty = data.Count == 0;
@@ -339,6 +344,13 @@ var result = new
         inner = new Exception("outer", inner).HResult,
         argument = new ArgumentException("argument").HResult,
         invalidOperation = new InvalidOperationException("invalid").HResult,
+    },
+    selectedExceptionHelpLinkBehavior = new
+    {
+        startsNull = helpLinkStartsNull,
+        afterSet = helpLinkAfterSet,
+        afterReset = helpLinkException.HelpLink,
+        separateInstanceIsNull = new Exception("other").HelpLink is null,
     },
     selectedGetTypeBehavior = new
     {
