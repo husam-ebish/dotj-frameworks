@@ -555,6 +555,26 @@ static object ObserveInt32ProviderFormat()
         defaultPrecision = ((IFormattable)42).ToString("N", provider),
     };
 }
+static object ObserveInt32NumberGroupSizes()
+{
+    var repeated = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberGroupSizes = [3, 2],
+    };
+    var stopped = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberGroupSizes = [3, 2, 0],
+    };
+    return new
+    {
+        repeated = ((IFormattable)123456789).ToString("N0", repeated),
+        negative = ((IFormattable)(-123456789)).ToString("N2", repeated),
+        stopped = ((IFormattable)123456789).ToString("N0", stopped),
+        parsed = int.Parse("12_34_56_789", System.Globalization.NumberStyles.Number, repeated),
+    };
+}
 static object ObserveInt32NegativeSign()
 {
     var provider = new System.Globalization.NumberFormatInfo
@@ -5084,6 +5104,7 @@ var result = new
             System.Globalization.CultureInfo.InvariantCulture),
     },
     selectedInt32ProviderFormatBehavior = ObserveInt32ProviderFormat(),
+    selectedInt32NumberGroupSizes = ObserveInt32NumberGroupSizes(),
     selectedInt32NegativeSignBehavior = ObserveInt32NegativeSign(),
     selectedInt32CurrencyFormatBehavior = new
     {

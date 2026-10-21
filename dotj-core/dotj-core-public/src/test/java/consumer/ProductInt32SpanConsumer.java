@@ -106,6 +106,27 @@ public final class ProductInt32SpanConsumer {
         checkProviderVector(new Int32(12345), "N2", "12_345:00", provider);
         checkProviderVector(new Int32(-42), "N2", "-42:00", provider);
         checkProviderVector(new Int32(42), "N", "42:000", provider);
+        NumberFormatInfo repeatedGroups = new NumberFormatInfo();
+        repeatedGroups.set_NumberGroupSeparator("_");
+        int[] sizes = {3, 2};
+        repeatedGroups.set_NumberGroupSizes(sizes);
+        sizes[0] = 1;
+        if (repeatedGroups.get_NumberGroupSizes()[0] != 3) {
+            throw new AssertionError("NumberGroupSizes setter did not copy input");
+        }
+        int[] returnedSizes = repeatedGroups.get_NumberGroupSizes();
+        returnedSizes[0] = 1;
+        checkProviderVector(new Int32(123456789), "N0", "12_34_56_789", repeatedGroups);
+        checkProviderVector(new Int32(-123456789), "N2", "-12_34_56_789.00", repeatedGroups);
+        if (repeatedGroups.get_NumberGroupSizes()[0] != 3
+                || Int32.Parse("12_34_56_789", NumberStyles.Number, repeatedGroups).get_Value()
+                        != 123456789) {
+            throw new AssertionError("NumberGroupSizes getter or parse behavior changed");
+        }
+        NumberFormatInfo stoppedGroups = new NumberFormatInfo();
+        stoppedGroups.set_NumberGroupSeparator("_");
+        stoppedGroups.set_NumberGroupSizes(new int[] {3, 2, 0});
+        checkProviderVector(new Int32(123456789), "N0", "1234_56_789", stoppedGroups);
         NumberFormatInfo customSign = new NumberFormatInfo();
         customSign.set_NegativeSign("~");
         if (Int32.Parse("~42", NumberStyles.Integer, customSign).get_Value() != -42) {

@@ -125,6 +125,24 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return supplied instanceof NumberFormatInfo info ? info : null;
     }
 
+    private static String selectedGroupDigits(String digits, int[] sizes, String separator) {
+        if (sizes.length == 0 || sizes[0] == 0) return digits;
+        StringBuilder grouped = new StringBuilder();
+        int end = digits.length();
+        int sizeIndex = 0;
+        while (end > 0) {
+            int size = sizes[sizeIndex];
+            if (size == 0 || end <= size) {
+                grouped.insert(0, digits.substring(0, end));
+                break;
+            }
+            grouped.insert(0, separator + digits.substring(end - size, end));
+            end -= size;
+            if (sizeIndex + 1 < sizes.length) sizeIndex++;
+        }
+        return grouped.toString();
+    }
+
     private static Int32 selectedParseNumber(String text, IFormatProvider provider) {
         if (text == null) throw new ArgumentNullException("s");
         NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
@@ -767,14 +785,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 throw new UnsupportedOperationException("Int32 precision is not mapped");
             }
             String digits = BigInteger.valueOf(this.value).abs().toString();
-            StringBuilder grouped = new StringBuilder();
-            for (int index = 0; index < digits.length(); index++) {
-                if (index > 0 && (digits.length() - index) % 3 == 0) {
-                    grouped.append(numberFormat == null ? ","
-                            : numberFormat.get_NumberGroupSeparator());
-                }
-                grouped.append(digits.charAt(index));
-            }
+            String grouped = selectedGroupDigits(digits, numberFormat == null
+                    ? new int[] {3} : numberFormat.get_NumberGroupSizes(),
+                    numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
             String sign = this.value < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign()) : "";
             String fraction = precision == 0 ? "" : (numberFormat == null ? "."
