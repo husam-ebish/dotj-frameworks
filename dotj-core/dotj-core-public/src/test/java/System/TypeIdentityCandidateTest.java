@@ -262,9 +262,19 @@ public final class TypeIdentityCandidateTest {
             ParameterInfo returnParameter = namedMethod.get_ReturnParameter();
             if (namedMethod.GetCustomAttributes(false).length != 0
                     || namedMethod.GetCustomAttributes(true).length != 0
+                    || namedMethod.GetCustomAttributes(Type.fromJavaClass(Attribute.class), false).length != 0
+                    || namedMethod.GetCustomAttributes(Type.fromJavaClass(Attribute.class), true).length != 0
                     || namedMethod.GetCustomAttributes(false)
                         == namedMethod.GetCustomAttributes(false)) {
                 throw new AssertionError("Selected method custom attributes changed");
+            }
+            try {
+                namedMethod.GetCustomAttributes(null, false);
+                throw new AssertionError("Null method attribute type was accepted");
+            } catch (ArgumentNullException expected) {
+                if (!"attributeType".equals(expected.get_ParamName())) {
+                    throw new AssertionError("Null method attribute type parameter changed");
+                }
             }
             Object[] returnAttributes = returnParameter.GetCustomAttributes(false);
             Object[] inheritedReturnAttributes = returnParameter.GetCustomAttributes(true);

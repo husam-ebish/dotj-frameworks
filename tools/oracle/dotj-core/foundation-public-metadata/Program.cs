@@ -1266,6 +1266,19 @@ var result = new
             .Select(value => value.GetType().FullName).ToArray(),
         inherited = item.Item1.GetMethod(item.Item2)!.GetCustomAttributes(true)
             .Select(value => value.GetType().FullName).ToArray() }).ToArray(),
+    selectedMethodAttributeFilterBehavior = new
+    {
+        direct = typeof(IDisposable).GetMethod("Dispose")!
+            .GetCustomAttributes(typeof(Attribute), false)
+            .Select(value => value.GetType().FullName).ToArray(),
+        inherited = typeof(IFormattable).GetMethod("ToString")!
+            .GetCustomAttributes(typeof(Attribute), true)
+            .Select(value => value.GetType().FullName).ToArray(),
+        nullError = ObserveMethodError(() => typeof(IDisposable).GetMethod("Dispose")!
+            .GetCustomAttributes((Type)null!, false)),
+        nullParameter = ObserveMethodArgumentName(() => typeof(IDisposable).GetMethod("Dispose")!
+            .GetCustomAttributes((Type)null!, false)),
+    },
     selectedNongenericMethodErrorBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
