@@ -817,6 +817,13 @@
     "charValue": "System.InvalidCastException",
     "dateTime": "System.InvalidCastException"
   },
+  "selectedUInt64CrossConversionsBehavior": {
+    "decimalText": "18446744073709551615",
+    "getValueDecimal": "18446744073709551615",
+    "maxToInt64": "System.OverflowException",
+    "smallToInt64": 42,
+    "maxToUInt32": "System.OverflowException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16259,6 +16266,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "4787a90cfd306b511906e7c2a399c56d20a8070b30f3729b4085abc421d7538e",
+  "oracleProgramSha256": "22817fac928e563c5f7ead8e73bab463d0ac1335a26988d0f9cd1b96da703ec8",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

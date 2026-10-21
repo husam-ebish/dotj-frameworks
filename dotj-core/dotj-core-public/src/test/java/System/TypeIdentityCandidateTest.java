@@ -703,6 +703,27 @@ public final class TypeIdentityCandidateTest {
         } catch (InvalidCastException expected) {
             // Pinned CLR failure type.
         }
+        java.math.BigInteger maxUnsigned64 = new java.math.BigInteger("18446744073709551615");
+        SerializationInfo crossUnsigned = new SerializationInfo(dbnullType, selectedConverter);
+        crossUnsigned.AddValue("u64", maxUnsigned64);
+        if (!"18446744073709551615".equals(selectedConverter.ToDecimal(maxUnsigned64).ToString(null))
+                || !"18446744073709551615".equals(((Decimal) crossUnsigned.GetValue(
+                    "u64", Type.GetType("System.Decimal"))).ToString(null))
+                || selectedConverter.ToInt64(java.math.BigInteger.valueOf(42)) != 42L) {
+            throw new AssertionError("Selected UInt64 cross conversions changed");
+        }
+        try {
+            selectedConverter.ToInt64(maxUnsigned64);
+            throw new AssertionError("UInt64 to Int64 overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            selectedConverter.ToUInt32(maxUnsigned64);
+            throw new AssertionError("UInt64 to UInt32 overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));

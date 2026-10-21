@@ -1608,6 +1608,20 @@ static object ObserveDecimalConvertibleContract()
         dateTime = ObserveMethodError(() => convertible.ToDateTime(null)),
     };
 }
+static object ObserveUInt64CrossConversions()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    info.AddValue("u64", ulong.MaxValue);
+    return new
+    {
+        decimalText = converter.ToDecimal(ulong.MaxValue).ToString(),
+        getValueDecimal = ((decimal)info.GetValue("u64", typeof(decimal))!).ToString(),
+        maxToInt64 = ObserveMethodError(() => converter.ToInt64(ulong.MaxValue)),
+        smallToInt64 = converter.ToInt64((ulong)42),
+        maxToUInt32 = ObserveMethodError(() => converter.ToUInt32(ulong.MaxValue)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1783,6 +1797,7 @@ var result = new
     selectedSerializationGetValueConversionsBehavior = ObserveSerializationGetValueConversions(),
     selectedDateTimeConvertibleContractBehavior = ObserveDateTimeConvertibleContract(),
     selectedDecimalConvertibleContractBehavior = ObserveDecimalConvertibleContract(),
+    selectedUInt64CrossConversionsBehavior = ObserveUInt64CrossConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
