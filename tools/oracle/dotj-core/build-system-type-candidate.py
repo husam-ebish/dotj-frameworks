@@ -223,6 +223,9 @@ def main():
         "afterType": "System.InvalidOperationException",
         "afterValue": "System.InvalidOperationException",
     }
+    mutation = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoEnumeratorMutationBehavior"]
+    assert mutation == {"memberCount": 2, "observed": ["first"],
+                        "afterReset": ["first"], "freshNames": ["first", "second"]}
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

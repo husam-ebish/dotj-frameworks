@@ -190,6 +190,25 @@ public final class TypeIdentityCandidateTest {
         }
         SerializationInfoEnumerator cursorBoundary = serializationMembers.GetEnumerator();
         assertEnumeratorOutsideMember(cursorBoundary);
+        SerializationInfo mutationMembers = new SerializationInfo(dbnullType, selectedConverter);
+        mutationMembers.AddValue("first", 1);
+        SerializationInfoEnumerator snapshotCursor = mutationMembers.GetEnumerator();
+        mutationMembers.AddValue("second", 2);
+        if (mutationMembers.get_MemberCount() != 2 || !snapshotCursor.MoveNext()
+                || !"first".equals(snapshotCursor.get_Name()) || snapshotCursor.MoveNext()) {
+            throw new AssertionError("Serialization enumerator snapshot changed");
+        }
+        snapshotCursor.Reset();
+        if (!snapshotCursor.MoveNext() || !"first".equals(snapshotCursor.get_Name())
+                || snapshotCursor.MoveNext()) {
+            throw new AssertionError("Serialization enumerator reset snapshot changed");
+        }
+        SerializationInfoEnumerator freshCursor = mutationMembers.GetEnumerator();
+        if (!freshCursor.MoveNext() || !"first".equals(freshCursor.get_Name())
+                || !freshCursor.MoveNext() || !"second".equals(freshCursor.get_Name())
+                || freshCursor.MoveNext()) {
+            throw new AssertionError("Fresh serialization enumeration changed");
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }
