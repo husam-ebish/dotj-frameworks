@@ -121,19 +121,37 @@ public abstract class Type extends MemberInfo {
             }
             if (assemblyName.equalsIgnoreCase("System.Private.CoreLib")
                     || assemblyName.equalsIgnoreCase("mscorlib")) {
-                String[] attributes = assembly.split(",", -1);
+                java.util.ArrayList<String> attributes = new java.util.ArrayList<>();
+                StringBuilder attributeText = new StringBuilder();
+                boolean insideQuotes = false;
+                for (int offset = 0; offset < assembly.length(); offset++) {
+                    char character = assembly.charAt(offset);
+                    if (character == '"') {
+                        insideQuotes = !insideQuotes;
+                    }
+                    if (character == ',' && !insideQuotes) {
+                        attributes.add(attributeText.toString());
+                        attributeText.setLength(0);
+                    } else {
+                        attributeText.append(character);
+                    }
+                }
+                attributes.add(attributeText.toString());
                 java.util.HashSet<String> seen = new java.util.HashSet<>();
-                for (int index = 1; index < attributes.length; index++) {
-                    String[] attribute = attributes[index].trim().split("=", 2);
+                for (int index = 1; index < attributes.size(); index++) {
+                    String[] attribute = attributes.get(index).trim().split("=", 2);
                     String key = attribute[0].trim().toLowerCase(Locale.ROOT);
                     String value = attribute.length == 2 ? attribute[1].trim() : "";
                     boolean extraEquals = value.indexOf('=') >= 0;
-                    if (value.length() >= 2 && value.startsWith("\"") && value.endsWith("\"")) {
+                    boolean quotedValue = value.length() >= 2 && value.startsWith("\"")
+                            && value.endsWith("\"");
+                    if (quotedValue) {
                         value = value.substring(1, value.length() - 1);
                     }
                     boolean recognized = key.equals("version") || key.equals("culture")
                             || key.equals("publickeytoken");
-                    if (attribute.length != 2 || value.isEmpty() || extraEquals
+                    if (attribute.length != 2 || value.isEmpty() && !quotedValue || extraEquals
+                            || !quotedValue && value.indexOf('"') >= 0
                             || recognized && !seen.add(key)
                             || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
                             || key.equals("publickeytoken") && !value.equalsIgnoreCase("null")
