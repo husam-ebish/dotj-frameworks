@@ -335,11 +335,31 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("Selected formatting interface contract changed");
         }
         IConvertible convertible = new IConvertible() {
+            public boolean ToBoolean(IFormatProvider formatProvider) { return true; }
+            public char ToChar(IFormatProvider formatProvider) { return '*'; }
+            public byte ToSByte(IFormatProvider formatProvider) { return 42; }
+            public short ToByte(IFormatProvider formatProvider) { return 42; }
+            public short ToInt16(IFormatProvider formatProvider) { return 42; }
+            public int ToUInt16(IFormatProvider formatProvider) { return 42; }
             public int ToInt32(IFormatProvider formatProvider) { return 42; }
+            public long ToUInt32(IFormatProvider formatProvider) { return 42; }
+            public long ToInt64(IFormatProvider formatProvider) { return 42; }
+            public java.math.BigInteger ToUInt64(IFormatProvider formatProvider) {
+                return java.math.BigInteger.valueOf(42);
+            }
+            public float ToSingle(IFormatProvider formatProvider) { return 42; }
+            public double ToDouble(IFormatProvider formatProvider) { return 42; }
             public String ToString(IFormatProvider formatProvider) { return "42"; }
         };
         Type convertibleType = Type.GetType("System.IConvertible");
-        if (convertible.ToInt32(provider) != 42 || !"42".equals(convertible.ToString(provider))
+        if (!convertible.ToBoolean(provider) || convertible.ToChar(provider) != '*'
+                || convertible.ToSByte(provider) != 42 || convertible.ToByte(provider) != 42
+                || convertible.ToInt16(provider) != 42 || convertible.ToUInt16(provider) != 42
+                || convertible.ToInt32(provider) != 42 || convertible.ToUInt32(provider) != 42
+                || convertible.ToInt64(provider) != 42
+                || !java.math.BigInteger.valueOf(42).equals(convertible.ToUInt64(provider))
+                || convertible.ToSingle(provider) != 42 || convertible.ToDouble(provider) != 42
+                || !"42".equals(convertible.ToString(provider))
                 || convertibleType == null || !convertibleType.get_IsInterface()
                 || integer.GetInterface("System.IConvertible") != convertibleType
                 || integer.GetInterface("IConvertible") != convertibleType

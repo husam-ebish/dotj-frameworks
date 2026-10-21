@@ -50,10 +50,29 @@ def main():
             disposition = "SELECTED_INTERFACE_MEMBER; provider behavior unqualified"
         elif name == "System.IConvertible":
             assert "public interface System.IConvertible" in header
-            assert declarations == ["public abstract int ToInt32(System.IFormatProvider);",
-                                    "public abstract java.lang.String ToString(System.IFormatProvider);"]
+            assert declarations == [
+                "public abstract boolean ToBoolean(System.IFormatProvider);",
+                "public abstract char ToChar(System.IFormatProvider);",
+                "public abstract byte ToSByte(System.IFormatProvider);",
+                "public abstract short ToByte(System.IFormatProvider);",
+                "public abstract short ToInt16(System.IFormatProvider);",
+                "public abstract int ToUInt16(System.IFormatProvider);",
+                "public abstract int ToInt32(System.IFormatProvider);",
+                "public abstract long ToUInt32(System.IFormatProvider);",
+                "public abstract long ToInt64(System.IFormatProvider);",
+                "public abstract java.math.BigInteger ToUInt64(System.IFormatProvider);",
+                "public abstract float ToSingle(System.IFormatProvider);",
+                "public abstract double ToDouble(System.IFormatProvider);",
+                "public abstract java.lang.String ToString(System.IFormatProvider);",
+            ]
             assert upstream["declaredPublicMethodCount"] == 17
-            disposition = "PARTIAL_INTERFACE_SURFACE; 2 of 17 methods; conversion behavior unqualified"
+            assert len(upstream["selectedMethods"]) == 17
+            pinned_methods = {method["name"]: method for method in upstream["selectedMethods"]}
+            assert pinned_methods["ToUInt64"]["returnType"] == "System.UInt64"
+            assert pinned_methods["ToSingle"]["returnType"] == "System.Single"
+            assert pinned_methods["ToBoolean"]["parameters"] == [
+                {"name": "provider", "type": "System.IFormatProvider"}]
+            disposition = "PARTIAL_INTERFACE_SURFACE; 13 of 17 methods; conversion behavior unqualified"
         elif name == "System.Type":
             assert "public abstract class System.Type extends System.Reflection.MemberInfo" in header
             assert any(" MakeGenericType(System.Type[]);" in line for line in declarations)

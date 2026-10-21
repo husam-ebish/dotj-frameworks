@@ -392,7 +392,7 @@ var result = new
         declaredPublicMethodCount = type.GetMethods(declaredPublic).Count(method => !method.IsSpecialName),
         declaredPublicPropertyCount = type.GetProperties(declaredPublic).Length,
         selectedMethods = type.GetMethods(declaredPublic)
-            .Where(method => !method.IsSpecialName && (
+            .Where(method => !method.IsSpecialName && (type == typeof(IConvertible) ||
                 method.Name is "Dispose" or "CompareTo" or "ToString" or "ToInt32" or "GetFormat" or "Equals" or "GetType" or "MakeGenericType"
                     or "GetGenericArguments" or "GetGenericTypeDefinition"
                     or "GetElementType" or "GetArrayRank" or "MakeArrayType" or "MakeByRefType"
