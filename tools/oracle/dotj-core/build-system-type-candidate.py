@@ -1019,6 +1019,13 @@ def main():
                and row["isVariableBound"] and row["typeCode"] == "Object"
                and row["lookupIdentity"] and row["assemblyLookupIdentity"]
                and row["insensitiveLookupIdentity"] for row in primitive_variable)
+    type_texts = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedTypeToStringBehavior"]
+    assert [row["text"] for row in type_texts] == [
+        "System.String", "System.Int32", "System.String[]", "System.String[,]",
+        "System.String&", "System.String*", "System.Collections.Generic.List`1[T]",
+        "T", "System.Collections.Generic.List`1[System.String]",
+        "System.Collections.Generic.Dictionary`2[System.String,System.Int32]",
+    ]
     parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
     assert parameter_attributes == {
         "stringType": {"value": None, "exception": "System.InvalidOperationException"},
@@ -1174,6 +1181,7 @@ def main():
         "public System.Reflection.GenericParameterAttributes get_GenericParameterAttributes();",
         "public int get_GenericParameterPosition();",
         "public boolean IsEquivalentTo(System.Type);",
+        "public java.lang.String ToString();",
         "public boolean Equals(System.Type);",
     ], members
     null_exception = run("javap", "-public", "-classpath", str(CLASSES),

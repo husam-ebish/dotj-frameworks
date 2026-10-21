@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "7b2ba2622c42d9d5f771a408480296a59656a549e0ecd15616d1d000bfec9c87",
+  "oracleEvidenceSha256": "948550ccf878e646128f946f4b4d35b91200fec56cd61509f8331538626b0b0b",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "f001caafb2967fb12c228afd948ea4ffdef8bb4293c139c46bef7c269e6b660a",
+  "javaCandidateEvidenceSha256": "962fce80a363ae0ce5fe861d037bd0082880569b31a9321bb458f40710012cc7",
   "types": [
     {
       "fullName": "System.Type",
@@ -3458,6 +3458,7 @@
         "public System.Reflection.GenericParameterAttributes get_GenericParameterAttributes();",
         "public int get_GenericParameterPosition();",
         "public boolean IsEquivalentTo(System.Type);",
+        "public java.lang.String ToString();",
         "public boolean Equals(System.Type);"
       ],
       "nameLevelComparison": {
@@ -3546,6 +3547,7 @@
           "MakeByRefType": 1,
           "MakeGenericType": 1,
           "MakePointerType": 1,
+          "ToString": 1,
           "get_AssemblyQualifiedName": 1,
           "get_BaseType": 1,
           "get_ContainsGenericParameters": 1,
@@ -3616,8 +3618,7 @@
           "IsEnumDefined",
           "MakeGenericMethodParameter",
           "MakeGenericSignatureType",
-          "ReflectionOnlyGetType",
-          "ToString"
+          "ReflectionOnlyGetType"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
           "Assembly",

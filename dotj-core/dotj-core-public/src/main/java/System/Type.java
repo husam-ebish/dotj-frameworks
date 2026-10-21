@@ -1156,6 +1156,25 @@ public abstract class Type extends MemberInfo {
         return this == other;
     }
 
+    public String ToString() {
+        if (this.get_IsGenericParameter()) {
+            return this.get_Name();
+        }
+        if (this.get_IsGenericType()) {
+            Type[] typeArguments = this.GetGenericArguments();
+            StringBuilder result = new StringBuilder(this.get_Namespace())
+                    .append('.').append(this.get_Name()).append('[');
+            for (int index = 0; index < typeArguments.length; index++) {
+                if (index > 0) {
+                    result.append(',');
+                }
+                result.append(typeArguments[index].ToString());
+            }
+            return result.append(']').toString();
+        }
+        return this.get_FullName();
+    }
+
     public boolean Equals(Type other) {
         return this == other;
     }
