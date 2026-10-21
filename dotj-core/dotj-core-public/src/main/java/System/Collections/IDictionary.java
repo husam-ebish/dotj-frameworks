@@ -2,8 +2,8 @@
 
 package System.Collections;
 
-/** Non-generic CLR dictionary surface with Java Map interop for the candidate. */
-public interface IDictionary extends ICollection, java.util.Map<Object, Object> {
+/** Selected non-generic CLR dictionary contract. */
+public interface IDictionary extends ICollection {
     Object get_Item(Object key);
 
     void set_Item(Object key, Object value);

@@ -253,7 +253,7 @@ def main():
     dictionary_api = subprocess.run(
         ["javap", "-public", "-classpath", str(jar), "System.Collections.IDictionary"],
         cwd=ROOT, capture_output=True, text=True, check=True).stdout
-    assert "public interface System.Collections.IDictionary extends System.Collections.ICollection" in dictionary_api
+    assert "public interface System.Collections.IDictionary extends System.Collections.ICollection {" in dictionary_api
     assert "public abstract System.Collections.ICollection get_Keys();" in dictionary_api
     assert "public abstract System.Collections.IDictionaryEnumerator GetEnumerator();" in dictionary_api
     assert "public abstract void Add(java.lang.Object, java.lang.Object);" in dictionary_api
