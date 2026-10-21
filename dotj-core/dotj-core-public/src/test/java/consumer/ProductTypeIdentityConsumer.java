@@ -5,6 +5,7 @@ import System.ArgumentNullException;
 import System.ArgumentException;
 import System.TypeLoadException;
 import System.IO.FileNotFoundException;
+import System.IO.FileLoadException;
 import System.IO.IOException;
 import System.IndexOutOfRangeException;
 import System.IDisposable;
@@ -89,6 +90,20 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089") != string
                 || Type.GetType("System.String, System.Private.CoreLib, Version=99.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", true) != string) {
             throw new AssertionError("Selected assembly identity lookup changed");
+        }
+        if (Type.GetType("System.String, System.Private.CoreLib, UnknownAttr=foo") != string
+                || Type.GetType("System.IO.FileLoadException") == null) {
+            throw new AssertionError("Selected unknown assembly attribute behavior changed");
+        }
+        for (String invalid : new String[] {
+                "Version=banana", "Culture=", "PublicKeyToken=xyz",
+                "Version=10.0.0.0, Version=11.0.0.0"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + invalid);
+                throw new AssertionError("Invalid assembly attribute accepted: " + invalid);
+            } catch (FileLoadException expected) {
+                // Pinned malformed-identity error, including with throwOnError=false.
+            }
         }
         if (Type.GetType("") != null || Type.GetType(" System.String") != string
                 || Type.GetType("System.String ") != null

@@ -3,8 +3,8 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "a0d80fb491dfea557d807bf2edcdcb8340b9cc1f54937973a044fa13cdb5c600",
-  "typeCount": 27,
+  "candidateJarSha256": "414365c53ff693eef6dbfb9d78f7561f10037a469edc9da9c7544af14a9671a0",
+  "typeCount": 28,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
     {
@@ -511,6 +511,27 @@
         "public System.IO.FileNotFoundException(java.lang.String, System.Exception);",
         "public System.IO.FileNotFoundException(java.lang.String, java.lang.String);",
         "public System.IO.FileNotFoundException(java.lang.String, java.lang.String, System.Exception);",
+        "public java.lang.String get_FileName();"
+      ],
+      "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",
+      "qualified": false
+    },
+    {
+      "upstreamFullName": "System.IO.FileLoadException",
+      "upstreamBaseType": "System.IO.IOException",
+      "upstreamIsInterface": false,
+      "upstreamIsAbstract": false,
+      "upstreamDeclaredNonAccessorMethods": 2,
+      "upstreamDeclaredProperties": 3,
+      "upstreamPublicConstructors": 5,
+      "javaPublicConstructors": 5,
+      "javaPublicHeader": "public class System.IO.FileLoadException extends System.IO.IOException {",
+      "javaPublicDeclarations": [
+        "public System.IO.FileLoadException();",
+        "public System.IO.FileLoadException(java.lang.String);",
+        "public System.IO.FileLoadException(java.lang.String, System.Exception);",
+        "public System.IO.FileLoadException(java.lang.String, java.lang.String);",
+        "public System.IO.FileLoadException(java.lang.String, java.lang.String, System.Exception);",
         "public java.lang.String get_FileName();"
       ],
       "disposition": "PARTIAL_EXCEPTION_SURFACE; selected inheritance/constructors only",

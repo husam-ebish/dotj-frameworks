@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 import System.IO.FileNotFoundException;
+import System.IO.FileLoadException;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
 import System.Globalization.NumberStyles;
@@ -105,6 +106,22 @@ public abstract class Type extends MemberInfo {
             String assemblyName = assembly.split(",", 2)[0].trim();
             if (assemblyName.equalsIgnoreCase("System.Private.CoreLib")
                     || assemblyName.equalsIgnoreCase("mscorlib")) {
+                String[] attributes = assembly.split(",", -1);
+                java.util.HashSet<String> seen = new java.util.HashSet<>();
+                for (int index = 1; index < attributes.length; index++) {
+                    String[] attribute = attributes[index].trim().split("=", 2);
+                    String key = attribute[0].trim().toLowerCase(Locale.ROOT);
+                    String value = attribute.length == 2 ? attribute[1].trim() : "";
+                    boolean recognized = key.equals("version") || key.equals("culture")
+                            || key.equals("publickeytoken");
+                    if (recognized && (!seen.add(key)
+                            || value.isEmpty()
+                            || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
+                            || key.equals("publickeytoken") && !value.equalsIgnoreCase("null")
+                                    && !value.matches("[0-9a-fA-F]{16}"))) {
+                        throw new FileLoadException("Invalid assembly identity: " + assembly);
+                    }
+                }
                 name = typeName.substring(0, assemblySeparator).stripLeading();
             } else if (throwOnError) {
                 throw new FileNotFoundException("Could not load assembly: " + assembly);
@@ -131,6 +148,7 @@ public abstract class Type extends MemberInfo {
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
             case "System.InvalidCastException" -> fromJavaClass(InvalidCastException.class);
             case "System.InvalidOperationException" -> fromJavaClass(InvalidOperationException.class);
+            case "System.IO.FileLoadException" -> fromJavaClass(FileLoadException.class);
             case "System.FormatException" -> fromJavaClass(FormatException.class);
             case "System.Globalization.NumberStyles" -> fromJavaClass(NumberStyles.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
@@ -184,6 +202,7 @@ public abstract class Type extends MemberInfo {
             case "system.invalidcastexception" -> ignoreCase ? fromJavaClass(InvalidCastException.class) : null;
             case "system.invalidoperationexception" -> ignoreCase
                     ? fromJavaClass(InvalidOperationException.class) : null;
+            case "system.io.fileloadexception" -> ignoreCase ? fromJavaClass(FileLoadException.class) : null;
             case "system.formatexception" -> ignoreCase ? fromJavaClass(FormatException.class) : null;
             case "system.globalization.numberstyles" -> ignoreCase ? fromJavaClass(NumberStyles.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;

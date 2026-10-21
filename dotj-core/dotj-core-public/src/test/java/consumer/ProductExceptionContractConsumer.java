@@ -5,6 +5,7 @@ import System.ArgumentNullException;
 import System.Exception;
 import System.SystemException;
 import System.InvalidOperationException;
+import System.IO.FileLoadException;
 
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
@@ -29,6 +30,9 @@ public final class ProductExceptionContractConsumer {
                 || ArgumentException.class.getConstructors().length != 5
                 || ArgumentNullException.class.getConstructors().length != 4
                 || InvalidOperationException.class.getConstructors().length != 3
+                || FileLoadException.class.getConstructors().length != 5
+                || new FileLoadException("invalid", "corelib", inner).get_InnerException() != inner
+                || !"corelib".equals(new FileLoadException("invalid", "corelib").get_FileName())
                 || !(new InvalidOperationException("invalid", inner) instanceof SystemException)
                 || new InvalidOperationException("invalid", inner).get_InnerException() != inner) {
             throw new AssertionError("Selected exception constructor counts changed");
