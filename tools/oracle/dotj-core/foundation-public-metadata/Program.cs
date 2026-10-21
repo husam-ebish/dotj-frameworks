@@ -1029,6 +1029,20 @@ var result = new
         declaringType = type.DeclaringType?.FullName,
         reflectedType = type.ReflectedType?.FullName,
     }).ToArray(),
+    selectedNestedNameBehavior = new[]
+    {
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!,
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "KeyCollection", System.Reflection.BindingFlags.Public)!,
+        typeof(System.Collections.Generic.List<>).GetNestedType(
+            "Enumerator", System.Reflection.BindingFlags.Public)!,
+    }.Select(type => new
+    {
+        name = type.Name,
+        fullName = type.FullName,
+        @namespace = type.Namespace,
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),

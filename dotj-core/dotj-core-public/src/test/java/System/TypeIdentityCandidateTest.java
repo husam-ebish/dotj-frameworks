@@ -48,6 +48,11 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        if (!"Entry".equals(nestedEntry.get_Name())
+                || !"System.Collections.Generic".equals(nestedEntry.get_Namespace())
+                || !"System.Collections.Generic.Dictionary`2+Entry".equals(nestedEntry.get_FullName())) {
+            throw new AssertionError("Selected nested Type names changed");
+        }
         if (nestedEntry.get_DeclaringType() != map || nestedEntry.get_ReflectedType() != map
                 || string.get_DeclaringType() != null || string.get_ReflectedType() != null
                 || nestedEntry.MakeArrayType().get_DeclaringType() != null) {

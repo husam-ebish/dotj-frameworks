@@ -696,7 +696,10 @@ public abstract class Type extends MemberInfo {
             String element = this.GetElementType().get_FullName();
             return element == null ? null : element + "[]";
         }
-        String baseName = this.get_Namespace() + "." + this.get_Name();
+        Type declaring = this.get_DeclaringType();
+        String baseName = declaring == null
+                ? this.get_Namespace() + "." + this.get_Name()
+                : declaring.get_FullName() + "+" + this.get_Name();
         if (this.arguments.isEmpty()) {
             return baseName;
         }
@@ -726,6 +729,9 @@ public abstract class Type extends MemberInfo {
         }
         if (this.get_IsByRef() || this.get_IsPointer() || this.definition.isArray()) {
             return this.GetElementType().get_Namespace();
+        }
+        if (this.parameterIndex < 0 && this.definition.getDeclaringClass() != null) {
+            return fromJavaClass(this.definition.getDeclaringClass()).get_Namespace();
         }
         if (this.definition == java.util.List.class || this.definition == java.util.Map.class) {
             return "System.Collections.Generic";
