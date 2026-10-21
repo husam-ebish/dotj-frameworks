@@ -87,6 +87,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (style == NumberStyles.Number) {
             return selectedParseNumber(text, provider);
         }
+        if (style == NumberStyles.Float) {
+            return selectedParseFloat(text, provider);
+        }
         if (style == NumberStyles.BinaryNumber) {
             if (text == null) {
                 throw new ArgumentNullException("s");
@@ -206,6 +209,68 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             throw new OverflowException();
         }
         return new Int32(parsed.intValue());
+    }
+
+    private static Int32 selectedParseFloat(String text, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("s");
+        NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+        String decimalSeparator = numberFormat == null ? "."
+                : numberFormat.get_NumberDecimalSeparator();
+        String negativeSign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+        String positiveSign = numberFormat == null ? "+" : numberFormat.get_PositiveSign();
+        String number = text.strip();
+        boolean negative = false;
+        if (!negativeSign.isEmpty() && number.startsWith(negativeSign)) {
+            number = number.substring(negativeSign.length());
+            negative = true;
+        } else if (!positiveSign.isEmpty() && number.startsWith(positiveSign)) {
+            number = number.substring(positiveSign.length());
+        }
+        int exponentIndex = Math.max(number.indexOf('e'), number.indexOf('E'));
+        int exponent = 0;
+        if (exponentIndex >= 0) {
+            String exponentText = number.substring(exponentIndex + 1);
+            number = number.substring(0, exponentIndex);
+            boolean exponentNegative = false;
+            if (!negativeSign.isEmpty() && exponentText.startsWith(negativeSign)) {
+                exponentText = exponentText.substring(negativeSign.length());
+                exponentNegative = true;
+            } else if (!positiveSign.isEmpty() && exponentText.startsWith(positiveSign)) {
+                exponentText = exponentText.substring(positiveSign.length());
+            }
+            if (!exponentText.matches("[0-9]+")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            try {
+                exponent = Integer.parseInt(exponentText);
+            } catch (NumberFormatException expected) {
+                throw new OverflowException();
+            }
+            if (exponent > 1000) throw new OverflowException();
+            if (exponentNegative) exponent = -exponent;
+        }
+        if (!decimalSeparator.isEmpty()) {
+            int separatorIndex = number.indexOf(decimalSeparator);
+            if (separatorIndex >= 0) {
+                number = number.substring(0, separatorIndex) + "."
+                        + number.substring(separatorIndex + decimalSeparator.length());
+            }
+        }
+        if (!number.matches("[0-9]+(\\.[0-9]*)?|\\.[0-9]+")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        try {
+            BigDecimal parsed = new BigDecimal(number).scaleByPowerOfTen(exponent);
+            if (negative) parsed = parsed.negate();
+            BigInteger exact = parsed.toBigIntegerExact();
+            if (exact.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                    || exact.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+                throw new OverflowException();
+            }
+            return new Int32(exact.intValue());
+        } catch (java.lang.ArithmeticException expected) {
+            throw new OverflowException();
+        }
     }
 
     public static boolean TryParse(String text, Int32[] result) {

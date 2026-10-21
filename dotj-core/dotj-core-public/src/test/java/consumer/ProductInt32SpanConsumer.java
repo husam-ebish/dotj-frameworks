@@ -5,6 +5,7 @@ import System.ArgumentException;
 import System.ArgumentNullException;
 import System.FormatException;
 import System.Int32;
+import System.OverflowException;
 import System.ReadOnlySpan;
 import System.Span;
 import System.Type;
@@ -273,6 +274,54 @@ public final class ProductInt32SpanConsumer {
             throw new AssertionError("NumberStyles.Number provider span Parse changed");
         }
         checkNumberBoundaries(numberStyle);
+        checkFloatStyle(numberStyle);
+    }
+
+    private static void checkFloatStyle(NumberFormatInfo provider) {
+        String[] texts = {"42", " 42:00 ", "4:2e1", "420e~1", "plus4:2Eplus1",
+                "~4:2eplus1", "12_345", "42:5", "4:2e0", "2147483648",
+                "42plus", "42~", "42:", ":0", "4:2e~1"};
+        int[] values = {42, 42, 42, 42, 42, -42, 0, 0, 0, 0, 0, 0, 42, 0, 0};
+        Class<?>[] errors = {null, null, null, null, null, null,
+                FormatException.class, OverflowException.class, OverflowException.class,
+                OverflowException.class, FormatException.class, FormatException.class,
+                null, null, OverflowException.class};
+        for (int index = 0; index < texts.length; index++) {
+            String text = texts[index];
+            boolean success = errors[index] == null;
+            Int32[] result = new Int32[1];
+            if (Int32.TryParse(text, NumberStyles.Float, provider, result) != success
+                    || result[0].get_Value() != values[index]
+                    || Int32.TryParse(ReadOnlySpan.OfChars(text.toCharArray()),
+                    NumberStyles.Float, provider, result) != success
+                    || result[0].get_Value() != values[index]
+                    || Int32.TryParse(ReadOnlySpan.OfUtf8Bytes(
+                    text.getBytes(StandardCharsets.UTF_8)),
+                    NumberStyles.Float, provider, result) != success
+                    || result[0].get_Value() != values[index]) {
+                throw new AssertionError("NumberStyles.Float TryParse changed: " + text);
+            }
+            if (success) {
+                if (Int32.Parse(text, NumberStyles.Float, provider).get_Value() != values[index]
+                        || Int32.Parse(ReadOnlySpan.OfChars(text.toCharArray()),
+                        NumberStyles.Float, provider).get_Value() != values[index]
+                        || Int32.Parse(ReadOnlySpan.OfUtf8Bytes(
+                        text.getBytes(StandardCharsets.UTF_8)),
+                        NumberStyles.Float, provider).get_Value() != values[index]) {
+                    throw new AssertionError("NumberStyles.Float Parse changed: " + text);
+                }
+            } else {
+                try {
+                    Int32.Parse(text, NumberStyles.Float, provider);
+                    throw new AssertionError("Expected NumberStyles.Float error: " + text);
+                } catch (RuntimeException failure) {
+                    if (failure.getClass() != errors[index]) {
+                        throw new AssertionError("Wrong NumberStyles.Float error: " + text,
+                                failure);
+                    }
+                }
+            }
+        }
     }
 
     private static void checkGroupSizeError(Runnable setter, Class<?> expected) {

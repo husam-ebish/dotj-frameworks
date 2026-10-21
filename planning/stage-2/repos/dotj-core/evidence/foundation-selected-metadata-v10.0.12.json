@@ -22661,6 +22661,98 @@
       "value": 0
     }
   ],
+  "selectedInt32FloatStyle": [
+    {
+      "text": "42",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": " 42:00 ",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": "4:2e1",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": "420e~1",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": "plus4:2Eplus1",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": "~4:2eplus1",
+      "success": true,
+      "value": -42,
+      "error": null
+    },
+    {
+      "text": "12_345",
+      "success": false,
+      "value": 0,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "42:5",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "4:2e0",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "2147483648",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": "42plus",
+      "success": false,
+      "value": 0,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "42~",
+      "success": false,
+      "value": 0,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "42:",
+      "success": true,
+      "value": 42,
+      "error": null
+    },
+    {
+      "text": ":0",
+      "success": true,
+      "value": 0,
+      "error": null
+    },
+    {
+      "text": "4:2e~1",
+      "success": false,
+      "value": 0,
+      "error": "System.OverflowException"
+    }
+  ],
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -25996,6 +26088,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "7aa4214cd8e9789b6dc9a8ec01f47222b62bf87bcd86d1c2cb0859e843a9301c",
+  "oracleProgramSha256": "66a3516e34fa7cd34c16b6e58feb171f6dd8a96368f9642c4db6db91496770ab",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
