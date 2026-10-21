@@ -295,6 +295,10 @@ def main():
     assert bracket_literals == {"above": "[>=115]0", "boundary": "[>=110]0",
                                 "below": "[>=104]2", "negative": "[<4]neg 2",
                                 "zero": "small 0"}
+    near_zero = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ScaledNearZeroBehavior"]
+    assert near_zero == {"negativeWhole": "0", "negativeFixed": "0.0",
+                         "negativeOptional": "0", "negativeHalfway": "-0.1",
+                         "positiveHalfway": "0.1"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

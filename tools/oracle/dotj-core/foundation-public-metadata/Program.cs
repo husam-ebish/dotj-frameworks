@@ -645,6 +645,19 @@ var result = new
         zero = ((IFormattable)0).ToString("[>=100]0;[<0]'neg '0;'small '0",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32ScaledNearZeroBehavior = new
+    {
+        negativeWhole = ((IFormattable)(-1)).ToString("0,",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeFixed = ((IFormattable)(-1)).ToString("0,.0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeOptional = ((IFormattable)(-1)).ToString("0,.##",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeHalfway = ((IFormattable)(-50)).ToString("0,.0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        positiveHalfway = ((IFormattable)50).ToString("0,.0",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

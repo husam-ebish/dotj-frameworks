@@ -771,6 +771,13 @@
     "negative": "[<4]neg 2",
     "zero": "small 0"
   },
+  "selectedInt32ScaledNearZeroBehavior": {
+    "negativeWhole": "0",
+    "negativeFixed": "0.0",
+    "negativeOptional": "0",
+    "negativeHalfway": "-0.1",
+    "positiveHalfway": "0.1"
+  },
   "selectedInt32FormatErrors": {
     "unknownSpecifier": "System.FormatException",
     "negativeDecimalPrecision": null,
@@ -3659,6 +3666,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "f9c62b9b656c0c8d9e136faf0388c83af5c29fef2fdc9230aa4c66ea4eac1d3d",
+  "oracleProgramSha256": "46e24def703eec7610db973b90f54823b0aca5ad6b1c8c0d18053507bb195cb5",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
