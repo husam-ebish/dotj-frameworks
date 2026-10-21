@@ -2036,6 +2036,24 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public String ToString() {
+            Type result = this.get_ReturnType();
+            String resultName = result == fromJavaClass(Void.class)
+                    || result == fromJavaClass(Int32.class)
+                    ? result.get_Name() : result.get_FullName();
+            StringBuilder text = new StringBuilder(resultName).append(' ')
+                    .append(this.name).append('(');
+            ParameterInfo[] parameters = this.GetParameters();
+            for (int index = 0; index < parameters.length; index++) {
+                if (index > 0) {
+                    text.append(", ");
+                }
+                text.append(parameters[index].get_ParameterType().get_FullName());
+            }
+            return text.append(')').toString();
+        }
+
+        @Override
         public Type get_ReturnType() {
             return switch (this.name) {
                 case "Dispose" -> fromJavaClass(Void.class);

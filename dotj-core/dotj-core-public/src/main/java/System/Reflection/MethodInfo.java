@@ -22,4 +22,11 @@ public abstract class MethodInfo extends MethodBase {
     public abstract Type[] GetGenericArguments();
 
     public abstract MethodInfo GetBaseDefinition();
+
+    public abstract String ToString();
+
+    @Override
+    public final String toString() {
+        return this.ToString();
+    }
 }

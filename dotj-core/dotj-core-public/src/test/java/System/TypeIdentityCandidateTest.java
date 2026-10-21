@@ -125,6 +125,11 @@ public final class TypeIdentityCandidateTest {
                 Type.fromJavaClass(IFormattable.class),
                 Type.fromJavaClass(IFormatProvider.class)};
         String[] interfaceMethodNames = {"Dispose", "CompareTo", "ToString", "GetFormat"};
+        String[] interfaceMethodTexts = {
+            "Void Dispose()", "Int32 CompareTo(System.Object)",
+            "System.String ToString(System.String, System.IFormatProvider)",
+            "System.Object GetFormat(System.Type)"
+        };
         Type[] interfaceMethodReturns = {voidType, integer, string,
                 Type.fromJavaClass(Object.class)};
         Type[][] interfaceMethodParameters = {
@@ -200,6 +205,8 @@ public final class TypeIdentityCandidateTest {
                     || namedMethod.get_ContainsGenericParameters()
                     || namedMethod.GetGenericArguments().length != 0
                     || namedMethod.GetBaseDefinition() != namedMethod
+                    || !interfaceMethodTexts[index].equals(namedMethod.ToString())
+                    || !interfaceMethodTexts[index].equals(namedMethod.toString())
                     || namedMethod.get_ReturnType() != interfaceMethodReturns[index]
                     || owner.GetMethod(interfaceMethodNames[index]
                         .toLowerCase(java.util.Locale.ROOT)) != null
