@@ -28,6 +28,7 @@ import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.SerializationException;
 import System.Runtime.Serialization.SerializationEntry;
 import System.Runtime.Serialization.SerializationInfoEnumerator;
+import System.Collections.IEnumerator;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Globalization.NumberStyles;
@@ -433,6 +434,7 @@ public abstract class Type extends MemberInfo {
                     fromJavaClass(SerializationEntry.class);
             case "System.Runtime.Serialization.SerializationInfoEnumerator" ->
                     fromJavaClass(SerializationInfoEnumerator.class);
+            case "System.Collections.IEnumerator" -> fromJavaClass(IEnumerator.class);
             case "System.Runtime.Serialization.StreamingContext" -> fromJavaClass(StreamingContext.class);
             case "System.Runtime.Serialization.StreamingContextStates" ->
                     fromJavaClass(StreamingContextStates.class);
@@ -569,6 +571,8 @@ public abstract class Type extends MemberInfo {
                     ? fromJavaClass(SerializationEntry.class) : null;
             case "system.runtime.serialization.serializationinfoenumerator" -> ignoreCase
                     ? fromJavaClass(SerializationInfoEnumerator.class) : null;
+            case "system.collections.ienumerator" -> ignoreCase
+                    ? fromJavaClass(IEnumerator.class) : null;
             case "system.runtime.serialization.streamingcontext" -> ignoreCase
                     ? fromJavaClass(StreamingContext.class) : null;
             case "system.runtime.serialization.streamingcontextstates" -> ignoreCase
@@ -1133,7 +1137,8 @@ public abstract class Type extends MemberInfo {
                 || this.definition == IConvertible.class || this.definition == ISerializable.class
                 || this.definition == IFormatterConverter.class
                 || this.definition == ISpanFormattable.class
-                || this.definition == IUtf8SpanFormattable.class;
+                || this.definition == IUtf8SpanFormattable.class
+                || this.definition == IEnumerator.class;
     }
 
     public boolean get_IsEnum() {
@@ -1354,6 +1359,10 @@ public abstract class Type extends MemberInfo {
             return false;
         }
         if (this == candidate) {
+            return true;
+        }
+        if (this.definition == IEnumerator.class
+                && candidate.definition == SerializationInfoEnumerator.class) {
             return true;
         }
         if (this.definition == IComparable.class && candidate.definition == String.class) {
@@ -1695,6 +1704,9 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
+        if (this.definition == SerializationInfoEnumerator.class) {
+            return new Type[] {fromJavaClass(IEnumerator.class)};
+        }
         if (this.definition == DBNull.class) {
             return new Type[] {fromJavaClass(ISerializable.class),
                     fromJavaClass(IConvertible.class)};

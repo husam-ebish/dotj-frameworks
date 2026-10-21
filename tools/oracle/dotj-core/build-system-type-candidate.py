@@ -32,6 +32,7 @@ EXCEPTION_SOURCES.append(SOURCE.with_name("DBNull.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Collections/IEnumerator.java")
 EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
                       ("FormatterConverter", "IFormatterConverter", "ISerializable", "SerializationEntry", "SerializationException", "SerializationInfo", "SerializationInfoEnumerator", "StreamingContext", "StreamingContextStates")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
@@ -276,6 +277,20 @@ def main():
         "firstName": "first", "currentAfterReset": "System.InvalidOperationException",
         "firstAfterReset": "first", "secondAfterReset": "second",
         "exhausted": False, "firstAfterSecondReset": "first",
+    }
+    cursor_interface = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoEnumeratorInterfaceBehavior"]
+    assert cursor_interface == {
+        "interfaces": ["System.Collections.IEnumerator"],
+        "declaredMethods": [
+            {"name": "get_Current", "result": "System.Runtime.Serialization.SerializationEntry"},
+            {"name": "get_Name", "result": "System.String"},
+            {"name": "get_ObjectType", "result": "System.Type"},
+            {"name": "get_Value", "result": "System.Object"},
+            {"name": "MoveNext", "result": "System.Boolean"},
+            {"name": "Reset", "result": "System.Void"},
+        ],
+        "currentType": "System.Runtime.Serialization.SerializationEntry",
+        "assignable": True, "instance": True,
     }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]

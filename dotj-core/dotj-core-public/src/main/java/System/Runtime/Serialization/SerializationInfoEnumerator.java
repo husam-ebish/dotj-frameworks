@@ -5,9 +5,10 @@ package System.Runtime.Serialization;
 import java.util.List;
 import System.InvalidOperationException;
 import System.Type;
+import System.Collections.IEnumerator;
 
 /** Selected cursor over SerializationInfo members in insertion order. */
-public final class SerializationInfoEnumerator {
+public final class SerializationInfoEnumerator implements IEnumerator {
     private final List<SerializationEntry> entries;
     private int index = -1;
 
@@ -15,6 +16,7 @@ public final class SerializationInfoEnumerator {
         this.entries = List.copyOf(entries);
     }
 
+    @Override
     public boolean MoveNext() {
         if (this.index < this.entries.size()) {
             this.index++;
@@ -22,10 +24,12 @@ public final class SerializationInfoEnumerator {
         return this.index < this.entries.size();
     }
 
+    @Override
     public void Reset() {
         this.index = -1;
     }
 
+    @Override
     public SerializationEntry get_Current() {
         if (this.index < 0 || this.index >= this.entries.size()) {
             throw new InvalidOperationException("Enumerator is not positioned on a member");

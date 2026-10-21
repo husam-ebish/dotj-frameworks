@@ -506,6 +506,40 @@
     "exhausted": false,
     "firstAfterSecondReset": "first"
   },
+  "selectedSerializationInfoEnumeratorInterfaceBehavior": {
+    "interfaces": [
+      "System.Collections.IEnumerator"
+    ],
+    "declaredMethods": [
+      {
+        "name": "get_Current",
+        "result": "System.Runtime.Serialization.SerializationEntry"
+      },
+      {
+        "name": "get_Name",
+        "result": "System.String"
+      },
+      {
+        "name": "get_ObjectType",
+        "result": "System.Type"
+      },
+      {
+        "name": "get_Value",
+        "result": "System.Object"
+      },
+      {
+        "name": "MoveNext",
+        "result": "System.Boolean"
+      },
+      {
+        "name": "Reset",
+        "result": "System.Void"
+      }
+    ],
+    "currentType": "System.Runtime.Serialization.SerializationEntry",
+    "assignable": true,
+    "instance": true
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15948,6 +15982,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "f3a4503c38579e0010c8ef7fed82e8d9b7bbd0f9125318a6c0a9fe219b6ae941",
+  "oracleProgramSha256": "40dd699e722fa4b0113b5570a7da3c2adb6ab44780f1c3e2bb853eb7333d2c18",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
