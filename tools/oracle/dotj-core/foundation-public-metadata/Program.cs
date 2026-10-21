@@ -807,6 +807,23 @@ static object ObserveSerializationInfoTypedValues()
         nullGetTypeParameter = ObserveMethodArgumentName(() => info.GetValue("text", null!)),
     };
 }
+static object ObserveSerializationInfoConversionBoundaries()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("number", 42);
+    info.AddValue("bad", "oops");
+    info.AddValue("empty", null, typeof(string));
+    return new
+    {
+        numberAsString = info.GetValue("number", typeof(string)),
+        nullString = info.GetString("empty"),
+        nullValue = info.GetValue("empty", typeof(string)),
+        badIntError = ObserveMethodError(() => info.GetInt32("bad")),
+        incompatibleError = ObserveMethodError(() => info.GetValue("number", typeof(DateTime))),
+        nullIntError = ObserveMethodError(() => info.GetInt32("empty")),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -941,6 +958,7 @@ var result = new
     selectedSerializationInfoMembersBehavior = ObserveSerializationInfoMembers(),
     selectedSerializationInfoEnumerationBehavior = ObserveSerializationInfoEnumeration(),
     selectedSerializationInfoTypedValuesBehavior = ObserveSerializationInfoTypedValues(),
+    selectedSerializationInfoConversionBoundariesBehavior = ObserveSerializationInfoConversionBoundaries(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

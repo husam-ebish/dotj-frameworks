@@ -217,6 +217,33 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Null requested member type parameter changed");
             }
         }
+        SerializationInfo boundaryMembers = new SerializationInfo(dbnullType, selectedConverter);
+        boundaryMembers.AddValue("number", 42);
+        boundaryMembers.AddValue("bad", "oops");
+        boundaryMembers.AddValue("empty", null, Type.GetType("System.String"));
+        if (!"42".equals(boundaryMembers.GetValue("number", Type.GetType("System.String")))
+                || boundaryMembers.GetString("empty") != null
+                || boundaryMembers.GetValue("empty", Type.GetType("System.String")) != null) {
+            throw new AssertionError("Selected serialization conversion boundaries changed");
+        }
+        try {
+            boundaryMembers.GetInt32("bad");
+            throw new AssertionError("Malformed serialized integer was accepted");
+        } catch (FormatException expected) {
+            // Matches the pinned selected CLR failure type.
+        }
+        try {
+            boundaryMembers.GetValue("number", Type.GetType("System.DateTime"));
+            throw new AssertionError("Incompatible serialized type was accepted");
+        } catch (InvalidCastException expected) {
+            // Matches the pinned selected CLR failure type.
+        }
+        try {
+            boundaryMembers.GetInt32("empty");
+            throw new AssertionError("Null serialized integer was accepted");
+        } catch (ArgumentNullException expected) {
+            // Matches the pinned selected CLR failure type.
+        }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
         StreamingContext defaultContext = new StreamingContext();
         StreamingContext processContext = new StreamingContext(StreamingContextStates.CrossProcess);
