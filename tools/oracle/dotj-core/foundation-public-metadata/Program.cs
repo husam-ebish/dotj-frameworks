@@ -1683,6 +1683,21 @@ static object ObserveInt64WideningConversions()
         negativeUInt64 = ObserveMethodError(() => converter.ToUInt64(-1L)),
     };
 }
+static object ObserveFloatingFormatterConversions()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    return new
+    {
+        doubleToSingle = converter.ToSingle(1.25d),
+        singleToDouble = converter.ToDouble(1.25f),
+        doubleToDecimal = converter.ToDecimal(1.25d).ToString(),
+        singleToDecimal = converter.ToDecimal(1.25f).ToString(),
+        midpointEven = converter.ToInt32(2.5d),
+        midpointUp = converter.ToInt32(3.5d),
+        doubleBoolean = converter.ToBoolean(1.25d),
+        hugeInt32 = ObserveMethodError(() => converter.ToInt32(double.MaxValue)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1863,6 +1878,7 @@ var result = new
     selectedUInt64NarrowingConversionsBehavior = ObserveUInt64NarrowingConversions(),
     selectedInt64NarrowingConversionsBehavior = ObserveInt64NarrowingConversions(),
     selectedInt64WideningConversionsBehavior = ObserveInt64WideningConversions(),
+    selectedFloatingFormatterConversionsBehavior = ObserveFloatingFormatterConversions(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

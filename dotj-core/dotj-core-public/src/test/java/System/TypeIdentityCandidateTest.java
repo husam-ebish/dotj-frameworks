@@ -886,6 +886,21 @@ public final class TypeIdentityCandidateTest {
         } catch (OverflowException expected) {
             // Pinned CLR failure type.
         }
+        if (selectedConverter.ToSingle(1.25d) != 1.25f
+                || selectedConverter.ToDouble(1.25f) != 1.25d
+                || !"1.25".equals(selectedConverter.ToDecimal(1.25d).ToString(null))
+                || !"1.25".equals(selectedConverter.ToDecimal(1.25f).ToString(null))
+                || selectedConverter.ToInt32(2.5d) != 2
+                || selectedConverter.ToInt32(3.5d) != 4
+                || !selectedConverter.ToBoolean(1.25d)) {
+            throw new AssertionError("Selected floating formatter conversions changed");
+        }
+        try {
+            selectedConverter.ToInt32(Double.MAX_VALUE);
+            throw new AssertionError("Huge Double to Int32 accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
         for (Object value : new Object[] {"256", -1}) {
             try {
                 selectedConverter.ToByte(value);
