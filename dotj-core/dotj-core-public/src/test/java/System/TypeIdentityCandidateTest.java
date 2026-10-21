@@ -39,6 +39,16 @@ public final class TypeIdentityCandidateTest {
                 || !"DoNotWrapExceptions".equals(bindingFlagsType.GetEnumNames()[20])) {
             throw new AssertionError("Pinned BindingFlags identity or values changed");
         }
+        BindingFlags publicInstance = BindingFlags.Public.or(BindingFlags.Instance);
+        if (publicInstance.get_Value() != 20 || !publicInstance.has(BindingFlags.Public)
+                || !publicInstance.has(BindingFlags.Instance)
+                || publicInstance.has(BindingFlags.NonPublic)
+                || bindingFlagsType.IsEnumDefined(publicInstance)
+                || bindingFlagsType.GetEnumName(publicInstance) != null
+                || bindingFlagsType.GetEnumValues().getClass() != BindingFlags[].class
+                || BindingFlags.Default.or(BindingFlags.Public) != BindingFlags.Public) {
+            throw new AssertionError("Pinned BindingFlags composition changed");
+        }
         if (Type.fromJavaClass(Object.class).GetDefaultMembers().length != 0
                 || Type.fromJavaClass(IDisposable.class).GetDefaultMembers().length != 0
                 || Type.fromJavaClass(TypeCode.class).GetDefaultMembers().length != 0) {

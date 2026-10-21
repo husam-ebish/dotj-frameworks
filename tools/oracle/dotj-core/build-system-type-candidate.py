@@ -228,6 +228,9 @@ def main():
             ("DoNotWrapExceptions", 33554432),
         )
     ]
+    binding_combination = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBindingCombinationBehavior"]
+    assert binding_combination == {"value": 20, "hasPublic": True,
+                                   "hasInstance": True, "named": False, "enumName": None}
     member_type = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberTypeBehavior"]
     assert member_type["enumValues"] == [
         {"name": name, "value": value} for name, value in (
