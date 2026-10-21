@@ -276,6 +276,15 @@ def main():
         "nonpublic": "System.Collections.Generic.Dictionary`2+Entry",
         "publicEnumerationContainsEntry": False,
     }
+    element_nested = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedElementNestedQueryBehavior"]
+    assert element_nested == [
+        {"owner": owner,
+         "query": {"result": None, "exception": None, "paramName": None},
+         "enumerationLength": 0}
+        for owner in ("System.Collections.Generic.Dictionary`2[]",
+                      "System.Collections.Generic.Dictionary`2&",
+                      "System.Collections.Generic.Dictionary`2*", "TKey")
+    ]
     nested_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedPublicVisibilityBehavior"]
     assert [(row["isPublic"], row["isNestedPublic"], row["isVisible"])
             for row in nested_visibility] == [

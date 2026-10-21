@@ -82,6 +82,14 @@ public final class TypeIdentityCandidateTest {
                 || testOwner.GetNestedTypes().length != 0) {
             throw new AssertionError("Nonpublic nested Type escaped public query");
         }
+        Type[] elementOwners = {map.MakeArrayType(), map.MakeByRefType(),
+                map.MakePointerType(), map.GetGenericArguments()[0]};
+        for (Type elementOwner : elementOwners) {
+            if (elementOwner.GetNestedType("Entry") != null
+                    || elementOwner.GetNestedTypes().length != 0) {
+                throw new AssertionError("Element or generic parameter exposed nested Types");
+            }
+        }
         try {
             map.GetNestedType(null);
             throw new AssertionError("Null nested Type name accepted");

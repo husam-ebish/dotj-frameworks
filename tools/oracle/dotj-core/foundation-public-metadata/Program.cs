@@ -1107,6 +1107,18 @@ var result = new
         publicEnumerationContainsEntry = typeof(System.Collections.Generic.Dictionary<,>)
             .GetNestedTypes().Any(nested => nested.Name == "Entry"),
     },
+    selectedElementNestedQueryBehavior = new[]
+    {
+        typeof(System.Collections.Generic.Dictionary<,>).MakeArrayType(),
+        typeof(System.Collections.Generic.Dictionary<,>).MakeByRefType(),
+        typeof(System.Collections.Generic.Dictionary<,>).MakePointerType(),
+        typeof(System.Collections.Generic.Dictionary<,>).GetGenericArguments()[0],
+    }.Select(type => new
+    {
+        owner = type.FullName ?? type.Name,
+        query = ObserveNestedType(type, "KeyCollection"),
+        enumerationLength = type.GetNestedTypes().Length,
+    }).ToArray(),
     selectedNestedPublicVisibilityBehavior = new[]
     {
         typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
