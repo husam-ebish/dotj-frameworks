@@ -23437,6 +23437,146 @@
       }
     ]
   },
+  "selectedInt32GroupedDecimalStyles": {
+    "parenthesesValue": 16,
+    "parentheses": [
+      {
+        "text": "(42)",
+        "success": true,
+        "value": -42,
+        "error": null
+      },
+      {
+        "text": "42",
+        "success": true,
+        "value": 42,
+        "error": null
+      },
+      {
+        "text": "~42",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": " (42)",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "(42)~",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ],
+    "groupedDecimalValue": 96,
+    "groupedDecimal": [
+      {
+        "text": "12_345:00",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "12_345:5",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      },
+      {
+        "text": " 12_345:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "~12_345:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12_345:0_0",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      }
+    ],
+    "parenthesizedDecimalValue": 112,
+    "parenthesizedDecimal": [
+      {
+        "text": "(12_345:00)",
+        "success": true,
+        "value": -12345,
+        "error": null
+      },
+      {
+        "text": "(12_345:5)",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      },
+      {
+        "text": "~12_345:00",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "(12_345:00)~",
+        "success": false,
+        "value": 0,
+        "error": "System.FormatException"
+      },
+      {
+        "text": "12_345:00",
+        "success": true,
+        "value": 12345,
+        "error": null
+      }
+    ],
+    "groupedExponentValue": 224,
+    "groupedExponent": [
+      {
+        "text": "12_345:00e1",
+        "success": true,
+        "value": 123450,
+        "error": null
+      },
+      {
+        "text": "1_234:5e1",
+        "success": true,
+        "value": 12345,
+        "error": null
+      },
+      {
+        "text": "12_345:5e0",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      },
+      {
+        "text": "12_345:00e~1",
+        "success": false,
+        "value": 0,
+        "error": "System.OverflowException"
+      },
+      {
+        "text": "12_345:00eplus1",
+        "success": true,
+        "value": 123450,
+        "error": null
+      },
+      {
+        "text": "12_345:00",
+        "success": true,
+        "value": 12345,
+        "error": null
+      }
+    ]
+  },
   "selectedInt32FixedFormatBehavior": {
     "zeroPrecision": "12345",
     "twoDecimals": "12345.00",
@@ -26772,6 +26912,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "82c439fceba748a00eecd744d2b2e278994aecc3a90f078c9e589728190d5072",
+  "oracleProgramSha256": "3086a1148514ae99c477f4332ab15a8d049ee7aeb7cd1ffa759ab097f189cad6",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
