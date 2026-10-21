@@ -56,6 +56,12 @@ public final class TypeIdentityCandidateTest {
         Type closedEntry = nestedEntry.MakeGenericType(new Type[] {string, integer});
         Type closedEntryByRef = closedEntry.MakeByRefType();
         Type closedEntryPointer = closedEntry.MakePointerType();
+        Type closedEntryArrayByRef = closedEntry.MakeArrayType().MakeByRefType();
+        if (Type.GetType(closedEntryArrayByRef.get_FullName()) != closedEntryArrayByRef
+                || Type.GetType(closedEntryArrayByRef.get_AssemblyQualifiedName())
+                        != closedEntryArrayByRef) {
+            throw new AssertionError("Constructed nested composite lookup changed");
+        }
         if (Type.GetType(closedEntryPointer.get_FullName()) != closedEntryPointer
                 || Type.GetType(closedEntryPointer.get_AssemblyQualifiedName())
                         != closedEntryPointer) {
