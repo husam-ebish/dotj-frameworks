@@ -405,6 +405,11 @@ static object ObserveMemberFlags(Type type, string? name, BindingFlags flags)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveMembersFlags(Type type, BindingFlags flags)
+{
+    return type.GetMembers(flags).Select(member => new
+        { name = member.Name, kind = member.MemberType.ToString() }).ToArray();
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -852,6 +857,14 @@ var result = new
         disposableDispose = ObserveMemberFlags(typeof(IDisposable), "Dispose", BindingFlags.Public | BindingFlags.Instance),
         nullName = ObserveMemberFlags(typeof(string), null, BindingFlags.Public | BindingFlags.Instance),
     },
+    selectedMembersFlagsBehavior = new[]
+    {
+        typeof(IDisposable), typeof(IComparable), typeof(IFormattable), typeof(IFormatProvider),
+    }.Select(type => new { owner = type.FullName,
+        publicInstance = ObserveMembersFlags(type, BindingFlags.Public | BindingFlags.Instance),
+        publicOnly = ObserveMembersFlags(type, BindingFlags.Public),
+        nonPublicInstance = ObserveMembersFlags(type, BindingFlags.NonPublic | BindingFlags.Instance),
+    }).ToArray(),
     selectedCustomModifierBehavior = new[]
     {
         typeof(string), typeof(int), typeof(List<>),

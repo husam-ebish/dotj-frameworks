@@ -1344,6 +1344,20 @@ public abstract class Type extends MemberInfo {
         throw new UnsupportedOperationException("Member enumeration is not mapped for this candidate type");
     }
 
+    public MemberInfo[] GetMembers(BindingFlags flags) {
+        if (flags == null) {
+            throw new NullPointerException("flags");
+        }
+        String interfaceMethod = this.selectedInterfaceMethodName();
+        if (interfaceMethod != null) {
+            if (flags.has(BindingFlags.Public) && flags.has(BindingFlags.Instance)) {
+                return new MemberInfo[] {new DefaultMethodMember(interfaceMethod, this)};
+            }
+            return new MemberInfo[0];
+        }
+        throw new UnsupportedOperationException("Flagged member enumeration is not mapped for this candidate type");
+    }
+
     private String selectedInterfaceMethodName() {
         if (this.definition == IDisposable.class) {
             return "Dispose";

@@ -78,6 +78,13 @@ public final class TypeIdentityCandidateTest {
                     || owner.GetMember("Missing").length != 0) {
                 throw new AssertionError("Interface member case-sensitive miss changed");
             }
+            if (owner.GetMembers(publicInstance).length != 1
+                    || !interfaceMethodNames[index].equals(owner.GetMembers(publicInstance)[0].get_Name())
+                    || owner.GetMembers(BindingFlags.Public).length != 0
+                    || owner.GetMembers(BindingFlags.NonPublic.or(BindingFlags.Instance)).length != 0
+                    || owner.GetMembers(publicInstance) == owner.GetMembers(publicInstance)) {
+                throw new AssertionError("Selected flagged interface member inventory changed");
+            }
         }
         if (string.GetMember("Chars").length != 1
                 || !"Chars".equals(string.GetMember("Chars")[0].get_Name())
