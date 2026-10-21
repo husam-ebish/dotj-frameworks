@@ -326,6 +326,32 @@ public final class TypeIdentityCandidateTest {
                 || !"System.UInt32".equals(unsignedCursor.get_ObjectType().get_FullName())) {
             throw new AssertionError("Selected unsigned serialization members changed");
         }
+        IConvertible uint16Convertible = new UInt16(60000);
+        if (!Type.GetType("System.UInt16").IsAssignableTo(Type.GetType("System.IConvertible"))
+                || uint16Convertible.GetTypeCode() != TypeCode.UInt16
+                || uint16Convertible.ToInt32(null) != 60000
+                || uint16Convertible.ToUInt32(null) != 60000L
+                || !"60000".equals(uint16Convertible.ToString(null))) {
+            throw new AssertionError("Selected UInt16 convertible values changed");
+        }
+        try {
+            uint16Convertible.ToByte(null);
+            throw new AssertionError("UInt16 to Byte overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            uint16Convertible.ToInt16(null);
+            throw new AssertionError("UInt16 to Int16 overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            uint16Convertible.ToDateTime(null);
+            throw new AssertionError("UInt16 to DateTime accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));
