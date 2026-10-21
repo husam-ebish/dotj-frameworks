@@ -479,6 +479,18 @@ var result = new
         stringToNull = typeof(string).IsAssignableTo(null),
         int32ToValueType = typeof(int).IsAssignableTo(typeof(ValueType)),
     },
+    selectedEquivalentTypeBehavior = new
+    {
+        stringSelf = typeof(string).IsEquivalentTo(typeof(string)),
+        stringLookup = typeof(string).IsEquivalentTo(Type.GetType("System.String")),
+        stringInt32 = typeof(string).IsEquivalentTo(typeof(int)),
+        stringNull = typeof(string).IsEquivalentTo(null),
+        genericSame = typeof(System.Collections.Generic.List<string>)
+            .IsEquivalentTo(typeof(System.Collections.Generic.List<string>)),
+        genericDifferent = typeof(System.Collections.Generic.List<string>)
+            .IsEquivalentTo(typeof(System.Collections.Generic.List<int>)),
+        vectorRankTwo = typeof(string[]).IsEquivalentTo(typeof(string[,])),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),

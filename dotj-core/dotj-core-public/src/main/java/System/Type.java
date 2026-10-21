@@ -1014,6 +1014,10 @@ public abstract class Type extends MemberInfo {
         return this.parameterIndex;
     }
 
+    public boolean IsEquivalentTo(Type other) {
+        return this == other;
+    }
+
     public boolean Equals(Type other) {
         return this == other;
     }

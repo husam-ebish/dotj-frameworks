@@ -77,6 +77,18 @@ public final class ProductTypeIdentityConsumer {
                 || !integer.IsAssignableTo(Type.GetType("System.ValueType"))) {
             throw new AssertionError("Selected Type.IsAssignableTo direction changed");
         }
+        if (!string.IsEquivalentTo(string)
+                || !string.IsEquivalentTo(Type.GetType("System.String"))
+                || string.IsEquivalentTo(integer)
+                || string.IsEquivalentTo(null)
+                || !listOfString.IsEquivalentTo(
+                    definition.MakeGenericType(new Type[] {string}))
+                || listOfString.IsEquivalentTo(
+                    definition.MakeGenericType(new Type[] {integer}))
+                || Type.GetType("System.String[]").IsEquivalentTo(
+                    Type.GetType("System.String[,]"))) {
+            throw new AssertionError("Selected Type.IsEquivalentTo identity changed");
+        }
         try {
             Type.GetTypeArray(null);
             throw new AssertionError("Null type-array input accepted");
