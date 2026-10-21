@@ -762,6 +762,14 @@ var result = new
         typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
         typeof(Span<int>), typeof(ReadOnlySpan<char>),
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsByRefLike }).ToArray(),
+    selectedNotPublicBehavior = new[]
+    {
+        typeof(string), typeof(NestedFamilyProbe),
+        NestedFamilyProbe.PrivateMarkerType,
+        typeof(string[]), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
+    }.Select(type => new { name = type.FullName ?? type.Name,
+        isPublic = type.IsPublic, isNotPublic = type.IsNotPublic,
+        isNested = type.IsNested }).ToArray(),
     selectedNestedTypeFlagBehavior = new[]
     {
         typeof(string), typeof(System.Collections.Generic.List<>),

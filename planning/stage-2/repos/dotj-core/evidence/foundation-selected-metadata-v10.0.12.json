@@ -688,6 +688,38 @@
       "result": true
     }
   ],
+  "selectedNotPublicBehavior": [
+    {
+      "name": "System.String",
+      "isPublic": true,
+      "isNotPublic": false,
+      "isNested": false
+    },
+    {
+      "name": "NestedFamilyProbe",
+      "isPublic": false,
+      "isNotPublic": true,
+      "isNested": false
+    },
+    {
+      "name": "NestedFamilyProbe+PrivateMarker",
+      "isPublic": false,
+      "isNotPublic": false,
+      "isNested": true
+    },
+    {
+      "name": "System.String[]",
+      "isPublic": true,
+      "isNotPublic": false,
+      "isNested": false
+    },
+    {
+      "name": "T",
+      "isPublic": true,
+      "isNotPublic": false,
+      "isNested": true
+    }
+  ],
   "selectedNestedTypeFlagBehavior": [
     {
       "name": "System.String",
@@ -13097,6 +13129,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "50a3f99d537bc6aad404d021f102298855b6972a06d2541f0113f064d26a6ae7",
+  "oracleProgramSha256": "c29b834302fdb7709443f1479c5cbf3deba7e381a4ceeb5a487195f047d7080b",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

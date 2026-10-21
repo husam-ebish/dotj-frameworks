@@ -897,6 +897,12 @@ public abstract class Type extends MemberInfo {
                         && java.lang.reflect.Modifier.isPublic(this.definition.getModifiers());
     }
 
+    public boolean get_IsNotPublic() {
+        return this.parameterIndex < 0 && !this.get_HasElementType()
+                && !this.get_IsNested()
+                && !java.lang.reflect.Modifier.isPublic(this.definition.getModifiers());
+    }
+
     public boolean get_IsVisible() {
         if (this.parameterIndex >= 0) {
             return true;
