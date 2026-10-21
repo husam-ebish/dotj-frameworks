@@ -571,6 +571,22 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected legacy suffix unexpectedly resolved: " + legacySuffix);
             }
         }
+        for (String quotedNameWithAttribute : new String[] {
+                "\"System.Private.CoreLib\", Version=1.2",
+                "'System.Private.CoreLib', Version=1.2",
+                "\"System.Private.CoreLib.dll\", Version=1.2",
+                "\"System.Private.CoreLib\", UnknownAttr=foo",
+                "\"System.Private.CoreLib,Extra\", Version=1.2"}) {
+            if (Type.GetType("System.String, " + quotedNameWithAttribute) != string) {
+                throw new AssertionError("Selected quoted name attribute rejected: " + quotedNameWithAttribute);
+            }
+        }
+        try {
+            Type.GetType("System.String, \"System.Private.CoreLib\", Version=banana");
+            throw new AssertionError("Malformed attribute after quoted name accepted");
+        } catch (FileLoadException expected) {
+            // Selected pinned malformed identity error.
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

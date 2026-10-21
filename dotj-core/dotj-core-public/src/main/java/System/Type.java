@@ -104,8 +104,21 @@ public abstract class Type extends MemberInfo {
                 }
                 return null;
             }
-            String assemblyName = assembly.equalsIgnoreCase("\"System.Private.CoreLib,Extra\"")
-                    ? "\"System.Private.CoreLib\"" : assembly.split(",", 2)[0].trim();
+            int nameEnd = assembly.length();
+            char nameQuote = 0;
+            for (int offset = 0; offset < assembly.length(); offset++) {
+                char character = assembly.charAt(offset);
+                if ((character == '"' || character == '\'') && (nameQuote == 0 || nameQuote == character)) {
+                    nameQuote = nameQuote == 0 ? character : 0;
+                } else if (character == ',' && nameQuote == 0) {
+                    nameEnd = offset;
+                    break;
+                }
+            }
+            String assemblyName = assembly.substring(0, nameEnd).trim();
+            if (assemblyName.equalsIgnoreCase("\"System.Private.CoreLib,Extra\"")) {
+                assemblyName = "\"System.Private.CoreLib\"";
+            }
             if (assemblyName.isEmpty() && assembly.indexOf(',') >= 0) {
                 if (throwOnError) {
                     throw new ArgumentException("Invalid assembly name",

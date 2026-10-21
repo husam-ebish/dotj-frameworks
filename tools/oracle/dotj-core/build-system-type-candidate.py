@@ -609,6 +609,13 @@ def main():
         **{key: {"result": None, "exception": None, "paramName": None}
            for key in ("legacyUpperDll", "legacySingleQuotedDll")},
     }
+    quoted_name_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedQuotedAssemblyNameAttributeBehavior"]
+    assert quoted_name_attributes == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("doubleVersion", "singleVersion", "quotedDllVersion",
+                       "quotedUnknownAttribute", "quotedCommaVersion")},
+        "quotedInvalidVersion": {"result": None, "exception": "System.IO.FileLoadException", "paramName": None},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
