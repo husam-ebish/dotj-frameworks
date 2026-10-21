@@ -1867,6 +1867,30 @@ public final class ProductTypeIdentityConsumer {
                 || noneResult[0].get_Value() != 0) {
             throw new AssertionError("NumberStyles.None TryParse changed");
         }
+        if (Int32.Parse("101010", NumberStyles.BinaryNumber, provider).get_Value() != 42
+                || Int32.Parse(" 101010 ", NumberStyles.BinaryNumber, provider).get_Value() != 42
+                || Int32.Parse("11111111111111111111111111111111",
+                        NumberStyles.BinaryNumber, provider).get_Value() != -1) {
+            throw new AssertionError("Selected binary Int32.Parse values changed");
+        }
+        try {
+            Int32.Parse("0b101010", NumberStyles.BinaryNumber, provider);
+            throw new AssertionError("Binary prefix accepted");
+        } catch (FormatException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            Int32.Parse("111111111111111111111111111111111",
+                    NumberStyles.BinaryNumber, provider);
+            throw new AssertionError("Binary Int32 overflow accepted");
+        } catch (OverflowException expected) {
+            // Pinned CLR failure type.
+        }
+        Int32[] binaryResult = new Int32[1];
+        if (Int32.TryParse("0b101010", NumberStyles.BinaryNumber, provider, binaryResult)
+                || binaryResult[0].get_Value() != 0) {
+            throw new AssertionError("Selected binary Int32.TryParse changed");
+        }
         try {
             Int32.Parse("100000000", NumberStyles.HexNumber, provider);
             throw new AssertionError("Hexadecimal overflow accepted");

@@ -605,6 +605,12 @@ def main():
         "trailingSpace": "System.FormatException",
         "tryLeadingSign": False,
     }
+    int32_binary = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32BinaryStyleBehavior"]
+    assert int32_binary == {
+        "value": 42, "padded": 42, "allBits": -1,
+        "prefix": "System.FormatException",
+        "overflow": "System.OverflowException", "tryPrefix": False,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

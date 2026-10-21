@@ -39,6 +39,20 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             return Parse(text);
         }
+        if (style == NumberStyles.BinaryNumber) {
+            if (text == null) {
+                throw new ArgumentNullException("s");
+            }
+            String trimmed = text.strip();
+            if (!trimmed.matches("[01]+")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            BigInteger parsed = new BigInteger(trimmed, 2);
+            if (parsed.compareTo(BigInteger.valueOf(0xffff_ffffL)) > 0) {
+                throw new OverflowException("Value was outside the range of Int32");
+            }
+            return new Int32(parsed.intValue());
+        }
         if (style != NumberStyles.HexNumber) {
             throw new UnsupportedOperationException("NumberStyles value is not mapped");
         }

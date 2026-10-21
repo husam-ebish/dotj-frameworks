@@ -1785,6 +1785,20 @@ static object ObserveInt32NoneStyle()
         tryLeadingSign = int.TryParse("+42", style, invariant, out _),
     };
 }
+static object ObserveInt32BinaryStyle()
+{
+    var style = System.Globalization.NumberStyles.BinaryNumber;
+    var invariant = System.Globalization.CultureInfo.InvariantCulture;
+    return new
+    {
+        value = int.Parse("101010", style, invariant),
+        padded = int.Parse(" 101010 ", style, invariant),
+        allBits = int.Parse(new string('1', 32), style, invariant),
+        prefix = ObserveMethodError(() => int.Parse("0b101010", style, invariant)),
+        overflow = ObserveMethodError(() => int.Parse(new string('1', 33), style, invariant)),
+        tryPrefix = int.TryParse("0b101010", style, invariant, out _),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1973,6 +1987,7 @@ var result = new
     selectedFloatingTextGrammarBehavior = ObserveFloatingTextGrammar(),
     selectedDecimalGroupedTextBehavior = ObserveDecimalGroupedText(),
     selectedInt32NoneStyleBehavior = ObserveInt32NoneStyle(),
+    selectedInt32BinaryStyleBehavior = ObserveInt32BinaryStyle(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
