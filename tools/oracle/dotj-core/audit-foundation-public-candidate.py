@@ -51,6 +51,7 @@ def main():
         elif name == "System.IConvertible":
             assert "public interface System.IConvertible" in header
             assert declarations == [
+                "public abstract int GetTypeCode();",
                 "public abstract boolean ToBoolean(System.IFormatProvider);",
                 "public abstract char ToChar(System.IFormatProvider);",
                 "public abstract byte ToSByte(System.IFormatProvider);",
@@ -63,7 +64,10 @@ def main():
                 "public abstract java.math.BigInteger ToUInt64(System.IFormatProvider);",
                 "public abstract float ToSingle(System.IFormatProvider);",
                 "public abstract double ToDouble(System.IFormatProvider);",
+                "public abstract java.math.BigDecimal ToDecimal(System.IFormatProvider);",
+                "public abstract java.time.LocalDateTime ToDateTime(System.IFormatProvider);",
                 "public abstract java.lang.String ToString(System.IFormatProvider);",
+                "public abstract java.lang.Object ToType(System.Type, System.IFormatProvider);",
             ]
             assert upstream["declaredPublicMethodCount"] == 17
             assert len(upstream["selectedMethods"]) == 17
@@ -72,7 +76,7 @@ def main():
             assert pinned_methods["ToSingle"]["returnType"] == "System.Single"
             assert pinned_methods["ToBoolean"]["parameters"] == [
                 {"name": "provider", "type": "System.IFormatProvider"}]
-            disposition = "PARTIAL_INTERFACE_SURFACE; 13 of 17 methods; conversion behavior unqualified"
+            disposition = "SELECTED_INTERFACE_METHOD_NAMES; 17 methods, backend return types and conversion behavior unqualified"
         elif name == "System.Type":
             assert "public abstract class System.Type extends System.Reflection.MemberInfo" in header
             assert any(" MakeGenericType(System.Type[]);" in line for line in declarations)
