@@ -530,6 +530,48 @@
       "IsEnum": true
     }
   ],
+  "selectedPrimitiveBehavior": [
+    {
+      "name": "System.Object",
+      "isPrimitive": false
+    },
+    {
+      "name": "System.String",
+      "isPrimitive": false
+    },
+    {
+      "name": "System.Int32",
+      "isPrimitive": true
+    },
+    {
+      "name": "System.Decimal",
+      "isPrimitive": false
+    },
+    {
+      "name": "System.DateTime",
+      "isPrimitive": false
+    },
+    {
+      "name": "System.TypeCode",
+      "isPrimitive": false
+    },
+    {
+      "name": "System.Array",
+      "isPrimitive": false
+    },
+    {
+      "name": "System.IDisposable",
+      "isPrimitive": false
+    },
+    {
+      "name": "System.String[]",
+      "isPrimitive": false
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "isPrimitive": false
+    }
+  ],
   "selectedEnumBaseBehavior": {
     "enumBase": "System.Enum",
     "baseBase": "System.ValueType",
@@ -3113,6 +3155,10 @@
           "type": "System.Boolean"
         },
         {
+          "name": "IsPrimitive",
+          "type": "System.Boolean"
+        },
+        {
           "name": "IsValueType",
           "type": "System.Boolean"
         },
@@ -3673,6 +3719,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "a1b06e40befcbe992c0457a0cf6d7b61170a5e752efae906834f5ded05a81835",
+  "oracleProgramSha256": "8052af9acca955ff360ae81a37257a171275ff8a1679e30c7ae1b3ba42fa3959",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

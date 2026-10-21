@@ -77,7 +77,7 @@ def main():
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
-            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType",
+            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive",
             "IsInterface", "IsEnum"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
@@ -182,6 +182,15 @@ def main():
     ]
     assert [item["IsInterface"] for item in kind_flags] == [False] * 12 + [True, False]
     assert [item["IsEnum"] for item in kind_flags] == [False] * 13 + [True]
+    primitives = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveBehavior"]
+    assert [item["name"] for item in primitives] == [
+        "System.Object", "System.String", "System.Int32", "System.Decimal",
+        "System.DateTime", "System.TypeCode", "System.Array", "System.IDisposable",
+        "System.String[]", "System.Collections.Generic.List`1",
+    ]
+    assert [item["isPrimitive"] for item in primitives] == [
+        False, False, True, False, False, False, False, False, False, False,
+    ]
     enum_base = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumBaseBehavior"]
     assert enum_base == {
         "enumBase": "System.Enum", "baseBase": "System.ValueType",
@@ -439,6 +448,7 @@ def main():
         "public System.Type get_ReflectedType();",
         "public System.Type get_BaseType();",
         "public boolean get_IsValueType();",
+        "public boolean get_IsPrimitive();",
         "public boolean get_IsClass();",
         "public boolean get_IsInterface();",
         "public boolean get_IsEnum();",
