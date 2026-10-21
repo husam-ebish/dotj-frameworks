@@ -360,6 +360,22 @@ public final class TypeIdentityCandidateTest {
         } catch (SerializationException expected) {
             // Pinned selected CLR failure type.
         }
+        SerializationInfoEnumerator resetCycles = namedMembers.GetEnumerator();
+        if (!resetCycles.MoveNext() || !"".equals(resetCycles.get_Name())) {
+            throw new AssertionError("First reset-cycle member changed");
+        }
+        resetCycles.Reset();
+        assertEnumeratorOutsideMember(resetCycles);
+        if (!resetCycles.MoveNext() || !"".equals(resetCycles.get_Name())
+                || !resetCycles.MoveNext() || !"Name".equals(resetCycles.get_Name())
+                || !resetCycles.MoveNext() || !"name".equals(resetCycles.get_Name())
+                || resetCycles.MoveNext()) {
+            throw new AssertionError("Serialization reset cycle order changed");
+        }
+        resetCycles.Reset();
+        if (!resetCycles.MoveNext() || !"".equals(resetCycles.get_Name())) {
+            throw new AssertionError("Second serialization reset changed");
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }
