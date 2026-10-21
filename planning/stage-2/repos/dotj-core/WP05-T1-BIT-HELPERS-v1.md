@@ -28,4 +28,6 @@ The declared field inventory also identifies literal `Int32.MinValue` and `Int32
 
 The selected generic creation methods now accept product `Byte`, `SByte`, `UInt16` and `UInt32` carriers. Ten pinned CLR inputs cover their endpoints; `UInt32` values above `Int32.MaxValue` overflow in checked creation, clamp in saturating creation and retain their low 32 bits in truncating creation. The packaged consumer checks these paths. Other numeric carriers and complete `INumberBase<TOther>` constraints remain open.
 
+The [compiled `Int32` signature audit](evidence/int32-declared-signature-audit-v1.json) projects all 53 pinned declared methods to Java shapes: 43 have a candidate declaration and 10 span-based `Parse`/`TryParse` overloads are missing. It also lists 18 extra public Java methods, including conversion-interface methods and carrier helpers that CLR `Int32` does not declare as public. Projection checks names, staticness, generic arity, return shape and parameter shape; it does not establish value-type ABI or behavior parity. These gaps remain visible in the repeatable foundation gate.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
