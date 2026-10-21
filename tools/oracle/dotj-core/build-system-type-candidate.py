@@ -268,6 +268,8 @@ def main():
     assert custom_formats == {"padded": "000042", "negativePadded": "-000042",
                               "grouped": "12,345", "groupedFixed": "12,345.00",
                               "fixedTwo": "42.00"}
+    custom_sections = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32CustomSectionBehavior"]
+    assert custom_sections == {"positive": "42", "negative": "(42)", "zero": "zero"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
