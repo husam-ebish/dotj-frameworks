@@ -1886,6 +1886,31 @@ public abstract class Type extends MemberInfo {
         }
 
         @Override
+        public boolean get_IsPublic() {
+            return true;
+        }
+
+        @Override
+        public boolean get_IsStatic() {
+            return false;
+        }
+
+        @Override
+        public boolean get_IsAbstract() {
+            return true;
+        }
+
+        @Override
+        public boolean get_IsVirtual() {
+            return true;
+        }
+
+        @Override
+        public boolean get_IsFinal() {
+            return false;
+        }
+
+        @Override
         public Type get_ReturnType() {
             return switch (this.name) {
                 case "Dispose" -> fromJavaClass(Void.class);

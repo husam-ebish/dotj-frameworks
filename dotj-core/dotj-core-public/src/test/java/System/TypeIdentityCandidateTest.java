@@ -156,6 +156,9 @@ public final class TypeIdentityCandidateTest {
                     || !interfaceMethodNames[index].equals(namedMethod.get_Name())
                     || namedMethod.get_MemberType() != MemberTypes.Method
                     || namedMethod.get_DeclaringType() != owner
+                    || !namedMethod.get_IsPublic() || namedMethod.get_IsStatic()
+                    || !namedMethod.get_IsAbstract() || !namedMethod.get_IsVirtual()
+                    || namedMethod.get_IsFinal()
                     || namedMethod.get_ReturnType() != interfaceMethodReturns[index]
                     || owner.GetMethod(interfaceMethodNames[index]
                         .toLowerCase(java.util.Locale.ROOT)) != null
