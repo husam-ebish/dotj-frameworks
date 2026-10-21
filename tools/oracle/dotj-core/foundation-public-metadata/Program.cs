@@ -442,6 +442,19 @@ var result = new
         small = ((IFormattable)42).ToString("C",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32FixedFormatBehavior = new
+    {
+        zeroPrecision = ((IFormattable)12345).ToString("F0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        twoDecimals = ((IFormattable)12345).ToString("F2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        lowerCase = ((IFormattable)12345).ToString("f2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-12345)).ToString("F2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        defaultPrecision = ((IFormattable)42).ToString("F",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

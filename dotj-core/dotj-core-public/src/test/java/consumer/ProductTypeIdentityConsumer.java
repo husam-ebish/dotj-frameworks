@@ -421,6 +421,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"\u00a442.00".equals(int32Value.ToString("C", provider))) {
             throw new AssertionError("Selected Int32 currency format changed");
         }
+        if (!"12345".equals(groupedValue.ToString("F0", provider))
+                || !"12345.00".equals(groupedValue.ToString("F2", provider))
+                || !"12345.00".equals(groupedValue.ToString("f2", provider))
+                || !"-12345.00".equals(new Int32(-12345).ToString("F2", provider))
+                || !"42.00".equals(int32Value.ToString("F", provider))) {
+            throw new AssertionError("Selected Int32 fixed-point format changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
