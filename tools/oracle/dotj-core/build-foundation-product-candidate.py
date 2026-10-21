@@ -149,6 +149,17 @@ def main():
         "stackAfterNonEmpty": True,
         "stackTextUnchanged": True,
     }
+    assert metadata["selectedTypeCodeBehavior"] == {
+        "nullType": "Empty",
+        "objectType": "Object",
+        "stringType": "String",
+        "int32Type": "Int32",
+        "decimalType": "Decimal",
+        "dateTimeType": "DateTime",
+        "enumType": "Int32",
+        "arrayType": "Object",
+        "genericType": "Object",
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 

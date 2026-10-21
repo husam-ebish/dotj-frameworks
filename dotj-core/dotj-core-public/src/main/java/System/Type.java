@@ -72,6 +72,20 @@ public abstract class Type extends MemberInfo {
     }
 
     /** Selected CoreLib names only; broader lookup and assembly resolution remain open. */
+    public static TypeCode GetTypeCode(Type type) {
+        if (type == null) {
+            return TypeCode.Empty;
+        }
+        if (type.get_IsEnum()) {
+            return GetTypeCode(type.GetEnumUnderlyingType());
+        }
+        if (type.definition == String.class) return TypeCode.String;
+        if (type.definition == Int32.class) return TypeCode.Int32;
+        if (type.definition == Decimal.class) return TypeCode.Decimal;
+        if (type.definition == DateTime.class) return TypeCode.DateTime;
+        return TypeCode.Object;
+    }
+
     public static Type GetType(String typeName) {
         return GetType(typeName, false, false);
     }

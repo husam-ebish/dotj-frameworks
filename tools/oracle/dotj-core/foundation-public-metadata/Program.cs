@@ -428,6 +428,18 @@ var result = new
         stackTextUnchanged = string.Equals(stackBeforeRethrow, rethrowCaught.StackTrace,
             StringComparison.Ordinal),
     },
+    selectedTypeCodeBehavior = new
+    {
+        nullType = Type.GetTypeCode(null).ToString(),
+        objectType = Type.GetTypeCode(typeof(object)).ToString(),
+        stringType = Type.GetTypeCode(typeof(string)).ToString(),
+        int32Type = Type.GetTypeCode(typeof(int)).ToString(),
+        decimalType = Type.GetTypeCode(typeof(decimal)).ToString(),
+        dateTimeType = Type.GetTypeCode(typeof(DateTime)).ToString(),
+        enumType = Type.GetTypeCode(typeof(MemberTypes)).ToString(),
+        arrayType = Type.GetTypeCode(typeof(string[])).ToString(),
+        genericType = Type.GetTypeCode(typeof(System.Collections.Generic.List<string>)).ToString(),
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),
