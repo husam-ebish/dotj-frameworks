@@ -54,6 +54,13 @@ def main():
             assert "public interface System.IFormattable" in header
             assert declarations == ["public abstract java.lang.String ToString(java.lang.String, System.IFormatProvider);"]
             disposition = "SELECTED_INTERFACE_MEMBER; formatting behavior unqualified"
+        elif name == "System.ISpanFormattable":
+            assert "public interface System.ISpanFormattable extends System.IFormattable" in header
+            assert declarations == [
+                "public abstract boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);"]
+            assert upstream["declaredPublicMethodCount"] == 1
+            assert upstream["selectedMethods"][0]["name"] == "TryFormat"
+            disposition = "SELECTED_BUFFER_FORMAT; Java arrays differ from CLR Span/out parameters"
         elif name == "System.IFormatProvider":
             assert "public interface System.IFormatProvider" in header
             assert declarations == ["public abstract java.lang.Object GetFormat(System.Type);"]
@@ -153,7 +160,7 @@ def main():
             "disposition": disposition,
             "qualified": False,
         })
-    assert len(records) == 20
+    assert len(records) == 21
     type_record = next(item for item in records if item["upstreamFullName"] == "System.Type")
     assert type_record["upstreamDeclaredNonAccessorMethods"] == 109
     assert type_record["upstreamDeclaredProperties"] == 70
@@ -172,7 +179,7 @@ def main():
         "acceptedN01TaskCredit": False,
         "status": "SELECTED_COMPILED_CANDIDATES_ONLY; complete E01/E02/E03/N01 public API and behavior qualification OPEN",
     }, indent=2) + "\n", encoding="utf-8")
-    print("PASS twenty selected CoreLib identities mapped to compiled Java candidate declarations")
+    print("PASS twenty-one selected CoreLib identities mapped to compiled Java candidate declarations")
 
 
 if __name__ == "__main__":

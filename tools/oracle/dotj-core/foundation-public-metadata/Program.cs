@@ -6,6 +6,7 @@ Type[] selected = [
     typeof(IDisposable),
     typeof(IComparable),
     typeof(IFormattable),
+    typeof(ISpanFormattable),
     typeof(IFormatProvider),
     typeof(IConvertible),
     typeof(TypeCode),
@@ -135,6 +136,13 @@ static object ObserveInterface(Type type, string? name, bool ignoreCase)
         return new { result = (string?)null, exception = exception.GetType().FullName,
             paramName = (exception as ArgumentException)?.ParamName };
     }
+}
+static object ObserveSpanFormat(int value, int length)
+{
+    Span<char> destination = stackalloc char[length];
+    bool success = value.TryFormat(destination, out int charsWritten, "D",
+        System.Globalization.CultureInfo.InvariantCulture);
+    return new { success, charsWritten, text = new string(destination[..charsWritten]) };
 }
 if (outer.ParamName != "value" || outer.Message != "outer (Parameter 'value')"
     || !ReferenceEquals(outer.InnerException, inner)
@@ -324,6 +332,11 @@ var result = new
         formattedText = ((IFormattable)42).ToString("D", System.Globalization.CultureInfo.InvariantCulture),
         compareTo41 = ((IComparable)42).CompareTo(41),
     },
+    selectedSpanFormattingBehavior = new
+    {
+        enough = ObserveSpanFormat(42, 2),
+        shortBuffer = ObserveSpanFormat(42, 1),
+    },
     selectedAssignability = new (Type Target, Type? Candidate)[]
     {
         (typeof(object), typeof(string)),
@@ -346,6 +359,7 @@ var result = new
         (typeof(IFormattable), typeof(int)),
         (typeof(IConvertible), typeof(int)),
         (typeof(IComparable), typeof(int)),
+        (typeof(ISpanFormattable), typeof(int)),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -390,6 +404,7 @@ var result = new
         (typeof(IFormattable), 42),
         (typeof(IConvertible), 42),
         (typeof(IComparable), 42),
+        (typeof(ISpanFormattable), 42),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -401,6 +416,8 @@ var result = new
         objectInterfaces = typeof(object).GetInterfaces().Select(type => type.FullName).ToArray(),
         disposableInterfaces = typeof(IDisposable).GetInterfaces().Select(type => type.FullName).ToArray(),
         intInterfaces = typeof(int).GetInterfaces().Select(type => type.FullName).ToArray(),
+        spanFormattableInterfaces = typeof(ISpanFormattable).GetInterfaces()
+            .Select(type => type.FullName).ToArray(),
         objectMiss = ObserveInterface(typeof(object), "System.IDisposable", false),
         disposableSelf = ObserveInterface(typeof(IDisposable), "System.IDisposable", false),
         emptyName = ObserveInterface(typeof(IDisposable), "", false),
@@ -422,6 +439,9 @@ var result = new
         intComparable = ObserveInterface(typeof(int), "System.IComparable", false),
         intComparableShort = ObserveInterface(typeof(int), "IComparable", false),
         intComparableLower = ObserveInterface(typeof(int), "system.icomparable", true),
+        intSpanFormattable = ObserveInterface(typeof(int), "System.ISpanFormattable", false),
+        intSpanFormattableShort = ObserveInterface(typeof(int), "ISpanFormattable", false),
+        intSpanFormattableLower = ObserveInterface(typeof(int), "system.ispanformattable", true),
     },
     types = selected.Select(type => new
     {
@@ -436,7 +456,7 @@ var result = new
         declaredPublicPropertyCount = type.GetProperties(declaredPublic).Length,
         selectedMethods = type.GetMethods(declaredPublic)
             .Where(method => !method.IsSpecialName && (type == typeof(IConvertible) ||
-                method.Name is "Dispose" or "CompareTo" or "ToString" or "ToInt32" or "GetFormat" or "Equals" or "GetType" or "MakeGenericType"
+                method.Name is "Dispose" or "CompareTo" or "ToString" or "TryFormat" or "ToInt32" or "GetFormat" or "Equals" or "GetType" or "MakeGenericType"
                     or "GetGenericArguments" or "GetGenericTypeDefinition"
                     or "GetElementType" or "GetArrayRank" or "MakeArrayType" or "MakeByRefType"
                     or "MakePointerType"))
