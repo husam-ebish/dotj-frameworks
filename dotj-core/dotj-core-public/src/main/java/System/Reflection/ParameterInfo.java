@@ -35,4 +35,12 @@ public class ParameterInfo {
     public boolean get_HasDefaultValue() {
         return false;
     }
+
+    public Type[] GetOptionalCustomModifiers() {
+        return new Type[0];
+    }
+
+    public Type[] GetRequiredCustomModifiers() {
+        return new Type[0];
+    }
 }

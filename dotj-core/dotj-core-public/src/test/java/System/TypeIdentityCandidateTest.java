@@ -167,6 +167,8 @@ public final class TypeIdentityCandidateTest {
                     || returnParameter.get_Position() != -1
                     || returnParameter.get_IsOptional()
                     || returnParameter.get_HasDefaultValue()
+                    || returnParameter.GetOptionalCustomModifiers().length != 0
+                    || returnParameter.GetRequiredCustomModifiers().length != 0
                     || !java.util.Objects.equals(returnParameter.get_Name(),
                         index == 2 ? "" : null)
                     || returnParameter == namedMethod.get_ReturnParameter()) {
@@ -186,7 +188,9 @@ public final class TypeIdentityCandidateTest {
                     throw new AssertionError("Selected method parameter metadata changed");
                 }
                 if (parameters[parameterIndex].get_IsOptional()
-                        || parameters[parameterIndex].get_HasDefaultValue()) {
+                        || parameters[parameterIndex].get_HasDefaultValue()
+                        || parameters[parameterIndex].GetOptionalCustomModifiers().length != 0
+                        || parameters[parameterIndex].GetRequiredCustomModifiers().length != 0) {
                     throw new AssertionError("Selected parameter default flags changed");
                 }
             }
