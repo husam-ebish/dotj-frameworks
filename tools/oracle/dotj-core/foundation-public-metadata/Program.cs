@@ -686,6 +686,37 @@ static object ObserveStreamingContextEquality()
         defaultText = default(System.Runtime.Serialization.StreamingContext).ToString(),
     };
 }
+static object ObserveSerializationInfoConstruction()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), converter);
+    return new
+    {
+        constructors = typeof(System.Runtime.Serialization.SerializationInfo)
+            .GetConstructors(BindingFlags.Public | BindingFlags.Instance)
+            .Select(ctor => ctor.GetParameters()
+                .Select(parameter => parameter.ParameterType.FullName).ToArray()).ToArray(),
+        converterMethods = typeof(System.Runtime.Serialization.IFormatterConverter)
+            .GetMethods().Select(method => new { name = method.Name,
+                result = method.ReturnType.FullName,
+                parameters = method.GetParameters().Select(parameter =>
+                    parameter.ParameterType.FullName).ToArray() })
+            .OrderBy(method => method.name).ToArray(),
+        objectType = info.ObjectType.FullName,
+        fullTypeName = info.FullTypeName,
+        memberCount = info.MemberCount,
+        threeArgType = new System.Runtime.Serialization.SerializationInfo(
+            typeof(DBNull), converter, true).ObjectType.FullName,
+        nullTypeError = ObserveMethodError(() =>
+            new System.Runtime.Serialization.SerializationInfo(null!, converter)),
+        nullTypeParameter = ObserveMethodArgumentName(() =>
+            new System.Runtime.Serialization.SerializationInfo(null!, converter)),
+        nullConverterError = ObserveMethodError(() =>
+            new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), null!)),
+        nullConverterParameter = ObserveMethodArgumentName(() =>
+            new System.Runtime.Serialization.SerializationInfo(typeof(DBNull), null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -815,6 +846,7 @@ var result = new
             System.Runtime.Serialization.StreamingContextStates.Other, "marker").Context,
     },
     selectedStreamingContextEqualityBehavior = ObserveStreamingContextEquality(),
+    selectedSerializationInfoConstructionBehavior = ObserveSerializationInfoConstruction(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

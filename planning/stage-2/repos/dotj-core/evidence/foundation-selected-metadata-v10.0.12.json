@@ -150,6 +150,150 @@
     "text": "System.Runtime.Serialization.StreamingContext",
     "defaultText": "System.Runtime.Serialization.StreamingContext"
   },
+  "selectedSerializationInfoConstructionBehavior": {
+    "constructors": [
+      [
+        "System.Type",
+        "System.Runtime.Serialization.IFormatterConverter"
+      ],
+      [
+        "System.Type",
+        "System.Runtime.Serialization.IFormatterConverter",
+        "System.Boolean"
+      ]
+    ],
+    "converterMethods": [
+      {
+        "name": "Convert",
+        "result": "System.Object",
+        "parameters": [
+          "System.Object",
+          "System.Type"
+        ]
+      },
+      {
+        "name": "Convert",
+        "result": "System.Object",
+        "parameters": [
+          "System.Object",
+          "System.TypeCode"
+        ]
+      },
+      {
+        "name": "ToBoolean",
+        "result": "System.Boolean",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToByte",
+        "result": "System.Byte",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToChar",
+        "result": "System.Char",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToDateTime",
+        "result": "System.DateTime",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToDecimal",
+        "result": "System.Decimal",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToDouble",
+        "result": "System.Double",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToInt16",
+        "result": "System.Int16",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToInt32",
+        "result": "System.Int32",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToInt64",
+        "result": "System.Int64",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToSByte",
+        "result": "System.SByte",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToSingle",
+        "result": "System.Single",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToString",
+        "result": "System.String",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToUInt16",
+        "result": "System.UInt16",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToUInt32",
+        "result": "System.UInt32",
+        "parameters": [
+          "System.Object"
+        ]
+      },
+      {
+        "name": "ToUInt64",
+        "result": "System.UInt64",
+        "parameters": [
+          "System.Object"
+        ]
+      }
+    ],
+    "objectType": "System.DBNull",
+    "fullTypeName": "System.DBNull",
+    "memberCount": 0,
+    "threeArgType": "System.DBNull",
+    "nullTypeError": "System.ArgumentNullException",
+    "nullTypeParameter": "type",
+    "nullConverterError": "System.ArgumentNullException",
+    "nullConverterParameter": "converter"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15592,6 +15736,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "34c18878e236739a1217cea412eb6c33e40f221dba784f280e8708a071acfa16",
+  "oracleProgramSha256": "37cd43e9976f7ad1e09b4811530714081668a9bbf8128aa973ce2b92cd724c1b",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

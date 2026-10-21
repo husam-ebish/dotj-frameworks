@@ -22,6 +22,7 @@ import System.Reflection.GenericParameterAttributes;
 import System.Reflection.ParameterAttributes;
 import System.Runtime.CompilerServices.NullableAttribute;
 import System.Runtime.Serialization.ISerializable;
+import System.Runtime.Serialization.IFormatterConverter;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
@@ -417,6 +418,8 @@ public abstract class Type extends MemberInfo {
             case "System.DBNull" -> fromJavaClass(DBNull.class);
             case "System.NullReferenceException" -> fromJavaClass(NullReferenceException.class);
             case "System.Runtime.Serialization.ISerializable" -> fromJavaClass(ISerializable.class);
+            case "System.Runtime.Serialization.IFormatterConverter" ->
+                    fromJavaClass(IFormatterConverter.class);
             case "System.Runtime.Serialization.SerializationInfo" -> fromJavaClass(SerializationInfo.class);
             case "System.Runtime.Serialization.StreamingContext" -> fromJavaClass(StreamingContext.class);
             case "System.Runtime.Serialization.StreamingContextStates" ->
@@ -542,6 +545,8 @@ public abstract class Type extends MemberInfo {
                     ? fromJavaClass(NullReferenceException.class) : null;
             case "system.runtime.serialization.iserializable" -> ignoreCase
                     ? fromJavaClass(ISerializable.class) : null;
+            case "system.runtime.serialization.iformatterconverter" -> ignoreCase
+                    ? fromJavaClass(IFormatterConverter.class) : null;
             case "system.runtime.serialization.serializationinfo" -> ignoreCase
                     ? fromJavaClass(SerializationInfo.class) : null;
             case "system.runtime.serialization.streamingcontext" -> ignoreCase
@@ -1106,6 +1111,7 @@ public abstract class Type extends MemberInfo {
         return this.definition == IDisposable.class || this.definition == IComparable.class
                 || this.definition == IFormattable.class || this.definition == IFormatProvider.class
                 || this.definition == IConvertible.class || this.definition == ISerializable.class
+                || this.definition == IFormatterConverter.class
                 || this.definition == ISpanFormattable.class
                 || this.definition == IUtf8SpanFormattable.class;
     }

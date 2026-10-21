@@ -14,6 +14,7 @@ import System.Reflection.ParameterInfo;
 import System.Reflection.ParameterAttributes;
 import System.Runtime.CompilerServices.NullableAttribute;
 import System.Runtime.Serialization.ISerializable;
+import System.Runtime.Serialization.IFormatterConverter;
 import System.Runtime.Serialization.SerializationInfo;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
@@ -70,6 +71,35 @@ public final class TypeIdentityCandidateTest {
                 || dbnullType.GetInterface("System.Runtime.Serialization.ISerializable")
                     != serializableType) {
             throw new AssertionError("Selected DBNull serialization interface metadata changed");
+        }
+        Type converterType = Type.fromJavaClass(IFormatterConverter.class);
+        IFormatterConverter converter = (IFormatterConverter) java.lang.reflect.Proxy.newProxyInstance(
+                IFormatterConverter.class.getClassLoader(), new Class<?>[] { IFormatterConverter.class },
+                (proxy, method, values) -> null);
+        SerializationInfo info = new SerializationInfo(dbnullType, converter);
+        if (Type.GetType("System.Runtime.Serialization.IFormatterConverter") != converterType
+                || !converterType.get_IsInterface()
+                || info.get_ObjectType() != dbnullType
+                || !"System.DBNull".equals(info.get_FullTypeName())
+                || info.get_MemberCount() != 0
+                || new SerializationInfo(dbnullType, converter, true).get_ObjectType() != dbnullType) {
+            throw new AssertionError("Selected SerializationInfo construction changed");
+        }
+        try {
+            new SerializationInfo(null, converter);
+            throw new AssertionError("Null SerializationInfo type was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"type".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null SerializationInfo type parameter changed");
+            }
+        }
+        try {
+            new SerializationInfo(dbnullType, null);
+            throw new AssertionError("Null SerializationInfo converter was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"converter".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null SerializationInfo converter parameter changed");
+            }
         }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
         StreamingContext defaultContext = new StreamingContext();
