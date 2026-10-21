@@ -54,6 +54,14 @@ public final class TypeIdentityCandidateTest {
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
         Type privateOwnerChild = Type.fromJavaClass(PrivateOwnerFixture.PublicChild.class);
+        Type publicNestedArray = nestedEntry.MakeArrayType();
+        Type privateNestedArray = Type.fromJavaClass(NestedPrivateFixture.class).MakeArrayType();
+        if (!publicNestedArray.get_IsPublic() || !publicNestedArray.get_IsVisible()
+                || publicNestedArray.get_IsNested() || publicNestedArray.get_IsNestedPublic()
+                || !privateNestedArray.get_IsPublic() || privateNestedArray.get_IsVisible()
+                || privateNestedArray.get_IsNested()) {
+            throw new AssertionError("Selected nested array visibility changed");
+        }
         if (!privateOwnerChild.get_IsNestedPublic() || privateOwnerChild.get_IsPublic()
                 || privateOwnerChild.get_IsVisible()
                 || privateOwnerChild.get_DeclaringType().get_IsVisible()) {
