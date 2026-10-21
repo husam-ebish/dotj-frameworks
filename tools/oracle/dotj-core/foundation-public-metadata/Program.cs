@@ -1377,6 +1377,21 @@ static object ObserveByteToTypeContract()
         byteNull = ObserveMethodError(() => unsigned.ToType(null!, null)),
     };
 }
+static object ObserveUInt16ConvertibleContract()
+{
+    IConvertible value = (ushort)60000;
+    return new
+    {
+        implements = typeof(IConvertible).IsAssignableFrom(typeof(ushort)),
+        typeCode = value.GetTypeCode().ToString(),
+        int32 = value.ToInt32(null),
+        uint32 = value.ToUInt32(null),
+        text = value.ToString(null),
+        byteOverflow = ObserveMethodError(() => value.ToByte(null)),
+        int16Overflow = ObserveMethodError(() => value.ToInt16(null)),
+        dateTime = ObserveMethodError(() => value.ToDateTime(null)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1538,6 +1553,7 @@ var result = new
     selectedSerializationInfoByteConversionsBehavior = ObserveSerializationInfoByteConversions(),
     selectedByteConvertibleContractBehavior = ObserveByteConvertibleContract(),
     selectedByteToTypeContractBehavior = ObserveByteToTypeContract(),
+    selectedUInt16ConvertibleContractBehavior = ObserveUInt16ConvertibleContract(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
