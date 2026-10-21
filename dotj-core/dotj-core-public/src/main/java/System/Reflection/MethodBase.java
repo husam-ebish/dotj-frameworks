@@ -30,4 +30,6 @@ public abstract class MethodBase extends MemberInfo {
     public abstract boolean get_IsAssembly();
 
     public abstract boolean get_IsHideBySig();
+
+    public abstract CallingConventions get_CallingConvention();
 }

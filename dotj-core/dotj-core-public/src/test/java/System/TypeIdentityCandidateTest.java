@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import System.Reflection.MemberTypes;
 import System.Reflection.BindingFlags;
+import System.Reflection.CallingConventions;
 import System.Reflection.MemberInfo;
 import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
@@ -35,6 +36,19 @@ public final class TypeIdentityCandidateTest {
         Type string = Type.fromJavaClass(String.class);
         Type integer = Type.fromJavaClass(Integer.class);
         Type bindingFlagsType = Type.fromJavaClass(BindingFlags.class);
+        Type callingConventionType = Type.fromJavaClass(CallingConventions.class);
+        CallingConventions standardInstance = CallingConventions.Standard.or(CallingConventions.HasThis);
+        if (Type.GetType("System.Reflection.CallingConventions") != callingConventionType
+                || !callingConventionType.get_IsEnum()
+                || callingConventionType.GetEnumValues().getClass() != CallingConventions[].class
+                || callingConventionType.GetEnumNames().length != 5
+                || standardInstance.get_Value() != 33
+                || !standardInstance.has(CallingConventions.Standard)
+                || !standardInstance.has(CallingConventions.HasThis)
+                || callingConventionType.IsEnumDefined(standardInstance)
+                || callingConventionType.GetEnumName(standardInstance) != null) {
+            throw new AssertionError("Pinned calling-convention values changed");
+        }
         int[] bindingValues = bindingFlagsType.GetEnumValuesAsUnderlyingType();
         if (Type.GetType("System.Reflection.BindingFlags") != bindingFlagsType
                 || !bindingFlagsType.get_IsEnum() || !bindingFlagsType.get_IsValueType()
@@ -165,6 +179,7 @@ public final class TypeIdentityCandidateTest {
                     || namedMethod.get_IsFamily()
                     || namedMethod.get_IsAssembly()
                     || !namedMethod.get_IsHideBySig()
+                    || !namedMethod.get_CallingConvention().equals(standardInstance)
                     || namedMethod.get_IsGenericMethod()
                     || namedMethod.get_IsGenericMethodDefinition()
                     || namedMethod.get_ContainsGenericParameters()

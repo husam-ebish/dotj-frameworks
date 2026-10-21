@@ -23,6 +23,7 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/ParameterInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/BindingFlags.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/CallingConventions.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
@@ -373,6 +374,17 @@ def main():
     assert all(not any(row[key] for key in
                        ("isSpecialName", "isConstructor", "isPrivate", "isFamily", "isAssembly"))
                and row["isHideBySig"] for row in classifications)
+    calling_conventions = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedCallingConventionBehavior"]
+    assert calling_conventions["values"] == [
+        {"name": name, "value": value} for name, value in
+        (("Standard", 1), ("VarArgs", 2), ("Any", 3),
+         ("HasThis", 32), ("ExplicitThis", 64))]
+    assert [(row["owner"], row["name"]) for row in calling_conventions["methods"]] == [
+        ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
+        ("System.IFormattable", "ToString"), ("System.IFormatProvider", "GetFormat"),
+    ]
+    assert all(row["value"] == 33 and row["standard"] and row["hasThis"]
+               for row in calling_conventions["methods"])
     method_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodNameBehavior"]
     assert [(row["owner"], row["query"]["result"])
             for row in method_names[:4]] == [

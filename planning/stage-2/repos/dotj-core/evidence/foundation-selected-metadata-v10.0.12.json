@@ -1412,6 +1412,60 @@
       "isHideBySig": true
     }
   ],
+  "selectedCallingConventionBehavior": {
+    "values": [
+      {
+        "name": "Standard",
+        "value": 1
+      },
+      {
+        "name": "VarArgs",
+        "value": 2
+      },
+      {
+        "name": "Any",
+        "value": 3
+      },
+      {
+        "name": "HasThis",
+        "value": 32
+      },
+      {
+        "name": "ExplicitThis",
+        "value": 64
+      }
+    ],
+    "methods": [
+      {
+        "owner": "System.IDisposable",
+        "name": "Dispose",
+        "value": 33,
+        "standard": true,
+        "hasThis": true
+      },
+      {
+        "owner": "System.IComparable",
+        "name": "CompareTo",
+        "value": 33,
+        "standard": true,
+        "hasThis": true
+      },
+      {
+        "owner": "System.IFormattable",
+        "name": "ToString",
+        "value": 33,
+        "standard": true,
+        "hasThis": true
+      },
+      {
+        "owner": "System.IFormatProvider",
+        "name": "GetFormat",
+        "value": 33,
+        "standard": true,
+        "hasThis": true
+      }
+    ]
+  },
   "selectedMethodNameBehavior": [
     {
       "owner": "System.IDisposable",
@@ -14671,6 +14725,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "59ad66fc67189255937dacde7b3520ab9da2e9f3e93d93a50d976884afd2013c",
+  "oracleProgramSha256": "80b5839a6324c30ca84216894d705c35334a8d381edf78d0348cb91c55d5d318",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
