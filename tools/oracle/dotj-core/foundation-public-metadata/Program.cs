@@ -377,6 +377,20 @@ static string? ObserveFunctionPointerQuery(Func<object> operation)
         return exception.GetType().FullName;
     }
 }
+static object ObserveMemberName(Type type, string? name)
+{
+    try
+    {
+        return new { members = type.GetMember(name!).Select(member => new
+            { name = member.Name, kind = member.MemberType.ToString() }).ToArray(),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { members = (object[]?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveSpanFormat(int value, int length)
 {
     Span<char> destination = stackalloc char[length];
@@ -785,6 +799,15 @@ var result = new
             declaring = member.DeclaringType?.FullName,
             reflected = member.ReflectedType?.FullName,
         }).ToArray() }).ToArray(),
+    selectedMemberNameBehavior = new
+    {
+        stringChars = ObserveMemberName(typeof(string), "Chars"),
+        stringLower = ObserveMemberName(typeof(string), "chars"),
+        stringMissing = ObserveMemberName(typeof(string), "Missing"),
+        listItem = ObserveMemberName(typeof(List<>), "Item"),
+        objectMissing = ObserveMemberName(typeof(object), "Missing"),
+        nullName = ObserveMemberName(typeof(string), null),
+    },
     selectedCustomModifierBehavior = new[]
     {
         typeof(string), typeof(int), typeof(List<>),

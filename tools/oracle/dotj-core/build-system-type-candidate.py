@@ -79,6 +79,7 @@ def main():
         "System.Type[] GetInterfaces()",
         "System.Type[] GetOptionalCustomModifiers()",
         "System.Reflection.MemberInfo[] GetDefaultMembers()",
+        "System.Reflection.MemberInfo[] GetMember(System.String)",
         "System.Type[] GetRequiredCustomModifiers()",
         "System.Type GetInterface(System.String)",
         "System.Type GetInterface(System.String, Boolean)",
@@ -234,6 +235,15 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    member_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMemberNameBehavior"]
+    for key, name in (("stringChars", "Chars"), ("listItem", "Item")):
+        assert member_name[key] == {"members": [{"name": name, "kind": "Property"}],
+                                    "exception": None, "paramName": None}
+    for key in ("stringLower", "stringMissing", "objectMissing"):
+        assert member_name[key] == {"members": [], "exception": None, "paramName": None}
+    assert member_name["nullName"] == {
+        "members": None, "exception": "System.ArgumentNullException", "paramName": "name",
+    }
     default_members = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDefaultMemberBehavior"]
     assert [row["members"] for row in default_members[:3]] == [[], [], []]
     assert [row["members"][0]["name"] for row in default_members[3:]] == ["Chars", "Item", "Item"]
@@ -1510,6 +1520,7 @@ def main():
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
+        "public System.Reflection.MemberInfo[] GetMember(java.lang.String);",
         "public System.Reflection.MemberInfo[] GetDefaultMembers();",
         "public System.Type[] GetOptionalCustomModifiers();",
         "public System.Type[] GetRequiredCustomModifiers();",
