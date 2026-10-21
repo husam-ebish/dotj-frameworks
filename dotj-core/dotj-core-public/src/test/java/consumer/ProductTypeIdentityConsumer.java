@@ -646,6 +646,25 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Escaped quote name resolved: " + escapedQuoteName);
             }
         }
+        for (String invalidEvenSeparator : new String[] {
+                "System.Private.CoreLib\\\\,Extra",
+                "System.Private.CoreLib\\\\\\\\,Extra"}) {
+            try {
+                Type.GetType("System.String, " + invalidEvenSeparator);
+                throw new AssertionError("Even escape run accepted: " + invalidEvenSeparator);
+            } catch (FileLoadException expected) {
+                // A comma after an even run separates an invalid attribute.
+            }
+        }
+        for (String unknownEscapedName : new String[] {
+                "System.Private.CoreLib\\\\\\,Extra",
+                "\"System.Private.CoreLib\\\\,Extra\"",
+                "\"System.Private.CoreLib\\\\\\,Extra\"",
+                "'System.Private.CoreLib\\\\,Extra'"}) {
+            if (Type.GetType("System.String, " + unknownEscapedName) != null) {
+                throw new AssertionError("Backslash-run name resolved: " + unknownEscapedName);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

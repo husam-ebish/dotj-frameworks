@@ -77,6 +77,14 @@ public abstract class Type extends MemberInfo {
         return GetType(typeName, throwOnError, false);
     }
 
+    private static boolean isEscapedAt(String text, int index) {
+        int backslashes = 0;
+        for (int previous = index - 1; previous >= 0 && text.charAt(previous) == '\\'; previous--) {
+            backslashes++;
+        }
+        return (backslashes & 1) != 0;
+    }
+
     /** Selected CoreLib names only; assembly resolution remains open. */
     public static Type GetType(String typeName, boolean throwOnError, boolean ignoreCase) {
         if (typeName == null) {
@@ -109,11 +117,11 @@ public abstract class Type extends MemberInfo {
             for (int offset = 0; offset < assembly.length(); offset++) {
                 char character = assembly.charAt(offset);
                 if ((character == '"' || character == '\'')
-                        && (offset == 0 || assembly.charAt(offset - 1) != '\\')
+                        && !isEscapedAt(assembly, offset)
                         && (nameQuote == 0 || nameQuote == character)) {
                     nameQuote = nameQuote == 0 ? character : 0;
                 } else if (character == ',' && nameQuote == 0
-                        && (offset == 0 || assembly.charAt(offset - 1) != '\\')) {
+                        && !isEscapedAt(assembly, offset)) {
                     nameEnd = offset;
                     break;
                 }
@@ -131,9 +139,9 @@ public abstract class Type extends MemberInfo {
                 return null;
             }
             boolean endsDoubleQuote = assemblyName.endsWith("\"")
-                    && (assemblyName.length() < 2 || assemblyName.charAt(assemblyName.length() - 2) != '\\');
+                    && !isEscapedAt(assemblyName, assemblyName.length() - 1);
             boolean endsSingleQuote = assemblyName.endsWith("'")
-                    && (assemblyName.length() < 2 || assemblyName.charAt(assemblyName.length() - 2) != '\\');
+                    && !isEscapedAt(assemblyName, assemblyName.length() - 1);
             if (assemblyName.startsWith("\"") != endsDoubleQuote
                     || assemblyName.startsWith("'") != endsSingleQuote) {
                 throw new FileLoadException("Unbalanced assembly name quotes: " + assembly);
@@ -163,12 +171,12 @@ public abstract class Type extends MemberInfo {
                 for (int offset = 0; offset < assembly.length(); offset++) {
                     char character = assembly.charAt(offset);
                     if ((character == '"' || character == '\'')
-                            && (offset == 0 || assembly.charAt(offset - 1) != '\\')
+                            && !isEscapedAt(assembly, offset)
                             && (attributeQuote == 0 || attributeQuote == character)) {
                         attributeQuote = attributeQuote == 0 ? character : 0;
                     }
                     if (character == ',' && attributeQuote == 0
-                            && (offset == 0 || assembly.charAt(offset - 1) != '\\')) {
+                            && !isEscapedAt(assembly, offset)) {
                         attributes.add(attributeText.toString());
                         attributeText.setLength(0);
                     } else {

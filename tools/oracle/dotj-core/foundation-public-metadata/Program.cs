@@ -988,6 +988,15 @@ var result = new
         doubleWithVersion = ObserveGetType("System.String, \"System.Private.CoreLib\\\"Extra\", Version=1.2", false, false),
         singleWithVersion = ObserveGetType("System.String, 'System.Private.CoreLib\\'Extra', Version=1.2", false, false),
     },
+    selectedAssemblySeparatorEscapeParityBehavior = new
+    {
+        unquotedTwo = ObserveGetType("System.String, System.Private.CoreLib\\\\,Extra", false, false),
+        unquotedThree = ObserveGetType("System.String, System.Private.CoreLib\\\\\\,Extra", false, false),
+        unquotedFour = ObserveGetType("System.String, System.Private.CoreLib\\\\\\\\,Extra", false, false),
+        quotedTwo = ObserveGetType("System.String, \"System.Private.CoreLib\\\\,Extra\"", false, false),
+        quotedThree = ObserveGetType("System.String, \"System.Private.CoreLib\\\\\\,Extra\"", false, false),
+        singleTwo = ObserveGetType("System.String, 'System.Private.CoreLib\\\\,Extra'", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
