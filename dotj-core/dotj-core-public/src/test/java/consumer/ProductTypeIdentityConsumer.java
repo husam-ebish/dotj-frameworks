@@ -99,7 +99,8 @@ public final class ProductTypeIdentityConsumer {
                 "Version=banana", "Culture=", "PublicKeyToken=xyz",
                 "Version=10.0.0.0, Version=11.0.0.0", "UnknownAttr=",
                 "Culture=neutral, Culture=en-US", "Version=10", "Version=1.2.3.4.5",
-                "Version=10.0.0.0,", ", Version=10.0.0.0", "", "UnknownAttr=foo=bar"}) {
+                "Version=10.0.0.0,", ", Version=10.0.0.0", "", "UnknownAttr=foo=bar",
+                "Version=65535.0.0.0", "Version=65536.0.0.0", "Version=-1.0.0.0"}) {
             try {
                 Type.GetType("System.String, System.Private.CoreLib, " + invalid);
                 throw new AssertionError("Invalid assembly attribute accepted: " + invalid);
@@ -111,7 +112,8 @@ public final class ProductTypeIdentityConsumer {
                 "version=10.0.0.0", "CULTURE=neutral", "Publickeytoken=null",
                 "Version = 10.0.0.0", " Version=10.0.0.0", "Culture=\"neutral\"",
                 "Version=\"10.0.0.0\"", "UnknownAttr=\"foo\"",
-                "PublicKeyToken=\"null\""}) {
+                "PublicKeyToken=\"null\"", "Version=1.2", "Version=1.2.3",
+                "Culture=en_US", "Culture=not-a-real-culture"}) {
             if (Type.GetType("System.String, System.Private.CoreLib, " + valid) != string) {
                 throw new AssertionError("Selected assembly attribute spelling rejected: " + valid);
             }

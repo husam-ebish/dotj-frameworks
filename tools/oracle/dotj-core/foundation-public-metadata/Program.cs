@@ -629,6 +629,17 @@ var result = new
         unknownQuoted = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"foo\"", false, false),
         tokenQuoted = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=\"null\"", false, false),
     },
+    selectedAssemblyVersionCultureBoundBehavior = new
+    {
+        versionTwoPart = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2", false, false),
+        versionThreePart = ObserveGetType("System.String, System.Private.CoreLib, Version=1.2.3", false, false),
+        versionMaxComponent = ObserveGetType("System.String, System.Private.CoreLib, Version=65535.0.0.0", false, false),
+        versionOverflow = ObserveGetType("System.String, System.Private.CoreLib, Version=65536.0.0.0", false, false),
+        versionNegative = ObserveGetType("System.String, System.Private.CoreLib, Version=-1.0.0.0", false, false),
+        cultureUnderscore = ObserveGetType("System.String, System.Private.CoreLib, Culture=en_US", false, false),
+        cultureUnknown = ObserveGetType("System.String, System.Private.CoreLib, Culture=not-a-real-culture", false, false),
+        cultureNumeric = ObserveGetType("System.String, System.Private.CoreLib, Culture=123", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
