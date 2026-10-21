@@ -1725,25 +1725,37 @@
       "owner": "System.IDisposable",
       "name": "Dispose",
       "definitionError": "System.InvalidOperationException",
-      "instantiationError": "System.InvalidOperationException"
+      "instantiationError": "System.InvalidOperationException",
+      "nullInstantiationError": "System.ArgumentNullException",
+      "nullInstantiationParameter": "methodInstantiation",
+      "nonemptyInstantiationError": "System.InvalidOperationException"
     },
     {
       "owner": "System.IComparable",
       "name": "CompareTo",
       "definitionError": "System.InvalidOperationException",
-      "instantiationError": "System.InvalidOperationException"
+      "instantiationError": "System.InvalidOperationException",
+      "nullInstantiationError": "System.ArgumentNullException",
+      "nullInstantiationParameter": "methodInstantiation",
+      "nonemptyInstantiationError": "System.InvalidOperationException"
     },
     {
       "owner": "System.IFormattable",
       "name": "ToString",
       "definitionError": "System.InvalidOperationException",
-      "instantiationError": "System.InvalidOperationException"
+      "instantiationError": "System.InvalidOperationException",
+      "nullInstantiationError": "System.ArgumentNullException",
+      "nullInstantiationParameter": "methodInstantiation",
+      "nonemptyInstantiationError": "System.InvalidOperationException"
     },
     {
       "owner": "System.IFormatProvider",
       "name": "GetFormat",
       "definitionError": "System.InvalidOperationException",
-      "instantiationError": "System.InvalidOperationException"
+      "instantiationError": "System.InvalidOperationException",
+      "nullInstantiationError": "System.ArgumentNullException",
+      "nullInstantiationParameter": "methodInstantiation",
+      "nonemptyInstantiationError": "System.InvalidOperationException"
     }
   ],
   "selectedAbstractMethodBodyBehavior": {
@@ -15034,6 +15046,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "7b74cfd1ad4f76221388ec7e244d2524fdd1454771b66d7356ba7f048e93b1bd",
+  "oracleProgramSha256": "a6814894369d1072a224c78ccfd08f94726da8746e663ea86f6d177462520d66",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
