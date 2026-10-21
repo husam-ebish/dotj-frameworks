@@ -1060,6 +1060,20 @@ var result = new
         name,
         resolved = Type.GetType(name, throwOnError: false, ignoreCase: index == 2)?.FullName,
     }).ToArray(),
+    selectedNestedPublicVisibilityBehavior = new[]
+    {
+        typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!,
+        typeof(System.Collections.Generic.Dictionary<string, int>.KeyCollection),
+        typeof(System.Collections.Generic.List<int>.Enumerator),
+    }.Select(type => new
+    {
+        name = type.FullName ?? type.Name,
+        isPublic = type.IsPublic,
+        isNestedPublic = type.IsNestedPublic,
+        isVisible = type.IsVisible,
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),

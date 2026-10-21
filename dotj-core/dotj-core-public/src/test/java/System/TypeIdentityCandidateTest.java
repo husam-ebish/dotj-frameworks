@@ -48,6 +48,11 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        if (nestedEntry.get_IsPublic() || !nestedEntry.get_IsNestedPublic()
+                || !nestedEntry.get_IsVisible()
+                || Type.fromJavaClass(NestedPrivateFixture.class).get_IsVisible()) {
+            throw new AssertionError("Selected nested Type visibility changed");
+        }
         if (Type.GetType("System.Collections.Generic.Dictionary`2+Entry") != nestedEntry
                 || Type.GetType("System.Collections.Generic.Dictionary`2+Entry[]")
                         != nestedEntry.MakeArrayType()

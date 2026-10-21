@@ -243,6 +243,12 @@ def main():
         "System.Collections.Generic.Dictionary`2+Entry[]",
         "System.Collections.Generic.Dictionary`2+Entry",
     ]
+    nested_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedPublicVisibilityBehavior"]
+    assert [(row["isPublic"], row["isNestedPublic"], row["isVisible"])
+            for row in nested_visibility] == [
+        (True, False, True), (True, False, True), (False, False, False),
+        (False, True, True), (False, True, True),
+    ]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
