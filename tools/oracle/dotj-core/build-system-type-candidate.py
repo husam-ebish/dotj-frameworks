@@ -292,6 +292,17 @@ def main():
         "currentType": "System.Runtime.Serialization.SerializationEntry",
         "assignable": True, "instance": True,
     }
+    entry_shape = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationEntryShapeBehavior"]
+    assert entry_shape == {
+        "baseType": "System.ValueType", "isValueType": True,
+        "publicConstructorCount": 0,
+        "properties": [
+            {"name": "Name", "type": "System.String"},
+            {"name": "ObjectType", "type": "System.Type"},
+            {"name": "Value", "type": "System.Object"},
+        ],
+        "defaultName": None, "defaultObjectType": None, "defaultValue": None,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
