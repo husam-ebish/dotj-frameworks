@@ -471,6 +471,18 @@ var result = new
         arrayType = Type.GetTypeCode(typeof(string[])).ToString(),
         genericType = Type.GetTypeCode(typeof(System.Collections.Generic.List<string>)).ToString(),
     },
+    selectedBooleanTypeIdentityBehavior = new
+    {
+        name = typeof(bool).Name,
+        fullName = typeof(bool).FullName,
+        baseType = typeof(bool).BaseType?.FullName,
+        isPrimitive = typeof(bool).IsPrimitive,
+        isValueType = typeof(bool).IsValueType,
+        isSealed = typeof(bool).IsSealed,
+        isClass = typeof(bool).IsClass,
+        isAssignableToValueType = typeof(bool).IsAssignableTo(typeof(ValueType)),
+        typeCode = Type.GetTypeCode(typeof(bool)).ToString(),
+    },
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),

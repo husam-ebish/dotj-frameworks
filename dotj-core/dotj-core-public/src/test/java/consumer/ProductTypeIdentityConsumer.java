@@ -63,6 +63,17 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Selected primitive TypeCode changed at " + index);
             }
         }
+        Type booleanType = Type.GetType("System.Boolean");
+        if (booleanType == null || booleanType != primitiveTypes[0]
+                || !"Boolean".equals(booleanType.get_Name())
+                || !"System.Boolean".equals(booleanType.get_FullName())
+                || !"System.ValueType".equals(booleanType.get_BaseType().get_FullName())
+                || !booleanType.get_IsPrimitive() || !booleanType.get_IsValueType()
+                || !booleanType.get_IsSealed() || booleanType.get_IsClass()
+                || !booleanType.IsAssignableTo(Type.GetType("System.ValueType"))
+                || Type.GetTypeCode(booleanType) != TypeCode.Boolean) {
+            throw new AssertionError("Selected Boolean Type identity changed");
+        }
         Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
         if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
                 || mixedTypes[2] != Type.GetType("System.Exception")

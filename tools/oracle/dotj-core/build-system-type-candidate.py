@@ -925,6 +925,12 @@ def main():
         "listParameterIsTypeParameter": True, "listParameterIsMethodParameter": False,
         "convertAllParameterIsTypeParameter": False, "convertAllParameterIsMethodParameter": True,
     }
+    boolean_identity = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBooleanTypeIdentityBehavior"]
+    assert boolean_identity == {
+        "name": "Boolean", "fullName": "System.Boolean", "baseType": "System.ValueType",
+        "isPrimitive": True, "isValueType": True, "isSealed": True, "isClass": False,
+        "isAssignableToValueType": True, "typeCode": "Boolean",
+    }
     parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
     assert parameter_attributes == {
         "stringType": {"value": None, "exception": "System.InvalidOperationException"},
