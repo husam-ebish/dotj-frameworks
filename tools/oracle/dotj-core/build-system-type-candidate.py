@@ -331,6 +331,12 @@ def main():
         "count": 1, "original": 42, "enumeratedValue": 42,
         "secondMove": False,
     }
+    value_overloads = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoValueOverloadsBehavior"]
+    assert value_overloads == {
+        "count": 4, "character": "Q", "single": 1.25,
+        "decimalText": "12", "date": "2024-02-29",
+        "types": ["System.Char", "System.Single", "System.Decimal", "System.DateTime"],
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

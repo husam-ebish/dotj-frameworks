@@ -4,6 +4,8 @@ package System.Runtime.Serialization;
 
 import System.ArgumentNullException;
 import System.Type;
+import System.Decimal;
+import System.DateTime;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.ArrayList;
@@ -99,6 +101,10 @@ public class SerializationInfo {
                 : value instanceof Boolean ? Type.GetType("System.Boolean")
                 : value instanceof Long ? Type.GetType("System.Int64")
                 : value instanceof Double ? Type.GetType("System.Double")
+                : value instanceof Character ? Type.GetType("System.Char")
+                : value instanceof Float ? Type.GetType("System.Single")
+                : value instanceof Decimal ? Type.GetType("System.Decimal")
+                : value instanceof DateTime ? Type.GetType("System.DateTime")
                 : Type.GetType("System.Object");
         this.AddValue(name, value, type);
     }
@@ -130,6 +136,22 @@ public class SerializationInfo {
 
     public void AddValue(String name, double value) {
         this.AddValue(name, Double.valueOf(value));
+    }
+
+    public void AddValue(String name, char value) {
+        this.AddValue(name, Character.valueOf(value));
+    }
+
+    public void AddValue(String name, float value) {
+        this.AddValue(name, Float.valueOf(value));
+    }
+
+    public void AddValue(String name, Decimal value) {
+        this.AddValue(name, (Object) value);
+    }
+
+    public void AddValue(String name, DateTime value) {
+        this.AddValue(name, (Object) value);
     }
 
     public Object GetValue(String name, Type type) {
@@ -170,6 +192,26 @@ public class SerializationInfo {
     public double GetDouble(String name) {
         Object value = this.member(name).get_Value();
         return value instanceof Double number ? number : this.converter.ToDouble(value);
+    }
+
+    public char GetChar(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof Character character ? character : this.converter.ToChar(value);
+    }
+
+    public float GetSingle(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof Float number ? number : this.converter.ToSingle(value);
+    }
+
+    public Decimal GetDecimal(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof Decimal decimal ? decimal : this.converter.ToDecimal(value);
+    }
+
+    public DateTime GetDateTime(String name) {
+        Object value = this.member(name).get_Value();
+        return value instanceof DateTime date ? date : this.converter.ToDateTime(value);
     }
 
     public SerializationInfoEnumerator GetEnumerator() {
