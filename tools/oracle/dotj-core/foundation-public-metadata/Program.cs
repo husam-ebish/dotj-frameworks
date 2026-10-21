@@ -715,6 +715,13 @@ var result = new
         versionComma = ObserveGetType("System.String, System.Private.CoreLib, Version=\"1,2\"", false, false),
         tokenComma = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=\"01234567,89abcdef\"", false, false),
     },
+    selectedEscapedAssemblyQuoteBehavior = new
+    {
+        unknownBackslashQuote = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\"b\"", false, false),
+        unknownDoubledQuote = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\"\"b\"", false, false),
+        unknownBackslash = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\\\\b\"", false, false),
+        cultureBackslashQuote = ObserveGetType("System.String, System.Private.CoreLib, Culture=\"en\\\"US\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
