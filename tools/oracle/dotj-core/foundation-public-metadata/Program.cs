@@ -945,6 +945,15 @@ var result = new
         legacyUpperDll = ObserveGetType("System.String, mscorlib.DLL", false, false),
         legacySingleQuotedDll = ObserveGetType("System.String, 'mscorlib.dll'", false, false),
     },
+    selectedQuotedAssemblyNameAttributeBehavior = new
+    {
+        doubleVersion = ObserveGetType("System.String, \"System.Private.CoreLib\", Version=1.2", false, false),
+        singleVersion = ObserveGetType("System.String, 'System.Private.CoreLib', Version=1.2", false, false),
+        quotedDllVersion = ObserveGetType("System.String, \"System.Private.CoreLib.dll\", Version=1.2", false, false),
+        quotedUnknownAttribute = ObserveGetType("System.String, \"System.Private.CoreLib\", UnknownAttr=foo", false, false),
+        quotedInvalidVersion = ObserveGetType("System.String, \"System.Private.CoreLib\", Version=banana", false, false),
+        quotedCommaVersion = ObserveGetType("System.String, \"System.Private.CoreLib,Extra\", Version=1.2", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
