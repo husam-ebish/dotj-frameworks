@@ -57,6 +57,12 @@ public final class TypeIdentityCandidateTest {
         Type closedEntryArray = closedEntry.MakeArrayType();
         Type closedEntryRectangle = closedEntry.MakeArrayType(2);
         Type closedEntryRankThree = closedEntry.MakeArrayType(3);
+        Type closedEntryVariable = closedEntry.MakeArrayType(1);
+        if (Type.GetType(closedEntryVariable.get_FullName()) != closedEntryVariable
+                || Type.GetType(closedEntryVariable.get_AssemblyQualifiedName())
+                        != closedEntryVariable) {
+            throw new AssertionError("Constructed nested variable-bound lookup changed");
+        }
         if (Type.GetType(closedEntryRankThree.get_FullName()) != closedEntryRankThree
                 || Type.GetType(closedEntryRankThree.get_AssemblyQualifiedName())
                         != closedEntryRankThree) {
