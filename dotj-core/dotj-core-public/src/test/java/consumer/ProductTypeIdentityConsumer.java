@@ -395,6 +395,13 @@ public final class ProductTypeIdentityConsumer {
                 || !convertibleType.IsInstanceOfType(int32Value)) {
             throw new AssertionError("Selected Int32 conversion behavior changed");
         }
+        if (!"00042".equals(int32Value.ToString("D5", provider))
+                || !"002A".equals(int32Value.ToString("X4", provider))
+                || !"002a".equals(int32Value.ToString("x4", provider))
+                || !"-00042".equals(new Int32(-42).ToString("D5", provider))
+                || !"FFFFFFFF".equals(new Int32(-1).ToString("X", provider))) {
+            throw new AssertionError("Selected Int32 format specifiers changed");
+        }
         try {
             new Int32(300).ToByte(provider);
             throw new AssertionError("Byte overflow accepted");
