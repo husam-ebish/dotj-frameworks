@@ -184,7 +184,8 @@ public abstract class Type extends MemberInfo {
                         }
                     }
                     if (key.equals("culture") && (value.matches("[0-9]+")
-                            || value.contains(" ") || value.contains(",") || value.contains("\""))) {
+                            || value.contains(" ") || value.contains(",") || value.contains("\"")
+                            || value.equalsIgnoreCase("invariant") || value.equalsIgnoreCase("null"))) {
                         invalidCulture = value;
                     }
                 }

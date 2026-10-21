@@ -816,6 +816,16 @@ var result = new
         tokenThenInvalidKey = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=null, PublicKey=xyz", false, false),
         invalidTokenThenKey = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=xyz, PublicKey=00", false, false),
     },
+    selectedCultureNameBoundaryBehavior = new
+    {
+        titleNeutral = ObserveGetType("System.String, System.Private.CoreLib, Culture=Neutral", false, false),
+        upperNeutral = ObserveGetType("System.String, System.Private.CoreLib, Culture=NEUTRAL", false, false),
+        lowerLocale = ObserveGetType("System.String, System.Private.CoreLib, Culture=en-us", false, false),
+        upperLocale = ObserveGetType("System.String, System.Private.CoreLib, Culture=EN-US", false, false),
+        invariant = ObserveGetType("System.String, System.Private.CoreLib, Culture=invariant", false, false),
+        nullText = ObserveGetType("System.String, System.Private.CoreLib, Culture=null", false, false),
+        shortLocale = ObserveGetType("System.String, System.Private.CoreLib, Culture=iv", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
