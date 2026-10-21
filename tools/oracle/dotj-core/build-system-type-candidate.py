@@ -1041,6 +1041,8 @@ def main():
     nested_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedTypeFlagBehavior"]
     assert [row["isNested"] for row in nested_flags] == [False] * 2 + [True] * 3
     assert [row["isNestedPublic"] for row in nested_flags] == [False] * 3 + [True] * 2
+    nested_assembly = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedAssemblyBehavior"]
+    assert [row["result"] for row in nested_assembly] == [False] * 3 + [True]
     primitive_array_texts = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveArrayToStringBehavior"]
     assert [row["name"] for row in primitive_array_texts] == [
         "System.Boolean", "System.Char", "System.Byte", "System.Int16",
@@ -1202,6 +1204,7 @@ def main():
         "public boolean get_IsByRefLike();",
         "public boolean get_IsNested();",
         "public boolean get_IsNestedPublic();",
+        "public boolean get_IsNestedAssembly();",
         "public boolean get_ContainsGenericParameters();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",
