@@ -125,6 +125,13 @@ public abstract class Type extends MemberInfo {
                                     && !value.matches("[0-9a-fA-F]{16}")) {
                         throw new FileLoadException("Invalid assembly identity: " + assembly);
                     }
+                    if (key.equals("version")) {
+                        for (String component : value.split("\\.")) {
+                            if (component.length() > 5 || Integer.parseInt(component) > 65534) {
+                                throw new FileLoadException("Invalid assembly version: " + assembly);
+                            }
+                        }
+                    }
                 }
                 name = typeName.substring(0, assemblySeparator).stripLeading();
             } else if (throwOnError) {

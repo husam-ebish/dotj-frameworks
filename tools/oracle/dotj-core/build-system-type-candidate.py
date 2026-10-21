@@ -362,6 +362,14 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("trailingComma", "doubleComma", "emptyAttribute", "extraEquals")},
     }
+    version_culture = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssemblyVersionCultureBoundBehavior"]
+    assert version_culture == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("versionTwoPart", "versionThreePart", "cultureUnderscore", "cultureUnknown")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("versionMaxComponent", "versionOverflow", "versionNegative")},
+        "cultureNumeric": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
