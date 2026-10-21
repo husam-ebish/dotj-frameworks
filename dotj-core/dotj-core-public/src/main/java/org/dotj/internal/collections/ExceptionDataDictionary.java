@@ -21,11 +21,13 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
         implements IDictionary {
     @Override
     public Object get_Item(Object key) {
+        requireKey(key);
         return this.get(key);
     }
 
     @Override
     public void set_Item(Object key, Object value) {
+        requireKey(key);
         this.put(key, value);
     }
 
@@ -51,11 +53,13 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
     @Override
     public boolean Contains(Object key) {
+        requireKey(key);
         return this.containsKey(key);
     }
 
     @Override
     public void Add(Object key, Object value) {
+        requireKey(key);
         if (this.containsKey(key)) {
             throw new ArgumentException("An item with the same key has already been added", "key");
         }
@@ -69,7 +73,14 @@ public final class ExceptionDataDictionary extends LinkedHashMap<Object, Object>
 
     @Override
     public void Remove(Object key) {
+        requireKey(key);
         this.remove(key);
+    }
+
+    private static void requireKey(Object key) {
+        if (key == null) {
+            throw new ArgumentNullException("key");
+        }
     }
 
     @Override

@@ -1043,6 +1043,18 @@
     "isReadOnly": false,
     "isFixedSize": false
   },
+  "selectedExceptionDataBoundaries": {
+    "nullAdd": "System.ArgumentNullException",
+    "nullContains": "System.ArgumentNullException",
+    "nullRead": "System.ArgumentNullException",
+    "nullWrite": "System.ArgumentNullException",
+    "nullRemove": "System.ArgumentNullException",
+    "containsNullValue": true,
+    "nullValue": null,
+    "objectKeyRetained": true,
+    "beforeMove": "System.InvalidOperationException",
+    "afterEnd": "System.InvalidOperationException"
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -16485,6 +16497,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "d9ff669ade5243f6821a5ada421a3c29b66020a1a620e3c42e37d67a68ff5c42",
+  "oracleProgramSha256": "d2c7d08b2c1374d9078c20a99fc2c81ddfafa87b39a4a012c1e8fd69874d5896",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
