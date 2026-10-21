@@ -594,6 +594,10 @@ def main():
         "doubleSuffix": "System.FormatException",
         "hexadecimalFloat": "System.FormatException",
     }
+    decimal_grouping = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDecimalGroupedTextBehavior"]
+    assert decimal_grouping == {
+        "grouped": "1234.50", "negativeGrouped": "-1234.50",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

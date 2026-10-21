@@ -961,6 +961,10 @@ public final class TypeIdentityCandidateTest {
         } catch (OverflowException expected) {
             // Pinned CLR failure type.
         }
+        if (!"1234.50".equals(Decimal.Parse("1,234.50").ToString(null))
+                || !"-1234.50".equals(Decimal.Parse("-1,234.50").ToString(null))) {
+            throw new AssertionError("Selected invariant Decimal grouping changed");
+        }
         if (!Float.isNaN(selectedConverter.ToSingle("NaN"))
                 || !Double.isNaN(selectedConverter.ToDouble("NaN"))
                 || !Float.isInfinite(selectedConverter.ToSingle("Infinity"))
