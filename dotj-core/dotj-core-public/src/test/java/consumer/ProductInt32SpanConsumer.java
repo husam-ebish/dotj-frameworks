@@ -1,6 +1,8 @@
 package consumer;
 
 import System.Byte;
+import System.ArgumentException;
+import System.ArgumentNullException;
 import System.FormatException;
 import System.Int32;
 import System.ReadOnlySpan;
@@ -138,6 +140,25 @@ public final class ProductInt32SpanConsumer {
         checkProviderVector(new Int32(-123456789), "C0", "(USD12_34_56_789)", otherGroups);
         checkProviderVector(new Int32(42), "P0", "42_00 pct", otherGroups);
         checkProviderVector(new Int32(-42), "P0", "-42_00 pct", otherGroups);
+        checkGroupSizeError(() -> otherGroups.set_NumberGroupSizes(null),
+                ArgumentNullException.class);
+        checkGroupSizeError(() -> otherGroups.set_NumberGroupSizes(new int[] {-1}),
+                ArgumentException.class);
+        checkGroupSizeError(() -> otherGroups.set_NumberGroupSizes(new int[] {10}),
+                ArgumentException.class);
+        checkGroupSizeError(() -> otherGroups.set_NumberGroupSizes(new int[] {3, 0, 2}),
+                ArgumentException.class);
+        checkGroupSizeError(() -> otherGroups.set_CurrencyGroupSizes(new int[] {-1}),
+                ArgumentException.class);
+        checkGroupSizeError(() -> otherGroups.set_CurrencyGroupSizes(new int[] {3, 0, 2}),
+                ArgumentException.class);
+        checkGroupSizeError(() -> otherGroups.set_PercentGroupSizes(new int[] {-1}),
+                ArgumentException.class);
+        checkGroupSizeError(() -> otherGroups.set_PercentGroupSizes(new int[] {3, 0, 2}),
+                ArgumentException.class);
+        otherGroups.set_NumberGroupSizes(new int[0]);
+        otherGroups.set_NumberGroupSizes(new int[] {0});
+        otherGroups.set_NumberGroupSizes(new int[] {3, 0});
         NumberFormatInfo customSign = new NumberFormatInfo();
         customSign.set_NegativeSign("~");
         if (Int32.Parse("~42", NumberStyles.Integer, customSign).get_Value() != -42) {
@@ -252,6 +273,16 @@ public final class ProductInt32SpanConsumer {
             throw new AssertionError("NumberStyles.Number provider span Parse changed");
         }
         checkNumberBoundaries(numberStyle);
+    }
+
+    private static void checkGroupSizeError(Runnable setter, Class<?> expected) {
+        try {
+            setter.run();
+        } catch (RuntimeException failure) {
+            if (failure.getClass() == expected) return;
+            throw new AssertionError("Unexpected group-size setter error", failure);
+        }
+        throw new AssertionError("Expected group-size setter error: " + expected.getName());
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,

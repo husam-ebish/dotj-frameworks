@@ -170,6 +170,18 @@ def main():
         "negativeCurrency": "(USD12_34_56_789)",
         "percent": "42_00 pct", "negativePercent": "-42_00 pct",
     }
+    assert metadata["selectedInt32GroupSizeBoundaries"] == {
+        "nullNumber": "System.ArgumentNullException",
+        "emptyNumber": None, "zeroNumber": None,
+        "negativeNumber": "System.ArgumentException",
+        "tenNumber": "System.ArgumentException",
+        "interiorZeroNumber": "System.ArgumentException",
+        "terminalZeroNumber": None,
+        "negativeCurrency": "System.ArgumentException",
+        "interiorZeroCurrency": "System.ArgumentException",
+        "negativePercent": "System.ArgumentException",
+        "interiorZeroPercent": "System.ArgumentException",
+    }
     assert metadata["selectedInt32NegativeSignBehavior"] == {
         "customParse": -42, "customSuccess": True, "customValue": -42,
         "standardSuccess": False, "standardValue": 0,

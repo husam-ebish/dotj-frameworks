@@ -594,6 +594,24 @@ static object ObserveInt32CurrencyPercentGroupSizes()
         negativePercent = ((IFormattable)(-42)).ToString("P0", provider),
     };
 }
+static object ObserveInt32GroupSizeBoundaries()
+{
+    var provider = new System.Globalization.NumberFormatInfo();
+    return new
+    {
+        nullNumber = ObserveInt32Error(() => provider.NumberGroupSizes = null!),
+        emptyNumber = ObserveInt32Error(() => provider.NumberGroupSizes = []),
+        zeroNumber = ObserveInt32Error(() => provider.NumberGroupSizes = [0]),
+        negativeNumber = ObserveInt32Error(() => provider.NumberGroupSizes = [-1]),
+        tenNumber = ObserveInt32Error(() => provider.NumberGroupSizes = [10]),
+        interiorZeroNumber = ObserveInt32Error(() => provider.NumberGroupSizes = [3, 0, 2]),
+        terminalZeroNumber = ObserveInt32Error(() => provider.NumberGroupSizes = [3, 0]),
+        negativeCurrency = ObserveInt32Error(() => provider.CurrencyGroupSizes = [-1]),
+        interiorZeroCurrency = ObserveInt32Error(() => provider.CurrencyGroupSizes = [3, 0, 2]),
+        negativePercent = ObserveInt32Error(() => provider.PercentGroupSizes = [-1]),
+        interiorZeroPercent = ObserveInt32Error(() => provider.PercentGroupSizes = [3, 0, 2]),
+    };
+}
 static object ObserveInt32NegativeSign()
 {
     var provider = new System.Globalization.NumberFormatInfo
@@ -5125,6 +5143,7 @@ var result = new
     selectedInt32ProviderFormatBehavior = ObserveInt32ProviderFormat(),
     selectedInt32NumberGroupSizes = ObserveInt32NumberGroupSizes(),
     selectedInt32CurrencyPercentGroupSizes = ObserveInt32CurrencyPercentGroupSizes(),
+    selectedInt32GroupSizeBoundaries = ObserveInt32GroupSizeBoundaries(),
     selectedInt32NegativeSignBehavior = ObserveInt32NegativeSign(),
     selectedInt32CurrencyFormatBehavior = new
     {
