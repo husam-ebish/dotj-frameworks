@@ -335,6 +335,7 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("Selected formatting interface contract changed");
         }
         IConvertible convertible = new IConvertible() {
+            public int GetTypeCode() { return 9; }
             public boolean ToBoolean(IFormatProvider formatProvider) { return true; }
             public char ToChar(IFormatProvider formatProvider) { return '*'; }
             public byte ToSByte(IFormatProvider formatProvider) { return 42; }
@@ -349,17 +350,30 @@ public final class ProductTypeIdentityConsumer {
             }
             public float ToSingle(IFormatProvider formatProvider) { return 42; }
             public double ToDouble(IFormatProvider formatProvider) { return 42; }
+            public java.math.BigDecimal ToDecimal(IFormatProvider formatProvider) {
+                return java.math.BigDecimal.valueOf(42);
+            }
+            public java.time.LocalDateTime ToDateTime(IFormatProvider formatProvider) {
+                return java.time.LocalDateTime.of(2026, 1, 2, 0, 0);
+            }
             public String ToString(IFormatProvider formatProvider) { return "42"; }
+            public Object ToType(Type conversionType, IFormatProvider formatProvider) {
+                return conversionType == integer ? 42 : null;
+            }
         };
         Type convertibleType = Type.GetType("System.IConvertible");
-        if (!convertible.ToBoolean(provider) || convertible.ToChar(provider) != '*'
+        if (convertible.GetTypeCode() != 9
+                || !convertible.ToBoolean(provider) || convertible.ToChar(provider) != '*'
                 || convertible.ToSByte(provider) != 42 || convertible.ToByte(provider) != 42
                 || convertible.ToInt16(provider) != 42 || convertible.ToUInt16(provider) != 42
                 || convertible.ToInt32(provider) != 42 || convertible.ToUInt32(provider) != 42
                 || convertible.ToInt64(provider) != 42
                 || !java.math.BigInteger.valueOf(42).equals(convertible.ToUInt64(provider))
                 || convertible.ToSingle(provider) != 42 || convertible.ToDouble(provider) != 42
+                || !java.math.BigDecimal.valueOf(42).equals(convertible.ToDecimal(provider))
+                || convertible.ToDateTime(provider).getYear() != 2026
                 || !"42".equals(convertible.ToString(provider))
+                || !Integer.valueOf(42).equals(convertible.ToType(integer, provider))
                 || convertibleType == null || !convertibleType.get_IsInterface()
                 || integer.GetInterface("System.IConvertible") != convertibleType
                 || integer.GetInterface("IConvertible") != convertibleType
