@@ -152,20 +152,31 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (signed) throw new FormatException("Input string was not in a correct format");
             number = number.substring(0, number.length() - positiveSign.length());
         }
-        if (!groupSeparator.isEmpty()) number = number.replace(groupSeparator, "");
+        boolean hadDecimalSeparator = false;
+        String fraction = null;
         if (!decimalSeparator.isEmpty()) {
             int separator = number.indexOf(decimalSeparator);
             if (separator >= 0) {
+                hadDecimalSeparator = true;
                 if (number.indexOf(decimalSeparator, separator + decimalSeparator.length()) >= 0) {
                     throw new FormatException("Input string was not in a correct format");
                 }
-                String fraction = number.substring(separator + decimalSeparator.length());
+                fraction = number.substring(separator + decimalSeparator.length());
                 if (!fraction.matches("[0-9]*")) {
                     throw new FormatException("Input string was not in a correct format");
                 }
                 if (!fraction.matches("0*")) throw new OverflowException();
                 number = number.substring(0, separator);
             }
+        }
+        if (!groupSeparator.isEmpty()) {
+            if (number.startsWith(groupSeparator)) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            number = number.replace(groupSeparator, "");
+        }
+        if (number.isEmpty() && hadDecimalSeparator && !fraction.isEmpty()) {
+            number = "0";
         }
         if (!number.matches("[0-9]+")) {
             throw new FormatException("Input string was not in a correct format");

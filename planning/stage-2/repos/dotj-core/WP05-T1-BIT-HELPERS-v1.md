@@ -60,4 +60,6 @@ The selected provider positive sign now applies to `NumberStyles.Integer` parsin
 
 The selected `NumberStyles.Number` path now accepts custom group and decimal separators, zero fractional digits and leading/trailing custom signs. The pinned oracle and packaged consumers agree on grouped positive/negative values, reject a nonzero fractional input and reject the standard `+` under the custom provider. Other flag combinations, grouping rules and full culture behavior remain open.
 
+Twelve further pinned `NumberStyles.Number` boundaries now run against Java string and both span carriers. The parser rejects a leading group separator and group characters in the fractional part, while accepting a trailing group separator, an empty integer part before zero fractional digits, and selected trailing signs, matching these .NET 10 observations. Other grouping configurations remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

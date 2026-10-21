@@ -219,6 +219,7 @@ public final class ProductInt32SpanConsumer {
                 NumberStyles.Number, numberStyle).get_Value() != -12345) {
             throw new AssertionError("NumberStyles.Number provider span Parse changed");
         }
+        checkNumberBoundaries(numberStyle);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,
@@ -239,6 +240,29 @@ public final class ProductInt32SpanConsumer {
                 || written[0] != bytes.length
                 || !new String(bytes, StandardCharsets.UTF_8).equals(expected)) {
             throw new AssertionError("Provider Byte span formatting changed: " + specifier);
+        }
+    }
+
+    private static void checkNumberBoundaries(NumberFormatInfo provider) {
+        String[] texts = {"_123", "123_", "12__345", "42:", "42:0_0", "42:5",
+                "42::0", "12_:00", "42plus", "42~", "~42plus", ":00"};
+        boolean[] success = {false, true, true, true, false, false,
+                false, true, true, true, false, true};
+        int[] values = {0, 123, 12345, 42, 0, 0, 0, 12, 42, -42, 0, 0};
+        for (int index = 0; index < texts.length; index++) {
+            Int32[] result = new Int32[1];
+            String text = texts[index];
+            if (Int32.TryParse(text, NumberStyles.Number, provider, result) != success[index]
+                    || result[0].get_Value() != values[index]
+                    || Int32.TryParse(ReadOnlySpan.OfChars(text.toCharArray()),
+                    NumberStyles.Number, provider, result) != success[index]
+                    || result[0].get_Value() != values[index]
+                    || Int32.TryParse(ReadOnlySpan.OfUtf8Bytes(
+                    text.getBytes(StandardCharsets.UTF_8)),
+                    NumberStyles.Number, provider, result) != success[index]
+                    || result[0].get_Value() != values[index]) {
+                throw new AssertionError("NumberStyles.Number boundary changed: " + text);
+            }
         }
     }
 }
