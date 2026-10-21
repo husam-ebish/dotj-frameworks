@@ -1089,6 +1089,16 @@ var result = new
         owner = type.FullName,
         publicNested = type.GetNestedTypes().Select(nested => nested.FullName).ToArray(),
     }).ToArray(),
+    selectedConstructedNestedQueryBehavior = new
+    {
+        open = typeof(System.Collections.Generic.Dictionary<,>).GetNestedType("KeyCollection")?.FullName,
+        closed = typeof(System.Collections.Generic.Dictionary<string, int>).GetNestedType("KeyCollection")?.FullName,
+        sameReference = ReferenceEquals(
+            typeof(System.Collections.Generic.Dictionary<,>).GetNestedType("KeyCollection"),
+            typeof(System.Collections.Generic.Dictionary<string, int>).GetNestedType("KeyCollection")),
+        closedEnumeration = typeof(System.Collections.Generic.Dictionary<string, int>)
+            .GetNestedTypes().Select(nested => nested.FullName).ToArray(),
+    },
     selectedNestedPublicVisibilityBehavior = new[]
     {
         typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],

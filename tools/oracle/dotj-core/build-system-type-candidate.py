@@ -263,6 +263,13 @@ def main():
             "System.Collections.Generic.Dictionary`2+ValueCollection",
         ]},
     ]
+    constructed_nested = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedConstructedNestedQueryBehavior"]
+    assert constructed_nested == {
+        "open": "System.Collections.Generic.Dictionary`2+KeyCollection",
+        "closed": "System.Collections.Generic.Dictionary`2+KeyCollection",
+        "sameReference": True,
+        "closedEnumeration": nested_enumeration[2]["publicNested"],
+    }
     nested_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedPublicVisibilityBehavior"]
     assert [(row["isPublic"], row["isNestedPublic"], row["isVisible"])
             for row in nested_visibility] == [
