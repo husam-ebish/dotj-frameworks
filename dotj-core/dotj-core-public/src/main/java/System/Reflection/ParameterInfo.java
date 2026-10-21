@@ -43,4 +43,17 @@ public class ParameterInfo {
     public Type[] GetRequiredCustomModifiers() {
         return new Type[0];
     }
+
+    public String ToString() {
+        String typeName = this.parameterType.get_FullName();
+        if ("System.Void".equals(typeName) || "System.Int32".equals(typeName)) {
+            typeName = this.parameterType.get_Name();
+        }
+        return this.name == null ? typeName : typeName + " " + this.name;
+    }
+
+    @Override
+    public String toString() {
+        return this.ToString();
+    }
 }

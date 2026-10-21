@@ -351,6 +351,13 @@ def main():
     assert [len(row["parameters"]) for row in parameter_modifiers] == [1, 2, 3, 2]
     assert all(parameter["optional"] == [] and parameter["required"] == []
                for row in parameter_modifiers for parameter in row["parameters"])
+    parameter_texts = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterTextBehavior"]
+    assert [[parameter["text"] for parameter in row["parameters"]]
+            for row in parameter_texts] == [
+        ["Void"], ["System.Object obj", "Int32"],
+        ["System.String format", "System.IFormatProvider formatProvider", "System.String "],
+        ["System.Type formatType", "System.Object"],
+    ]
     method_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMethodFlagBehavior"]
     assert [(row["owner"], row["name"]) for row in method_flags] == [
         ("System.IDisposable", "Dispose"), ("System.IComparable", "CompareTo"),
