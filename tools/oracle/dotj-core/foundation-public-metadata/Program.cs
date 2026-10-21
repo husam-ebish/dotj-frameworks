@@ -603,6 +603,28 @@ static object ObserveInt32CurrencyProvider()
         negativeParentheses = ((IFormattable)(-12345)).ToString("C2", provider),
     };
 }
+static object ObserveInt32PercentProvider()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        PercentSymbol = "pct",
+        PercentGroupSeparator = "_",
+        PercentDecimalSeparator = ":",
+        PercentDecimalDigits = 3,
+        NegativeSign = "~",
+    };
+    string defaultPositive = ((IFormattable)42).ToString("P", provider);
+    string defaultNegative = ((IFormattable)(-42)).ToString("P2", provider);
+    provider.PercentPositivePattern = 1;
+    provider.PercentNegativePattern = 1;
+    return new
+    {
+        defaultPositive,
+        defaultNegative,
+        compactPositive = ((IFormattable)42).ToString("P2", provider),
+        compactNegative = ((IFormattable)(-42)).ToString("P2", provider),
+    };
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -4982,6 +5004,7 @@ var result = new
             System.Globalization.CultureInfo.InvariantCulture),
     },
     selectedInt32CurrencyProviderBehavior = ObserveInt32CurrencyProvider(),
+    selectedInt32PercentProviderBehavior = ObserveInt32PercentProvider(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",

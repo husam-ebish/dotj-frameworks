@@ -175,6 +175,10 @@ def main():
         "negativeWithSign": "~USD12_345:00",
         "negativeParentheses": "(USD12_345:00)",
     }
+    assert metadata["selectedInt32PercentProviderBehavior"] == {
+        "defaultPositive": "4_200:000 pct", "defaultNegative": "~4_200:00 pct",
+        "compactPositive": "4_200:00pct", "compactNegative": "~4_200:00pct",
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
