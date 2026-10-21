@@ -386,6 +386,8 @@ public abstract class Type extends MemberInfo {
             case "System.Globalization.NumberStyles" -> fromJavaClass(NumberStyles.class);
             case "System.Globalization.CultureNotFoundException" -> fromJavaClass(CultureNotFoundException.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
+            case "System.Reflection.GenericParameterAttributes" ->
+                    fromJavaClass(GenericParameterAttributes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
             case "System.Collections.Generic.Dictionary`2" -> fromJavaClass(java.util.Map.class);
@@ -486,6 +488,8 @@ public abstract class Type extends MemberInfo {
             case "system.globalization.culturenotfoundexception" -> ignoreCase
                     ? fromJavaClass(CultureNotFoundException.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
+            case "system.reflection.genericparameterattributes" -> ignoreCase
+                    ? fromJavaClass(GenericParameterAttributes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
             case "system.collections.generic.dictionary`2" -> ignoreCase ? fromJavaClass(java.util.Map.class) : null;
@@ -770,7 +774,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Decimal.class || this.definition == DateTime.class) {
             return fromJavaClass(Number.class);
         }
-        if (this.definition == MemberTypes.class || this.definition == TypeCode.class
+        if (this.definition == MemberTypes.class || this.definition == GenericParameterAttributes.class
+                || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class) {
             return fromJavaClass(Enum.class);
         }
@@ -802,6 +807,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == Decimal.class
                         || this.definition == DateTime.class
                         || this.definition == MemberTypes.class
+                        || this.definition == GenericParameterAttributes.class
                         || this.definition == TypeCode.class || this.definition == NumberStyles.class);
     }
 
@@ -853,7 +859,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsEnum() {
-        return this.definition == MemberTypes.class || this.definition == TypeCode.class
+        return this.definition == MemberTypes.class || this.definition == GenericParameterAttributes.class
+                || this.definition == TypeCode.class
                 || this.definition == NumberStyles.class;
     }
 
