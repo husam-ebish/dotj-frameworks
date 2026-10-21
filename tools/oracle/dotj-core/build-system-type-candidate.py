@@ -933,6 +933,21 @@ def main():
                 ("Infinity", None, "System.OverflowException", 2147483647, 2147483647),
                 ("NaN", None, "System.OverflowException", 0, 0),
             ]
+    assert [(item["value"], item["checkedValue"], item["checkedError"],
+             item["saturated"], item["truncated"])
+            for item in foundation["selectedInt32CreateFromDecimal"]] == [
+                ("-79228162514264337593543950335", None, "System.OverflowException", -2147483648, -2147483648),
+                ("-2147483649", None, "System.OverflowException", -2147483648, -2147483648),
+                ("-2147483648.9", -2147483648, None, -2147483648, -2147483648),
+                ("-2147483648", -2147483648, None, -2147483648, -2147483648),
+                ("-3.9", -3, None, -3, -3), ("-0.5", 0, None, 0, 0),
+                ("0", 0, None, 0, 0), ("0.5", 0, None, 0, 0),
+                ("3.9", 3, None, 3, 3),
+                ("2147483647", 2147483647, None, 2147483647, 2147483647),
+                ("2147483647.9", 2147483647, None, 2147483647, 2147483647),
+                ("2147483648", None, "System.OverflowException", 2147483647, 2147483647),
+                ("79228162514264337593543950335", None, "System.OverflowException", 2147483647, 2147483647),
+            ]
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
