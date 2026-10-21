@@ -707,6 +707,14 @@ var result = new
         quotedCultureWithSpace = ObserveGetType("System.String, System.Private.CoreLib, Culture=\"en US\"", false, false),
         quotedUnknownWithComma = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"foo,bar\"", false, false),
     },
+    selectedQuotedAssemblyDelimiterBehavior = new
+    {
+        unknownManyCommas = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a,b,c\"", false, false),
+        unknownEquals = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"a=b\"", false, false),
+        cultureComma = ObserveGetType("System.String, System.Private.CoreLib, Culture=\"en,US\"", false, false),
+        versionComma = ObserveGetType("System.String, System.Private.CoreLib, Version=\"1,2\"", false, false),
+        tokenComma = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=\"01234567,89abcdef\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
