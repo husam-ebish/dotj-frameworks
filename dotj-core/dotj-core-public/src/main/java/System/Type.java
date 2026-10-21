@@ -981,6 +981,33 @@ public abstract class Type extends MemberInfo {
         throw new ArgumentException("Value type must match the enum or its underlying type");
     }
 
+    public String GetEnumName(Object value) {
+        if (!this.get_IsEnum()) {
+            throw new ArgumentException("Type must be an enum", "enumType");
+        }
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        if (value instanceof String) {
+            throw new ArgumentException("Value must be an enum or its underlying type", "value");
+        }
+        if (value.getClass() == this.definition) {
+            return ((java.lang.Enum<?>) value).name();
+        }
+        if (value instanceof java.lang.Enum<?>) {
+            return null;
+        }
+        if (value instanceof Integer number) {
+            for (Object constant : this.definition.getEnumConstants()) {
+                if (enumNumericValue(constant) == number) {
+                    return ((java.lang.Enum<?>) constant).name();
+                }
+            }
+            return null;
+        }
+        throw new ArgumentException("Value must be an enum or its underlying type", "value");
+    }
+
     private static int enumNumericValue(Object constant) {
         if (constant instanceof TypeCode code) {
             return code.get_Value();

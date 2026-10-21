@@ -69,6 +69,7 @@ def main():
         "System.Type GetEnumUnderlyingType()",
         "System.String[] GetEnumNames()",
         "Boolean IsEnumDefined(System.Object)",
+        "System.String GetEnumName(System.Object)",
         "Boolean IsAssignableFrom(System.Type)",
         "Boolean IsSubclassOf(System.Type)",
         "Boolean IsInstanceOfType(System.Object)",
@@ -263,6 +264,14 @@ def main():
     assert enum_defined["wrongEnumType"] == {"result": None, "exception": "System.ArgumentException", "paramName": None}
     assert enum_defined["nullValue"] == {"result": None, "exception": "System.ArgumentNullException", "paramName": "value"}
     assert enum_defined["nonEnumOwner"] == {"result": None, "exception": "System.ArgumentException", "paramName": "enumType"}
+    enum_name = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumNameBehavior"]
+    for key in ("enumValue", "integerValue"):
+        assert enum_name[key] == {"result": "Empty", "exception": None, "paramName": None}
+    for key in ("missingValue", "wrongEnumType"):
+        assert enum_name[key] == {"result": None, "exception": None, "paramName": None}
+    assert enum_name["stringValue"] == {"result": None, "exception": "System.ArgumentException", "paramName": "value"}
+    assert enum_name["nullValue"] == {"result": None, "exception": "System.ArgumentNullException", "paramName": "value"}
+    assert enum_name["nonEnumOwner"] == {"result": None, "exception": "System.ArgumentException", "paramName": "enumType"}
     assert enum_names == {
         "typeCode": {"names": ["Empty", "Object", "DBNull", "Boolean", "Char", "SByte", "Byte",
                                "Int16", "UInt16", "Int32", "UInt32", "Int64", "UInt64", "Single",
@@ -1382,6 +1391,7 @@ def main():
         "public System.Type GetEnumUnderlyingType();",
         "public java.lang.String[] GetEnumNames();",
         "public boolean IsEnumDefined(java.lang.Object);",
+        "public java.lang.String GetEnumName(java.lang.Object);",
         "public boolean IsAssignableTo(System.Type);",
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",

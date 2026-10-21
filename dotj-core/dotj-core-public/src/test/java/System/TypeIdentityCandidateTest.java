@@ -60,6 +60,36 @@ public final class TypeIdentityCandidateTest {
                 || typeCodeEnum.IsEnumDefined(17)) {
             throw new AssertionError("Selected enum-defined membership changed");
         }
+        if (!"Empty".equals(typeCodeEnum.GetEnumName(TypeCode.Empty))
+                || !"Empty".equals(typeCodeEnum.GetEnumName(0))
+                || typeCodeEnum.GetEnumName(17) != null
+                || memberTypesEnum.GetEnumName(TypeCode.Empty) != null) {
+            throw new AssertionError("Selected enum name lookup changed");
+        }
+        try {
+            typeCodeEnum.GetEnumName("Empty");
+            throw new AssertionError("String accepted as enum name lookup value");
+        } catch (ArgumentException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Enum name lookup parameter identity changed", expected);
+            }
+        }
+        try {
+            typeCodeEnum.GetEnumName(null);
+            throw new AssertionError("Null enum name lookup value accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null enum name lookup parameter changed", expected);
+            }
+        }
+        try {
+            integer.GetEnumName(0);
+            throw new AssertionError("Non-enum owner accepted enum name lookup");
+        } catch (ArgumentException expected) {
+            if (!"enumType".equals(expected.get_ParamName())) {
+                throw new AssertionError("Non-enum name lookup parameter changed", expected);
+            }
+        }
         try {
             memberTypesEnum.IsEnumDefined(TypeCode.Empty);
             throw new AssertionError("Foreign enum value accepted");
