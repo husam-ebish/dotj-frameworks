@@ -219,6 +219,18 @@ public final class TypeIdentityCandidateTest {
                 throw new AssertionError("Selected typed method-name lookup changed");
             }
             ParameterInfo returnParameter = namedMethod.get_ReturnParameter();
+            try {
+                namedMethod.GetGenericMethodDefinition();
+                throw new AssertionError("Nongeneric method supplied a generic definition");
+            } catch (InvalidOperationException expected) {
+                // Pinned nongeneric operation error.
+            }
+            try {
+                namedMethod.MakeGenericMethod(new Type[0]);
+                throw new AssertionError("Nongeneric method accepted generic arguments");
+            } catch (InvalidOperationException expected) {
+                // Pinned nongeneric operation error.
+            }
             if (returnParameter.get_ParameterType() != interfaceMethodReturns[index]
                     || returnParameter.get_Position() != -1
                     || returnParameter.get_IsOptional()
