@@ -162,6 +162,7 @@ public abstract class Type extends MemberInfo {
                             || key.equals("publickeytoken") && !value.equalsIgnoreCase("null")
                                     && !value.matches("[0-9a-fA-F]{16}")
                             || key.equals("publickey") && !value.equalsIgnoreCase("null")
+                                    && !value.matches("(?i)([0-9a-f]{2})+")
                             || key.equals("processorarchitecture")
                                     && !value.equalsIgnoreCase("MSIL")
                                     && !value.equalsIgnoreCase("X86")
