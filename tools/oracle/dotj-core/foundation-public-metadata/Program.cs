@@ -167,6 +167,17 @@ static string? ObserveNonEnumUnderlying()
         return exception.GetType().FullName;
     }
 }
+static object ObserveGenericParameterAttributes(Type type)
+{
+    try
+    {
+        return new { value = (int?)type.GenericParameterAttributes, exception = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { value = (int?)null, exception = exception.GetType().FullName };
+    }
+}
 static string? ObserveGenericDefinitionError(Type type)
 {
     try
@@ -515,6 +526,13 @@ var result = new
             .GetGenericArguments()[0].IsGenericTypeParameter,
         convertAllParameterIsMethodParameter = typeof(System.Collections.Generic.List<>).GetMethod("ConvertAll")!
             .GetGenericArguments()[0].IsGenericMethodParameter,
+    },
+    selectedGenericParameterAttributeBehavior = new
+    {
+        stringType = ObserveGenericParameterAttributes(typeof(string)),
+        listParameter = ObserveGenericParameterAttributes(typeof(System.Collections.Generic.List<>).GetGenericArguments()[0]),
+        dictionaryKeyParameter = ObserveGenericParameterAttributes(typeof(System.Collections.Generic.Dictionary<,>).GetGenericArguments()[0]),
+        convertAllParameter = ObserveGenericParameterAttributes(typeof(System.Collections.Generic.List<>).GetMethod("ConvertAll")!.GetGenericArguments()[0]),
     },
     selectedGetTypeBehavior = new
     {

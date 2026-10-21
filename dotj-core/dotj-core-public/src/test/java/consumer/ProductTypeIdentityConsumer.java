@@ -28,6 +28,7 @@ import System.ISpanFormattable;
 import System.IUtf8SpanFormattable;
 import System.Reflection.MemberInfo;
 import System.Reflection.MemberTypes;
+import System.Reflection.GenericParameterAttributes;
 
 /** Calls the candidate's public members from outside the System package. */
 public final class ProductTypeIdentityConsumer {
@@ -1847,6 +1848,15 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Assembly-qualified name failed identity round-trip: "
                         + selected.get_Name());
             }
+        }
+        if (parameter.get_GenericParameterAttributes() != GenericParameterAttributes.None) {
+            throw new AssertionError("Selected generic parameter attributes changed");
+        }
+        try {
+            string.get_GenericParameterAttributes();
+            throw new AssertionError("Nonparameter attributes unexpectedly available");
+        } catch (InvalidOperationException expected) {
+            // Pinned selected exception class.
         }
         if (parameter.get_AssemblyQualifiedName() != null) {
             throw new AssertionError("Generic parameter gained an assembly-qualified name");

@@ -18,6 +18,7 @@ EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException", "FileLoadException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberTypes.java")
+EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/GenericParameterAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
@@ -924,6 +925,13 @@ def main():
         "listParameterIsTypeParameter": True, "listParameterIsMethodParameter": False,
         "convertAllParameterIsTypeParameter": False, "convertAllParameterIsMethodParameter": True,
     }
+    parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
+    assert parameter_attributes == {
+        "stringType": {"value": None, "exception": "System.InvalidOperationException"},
+        "listParameter": {"value": 0, "exception": None},
+        "dictionaryKeyParameter": {"value": 0, "exception": None},
+        "convertAllParameter": {"value": 0, "exception": None},
+    }
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,
         True, False, False, True, False, True, True, True, True, True, True,
@@ -1054,6 +1062,7 @@ def main():
         "public boolean get_IsGenericParameter();",
         "public boolean get_IsGenericTypeParameter();",
         "public boolean get_IsGenericMethodParameter();",
+        "public System.Reflection.GenericParameterAttributes get_GenericParameterAttributes();",
         "public int get_GenericParameterPosition();",
         "public boolean IsEquivalentTo(System.Type);",
         "public boolean Equals(System.Type);",
