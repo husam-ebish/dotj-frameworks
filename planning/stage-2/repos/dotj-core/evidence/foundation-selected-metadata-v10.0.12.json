@@ -1384,6 +1384,160 @@
       }
     ]
   },
+  "selectedInt32SignedArithmetic": {
+    "unary": [
+      {
+        "value": -2147483648,
+        "abs": null,
+        "absError": "System.OverflowException",
+        "sign": -1
+      },
+      {
+        "value": -3,
+        "abs": 3,
+        "absError": null,
+        "sign": -1
+      },
+      {
+        "value": -1,
+        "abs": 1,
+        "absError": null,
+        "sign": -1
+      },
+      {
+        "value": 0,
+        "abs": 0,
+        "absError": null,
+        "sign": 0
+      },
+      {
+        "value": 1,
+        "abs": 1,
+        "absError": null,
+        "sign": 1
+      },
+      {
+        "value": 3,
+        "abs": 3,
+        "absError": null,
+        "sign": 1
+      },
+      {
+        "value": 2147483647,
+        "abs": 2147483647,
+        "absError": null,
+        "sign": 1
+      }
+    ],
+    "pairs": [
+      {
+        "x": 2,
+        "y": 3,
+        "max": 3,
+        "min": 2,
+        "maxMagnitude": 3,
+        "minMagnitude": 2
+      },
+      {
+        "x": -3,
+        "y": 3,
+        "max": 3,
+        "min": -3,
+        "maxMagnitude": 3,
+        "minMagnitude": -3
+      },
+      {
+        "x": -2147483648,
+        "y": 2147483647,
+        "max": 2147483647,
+        "min": -2147483648,
+        "maxMagnitude": -2147483648,
+        "minMagnitude": 2147483647
+      },
+      {
+        "x": 0,
+        "y": 0,
+        "max": 0,
+        "min": 0,
+        "maxMagnitude": 0,
+        "minMagnitude": 0
+      },
+      {
+        "x": -3,
+        "y": -3,
+        "max": -3,
+        "min": -3,
+        "maxMagnitude": -3,
+        "minMagnitude": -3
+      }
+    ],
+    "clamps": [
+      {
+        "value": 5,
+        "min": 0,
+        "max": 10,
+        "result": 5,
+        "error": null,
+        "errorParam": null
+      },
+      {
+        "value": -5,
+        "min": 0,
+        "max": 10,
+        "result": 0,
+        "error": null,
+        "errorParam": null
+      },
+      {
+        "value": 15,
+        "min": 0,
+        "max": 10,
+        "result": 10,
+        "error": null,
+        "errorParam": null
+      },
+      {
+        "value": 0,
+        "min": 10,
+        "max": 0,
+        "result": null,
+        "error": "System.ArgumentException",
+        "errorParam": null
+      }
+    ],
+    "copies": [
+      {
+        "value": -3,
+        "sign": 1,
+        "result": 3,
+        "error": null
+      },
+      {
+        "value": 3,
+        "sign": -1,
+        "result": -3,
+        "error": null
+      },
+      {
+        "value": -2147483648,
+        "sign": -1,
+        "result": -2147483648,
+        "error": null
+      },
+      {
+        "value": -2147483648,
+        "sign": 1,
+        "result": null,
+        "error": "System.OverflowException"
+      },
+      {
+        "value": 0,
+        "sign": -1,
+        "result": 0,
+        "error": null
+      }
+    ]
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -25008,6 +25162,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "3a3af9135ebf79d662288d51966108811a04bb5843e7d95d02d0471e6e1a7330",
+  "oracleProgramSha256": "3a9496c529a2381c61613322fd221a45d82b4490ecd64b08d26332208274190e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
