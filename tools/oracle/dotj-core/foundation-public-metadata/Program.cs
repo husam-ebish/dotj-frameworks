@@ -782,6 +782,31 @@ static object ObserveSerializationInfoEnumeration()
         afterReset = enumerator.MoveNext() ? enumerator.Name : null,
     };
 }
+static object ObserveSerializationInfoTypedValues()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("text", "17", typeof(string));
+    info.AddValue("typed", 42, typeof(object));
+    var cursor = info.GetEnumerator();
+    cursor.MoveNext();
+    var firstType = cursor.ObjectType.FullName;
+    cursor.MoveNext();
+    var secondType = cursor.ObjectType.FullName;
+    return new
+    {
+        count = info.MemberCount,
+        parsed = info.GetInt32("text"),
+        parsedByType = info.GetValue("text", typeof(int)),
+        typedValue = info.GetValue("typed", typeof(object)),
+        firstType,
+        secondType,
+        nullAddTypeError = ObserveMethodError(() => info.AddValue("bad", 1, null!)),
+        nullAddTypeParameter = ObserveMethodArgumentName(() => info.AddValue("bad", 1, null!)),
+        nullGetTypeError = ObserveMethodError(() => info.GetValue("text", null!)),
+        nullGetTypeParameter = ObserveMethodArgumentName(() => info.GetValue("text", null!)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -915,6 +940,7 @@ var result = new
     selectedFormatterConverterBehavior = ObserveFormatterConverter(),
     selectedSerializationInfoMembersBehavior = ObserveSerializationInfoMembers(),
     selectedSerializationInfoEnumerationBehavior = ObserveSerializationInfoEnumeration(),
+    selectedSerializationInfoTypedValuesBehavior = ObserveSerializationInfoTypedValues(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

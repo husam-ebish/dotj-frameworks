@@ -188,6 +188,35 @@ public final class TypeIdentityCandidateTest {
         if (!entries.MoveNext() || !"age".equals(entries.get_Name())) {
             throw new AssertionError("Serialization enumeration reset changed");
         }
+        SerializationInfo typedMembers = new SerializationInfo(dbnullType, selectedConverter);
+        typedMembers.AddValue("text", "17", Type.GetType("System.String"));
+        typedMembers.AddValue("typed", 42, Type.GetType("System.Object"));
+        SerializationInfoEnumerator typedEntries = typedMembers.GetEnumerator();
+        if (typedMembers.get_MemberCount() != 2 || typedMembers.GetInt32("text") != 17
+                || !Integer.valueOf(17).equals(typedMembers.GetValue("text", Type.GetType("System.Int32")))
+                || !Integer.valueOf(42).equals(typedMembers.GetValue("typed", Type.GetType("System.Object")))
+                || !typedEntries.MoveNext()
+                || !"System.String".equals(typedEntries.get_ObjectType().get_FullName())
+                || !typedEntries.MoveNext()
+                || !"System.Object".equals(typedEntries.get_ObjectType().get_FullName())) {
+            throw new AssertionError("Selected typed serialization members changed");
+        }
+        try {
+            typedMembers.AddValue("bad", 1, null);
+            throw new AssertionError("Null declared member type was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"type".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null declared member type parameter changed");
+            }
+        }
+        try {
+            typedMembers.GetValue("text", null);
+            throw new AssertionError("Null requested member type was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"type".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null requested member type parameter changed");
+            }
+        }
         Type contextStatesType = Type.fromJavaClass(StreamingContextStates.class);
         StreamingContext defaultContext = new StreamingContext();
         StreamingContext processContext = new StreamingContext(StreamingContextStates.CrossProcess);

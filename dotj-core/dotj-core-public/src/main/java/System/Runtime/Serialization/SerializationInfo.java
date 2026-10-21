@@ -13,7 +13,7 @@ import java.util.List;
 public class SerializationInfo {
     private final Type objectType;
     private final IFormatterConverter converter;
-    private final Map<String, Object> members = new LinkedHashMap<>();
+    private final Map<String, SerializationEntry> members = new LinkedHashMap<>();
 
     public SerializationInfo(Type type, IFormatterConverter converter) {
         this(type, converter, false);
@@ -44,13 +44,23 @@ public class SerializationInfo {
     }
 
     public void AddValue(String name, Object value) {
+        Type type = value instanceof Integer ? Type.GetType("System.Int32")
+                : value instanceof String ? Type.GetType("System.String")
+                : Type.GetType("System.Object");
+        this.AddValue(name, value, type);
+    }
+
+    public void AddValue(String name, Object value, Type type) {
         if (name == null) {
             throw new ArgumentNullException("name");
+        }
+        if (type == null) {
+            throw new ArgumentNullException("type");
         }
         if (this.members.containsKey(name)) {
             throw new SerializationException("Member already exists: " + name);
         }
-        this.members.put(name, value);
+        this.members.put(name, new SerializationEntry(name, type, value));
     }
 
     public void AddValue(String name, int value) {
@@ -58,32 +68,33 @@ public class SerializationInfo {
     }
 
     public Object GetValue(String name, Type type) {
-        return this.member(name);
+        if (type == null) {
+            throw new ArgumentNullException("type");
+        }
+        SerializationEntry entry = this.member(name);
+        if (type.get_FullName().equals(entry.get_ObjectType().get_FullName())
+                || "System.Object".equals(type.get_FullName())) {
+            return entry.get_Value();
+        }
+        return this.converter.Convert(entry.get_Value(), type);
     }
 
     public int GetInt32(String name) {
-        Object value = this.member(name);
+        Object value = this.member(name).get_Value();
         return value instanceof Integer number ? number : this.converter.ToInt32(value);
     }
 
     public String GetString(String name) {
-        Object value = this.member(name);
+        Object value = this.member(name).get_Value();
         return value instanceof String text ? text : this.converter.ToString(value);
     }
 
     public SerializationInfoEnumerator GetEnumerator() {
-        List<SerializationEntry> entries = new ArrayList<>();
-        for (Map.Entry<String, Object> member : this.members.entrySet()) {
-            Object value = member.getValue();
-            Type type = value instanceof Integer ? Type.GetType("System.Int32")
-                    : value instanceof String ? Type.GetType("System.String")
-                    : Type.GetType("System.Object");
-            entries.add(new SerializationEntry(member.getKey(), type, value));
-        }
+        List<SerializationEntry> entries = new ArrayList<>(this.members.values());
         return new SerializationInfoEnumerator(entries);
     }
 
-    private Object member(String name) {
+    private SerializationEntry member(String name) {
         if (name == null) {
             throw new ArgumentNullException("name");
         }
