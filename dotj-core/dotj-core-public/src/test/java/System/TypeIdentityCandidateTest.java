@@ -243,6 +243,20 @@ public final class TypeIdentityCandidateTest {
                 || !"System.Double".equals(primitiveCursor.get_ObjectType().get_FullName())) {
             throw new AssertionError("Selected primitive serialization members changed");
         }
+        SerializationInfo convertedPrimitives = new SerializationInfo(dbnullType, selectedConverter);
+        convertedPrimitives.AddValue("one", 1);
+        convertedPrimitives.AddValue("integerText", "17");
+        convertedPrimitives.AddValue("decimalText", "1.5");
+        convertedPrimitives.AddValue("long", 5L);
+        if (!convertedPrimitives.GetBoolean("one")
+                || convertedPrimitives.GetInt64("integerText") != 17L
+                || convertedPrimitives.GetDouble("decimalText") != 1.5d
+                || convertedPrimitives.GetInt32("long") != 5
+                || !Long.valueOf(17).equals(convertedPrimitives.GetValue(
+                    "integerText", Type.GetType("System.Int64")))
+                || !Double.valueOf(1.5d).equals(selectedConverter.Convert("1.5", TypeCode.Double))) {
+            throw new AssertionError("Selected primitive serialization conversions changed");
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }
