@@ -153,6 +153,28 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Invalid culture parameter changed", expected);
             }
         }
+        for (String validQuoted : new String[] {
+                "Culture=\"\"", "UnknownAttr=\"\"", "UnknownAttr=\"foo,bar\""}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + validQuoted) != string) {
+                throw new AssertionError("Selected quoted value rejected: " + validQuoted);
+            }
+        }
+        for (String malformedQuote : new String[] {"Culture=\"neutral", "Culture=neutral\""}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + malformedQuote);
+                throw new AssertionError("Malformed quote accepted: " + malformedQuote);
+            } catch (FileLoadException expected) {
+                // Selected pinned malformed quote.
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, Culture=\"en US\"");
+            throw new AssertionError("Invalid quoted culture accepted");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Quoted culture parameter changed", expected);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

@@ -416,6 +416,14 @@ def main():
            for key in ("versionInnerSpace", "tokenInnerSpace")},
         "cultureInnerSpace": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
     }
+    quoted_bounds = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedQuotedAssemblyValueBoundaryBehavior"]
+    assert quoted_bounds == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("emptyQuotedCulture", "emptyQuotedUnknown", "quotedUnknownWithComma")},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("unclosedCulture", "trailingQuoteCulture")},
+        "quotedCultureWithSpace": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

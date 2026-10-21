@@ -698,6 +698,15 @@ var result = new
         tokenInnerSpace = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=7cec85d7 bea7798e", false, false),
         unknownInnerSpace = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=foo bar", false, false),
     },
+    selectedQuotedAssemblyValueBoundaryBehavior = new
+    {
+        emptyQuotedCulture = ObserveGetType("System.String, System.Private.CoreLib, Culture=\"\"", false, false),
+        emptyQuotedUnknown = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"\"", false, false),
+        unclosedCulture = ObserveGetType("System.String, System.Private.CoreLib, Culture=\"neutral", false, false),
+        trailingQuoteCulture = ObserveGetType("System.String, System.Private.CoreLib, Culture=neutral\"", false, false),
+        quotedCultureWithSpace = ObserveGetType("System.String, System.Private.CoreLib, Culture=\"en US\"", false, false),
+        quotedUnknownWithComma = ObserveGetType("System.String, System.Private.CoreLib, UnknownAttr=\"foo,bar\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
