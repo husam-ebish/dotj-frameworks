@@ -1763,6 +1763,15 @@ static object ObserveFloatingTextGrammar()
         hexadecimalFloat = ObserveMethodError(() => converter.ToDouble("0x1p0")),
     };
 }
+static object ObserveDecimalGroupedText()
+{
+    var invariant = System.Globalization.CultureInfo.InvariantCulture;
+    return new
+    {
+        grouped = decimal.Parse("1,234.50", invariant).ToString(invariant),
+        negativeGrouped = decimal.Parse("-1,234.50", invariant).ToString(invariant),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1949,6 +1958,7 @@ var result = new
     selectedBooleanTextConversionsBehavior = ObserveBooleanTextConversions(),
     selectedDecimalIntegerLimitsBehavior = ObserveDecimalIntegerLimits(),
     selectedFloatingTextGrammarBehavior = ObserveFloatingTextGrammar(),
+    selectedDecimalGroupedTextBehavior = ObserveDecimalGroupedText(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

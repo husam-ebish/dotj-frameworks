@@ -29,10 +29,11 @@ public final class Decimal implements IConvertible {
             throw new ArgumentNullException("s");
         }
         String trimmed = text.strip();
-        if (!trimmed.matches("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)")) {
+        if (!trimmed.matches("[+-]?(?:[0-9]+|[0-9]{1,3}(?:,[0-9]{3})+)(?:\\.[0-9]*)?")
+                && !trimmed.matches("[+-]?\\.[0-9]+")) {
             throw new FormatException("Input string was not in a correct format");
         }
-        BigDecimal parsed = new BigDecimal(trimmed);
+        BigDecimal parsed = new BigDecimal(trimmed.replace(",", ""));
         if (parsed.abs().compareTo(MAX_MAGNITUDE) > 0) {
             throw new OverflowException("Value was outside the range of Decimal");
         }
