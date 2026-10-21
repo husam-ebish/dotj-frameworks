@@ -914,6 +914,12 @@ public final class ProductTypeIdentityConsumer {
             if (Type.GetType(selectedDictionary.get_AssemblyQualifiedName()) != selectedDictionary) {
                 throw new AssertionError("Dictionary assembly-qualified round trip changed");
             }
+            String lowerDictionary = selectedDictionary.get_AssemblyQualifiedName()
+                    .toLowerCase(java.util.Locale.ROOT);
+            if (Type.GetType(lowerDictionary, false, false) != null
+                    || Type.GetType(lowerDictionary, false, true) != selectedDictionary) {
+                throw new AssertionError("Dictionary qualified case lookup changed");
+            }
         }
         Type listInt = definition.MakeGenericType(new Type[] {integer});
         for (Type nestedGeneric : new Type[] {
@@ -922,6 +928,12 @@ public final class ProductTypeIdentityConsumer {
                 dictionary.MakeGenericType(new Type[] {first, listInt})}) {
             if (Type.GetType(nestedGeneric.get_AssemblyQualifiedName()) != nestedGeneric) {
                 throw new AssertionError("Nested generic assembly-qualified round trip changed");
+            }
+            String lowerNested = nestedGeneric.get_AssemblyQualifiedName()
+                    .toLowerCase(java.util.Locale.ROOT);
+            if (Type.GetType(lowerNested, false, false) != null
+                    || Type.GetType(lowerNested, false, true) != nestedGeneric) {
+                throw new AssertionError("Nested generic qualified case lookup changed");
             }
         }
         if (Type.GetType("System.String[]") == null

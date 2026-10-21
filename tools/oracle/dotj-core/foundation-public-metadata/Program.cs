@@ -399,6 +399,9 @@ var result = new
         type.FullName,
         type.AssemblyQualifiedName,
         sameReference = ReferenceEquals(Type.GetType(type.AssemblyQualifiedName), type),
+        lowerSensitive = ObserveGetType(type.AssemblyQualifiedName!.ToLowerInvariant(), false, false),
+        lowerInsensitiveSameReference = ReferenceEquals(
+            Type.GetType(type.AssemblyQualifiedName!.ToLowerInvariant(), false, true), type),
     }).ToArray(),
     selectedNestedGenericQualifiedRoundTrip = new[]
     {
@@ -409,6 +412,9 @@ var result = new
         type.FullName,
         type.AssemblyQualifiedName,
         sameReference = ReferenceEquals(Type.GetType(type.AssemblyQualifiedName), type),
+        lowerSensitive = ObserveGetType(type.AssemblyQualifiedName!.ToLowerInvariant(), false, false),
+        lowerInsensitiveSameReference = ReferenceEquals(
+            Type.GetType(type.AssemblyQualifiedName!.ToLowerInvariant(), false, true), type),
     }).ToArray(),
     selectedCoreLibCaseLookup = selected.Select(type => new
     {
