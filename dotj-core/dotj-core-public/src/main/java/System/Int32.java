@@ -218,6 +218,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static <TOther> Int32 CreateChecked(TOther value) {
+        if (value instanceof Decimal source) {
+            BigInteger truncated = selectedDecimalInteger(source);
+            if (truncated.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0
+                    || truncated.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+                throw new OverflowException();
+            }
+            return new Int32(truncated.intValue());
+        }
         if (value instanceof Float source) {
             if (!Float.isFinite(source)
                     || source <= (double)Integer.MIN_VALUE - 1.0
@@ -249,6 +257,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static <TOther> Int32 CreateSaturating(TOther value) {
+        if (value instanceof Decimal source) {
+            return selectedDecimalClamped(source);
+        }
         if (value instanceof Float source) return new Int32((int)source.floatValue());
         if (value instanceof Double source) return new Int32((int)source.doubleValue());
         if (value instanceof BigInteger source) {
@@ -266,6 +277,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     }
 
     public static <TOther> Int32 CreateTruncating(TOther value) {
+        if (value instanceof Decimal source) {
+            return selectedDecimalClamped(source);
+        }
         if (value instanceof Float source) return new Int32((int)source.floatValue());
         if (value instanceof Double source) return new Int32((int)source.doubleValue());
         if (value instanceof BigInteger source) return new Int32(source.intValue());
@@ -277,6 +291,21 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (value instanceof Integer source) return source.longValue();
         if (value instanceof Int32 source) return source.value;
         throw new UnsupportedOperationException("Selected Int32.Create source type is not mapped");
+    }
+
+    private static BigInteger selectedDecimalInteger(Decimal source) {
+        return new BigDecimal(source.ToString(null)).toBigInteger();
+    }
+
+    private static Int32 selectedDecimalClamped(Decimal source) {
+        BigInteger truncated = selectedDecimalInteger(source);
+        if (truncated.compareTo(BigInteger.valueOf(Integer.MIN_VALUE)) < 0) {
+            return new Int32(Integer.MIN_VALUE);
+        }
+        if (truncated.compareTo(BigInteger.valueOf(Integer.MAX_VALUE)) > 0) {
+            return new Int32(Integer.MAX_VALUE);
+        }
+        return new Int32(truncated.intValue());
     }
 
     public boolean Equals(Int32 obj) {

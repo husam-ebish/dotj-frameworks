@@ -3,6 +3,7 @@ package consumer;
 import System.ArgumentException;
 import System.ArithmeticException;
 import System.DivideByZeroException;
+import System.Decimal;
 import System.Int32;
 import System.OverflowException;
 import System.Type;
@@ -215,6 +216,27 @@ public final class ProductInt32ArithmeticConsumer {
             if (Int32.CreateSaturating(source).get_Value() != singleResults[index]
                     || Int32.CreateTruncating(source).get_Value() != singleResults[index]) {
                 throw new AssertionError("Int32.Create Single conversion changed");
+            }
+        }
+        String[] decimalValues = {"-79228162514264337593543950335",
+                "-2147483649", "-2147483648.9", "-2147483648",
+                "-3.9", "-0.5", "0", "0.5", "3.9",
+                "2147483647", "2147483647.9", "2147483648",
+                "79228162514264337593543950335"};
+        int[] decimalResults = {Integer.MIN_VALUE, Integer.MIN_VALUE,
+                Integer.MIN_VALUE, Integer.MIN_VALUE, -3, 0, 0, 0, 3,
+                Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE,
+                Integer.MAX_VALUE};
+        for (int index = 0; index < decimalValues.length; index++) {
+            Decimal source = Decimal.Parse(decimalValues[index]);
+            if (index < 2 || index > 10) {
+                expectOverflow(() -> Int32.CreateChecked(source));
+            } else if (Int32.CreateChecked(source).get_Value() != decimalResults[index]) {
+                throw new AssertionError("Int32.CreateChecked Decimal changed");
+            }
+            if (Int32.CreateSaturating(source).get_Value() != decimalResults[index]
+                    || Int32.CreateTruncating(source).get_Value() != decimalResults[index]) {
+                throw new AssertionError("Int32.Create Decimal conversion changed");
             }
         }
         java.lang.System.out.println("PASS external selected Int32 signed arithmetic");

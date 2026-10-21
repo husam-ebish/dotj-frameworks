@@ -1985,6 +1985,99 @@
       "truncated": 0
     }
   ],
+  "selectedInt32CreateFromDecimal": [
+    {
+      "value": "-79228162514264337593543950335",
+      "checkedValue": null,
+      "checkedError": "System.OverflowException",
+      "saturated": -2147483648,
+      "truncated": -2147483648
+    },
+    {
+      "value": "-2147483649",
+      "checkedValue": null,
+      "checkedError": "System.OverflowException",
+      "saturated": -2147483648,
+      "truncated": -2147483648
+    },
+    {
+      "value": "-2147483648.9",
+      "checkedValue": -2147483648,
+      "checkedError": null,
+      "saturated": -2147483648,
+      "truncated": -2147483648
+    },
+    {
+      "value": "-2147483648",
+      "checkedValue": -2147483648,
+      "checkedError": null,
+      "saturated": -2147483648,
+      "truncated": -2147483648
+    },
+    {
+      "value": "-3.9",
+      "checkedValue": -3,
+      "checkedError": null,
+      "saturated": -3,
+      "truncated": -3
+    },
+    {
+      "value": "-0.5",
+      "checkedValue": 0,
+      "checkedError": null,
+      "saturated": 0,
+      "truncated": 0
+    },
+    {
+      "value": "0",
+      "checkedValue": 0,
+      "checkedError": null,
+      "saturated": 0,
+      "truncated": 0
+    },
+    {
+      "value": "0.5",
+      "checkedValue": 0,
+      "checkedError": null,
+      "saturated": 0,
+      "truncated": 0
+    },
+    {
+      "value": "3.9",
+      "checkedValue": 3,
+      "checkedError": null,
+      "saturated": 3,
+      "truncated": 3
+    },
+    {
+      "value": "2147483647",
+      "checkedValue": 2147483647,
+      "checkedError": null,
+      "saturated": 2147483647,
+      "truncated": 2147483647
+    },
+    {
+      "value": "2147483647.9",
+      "checkedValue": 2147483647,
+      "checkedError": null,
+      "saturated": 2147483647,
+      "truncated": 2147483647
+    },
+    {
+      "value": "2147483648",
+      "checkedValue": null,
+      "checkedError": "System.OverflowException",
+      "saturated": 2147483647,
+      "truncated": 2147483647
+    },
+    {
+      "value": "79228162514264337593543950335",
+      "checkedValue": null,
+      "checkedError": "System.OverflowException",
+      "saturated": 2147483647,
+      "truncated": 2147483647
+    }
+  ],
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -25609,6 +25702,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "8191d78dafb8499bb75a97e37d212312b6e9453905951e55734b280c5894fb68",
+  "oracleProgramSha256": "329fce4b8e496c48b74853d5cdad3ffd3ace680455a8a35290bfda5095645e71",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

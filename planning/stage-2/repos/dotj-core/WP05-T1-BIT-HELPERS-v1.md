@@ -18,6 +18,8 @@ The same three methods also cover nine pinned `BigInteger` inputs, including val
 
 Fourteen pinned `Double` inputs cover fractions around both `Int32` bounds, infinities and `NaN`. Checked creation accepts values whose truncated result fits, while saturating and truncating creation follow the pinned `Double` clamping behavior. The packaged consumer checks all fourteen outcomes.
 
-Fourteen pinned `Single` inputs cover representable values around both `Int32` bounds, extrema, fractions, infinities and `NaN`. The packaged consumer checks the CLR observed checked, saturated and truncated results. Decimal and other numeric sources remain open.
+Fourteen pinned `Single` inputs cover representable values around both `Int32` bounds, extrema, fractions, infinities and `NaN`. The packaged consumer checks the CLR observed checked, saturated and truncated results.
+
+Thirteen pinned `Decimal` inputs cover both decimal extrema, fractional values around the `Int32` bounds and zero. The packaged consumer verifies checked overflow and fractional truncation; both saturating and truncating creation clamp out-of-range decimal inputs in the observed CLR implementation. Remaining numeric source types and generic interface constraints remain open.
 
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

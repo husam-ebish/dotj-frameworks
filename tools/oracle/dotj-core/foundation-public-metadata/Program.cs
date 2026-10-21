@@ -2322,6 +2322,25 @@ static object ObserveInt32CreateFromSingle()
         truncated = int.CreateTruncating(value),
     }).ToArray();
 }
+static int? ObserveInt32CreateCheckedFromDecimal(decimal value)
+{
+    try { return int.CreateChecked(value); }
+    catch (OverflowException) { return null; }
+}
+static object ObserveInt32CreateFromDecimal()
+{
+    decimal[] values = [decimal.MinValue, -2147483649m, -2147483648.9m,
+        -2147483648m, -3.9m, -0.5m, 0m, 0.5m, 3.9m,
+        2147483647m, 2147483647.9m, 2147483648m, decimal.MaxValue];
+    return values.Select(value => new
+    {
+        value = value.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        checkedValue = ObserveInt32CreateCheckedFromDecimal(value),
+        checkedError = ObserveMethodError(() => { _ = int.CreateChecked(value); }),
+        saturated = int.CreateSaturating(value),
+        truncated = int.CreateTruncating(value),
+    }).ToArray();
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2530,6 +2549,7 @@ var result = new
     selectedInt32CreateFromBigInteger = ObserveInt32CreateFromBigInteger(),
     selectedInt32CreateFromDouble = ObserveInt32CreateFromDouble(),
     selectedInt32CreateFromSingle = ObserveInt32CreateFromSingle(),
+    selectedInt32CreateFromDecimal = ObserveInt32CreateFromDecimal(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
