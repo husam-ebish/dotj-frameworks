@@ -555,6 +555,20 @@ var result = new
         isAssignableToValueType = typeof(byte).IsAssignableTo(typeof(ValueType)),
         typeCode = Type.GetTypeCode(typeof(byte)).ToString(),
     },
+    selectedPrimitiveLookupBehavior = new[]
+    {
+        "System.Boolean", "System.Char", "System.Byte", "System.Int16",
+        "System.Int64", "System.Single", "System.Double",
+    }.Select(name => new
+    {
+        name,
+        exact = Type.GetType(name)?.FullName,
+        lowerSensitive = Type.GetType(name.ToLowerInvariant(), false, false)?.FullName,
+        lowerInsensitive = Type.GetType(name.ToLowerInvariant(), false, true)?.FullName,
+        qualified = Type.GetType(name + ", System.Private.CoreLib")?.FullName,
+        qualifiedLowerInsensitive = Type.GetType(
+            (name + ", System.Private.CoreLib").ToLowerInvariant(), false, true)?.FullName,
+    }).ToArray(),
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),

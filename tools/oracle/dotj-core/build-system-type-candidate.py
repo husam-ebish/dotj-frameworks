@@ -967,6 +967,14 @@ def main():
         "isPrimitive": True, "isValueType": True, "isSealed": True, "isClass": False,
         "isAssignableToValueType": True, "typeCode": "Byte",
     }
+    primitive_lookup = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveLookupBehavior"]
+    assert [row["name"] for row in primitive_lookup] == [
+        "System.Boolean", "System.Char", "System.Byte", "System.Int16",
+        "System.Int64", "System.Single", "System.Double",
+    ]
+    assert all(row["exact"] == row["lowerInsensitive"] == row["qualified"]
+               == row["qualifiedLowerInsensitive"] == row["name"]
+               and row["lowerSensitive"] is None for row in primitive_lookup)
     parameter_attributes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterAttributeBehavior"]
     assert parameter_attributes == {
         "stringType": {"value": None, "exception": "System.InvalidOperationException"},
