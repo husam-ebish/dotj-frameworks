@@ -209,6 +209,24 @@ public final class TypeIdentityCandidateTest {
                 || freshCursor.MoveNext()) {
             throw new AssertionError("Fresh serialization enumeration changed");
         }
+        SerializationInfo emptyMembers = new SerializationInfo(dbnullType, selectedConverter);
+        SerializationInfoEnumerator emptyCursor = emptyMembers.GetEnumerator();
+        if (emptyCursor.MoveNext()) {
+            throw new AssertionError("Empty serialization cursor advanced");
+        }
+        emptyCursor.Reset();
+        if (emptyCursor.MoveNext()) {
+            throw new AssertionError("Reset empty serialization cursor advanced");
+        }
+        emptyMembers.AddValue("added", 1);
+        if (emptyMembers.get_MemberCount() != 1 || emptyCursor.MoveNext()) {
+            throw new AssertionError("Empty cursor changed after AddValue");
+        }
+        assertEnumeratorOutsideMember(emptyCursor);
+        SerializationInfoEnumerator afterEmptyAdd = emptyMembers.GetEnumerator();
+        if (!afterEmptyAdd.MoveNext() || !"added".equals(afterEmptyAdd.get_Name())) {
+            throw new AssertionError("Fresh cursor after empty AddValue changed");
+        }
         while (cursorBoundary.MoveNext()) {
             // Traverse both selected members.
         }
