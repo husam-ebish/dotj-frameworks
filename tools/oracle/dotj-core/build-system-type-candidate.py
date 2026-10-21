@@ -237,6 +237,12 @@ def main():
         "System.Collections.Generic.Dictionary`2+Entry[TKey,TValue]",
         "System.Collections.Generic.Dictionary`2+Entry[TKey,TValue][]",
     ]
+    nested_lookup = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedLookupBehavior"]
+    assert [row["resolved"] for row in nested_lookup] == [
+        "System.Collections.Generic.Dictionary`2+Entry",
+        "System.Collections.Generic.Dictionary`2+Entry[]",
+        "System.Collections.Generic.Dictionary`2+Entry",
+    ]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",

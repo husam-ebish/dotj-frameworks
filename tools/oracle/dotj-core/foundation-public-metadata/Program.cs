@@ -1050,6 +1050,16 @@ var result = new
         typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
             "Entry", System.Reflection.BindingFlags.NonPublic)!.MakeArrayType(),
     }.Select(type => new { name = type.FullName, text = type.ToString() }).ToArray(),
+    selectedNestedLookupBehavior = new[]
+    {
+        "System.Collections.Generic.Dictionary`2+Entry",
+        "System.Collections.Generic.Dictionary`2+Entry[]",
+        "system.collections.generic.dictionary`2+entry",
+    }.Select((name, index) => new
+    {
+        name,
+        resolved = Type.GetType(name, throwOnError: false, ignoreCase: index == 2)?.FullName,
+    }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
