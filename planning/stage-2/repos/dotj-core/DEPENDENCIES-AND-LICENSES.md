@@ -39,6 +39,8 @@ The built foundation candidate has a separate [technical rights-input inventory]
 
 [Local source introduction evidence](evidence/foundation-source-provenance-v1.json) records the first Git add event for each of the 30 Java files and verifies the current source hashes. None of their first 30 lines contains an SPDX identifier, copyright notice, or .NET Foundation name. These observations do not establish originality or resolve whether upstream notices apply to their contents.
 
+A [bounded upstream text comparison](evidence/foundation-upstream-text-comparison-v1.json) found zero common contiguous 12-identifier runs in four name-matched product/upstream source pairs (`Type`, `Exception`, `Int32`, `IDisposable`) at the pinned upstream commit. This screen does not inspect the other 26 product sources or transformed code and cannot determine notice applicability.
+
 Observed root metadata/license text is evidence, not a completed eligibility review. Resolve conditional/transitive dependencies, embedded assets, generated inputs and redistributable binaries before source reuse or release.
 
 | Retrieved notice/license | Immutable source |

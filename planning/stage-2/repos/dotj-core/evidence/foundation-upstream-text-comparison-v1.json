@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "scope": "Four name-matched pairs among 30 candidate Java sources; screening only",
+  "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+  "artifactEvidence": "foundation-product-candidate-v1.json",
+  "jarSha256": "cfd05fd5110c9cbe1d53f646ca607661f66d5120f7ecaeb2099437d474e911b3",
+  "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
+  "rows": [
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
+      "productSha256": "f05a5e0014020b737ec0bef81969307dee1cb5d2c6152bc11d0142d1ca44c3c2",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Type.cs",
+      "upstreamSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
+      "productIdentifierCount": 4143,
+      "upstreamIdentifierCount": 3542,
+      "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Exception.java",
+      "productSha256": "1cd5e6c44cbc1e452734508baec40df87471f77699159de56f7d84d3897dc9e1",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Exception.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Exception.cs",
+      "upstreamSha256": "3f44c5b9eb6851301091fc65ce6dd6671e1a750f8a7f120837bc09021ecf12ab",
+      "productIdentifierCount": 228,
+      "upstreamIdentifierCount": 919,
+      "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Int32.java",
+      "productSha256": "f9d232a137cadc4cf30a480976663df40826fe0c00b6490b92befcbdd0156c6e",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Int32.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Int32.cs",
+      "upstreamSha256": "0207e9a0260d6474fd85a47dee534eb34b92b8ecceddfbe67c95c12ec42f9b3b",
+      "productIdentifierCount": 1755,
+      "upstreamIdentifierCount": 5056,
+      "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/IDisposable.java",
+      "productSha256": "4a480be9caa88936b7c95aeeee4799edd072f47671488d44bc936a53fb8078e0",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/IDisposable.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/IDisposable.cs",
+      "upstreamSha256": "fcb8a99af86873e4c724c09f77002fd6770ea07c202fdb701c3432235e24beae",
+      "productIdentifierCount": 16,
+      "upstreamIdentifierCount": 426,
+      "sharedIdentifierShinglesOfLength12": 0
+    }
+  ],
+  "interpretationLimit": "This screen misses transformed or translated source, ignores other upstream files and dependencies, and cannot determine authorship, notice applicability, or release rights.",
+  "releaseQualification": "E01_OPEN"
+}
