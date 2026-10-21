@@ -223,6 +223,15 @@ def main():
         "System.Collections.Generic.List`1", None,
     ]
     assert all(row["reflectedType"] == row["declaringType"] for row in nested_owners)
+    nested_names = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedNameBehavior"]
+    assert nested_names == [
+        {"name": name, "fullName": full_name, "namespace": "System.Collections.Generic"}
+        for name, full_name in (
+            ("Entry", "System.Collections.Generic.Dictionary`2+Entry"),
+            ("KeyCollection", "System.Collections.Generic.Dictionary`2+KeyCollection"),
+            ("Enumerator", "System.Collections.Generic.List`1+Enumerator"),
+        )
+    ]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",
