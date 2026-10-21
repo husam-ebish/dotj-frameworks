@@ -1022,9 +1022,158 @@
       "declaredPublicPropertyCount": 0,
       "selectedMethods": [
         {
+          "name": "GetTypeCode",
+          "isStatic": false,
+          "returnType": "System.TypeCode",
+          "parameters": []
+        },
+        {
+          "name": "ToBoolean",
+          "isStatic": false,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToChar",
+          "isStatic": false,
+          "returnType": "System.Char",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToSByte",
+          "isStatic": false,
+          "returnType": "System.SByte",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToByte",
+          "isStatic": false,
+          "returnType": "System.Byte",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToInt16",
+          "isStatic": false,
+          "returnType": "System.Int16",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToUInt16",
+          "isStatic": false,
+          "returnType": "System.UInt16",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
           "name": "ToInt32",
           "isStatic": false,
           "returnType": "System.Int32",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToUInt32",
+          "isStatic": false,
+          "returnType": "System.UInt32",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToInt64",
+          "isStatic": false,
+          "returnType": "System.Int64",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToUInt64",
+          "isStatic": false,
+          "returnType": "System.UInt64",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToSingle",
+          "isStatic": false,
+          "returnType": "System.Single",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToDouble",
+          "isStatic": false,
+          "returnType": "System.Double",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToDecimal",
+          "isStatic": false,
+          "returnType": "System.Decimal",
+          "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToDateTime",
+          "isStatic": false,
+          "returnType": "System.DateTime",
           "parameters": [
             {
               "name": "provider",
@@ -1037,6 +1186,21 @@
           "isStatic": false,
           "returnType": "System.String",
           "parameters": [
+            {
+              "name": "provider",
+              "type": "System.IFormatProvider"
+            }
+          ]
+        },
+        {
+          "name": "ToType",
+          "isStatic": false,
+          "returnType": "System.Object",
+          "parameters": [
+            {
+              "name": "conversionType",
+              "type": "System.Type"
+            },
             {
               "name": "provider",
               "type": "System.IFormatProvider"
@@ -1777,6 +1941,6 @@
       ]
     }
   ],
-  "oracleProgramSha256": "0da3b504eccc534464fc71229e55617e6f7e8db1a6a760e68f2a4e26c8bd8fbb",
+  "oracleProgramSha256": "8875405f2031ff201f77872bc28478c03529345eacfd71d9ab58e2423caa7735",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "30937d7d3e1cb1b2eec0462531167526a8f69b99cb9c6baaea0e5a011ee3df6a",
+  "candidateJarSha256": "6a3cb254a3ce7dac880c6df8785f9f54fa948f433e0053e47e9dbe2dbba9d031",
   "typeCount": 16,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -82,10 +82,21 @@
       "javaPublicConstructors": 0,
       "javaPublicHeader": "public interface System.IConvertible {",
       "javaPublicDeclarations": [
+        "public abstract boolean ToBoolean(System.IFormatProvider);",
+        "public abstract char ToChar(System.IFormatProvider);",
+        "public abstract byte ToSByte(System.IFormatProvider);",
+        "public abstract short ToByte(System.IFormatProvider);",
+        "public abstract short ToInt16(System.IFormatProvider);",
+        "public abstract int ToUInt16(System.IFormatProvider);",
         "public abstract int ToInt32(System.IFormatProvider);",
+        "public abstract long ToUInt32(System.IFormatProvider);",
+        "public abstract long ToInt64(System.IFormatProvider);",
+        "public abstract java.math.BigInteger ToUInt64(System.IFormatProvider);",
+        "public abstract float ToSingle(System.IFormatProvider);",
+        "public abstract double ToDouble(System.IFormatProvider);",
         "public abstract java.lang.String ToString(System.IFormatProvider);"
       ],
-      "disposition": "PARTIAL_INTERFACE_SURFACE; 2 of 17 methods; conversion behavior unqualified",
+      "disposition": "PARTIAL_INTERFACE_SURFACE; 13 of 17 methods; conversion behavior unqualified",
       "qualified": false
     },
     {
