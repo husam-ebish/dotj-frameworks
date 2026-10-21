@@ -288,6 +288,27 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned identity error.
             }
         }
+        if (Type.GetType("System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=null, ProcessorArchitecture=MSIL, Retargetable=No, ContentType=WindowsRuntime") != string) {
+            throw new AssertionError("Selected combined assembly identity rejected");
+        }
+        for (String malformedCombination : new String[] {
+                "System.String, System.Private.CoreLib, Version=banana, Culture=123",
+                "System.String, System.Private.CoreLib, Culture=123, Version=banana",
+                "System.String, Missing.Assembly, Version=banana",
+                "System.String, System.Private.CoreLib, ContentType=Default, Version=banana"}) {
+            try {
+                Type.GetType(malformedCombination);
+                throw new AssertionError("Malformed combined identity accepted: " + malformedCombination);
+            } catch (FileLoadException expected) {
+                // Selected malformed attribute error precedes culture or binder errors.
+            }
+        }
+        try {
+            Type.GetType("System.String, Missing.Assembly, Version=banana", true);
+            throw new AssertionError("Malformed unknown assembly accepted with throwOnError");
+        } catch (FileLoadException expected) {
+            // Selected malformed-attribute precedence.
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

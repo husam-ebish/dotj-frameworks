@@ -472,6 +472,13 @@ def main():
         **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
            for key in ("defaultValue", "lowerDefault", "unknown", "numeric", "duplicate")},
     }
+    mixed_identity = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedMixedAssemblyIdentityBehavior"]
+    assert mixed_identity == {
+        "allValid": {"result": "System.String", "exception": None, "paramName": None},
+        **{key: {"result": None, "exception": "System.IO.FileLoadException", "paramName": None}
+           for key in ("invalidVersionFirst", "invalidCultureFirst", "unknownAssemblyInvalidVersion",
+                       "unknownAssemblyInvalidVersionThrow", "invalidContentFirst")},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"
