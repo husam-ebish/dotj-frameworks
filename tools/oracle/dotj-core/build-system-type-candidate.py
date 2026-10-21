@@ -451,6 +451,12 @@ def main():
         "format": "System.FormatException",
         "nullValue": "System.ArgumentNullException",
     }
+    decimal_routes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDecimalFormatterRoutesBehavior"]
+    assert decimal_routes == {
+        "text": "12.5", "type": "12.5", "typeCode": "12.5",
+        "integer": "42", "format": "System.FormatException",
+        "nullValue": "System.ArgumentNullException",
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

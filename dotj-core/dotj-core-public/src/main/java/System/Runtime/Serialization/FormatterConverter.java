@@ -73,6 +73,9 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.UInt64".equals(name)) {
             return ToUInt64(value);
         }
+        if ("System.Decimal".equals(name)) {
+            return ToDecimal(value);
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -94,6 +97,7 @@ public final class FormatterConverter implements IFormatterConverter {
             case Int16 -> ToInt16(value);
             case Single -> ToSingle(value);
             case UInt64 -> ToUInt64(value);
+            case Decimal -> ToDecimal(value);
             default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
         };
     }
@@ -139,6 +143,12 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public Decimal ToDecimal(Object value) {
+        if (value instanceof String text) {
+            return Decimal.Parse(text);
+        }
+        if (value instanceof Decimal decimal) {
+            return decimal;
+        }
         return convertible(value).ToDecimal(null);
     }
 
