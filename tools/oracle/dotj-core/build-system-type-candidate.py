@@ -77,7 +77,7 @@ def main():
     properties = {item["Name"] for item in metadata["properties"]}
     assert {"GenericTypeArguments", "IsGenericType", "IsConstructedGenericType",
             "IsGenericParameter", "GenericParameterPosition", "IsArray", "IsByRef", "IsPointer",
-            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed", "IsPublic",
+            "FullName", "Namespace", "BaseType", "IsClass", "IsValueType", "IsPrimitive", "IsAbstract", "IsSealed", "IsPublic", "IsVisible",
             "IsInterface", "IsEnum"} <= properties
     observed = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGetTypeBehavior"]
     expected = {
@@ -217,6 +217,17 @@ def main():
     assert public[7]["name"].startswith("System.Collections.Generic.List`1[[System.String,")
     assert [item["name"] for item in public[8:]] == ["System.String[]", "System.String&"]
     assert [item["isPublic"] for item in public] == [True] * 10
+    visible = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedVisibleBehavior"]
+    assert [item["name"] for item in visible[:6]] == [
+        "System.Object", "System.String", "System.Int32", "System.Type",
+        "System.IDisposable", "System.Collections.Generic.List`1",
+    ]
+    assert visible[6]["name"].startswith("System.Collections.Generic.List`1[[System.String,")
+    assert [item["name"] for item in visible[7:]] == [
+        "System.String[]", "System.String&", "System.String*", "T",
+    ]
+    assert [item["isVisible"] for item in visible] == [True] * 11
+    assert [item["isPublic"] for item in visible] == [True] * 11
     enum_base = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumBaseBehavior"]
     assert enum_base == {
         "enumBase": "System.Enum", "baseBase": "System.ValueType",
@@ -478,6 +489,7 @@ def main():
         "public boolean get_IsAbstract();",
         "public boolean get_IsSealed();",
         "public boolean get_IsPublic();",
+        "public boolean get_IsVisible();",
         "public boolean get_IsClass();",
         "public boolean get_IsInterface();",
         "public boolean get_IsEnum();",

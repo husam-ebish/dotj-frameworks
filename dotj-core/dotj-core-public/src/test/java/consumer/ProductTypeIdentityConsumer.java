@@ -260,6 +260,14 @@ public final class ProductTypeIdentityConsumer {
                 || !byReference.get_IsPublic()) {
             throw new AssertionError("Selected public type flags changed");
         }
+        if (!object.get_IsVisible() || !string.get_IsVisible()
+                || !integer.get_IsVisible() || !Type.GetType("System.Type").get_IsVisible()
+                || !disposalType.get_IsVisible() || !definition.get_IsVisible()
+                || !first.get_IsVisible() || !Type.GetType("System.String[]").get_IsVisible()
+                || !byReference.get_IsVisible() || !pointer.get_IsVisible()
+                || !parameter.get_IsVisible() || !parameter.get_IsPublic()) {
+            throw new AssertionError("Selected visible type flags changed");
+        }
         if (disposalType == null || memberTypesType == null
                 || !disposalType.get_IsInterface() || disposalType.get_IsClass()
                 || disposalType.get_IsValueType() || disposalType.get_IsEnum()

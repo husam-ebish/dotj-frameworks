@@ -428,7 +428,13 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsPublic() {
-        return this.parameterIndex < 0;
+        return this.parameterIndex >= 0 || this instanceof ArrayType
+                || this.get_IsByRef() || this.get_IsPointer()
+                || java.lang.reflect.Modifier.isPublic(this.definition.getModifiers());
+    }
+
+    public boolean get_IsVisible() {
+        return this.get_IsPublic();
     }
 
     public boolean get_IsClass() {
