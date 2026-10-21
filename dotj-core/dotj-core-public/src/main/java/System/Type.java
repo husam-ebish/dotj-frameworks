@@ -128,6 +128,7 @@ public abstract class Type extends MemberInfo {
             case "System.DateTime" -> fromJavaClass(DateTime.class);
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
             case "System.InvalidCastException" -> fromJavaClass(InvalidCastException.class);
+            case "System.InvalidOperationException" -> fromJavaClass(InvalidOperationException.class);
             case "System.FormatException" -> fromJavaClass(FormatException.class);
             case "System.Globalization.NumberStyles" -> fromJavaClass(NumberStyles.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
@@ -258,7 +259,7 @@ public abstract class Type extends MemberInfo {
 
     public Type GetGenericTypeDefinition() {
         if (this.parameterIndex >= 0 || this.definition.getTypeParameters().length == 0) {
-            throw new IllegalStateException("Not a generic type");
+            throw new InvalidOperationException("Not a generic type");
         }
         return fromJavaClass(this.definition);
     }

@@ -18,6 +18,7 @@ import System.DateTime;
 import System.Int32;
 import System.OverflowException;
 import System.InvalidCastException;
+import System.InvalidOperationException;
 import System.FormatException;
 import System.Globalization.NumberStyles;
 import System.ISpanFormattable;
@@ -201,6 +202,15 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("External Type identity call changed");
         }
         Type parameter = definition.GetGenericArguments()[0];
+        for (Type nonGeneric : new Type[] {Type.GetType("System.Object"), string,
+                parameter, Type.GetType("System.String[]")}) {
+            try {
+                nonGeneric.GetGenericTypeDefinition();
+                throw new AssertionError("Non-generic type accepted as a generic definition");
+            } catch (InvalidOperationException expected) {
+                // Selected pinned error type.
+            }
+        }
         Type dictionaryDefinition = Type.GetType("System.Collections.Generic.Dictionary`2");
         Type dictionaryConstructed = dictionaryDefinition.MakeGenericType(new Type[] {string, integer});
         if (Type.GetType("System.Object").get_IsGenericTypeDefinition()
