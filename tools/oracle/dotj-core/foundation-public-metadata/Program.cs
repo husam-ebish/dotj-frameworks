@@ -345,6 +345,7 @@ var result = new
         (typeof(IComparable), typeof(string)),
         (typeof(IFormattable), typeof(int)),
         (typeof(IConvertible), typeof(int)),
+        (typeof(IComparable), typeof(int)),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -388,6 +389,7 @@ var result = new
         (typeof(IComparable), "text"),
         (typeof(IFormattable), 42),
         (typeof(IConvertible), 42),
+        (typeof(IComparable), 42),
     }.Select(pair => new
     {
         target = pair.Target.FullName,
@@ -398,6 +400,7 @@ var result = new
     {
         objectInterfaces = typeof(object).GetInterfaces().Select(type => type.FullName).ToArray(),
         disposableInterfaces = typeof(IDisposable).GetInterfaces().Select(type => type.FullName).ToArray(),
+        intInterfaces = typeof(int).GetInterfaces().Select(type => type.FullName).ToArray(),
         objectMiss = ObserveInterface(typeof(object), "System.IDisposable", false),
         disposableSelf = ObserveInterface(typeof(IDisposable), "System.IDisposable", false),
         emptyName = ObserveInterface(typeof(IDisposable), "", false),
@@ -416,6 +419,9 @@ var result = new
         intConvertibleShort = ObserveInterface(typeof(int), "IConvertible", false),
         intConvertibleLower = ObserveInterface(typeof(int), "system.iconvertible", true),
         objectConvertibleMiss = ObserveInterface(typeof(object), "System.IConvertible", false),
+        intComparable = ObserveInterface(typeof(int), "System.IComparable", false),
+        intComparableShort = ObserveInterface(typeof(int), "IComparable", false),
+        intComparableLower = ObserveInterface(typeof(int), "system.icomparable", true),
     },
     types = selected.Select(type => new
     {

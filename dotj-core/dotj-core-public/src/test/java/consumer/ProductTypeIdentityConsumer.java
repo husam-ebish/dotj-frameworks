@@ -338,6 +338,13 @@ public final class ProductTypeIdentityConsumer {
                 || !formattableType.IsInstanceOfType(42)) {
             throw new AssertionError("Selected formatting interface contract changed");
         }
+        if (integer.GetInterface("System.IComparable") != comparableType
+                || integer.GetInterface("IComparable") != comparableType
+                || integer.GetInterface("system.icomparable", true) != null
+                || !comparableType.IsAssignableFrom(integer)
+                || !comparableType.IsInstanceOfType(42)) {
+            throw new AssertionError("Selected Int32 IComparable query changed");
+        }
         IConvertible convertible = new IConvertible() {
             public TypeCode GetTypeCode() { return TypeCode.Int32; }
             public boolean ToBoolean(IFormatProvider formatProvider) { return true; }

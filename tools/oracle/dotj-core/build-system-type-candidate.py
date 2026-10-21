@@ -206,7 +206,7 @@ def main():
     assignability = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedAssignability"]
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,
-        True, False, False, True, False, True, True, True,
+        True, False, False, True, False, True, True, True, True,
     ]
     subclass = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSubclassBehavior"]
     assert [item["observation"]["result"] for item in subclass] == [
@@ -217,7 +217,7 @@ def main():
     instances = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInstanceBehavior"]
     assert [item["result"] for item in instances] == [
         True, True, False, True, False, True, False, True, True, True, True,
-        True, False, False, True, True, True,
+        True, False, False, True, True, True, True,
     ]
     interfaces = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInterfaceBehavior"]
     assert interfaces["objectInterfaces"] == interfaces["disposableInterfaces"] == []
@@ -239,6 +239,13 @@ def main():
     assert interfaces["intConvertibleShort"]["result"] == "System.IConvertible"
     assert interfaces["intConvertibleLower"]["result"] is None
     assert interfaces["objectConvertibleMiss"]["result"] is None
+    assert len(interfaces["intInterfaces"]) == 32
+    assert interfaces["intInterfaces"][:4] == [
+        "System.IComparable", "System.IConvertible", "System.ISpanFormattable",
+        "System.IFormattable"]
+    assert interfaces["intComparable"]["result"] == "System.IComparable"
+    assert interfaces["intComparableShort"]["result"] == "System.IComparable"
+    assert interfaces["intComparableLower"]["result"] is None
     array_observations = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedArrayBehavior"]
     assert [(item["IsArray"], item["rank"], item["error"]) for item in array_observations] == [
         (False, None, "System.ArgumentException"),
