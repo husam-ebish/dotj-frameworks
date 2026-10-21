@@ -432,6 +432,13 @@ def main():
            for key in ("versionComma", "tokenComma")},
         "cultureComma": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
     }
+    escaped_quotes = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEscapedAssemblyQuoteBehavior"]
+    assert escaped_quotes == {
+        **{key: {"result": "System.String", "exception": None, "paramName": None}
+           for key in ("unknownBackslashQuote", "unknownBackslash")},
+        "unknownDoubledQuote": {"result": None, "exception": "System.IO.FileLoadException", "paramName": None},
+        "cultureBackslashQuote": {"result": None, "exception": "System.Globalization.CultureNotFoundException", "paramName": "name"},
+    }
     contains_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedContainsGenericParametersBehavior"]
     assert contains_parameters[0]["name"] == "System.Object"
     assert contains_parameters[1]["name"] == "System.Collections.Generic.List`1"

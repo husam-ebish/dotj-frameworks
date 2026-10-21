@@ -197,6 +197,26 @@ public final class ProductTypeIdentityConsumer {
                 throw new AssertionError("Comma culture parameter changed", expected);
             }
         }
+        for (String escapedUnknown : new String[] {
+                "UnknownAttr=\"a\\\"b\"", "UnknownAttr=\"a\\\\b\""}) {
+            if (Type.GetType("System.String, System.Private.CoreLib, " + escapedUnknown) != string) {
+                throw new AssertionError("Selected escaped unknown value rejected: " + escapedUnknown);
+            }
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, UnknownAttr=\"a\"\"b\"");
+            throw new AssertionError("Doubled quoted value accepted");
+        } catch (FileLoadException expected) {
+            // Selected pinned quote syntax error.
+        }
+        try {
+            Type.GetType("System.String, System.Private.CoreLib, Culture=\"en\\\"US\"");
+            throw new AssertionError("Escaped quote culture accepted");
+        } catch (CultureNotFoundException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Escaped quote culture parameter changed", expected);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

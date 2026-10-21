@@ -152,6 +152,7 @@ public abstract class Type extends MemberInfo {
                             || key.equals("publickeytoken");
                     if (attribute.length != 2 || value.isEmpty() && !quotedValue
                             || extraEquals && (!quotedValue || recognized)
+                            || value.contains("\"\"")
                             || !quotedValue && value.indexOf('"') >= 0
                             || recognized && !seen.add(key)
                             || key.equals("version") && !value.matches("[0-9]+(\\.[0-9]+){1,3}")
@@ -167,7 +168,7 @@ public abstract class Type extends MemberInfo {
                         }
                     }
                     if (key.equals("culture") && (value.matches("[0-9]+")
-                            || value.contains(" ") || value.contains(","))) {
+                            || value.contains(" ") || value.contains(",") || value.contains("\""))) {
                         throw new CultureNotFoundException("name", value, "Culture is not supported");
                     }
                 }

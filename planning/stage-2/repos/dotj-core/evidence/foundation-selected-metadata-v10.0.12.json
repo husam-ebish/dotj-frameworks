@@ -1572,6 +1572,28 @@
       "paramName": null
     }
   },
+  "selectedEscapedAssemblyQuoteBehavior": {
+    "unknownBackslashQuote": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "unknownDoubledQuote": {
+      "result": null,
+      "exception": "System.IO.FileLoadException",
+      "paramName": null
+    },
+    "unknownBackslash": {
+      "result": "System.String",
+      "exception": null,
+      "paramName": null
+    },
+    "cultureBackslashQuote": {
+      "result": null,
+      "exception": "System.Globalization.CultureNotFoundException",
+      "paramName": "name"
+    }
+  },
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -4998,6 +5020,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "0a915791692c34f42ffa505c210f481db5e70a092400033416fd829ce138918c",
+  "oracleProgramSha256": "26fb70240e77851fa0ea482262f3f09cee6319ed4636688b8710ed584b88dfd4",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
