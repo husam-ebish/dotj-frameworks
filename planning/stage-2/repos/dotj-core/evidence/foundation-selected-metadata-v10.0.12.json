@@ -24722,6 +24722,208 @@
       ]
     }
   ],
+  "selectedDecimalFloorCeiling": [
+    {
+      "input": [
+        12345,
+        0,
+        0,
+        131072
+      ],
+      "floor": [
+        123,
+        0,
+        0,
+        0
+      ],
+      "ceiling": [
+        124,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        12345,
+        0,
+        0,
+        -2147352576
+      ],
+      "floor": [
+        124,
+        0,
+        0,
+        -2147483648
+      ],
+      "ceiling": [
+        123,
+        0,
+        0,
+        -2147483648
+      ]
+    },
+    {
+      "input": [
+        99,
+        0,
+        0,
+        131072
+      ],
+      "floor": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ceiling": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        99,
+        0,
+        0,
+        -2147352576
+      ],
+      "floor": [
+        1,
+        0,
+        0,
+        -2147483648
+      ],
+      "ceiling": [
+        0,
+        0,
+        0,
+        -2147483648
+      ]
+    },
+    {
+      "input": [
+        0,
+        0,
+        0,
+        -2147352576
+      ],
+      "floor": [
+        0,
+        0,
+        0,
+        -2147483648
+      ],
+      "ceiling": [
+        0,
+        0,
+        0,
+        -2147483648
+      ]
+    },
+    {
+      "input": [
+        1,
+        0,
+        0,
+        1835008
+      ],
+      "floor": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "ceiling": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "floor": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "ceiling": [
+        -1,
+        -1,
+        -1,
+        0
+      ]
+    },
+    {
+      "input": [
+        -1,
+        -1,
+        -1,
+        -2147483648
+      ],
+      "floor": [
+        -1,
+        -1,
+        -1,
+        -2147483648
+      ],
+      "ceiling": [
+        -1,
+        -1,
+        -1,
+        -2147483648
+      ]
+    },
+    {
+      "input": [
+        12300,
+        0,
+        0,
+        131072
+      ],
+      "floor": [
+        123,
+        0,
+        0,
+        0
+      ],
+      "ceiling": [
+        123,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        1,
+        0,
+        0,
+        -2147352576
+      ],
+      "floor": [
+        1,
+        0,
+        0,
+        -2147483648
+      ],
+      "ceiling": [
+        0,
+        0,
+        0,
+        -2147483648
+      ]
+    }
+  ],
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -28218,6 +28420,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "2ebadf0aa9c340b45b93c7b0d8ac928550bc60d1112dfb793922b134782b44eb",
+  "oracleProgramSha256": "8bb020b4b4713cb97010155f31eb24e9155ea5065e988303238ada2ed4cae189",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -142,6 +142,8 @@ def main():
                                     "public System.Decimal(int, int, int, boolean, int);",
                                     "public static int[] GetBits(System.Decimal);",
                                     "public static System.Decimal Truncate(System.Decimal);",
+                                    "public static System.Decimal Floor(System.Decimal);",
+                                    "public static System.Decimal Ceiling(System.Decimal);",
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",

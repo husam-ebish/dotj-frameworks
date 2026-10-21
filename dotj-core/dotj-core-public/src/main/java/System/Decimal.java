@@ -74,10 +74,22 @@ public final class Decimal implements IConvertible {
     }
 
     public static Decimal Truncate(Decimal value) {
+        return roundIntegral(value, RoundingMode.DOWN);
+    }
+
+    public static Decimal Floor(Decimal value) {
+        return roundIntegral(value, RoundingMode.FLOOR);
+    }
+
+    public static Decimal Ceiling(Decimal value) {
+        return roundIntegral(value, RoundingMode.CEILING);
+    }
+
+    private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
         }
-        BigDecimal result = value.value.setScale(0, RoundingMode.DOWN);
+        BigDecimal result = value.value.setScale(0, mode);
         boolean negativeZero = result.signum() == 0
                 && (value.value.signum() < 0 || value.negativeZero);
         return new Decimal(result, negativeZero);
