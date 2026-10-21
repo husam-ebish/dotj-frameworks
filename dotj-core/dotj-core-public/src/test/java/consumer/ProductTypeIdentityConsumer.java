@@ -369,6 +369,18 @@ public final class ProductTypeIdentityConsumer {
                 // Selected pinned PublicKey parse error.
             }
         }
+        for (String conflictingKeys : new String[] {
+                "PublicKey=null, PublicKeyToken=null", "PublicKey=00, PublicKeyToken=null",
+                "PublicKeyToken=null, PublicKey=00",
+                "PublicKey=00, PublicKeyToken=7cec85d7bea7798e",
+                "PublicKeyToken=null, PublicKey=xyz", "PublicKeyToken=xyz, PublicKey=00"}) {
+            try {
+                Type.GetType("System.String, System.Private.CoreLib, " + conflictingKeys);
+                throw new AssertionError("Conflicting key and token accepted: " + conflictingKeys);
+            } catch (FileLoadException expected) {
+                // Selected pinned mutually exclusive identity attributes.
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

@@ -807,6 +807,15 @@ var result = new
         nonHex = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=gg", false, false),
         upperNull = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=NULL", false, false),
     },
+    selectedPublicKeyTokenInteractionBehavior = new
+    {
+        bothNull = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=null, PublicKeyToken=null", false, false),
+        keyThenNullToken = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=00, PublicKeyToken=null", false, false),
+        tokenThenKey = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=null, PublicKey=00", false, false),
+        keyThenToken = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=00, PublicKeyToken=7cec85d7bea7798e", false, false),
+        tokenThenInvalidKey = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=null, PublicKey=xyz", false, false),
+        invalidTokenThenKey = ObserveGetType("System.String, System.Private.CoreLib, PublicKeyToken=xyz, PublicKey=00", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
