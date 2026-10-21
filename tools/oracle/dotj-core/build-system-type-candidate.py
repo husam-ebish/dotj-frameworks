@@ -870,6 +870,26 @@ def main():
             if item["name"] == "DivRem" and not item["isSpecialName"]} == {
                 "System.ValueTuple`2[System.Int32,System.Int32] DivRem(Int32, Int32)",
             }
+    assert foundation["selectedInt32CreateFromInt64"] == [
+        {"value": source, "checkedValue": checked, "checkedError": error,
+         "saturated": saturated, "truncated": truncated}
+        for source, checked, error, saturated, truncated in [
+            (-9223372036854775808, None, "System.OverflowException", -2147483648, 0),
+            (-2147483649, None, "System.OverflowException", -2147483648, 2147483647),
+            (-2147483648, -2147483648, None, -2147483648, -2147483648),
+            (-3, -3, None, -3, -3), (0, 0, None, 0, 0), (3, 3, None, 3, 3),
+            (2147483647, 2147483647, None, 2147483647, 2147483647),
+            (2147483648, None, "System.OverflowException", 2147483647, -2147483648),
+            (9223372036854775807, None, "System.OverflowException", 2147483647, -1),
+        ]
+    ]
+    assert {item["signature"] for item in int32_surface["methods"]
+            if item["name"] in {"CreateChecked", "CreateSaturating", "CreateTruncating"}
+            and not item["isSpecialName"]} == {
+                "Int32 CreateChecked[TOther](TOther)",
+                "Int32 CreateSaturating[TOther](TOther)",
+                "Int32 CreateTruncating[TOther](TOther)",
+            }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

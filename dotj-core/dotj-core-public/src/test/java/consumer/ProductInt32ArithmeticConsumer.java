@@ -129,6 +129,32 @@ public final class ProductInt32ArithmeticConsumer {
                 || !"System.ValueTuple`2".equals(tuple.get_FullName())) {
             throw new AssertionError("ValueTuple`2 type identity changed");
         }
+        long[][] creates = {
+                {Long.MIN_VALUE, 0, Integer.MIN_VALUE, 0, 1},
+                {(long)Integer.MIN_VALUE - 1, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 1},
+                {Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, 0},
+                {-3, -3, -3, -3, 0}, {0, 0, 0, 0, 0}, {3, 3, 3, 3, 0},
+                {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 0},
+                {(long)Integer.MAX_VALUE + 1, 0, Integer.MAX_VALUE, Integer.MIN_VALUE, 1},
+                {Long.MAX_VALUE, 0, Integer.MAX_VALUE, -1, 1},
+        };
+        for (long[] expected : creates) {
+            long source = expected[0];
+            if (expected[4] == 1) {
+                expectOverflow(() -> Int32.CreateChecked(source));
+            } else if (Int32.CreateChecked(source).get_Value() != (int)expected[1]) {
+                throw new AssertionError("Int32.CreateChecked changed");
+            }
+            if (Int32.CreateSaturating(source).get_Value() != (int)expected[2]
+                    || Int32.CreateTruncating(source).get_Value() != (int)expected[3]) {
+                throw new AssertionError("Int32.Create conversion changed");
+            }
+        }
+        if (Int32.CreateChecked(new Int32(42)).get_Value() != 42
+                || Int32.CreateSaturating(42).get_Value() != 42
+                || Int32.CreateTruncating(42).get_Value() != 42) {
+            throw new AssertionError("Selected Int32.Create self conversion changed");
+        }
         java.lang.System.out.println("PASS external selected Int32 signed arithmetic");
     }
 

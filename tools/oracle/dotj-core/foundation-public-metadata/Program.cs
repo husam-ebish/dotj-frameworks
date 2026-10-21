@@ -2246,6 +2246,20 @@ static object ObserveInt32DivRem()
         overflowMessage = new OverflowException().Message,
     };
 }
+static object ObserveInt32CreateFromInt64()
+{
+    long[] values = [long.MinValue, (long)int.MinValue - 1, int.MinValue, -3,
+        0, 3, int.MaxValue, (long)int.MaxValue + 1, long.MaxValue];
+    return values.Select(value => new
+    {
+        value,
+        checkedValue = value >= int.MinValue && value <= int.MaxValue
+            ? (int?)int.CreateChecked(value) : null,
+        checkedError = ObserveMethodError(() => { _ = int.CreateChecked(value); }),
+        saturated = int.CreateSaturating(value),
+        truncated = int.CreateTruncating(value),
+    }).ToArray();
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2450,6 +2464,7 @@ var result = new
     selectedInt32SignedArithmetic = ObserveInt32SignedArithmetic(),
     selectedInt32ValueIdentityAndBigMul = ObserveInt32ValueIdentityAndBigMul(),
     selectedInt32DivRem = ObserveInt32DivRem(),
+    selectedInt32CreateFromInt64 = ObserveInt32CreateFromInt64(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

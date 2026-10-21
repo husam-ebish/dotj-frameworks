@@ -12,4 +12,6 @@ The selected value identity slice adds both `Equals` overloads and `GetHashCode`
 
 The selected `DivRem(Int32, Int32)` slice returns a `ValueTuple<Int32, Int32>` with writable `Item1` quotient and `Item2` remainder fields. The oracle and packaged consumer check five signed division pairs, divide-by-zero and minimum-value overflow. `DivideByZeroException` and `OverflowException` inherit `ArithmeticException`; their default messages and HRESULTs are pinned. The Java tuple remains a reference carrier, so CLR value-type ABI and general tuple behavior remain open.
 
+The selected generic `CreateChecked`, `CreateSaturating` and `CreateTruncating` slice covers nine `Int64` inputs across both `Int32` bounds, with checked overflow, saturation and low-bit truncation pinned by the CLR oracle. The Java candidate also accepts its own `Int32` carrier and Java `Integer`; other `INumberBase<TOther>` inputs, generic constraints and full cross-numeric behavior remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

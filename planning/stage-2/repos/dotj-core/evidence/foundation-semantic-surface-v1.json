@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "f321a952a5d3d7a36b769bad090d162621d67bf852c1dd7ead2fa04cfa47825d",
+  "oracleEvidenceSha256": "7c284ce992529a3bc48efba349a603817b6371c4a04ca3976786a357bce6bb45",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "774183e3a2d5037cdce9058ee19b2436c5c095e9f1a97b5dc4a4001c7516347c",
+  "javaCandidateEvidenceSha256": "6a79421326590637f2e1eb3cbd3b434d254a28637253ca93734807619f1b8bf7",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 116,
+  "nameLevelMissingMethodCount": 113,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -7146,6 +7146,9 @@
         "public static System.Int32 CopySign(System.Int32, System.Int32);",
         "public static long BigMul(System.Int32, System.Int32);",
         "public static System.ValueTuple<System.Int32, System.Int32> DivRem(System.Int32, System.Int32);",
+        "public static <TOther> System.Int32 CreateChecked(TOther);",
+        "public static <TOther> System.Int32 CreateSaturating(TOther);",
+        "public static <TOther> System.Int32 CreateTruncating(TOther);",
         "public boolean Equals(System.Int32);",
         "public boolean Equals(java.lang.Object);",
         "public System.Int32 GetHashCode();",
@@ -7214,6 +7217,9 @@
           "Clamp": 1,
           "CompareTo": 1,
           "CopySign": 1,
+          "CreateChecked": 1,
+          "CreateSaturating": 1,
+          "CreateTruncating": 1,
           "DivRem": 1,
           "Equals": 2,
           "GetHashCode": 1,
@@ -7257,11 +7263,7 @@
           "get_Value": 1,
           "hashCode": 1
         },
-        "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "CreateChecked",
-          "CreateSaturating",
-          "CreateTruncating"
-        ],
+        "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
