@@ -606,6 +606,19 @@ var result = new
         negative = ((IFormattable)(-12345)).ToString("0,.##",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32QuotedLiteralBehavior = new
+    {
+        prefix = ((IFormattable)42).ToString("'item '0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        suffix = ((IFormattable)42).ToString("0' units'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        both = ((IFormattable)42).ToString("'['0']'",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negative = ((IFormattable)(-42)).ToString("'item '0",
+            System.Globalization.CultureInfo.InvariantCulture),
+        zero = ((IFormattable)0).ToString("'item '0",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

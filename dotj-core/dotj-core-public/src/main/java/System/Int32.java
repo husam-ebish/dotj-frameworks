@@ -247,6 +247,16 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             return scaled;
         }
+        if (format.equals("'item '0") || format.equals("0' units'")
+                || format.equals("'['0']'")) {
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            String sign = this.value < 0 ? "-" : "";
+            if (format.equals("'item '0")) {
+                return sign + "item " + digits;
+            }
+            return format.equals("0' units'")
+                    ? sign + digits + " units" : sign + "[" + digits + "]";
+        }
         if (format.matches("0+")) {
             String digits = BigInteger.valueOf(this.value).abs().toString();
             String sign = this.value < 0 ? "-" : "";
