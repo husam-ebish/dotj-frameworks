@@ -5,6 +5,10 @@ package System.Runtime.Serialization;
 import System.ArgumentNullException;
 import System.DateTime;
 import System.DBNull;
+import System.Byte;
+import System.SByte;
+import System.UInt16;
+import System.UInt32;
 import System.Decimal;
 import System.FormatException;
 import System.IConvertible;
@@ -57,16 +61,16 @@ public final class FormatterConverter implements IFormatterConverter {
             return ToDouble(value);
         }
         if ("System.Byte".equals(name)) {
-            return ToByte(value);
+            return new Byte(ToByte(value));
         }
         if ("System.SByte".equals(name)) {
-            return ToSByte(value);
+            return new SByte(ToSByte(value));
         }
         if ("System.UInt16".equals(name)) {
-            return ToUInt16(value);
+            return new UInt16(ToUInt16(value));
         }
         if ("System.UInt32".equals(name)) {
-            return ToUInt32(value);
+            return new UInt32(ToUInt32(value));
         }
         if ("System.Int16".equals(name)) {
             return ToInt16(value);
@@ -118,10 +122,10 @@ public final class FormatterConverter implements IFormatterConverter {
             case Boolean -> ToBoolean(value);
             case Int64 -> ToInt64(value);
             case Double -> ToDouble(value);
-            case Byte -> ToByte(value);
-            case SByte -> ToSByte(value);
-            case UInt16 -> ToUInt16(value);
-            case UInt32 -> ToUInt32(value);
+            case Byte -> new Byte(ToByte(value));
+            case SByte -> new SByte(ToSByte(value));
+            case UInt16 -> new UInt16(ToUInt16(value));
+            case UInt32 -> new UInt32(ToUInt32(value));
             case Int16 -> ToInt16(value);
             case Single -> ToSingle(value);
             case UInt64 -> ToUInt64(value);

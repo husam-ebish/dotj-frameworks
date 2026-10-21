@@ -1622,6 +1622,21 @@ static object ObserveUInt64CrossConversions()
         maxToUInt32 = ObserveMethodError(() => converter.ToUInt32(ulong.MaxValue)),
     };
 }
+static object ObserveUnsignedConvertResultIdentity()
+{
+    var converter = new System.Runtime.Serialization.FormatterConverter();
+    object byteByType = converter.Convert("200", typeof(byte));
+    object sbyteByCode = converter.Convert("-5", TypeCode.SByte);
+    object u16ByType = converter.Convert("60000", typeof(ushort));
+    object u32ByCode = converter.Convert("4000000000", TypeCode.UInt32);
+    return new
+    {
+        types = new[] {byteByType.GetType().FullName, sbyteByCode.GetType().FullName,
+            u16ByType.GetType().FullName, u32ByCode.GetType().FullName},
+        values = new[] {byteByType.ToString(), sbyteByCode.ToString(),
+            u16ByType.ToString(), u32ByCode.ToString()},
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1798,6 +1813,7 @@ var result = new
     selectedDateTimeConvertibleContractBehavior = ObserveDateTimeConvertibleContract(),
     selectedDecimalConvertibleContractBehavior = ObserveDecimalConvertibleContract(),
     selectedUInt64CrossConversionsBehavior = ObserveUInt64CrossConversions(),
+    selectedUnsignedConvertResultIdentityBehavior = ObserveUnsignedConvertResultIdentity(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
