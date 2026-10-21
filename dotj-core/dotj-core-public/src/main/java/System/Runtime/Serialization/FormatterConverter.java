@@ -52,6 +52,12 @@ public final class FormatterConverter implements IFormatterConverter {
         if ("System.Double".equals(name)) {
             return ToDouble(value);
         }
+        if ("System.Byte".equals(name)) {
+            return ToByte(value);
+        }
+        if ("System.SByte".equals(name)) {
+            return ToSByte(value);
+        }
         throw new InvalidCastException("Target type is outside the selected conversions");
     }
 
@@ -66,6 +72,8 @@ public final class FormatterConverter implements IFormatterConverter {
             case Boolean -> ToBoolean(value);
             case Int64 -> ToInt64(value);
             case Double -> ToDouble(value);
+            case Byte -> ToByte(value);
+            case SByte -> ToSByte(value);
             default -> throw new InvalidCastException("TypeCode is outside the selected conversions");
         };
     }
@@ -89,6 +97,13 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public short ToByte(Object value) {
+        if (value instanceof String text) {
+            java.math.BigInteger parsed = parseByteText(text);
+            if (parsed.signum() < 0 || parsed.compareTo(java.math.BigInteger.valueOf(255)) > 0) {
+                throw new OverflowException("Value was outside the range of Byte");
+            }
+            return parsed.shortValue();
+        }
         return convertible(value).ToByte(null);
     }
 
@@ -165,7 +180,23 @@ public final class FormatterConverter implements IFormatterConverter {
 
     @Override
     public byte ToSByte(Object value) {
+        if (value instanceof String text) {
+            java.math.BigInteger parsed = parseByteText(text);
+            if (parsed.compareTo(java.math.BigInteger.valueOf(-128)) < 0
+                    || parsed.compareTo(java.math.BigInteger.valueOf(127)) > 0) {
+                throw new OverflowException("Value was outside the range of SByte");
+            }
+            return parsed.byteValue();
+        }
         return convertible(value).ToSByte(null);
+    }
+
+    private static java.math.BigInteger parseByteText(String text) {
+        String trimmed = text.strip();
+        if (!trimmed.matches("[+-]?[0-9]+")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        return new java.math.BigInteger(trimmed);
     }
 
     @Override
