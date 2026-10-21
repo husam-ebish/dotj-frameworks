@@ -1050,6 +1050,58 @@ static object ObserveInt32RadixFlagStyles()
         }).ToArray(),
     };
 }
+static object ObserveInt32StyleValidationPrecedence()
+{
+    var hex = System.Globalization.NumberStyles.AllowHexSpecifier;
+    var binary = System.Globalization.NumberStyles.AllowBinarySpecifier;
+    var invalid = new[]
+    {
+        hex | System.Globalization.NumberStyles.AllowLeadingSign,
+        binary | System.Globalization.NumberStyles.AllowDecimalPoint,
+        hex | binary,
+        hex | System.Globalization.NumberStyles.AllowThousands,
+    };
+    bool validNullSuccess = int.TryParse((string?)null, hex,
+        System.Globalization.CultureInfo.InvariantCulture, out int validNullValue);
+    return new
+    {
+        invalid = invalid.Select(style => new
+        {
+            value = (int)style,
+            nullParse = ObserveInt32StyleError(() => int.Parse(((string?)null)!, style,
+                System.Globalization.CultureInfo.InvariantCulture)),
+            nullTryParse = ObserveInt32StyleError(() =>
+            {
+                int.TryParse((string?)null, style, System.Globalization.CultureInfo.InvariantCulture,
+                    out _);
+            }),
+            overflowParse = ObserveInt32StyleError(() => int.Parse("100000000", style,
+                System.Globalization.CultureInfo.InvariantCulture)),
+            overflowTryParse = ObserveInt32StyleError(() =>
+            {
+                int.TryParse("100000000", style,
+                    System.Globalization.CultureInfo.InvariantCulture, out _);
+            }),
+        }).ToArray(),
+        validNullParse = ObserveInt32StyleError(() => int.Parse(((string?)null)!, hex,
+            System.Globalization.CultureInfo.InvariantCulture)),
+        validNullSuccess,
+        validNullValue,
+    };
+}
+static object ObserveInt32StyleError(Action operation)
+{
+    try
+    {
+        operation();
+        return new { type = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { type = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveInt32GeneralFlagStyles()
 {
     var provider = new System.Globalization.NumberFormatInfo
@@ -5501,6 +5553,7 @@ var result = new
     selectedInt32GroupedDecimalStyles = ObserveInt32GroupedDecimalStyles(),
     selectedInt32CurrencyFlagStyles = ObserveInt32CurrencyFlagStyles(),
     selectedInt32RadixFlagStyles = ObserveInt32RadixFlagStyles(),
+    selectedInt32StyleValidationPrecedence = ObserveInt32StyleValidationPrecedence(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

@@ -49,13 +49,11 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     public static Int32 Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (style == null) throw new ArgumentNullException("style");
+        if (text == null) throw new ArgumentNullException("s");
+        selectedValidateStyle(style);
         int flags = style.get_Value();
         if ((flags & (512 | 1024)) != 0) {
             boolean hex = (flags & 512) != 0;
-            int allowed = (hex ? 512 : 1024) | 3;
-            if ((flags & ~allowed) != 0) {
-                throw new ArgumentException("Invalid NumberStyles value", "style");
-            }
             return selectedParseRadix(text, flags, hex ? 16 : 2);
         }
         if (style == NumberStyles.Integer) {
@@ -122,6 +120,17 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return selectedParseExtended(text, provider, style);
         }
         throw new UnsupportedOperationException("NumberStyles value is not mapped");
+    }
+
+    private static void selectedValidateStyle(NumberStyles style) {
+        if (style == null) throw new ArgumentNullException("style");
+        int flags = style.get_Value();
+        if ((flags & (512 | 1024)) != 0) {
+            int allowed = ((flags & 512) != 0 ? 512 : 1024) | 3;
+            if ((flags & ~allowed) != 0) {
+                throw new ArgumentException("Invalid NumberStyles value", "style");
+            }
+        }
     }
 
     private static Int32 selectedParseRadix(String text, int flags, int radix) {
@@ -586,6 +595,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
     public static boolean TryParse(String text, NumberStyles style,
                                    IFormatProvider provider, Int32[] result) {
         result[0] = new Int32(0);
+        selectedValidateStyle(style);
         if (text == null) {
             return false;
         }

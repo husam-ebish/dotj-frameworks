@@ -384,7 +384,34 @@ public final class ProductInt32SpanConsumer {
                     ArgumentException.class);
             checkExpectedError(() -> Int32.TryParse("42", style, provider, new Int32[1]),
                     ArgumentException.class);
+            checkStyleFailure(() -> Int32.Parse((String) null, style, provider),
+                    ArgumentNullException.class, "s");
+            checkStyleFailure(() -> Int32.TryParse((String) null, style, provider,
+                    new Int32[1]), ArgumentException.class, "style");
+            checkStyleFailure(() -> Int32.Parse("100000000", style, provider),
+                    ArgumentException.class, "style");
+            checkStyleFailure(() -> Int32.TryParse("100000000", style, provider,
+                    new Int32[1]), ArgumentException.class, "style");
         }
+        Int32[] nullResult = new Int32[1];
+        checkStyleFailure(() -> Int32.Parse((String) null, hex, provider),
+                ArgumentNullException.class, "s");
+        if (Int32.TryParse((String) null, hex, provider, nullResult)
+                || nullResult[0].get_Value() != 0) {
+            throw new AssertionError("Valid style null TryParse changed");
+        }
+    }
+
+    private static void checkStyleFailure(Runnable operation, Class<?> expected,
+                                          String parameter) {
+        try {
+            operation.run();
+        } catch (ArgumentException failure) {
+            if (failure.getClass() == expected
+                    && parameter.equals(failure.get_ParamName())) return;
+            throw new AssertionError("Wrong style exception or parameter", failure);
+        }
+        throw new AssertionError("Expected style exception: " + expected.getName());
     }
 
     private static void checkCurrencyFlagStyles() {
