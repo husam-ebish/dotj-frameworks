@@ -488,6 +488,20 @@ public final class ProductTypeIdentityConsumer {
                 // Selected case-insensitive duplicate key error.
             }
         }
+        for (String acceptedSimpleName : new String[] {
+                "  \"System.Private.CoreLib\"  ",
+                "\"System.Private.CoreLib.dll\"", "'System.Private.CoreLib'"}) {
+            if (Type.GetType("System.String, " + acceptedSimpleName) != string) {
+                throw new AssertionError("Selected simple-name quoting rejected: " + acceptedSimpleName);
+            }
+        }
+        for (String missingSimpleName : new String[] {
+                "\" System.Private.CoreLib \"", "System.Private.CoreLib .dll",
+                "\"Missing.Assembly\""}) {
+            if (Type.GetType("System.String, " + missingSimpleName) != null) {
+                throw new AssertionError("Selected missing simple name resolved: " + missingSimpleName);
+            }
+        }
         try {
             Type.GetType("System.String, UnknownAssembly", true);
             throw new AssertionError("Unknown assembly accepted");

@@ -112,8 +112,9 @@ public abstract class Type extends MemberInfo {
                 }
                 return null;
             }
-            if (assemblyName.length() >= 2 && assemblyName.startsWith("\"")
-                    && assemblyName.endsWith("\"")) {
+            if (assemblyName.length() >= 2
+                    && (assemblyName.startsWith("\"") && assemblyName.endsWith("\"")
+                            || assemblyName.startsWith("'") && assemblyName.endsWith("'"))) {
                 assemblyName = assemblyName.substring(1, assemblyName.length() - 1);
             }
             if (assemblyName.equalsIgnoreCase("System.Private.CoreLib.dll")) {

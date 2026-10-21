@@ -882,6 +882,15 @@ var result = new
         duplicatePublicKeyCase = ObserveGetType("System.String, System.Private.CoreLib, PublicKey=00, publickey=11", false, false),
         duplicateContentCase = ObserveGetType("System.String, System.Private.CoreLib, ContentType=WindowsRuntime, contenttype=WindowsRuntime", false, false),
     },
+    selectedAssemblySimpleNameQuoteBehavior = new
+    {
+        quotedOuterSpaces = ObserveGetType("System.String,  \"System.Private.CoreLib\"  ", false, false),
+        quotedInnerSpaces = ObserveGetType("System.String, \" System.Private.CoreLib \"", false, false),
+        spaceBeforeDll = ObserveGetType("System.String, System.Private.CoreLib .dll", false, false),
+        quotedDll = ObserveGetType("System.String, \"System.Private.CoreLib.dll\"", false, false),
+        singleQuotes = ObserveGetType("System.String, 'System.Private.CoreLib'", false, false),
+        quotedUnknown = ObserveGetType("System.String, \"Missing.Assembly\"", false, false),
+    },
     selectedContainsGenericParametersBehavior = new[]
     {
         typeof(object), typeof(List<>), typeof(List<string>), typeof(Dictionary<,>),
