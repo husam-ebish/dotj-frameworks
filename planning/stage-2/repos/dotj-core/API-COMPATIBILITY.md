@@ -26,6 +26,8 @@ Both heap span carriers expose element-specific factories; [the compiled type au
 
 The selected `NumberFormatInfo` candidate contributes three mutable numeric symbols to `Int32` `N` formatting through `IFormatProvider`. [The pinned oracle](evidence/foundation-selected-metadata-v10.0.12.json) and packaged consumer cover grouped, negative and default-precision outputs. This bounded provider path does not qualify the complete `NumberFormatInfo` API or other numeric format families.
 
+Custom negative sign behavior is also pinned for `NumberStyles.Integer` parsing and `N2` formatting. Its source type and provider paths remain selected examples, not complete numeric parsing or formatting compatibility.
+
 ## N01 tasks
 
 1. `DJ-001-N01-T1`: Extract the complete semantic upstream public surface for the selected slice, preserving exact namespace/type/member spelling, casing, overloads, generic arity, parameter identities and property/event metadata.

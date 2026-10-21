@@ -106,6 +106,25 @@ public final class ProductInt32SpanConsumer {
         checkProviderVector(new Int32(12345), "N2", "12_345:00", provider);
         checkProviderVector(new Int32(-42), "N2", "-42:00", provider);
         checkProviderVector(new Int32(42), "N", "42:000", provider);
+        NumberFormatInfo customSign = new NumberFormatInfo();
+        customSign.set_NegativeSign("~");
+        if (Int32.Parse("~42", NumberStyles.Integer, customSign).get_Value() != -42) {
+            throw new AssertionError("Custom provider negative sign Parse changed");
+        }
+        Int32[] parsed = new Int32[1];
+        if (!Int32.TryParse("~42", NumberStyles.Integer, customSign, parsed)
+                || parsed[0].get_Value() != -42
+                || Int32.TryParse("-42", NumberStyles.Integer, customSign, parsed)
+                || parsed[0].get_Value() != 0) {
+            throw new AssertionError("Custom provider negative sign TryParse changed");
+        }
+        if (Int32.Parse(ReadOnlySpan.OfChars("~42".toCharArray()),
+                NumberStyles.Integer, customSign).get_Value() != -42
+                || Int32.Parse(ReadOnlySpan.OfUtf8Bytes("~42".getBytes(StandardCharsets.UTF_8)),
+                NumberStyles.Integer, customSign).get_Value() != -42) {
+            throw new AssertionError("Custom provider span Parse changed");
+        }
+        checkProviderVector(new Int32(-42), "N2", "~42.00", customSign);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,

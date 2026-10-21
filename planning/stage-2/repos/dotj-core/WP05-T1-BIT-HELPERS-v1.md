@@ -42,4 +42,6 @@ The selected heap carriers now use typed `OfChars` and `OfUtf8Bytes` factories w
 
 A selected `System.Globalization.NumberFormatInfo` candidate now supplies group separator, decimal separator and default decimal digits to `Int32` `N` formatting through `IFormatProvider.GetFormat`. The pinned .NET oracle records `12_345:00`, `-42:00` and `42:000`; the packaged Java consumer checks ordinary `ToString` plus Char and UTF-8 Byte span formatting for each. Other format specifiers, provider objects and full culture behavior remain open.
 
+The selected provider also carries a custom negative sign. The pinned .NET oracle confirms that `NumberStyles.Integer` parses `~42` as `-42`, rejects `-42` under that provider, and formats negative `N2` as `~42.00`. The packaged consumer checks string and Char/UTF-8 span parsing and formatting on those paths. Other sign placement and parsing styles remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.
