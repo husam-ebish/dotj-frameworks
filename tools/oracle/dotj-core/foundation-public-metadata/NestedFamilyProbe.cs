@@ -5,4 +5,10 @@ internal class NestedFamilyProbe
     }
 
     public static Type MarkerType => typeof(Marker);
+
+    private sealed class PrivateMarker
+    {
+    }
+
+    public static Type PrivateMarkerType => typeof(PrivateMarker);
 }

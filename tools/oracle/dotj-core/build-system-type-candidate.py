@@ -249,6 +249,8 @@ def main():
         (True, False, True), (True, False, True), (False, False, False),
         (False, True, True), (False, True, True),
     ]
+    generic_visibility = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericArgumentVisibilityBehavior"]
+    assert [row["isVisible"] for row in generic_visibility] == [True, False, False]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",

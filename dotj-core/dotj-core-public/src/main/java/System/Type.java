@@ -870,6 +870,11 @@ public abstract class Type extends MemberInfo {
         if (this.get_HasElementType()) {
             return this.GetElementType().get_IsVisible();
         }
+        for (Type argument : this.arguments) {
+            if (!argument.get_IsVisible()) {
+                return false;
+            }
+        }
         if (this.get_IsNested()) {
             return this.get_IsNestedPublic() && this.get_DeclaringType().get_IsVisible();
         }
