@@ -264,6 +264,10 @@ def main():
                                     "belowMidpoint": "9.5E+002",
                                     "maximum": "2.15E+009",
                                     "minimum": "-2.15E+009"}
+    custom_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32CustomFormatBehavior"]
+    assert custom_formats == {"padded": "000042", "negativePadded": "-000042",
+                              "grouped": "12,345", "groupedFixed": "12,345.00",
+                              "fixedTwo": "42.00"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

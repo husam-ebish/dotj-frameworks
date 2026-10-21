@@ -466,6 +466,13 @@ public final class ProductTypeIdentityConsumer {
                 || !"-2.15E+009".equals(new Int32(Integer.MIN_VALUE).ToString("E2", provider))) {
             throw new AssertionError("Selected Int32 exponential rounding changed");
         }
+        if (!"000042".equals(int32Value.ToString("000000", provider))
+                || !"-000042".equals(new Int32(-42).ToString("000000", provider))
+                || !"12,345".equals(groupedValue.ToString("#,##0", provider))
+                || !"12,345.00".equals(groupedValue.ToString("#,##0.00", provider))
+                || !"42.00".equals(int32Value.ToString("0.00", provider))) {
+            throw new AssertionError("Selected Int32 custom numeric format changed");
+        }
         try {
             int32Value.ToString("Q", provider);
             throw new AssertionError("Unknown format accepted");
