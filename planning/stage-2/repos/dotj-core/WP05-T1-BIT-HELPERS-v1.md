@@ -10,4 +10,6 @@ The selected signed arithmetic slice adds `Abs`, `Sign`, `Max`, `Min`, `Clamp`, 
 
 The selected value identity slice adds both `Equals` overloads and `GetHashCode` with the pinned names and return types. The same consumer checks equal, unequal, null and wrong-type inputs plus zero, positive and negative hashes. `BigMul(Int32, Int32)` returns a Java `long` for the pinned CLR `Int64` result and is checked at signed extrema without 32-bit intermediate overflow.
 
+The selected `DivRem(Int32, Int32)` slice returns a `ValueTuple<Int32, Int32>` with writable `Item1` quotient and `Item2` remainder fields. The oracle and packaged consumer check five signed division pairs, divide-by-zero and minimum-value overflow. `DivideByZeroException` and `OverflowException` inherit `ArithmeticException`; their default messages and HRESULTs are pinned. The Java tuple remains a reference carrier, so CLR value-type ABI and general tuple behavior remain open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

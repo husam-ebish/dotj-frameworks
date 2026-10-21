@@ -13,7 +13,7 @@ SNAPSHOT = EVIDENCE_ROOT / "api-shapes-v10.0.12/system-type.json"
 PROVENANCE = SNAPSHOT.with_name("system-type-provenance.json")
 SOURCE = ROOT / "dotj-core/dotj-core-public/src/main/java/System/Type.java"
 EXCEPTION_SOURCES = [SOURCE.with_name(name + ".java") for name in
-                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "ArgumentOutOfRangeException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "FormatException")]
+                     ("Exception", "SystemException", "ArgumentException", "ArgumentNullException", "ArgumentOutOfRangeException", "ArithmeticException", "DivideByZeroException", "ValueTuple", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "FormatException")]
 EXCEPTION_SOURCES += [SOURCE.parent / "IO" / (name + ".java") for name in
                       ("IOException", "FileNotFoundException", "FileLoadException")]
 EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MemberInfo.java")
@@ -832,6 +832,43 @@ def main():
             if item["name"] in {"BigMul", "Equals", "GetHashCode"} and not item["isSpecialName"]} == {
                 "Int64 BigMul(Int32, Int32)", "Boolean Equals(Int32)",
                 "Boolean Equals(System.Object)", "Int32 GetHashCode()",
+            }
+    divrem = foundation["selectedInt32DivRem"]
+    assert [(item["left"], item["right"], item["quotient"], item["remainder"])
+            for item in divrem["pairs"]] == [
+                (7, 3, 2, 1), (-7, 3, -2, -1), (7, -3, -2, 1),
+                (-2147483648, 3, -715827882, -2), (2147483647, 1, 2147483647, 0),
+            ]
+    assert {key: divrem[key] for key in (
+        "zeroError", "overflowError", "tupleDefinition", "tupleIsValueType",
+        "tupleFields", "tupleConstructors", "divideByZeroBase", "divideByZeroConstructors",
+        "divideByZeroHResult", "divideByZeroMessage", "arithmeticBase",
+        "arithmeticConstructors", "arithmeticHResult", "arithmeticMessage",
+        "overflowBase", "overflowHResult", "overflowMessage")} == {
+        "zeroError": "System.DivideByZeroException",
+        "overflowError": "System.OverflowException",
+        "tupleDefinition": "System.ValueTuple`2",
+        "tupleIsValueType": True,
+        "tupleFields": [
+            {"name": "Item1", "type": "System.Int32", "isInitOnly": False},
+            {"name": "Item2", "type": "System.Int32", "isInitOnly": False},
+        ],
+        "tupleConstructors": [["System.Int32", "System.Int32"]],
+        "divideByZeroBase": "System.ArithmeticException",
+        "divideByZeroConstructors": [[], ["System.String"], ["System.String", "System.Exception"]],
+        "divideByZeroHResult": -2147352558,
+        "divideByZeroMessage": "Attempted to divide by zero.",
+        "arithmeticBase": "System.SystemException",
+        "arithmeticConstructors": [[], ["System.String"], ["System.String", "System.Exception"]],
+        "arithmeticHResult": -2147024362,
+        "arithmeticMessage": "Overflow or underflow in the arithmetic operation.",
+        "overflowBase": "System.ArithmeticException",
+        "overflowHResult": -2146233066,
+        "overflowMessage": "Arithmetic operation resulted in an overflow.",
+    }
+    assert {item["signature"] for item in int32_surface["methods"]
+            if item["name"] == "DivRem" and not item["isSpecialName"]} == {
+                "System.ValueTuple`2[System.Int32,System.Int32] DivRem(Int32, Int32)",
             }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]

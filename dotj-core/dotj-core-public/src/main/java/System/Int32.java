@@ -206,6 +206,17 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         return (long)left.value * right.value;
     }
 
+    public static ValueTuple<Int32, Int32> DivRem(Int32 left, Int32 right) {
+        if (right.value == 0) {
+            throw new DivideByZeroException();
+        }
+        if (left.value == Integer.MIN_VALUE && right.value == -1) {
+            throw new OverflowException();
+        }
+        return new ValueTuple<>(new Int32(left.value / right.value),
+                new Int32(left.value % right.value));
+    }
+
     public boolean Equals(Int32 obj) {
         return obj != null && this.value == obj.value;
     }

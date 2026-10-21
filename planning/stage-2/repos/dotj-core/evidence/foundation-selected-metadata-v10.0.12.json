@@ -1570,6 +1570,91 @@
       }
     ]
   },
+  "selectedInt32DivRem": {
+    "pairs": [
+      {
+        "left": 7,
+        "right": 3,
+        "quotient": 2,
+        "remainder": 1
+      },
+      {
+        "left": -7,
+        "right": 3,
+        "quotient": -2,
+        "remainder": -1
+      },
+      {
+        "left": 7,
+        "right": -3,
+        "quotient": -2,
+        "remainder": 1
+      },
+      {
+        "left": -2147483648,
+        "right": 3,
+        "quotient": -715827882,
+        "remainder": -2
+      },
+      {
+        "left": 2147483647,
+        "right": 1,
+        "quotient": 2147483647,
+        "remainder": 0
+      }
+    ],
+    "zeroError": "System.DivideByZeroException",
+    "overflowError": "System.OverflowException",
+    "tupleDefinition": "System.ValueTuple`2",
+    "tupleIsValueType": true,
+    "tupleFields": [
+      {
+        "name": "Item1",
+        "type": "System.Int32",
+        "isInitOnly": false
+      },
+      {
+        "name": "Item2",
+        "type": "System.Int32",
+        "isInitOnly": false
+      }
+    ],
+    "tupleConstructors": [
+      [
+        "System.Int32",
+        "System.Int32"
+      ]
+    ],
+    "divideByZeroBase": "System.ArithmeticException",
+    "divideByZeroConstructors": [
+      [],
+      [
+        "System.String"
+      ],
+      [
+        "System.String",
+        "System.Exception"
+      ]
+    ],
+    "divideByZeroHResult": -2147352558,
+    "divideByZeroMessage": "Attempted to divide by zero.",
+    "arithmeticBase": "System.SystemException",
+    "arithmeticConstructors": [
+      [],
+      [
+        "System.String"
+      ],
+      [
+        "System.String",
+        "System.Exception"
+      ]
+    ],
+    "arithmeticHResult": -2147024362,
+    "arithmeticMessage": "Overflow or underflow in the arithmetic operation.",
+    "overflowBase": "System.ArithmeticException",
+    "overflowHResult": -2146233066,
+    "overflowMessage": "Arithmetic operation resulted in an overflow."
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -25194,6 +25279,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "e82d59d93644162e0a3befc2c1348f33ea807c7646de5c1aa0d4faf9032b442b",
+  "oracleProgramSha256": "661d7cbe56c02e0b3e004c478fa409a0f1cb5d3fc9371fccdd2e9abbc0b9421e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

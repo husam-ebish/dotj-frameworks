@@ -488,6 +488,9 @@ public abstract class Type extends MemberInfo {
             case "System.ArgumentException" -> fromJavaClass(ArgumentException.class);
             case "System.ArgumentNullException" -> fromJavaClass(ArgumentNullException.class);
             case "System.ArgumentOutOfRangeException" -> fromJavaClass(ArgumentOutOfRangeException.class);
+            case "System.ArithmeticException" -> fromJavaClass(ArithmeticException.class);
+            case "System.DivideByZeroException" -> fromJavaClass(DivideByZeroException.class);
+            case "System.ValueTuple`2" -> fromJavaClass(ValueTuple.class);
             case "System.TypeLoadException" -> fromJavaClass(TypeLoadException.class);
             case "System.IndexOutOfRangeException" -> fromJavaClass(IndexOutOfRangeException.class);
             case "System.IO.IOException" -> fromJavaClass(IOException.class);
@@ -643,6 +646,10 @@ public abstract class Type extends MemberInfo {
             case "system.argumentnullexception" -> ignoreCase ? fromJavaClass(ArgumentNullException.class) : null;
             case "system.argumentoutofrangeexception" -> ignoreCase
                     ? fromJavaClass(ArgumentOutOfRangeException.class) : null;
+            case "system.arithmeticexception" -> ignoreCase ? fromJavaClass(ArithmeticException.class) : null;
+            case "system.dividebyzeroexception" -> ignoreCase
+                    ? fromJavaClass(DivideByZeroException.class) : null;
+            case "system.valuetuple`2" -> ignoreCase ? fromJavaClass(ValueTuple.class) : null;
             case "system.typeloadexception" -> ignoreCase ? fromJavaClass(TypeLoadException.class) : null;
             case "system.indexoutofrangeexception" -> ignoreCase ? fromJavaClass(IndexOutOfRangeException.class) : null;
             case "system.io.ioexception" -> ignoreCase ? fromJavaClass(IOException.class) : null;
@@ -865,6 +872,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Enum.class) return "Enum";
         if (this.definition == java.util.List.class) return "List`1";
         if (this.definition == java.util.Map.class) return "Dictionary`2";
+        if (this.definition == ValueTuple.class) return "ValueTuple`2";
         return this.definition.getSimpleName();
     }
 
@@ -977,7 +985,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Decimal.class || this.definition == DateTime.class
                 || this.definition == StreamingContext.class
                 || this.definition == SerializationEntry.class
-                || this.definition == DictionaryEntry.class) {
+                || this.definition == DictionaryEntry.class
+                || this.definition == ValueTuple.class) {
             return fromJavaClass(Number.class);
         }
         if (this.definition == MemberTypes.class || this.definition == BindingFlags.class
@@ -1023,6 +1032,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == StreamingContext.class
                         || this.definition == SerializationEntry.class
                         || this.definition == DictionaryEntry.class
+                        || this.definition == ValueTuple.class
                         || this.definition == MemberTypes.class
                         || this.definition == BindingFlags.class
                         || this.definition == CallingConventions.class

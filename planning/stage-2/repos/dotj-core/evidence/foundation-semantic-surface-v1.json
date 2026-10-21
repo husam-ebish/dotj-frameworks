@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "7008bf30d8f8bd872bf0482c45194c896bfc0d38f274ccc4d1c49591168206d0",
+  "oracleEvidenceSha256": "f321a952a5d3d7a36b769bad090d162621d67bf852c1dd7ead2fa04cfa47825d",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "46d8aad626ff4e7c4e9e0f32c89154d6d9e4362618daabc9dcee97938c33096b",
+  "javaCandidateEvidenceSha256": "774183e3a2d5037cdce9058ee19b2436c5c095e9f1a97b5dc4a4001c7516347c",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 117,
+  "nameLevelMissingMethodCount": 116,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -7145,6 +7145,7 @@
         "public static System.Int32 Clamp(System.Int32, System.Int32, System.Int32);",
         "public static System.Int32 CopySign(System.Int32, System.Int32);",
         "public static long BigMul(System.Int32, System.Int32);",
+        "public static System.ValueTuple<System.Int32, System.Int32> DivRem(System.Int32, System.Int32);",
         "public boolean Equals(System.Int32);",
         "public boolean Equals(java.lang.Object);",
         "public System.Int32 GetHashCode();",
@@ -7213,6 +7214,7 @@
           "Clamp": 1,
           "CompareTo": 1,
           "CopySign": 1,
+          "DivRem": 1,
           "Equals": 2,
           "GetHashCode": 1,
           "GetTypeCode": 1,
@@ -7258,8 +7260,7 @@
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "CreateChecked",
           "CreateSaturating",
-          "CreateTruncating",
-          "DivRem"
+          "CreateTruncating"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
@@ -13139,7 +13140,7 @@
         "events": [],
         "nestedPublicTypes": []
       },
-      "javaCandidatePublicHeader": "public class System.OverflowException extends System.SystemException {",
+      "javaCandidatePublicHeader": "public class System.OverflowException extends System.ArithmeticException {",
       "javaCandidateDeclaredPublicDeclarations": [
         "public System.OverflowException();",
         "public System.OverflowException(java.lang.String);",

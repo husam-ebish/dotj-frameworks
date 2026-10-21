@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "0f44e11be4bb9a3c5b9ea14580b4087a81c7854a77473d902c0ec44e1b96bc3e",
+  "candidateJarSha256": "40d79110b89f84678a45e282d2a05226435c4c3fbd863b29d1bc7236c87c3c1d",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -287,6 +287,7 @@
         "public static System.Int32 Clamp(System.Int32, System.Int32, System.Int32);",
         "public static System.Int32 CopySign(System.Int32, System.Int32);",
         "public static long BigMul(System.Int32, System.Int32);",
+        "public static System.ValueTuple<System.Int32, System.Int32> DivRem(System.Int32, System.Int32);",
         "public boolean Equals(System.Int32);",
         "public boolean Equals(java.lang.Object);",
         "public System.Int32 GetHashCode();",
@@ -746,13 +747,13 @@
       "upstreamDeclaredProperties": 0,
       "upstreamPublicConstructors": 3,
       "javaPublicConstructors": 3,
-      "javaPublicHeader": "public class System.OverflowException extends System.SystemException {",
+      "javaPublicHeader": "public class System.OverflowException extends System.ArithmeticException {",
       "javaPublicDeclarations": [
         "public System.OverflowException();",
         "public System.OverflowException(java.lang.String);",
         "public System.OverflowException(java.lang.String, System.Exception);"
       ],
-      "disposition": "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open",
+      "disposition": "SELECTED_ARITHMETIC_EXCEPTION; default message and HRESULT pinned",
       "qualified": false
     },
     {

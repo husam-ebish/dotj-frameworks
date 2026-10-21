@@ -199,9 +199,9 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 53
             disposition = "PARTIAL_VALUE_SURFACE; selected conversion and comparison behavior only"
         elif name == "System.OverflowException":
-            assert header == "public class System.OverflowException extends System.SystemException {"
+            assert header == "public class System.OverflowException extends System.ArithmeticException {"
             assert len(constructors) == 3
-            disposition = "SELECTED_EXCEPTION_CONSTRUCTORS; exact messages and HRESULT open"
+            disposition = "SELECTED_ARITHMETIC_EXCEPTION; default message and HRESULT pinned"
         elif name == "System.InvalidCastException":
             assert header == "public class System.InvalidCastException extends System.SystemException {"
             assert len(constructors) == 4
