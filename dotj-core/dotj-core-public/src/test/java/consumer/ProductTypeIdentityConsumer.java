@@ -402,6 +402,22 @@ public final class ProductTypeIdentityConsumer {
                 || !"FFFFFFFF".equals(new Int32(-1).ToString("X", provider))) {
             throw new AssertionError("Selected Int32 format specifiers changed");
         }
+        if (!"D-1".equals(int32Value.ToString("D-1", provider))
+                || !"X-1".equals(int32Value.ToString("X-1", provider))) {
+            throw new AssertionError("Selected Int32 custom format literals changed");
+        }
+        try {
+            int32Value.ToString("Q", provider);
+            throw new AssertionError("Unknown format accepted");
+        } catch (FormatException expected) {
+            // Selected exception identity.
+        }
+        try {
+            int32Value.ToString("D999999999999", provider);
+            throw new AssertionError("Huge precision accepted");
+        } catch (FormatException expected) {
+            // Selected exception identity.
+        }
         try {
             new Int32(300).ToByte(provider);
             throw new AssertionError("Byte overflow accepted");

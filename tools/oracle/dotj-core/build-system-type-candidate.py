@@ -210,6 +210,14 @@ def main():
     assert formats == {"decimal5": "00042", "hexUpper4": "002A",
                        "hexLower4": "002a", "negativeDecimal5": "-00042",
                        "negativeHex": "FFFFFFFF"}
+    format_errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32FormatErrors"]
+    assert format_errors == {"unknownSpecifier": "System.FormatException",
+                             "negativeDecimalPrecision": None,
+                             "negativeHexPrecision": None,
+                             "hugePrecision": "System.FormatException"}
+    odd_formats = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32OddFormatResults"]
+    assert odd_formats == {"negativeDecimalPrecision": "D-1",
+                           "negativeHexPrecision": "X-1"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

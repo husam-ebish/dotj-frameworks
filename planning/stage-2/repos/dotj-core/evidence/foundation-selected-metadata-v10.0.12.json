@@ -647,6 +647,16 @@
     "negativeDecimal5": "-00042",
     "negativeHex": "FFFFFFFF"
   },
+  "selectedInt32FormatErrors": {
+    "unknownSpecifier": "System.FormatException",
+    "negativeDecimalPrecision": null,
+    "negativeHexPrecision": null,
+    "hugePrecision": "System.FormatException"
+  },
+  "selectedInt32OddFormatResults": {
+    "negativeDecimalPrecision": "D-1",
+    "negativeHexPrecision": "X-1"
+  },
   "selectedInt32ConversionErrors": {
     "byteOverflow": "System.OverflowException",
     "unsignedOverflow": "System.OverflowException",
@@ -3525,6 +3535,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "556b43ba9f71c34862ca66517937570cdc870bb00ccfa250fcd2c78123b1fa65",
+  "oracleProgramSha256": "3bb9be8b89b4f9793f954b1db9b9e6ef2cb22667ae0296362101f7ee36f71182",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
