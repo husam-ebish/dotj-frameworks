@@ -503,6 +503,19 @@ var result = new
         genericParameterSelf = ReferenceEquals(typeof(System.Collections.Generic.List<>).GetGenericArguments()[0]
             .UnderlyingSystemType, typeof(System.Collections.Generic.List<>).GetGenericArguments()[0]),
     },
+    selectedGenericParameterKindBehavior = new
+    {
+        stringIsTypeParameter = typeof(string).IsGenericTypeParameter,
+        stringIsMethodParameter = typeof(string).IsGenericMethodParameter,
+        listParameterIsTypeParameter = typeof(System.Collections.Generic.List<>).GetGenericArguments()[0]
+            .IsGenericTypeParameter,
+        listParameterIsMethodParameter = typeof(System.Collections.Generic.List<>).GetGenericArguments()[0]
+            .IsGenericMethodParameter,
+        convertAllParameterIsTypeParameter = typeof(System.Collections.Generic.List<>).GetMethod("ConvertAll")!
+            .GetGenericArguments()[0].IsGenericTypeParameter,
+        convertAllParameterIsMethodParameter = typeof(System.Collections.Generic.List<>).GetMethod("ConvertAll")!
+            .GetGenericArguments()[0].IsGenericMethodParameter,
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),
