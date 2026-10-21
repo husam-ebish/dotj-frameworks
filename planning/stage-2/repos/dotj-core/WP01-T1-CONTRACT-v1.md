@@ -4,6 +4,7 @@ Profile: pinned .NET 10.0.12 CoreLib and a bounded Java 21 foundation candidate.
 
 | Topic | Pinned observation | Java candidate decision | Qualification boundary |
 |---|---|---|---|
+| Selected Retargetable identity attribute | Pinned lookup accepts `Yes` and `No`; `true`, `false`, `1`, and duplicate Retargetable raise FileLoadException. | Candidate validates these six observed results and external consumer checks them. | Full assembly retargeting behavior remains open. |
 | Selected ProcessorArchitecture identity attribute | Pinned lookup accepts `MSIL`, `X86`, and `Amd64`; `None`, unknown values, and a duplicate ProcessorArchitecture raise FileLoadException. | Candidate validates these six observed cases and external consumer checks them. | Full architecture value set and platform binding remain open. |
 | Selected unknown assembly attribute values | Pinned lookup accepts colon, slash, semicolon and question mark within an unknown value and accepts a mixed-case duplicate unknown key; an unquoted second equals sign raises FileLoadException. | Candidate parser preserves all six observed results and external consumer checks them. | Full arbitrary attribute syntax remains open. |
 | Selected assembly attribute key boundaries | Pinned lookup accepts extra spaces around known keys and values on unknown keys with spaces, dots, or a hyphen. An empty key raises FileLoadException. | Candidate trims known keys and rejects empty keys while preserving the six accepted forms. | Complete attribute-name grammar remains open. |
