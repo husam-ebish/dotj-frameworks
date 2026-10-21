@@ -324,6 +324,13 @@ def main():
     assert len(nested_qualified_ignore) == 1
     assert nested_qualified_ignore[0]["exactMiss"]
     assert nested_qualified_ignore[0]["insensitiveSameReference"]
+    nested_parameters = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedGenericParameterOwnerBehavior"]
+    assert [(row["name"], row["position"], row["declaring"], row["isNested"],
+             row["isNestedPublic"], row["isPublic"], row["isVisible"])
+            for row in nested_parameters] == [
+        (name, position, "System.Collections.Generic.Dictionary`2+Entry", True, False, True, True)
+        for position, name in enumerate(("TKey", "TValue"))
+    ]
     bases = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedBaseTypeBehavior"]
     assert [item["baseType"] for item in bases] == [
         None, "System.Object", "System.ValueType", "System.Object", "System.Object",

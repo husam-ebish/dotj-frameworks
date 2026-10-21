@@ -53,6 +53,21 @@ public final class TypeIdentityCandidateTest {
         }
         Type map = Type.fromJavaClass(Map.class);
         Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        Type[] nestedParameters = nestedEntry.GetGenericArguments();
+        if (nestedParameters.length != 2
+                || !"TKey".equals(nestedParameters[0].get_Name())
+                || !"TValue".equals(nestedParameters[1].get_Name())
+                || nestedParameters[0].get_GenericParameterPosition() != 0
+                || nestedParameters[1].get_GenericParameterPosition() != 1) {
+            throw new AssertionError("Nested generic parameter positions changed");
+        }
+        for (Type nestedParameter : nestedParameters) {
+            if (nestedParameter.get_DeclaringType() != nestedEntry
+                    || !nestedParameter.get_IsNested() || nestedParameter.get_IsNestedPublic()
+                    || !nestedParameter.get_IsPublic() || !nestedParameter.get_IsVisible()) {
+                throw new AssertionError("Nested generic parameter ownership changed");
+            }
+        }
         if (Type.GetType("System.Collections.Generic.Dictionary`2+entry") != null
                 || Type.GetType("System.Collections.Generic.Dictionary`2+Missing") != null) {
             throw new AssertionError("Selected nested Type misses changed");

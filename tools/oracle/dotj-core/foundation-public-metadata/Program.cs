@@ -1259,6 +1259,19 @@ var result = new
             Type.GetType(type.AssemblyQualifiedName!.ToLowerInvariant(),
                 throwOnError: false, ignoreCase: true)),
     }).ToArray(),
+    selectedNestedGenericParameterOwnerBehavior =
+        typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
+            "Entry", System.Reflection.BindingFlags.NonPublic)!
+        .GetGenericArguments().Select(type => new
+        {
+            name = type.Name,
+            position = type.GenericParameterPosition,
+            declaring = type.DeclaringType?.FullName,
+            isNested = type.IsNested,
+            isNestedPublic = type.IsNestedPublic,
+            isPublic = type.IsPublic,
+            isVisible = type.IsVisible,
+        }).ToArray(),
     selectedBaseTypeBehavior = new[]
     {
         typeof(object), typeof(string), typeof(int), typeof(List<>), typeof(List<string>),
