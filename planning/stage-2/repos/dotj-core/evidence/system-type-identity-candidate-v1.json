@@ -187,7 +187,7 @@
     }
   },
   "sourcePath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-  "sourceSha256": "b7cb701b55fb09d724d47131c296f2e91dc20d39980e931e1daecbcf9c0301e4",
+  "sourceSha256": "b79831ef483d4e5adfec472e281f8a5128727128e8b19e4e49791ca8ecccd6e2",
   "idisposableSourceSha256": "03e7907bdd9aeb3d00e1c58a793446bea5baaf7174e544ba505a220e898da140",
   "icomparableSourceSha256": "6bcbfe9ce519dce4068cb4531bb3dbc3f044b4c9925d011016405e66b2cccc95",
   "iformattableSourceSha256": "5f594291b15b45d4f82e4dfb54a96a6dfdcef3e25fcb5ffcb1ad38eca791fd97",
@@ -253,6 +253,14 @@
       "sha256": "f6c6c103a72cde931660226c47d5b5631125acb727d7c2a7f78b97fc63f906ec"
     },
     {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodBase.java",
+      "sha256": "b4e4c8215f5d30a650bf7fc620725e271b18c78720a32b7ce63d240455aa31e1"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MethodInfo.java",
+      "sha256": "c81ab6eff7135d8fe37ba87f8eedbe56e2c2d903b81d0913b9b1d8ed38aeb7de"
+    },
+    {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Reflection/MemberTypes.java",
       "sha256": "9acbe2a0e3c289e7ee02b2b16fb978eee337177b516e993cad2a654273af987a"
     },
@@ -294,7 +302,7 @@
     }
   ],
   "testPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityCandidateTest.java",
-  "testSha256": "0ca734302276c056d7b7a2374dbf0881688f877a0c5e140189b8404000bc4f5e",
+  "testSha256": "5345c1b7f7c73eafccd53539cac6517f57dd7606223dc2d84ac003e9521bcc6f",
   "externalConsumerPath": "dotj-core/dotj-core-public/src/test/java/consumer/ProductTypeIdentityConsumer.java",
   "externalConsumerSha256": "6892386892de73b6282e15c626cbc2427058b55b1f4f133dbefaef2e3440472a",
   "concurrencyTestPath": "dotj-core/dotj-core-public/src/test/java/System/TypeIdentityConcurrencyTest.java",
@@ -371,6 +379,7 @@
     "public System.Reflection.MemberInfo[] GetMember(java.lang.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags);",
     "public System.Reflection.MemberInfo[] GetMembers();",
     "public System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags);",
+    "public System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags);",
     "public System.Reflection.MemberInfo[] GetDefaultMembers();",
     "public System.Type[] GetOptionalCustomModifiers();",
     "public System.Type[] GetRequiredCustomModifiers();",

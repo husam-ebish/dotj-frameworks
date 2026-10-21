@@ -5,6 +5,8 @@ import java.util.Map;
 import System.Reflection.MemberTypes;
 import System.Reflection.BindingFlags;
 import System.Reflection.MemberInfo;
+import System.Reflection.MethodBase;
+import System.Reflection.MethodInfo;
 import System.Reflection.GenericParameterAttributes;
 import System.Globalization.NumberStyles;
 
@@ -43,6 +45,15 @@ public final class TypeIdentityCandidateTest {
             throw new AssertionError("Pinned BindingFlags identity or values changed");
         }
         BindingFlags publicInstance = BindingFlags.Public.or(BindingFlags.Instance);
+        Type methodBaseType = Type.fromJavaClass(MethodBase.class);
+        Type methodInfoType = Type.fromJavaClass(MethodInfo.class);
+        if (Type.GetType("System.Reflection.MethodBase") != methodBaseType
+                || Type.GetType("System.Reflection.MethodInfo") != methodInfoType
+                || methodBaseType.get_BaseType() != Type.fromJavaClass(MemberInfo.class)
+                || methodInfoType.get_BaseType() != methodBaseType
+                || !methodBaseType.get_IsAbstract() || !methodInfoType.get_IsAbstract()) {
+            throw new AssertionError("Selected method descriptor hierarchy changed");
+        }
         MemberTypes methodProperty = MemberTypes.Method.or(MemberTypes.Property);
         Type memberTypesType = Type.fromJavaClass(MemberTypes.class);
         if (methodProperty.get_Value() != 24 || !methodProperty.has(MemberTypes.Method)
@@ -98,6 +109,15 @@ public final class TypeIdentityCandidateTest {
                     || owner.GetMembers(BindingFlags.NonPublic.or(BindingFlags.Instance)).length != 0
                     || owner.GetMembers(publicInstance) == owner.GetMembers(publicInstance)) {
                 throw new AssertionError("Selected flagged interface member inventory changed");
+            }
+            MethodInfo[] methods = owner.GetMethods(publicInstance);
+            if (methods.length != 1
+                    || !interfaceMethodNames[index].equals(methods[0].get_Name())
+                    || methods[0].get_MemberType() != MemberTypes.Method
+                    || methods[0].get_DeclaringType() != owner
+                    || owner.GetMethods(BindingFlags.Public).length != 0
+                    || owner.GetMethods(BindingFlags.NonPublic.or(BindingFlags.Instance)).length != 0) {
+                throw new AssertionError("Selected flagged interface method inventory changed");
             }
         }
         if (string.GetMember("Chars").length != 1

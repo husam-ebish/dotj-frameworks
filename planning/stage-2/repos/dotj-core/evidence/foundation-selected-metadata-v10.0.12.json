@@ -1025,6 +1025,26 @@
       "nonPublicInstance": []
     }
   ],
+  "selectedMethodInfoBehavior": {
+    "methodBase": {
+      "name": "System.Reflection.MethodBase",
+      "parent": "System.Reflection.MemberInfo",
+      "isAbstract": true
+    },
+    "methodInfo": {
+      "name": "System.Reflection.MethodInfo",
+      "parent": "System.Reflection.MethodBase",
+      "isAbstract": true
+    },
+    "disposableMethods": [
+      {
+        "name": "Dispose",
+        "kind": "Method"
+      }
+    ],
+    "publicOnly": [],
+    "nonPublicInstance": []
+  },
   "selectedNestedTypeFlagsBehavior": {
     "publicChild": {
       "result": "PublicChild",
@@ -14044,6 +14064,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "68bc9337170f41811fd5eddf4456e813ddad0bb2d1887f5282f5edda63d5c60d",
+  "oracleProgramSha256": "d33f74512f02783f178d621474350340d15797b3abfc9e0b946c3c42951cf0db",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
