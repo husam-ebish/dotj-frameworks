@@ -428,6 +428,75 @@ var result = new
         lowerQualifiedThrowSensitive = ObserveGetType(type.AssemblyQualifiedName!.ToLowerInvariant(), true, false),
         lowerQualifiedThrowInsensitive = ObserveGetType(type.AssemblyQualifiedName!.ToLowerInvariant(), true, true),
     }).ToArray(),
+    completeDeclaredSurface = new[] { typeof(Type), typeof(Exception) }
+        .Select(type => new
+        {
+            fullName = type.FullName,
+            methods = type.GetMethods(declaredPublic)
+                .OrderBy(method => method.Name, StringComparer.Ordinal)
+                .ThenBy(method => method.ToString(), StringComparer.Ordinal)
+                .Select(method => new
+                {
+                    name = method.Name,
+                    signature = method.ToString(),
+                    isStatic = method.IsStatic,
+                    isSpecialName = method.IsSpecialName,
+                    genericArity = method.GetGenericArguments().Length,
+                    returnType = method.ReturnType.FullName ?? method.ReturnType.ToString(),
+                    parameters = method.GetParameters().Select(parameter => new
+                    {
+                        name = parameter.Name,
+                        type = parameter.ParameterType.FullName ?? parameter.ParameterType.ToString(),
+                        isOut = parameter.IsOut,
+                        isOptional = parameter.IsOptional,
+                    }).ToArray(),
+                }).ToArray(),
+            properties = type.GetProperties(declaredPublic)
+                .OrderBy(property => property.Name, StringComparer.Ordinal)
+                .Select(property => new
+                {
+                    name = property.Name,
+                    type = property.PropertyType.FullName ?? property.PropertyType.ToString(),
+                    publicGetter = property.GetMethod?.IsPublic == true,
+                    publicSetter = property.SetMethod?.IsPublic == true,
+                    indexParameters = property.GetIndexParameters().Select(parameter => new
+                    {
+                        name = parameter.Name,
+                        type = parameter.ParameterType.FullName ?? parameter.ParameterType.ToString(),
+                    }).ToArray(),
+                }).ToArray(),
+            constructors = type.GetConstructors(declaredPublic)
+                .OrderBy(constructor => constructor.ToString(), StringComparer.Ordinal)
+                .Select(constructor => new
+                {
+                    signature = constructor.ToString(),
+                    parameters = constructor.GetParameters().Select(parameter => new
+                    {
+                        name = parameter.Name,
+                        type = parameter.ParameterType.FullName ?? parameter.ParameterType.ToString(),
+                    }).ToArray(),
+                }).ToArray(),
+            fields = type.GetFields(declaredPublic)
+                .OrderBy(field => field.Name, StringComparer.Ordinal)
+                .Select(field => new
+                {
+                    name = field.Name,
+                    type = field.FieldType.FullName ?? field.FieldType.ToString(),
+                    isStatic = field.IsStatic,
+                    isLiteral = field.IsLiteral,
+                }).ToArray(),
+            events = type.GetEvents(declaredPublic)
+                .OrderBy(eventInfo => eventInfo.Name, StringComparer.Ordinal)
+                .Select(eventInfo => new
+                {
+                    name = eventInfo.Name,
+                    handlerType = eventInfo.EventHandlerType?.FullName,
+                }).ToArray(),
+            nestedPublicTypes = type.GetNestedTypes(BindingFlags.Public)
+                .Select(nested => nested.FullName)
+                .OrderBy(name => name, StringComparer.Ordinal)
+                .ToArray(),
+        }).ToArray(),
     selectedMemberTypeBehavior = new
     {
         enumValues = Enum.GetValues<MemberTypes>()

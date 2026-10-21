@@ -1665,6 +1665,3654 @@
       }
     }
   ],
+  "completeDeclaredSurface": [
+    {
+      "fullName": "System.Type",
+      "methods": [
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "o",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "Equals",
+          "signature": "Boolean Equals(System.Type)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "o",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "FindInterfaces",
+          "signature": "System.Type[] FindInterfaces(System.Reflection.TypeFilter, System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": [
+            {
+              "name": "filter",
+              "type": "System.Reflection.TypeFilter",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "filterCriteria",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "FindMembers",
+          "signature": "System.Reflection.MemberInfo[] FindMembers(System.Reflection.MemberTypes, System.Reflection.BindingFlags, System.Reflection.MemberFilter, System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberInfo[]",
+          "parameters": [
+            {
+              "name": "memberType",
+              "type": "System.Reflection.MemberTypes",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "filter",
+              "type": "System.Reflection.MemberFilter",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "filterCriteria",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetArrayRank",
+          "signature": "Int32 GetArrayRank()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "GetConstructor",
+          "signature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.ConstructorInfo",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "callConvention",
+              "type": "System.Reflection.CallingConventions",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetConstructor",
+          "signature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.ConstructorInfo",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetConstructor",
+          "signature": "System.Reflection.ConstructorInfo GetConstructor(System.Reflection.BindingFlags, System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.ConstructorInfo",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetConstructor",
+          "signature": "System.Reflection.ConstructorInfo GetConstructor(System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.ConstructorInfo",
+          "parameters": [
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetConstructors",
+          "signature": "System.Reflection.ConstructorInfo[] GetConstructors()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.ConstructorInfo[]",
+          "parameters": []
+        },
+        {
+          "name": "GetConstructors",
+          "signature": "System.Reflection.ConstructorInfo[] GetConstructors(System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.ConstructorInfo[]",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetDefaultMembers",
+          "signature": "System.Reflection.MemberInfo[] GetDefaultMembers()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberInfo[]",
+          "parameters": []
+        },
+        {
+          "name": "GetElementType",
+          "signature": "System.Type GetElementType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "GetEnumName",
+          "signature": "System.String GetEnumName(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetEnumNames",
+          "signature": "System.String[] GetEnumNames()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String[]",
+          "parameters": []
+        },
+        {
+          "name": "GetEnumUnderlyingType",
+          "signature": "System.Type GetEnumUnderlyingType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "GetEnumValues",
+          "signature": "System.Array GetEnumValues()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Array",
+          "parameters": []
+        },
+        {
+          "name": "GetEnumValuesAsUnderlyingType",
+          "signature": "System.Array GetEnumValuesAsUnderlyingType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Array",
+          "parameters": []
+        },
+        {
+          "name": "GetEvent",
+          "signature": "System.Reflection.EventInfo GetEvent(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.EventInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetEvent",
+          "signature": "System.Reflection.EventInfo GetEvent(System.String, System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.EventInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetEvents",
+          "signature": "System.Reflection.EventInfo[] GetEvents()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.EventInfo[]",
+          "parameters": []
+        },
+        {
+          "name": "GetEvents",
+          "signature": "System.Reflection.EventInfo[] GetEvents(System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.EventInfo[]",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetField",
+          "signature": "System.Reflection.FieldInfo GetField(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.FieldInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetField",
+          "signature": "System.Reflection.FieldInfo GetField(System.String, System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.FieldInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetFields",
+          "signature": "System.Reflection.FieldInfo[] GetFields()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.FieldInfo[]",
+          "parameters": []
+        },
+        {
+          "name": "GetFields",
+          "signature": "System.Reflection.FieldInfo[] GetFields(System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.FieldInfo[]",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetFunctionPointerCallingConventions",
+          "signature": "System.Type[] GetFunctionPointerCallingConventions()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "GetFunctionPointerParameterTypes",
+          "signature": "System.Type[] GetFunctionPointerParameterTypes()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "GetFunctionPointerReturnType",
+          "signature": "System.Type GetFunctionPointerReturnType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "GetGenericArguments",
+          "signature": "System.Type[] GetGenericArguments()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "GetGenericParameterConstraints",
+          "signature": "System.Type[] GetGenericParameterConstraints()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "GetGenericTypeDefinition",
+          "signature": "System.Type GetGenericTypeDefinition()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "GetHashCode",
+          "signature": "Int32 GetHashCode()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "GetInterface",
+          "signature": "System.Type GetInterface(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetInterface",
+          "signature": "System.Type GetInterface(System.String, Boolean)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "ignoreCase",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetInterfaceMap",
+          "signature": "System.Reflection.InterfaceMapping GetInterfaceMap(System.Type)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.InterfaceMapping",
+          "parameters": [
+            {
+              "name": "interfaceType",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetInterfaces",
+          "signature": "System.Type[] GetInterfaces()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "GetMember",
+          "signature": "System.Reflection.MemberInfo[] GetMember(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberInfo[]",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMember",
+          "signature": "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberInfo[]",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMember",
+          "signature": "System.Reflection.MemberInfo[] GetMember(System.String, System.Reflection.MemberTypes, System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberInfo[]",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "type",
+              "type": "System.Reflection.MemberTypes",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMemberWithSameMetadataDefinitionAs",
+          "signature": "System.Reflection.MemberInfo GetMemberWithSameMetadataDefinitionAs(System.Reflection.MemberInfo)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberInfo",
+          "parameters": [
+            {
+              "name": "member",
+              "type": "System.Reflection.MemberInfo",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMembers",
+          "signature": "System.Reflection.MemberInfo[] GetMembers()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberInfo[]",
+          "parameters": []
+        },
+        {
+          "name": "GetMembers",
+          "signature": "System.Reflection.MemberInfo[] GetMembers(System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberInfo[]",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "genericParameterCount",
+              "type": "System.Int32",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "callConvention",
+              "type": "System.Reflection.CallingConventions",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "genericParameterCount",
+              "type": "System.Int32",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Reflection.BindingFlags, System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "genericParameterCount",
+              "type": "System.Int32",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "genericParameterCount",
+              "type": "System.Int32",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, Int32, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "genericParameterCount",
+              "type": "System.Int32",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Reflection.CallingConventions, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "callConvention",
+              "type": "System.Reflection.CallingConventions",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Reflection.BindingFlags, System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethod",
+          "signature": "System.Reflection.MethodInfo GetMethod(System.String, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetMethods",
+          "signature": "System.Reflection.MethodInfo[] GetMethods()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo[]",
+          "parameters": []
+        },
+        {
+          "name": "GetMethods",
+          "signature": "System.Reflection.MethodInfo[] GetMethods(System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodInfo[]",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetNestedType",
+          "signature": "System.Type GetNestedType(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetNestedType",
+          "signature": "System.Type GetNestedType(System.String, System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetNestedTypes",
+          "signature": "System.Type[] GetNestedTypes()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "GetNestedTypes",
+          "signature": "System.Type[] GetNestedTypes(System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetOptionalCustomModifiers",
+          "signature": "System.Type[] GetOptionalCustomModifiers()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "GetProperties",
+          "signature": "System.Reflection.PropertyInfo[] GetProperties()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo[]",
+          "parameters": []
+        },
+        {
+          "name": "GetProperties",
+          "signature": "System.Reflection.PropertyInfo[] GetProperties(System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo[]",
+          "parameters": [
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Reflection.BindingFlags)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Type, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "bindingAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "returnType",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "returnType",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type, System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "returnType",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type, System.Type[], System.Reflection.ParameterModifier[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "returnType",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetProperty",
+          "signature": "System.Reflection.PropertyInfo GetProperty(System.String, System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Reflection.PropertyInfo",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "types",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetRequiredCustomModifiers",
+          "signature": "System.Type[] GetRequiredCustomModifiers()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "GetType",
+          "signature": "System.Type GetType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "GetType",
+          "signature": "System.Type GetType(System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "typeName",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetType",
+          "signature": "System.Type GetType(System.String, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "typeName",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwOnError",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetType",
+          "signature": "System.Type GetType(System.String, Boolean, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "typeName",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwOnError",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "ignoreCase",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetType",
+          "signature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type])",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "typeName",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "assemblyResolver",
+              "type": "System.Func`2[[System.Reflection.AssemblyName, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Reflection.Assembly, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "typeResolver",
+              "type": "System.Func`4[[System.Reflection.Assembly, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Type, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetType",
+          "signature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "typeName",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "assemblyResolver",
+              "type": "System.Func`2[[System.Reflection.AssemblyName, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Reflection.Assembly, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "typeResolver",
+              "type": "System.Func`4[[System.Reflection.Assembly, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Type, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwOnError",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetType",
+          "signature": "System.Type GetType(System.String, System.Func`2[System.Reflection.AssemblyName,System.Reflection.Assembly], System.Func`4[System.Reflection.Assembly,System.String,System.Boolean,System.Type], Boolean, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "typeName",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "assemblyResolver",
+              "type": "System.Func`2[[System.Reflection.AssemblyName, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Reflection.Assembly, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "typeResolver",
+              "type": "System.Func`4[[System.Reflection.Assembly, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Boolean, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Type, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwOnError",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "ignoreCase",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeArray",
+          "signature": "System.Type[] GetTypeArray(System.Object[])",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": [
+            {
+              "name": "args",
+              "type": "System.Object[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeCode",
+          "signature": "System.TypeCode GetTypeCode(System.Type)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.TypeCode",
+          "parameters": [
+            {
+              "name": "type",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromCLSID",
+          "signature": "System.Type GetTypeFromCLSID(System.Guid)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "clsid",
+              "type": "System.Guid",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromCLSID",
+          "signature": "System.Type GetTypeFromCLSID(System.Guid, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "clsid",
+              "type": "System.Guid",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwOnError",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromCLSID",
+          "signature": "System.Type GetTypeFromCLSID(System.Guid, System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "clsid",
+              "type": "System.Guid",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "server",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromCLSID",
+          "signature": "System.Type GetTypeFromCLSID(System.Guid, System.String, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "clsid",
+              "type": "System.Guid",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "server",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwOnError",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromHandle",
+          "signature": "System.Type GetTypeFromHandle(System.RuntimeTypeHandle)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "handle",
+              "type": "System.RuntimeTypeHandle",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromProgID",
+          "signature": "System.Type GetTypeFromProgID(System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "progID",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromProgID",
+          "signature": "System.Type GetTypeFromProgID(System.String, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "progID",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwOnError",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromProgID",
+          "signature": "System.Type GetTypeFromProgID(System.String, System.String)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "progID",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "server",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeFromProgID",
+          "signature": "System.Type GetTypeFromProgID(System.String, System.String, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "progID",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "server",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwOnError",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetTypeHandle",
+          "signature": "System.RuntimeTypeHandle GetTypeHandle(System.Object)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.RuntimeTypeHandle",
+          "parameters": [
+            {
+              "name": "o",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "InvokeMember",
+          "signature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Object",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "invokeAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "target",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "args",
+              "type": "System.Object[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "InvokeMember",
+          "signature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Globalization.CultureInfo)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Object",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "invokeAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "target",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "args",
+              "type": "System.Object[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "culture",
+              "type": "System.Globalization.CultureInfo",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "InvokeMember",
+          "signature": "System.Object InvokeMember(System.String, System.Reflection.BindingFlags, System.Reflection.Binder, System.Object, System.Object[], System.Reflection.ParameterModifier[], System.Globalization.CultureInfo, System.String[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Object",
+          "parameters": [
+            {
+              "name": "name",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "invokeAttr",
+              "type": "System.Reflection.BindingFlags",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "binder",
+              "type": "System.Reflection.Binder",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "target",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "args",
+              "type": "System.Object[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "modifiers",
+              "type": "System.Reflection.ParameterModifier[]",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "culture",
+              "type": "System.Globalization.CultureInfo",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "namedParameters",
+              "type": "System.String[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "IsAssignableFrom",
+          "signature": "Boolean IsAssignableFrom(System.Type)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "c",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "IsAssignableTo",
+          "signature": "Boolean IsAssignableTo(System.Type)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "targetType",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "IsEnumDefined",
+          "signature": "Boolean IsEnumDefined(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "IsEquivalentTo",
+          "signature": "Boolean IsEquivalentTo(System.Type)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "other",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "IsInstanceOfType",
+          "signature": "Boolean IsInstanceOfType(System.Object)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "o",
+              "type": "System.Object",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "IsSubclassOf",
+          "signature": "Boolean IsSubclassOf(System.Type)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "c",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "MakeArrayType",
+          "signature": "System.Type MakeArrayType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "MakeArrayType",
+          "signature": "System.Type MakeArrayType(Int32)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "rank",
+              "type": "System.Int32",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "MakeByRefType",
+          "signature": "System.Type MakeByRefType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "MakeGenericMethodParameter",
+          "signature": "System.Type MakeGenericMethodParameter(Int32)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "position",
+              "type": "System.Int32",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "MakeGenericSignatureType",
+          "signature": "System.Type MakeGenericSignatureType(System.Type, System.Type[])",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "genericTypeDefinition",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "typeArguments",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "MakeGenericType",
+          "signature": "System.Type MakeGenericType(System.Type[])",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "typeArguments",
+              "type": "System.Type[]",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "MakePointerType",
+          "signature": "System.Type MakePointerType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "ReflectionOnlyGetType",
+          "signature": "System.Type ReflectionOnlyGetType(System.String, Boolean, Boolean)",
+          "isStatic": true,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": [
+            {
+              "name": "typeName",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "throwIfNotFound",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "ignoreCase",
+              "type": "System.Boolean",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_Assembly",
+          "signature": "System.Reflection.Assembly get_Assembly()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.Assembly",
+          "parameters": []
+        },
+        {
+          "name": "get_AssemblyQualifiedName",
+          "signature": "System.String get_AssemblyQualifiedName()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_Attributes",
+          "signature": "System.Reflection.TypeAttributes get_Attributes()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.TypeAttributes",
+          "parameters": []
+        },
+        {
+          "name": "get_BaseType",
+          "signature": "System.Type get_BaseType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "get_ContainsGenericParameters",
+          "signature": "Boolean get_ContainsGenericParameters()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_DeclaringMethod",
+          "signature": "System.Reflection.MethodBase get_DeclaringMethod()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodBase",
+          "parameters": []
+        },
+        {
+          "name": "get_DeclaringType",
+          "signature": "System.Type get_DeclaringType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "get_DefaultBinder",
+          "signature": "System.Reflection.Binder get_DefaultBinder()",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.Binder",
+          "parameters": []
+        },
+        {
+          "name": "get_FullName",
+          "signature": "System.String get_FullName()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_GUID",
+          "signature": "System.Guid get_GUID()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Guid",
+          "parameters": []
+        },
+        {
+          "name": "get_GenericParameterAttributes",
+          "signature": "System.Reflection.GenericParameterAttributes get_GenericParameterAttributes()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.GenericParameterAttributes",
+          "parameters": []
+        },
+        {
+          "name": "get_GenericParameterPosition",
+          "signature": "Int32 get_GenericParameterPosition()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "get_GenericTypeArguments",
+          "signature": "System.Type[] get_GenericTypeArguments()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
+          "name": "get_HasElementType",
+          "signature": "Boolean get_HasElementType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsAbstract",
+          "signature": "Boolean get_IsAbstract()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsAnsiClass",
+          "signature": "Boolean get_IsAnsiClass()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsArray",
+          "signature": "Boolean get_IsArray()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsAutoClass",
+          "signature": "Boolean get_IsAutoClass()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsAutoLayout",
+          "signature": "Boolean get_IsAutoLayout()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsByRef",
+          "signature": "Boolean get_IsByRef()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsByRefLike",
+          "signature": "Boolean get_IsByRefLike()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsCOMObject",
+          "signature": "Boolean get_IsCOMObject()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsClass",
+          "signature": "Boolean get_IsClass()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsConstructedGenericType",
+          "signature": "Boolean get_IsConstructedGenericType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsContextful",
+          "signature": "Boolean get_IsContextful()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsEnum",
+          "signature": "Boolean get_IsEnum()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsExplicitLayout",
+          "signature": "Boolean get_IsExplicitLayout()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsFunctionPointer",
+          "signature": "Boolean get_IsFunctionPointer()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsGenericMethodParameter",
+          "signature": "Boolean get_IsGenericMethodParameter()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsGenericParameter",
+          "signature": "Boolean get_IsGenericParameter()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsGenericType",
+          "signature": "Boolean get_IsGenericType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsGenericTypeDefinition",
+          "signature": "Boolean get_IsGenericTypeDefinition()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsGenericTypeParameter",
+          "signature": "Boolean get_IsGenericTypeParameter()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsImport",
+          "signature": "Boolean get_IsImport()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsInterface",
+          "signature": "Boolean get_IsInterface()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsLayoutSequential",
+          "signature": "Boolean get_IsLayoutSequential()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsMarshalByRef",
+          "signature": "Boolean get_IsMarshalByRef()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsNested",
+          "signature": "Boolean get_IsNested()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsNestedAssembly",
+          "signature": "Boolean get_IsNestedAssembly()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsNestedFamANDAssem",
+          "signature": "Boolean get_IsNestedFamANDAssem()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsNestedFamORAssem",
+          "signature": "Boolean get_IsNestedFamORAssem()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsNestedFamily",
+          "signature": "Boolean get_IsNestedFamily()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsNestedPrivate",
+          "signature": "Boolean get_IsNestedPrivate()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsNestedPublic",
+          "signature": "Boolean get_IsNestedPublic()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsNotPublic",
+          "signature": "Boolean get_IsNotPublic()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsPointer",
+          "signature": "Boolean get_IsPointer()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsPrimitive",
+          "signature": "Boolean get_IsPrimitive()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsPublic",
+          "signature": "Boolean get_IsPublic()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSZArray",
+          "signature": "Boolean get_IsSZArray()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSealed",
+          "signature": "Boolean get_IsSealed()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSecurityCritical",
+          "signature": "Boolean get_IsSecurityCritical()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSecuritySafeCritical",
+          "signature": "Boolean get_IsSecuritySafeCritical()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSecurityTransparent",
+          "signature": "Boolean get_IsSecurityTransparent()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSerializable",
+          "signature": "Boolean get_IsSerializable()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSignatureType",
+          "signature": "Boolean get_IsSignatureType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsSpecialName",
+          "signature": "Boolean get_IsSpecialName()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsTypeDefinition",
+          "signature": "Boolean get_IsTypeDefinition()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsUnicodeClass",
+          "signature": "Boolean get_IsUnicodeClass()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsUnmanagedFunctionPointer",
+          "signature": "Boolean get_IsUnmanagedFunctionPointer()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsValueType",
+          "signature": "Boolean get_IsValueType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsVariableBoundArray",
+          "signature": "Boolean get_IsVariableBoundArray()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_IsVisible",
+          "signature": "Boolean get_IsVisible()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": []
+        },
+        {
+          "name": "get_MemberType",
+          "signature": "System.Reflection.MemberTypes get_MemberType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MemberTypes",
+          "parameters": []
+        },
+        {
+          "name": "get_Module",
+          "signature": "System.Reflection.Module get_Module()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.Module",
+          "parameters": []
+        },
+        {
+          "name": "get_Namespace",
+          "signature": "System.String get_Namespace()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_ReflectedType",
+          "signature": "System.Type get_ReflectedType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "get_StructLayoutAttribute",
+          "signature": "System.Runtime.InteropServices.StructLayoutAttribute get_StructLayoutAttribute()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Runtime.InteropServices.StructLayoutAttribute",
+          "parameters": []
+        },
+        {
+          "name": "get_TypeHandle",
+          "signature": "System.RuntimeTypeHandle get_TypeHandle()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.RuntimeTypeHandle",
+          "parameters": []
+        },
+        {
+          "name": "get_TypeInitializer",
+          "signature": "System.Reflection.ConstructorInfo get_TypeInitializer()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.ConstructorInfo",
+          "parameters": []
+        },
+        {
+          "name": "get_UnderlyingSystemType",
+          "signature": "System.Type get_UnderlyingSystemType()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "op_Equality",
+          "signature": "Boolean op_Equality(System.Type, System.Type)",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "right",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "op_Inequality",
+          "signature": "Boolean op_Inequality(System.Type, System.Type)",
+          "isStatic": true,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Boolean",
+          "parameters": [
+            {
+              "name": "left",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "right",
+              "type": "System.Type",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Assembly",
+          "type": "System.Reflection.Assembly",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "AssemblyQualifiedName",
+          "type": "System.String",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "Attributes",
+          "type": "System.Reflection.TypeAttributes",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "BaseType",
+          "type": "System.Type",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "ContainsGenericParameters",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "DeclaringMethod",
+          "type": "System.Reflection.MethodBase",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "DeclaringType",
+          "type": "System.Type",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "DefaultBinder",
+          "type": "System.Reflection.Binder",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "FullName",
+          "type": "System.String",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "GUID",
+          "type": "System.Guid",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "GenericParameterAttributes",
+          "type": "System.Reflection.GenericParameterAttributes",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "GenericParameterPosition",
+          "type": "System.Int32",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "GenericTypeArguments",
+          "type": "System.Type[]",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "HasElementType",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsAbstract",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsAnsiClass",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsArray",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsAutoClass",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsAutoLayout",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsByRef",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsByRefLike",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsCOMObject",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsClass",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsConstructedGenericType",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsContextful",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsEnum",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsExplicitLayout",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsFunctionPointer",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsGenericMethodParameter",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsGenericParameter",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsGenericType",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsGenericTypeDefinition",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsGenericTypeParameter",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsImport",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsInterface",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsLayoutSequential",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsMarshalByRef",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsNested",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsNestedAssembly",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsNestedFamANDAssem",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsNestedFamORAssem",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsNestedFamily",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsNestedPrivate",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsNestedPublic",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsNotPublic",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsPointer",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsPrimitive",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsPublic",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsSZArray",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsSealed",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsSecurityCritical",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsSecuritySafeCritical",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsSecurityTransparent",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsSerializable",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsSignatureType",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsSpecialName",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsTypeDefinition",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsUnicodeClass",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsUnmanagedFunctionPointer",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsValueType",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsVariableBoundArray",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "IsVisible",
+          "type": "System.Boolean",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "MemberType",
+          "type": "System.Reflection.MemberTypes",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "Module",
+          "type": "System.Reflection.Module",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "Namespace",
+          "type": "System.String",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "ReflectedType",
+          "type": "System.Type",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "StructLayoutAttribute",
+          "type": "System.Runtime.InteropServices.StructLayoutAttribute",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "TypeHandle",
+          "type": "System.RuntimeTypeHandle",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "TypeInitializer",
+          "type": "System.Reflection.ConstructorInfo",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "UnderlyingSystemType",
+          "type": "System.Type",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        }
+      ],
+      "constructors": [],
+      "fields": [
+        {
+          "name": "Delimiter",
+          "type": "System.Char",
+          "isStatic": true,
+          "isLiteral": false
+        },
+        {
+          "name": "EmptyTypes",
+          "type": "System.Type[]",
+          "isStatic": true,
+          "isLiteral": false
+        },
+        {
+          "name": "FilterAttribute",
+          "type": "System.Reflection.MemberFilter",
+          "isStatic": true,
+          "isLiteral": false
+        },
+        {
+          "name": "FilterName",
+          "type": "System.Reflection.MemberFilter",
+          "isStatic": true,
+          "isLiteral": false
+        },
+        {
+          "name": "FilterNameIgnoreCase",
+          "type": "System.Reflection.MemberFilter",
+          "isStatic": true,
+          "isLiteral": false
+        },
+        {
+          "name": "Missing",
+          "type": "System.Object",
+          "isStatic": true,
+          "isLiteral": false
+        }
+      ],
+      "events": [],
+      "nestedPublicTypes": []
+    },
+    {
+      "fullName": "System.Exception",
+      "methods": [
+        {
+          "name": "GetBaseException",
+          "signature": "System.Exception GetBaseException()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Exception",
+          "parameters": []
+        },
+        {
+          "name": "GetObjectData",
+          "signature": "Void GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "info",
+              "type": "System.Runtime.Serialization.SerializationInfo",
+              "isOut": false,
+              "isOptional": false
+            },
+            {
+              "name": "context",
+              "type": "System.Runtime.Serialization.StreamingContext",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "GetType",
+          "signature": "System.Type GetType()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.Type",
+          "parameters": []
+        },
+        {
+          "name": "ToString",
+          "signature": "System.String ToString()",
+          "isStatic": false,
+          "isSpecialName": false,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_Data",
+          "signature": "System.Collections.IDictionary get_Data()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Collections.IDictionary",
+          "parameters": []
+        },
+        {
+          "name": "get_HResult",
+          "signature": "Int32 get_HResult()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Int32",
+          "parameters": []
+        },
+        {
+          "name": "get_HelpLink",
+          "signature": "System.String get_HelpLink()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_InnerException",
+          "signature": "System.Exception get_InnerException()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Exception",
+          "parameters": []
+        },
+        {
+          "name": "get_Message",
+          "signature": "System.String get_Message()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_Source",
+          "signature": "System.String get_Source()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_StackTrace",
+          "signature": "System.String get_StackTrace()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.String",
+          "parameters": []
+        },
+        {
+          "name": "get_TargetSite",
+          "signature": "System.Reflection.MethodBase get_TargetSite()",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Reflection.MethodBase",
+          "parameters": []
+        },
+        {
+          "name": "set_HResult",
+          "signature": "Void set_HResult(Int32)",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.Int32",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "set_HelpLink",
+          "signature": "Void set_HelpLink(System.String)",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        },
+        {
+          "name": "set_Source",
+          "signature": "Void set_Source(System.String)",
+          "isStatic": false,
+          "isSpecialName": true,
+          "genericArity": 0,
+          "returnType": "System.Void",
+          "parameters": [
+            {
+              "name": "value",
+              "type": "System.String",
+              "isOut": false,
+              "isOptional": false
+            }
+          ]
+        }
+      ],
+      "properties": [
+        {
+          "name": "Data",
+          "type": "System.Collections.IDictionary",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "HResult",
+          "type": "System.Int32",
+          "publicGetter": true,
+          "publicSetter": true,
+          "indexParameters": []
+        },
+        {
+          "name": "HelpLink",
+          "type": "System.String",
+          "publicGetter": true,
+          "publicSetter": true,
+          "indexParameters": []
+        },
+        {
+          "name": "InnerException",
+          "type": "System.Exception",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "Message",
+          "type": "System.String",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "Source",
+          "type": "System.String",
+          "publicGetter": true,
+          "publicSetter": true,
+          "indexParameters": []
+        },
+        {
+          "name": "StackTrace",
+          "type": "System.String",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        },
+        {
+          "name": "TargetSite",
+          "type": "System.Reflection.MethodBase",
+          "publicGetter": true,
+          "publicSetter": false,
+          "indexParameters": []
+        }
+      ],
+      "constructors": [
+        {
+          "signature": "Void .ctor()",
+          "parameters": []
+        },
+        {
+          "signature": "Void .ctor(System.String)",
+          "parameters": [
+            {
+              "name": "message",
+              "type": "System.String"
+            }
+          ]
+        },
+        {
+          "signature": "Void .ctor(System.String, System.Exception)",
+          "parameters": [
+            {
+              "name": "message",
+              "type": "System.String"
+            },
+            {
+              "name": "innerException",
+              "type": "System.Exception"
+            }
+          ]
+        }
+      ],
+      "fields": [],
+      "events": [],
+      "nestedPublicTypes": []
+    }
+  ],
   "selectedMemberTypeBehavior": {
     "enumValues": [
       {
@@ -7582,6 +11230,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "c96624ec2357a3764e3497a71feff7e7222ae31b8e88893e2904ffeac7839ca6",
+  "oracleProgramSha256": "a87d945c33609c2d446c89a10b0ec0a2ee53a7633e81094f29f345b6ac4ba12d",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -2,6 +2,8 @@
 
 Profile: pinned .NET 10.0.12 CoreLib and a bounded Java 21 foundation candidate. Status: **provisional; DJ-001-WP-01-T1 remains in progress**. This contract describes selected observations and explicit mapping decisions. It does not qualify the full `System.Type` or `System.Exception` public API.
 
+The [declared public semantic inventory](evidence/foundation-semantic-surface-v1.json) now records every declared method, property, constructor, field, event and public nested type for pinned `System.Type` and `System.Exception`, alongside compiled Java candidate declarations. At name level, 43 distinct non-accessor method names and 42 public getters from `System.Type` are absent from its Java declarations; the corresponding `System.Exception` counts are 4 and 6. These are declared-member comparisons, not complete inherited API or behavior results.
+
 | Topic | Pinned observation | Java candidate decision | Qualification boundary |
 |---|---|---|---|
 | Selected escaped-comma names with attributes | Pinned lookup resolves escaped-comma CoreLib aliases with Version under unquoted/double/single quotes and with an unknown attribute; invalid Version raises FileLoadException. | Candidate preserves these five selected outcomes and external consumer checks them. | Complete escaped display-name grammar remains open. |
