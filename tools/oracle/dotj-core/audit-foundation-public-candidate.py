@@ -139,14 +139,31 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 78
             disposition = "PARTIAL_VALUE_SURFACE; int/long construction, selected Parse and invariant text"
         elif name == "System.DateTime":
-            assert header == "public final class System.DateTime {"
+            assert header == "public final class System.DateTime implements System.IConvertible {"
             assert declarations == ["public System.DateTime(int, int, int);",
                                     "public static System.DateTime Parse(java.lang.String);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();",
+                                    "public System.TypeCode GetTypeCode();",
+                                    "public boolean ToBoolean(System.IFormatProvider);",
+                                    "public char ToChar(System.IFormatProvider);",
+                                    "public byte ToSByte(System.IFormatProvider);",
+                                    "public short ToByte(System.IFormatProvider);",
+                                    "public short ToInt16(System.IFormatProvider);",
+                                    "public int ToUInt16(System.IFormatProvider);",
+                                    "public int ToInt32(System.IFormatProvider);",
+                                    "public long ToUInt32(System.IFormatProvider);",
+                                    "public long ToInt64(System.IFormatProvider);",
+                                    "public java.math.BigInteger ToUInt64(System.IFormatProvider);",
+                                    "public float ToSingle(System.IFormatProvider);",
+                                    "public double ToDouble(System.IFormatProvider);",
+                                    "public System.Decimal ToDecimal(System.IFormatProvider);",
+                                    "public System.DateTime ToDateTime(System.IFormatProvider);",
+                                    "public java.lang.String ToString(System.IFormatProvider);",
+                                    "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
                                     "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 70
-            disposition = "PARTIAL_VALUE_SURFACE; selected date construction/Parse/properties/text"
+            disposition = "PARTIAL_VALUE_SURFACE; selected DateTime IConvertible and date construction/Parse/properties/text"
         elif name == "System.Int32":
             assert header.startswith("public final class System.Int32")
             assert "public System.TypeCode GetTypeCode();" in declarations

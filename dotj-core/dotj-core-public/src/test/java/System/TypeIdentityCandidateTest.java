@@ -651,6 +651,35 @@ public final class TypeIdentityCandidateTest {
         } catch (OverflowException expected) {
             // Pinned CLR failure type.
         }
+        DateTime leapDay = new DateTime(2024, 2, 29);
+        IConvertible dateConvertible = leapDay;
+        DateTime dateCopy = dateConvertible.ToDateTime(null);
+        DateTime dateTypeCopy = (DateTime) dateConvertible.ToType(Type.GetType("System.DateTime"), null);
+        if (!Type.GetType("System.DateTime").IsAssignableTo(Type.GetType("System.IConvertible"))
+                || dateConvertible.GetTypeCode() != TypeCode.DateTime
+                || dateCopy == leapDay || dateTypeCopy == leapDay
+                || !"2024-02-29".equals(dateCopy.ToString("yyyy-MM-dd", null))
+                || !"02/29/2024 00:00:00".equals(dateConvertible.ToString(null))) {
+            throw new AssertionError("Selected DateTime IConvertible values changed");
+        }
+        try {
+            dateConvertible.ToInt32(null);
+            throw new AssertionError("DateTime to Int32 accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            dateConvertible.ToBoolean(null);
+            throw new AssertionError("DateTime to Boolean accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
+        try {
+            dateConvertible.ToByte(null);
+            throw new AssertionError("DateTime to Byte accepted");
+        } catch (InvalidCastException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));

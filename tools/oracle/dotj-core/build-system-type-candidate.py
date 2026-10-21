@@ -498,6 +498,15 @@ def main():
         "date": "2024-02-29",
         "u32ToInt32": "System.OverflowException",
     }
+    date_convertible = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDateTimeConvertibleContractBehavior"]
+    assert date_convertible == {
+        "implements": True, "typeCode": "DateTime",
+        "dateSame": False, "invariantText": "02/29/2024 00:00:00",
+        "int32": "System.InvalidCastException",
+        "boolean": "System.InvalidCastException",
+        "byteValue": "System.InvalidCastException",
+        "selfTypeSame": False,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

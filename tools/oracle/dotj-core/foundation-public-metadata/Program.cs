@@ -1574,6 +1574,22 @@ static object ObserveSerializationGetValueConversions()
         u32ToInt32 = ObserveMethodError(() => info.GetValue("u32", typeof(int))),
     };
 }
+static object ObserveDateTimeConvertibleContract()
+{
+    var date = new DateTime(2024, 2, 29);
+    IConvertible convertible = date;
+    return new
+    {
+        implements = typeof(IConvertible).IsAssignableFrom(typeof(DateTime)),
+        typeCode = convertible.GetTypeCode().ToString(),
+        dateSame = ReferenceEquals(date, convertible.ToDateTime(null)),
+        invariantText = convertible.ToString(System.Globalization.CultureInfo.InvariantCulture),
+        int32 = ObserveMethodError(() => convertible.ToInt32(null)),
+        boolean = ObserveMethodError(() => convertible.ToBoolean(null)),
+        byteValue = ObserveMethodError(() => convertible.ToByte(null)),
+        selfTypeSame = ReferenceEquals(date, convertible.ToType(typeof(DateTime), null)),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1747,6 +1763,7 @@ var result = new
     selectedFormatterObjectRoutesBehavior = ObserveFormatterObjectRoutes(),
     selectedFormatterTypeCodeBoundariesBehavior = ObserveFormatterTypeCodeBoundaries(),
     selectedSerializationGetValueConversionsBehavior = ObserveSerializationGetValueConversions(),
+    selectedDateTimeConvertibleContractBehavior = ObserveDateTimeConvertibleContract(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),
