@@ -538,6 +538,29 @@ public final class TypeIdentityCandidateTest {
         } catch (ArgumentNullException expected) {
             // Pinned CLR failure type.
         }
+        SerializationInfo dateText = new SerializationInfo(dbnullType, selectedConverter);
+        dateText.AddValue("dateText", "2024-02-29");
+        if (!"2024-02-29".equals(dateText.GetDateTime("dateText").ToString("yyyy-MM-dd", null))
+                || !"2024-02-29".equals(((DateTime) selectedConverter.Convert(
+                    "2024-02-29", Type.GetType("System.DateTime"))).ToString("yyyy-MM-dd", null))
+                || !"2024-02-29".equals(((DateTime) selectedConverter.Convert(
+                    "2024-02-29", TypeCode.DateTime)).ToString("yyyy-MM-dd", null))) {
+            throw new AssertionError("Selected DateTime formatter routes changed");
+        }
+        for (String value : new String[] {"bad", "2023-02-29"}) {
+            try {
+                selectedConverter.ToDateTime(value);
+                throw new AssertionError("Invalid DateTime text accepted");
+            } catch (FormatException expected) {
+                // Pinned CLR failure type.
+            }
+        }
+        try {
+            selectedConverter.ToDateTime(null);
+            throw new AssertionError("Null DateTime accepted");
+        } catch (ArgumentNullException expected) {
+            // Pinned CLR failure type.
+        }
         SerializationInfo byteMembers = new SerializationInfo(dbnullType, selectedConverter);
         byteMembers.AddValue("byte", new Byte(200));
         byteMembers.AddValue("sbyte", new SByte(-5));
