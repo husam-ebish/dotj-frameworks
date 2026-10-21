@@ -21,6 +21,9 @@ import System.Reflection.MethodBody;
 import System.Reflection.GenericParameterAttributes;
 import System.Reflection.ParameterAttributes;
 import System.Runtime.CompilerServices.NullableAttribute;
+import System.Runtime.Serialization.ISerializable;
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.StreamingContext;
 import System.Globalization.NumberStyles;
 import System.Globalization.CultureNotFoundException;
 
@@ -411,6 +414,10 @@ public abstract class Type extends MemberInfo {
             case "System.TypeCode" -> fromJavaClass(TypeCode.class);
             case "System.Type" -> fromJavaClass(Type.class);
             case "System.DBNull" -> fromJavaClass(DBNull.class);
+            case "System.NullReferenceException" -> fromJavaClass(NullReferenceException.class);
+            case "System.Runtime.Serialization.ISerializable" -> fromJavaClass(ISerializable.class);
+            case "System.Runtime.Serialization.SerializationInfo" -> fromJavaClass(SerializationInfo.class);
+            case "System.Runtime.Serialization.StreamingContext" -> fromJavaClass(StreamingContext.class);
             case "System.Attribute" -> fromJavaClass(Attribute.class);
             case "System.Runtime.CompilerServices.NullableAttribute" ->
                     fromJavaClass(NullableAttribute.class);
@@ -528,6 +535,14 @@ public abstract class Type extends MemberInfo {
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
             case "system.type" -> ignoreCase ? fromJavaClass(Type.class) : null;
             case "system.dbnull" -> ignoreCase ? fromJavaClass(DBNull.class) : null;
+            case "system.nullreferenceexception" -> ignoreCase
+                    ? fromJavaClass(NullReferenceException.class) : null;
+            case "system.runtime.serialization.iserializable" -> ignoreCase
+                    ? fromJavaClass(ISerializable.class) : null;
+            case "system.runtime.serialization.serializationinfo" -> ignoreCase
+                    ? fromJavaClass(SerializationInfo.class) : null;
+            case "system.runtime.serialization.streamingcontext" -> ignoreCase
+                    ? fromJavaClass(StreamingContext.class) : null;
             case "system.attribute" -> ignoreCase ? fromJavaClass(Attribute.class) : null;
             case "system.runtime.compilerservices.nullableattribute" -> ignoreCase
                     ? fromJavaClass(NullableAttribute.class) : null;
@@ -865,7 +880,8 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Double.class || this.definition == Byte.class) {
             return fromJavaClass(Number.class);
         }
-        if (this.definition == Decimal.class || this.definition == DateTime.class) {
+        if (this.definition == Decimal.class || this.definition == DateTime.class
+                || this.definition == StreamingContext.class) {
             return fromJavaClass(Number.class);
         }
         if (this.definition == MemberTypes.class || this.definition == BindingFlags.class
@@ -905,6 +921,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == Byte.class
                         || this.definition == Decimal.class
                         || this.definition == DateTime.class
+                        || this.definition == StreamingContext.class
                         || this.definition == MemberTypes.class
                         || this.definition == BindingFlags.class
                         || this.definition == CallingConventions.class
@@ -941,6 +958,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Byte.class
                 || this.definition == Int32.class || this.definition == Void.class
                 || this.definition == Decimal.class || this.definition == DateTime.class
+                || this.definition == StreamingContext.class
                 || this.get_IsEnum();
     }
 
@@ -1079,7 +1097,8 @@ public abstract class Type extends MemberInfo {
     public boolean get_IsInterface() {
         return this.definition == IDisposable.class || this.definition == IComparable.class
                 || this.definition == IFormattable.class || this.definition == IFormatProvider.class
-                || this.definition == IConvertible.class || this.definition == ISpanFormattable.class
+                || this.definition == IConvertible.class || this.definition == ISerializable.class
+                || this.definition == ISpanFormattable.class
                 || this.definition == IUtf8SpanFormattable.class;
     }
 
@@ -1302,6 +1321,9 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IConvertible.class && candidate.definition == DBNull.class) {
             return true;
         }
+        if (this.definition == ISerializable.class && candidate.definition == DBNull.class) {
+            return true;
+        }
         if (this.definition == ISpanFormattable.class && candidate.definition == Int32.class) {
             return true;
         }
@@ -1372,6 +1394,9 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == IConvertible.class) {
             return value instanceof Integer || value instanceof Int32 || value instanceof DBNull;
+        }
+        if (this.definition == ISerializable.class) {
+            return value instanceof DBNull;
         }
         if (this.definition == ISpanFormattable.class) {
             return value instanceof Integer || value instanceof Int32;
@@ -1620,6 +1645,10 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
+        if (this.definition == DBNull.class) {
+            return new Type[] {fromJavaClass(ISerializable.class),
+                    fromJavaClass(IConvertible.class)};
+        }
         if (this.definition == Object.class || this.definition == IDisposable.class
                 || this.definition == IUtf8SpanFormattable.class) {
             return new Type[0];
@@ -1712,12 +1741,22 @@ public abstract class Type extends MemberInfo {
             return null;
         }
         if (this.definition == DBNull.class) {
+            if (fullname.equals("System.Runtime.Serialization.ISerializable")
+                    || fullname.equals("ISerializable")
+                    || ignoreCase && (fullname.equalsIgnoreCase(
+                        "System.Runtime.Serialization.ISerializable")
+                        || fullname.equalsIgnoreCase("ISerializable"))) {
+                return fromJavaClass(ISerializable.class);
+            }
             if (fullname.equals("System.IConvertible") || fullname.equals("IConvertible")
                     || ignoreCase && (fullname.equalsIgnoreCase("System.IConvertible")
                         || fullname.equalsIgnoreCase("IConvertible"))) {
                 return fromJavaClass(IConvertible.class);
             }
             if (fullname.equals("system.iconvertible")) {
+                return null;
+            }
+            if (fullname.equals("system.runtime.serialization.iserializable")) {
                 return null;
             }
             throw new UnsupportedOperationException("DBNull interface lookup is not mapped for this name");

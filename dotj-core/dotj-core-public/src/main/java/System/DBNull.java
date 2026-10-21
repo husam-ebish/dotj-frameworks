@@ -2,8 +2,12 @@
 
 package System;
 
+import System.Runtime.Serialization.ISerializable;
+import System.Runtime.Serialization.SerializationInfo;
+import System.Runtime.Serialization.StreamingContext;
+
 /** Singleton marker for a missing database or parameter default value. */
-public final class DBNull implements IConvertible {
+public final class DBNull implements IConvertible, ISerializable {
     public static final DBNull Value = new DBNull();
 
     private DBNull() {
@@ -88,6 +92,13 @@ public final class DBNull implements IConvertible {
             return Value;
         }
         throw invalidConversion();
+    }
+
+    public void GetObjectData(SerializationInfo info, StreamingContext context) {
+        if (info == null) {
+            throw new NullReferenceException();
+        }
+        throw new UnsupportedOperationException("DBNull serialization is not mapped");
     }
 
     private static InvalidCastException invalidConversion() {

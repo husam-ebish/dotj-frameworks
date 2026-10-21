@@ -11,12 +11,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[3]
 PRODUCT = ROOT / "dotj-core/dotj-core-public"
 SOURCES = [PRODUCT / "src/main/java/System" / (name + ".java") for name in (
-    "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "Type", "DBNull", "Attribute", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "FormatException")]
+    "IDisposable", "IComparable", "IFormattable", "IFormatProvider", "ISpanFormattable", "IUtf8SpanFormattable", "IConvertible", "TypeCode", "Decimal", "DateTime", "Int32", "Type", "DBNull", "Attribute", "Exception", "SystemException", "ArgumentException", "ArgumentNullException", "TypeLoadException", "IndexOutOfRangeException", "OverflowException", "InvalidCastException", "InvalidOperationException", "NullReferenceException", "FormatException")]
 SOURCES += [PRODUCT / "src/main/java/System/IO" / (name + ".java") for name in
             ("IOException", "FileNotFoundException", "FileLoadException")]
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/NullableAttribute.java")
+SOURCES += [PRODUCT / "src/main/java/System/Runtime/Serialization" / (name + ".java") for name in
+            ("ISerializable", "SerializationInfo", "StreamingContext")]
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MemberInfo.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBase.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Reflection/MethodBody.java")
@@ -63,6 +65,7 @@ EXPECTED_CLASSES = [
     "System/Int32.class",
     "System/InvalidCastException.class",
     "System/InvalidOperationException.class",
+    "System/NullReferenceException.class",
     "System/OverflowException.class",
     "System/Reflection/BindingFlags.class",
     "System/Reflection/CallingConventions.class",
@@ -76,6 +79,9 @@ EXPECTED_CLASSES = [
     "System/Reflection/ParameterAttributes.class",
     "System/Reflection/ParameterInfo.class",
     "System/Runtime/CompilerServices/NullableAttribute.class",
+    "System/Runtime/Serialization/ISerializable.class",
+    "System/Runtime/Serialization/SerializationInfo.class",
+    "System/Runtime/Serialization/StreamingContext.class",
     "System/SystemException.class",
     "System/Type$1.class",
     "System/Type$2.class",

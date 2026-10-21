@@ -83,6 +83,18 @@
     "convertibleInstance": true,
     "convertibleInterface": "System.IConvertible"
   },
+  "selectedDBNullSerializationContractBehavior": {
+    "interfaceName": "System.Runtime.Serialization.ISerializable",
+    "methodName": "GetObjectData",
+    "parameterTypes": [
+      "System.Runtime.Serialization.SerializationInfo",
+      "System.Runtime.Serialization.StreamingContext"
+    ],
+    "infoBase": "System.Object",
+    "contextBase": "System.ValueType",
+    "nullInfoError": "System.NullReferenceException",
+    "nullInfoParameter": null
+  },
   "selectedExceptionToStringBehavior": {
     "exceptionWithMessage": "System.Exception: message",
     "exceptionWithoutMessage": "System.Exception: Exception of type 'System.Exception' was thrown.",
@@ -15525,6 +15537,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "a170df6809e645a4d3243226393c5ff28436e935a0705bc9020bfe1011e225f0",
+  "oracleProgramSha256": "4ffb60babb8ce495daee28882689831201cd40d83c60d866bd7d038c3914a693",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

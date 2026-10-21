@@ -30,7 +30,10 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodImplAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DBNull.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
+EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
+                      ("ISerializable", "SerializationInfo", "StreamingContext")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
@@ -88,6 +91,15 @@ def main():
         "interfaces": ["System.Runtime.Serialization.ISerializable", "System.IConvertible"],
         "convertibleAssignable": True, "convertibleInstance": True,
         "convertibleInterface": "System.IConvertible",
+    }
+    serialization_contract = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDBNullSerializationContractBehavior"]
+    assert serialization_contract == {
+        "interfaceName": "System.Runtime.Serialization.ISerializable",
+        "methodName": "GetObjectData",
+        "parameterTypes": ["System.Runtime.Serialization.SerializationInfo",
+                           "System.Runtime.Serialization.StreamingContext"],
+        "infoBase": "System.Object", "contextBase": "System.ValueType",
+        "nullInfoError": "System.NullReferenceException", "nullInfoParameter": None,
     }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]

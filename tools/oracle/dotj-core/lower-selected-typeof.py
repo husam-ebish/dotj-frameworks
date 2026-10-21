@@ -27,7 +27,10 @@ EXCEPTION_SOURCES.append(SOURCE.parent / "Reflection/MethodImplAttributes.java")
 EXCEPTION_SOURCES.append(SOURCE.with_name("TypeCode.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DBNull.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Attribute.java"))
+EXCEPTION_SOURCES.append(SOURCE.with_name("NullReferenceException.java"))
 EXCEPTION_SOURCES.append(SOURCE.parent / "Runtime/CompilerServices/NullableAttribute.java")
+EXCEPTION_SOURCES += [SOURCE.parent / "Runtime/Serialization" / (name + ".java") for name in
+                      ("ISerializable", "SerializationInfo", "StreamingContext")]
 EXCEPTION_SOURCES.append(SOURCE.with_name("Decimal.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("DateTime.java"))
 EXCEPTION_SOURCES.append(SOURCE.with_name("Int32.java"))
