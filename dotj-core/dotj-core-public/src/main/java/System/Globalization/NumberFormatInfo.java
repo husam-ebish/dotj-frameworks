@@ -17,11 +17,13 @@ public final class NumberFormatInfo implements IFormatProvider {
     private String positiveSign = "+";
     private String currencySymbol = "\u00a4";
     private String currencyGroupSeparator = ",";
+    private int[] currencyGroupSizes = {3};
     private String currencyDecimalSeparator = ".";
     private int currencyDecimalDigits = 2;
     private int currencyNegativePattern = 0;
     private String percentSymbol = "%";
     private String percentGroupSeparator = ",";
+    private int[] percentGroupSizes = {3};
     private String percentDecimalSeparator = ".";
     private int percentDecimalDigits = 2;
     private int percentPositivePattern = 0;
@@ -41,6 +43,11 @@ public final class NumberFormatInfo implements IFormatProvider {
     }
 
     public void set_NumberGroupSizes(int[] value) {
+        validateGroupSizes(value);
+        this.numberGroupSizes = value.clone();
+    }
+
+    private static void validateGroupSizes(int[] value) {
         if (value == null) throw new ArgumentNullException("value");
         for (int index = 0; index < value.length; index++) {
             if (value[index] < 0 || value[index] > 9
@@ -48,7 +55,6 @@ public final class NumberFormatInfo implements IFormatProvider {
                 throw new ArgumentOutOfRangeException("value");
             }
         }
-        this.numberGroupSizes = value.clone();
     }
 
     public String get_NumberDecimalSeparator() {
@@ -107,6 +113,15 @@ public final class NumberFormatInfo implements IFormatProvider {
         this.currencyGroupSeparator = value;
     }
 
+    public int[] get_CurrencyGroupSizes() {
+        return this.currencyGroupSizes.clone();
+    }
+
+    public void set_CurrencyGroupSizes(int[] value) {
+        validateGroupSizes(value);
+        this.currencyGroupSizes = value.clone();
+    }
+
     public String get_CurrencyDecimalSeparator() {
         return this.currencyDecimalSeparator;
     }
@@ -150,6 +165,15 @@ public final class NumberFormatInfo implements IFormatProvider {
     public void set_PercentGroupSeparator(String value) {
         if (value == null) throw new ArgumentNullException("value");
         this.percentGroupSeparator = value;
+    }
+
+    public int[] get_PercentGroupSizes() {
+        return this.percentGroupSizes.clone();
+    }
+
+    public void set_PercentGroupSizes(int[] value) {
+        validateGroupSizes(value);
+        this.percentGroupSizes = value.clone();
     }
 
     public String get_PercentDecimalSeparator() {

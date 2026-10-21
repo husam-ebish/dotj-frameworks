@@ -127,6 +127,17 @@ public final class ProductInt32SpanConsumer {
         stoppedGroups.set_NumberGroupSeparator("_");
         stoppedGroups.set_NumberGroupSizes(new int[] {3, 2, 0});
         checkProviderVector(new Int32(123456789), "N0", "1234_56_789", stoppedGroups);
+        NumberFormatInfo otherGroups = new NumberFormatInfo();
+        otherGroups.set_CurrencySymbol("USD");
+        otherGroups.set_CurrencyGroupSeparator("_");
+        otherGroups.set_CurrencyGroupSizes(new int[] {3, 2});
+        otherGroups.set_PercentSymbol("pct");
+        otherGroups.set_PercentGroupSeparator("_");
+        otherGroups.set_PercentGroupSizes(new int[] {2});
+        checkProviderVector(new Int32(123456789), "C0", "USD12_34_56_789", otherGroups);
+        checkProviderVector(new Int32(-123456789), "C0", "(USD12_34_56_789)", otherGroups);
+        checkProviderVector(new Int32(42), "P0", "42_00 pct", otherGroups);
+        checkProviderVector(new Int32(-42), "P0", "-42_00 pct", otherGroups);
         NumberFormatInfo customSign = new NumberFormatInfo();
         customSign.set_NegativeSign("~");
         if (Int32.Parse("~42", NumberStyles.Integer, customSign).get_Value() != -42) {

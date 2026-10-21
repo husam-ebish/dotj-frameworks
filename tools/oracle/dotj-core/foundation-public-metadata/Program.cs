@@ -575,6 +575,25 @@ static object ObserveInt32NumberGroupSizes()
         parsed = int.Parse("12_34_56_789", System.Globalization.NumberStyles.Number, repeated),
     };
 }
+static object ObserveInt32CurrencyPercentGroupSizes()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        CurrencySymbol = "USD",
+        CurrencyGroupSeparator = "_",
+        CurrencyGroupSizes = [3, 2],
+        PercentSymbol = "pct",
+        PercentGroupSeparator = "_",
+        PercentGroupSizes = [2],
+    };
+    return new
+    {
+        currency = ((IFormattable)123456789).ToString("C0", provider),
+        negativeCurrency = ((IFormattable)(-123456789)).ToString("C0", provider),
+        percent = ((IFormattable)42).ToString("P0", provider),
+        negativePercent = ((IFormattable)(-42)).ToString("P0", provider),
+    };
+}
 static object ObserveInt32NegativeSign()
 {
     var provider = new System.Globalization.NumberFormatInfo
@@ -5105,6 +5124,7 @@ var result = new
     },
     selectedInt32ProviderFormatBehavior = ObserveInt32ProviderFormat(),
     selectedInt32NumberGroupSizes = ObserveInt32NumberGroupSizes(),
+    selectedInt32CurrencyPercentGroupSizes = ObserveInt32CurrencyPercentGroupSizes(),
     selectedInt32NegativeSignBehavior = ObserveInt32NegativeSign(),
     selectedInt32CurrencyFormatBehavior = new
     {
