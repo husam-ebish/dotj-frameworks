@@ -625,6 +625,21 @@ static object ObserveInt32PercentProvider()
         compactNegative = ((IFormattable)(-42)).ToString("P2", provider),
     };
 }
+static object ObserveInt32FixedProvider()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = ":",
+        NumberDecimalDigits = 3,
+        NegativeSign = "~",
+    };
+    return new
+    {
+        defaultPrecision = ((IFormattable)(-42)).ToString("F", provider),
+        explicitPrecision = ((IFormattable)(-42)).ToString("f1", provider),
+        zeroPrecision = ((IFormattable)(-42)).ToString("F0", provider),
+    };
+}
 static string? ObserveInt32Error(Action operation)
 {
     try
@@ -5005,6 +5020,7 @@ var result = new
     },
     selectedInt32CurrencyProviderBehavior = ObserveInt32CurrencyProvider(),
     selectedInt32PercentProviderBehavior = ObserveInt32PercentProvider(),
+    selectedInt32FixedProviderBehavior = ObserveInt32FixedProvider(),
     selectedInt32FixedFormatBehavior = new
     {
         zeroPrecision = ((IFormattable)12345).ToString("F0",

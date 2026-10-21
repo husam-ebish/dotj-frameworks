@@ -158,6 +158,13 @@ public final class ProductInt32SpanConsumer {
         percent.set_PercentNegativePattern(1);
         checkProviderVector(new Int32(42), "P2", "4_200:00pct", percent);
         checkProviderVector(new Int32(-42), "P2", "~4_200:00pct", percent);
+        NumberFormatInfo fixed = new NumberFormatInfo();
+        fixed.set_NumberDecimalSeparator(":");
+        fixed.set_NumberDecimalDigits(3);
+        fixed.set_NegativeSign("~");
+        checkProviderVector(new Int32(-42), "F", "~42:000", fixed);
+        checkProviderVector(new Int32(-42), "f1", "~42:0", fixed);
+        checkProviderVector(new Int32(-42), "F0", "~42", fixed);
     }
 
     private static void checkProviderVector(Int32 value, String specifier, String expected,
