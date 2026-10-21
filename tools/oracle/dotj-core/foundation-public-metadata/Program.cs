@@ -508,6 +508,21 @@ var result = new
         zero = ((IFormattable)0).ToString("E2",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32ExponentialRoundingBehavior = new
+    {
+        exponentCarry = ((IFormattable)999).ToString("E1",
+            System.Globalization.CultureInfo.InvariantCulture),
+        midpointCarry = ((IFormattable)995).ToString("E1",
+            System.Globalization.CultureInfo.InvariantCulture),
+        midpointEven = ((IFormattable)985).ToString("E1",
+            System.Globalization.CultureInfo.InvariantCulture),
+        belowMidpoint = ((IFormattable)949).ToString("E1",
+            System.Globalization.CultureInfo.InvariantCulture),
+        maximum = ((IFormattable)int.MaxValue).ToString("E2",
+            System.Globalization.CultureInfo.InvariantCulture),
+        minimum = ((IFormattable)int.MinValue).ToString("E2",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),
