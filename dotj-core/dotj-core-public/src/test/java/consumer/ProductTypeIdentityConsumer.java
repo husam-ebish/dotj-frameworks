@@ -2032,6 +2032,17 @@ public final class ProductTypeIdentityConsumer {
                 || timed.ToDateTime(provider).get_Second() != 5) {
             throw new AssertionError("Selected DateTime time-of-day changed");
         }
+        DateTime millisecondDate = new DateTime(2026, 1, 2, 3, 4, 5, 123);
+        DateTime millisecondParsed = DateTime.Parse("2026-01-02T03:04:05.123");
+        if (millisecondDate.get_Millisecond() != 123
+                || millisecondParsed.get_Millisecond() != 123
+                || !"2026-01-02 03:04:05.123".equals(
+                        millisecondDate.ToString("yyyy-MM-dd HH:mm:ss.fff", provider))
+                || !"2026-01-02 03:04:05.123".equals(
+                        millisecondParsed.ToString("yyyy-MM-dd HH:mm:ss.fff", provider))
+                || millisecondDate.ToDateTime(provider).get_Millisecond() != 123) {
+            throw new AssertionError("Selected DateTime milliseconds changed");
+        }
         MemberInfo parameterMember = parameter;
         if (stringMember.get_DeclaringType() != null || stringMember.get_ReflectedType() != null
                 || parameterMember.get_DeclaringType() != definition

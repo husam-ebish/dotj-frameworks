@@ -21,14 +21,23 @@ public final class DateTime implements IConvertible {
                 hourOfDay, minuteOfHour, secondOfMinute);
     }
 
+    public DateTime(int year, int month, int day, int hourOfDay,
+                    int minuteOfHour, int secondOfMinute, int millisecondOfSecond) {
+        this.date = LocalDateTime.of(year, month, day,
+                hourOfDay, minuteOfHour, secondOfMinute, millisecondOfSecond * 1_000_000);
+    }
+
+    private DateTime(LocalDateTime date) {
+        this.date = date;
+    }
+
     public static DateTime Parse(String text) {
         if (text == null) {
             throw new ArgumentNullException("s");
         }
         try {
             LocalDateTime parsed = LocalDateTime.parse(text.strip(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-            return new DateTime(parsed.getYear(), parsed.getMonthValue(), parsed.getDayOfMonth(),
-                    parsed.getHour(), parsed.getMinute(), parsed.getSecond());
+            return new DateTime(parsed);
         } catch (DateTimeParseException ignored) {
             try {
                 LocalDate parsed = LocalDate.parse(text.strip(), DateTimeFormatter.ISO_LOCAL_DATE);
@@ -61,6 +70,10 @@ public final class DateTime implements IConvertible {
 
     public int get_Second() {
         return this.date.getSecond();
+    }
+
+    public int get_Millisecond() {
+        return this.date.getNano() / 1_000_000;
     }
 
     @Override
@@ -135,8 +148,7 @@ public final class DateTime implements IConvertible {
 
     @Override
     public DateTime ToDateTime(IFormatProvider provider) {
-        return new DateTime(this.get_Year(), this.get_Month(), this.get_Day(),
-                this.get_Hour(), this.get_Minute(), this.get_Second());
+        return new DateTime(this.date);
     }
 
     @Override
@@ -166,6 +178,10 @@ public final class DateTime implements IConvertible {
         }
         if ("yyyy-MM-dd HH:mm:ss".equals(format)) {
             return this.date.format(DateTimeFormatter.ofPattern(format, java.util.Locale.ROOT));
+        }
+        if ("yyyy-MM-dd HH:mm:ss.fff".equals(format)) {
+            return this.date.format(DateTimeFormatter.ofPattern(
+                    "yyyy-MM-dd HH:mm:ss.SSS", java.util.Locale.ROOT));
         }
         throw new UnsupportedOperationException("DateTime format is not mapped for this candidate");
     }

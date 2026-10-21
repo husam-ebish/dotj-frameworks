@@ -1814,6 +1814,20 @@ static object ObserveDateTimeTimeOfDay()
         convertedSame = ((IConvertible)constructed).ToDateTime(invariant) == constructed,
     };
 }
+static object ObserveDateTimeMilliseconds()
+{
+    var invariant = System.Globalization.CultureInfo.InvariantCulture;
+    var constructed = new DateTime(2026, 1, 2, 3, 4, 5, 123);
+    var parsed = DateTime.Parse("2026-01-02T03:04:05.123", invariant);
+    return new
+    {
+        constructedMillisecond = constructed.Millisecond,
+        constructedText = constructed.ToString("yyyy-MM-dd HH:mm:ss.fff", invariant),
+        parsedMillisecond = parsed.Millisecond,
+        parsedText = parsed.ToString("yyyy-MM-dd HH:mm:ss.fff", invariant),
+        convertedMillisecond = ((IConvertible)constructed).ToDateTime(invariant).Millisecond,
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -2004,6 +2018,7 @@ var result = new
     selectedInt32NoneStyleBehavior = ObserveInt32NoneStyle(),
     selectedInt32BinaryStyleBehavior = ObserveInt32BinaryStyle(),
     selectedDateTimeTimeOfDayBehavior = ObserveDateTimeTimeOfDay(),
+    selectedDateTimeMillisecondsBehavior = ObserveDateTimeMilliseconds(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

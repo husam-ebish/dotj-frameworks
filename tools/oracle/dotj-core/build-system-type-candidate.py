@@ -617,6 +617,14 @@ def main():
         "constructedText": "2026-01-02 03:04:05",
         "parsedText": "2026-01-02 03:04:05", "convertedSame": True,
     }
+    datetime_millis = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedDateTimeMillisecondsBehavior"]
+    assert datetime_millis == {
+        "constructedMillisecond": 123,
+        "constructedText": "2026-01-02 03:04:05.123",
+        "parsedMillisecond": 123,
+        "parsedText": "2026-01-02 03:04:05.123",
+        "convertedMillisecond": 123,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"

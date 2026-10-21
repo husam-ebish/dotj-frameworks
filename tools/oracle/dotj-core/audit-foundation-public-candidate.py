@@ -37,7 +37,8 @@ def main():
             assert len(upstream["publicConstructors"]) == 9
         elif name == "System.DateTime":
             assert constructors == ["public System.DateTime(int, int, int);",
-                                    "public System.DateTime(int, int, int, int, int, int);"]
+                                    "public System.DateTime(int, int, int, int, int, int);",
+                                    "public System.DateTime(int, int, int, int, int, int, int);"]
             assert len(upstream["publicConstructors"]) == 17
         elif name == "System.Int32":
             assert constructors == ["public System.Int32(int);"]
@@ -159,10 +160,12 @@ def main():
             assert header == "public final class System.DateTime implements System.IConvertible {"
             assert declarations == ["public System.DateTime(int, int, int);",
                                     "public System.DateTime(int, int, int, int, int, int);",
+                                    "public System.DateTime(int, int, int, int, int, int, int);",
                                     "public static System.DateTime Parse(java.lang.String);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();", "public int get_Hour();",
                                     "public int get_Minute();", "public int get_Second();",
+                                    "public int get_Millisecond();",
                                     "public System.TypeCode GetTypeCode();",
                                     "public boolean ToBoolean(System.IFormatProvider);",
                                     "public char ToChar(System.IFormatProvider);",
