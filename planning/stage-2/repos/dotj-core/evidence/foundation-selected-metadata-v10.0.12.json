@@ -640,6 +640,12 @@
     "formattedText": "42",
     "compareTo41": 1
   },
+  "selectedInt32ConversionErrors": {
+    "byteOverflow": "System.OverflowException",
+    "unsignedOverflow": "System.OverflowException",
+    "charOverflow": "System.OverflowException",
+    "invalidDateTime": "System.InvalidCastException"
+  },
   "selectedSpanFormattingBehavior": {
     "enough": {
       "success": true,
@@ -3273,8 +3279,82 @@
           }
         ]
       ]
+    },
+    {
+      "fullName": "System.OverflowException",
+      "baseType": "System.ArithmeticException",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 0,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [],
+      "selectedProperties": [],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ]
+      ]
+    },
+    {
+      "fullName": "System.InvalidCastException",
+      "baseType": "System.SystemException",
+      "isInterface": false,
+      "isAbstract": false,
+      "nameGetterIsAbstract": null,
+      "declaringGetterIsAbstract": null,
+      "reflectedGetterIsAbstract": null,
+      "declaredPublicMethodCount": 0,
+      "declaredPublicPropertyCount": 0,
+      "selectedMethods": [],
+      "selectedProperties": [],
+      "publicConstructors": [
+        [],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "innerException",
+            "type": "System.Exception"
+          }
+        ],
+        [
+          {
+            "name": "message",
+            "type": "System.String"
+          },
+          {
+            "name": "errorCode",
+            "type": "System.Int32"
+          }
+        ]
+      ]
     }
   ],
-  "oracleProgramSha256": "8d62ce6866819031197d6be6a0354cac1d96bc50d44e368b8062b2ceb77b3ff0",
+  "oracleProgramSha256": "560e93023e86b9fd696d292d090501968bd0c492ac787d24e74b32902ef7f7d3",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

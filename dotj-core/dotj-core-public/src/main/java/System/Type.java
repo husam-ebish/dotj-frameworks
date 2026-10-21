@@ -124,6 +124,8 @@ public abstract class Type extends MemberInfo {
             case "System.TypeCode" -> fromJavaClass(TypeCode.class);
             case "System.Decimal" -> fromJavaClass(Decimal.class);
             case "System.DateTime" -> fromJavaClass(DateTime.class);
+            case "System.OverflowException" -> fromJavaClass(OverflowException.class);
+            case "System.InvalidCastException" -> fromJavaClass(InvalidCastException.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
             case "System.Enum" -> fromJavaClass(Enum.class);
             case "System.Collections.Generic.List`1" -> fromJavaClass(java.util.List.class);
@@ -166,6 +168,8 @@ public abstract class Type extends MemberInfo {
             case "system.typecode" -> ignoreCase ? fromJavaClass(TypeCode.class) : null;
             case "system.decimal" -> ignoreCase ? fromJavaClass(Decimal.class) : null;
             case "system.datetime" -> ignoreCase ? fromJavaClass(DateTime.class) : null;
+            case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
+            case "system.invalidcastexception" -> ignoreCase ? fromJavaClass(InvalidCastException.class) : null;
             case "system.reflection.membertypes" -> ignoreCase ? fromJavaClass(MemberTypes.class) : null;
             case "system.enum" -> ignoreCase ? fromJavaClass(Enum.class) : null;
             case "system.collections.generic.list`1" -> ignoreCase ? fromJavaClass(java.util.List.class) : null;
