@@ -737,17 +737,23 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             throw new UnsupportedOperationException("CurrencyNegativePattern is not mapped");
         }
         if (format.matches("[fF][0-9]*")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             int precision;
             try {
-                precision = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+                precision = format.length() == 1
+                        ? (numberFormat == null ? 2 : numberFormat.get_NumberDecimalDigits())
+                        : Integer.parseInt(format.substring(1));
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
             if (precision > 1000) {
                 throw new UnsupportedOperationException("Int32 precision is not mapped");
             }
-            String fraction = precision == 0 ? "" : "." + "0".repeat(precision);
-            return Integer.toString(this.value) + fraction;
+            String fraction = precision == 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + "0".repeat(precision);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + BigInteger.valueOf(this.value).abs() + fraction;
         }
         if (format.matches("[pP][0-9]*")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);

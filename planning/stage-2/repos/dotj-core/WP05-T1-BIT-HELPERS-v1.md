@@ -52,4 +52,6 @@ The `C` format now consumes selected currency symbol, group separator, decimal s
 
 The `P` format now uses selected percent symbol, separators, default precision and positive/negative pattern settings. The pinned .NET oracle and packaged consumers agree for `4_200:000 pct`, `~4_200:00 pct`, `4_200:00pct` and `~4_200:00pct`. Other percent patterns, variable group sizes and broader culture behavior remain open.
 
+The `F`/`f` format now uses selected number decimal separator, default precision and negative sign. The pinned oracle and packaged consumers agree for `~42:000`, `~42:0` and `~42` across ordinary and Char/UTF-8 span formatting. Other numeric provider behavior remains open.
+
 Qualification remains open for the CLR value-type ABI, all untested values and overloads, generic numeric interfaces, native integer operations, and the remaining WP-05 numeric, text and time scope. This selected comparison is not a complete Int32 compatibility claim.

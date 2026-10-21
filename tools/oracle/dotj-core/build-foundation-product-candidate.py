@@ -179,6 +179,10 @@ def main():
         "defaultPositive": "4_200:000 pct", "defaultNegative": "~4_200:00 pct",
         "compactPositive": "4_200:00pct", "compactNegative": "~4_200:00pct",
     }
+    assert metadata["selectedInt32FixedProviderBehavior"] == {
+        "defaultPrecision": "~42:000", "explicitPrecision": "~42:0",
+        "zeroPrecision": "~42",
+    }
     assert metadata["selectedBaseExceptionBehavior"] == {
         "standaloneIsSelf": True,
         "rootIsSelf": True,
