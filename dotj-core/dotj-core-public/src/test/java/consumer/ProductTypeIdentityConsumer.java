@@ -140,6 +140,21 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetTypeCode(byteType) != TypeCode.Byte) {
             throw new AssertionError("Selected Byte Type identity changed");
         }
+        String[] selectedPrimitiveNames = {"System.Boolean", "System.Char", "System.Byte",
+                "System.Int16", "System.Int64", "System.Single", "System.Double"};
+        for (int index = 0; index < selectedPrimitiveNames.length; index++) {
+            String name = selectedPrimitiveNames[index];
+            String lower = name.toLowerCase(java.util.Locale.ROOT);
+            String qualified = name + ", System.Private.CoreLib";
+            if (Type.GetType(name) != primitiveTypes[index]
+                    || Type.GetType(lower, false, false) != null
+                    || Type.GetType(lower, false, true) != primitiveTypes[index]
+                    || Type.GetType(qualified) != primitiveTypes[index]
+                    || Type.GetType(qualified.toLowerCase(java.util.Locale.ROOT), false, true)
+                            != primitiveTypes[index]) {
+                throw new AssertionError("Selected primitive lookup changed: " + name);
+            }
+        }
         Type[] mixedTypes = Type.GetTypeArray(new Object[] {"text", 42, new Exception("x")});
         if (mixedTypes.length != 3 || mixedTypes[0] != string || mixedTypes[1] != integer
                 || mixedTypes[2] != Type.GetType("System.Exception")

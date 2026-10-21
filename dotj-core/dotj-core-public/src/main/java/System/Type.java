@@ -417,6 +417,13 @@ public abstract class Type extends MemberInfo {
                     arrayOf(fromJavaClass(java.util.List.class)
                             .MakeGenericType(new Type[] {fromJavaClass(String.class)}), 1);
             case "system.string" -> ignoreCase ? fromJavaClass(String.class) : null;
+            case "system.boolean" -> ignoreCase ? fromJavaClass(Boolean.class) : null;
+            case "system.char" -> ignoreCase ? fromJavaClass(Character.class) : null;
+            case "system.byte" -> ignoreCase ? fromJavaClass(Byte.class) : null;
+            case "system.int16" -> ignoreCase ? fromJavaClass(Short.class) : null;
+            case "system.int64" -> ignoreCase ? fromJavaClass(Long.class) : null;
+            case "system.single" -> ignoreCase ? fromJavaClass(Float.class) : null;
+            case "system.double" -> ignoreCase ? fromJavaClass(Double.class) : null;
             case "system.int32" -> ignoreCase ? fromJavaClass(Int32.class) : null;
             case "system.object" -> ignoreCase ? fromJavaClass(Object.class) : null;
             case "system.valuetype" -> ignoreCase ? fromJavaClass(Number.class) : null;
