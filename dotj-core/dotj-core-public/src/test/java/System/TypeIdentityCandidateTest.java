@@ -38,6 +38,14 @@ public final class TypeIdentityCandidateTest {
             throw new AssertionError("Generic arguments escaped by reference");
         }
         Type map = Type.fromJavaClass(Map.class);
+        Type nestedEntry = Type.fromJavaClass(Map.Entry.class);
+        if (string.get_IsNested() || string.get_IsNestedPublic()
+                || list.get_IsNested() || list.get_IsNestedPublic()
+                || !list.GetGenericArguments()[0].get_IsNested()
+                || list.GetGenericArguments()[0].get_IsNestedPublic()
+                || !nestedEntry.get_IsNested() || !nestedEntry.get_IsNestedPublic()) {
+            throw new AssertionError("Selected nested Type flags changed");
+        }
         Type[] listParameters = list.GetGenericArguments();
         Type[] mapParameters = map.GetGenericArguments();
         if (listParameters.length != 1 || mapParameters.length != 2

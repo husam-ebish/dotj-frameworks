@@ -1038,6 +1038,9 @@ def main():
     assert [row["result"] for row in definition_kinds] == [True] * 5 + [False] * 7
     byref_like = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedByRefLikeBehavior"]
     assert [row["result"] for row in byref_like] == [False] * 6 + [True] * 2
+    nested_flags = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedNestedTypeFlagBehavior"]
+    assert [row["isNested"] for row in nested_flags] == [False] * 2 + [True] * 3
+    assert [row["isNestedPublic"] for row in nested_flags] == [False] * 3 + [True] * 2
     primitive_array_texts = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedPrimitiveArrayToStringBehavior"]
     assert [row["name"] for row in primitive_array_texts] == [
         "System.Boolean", "System.Char", "System.Byte", "System.Int16",
@@ -1197,6 +1200,8 @@ def main():
         "public boolean get_IsGenericTypeDefinition();",
         "public boolean get_IsTypeDefinition();",
         "public boolean get_IsByRefLike();",
+        "public boolean get_IsNested();",
+        "public boolean get_IsNestedPublic();",
         "public boolean get_ContainsGenericParameters();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",
