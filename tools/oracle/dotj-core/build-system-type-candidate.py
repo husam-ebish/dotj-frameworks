@@ -397,6 +397,13 @@ def main():
                     "baseType": "System.Attribute", "flags": "AQ=="}],
         "inherited": ["System.Runtime.CompilerServices.NullableAttribute"],
     }
+    attribute_filter = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterAttributeFilterBehavior"]
+    assert attribute_filter == {
+        "returnBase": ["System.Runtime.CompilerServices.NullableAttribute"],
+        "returnExact": ["System.Runtime.CompilerServices.NullableAttribute"],
+        "inputBase": [], "nullError": "System.ArgumentNullException",
+        "nullParameter": "attributeType",
+    }
     parameter_modifiers = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedParameterModifierBehavior"]
     assert [len(row["parameters"]) for row in parameter_modifiers] == [1, 2, 3, 2]
     assert all(parameter["optional"] == [] and parameter["required"] == []

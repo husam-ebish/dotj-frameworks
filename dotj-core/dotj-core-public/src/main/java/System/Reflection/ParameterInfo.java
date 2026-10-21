@@ -5,6 +5,7 @@ package System.Reflection;
 import System.Type;
 import System.DBNull;
 import System.Runtime.CompilerServices.NullableAttribute;
+import System.ArgumentNullException;
 
 /** Selected parameter metadata for bounded method descriptors. */
 public class ParameterInfo {
@@ -77,6 +78,18 @@ public class ParameterInfo {
                 && "System.IFormattable".equals(this.member.get_DeclaringType().get_FullName())
                 && "ToString".equals(this.member.get_Name())) {
             return new Object[] { new NullableAttribute((byte) 1) };
+        }
+        return new Object[0];
+    }
+
+    public Object[] GetCustomAttributes(Type attributeType, boolean inherit) {
+        if (attributeType == null) {
+            throw new ArgumentNullException("attributeType");
+        }
+        String fullName = attributeType.get_FullName();
+        if ("System.Attribute".equals(fullName)
+                || "System.Runtime.CompilerServices.NullableAttribute".equals(fullName)) {
+            return this.GetCustomAttributes(inherit);
         }
         return new Object[0];
     }
