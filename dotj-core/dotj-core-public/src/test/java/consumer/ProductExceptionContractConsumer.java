@@ -67,6 +67,19 @@ public final class ProductExceptionContractConsumer {
         if (withHelpLink.get_HelpLink() != null) {
             throw new AssertionError("Selected HelpLink reset changed");
         }
+        Exception withSource = new Exception("source");
+        if (withSource.get_Source() != null) {
+            throw new AssertionError("Selected Source default changed");
+        }
+        withSource.set_Source("selected.component");
+        if (!"selected.component".equals(withSource.get_Source())
+                || new Exception("other").get_Source() != null) {
+            throw new AssertionError("Selected Source mutation changed");
+        }
+        withSource.set_Source(null);
+        if (withSource.get_Source() != null) {
+            throw new AssertionError("Selected Source reset changed");
+        }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5
