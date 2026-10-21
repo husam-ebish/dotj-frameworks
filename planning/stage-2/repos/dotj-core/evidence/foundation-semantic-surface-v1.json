@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "4999cca50deeb5b16a5b3fedc3e13744de66e3f71ae43b3c376fe9fe2cc8cf65",
+  "oracleEvidenceSha256": "f85b3e16c661a57b60eb1b5c5005039f0744e7b3f0cfa239aaf680afbcdd152e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "864912ebe0f7eb8232f01828b56e3f910ee14c6e72a810384ce2737b19b1203a",
+  "javaCandidateEvidenceSha256": "e1ba06b8fc04a8782ef3ce9e35b476054dbd548202245357be1b247c9d4603cc",
   "types": [
     {
       "fullName": "System.Type",
@@ -3403,6 +3403,7 @@
       "javaCandidateDeclaredPublicDeclarations": [
         "public static System.TypeCode GetTypeCode(System.Type);",
         "public static System.Type[] GetTypeArray(java.lang.Object[]);",
+        "public int GetHashCode();",
         "public static System.Type GetType(java.lang.String);",
         "public static System.Type GetType(java.lang.String, boolean);",
         "public static System.Type GetType(java.lang.String, boolean, boolean);",
@@ -3524,6 +3525,7 @@
           "GetGenericArguments": 1,
           "GetGenericParameterConstraints": 1,
           "GetGenericTypeDefinition": 1,
+          "GetHashCode": 1,
           "GetInterface": 2,
           "GetInterfaces": 1,
           "GetType": 3,
@@ -3582,7 +3584,6 @@
           "GetFunctionPointerCallingConventions",
           "GetFunctionPointerParameterTypes",
           "GetFunctionPointerReturnType",
-          "GetHashCode",
           "GetInterfaceMap",
           "GetMember",
           "GetMemberWithSameMetadataDefinitionAs",
