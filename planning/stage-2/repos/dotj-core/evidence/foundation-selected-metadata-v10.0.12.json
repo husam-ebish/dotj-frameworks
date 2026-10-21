@@ -24580,6 +24580,148 @@
       "error": "System.OverflowException"
     }
   ],
+  "selectedDecimalTruncate": [
+    {
+      "input": [
+        12345,
+        0,
+        0,
+        131072
+      ],
+      "result": [
+        123,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        12345,
+        0,
+        0,
+        -2147352576
+      ],
+      "result": [
+        123,
+        0,
+        0,
+        -2147483648
+      ]
+    },
+    {
+      "input": [
+        99,
+        0,
+        0,
+        131072
+      ],
+      "result": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        99,
+        0,
+        0,
+        -2147352576
+      ],
+      "result": [
+        0,
+        0,
+        0,
+        -2147483648
+      ]
+    },
+    {
+      "input": [
+        0,
+        0,
+        0,
+        -2147352576
+      ],
+      "result": [
+        0,
+        0,
+        0,
+        -2147483648
+      ]
+    },
+    {
+      "input": [
+        1,
+        0,
+        0,
+        1835008
+      ],
+      "result": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "result": [
+        -1,
+        -1,
+        -1,
+        0
+      ]
+    },
+    {
+      "input": [
+        -1,
+        -1,
+        -1,
+        -2147483648
+      ],
+      "result": [
+        -1,
+        -1,
+        -1,
+        -2147483648
+      ]
+    },
+    {
+      "input": [
+        12300,
+        0,
+        0,
+        131072
+      ],
+      "result": [
+        123,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "input": [
+        1,
+        0,
+        0,
+        -2147352576
+      ],
+      "result": [
+        0,
+        0,
+        0,
+        -2147483648
+      ]
+    }
+  ],
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -28076,6 +28218,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "89dfb5404d88b9b134ee43babccee1db144f9b46e508fd0d8723ce7ce185a0d7",
+  "oracleProgramSha256": "2ebadf0aa9c340b45b93c7b0d8ac928550bc60d1112dfb793922b134782b44eb",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -73,6 +73,16 @@ public final class Decimal implements IConvertible {
         };
     }
 
+    public static Decimal Truncate(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        BigDecimal result = value.value.setScale(0, RoundingMode.DOWN);
+        boolean negativeZero = result.signum() == 0
+                && (value.value.signum() < 0 || value.negativeZero);
+        return new Decimal(result, negativeZero);
+    }
+
     public static Decimal Parse(String text) {
         if (text == null) {
             throw new ArgumentNullException("s");

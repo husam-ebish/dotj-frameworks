@@ -1201,6 +1201,27 @@ static object ObserveDecimalParseBounds()
         }
     }).ToArray();
 }
+static object ObserveDecimalTruncate()
+{
+    int[][] inputs =
+    [
+        [12345, 0, 0, 0x00020000],
+        [12345, 0, 0, unchecked((int)0x80020000)],
+        [99, 0, 0, 0x00020000],
+        [99, 0, 0, unchecked((int)0x80020000)],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0x001c0000],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [12300, 0, 0, 0x00020000],
+        [1, 0, 0, unchecked((int)0x80020000)],
+    ];
+    return inputs.Select(bits => new
+    {
+        input = bits,
+        result = decimal.GetBits(decimal.Truncate(new decimal(bits))),
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5670,6 +5691,7 @@ var result = new
     selectedDecimalBitPatterns = ObserveDecimalBitPatterns(),
     selectedDecimalWordConstructor = ObserveDecimalWordConstructor(),
     selectedDecimalParseBounds = ObserveDecimalParseBounds(),
+    selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

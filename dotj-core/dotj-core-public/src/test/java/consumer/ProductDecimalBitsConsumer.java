@@ -126,6 +126,26 @@ public final class ProductDecimalBitsConsumer {
                 // Pinned .NET 10 boundary.
             }
         }
+        int[][] truncateInput = {
+            {12345, 0, 0, 0x00020000}, {12345, 0, 0, 0x80020000},
+            {99, 0, 0, 0x00020000}, {99, 0, 0, 0x80020000},
+            {0, 0, 0, 0x80020000}, {1, 0, 0, 0x001c0000},
+            {-1, -1, -1, 0}, {-1, -1, -1, 0x80000000},
+            {12300, 0, 0, 0x00020000}, {1, 0, 0, 0x80020000},
+        };
+        int[][] truncateExpected = {
+            {123, 0, 0, 0}, {123, 0, 0, 0x80000000},
+            {0, 0, 0, 0}, {0, 0, 0, 0x80000000},
+            {0, 0, 0, 0x80000000}, {0, 0, 0, 0},
+            {-1, -1, -1, 0}, {-1, -1, -1, 0x80000000},
+            {123, 0, 0, 0}, {0, 0, 0, 0x80000000},
+        };
+        for (int index = 0; index < truncateInput.length; index++) {
+            if (!Arrays.equals(Decimal.GetBits(Decimal.Truncate(new Decimal(truncateInput[index]))),
+                    truncateExpected[index])) {
+                throw new AssertionError("Decimal truncate changed: " + index);
+            }
+        }
         java.lang.System.out.println("PASS external selected Decimal bits");
     }
 }
