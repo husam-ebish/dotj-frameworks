@@ -648,6 +648,15 @@ var result = new
         typeof(System.Collections.Generic.List<string>),
         typeof(System.Collections.Generic.Dictionary<string, int>),
     }.Select(type => new { fullName = type.FullName, text = type.ToString() }).ToArray(),
+    selectedNestedTypeToStringBehavior = new[]
+    {
+        typeof(System.Collections.Generic.List<string>[]),
+        typeof(System.Collections.Generic.List<string>[,]),
+        typeof(System.Collections.Generic.List<System.Collections.Generic.List<string>>),
+        typeof(System.Collections.Generic.Dictionary<string, System.Collections.Generic.List<int>>),
+        typeof(System.Collections.Generic.List<>).MakeArrayType(),
+        typeof(System.Collections.Generic.List<>).GetGenericArguments()[0].MakeArrayType(),
+    }.Select(type => new { fullName = type.FullName, text = type.ToString() }).ToArray(),
     selectedTypeArrayBehavior = new
     {
         mixed = ObserveTypeArray(["text", 42, new Exception("x")]),
