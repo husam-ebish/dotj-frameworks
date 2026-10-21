@@ -1210,6 +1210,23 @@ static object ObserveSerializationEntryTypeEquality()
         nullVersusTextEqual = nullA.Equals(text),
     };
 }
+static object ObserveSerializationInfoDuplicateState()
+{
+    var info = new System.Runtime.Serialization.SerializationInfo(typeof(DBNull),
+        new System.Runtime.Serialization.FormatterConverter());
+    info.AddValue("item", 42);
+    var duplicateError = ObserveMethodError(() => info.AddValue("item", 99));
+    var cursor = info.GetEnumerator();
+    cursor.MoveNext();
+    return new
+    {
+        duplicateError,
+        count = info.MemberCount,
+        original = info.GetInt32("item"),
+        enumeratedValue = cursor.Value,
+        secondMove = cursor.MoveNext(),
+    };
+}
 var result = new
 {
     runtimeVersion = Environment.Version.ToString(),
@@ -1363,6 +1380,7 @@ var result = new
     selectedSerializationEntryValueSnapshotBehavior = ObserveSerializationEntryValueSnapshot(),
     selectedSerializationEntryEqualityBehavior = ObserveSerializationEntryEquality(),
     selectedSerializationEntryTypeEqualityBehavior = ObserveSerializationEntryTypeEquality(),
+    selectedSerializationInfoDuplicateStateBehavior = ObserveSerializationInfoDuplicateState(),
     selectedExceptionToStringBehavior = new
     {
         exceptionWithMessage = new Exception("message").ToString(),

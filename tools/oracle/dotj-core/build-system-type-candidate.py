@@ -325,6 +325,12 @@ def main():
         "sameNullEqual": True, "sameNullHash": True,
         "nullVersusTextEqual": False,
     }
+    duplicate_state = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedSerializationInfoDuplicateStateBehavior"]
+    assert duplicate_state == {
+        "duplicateError": "System.Runtime.Serialization.SerializationException",
+        "count": 1, "original": 42, "enumeratedValue": 42,
+        "secondMove": False,
+    }
     assert snapshot["assemblySha256"] == provenance["installedCoreLibSha256"]
     metadata = snapshot["type"]
     assert metadata["fullName"] == "System.Type"
