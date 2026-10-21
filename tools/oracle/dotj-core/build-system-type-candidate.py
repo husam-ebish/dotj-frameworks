@@ -918,6 +918,12 @@ def main():
     assert set(underlying) == {"stringSelf", "int32Self", "genericDefinitionSelf",
                                "closedGenericSelf", "arraySelf", "genericParameterSelf"}
     assert all(underlying.values())
+    parameter_kind = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedGenericParameterKindBehavior"]
+    assert parameter_kind == {
+        "stringIsTypeParameter": False, "stringIsMethodParameter": False,
+        "listParameterIsTypeParameter": True, "listParameterIsMethodParameter": False,
+        "convertAllParameterIsTypeParameter": False, "convertAllParameterIsMethodParameter": True,
+    }
     assert [item["result"] for item in assignability] == [
         True, True, True, True, False, False, True, True, False, True, False,
         True, False, False, True, False, True, True, True, True, True, True,
@@ -1046,6 +1052,8 @@ def main():
         "public boolean get_ContainsGenericParameters();",
         "public boolean get_IsConstructedGenericType();",
         "public boolean get_IsGenericParameter();",
+        "public boolean get_IsGenericTypeParameter();",
+        "public boolean get_IsGenericMethodParameter();",
         "public int get_GenericParameterPosition();",
         "public boolean IsEquivalentTo(System.Type);",
         "public boolean Equals(System.Type);",

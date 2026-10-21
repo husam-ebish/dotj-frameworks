@@ -1011,6 +1011,14 @@ public abstract class Type extends MemberInfo {
         return this.parameterIndex >= 0;
     }
 
+    public boolean get_IsGenericTypeParameter() {
+        return this.parameterIndex >= 0;
+    }
+
+    public boolean get_IsGenericMethodParameter() {
+        return false;
+    }
+
     public int get_GenericParameterPosition() {
         if (this.parameterIndex < 0) {
             throw new IllegalStateException("Not a generic parameter");

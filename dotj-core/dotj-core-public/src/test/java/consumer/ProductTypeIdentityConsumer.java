@@ -1856,6 +1856,10 @@ public final class ProductTypeIdentityConsumer {
             if (selected.get_UnderlyingSystemType() != selected) {
                 throw new AssertionError("Selected underlying Type identity changed: " + selected.get_Name());
             }
+            if (selected.get_IsGenericTypeParameter() != (selected == parameter)
+                    || selected.get_IsGenericMethodParameter()) {
+                throw new AssertionError("Selected generic parameter kind changed: " + selected.get_Name());
+            }
         }
         for (String selectedCoreLibName : new String[] {
                 "System.IDisposable", "System.IComparable", "System.IFormattable",
