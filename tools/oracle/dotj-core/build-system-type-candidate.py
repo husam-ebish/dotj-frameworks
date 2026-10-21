@@ -68,6 +68,7 @@ def main():
         "System.Type GetType(System.String)",
         "System.Type GetEnumUnderlyingType()",
         "System.String[] GetEnumNames()",
+        "Boolean IsEnumDefined(System.Object)",
         "Boolean IsAssignableFrom(System.Type)",
         "Boolean IsSubclassOf(System.Type)",
         "Boolean IsInstanceOfType(System.Object)",
@@ -254,6 +255,14 @@ def main():
         512, 515, 1024, 1027,
     ]
     assert [row["name"] for row in number_style_values] == enum_names["numberStyles"]["names"]
+    enum_defined = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedEnumDefinedBehavior"]
+    for key in ("enumValue", "integerValue", "exactName"):
+        assert enum_defined[key] == {"result": True, "exception": None, "paramName": None}
+    for key in ("lowerName", "missingName", "missingValue"):
+        assert enum_defined[key] == {"result": False, "exception": None, "paramName": None}
+    assert enum_defined["wrongEnumType"] == {"result": None, "exception": "System.ArgumentException", "paramName": None}
+    assert enum_defined["nullValue"] == {"result": None, "exception": "System.ArgumentNullException", "paramName": "value"}
+    assert enum_defined["nonEnumOwner"] == {"result": None, "exception": "System.ArgumentException", "paramName": "enumType"}
     assert enum_names == {
         "typeCode": {"names": ["Empty", "Object", "DBNull", "Boolean", "Char", "SByte", "Byte",
                                "Int16", "UInt16", "Int32", "UInt32", "Int64", "UInt64", "Single",
@@ -1372,6 +1381,7 @@ def main():
         "public boolean get_IsEnum();",
         "public System.Type GetEnumUnderlyingType();",
         "public java.lang.String[] GetEnumNames();",
+        "public boolean IsEnumDefined(java.lang.Object);",
         "public boolean IsAssignableTo(System.Type);",
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",

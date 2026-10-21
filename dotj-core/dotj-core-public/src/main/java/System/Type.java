@@ -951,6 +951,52 @@ public abstract class Type extends MemberInfo {
         return names;
     }
 
+    public boolean IsEnumDefined(Object value) {
+        if (!this.get_IsEnum()) {
+            throw new ArgumentException("Type must be an enum", "enumType");
+        }
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        Object[] constants = this.definition.getEnumConstants();
+        if (value instanceof String name) {
+            for (Object constant : constants) {
+                if (((java.lang.Enum<?>) constant).name().equals(name)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        if (value.getClass() == this.definition) {
+            return true;
+        }
+        if (value instanceof Integer number) {
+            for (Object constant : constants) {
+                if (enumNumericValue(constant) == number) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        throw new ArgumentException("Value type must match the enum or its underlying type");
+    }
+
+    private static int enumNumericValue(Object constant) {
+        if (constant instanceof TypeCode code) {
+            return code.get_Value();
+        }
+        if (constant instanceof MemberTypes member) {
+            return member.get_Value();
+        }
+        if (constant instanceof GenericParameterAttributes attributes) {
+            return attributes.get_Value();
+        }
+        if (constant instanceof NumberStyles style) {
+            return style.get_Value();
+        }
+        throw new UnsupportedOperationException("Enum value is not mapped for this candidate type");
+    }
+
     public boolean IsAssignableTo(Type target) {
         return target != null && target.IsAssignableFrom(this);
     }

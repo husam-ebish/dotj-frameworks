@@ -3,9 +3,9 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "ebbc7cb4a36d55658114c0bad3dbb1f6d9387d01dd0b71d42636e2598da68077",
+  "oracleEvidenceSha256": "557c45b2d4e5b1d27fa1a8726378efe4925b0fc46b86b115c81f4f40143c7685",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "0d8428cf8f119906ffd13c7eed7914650ab29265aaec1f476041478f2b5ca3be",
+  "javaCandidateEvidenceSha256": "45cfd25fdbfabfef2530e98e3bfa3644bbb28bfdd32510b0828478a422f480b4",
   "types": [
     {
       "fullName": "System.Type",
@@ -3434,6 +3434,7 @@
         "public boolean get_IsEnum();",
         "public System.Type GetEnumUnderlyingType();",
         "public java.lang.String[] GetEnumNames();",
+        "public boolean IsEnumDefined(java.lang.Object);",
         "public boolean IsAssignableTo(System.Type);",
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
@@ -3554,6 +3555,7 @@
           "GetTypeCode": 1,
           "IsAssignableFrom": 1,
           "IsAssignableTo": 1,
+          "IsEnumDefined": 1,
           "IsEquivalentTo": 1,
           "IsInstanceOfType": 1,
           "IsSubclassOf": 1,
@@ -3634,7 +3636,6 @@
           "GetTypeFromProgID",
           "GetTypeHandle",
           "InvokeMember",
-          "IsEnumDefined",
           "MakeGenericMethodParameter",
           "MakeGenericSignatureType",
           "ReflectionOnlyGetType"
