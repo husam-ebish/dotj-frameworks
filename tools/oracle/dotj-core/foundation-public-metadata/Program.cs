@@ -689,6 +689,12 @@ var result = new
         typeof(System.Collections.Generic.Dictionary<,>).GetNestedType(
             "Entry", System.Reflection.BindingFlags.NonPublic)!,
     }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsNestedPrivate }).ToArray(),
+    selectedNestedFamilyBehavior = new[]
+    {
+        typeof(string), typeof(System.Collections.Generic.List<>).GetGenericArguments()[0],
+        typeof(System.Collections.Generic.List<int>.Enumerator),
+        NestedFamilyProbe.MarkerType,
+    }.Select(type => new { name = type.FullName ?? type.Name, result = type.IsNestedFamily }).ToArray(),
     selectedNestedTypeToStringBehavior = new[]
     {
         typeof(System.Collections.Generic.List<string>[]),
