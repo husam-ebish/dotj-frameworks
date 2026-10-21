@@ -410,6 +410,10 @@ public abstract class Type extends MemberInfo {
                         || this.definition == TypeCode.class || this.definition == NumberStyles.class);
     }
 
+    public boolean get_IsPrimitive() {
+        return this.definition == Int32.class;
+    }
+
     public boolean get_IsClass() {
         return !this.get_IsValueType() && !this.get_IsInterface();
     }

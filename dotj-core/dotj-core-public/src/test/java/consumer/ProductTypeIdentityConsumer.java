@@ -227,6 +227,15 @@ public final class ProductTypeIdentityConsumer {
         }
         Type disposalType = Type.GetType("System.IDisposable");
         Type memberTypesType = Type.GetType("System.Reflection.MemberTypes");
+        if (!integer.get_IsPrimitive() || object.get_IsPrimitive()
+                || string.get_IsPrimitive() || Type.GetType("System.Decimal").get_IsPrimitive()
+                || Type.GetType("System.DateTime").get_IsPrimitive()
+                || Type.GetType("System.TypeCode").get_IsPrimitive()
+                || arrayBase.get_IsPrimitive() || disposalType.get_IsPrimitive()
+                || Type.GetType("System.String[]").get_IsPrimitive()
+                || definition.get_IsPrimitive()) {
+            throw new AssertionError("Selected primitive type flags changed");
+        }
         if (disposalType == null || memberTypesType == null
                 || !disposalType.get_IsInterface() || disposalType.get_IsClass()
                 || disposalType.get_IsValueType() || disposalType.get_IsEnum()
