@@ -47,6 +47,13 @@ public final class ProductExceptionContractConsumer {
                 || otherData.get_Data() == data || !otherData.get_Data().isEmpty()) {
             throw new AssertionError("Selected exception data isolation changed");
         }
+        if (new Exception().get_HResult() != -2146233088
+                || new Exception("message").get_HResult() != -2146233088
+                || new Exception("outer", inner).get_HResult() != -2146233088
+                || new ArgumentException("argument").get_HResult() != -2147024809
+                || new InvalidOperationException("invalid").get_HResult() != -2146233079) {
+            throw new AssertionError("Selected exception HResult values changed");
+        }
         if (Exception.class.getConstructors().length != 3
                 || SystemException.class.getConstructors().length != 3
                 || ArgumentException.class.getConstructors().length != 5

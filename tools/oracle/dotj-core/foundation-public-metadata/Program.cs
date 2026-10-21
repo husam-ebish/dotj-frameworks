@@ -332,6 +332,14 @@ var result = new
         separateInstance = !ReferenceEquals(data, secondData),
         secondStartsEmpty = secondData.Count == 0,
     },
+    selectedExceptionHResultBehavior = new
+    {
+        parameterless = new Exception().HResult,
+        message = new Exception("message").HResult,
+        inner = new Exception("outer", inner).HResult,
+        argument = new ArgumentException("argument").HResult,
+        invalidOperation = new InvalidOperationException("invalid").HResult,
+    },
     selectedGetTypeBehavior = new
     {
         exact = ObserveGetType("System.String", false, false),
