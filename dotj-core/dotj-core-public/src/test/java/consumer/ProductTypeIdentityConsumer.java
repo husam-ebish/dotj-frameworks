@@ -234,6 +234,19 @@ public final class ProductTypeIdentityConsumer {
                 || Type.GetType("System.String[]").GetGenericArguments().length != 0) {
             throw new AssertionError("Selected generic argument copies changed");
         }
+        if (parameter.GetGenericParameterConstraints().length != 0
+                || copiedArguments[0].GetGenericParameterConstraints().length != 0
+                || copiedArguments[1].GetGenericParameterConstraints().length != 0) {
+            throw new AssertionError("Selected generic parameter constraints changed");
+        }
+        for (Type nonParameter : new Type[] {Type.GetType("System.Object"), definition}) {
+            try {
+                nonParameter.GetGenericParameterConstraints();
+                throw new AssertionError("Non-parameter constraints accepted");
+            } catch (InvalidOperationException expected) {
+                // Selected pinned error type.
+            }
+        }
         if (Type.GetType("System.Object").get_IsGenericTypeDefinition()
                 || integer.get_IsGenericTypeDefinition()
                 || !definition.get_IsGenericTypeDefinition()

@@ -818,6 +818,43 @@
     ],
     "arrayArgumentsLength": 0
   },
+  "selectedGenericParameterConstraintBehavior": [
+    {
+      "name": "T",
+      "observation": {
+        "constraints": [],
+        "exception": null
+      }
+    },
+    {
+      "name": "TKey",
+      "observation": {
+        "constraints": [],
+        "exception": null
+      }
+    },
+    {
+      "name": "TValue",
+      "observation": {
+        "constraints": [],
+        "exception": null
+      }
+    },
+    {
+      "name": "System.Object",
+      "observation": {
+        "constraints": null,
+        "exception": "System.InvalidOperationException"
+      }
+    },
+    {
+      "name": "System.Collections.Generic.List`1",
+      "observation": {
+        "constraints": null,
+        "exception": "System.InvalidOperationException"
+      }
+    }
+  ],
   "selectedContainsGenericParametersBehavior": [
     {
       "name": "System.Object",
@@ -3301,6 +3338,12 @@
           "parameters": []
         },
         {
+          "name": "GetGenericParameterConstraints",
+          "isStatic": false,
+          "returnType": "System.Type[]",
+          "parameters": []
+        },
+        {
           "name": "MakeArrayType",
           "isStatic": false,
           "returnType": "System.Type",
@@ -4055,6 +4098,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "d59dd5a0785435122b25d71546992691fd5032189899133caef4cbbd9b61a750",
+  "oracleProgramSha256": "dda4dc3cae7ae78df53ac4ba97e23dd6c998438ca93d1ae213a90b808e3a5b4e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
