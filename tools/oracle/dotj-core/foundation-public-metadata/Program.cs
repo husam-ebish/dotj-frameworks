@@ -545,6 +545,17 @@ var result = new
         zero = ((IFormattable)0).ToString("0;(0);zero",
             System.Globalization.CultureInfo.InvariantCulture),
     },
+    selectedInt32EscapedPercentBehavior = new
+    {
+        escaped = ((IFormattable)42).ToString(@"0\%",
+            System.Globalization.CultureInfo.InvariantCulture),
+        active = ((IFormattable)42).ToString("0%",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeEscaped = ((IFormattable)(-42)).ToString(@"0\%",
+            System.Globalization.CultureInfo.InvariantCulture),
+        negativeActive = ((IFormattable)(-42)).ToString("0%",
+            System.Globalization.CultureInfo.InvariantCulture),
+    },
     selectedInt32FormatErrors = new
     {
         unknownSpecifier = ObserveInt32FormatError("Q"),

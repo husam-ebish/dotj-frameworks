@@ -270,6 +270,9 @@ def main():
                               "fixedTwo": "42.00"}
     custom_sections = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32CustomSectionBehavior"]
     assert custom_sections == {"positive": "42", "negative": "(42)", "zero": "zero"}
+    escaped_percent = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32EscapedPercentBehavior"]
+    assert escaped_percent == {"escaped": "42%", "active": "4200%",
+                               "negativeEscaped": "-42%", "negativeActive": "-4200%"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",

@@ -196,6 +196,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String digits = BigInteger.valueOf(this.value).abs().toString();
             return this.value < 0 ? "(" + digits + ")" : digits;
         }
+        if (format.equals("0\\%")) {
+            return Integer.toString(this.value) + "%";
+        }
+        if (format.equals("0%")) {
+            return BigInteger.valueOf(this.value).multiply(BigInteger.valueOf(100)) + "%";
+        }
         if (format.matches("0+")) {
             String digits = BigInteger.valueOf(this.value).abs().toString();
             String sign = this.value < 0 ? "-" : "";
