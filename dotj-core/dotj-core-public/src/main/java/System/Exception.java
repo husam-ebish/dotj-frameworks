@@ -3,6 +3,7 @@ package System;
 /** Selected unchecked Java carrier for the System.Exception candidate hierarchy. */
 public class Exception extends RuntimeException {
     private java.util.Map<Object, Object> data;
+    private int hResult = -2146233088;
 
     public Exception() {
         super();
@@ -38,5 +39,13 @@ public class Exception extends RuntimeException {
             this.data = new java.util.HashMap<>();
         }
         return this.data;
+    }
+
+    public int get_HResult() {
+        return this.hResult;
+    }
+
+    protected void set_HResult(int value) {
+        this.hResult = value;
     }
 }

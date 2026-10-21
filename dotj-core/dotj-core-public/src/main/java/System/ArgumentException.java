@@ -23,6 +23,7 @@ public class ArgumentException extends SystemException {
     public ArgumentException(String message, String paramName, Exception innerException) {
         super(message, innerException);
         this.paramName = paramName;
+        this.set_HResult(-2147024809);
     }
 
     public String get_ParamName() {
