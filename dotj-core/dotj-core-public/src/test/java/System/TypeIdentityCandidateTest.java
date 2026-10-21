@@ -99,6 +99,21 @@ public final class TypeIdentityCandidateTest {
             throw new AssertionError("Selected member name lookup changed");
         }
         BindingFlags publicInstanceIgnoreCase = publicInstance.or(BindingFlags.IgnoreCase);
+        if (string.GetMember("Chars", MemberTypes.Property, publicInstance).length != 1
+                || string.GetMember("Chars", MemberTypes.Method, publicInstance).length != 0
+                || string.GetMember("Chars", MemberTypes.All, publicInstance).length != 1
+                || interfaceOwners[0].GetMember("Dispose", MemberTypes.Method, publicInstance).length != 1
+                || interfaceOwners[0].GetMember("Dispose", MemberTypes.Property, publicInstance).length != 0) {
+            throw new AssertionError("Selected member-kind filtered lookup changed");
+        }
+        try {
+            string.GetMember(null, MemberTypes.Property, publicInstance);
+            throw new AssertionError("Null kind-filtered member name accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"name".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null kind-filtered member name parameter changed", expected);
+            }
+        }
         if (string.GetMember("Chars", publicInstance).length != 1
                 || string.GetMember("Chars", publicInstance)[0].get_MemberType() != MemberTypes.Property
                 || string.GetMember("Chars", BindingFlags.Public).length != 0

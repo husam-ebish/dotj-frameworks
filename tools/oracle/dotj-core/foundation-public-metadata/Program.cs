@@ -418,6 +418,20 @@ static object ObserveMemberFlags(Type type, string? name, BindingFlags flags)
             paramName = (exception as ArgumentException)?.ParamName };
     }
 }
+static object ObserveMemberKinds(Type type, string? name, MemberTypes kinds, BindingFlags flags)
+{
+    try
+    {
+        return new { members = type.GetMember(name!, kinds, flags).Select(member => new
+            { name = member.Name, kind = member.MemberType.ToString() }).ToArray(),
+            exception = (string?)null, paramName = (string?)null };
+    }
+    catch (Exception exception)
+    {
+        return new { members = (object[]?)null, exception = exception.GetType().FullName,
+            paramName = (exception as ArgumentException)?.ParamName };
+    }
+}
 static object ObserveMembersFlags(Type type, BindingFlags flags)
 {
     return type.GetMembers(flags).Select(member => new
@@ -869,6 +883,21 @@ var result = new
         ignoreCase = ObserveMemberFlags(typeof(string), "chars", BindingFlags.Public | BindingFlags.Instance | BindingFlags.IgnoreCase),
         disposableDispose = ObserveMemberFlags(typeof(IDisposable), "Dispose", BindingFlags.Public | BindingFlags.Instance),
         nullName = ObserveMemberFlags(typeof(string), null, BindingFlags.Public | BindingFlags.Instance),
+    },
+    selectedMemberKindsBehavior = new
+    {
+        property = ObserveMemberKinds(typeof(string), "Chars", MemberTypes.Property,
+            BindingFlags.Public | BindingFlags.Instance),
+        methodMiss = ObserveMemberKinds(typeof(string), "Chars", MemberTypes.Method,
+            BindingFlags.Public | BindingFlags.Instance),
+        all = ObserveMemberKinds(typeof(string), "Chars", MemberTypes.All,
+            BindingFlags.Public | BindingFlags.Instance),
+        disposeMethod = ObserveMemberKinds(typeof(IDisposable), "Dispose", MemberTypes.Method,
+            BindingFlags.Public | BindingFlags.Instance),
+        disposePropertyMiss = ObserveMemberKinds(typeof(IDisposable), "Dispose", MemberTypes.Property,
+            BindingFlags.Public | BindingFlags.Instance),
+        nullName = ObserveMemberKinds(typeof(string), null, MemberTypes.Property,
+            BindingFlags.Public | BindingFlags.Instance),
     },
     selectedMembersFlagsBehavior = new[]
     {
