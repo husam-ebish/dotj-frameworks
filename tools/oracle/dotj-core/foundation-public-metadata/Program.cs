@@ -393,6 +393,7 @@ var result = new
     selectedDictionaryQualifiedRoundTrip = new[]
     {
         typeof(Dictionary<,>), typeof(Dictionary<string, int>), typeof(Dictionary<int, string>),
+        typeof(Dictionary<string, string>), typeof(Dictionary<int, int>),
     }.Select(type => new
     {
         type.FullName,

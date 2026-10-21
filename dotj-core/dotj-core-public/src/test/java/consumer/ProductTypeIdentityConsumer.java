@@ -908,7 +908,9 @@ public final class ProductTypeIdentityConsumer {
             throw new AssertionError("Selected Dictionary name lookup changed");
         }
         for (Type selectedDictionary : new Type[] {dictionary, dictionaryStringInt,
-                dictionary.MakeGenericType(new Type[] {integer, string})}) {
+                dictionary.MakeGenericType(new Type[] {integer, string}),
+                dictionary.MakeGenericType(new Type[] {string, string}),
+                dictionary.MakeGenericType(new Type[] {integer, integer})}) {
             if (Type.GetType(selectedDictionary.get_AssemblyQualifiedName()) != selectedDictionary) {
                 throw new AssertionError("Dictionary assembly-qualified round trip changed");
             }
