@@ -230,6 +230,16 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String padded = "0".repeat(3 - digits.length()) + digits;
             return "[>=1" + padded.charAt(0) + padded.charAt(1) + "]" + padded.charAt(2);
         }
+        if (format.equals("0,;(0,);'zero'") || format.equals("0,.0;(0,.0);'zero'")) {
+            int precision = format.equals("0,;(0,);'zero'") ? 0 : 1;
+            BigDecimal scaled = BigDecimal.valueOf(this.value).abs()
+                    .divide(BigDecimal.valueOf(1_000), precision, RoundingMode.HALF_UP);
+            if (scaled.signum() == 0) {
+                return "zero";
+            }
+            String digits = scaled.toPlainString();
+            return this.value < 0 ? "(" + digits + ")" : digits;
+        }
         if (format.equals("0\\%")) {
             return Integer.toString(this.value) + "%";
         }

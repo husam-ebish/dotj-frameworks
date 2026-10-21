@@ -299,6 +299,9 @@ def main():
     assert near_zero == {"negativeWhole": "0", "negativeFixed": "0.0",
                          "negativeOptional": "0", "negativeHalfway": "-0.1",
                          "positiveHalfway": "0.1"}
+    scaled_sections = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ScaledSectionBehavior"]
+    assert scaled_sections == {"positive": "12", "negative": "(12)", "zero": "zero",
+                               "negativeSmall": "zero", "negativeFraction": "(1.3)"}
     errors = json.loads(FOUNDATION_METADATA.read_text(encoding="utf-8"))["selectedInt32ConversionErrors"]
     assert errors == {"byteOverflow": "System.OverflowException",
                       "unsignedOverflow": "System.OverflowException",
