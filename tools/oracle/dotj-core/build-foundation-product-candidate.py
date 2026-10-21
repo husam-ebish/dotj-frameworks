@@ -176,6 +176,15 @@ def main():
         "int32RepeatStable": True,
         "genericRepeatStable": True,
     }
+    assert metadata["selectedAssignableToBehavior"] == {
+        "stringToObject": True,
+        "objectToString": False,
+        "stringToComparable": True,
+        "comparableToString": False,
+        "stringToSelf": True,
+        "stringToNull": False,
+        "int32ToValueType": True,
+    }
     assert type_evidence["sourceSha256"] == sha256(next(path for path in SOURCES if path.name == "Type.java"))
     assert disposal_evidence["sourceSha256"] == sha256(SOURCES[0])
 

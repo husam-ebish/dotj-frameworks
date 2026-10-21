@@ -748,6 +748,10 @@ public abstract class Type extends MemberInfo {
         return fromJavaClass(Int32.class);
     }
 
+    public boolean IsAssignableTo(Type target) {
+        return target != null && target.IsAssignableFrom(this);
+    }
+
     public boolean IsAssignableFrom(Type candidate) {
         if (candidate == null) {
             return false;

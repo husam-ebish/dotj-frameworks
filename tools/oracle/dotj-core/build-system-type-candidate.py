@@ -1021,6 +1021,7 @@ def main():
         "public boolean get_IsInterface();",
         "public boolean get_IsEnum();",
         "public System.Type GetEnumUnderlyingType();",
+        "public boolean IsAssignableTo(System.Type);",
         "public boolean IsAssignableFrom(System.Type);",
         "public boolean IsSubclassOf(System.Type);",
         "public boolean IsInstanceOfType(java.lang.Object);",
