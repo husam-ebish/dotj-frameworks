@@ -704,17 +704,37 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return sign + grouped + fraction;
         }
         if (format.matches("[cC][0-9]*")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             int precision;
             try {
-                precision = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+                precision = format.length() == 1
+                        ? (numberFormat == null ? 2 : numberFormat.get_CurrencyDecimalDigits())
+                        : Integer.parseInt(format.substring(1));
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
             if (precision > 1000) {
                 throw new UnsupportedOperationException("Int32 precision is not mapped");
             }
-            String number = this.ToString("N" + precision, provider);
-            return this.value < 0 ? "(\u00a4" + number.substring(1) + ")" : "\u00a4" + number;
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            StringBuilder grouped = new StringBuilder();
+            for (int index = 0; index < digits.length(); index++) {
+                if (index > 0 && (digits.length() - index) % 3 == 0) {
+                    grouped.append(numberFormat == null ? ","
+                            : numberFormat.get_CurrencyGroupSeparator());
+                }
+                grouped.append(digits.charAt(index));
+            }
+            String fraction = precision == 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_CurrencyDecimalSeparator()) + "0".repeat(precision);
+            String symbol = numberFormat == null ? "\u00a4"
+                    : numberFormat.get_CurrencySymbol();
+            String positive = symbol + grouped + fraction;
+            if (this.value >= 0) return positive;
+            int pattern = numberFormat == null ? 0 : numberFormat.get_CurrencyNegativePattern();
+            if (pattern == 0) return "(" + positive + ")";
+            if (pattern == 1) return numberFormat.get_NegativeSign() + positive;
+            throw new UnsupportedOperationException("CurrencyNegativePattern is not mapped");
         }
         if (format.matches("[fF][0-9]*")) {
             int precision;
