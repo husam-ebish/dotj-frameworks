@@ -1257,6 +1257,15 @@ var result = new
         (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
     }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
         text = item.Item1.GetMethod(item.Item2)!.ToString() }).ToArray(),
+    selectedMethodCustomAttributeBehavior = new[]
+    {
+        (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),
+        (typeof(IFormattable), "ToString"), (typeof(IFormatProvider), "GetFormat"),
+    }.Select(item => new { owner = item.Item1.FullName, name = item.Item2,
+        direct = item.Item1.GetMethod(item.Item2)!.GetCustomAttributes(false)
+            .Select(value => value.GetType().FullName).ToArray(),
+        inherited = item.Item1.GetMethod(item.Item2)!.GetCustomAttributes(true)
+            .Select(value => value.GetType().FullName).ToArray() }).ToArray(),
     selectedNongenericMethodErrorBehavior = new[]
     {
         (typeof(IDisposable), "Dispose"), (typeof(IComparable), "CompareTo"),

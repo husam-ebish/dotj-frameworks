@@ -33,6 +33,10 @@ public abstract class MethodInfo extends MethodBase {
         throw new InvalidOperationException("Method is not generic");
     }
 
+    public Object[] GetCustomAttributes(boolean inherit) {
+        return new Object[0];
+    }
+
     public MethodInfo MakeGenericMethod(Type[] typeArguments) {
         if (typeArguments == null) {
             throw new ArgumentNullException("methodInstantiation");
