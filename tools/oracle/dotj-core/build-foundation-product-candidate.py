@@ -68,6 +68,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCustomProviderParseConsumer",
     "ProductDecimalCustomCurrencyProviderParseConsumer",
     "ProductDecimalAnyCustomProviderParseConsumer",
+    "ProductDecimalNoneStyleParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -297,6 +298,16 @@ def main():
     assert any_custom_provider_vectors[0]["bits"] == [123450, 0, 0, 131072]
     assert any_custom_provider_vectors[6]["error"] == "System.FormatException"
     assert any_custom_provider_vectors[19]["error"] == "System.OverflowException"
+    none_style_vectors = metadata["selectedDecimalNoneStyleParse"]
+    assert len(none_style_vectors) == 20
+    assert all((entry["bits"] is not None and len(entry["bits"]) == 4
+                and entry["error"] is None)
+               or (entry["bits"] is None and entry["error"] in
+                   ("System.FormatException", "System.OverflowException"))
+               for entry in none_style_vectors)
+    assert none_style_vectors[0]["bits"] == [0, 0, 0, 0]
+    assert none_style_vectors[3]["error"] == "System.FormatException"
+    assert none_style_vectors[14]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1322,6 +1333,15 @@ def main():
     any_custom_provider_result = run("java", "-cp", classpath,
                                      "consumer.ProductDecimalAnyCustomProviderParseConsumer",
                                      *any_custom_provider_args).strip()
+    none_style_args = [
+        ":".join((
+            entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in none_style_vectors]
+    none_style_result = run("java", "-cp", classpath,
+                            "consumer.ProductDecimalNoneStyleParseConsumer",
+                            *none_style_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1597,6 +1617,7 @@ def main():
     assert custom_provider_result == "PASS external selected Decimal custom-provider parsing"
     assert custom_currency_result == "PASS external selected Decimal custom-currency-provider parsing"
     assert any_custom_provider_result == "PASS external selected Decimal Any-custom-provider parsing"
+    assert none_style_result == "PASS external selected Decimal None-style parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"

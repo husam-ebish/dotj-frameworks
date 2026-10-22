@@ -667,6 +667,12 @@ public final class Decimal implements IConvertible {
             }
             return Parse(normalized, style, null);
         }
+        if (NumberStyles.None.equals(style)) {
+            if (!text.matches("[0-9]+")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            return bounded(new BigDecimal(text), false);
+        }
         if (NumberStyles.Integer.equals(style)) {
             String trimmed = text.strip();
             if (!trimmed.matches("[+-]?[0-9]+")) {
