@@ -2032,6 +2032,39 @@ static object ObserveDecimalSmallIntegerConversions()
             toUInt16 = Observe(number => decimal.ToUInt16(number), value) };
     }).ToArray();
 }
+static object ObserveDecimalFloatingConversions()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x00010000],
+        [1, 0, 0, unchecked((int)0x80010000)],
+        [5, 0, 0, 0x00010000],
+        [5, 0, 0, unchecked((int)0x80010000)],
+        [1, 0, 0, 0x001c0000],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [12345, 0, 0, 0x00040000],
+        [12345, 0, 0, unchecked((int)0x80040000)],
+        [int.MaxValue, 0, 0, 0],
+        [int.MinValue, 0, 0, unchecked((int)0x80000000)],
+        [0, 1, 0, 0],
+        [0, 1, 0, unchecked((int)0x80000000)],
+        [0, 0, 1, 0],
+        [0, 0, 1, unchecked((int)0x80000000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        decimal value = new decimal(bits);
+        return new { bits,
+            doubleBits = BitConverter.DoubleToInt64Bits(decimal.ToDouble(value)),
+            singleBits = BitConverter.SingleToInt32Bits(decimal.ToSingle(value)) };
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6525,6 +6558,7 @@ var result = new
     selectedDecimalToUInt32 = ObserveDecimalToUInt32(),
     selectedDecimalToUInt64 = ObserveDecimalToUInt64(),
     selectedDecimalSmallIntegerConversions = ObserveDecimalSmallIntegerConversions(),
+    selectedDecimalFloatingConversions = ObserveDecimalFloatingConversions(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

@@ -10,6 +10,12 @@ import java.math.RoundingMode;
 public final class Decimal implements IConvertible {
     private static final BigDecimal MAX_MAGNITUDE =
             new BigDecimal("79228162514264337593543950335");
+    private static final BigInteger LOW_64_MASK = BigInteger.ONE.shiftLeft(64).subtract(BigInteger.ONE);
+    private static final double[] DOUBLE_POWERS_OF_TEN = {
+        1e0, 1e1, 1e2, 1e3, 1e4, 1e5, 1e6, 1e7, 1e8, 1e9,
+        1e10, 1e11, 1e12, 1e13, 1e14, 1e15, 1e16, 1e17, 1e18, 1e19,
+        1e20, 1e21, 1e22, 1e23, 1e24, 1e25, 1e26, 1e27, 1e28
+    };
     private final BigDecimal value;
     private final boolean negativeZero;
 
@@ -410,6 +416,22 @@ public final class Decimal implements IConvertible {
 
     public static int ToUInt16(Decimal value) {
         return (int) truncateRange(value, 0, 65535);
+    }
+
+    public static double ToDouble(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        BigInteger coefficient = value.value.unscaledValue().abs();
+        double low64 = coefficient.and(LOW_64_MASK).doubleValue();
+        double high = coefficient.shiftRight(64).doubleValue();
+        double result = (low64 + high * 0x1.0p64)
+                / DOUBLE_POWERS_OF_TEN[value.value.scale()];
+        return value.value.signum() < 0 || value.negativeZero ? -result : result;
+    }
+
+    public static float ToSingle(Decimal value) {
+        return (float) ToDouble(value);
     }
 
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {

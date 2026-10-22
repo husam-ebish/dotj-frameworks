@@ -46,7 +46,8 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCompareToConsumer", "ProductDecimalToInt32Consumer",
     "ProductDecimalSignConsumer", "ProductDecimalIntegerPredicateConsumer",
     "ProductDecimalToInt64Consumer", "ProductDecimalToUInt32Consumer",
-    "ProductDecimalToUInt64Consumer", "ProductDecimalSmallIntegerConsumer")]
+    "ProductDecimalToUInt64Consumer", "ProductDecimalSmallIntegerConsumer",
+    "ProductDecimalFloatingConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -148,7 +149,10 @@ def sha256(path):
 
 
 def run(*command):
-    return subprocess.run(command, cwd=ROOT, capture_output=True, text=True, check=True).stdout
+    result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
+    if result.returncode != 0:
+        raise RuntimeError(f"Command failed: {command[0]}\n{result.stderr}")
+    return result.stdout
 
 
 def main():
@@ -495,6 +499,16 @@ def main():
     assert [small_vectors[7][field]["result"] for field in small_fields] == [
         None, -128, -128, None]
     assert small_vectors[16]["toUInt16"]["result"] == 65535
+    floating_vectors = metadata["selectedDecimalFloatingConversions"]
+    assert len(floating_vectors) == 20
+    assert all(len(entry["bits"]) == 4
+               and type(entry["doubleBits"]) is int
+               and type(entry["singleBits"]) is int for entry in floating_vectors)
+    assert [(entry["doubleBits"], entry["singleBits"])
+            for entry in floating_vectors[:4]] == [
+        (0, 0), (-9223372036854775808, -2147483648),
+        (4607182418800017408, 1065353216),
+        (-4616189618054758400, -1082130432)]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -1144,6 +1158,13 @@ def main():
         )) for entry in small_vectors]
     small_result = run("java", "-cp", classpath,
                        "consumer.ProductDecimalSmallIntegerConsumer", *small_args).strip()
+    floating_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            str(entry["doubleBits"]), str(entry["singleBits"]),
+        )) for entry in floating_vectors]
+    floating_result = run("java", "-cp", classpath,
+                          "consumer.ProductDecimalFloatingConsumer", *floating_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -1166,6 +1187,7 @@ def main():
     assert to_uint32_result == "PASS external selected Decimal ToUInt32"
     assert to_uint64_result == "PASS external selected Decimal ToUInt64"
     assert small_result == "PASS external selected Decimal small-integer conversions"
+    assert floating_result == "PASS external selected Decimal floating conversions"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
