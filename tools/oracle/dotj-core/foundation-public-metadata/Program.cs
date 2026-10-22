@@ -2147,6 +2147,51 @@ static object ObserveDecimalMaxMin()
             minimum = decimal.GetBits(decimal.Min(left, right)) };
     }).ToArray();
 }
+static object ObserveDecimalMagnitudeExtrema()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] one = [1, 0, 0, 0];
+    int[] negativeOne = [1, 0, 0, unchecked((int)0x80000000)];
+    int[] two = [2, 0, 0, 0];
+    int[] negativeTwo = [2, 0, 0, unchecked((int)0x80000000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    int[] tiny = [1, 0, 0, 0x001c0000];
+    int[] negativeTiny = [1, 0, 0, unchecked((int)0x801c0000)];
+    int[] oneScaled = [100, 0, 0, 0x00020000];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        (zero, negativeZero),
+        (negativeZero, zero),
+        (one, negativeOne),
+        (negativeOne, one),
+        (max, min),
+        (min, max),
+        (one, two),
+        (two, one),
+        (negativeOne, two),
+        (two, negativeOne),
+        (negativeTwo, one),
+        (one, negativeTwo),
+        (negativeTwo, negativeOne),
+        (negativeOne, negativeTwo),
+        (tiny, zero),
+        (zero, tiny),
+        (negativeTiny, zero),
+        (zero, negativeTiny),
+        (one, oneScaled),
+        (oneScaled, one),
+    };
+    return inputs.Select(input =>
+    {
+        decimal left = new decimal(input.left);
+        decimal right = new decimal(input.right);
+        return new { input.left, input.right,
+            maximum = decimal.GetBits(decimal.MaxMagnitude(left, right)),
+            minimum = decimal.GetBits(decimal.MinMagnitude(left, right)) };
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6643,6 +6688,7 @@ var result = new
     selectedDecimalFloatingConversions = ObserveDecimalFloatingConversions(),
     selectedDecimalCopySign = ObserveDecimalCopySign(),
     selectedDecimalMaxMin = ObserveDecimalMaxMin(),
+    selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
