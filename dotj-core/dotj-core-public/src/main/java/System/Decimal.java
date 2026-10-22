@@ -1021,11 +1021,15 @@ public final class Decimal implements IConvertible {
                 boolean negative = grouped.startsWith("-");
                 String magnitude = negative ? grouped.substring(1) : grouped;
                 int dot = magnitude.indexOf('.');
-                String whole = dot < 0 ? magnitude : magnitude.substring(0, dot);
+                String plain = this.value.movePointRight(2)
+                        .setScale(decimals, RoundingMode.HALF_UP).abs().toPlainString();
+                int plainDot = plain.indexOf('.');
+                String whole = plainDot < 0 ? plain : plain.substring(0, plainDot);
                 String fraction = dot < 0 ? "" : percentFormat.get_PercentDecimalSeparator()
                         + magnitude.substring(dot + 1);
                 return (negative ? percentFormat.get_NegativeSign() : "")
-                        + whole.replace(",", percentFormat.get_PercentGroupSeparator())
+                        + groupDigits(whole, percentFormat.get_PercentGroupSizes(),
+                        percentFormat.get_PercentGroupSeparator())
                         + fraction + " " + percentFormat.get_PercentSymbol();
             }
             return grouped + " %";
