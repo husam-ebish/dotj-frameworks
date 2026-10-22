@@ -50,6 +50,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalFloatingConsumer", "ProductDecimalCopySignConsumer",
     "ProductDecimalMaxMinConsumer", "ProductDecimalClampConsumer", "ProductDecimalMagnitudeConsumer",
     "ProductDecimalOACurrencyConsumer",
+    "ProductDecimalFromOACurrencyConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -546,6 +547,12 @@ def main():
                 or (entry["result"] is None and entry["exception"] == "OverflowException"))
                for entry in oa_currency_vectors)
     assert [entry["result"] for entry in oa_currency_vectors[8:14]] == [0, 0, 2, -2, 2, -2]
+    from_oa_currency_vectors = metadata["selectedDecimalFromOACurrency"]
+    assert len(from_oa_currency_vectors) == 20
+    assert all(type(entry["value"]) is int and len(entry["bits"]) == 4
+               for entry in from_oa_currency_vectors)
+    assert from_oa_currency_vectors[0]["bits"] == [0, 0, 0, 262144]
+    assert from_oa_currency_vectors[9]["bits"] == [1, 0, 0, 0]
     magnitude_vectors = metadata["selectedDecimalMagnitudeExtrema"]
     assert len(magnitude_vectors) == 22
     assert all(len(entry["left"]) == len(entry["right"])
@@ -1255,6 +1262,14 @@ def main():
     oa_currency_result = run("java", "-cp", classpath,
                              "consumer.ProductDecimalOACurrencyConsumer",
                              *oa_currency_args).strip()
+    from_oa_currency_args = [
+        ":".join((
+            str(entry["value"]),
+            ",".join(str(word) for word in entry["bits"]),
+        )) for entry in from_oa_currency_vectors]
+    from_oa_currency_result = run("java", "-cp", classpath,
+                                  "consumer.ProductDecimalFromOACurrencyConsumer",
+                                  *from_oa_currency_args).strip()
     magnitude_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1299,6 +1314,7 @@ def main():
     assert magnitude_result == "PASS external selected Decimal magnitude extrema"
     assert clamp_result == "PASS external selected Decimal Clamp"
     assert oa_currency_result == "PASS external selected Decimal ToOACurrency"
+    assert from_oa_currency_result == "PASS external selected Decimal FromOACurrency"
     assert canonical_result == "PASS external selected Decimal canonical encodings"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,

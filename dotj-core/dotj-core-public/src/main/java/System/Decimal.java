@@ -379,6 +379,17 @@ public final class Decimal implements IConvertible {
         return units.longValue();
     }
 
+    public static Decimal FromOACurrency(long value) {
+        BigDecimal decimal = BigDecimal.valueOf(value, 4);
+        if (value != 0) {
+            decimal = decimal.stripTrailingZeros();
+            if (decimal.scale() < 0) {
+                decimal = decimal.setScale(0);
+            }
+        }
+        return new Decimal(decimal, false);
+    }
+
     public static long ToUInt32(Decimal value) {
         if (value == null) {
             throw new ArgumentNullException("value");
