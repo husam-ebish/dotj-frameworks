@@ -333,6 +333,21 @@ public final class Decimal implements IConvertible {
         return !IsNegative(value);
     }
 
+    public static boolean IsInteger(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        return value.value.stripTrailingZeros().scale() <= 0;
+    }
+
+    public static boolean IsEvenInteger(Decimal value) {
+        return IsInteger(value) && !value.value.toBigIntegerExact().testBit(0);
+    }
+
+    public static boolean IsOddInteger(Decimal value) {
+        return IsInteger(value) && value.value.toBigIntegerExact().testBit(0);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

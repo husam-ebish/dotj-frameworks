@@ -44,7 +44,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCompareConsumer", "ProductDecimalEqualsConsumer",
     "ProductDecimalHashConsumer", "ProductDecimalInstanceEqualityConsumer",
     "ProductDecimalCompareToConsumer", "ProductDecimalToInt32Consumer",
-    "ProductDecimalSignConsumer")]
+    "ProductDecimalSignConsumer", "ProductDecimalIntegerPredicateConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -443,6 +443,16 @@ def main():
                for entry in sign_vectors)
     assert [(entry["negative"], entry["positive"]) for entry in sign_vectors[:4]] == [
         (False, True), (True, False), (False, True), (True, False)]
+    integer_vectors = metadata["selectedDecimalIntegerPredicates"]
+    assert len(integer_vectors) == 14
+    assert all(len(entry["bits"]) == 4
+               and (entry["even"] is False and entry["odd"] is False
+                    if entry["integer"] is False else entry["even"] is not entry["odd"])
+               for entry in integer_vectors)
+    assert [(entry["integer"], entry["even"], entry["odd"])
+            for entry in integer_vectors[:5]] == [
+        (True, True, False), (True, True, False), (True, False, True),
+        (True, False, True), (True, True, False)]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -1055,6 +1065,14 @@ def main():
         )) for entry in sign_vectors]
     sign_result = run("java", "-cp", classpath,
                       "consumer.ProductDecimalSignConsumer", *sign_args).strip()
+    integer_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            str(entry["integer"]).lower(), str(entry["even"]).lower(),
+            str(entry["odd"]).lower(),
+        )) for entry in integer_vectors]
+    integer_result = run("java", "-cp", classpath,
+                         "consumer.ProductDecimalIntegerPredicateConsumer", *integer_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -1072,6 +1090,7 @@ def main():
     assert compare_to_result == "PASS external selected Decimal instance comparison"
     assert to_int32_result == "PASS external selected Decimal ToInt32"
     assert sign_result == "PASS external selected Decimal sign predicates"
+    assert integer_result == "PASS external selected Decimal integer predicates"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
