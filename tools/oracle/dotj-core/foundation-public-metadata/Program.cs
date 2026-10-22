@@ -2147,6 +2147,34 @@ static object ObserveDecimalMaxMin()
             minimum = decimal.GetBits(decimal.Min(left, right)) };
     }).ToArray();
 }
+static object ObserveDecimalIsCanonical()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, 0x00010000],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [10, 0, 0, 0],
+        [10, 0, 0, 0x00010000],
+        [100, 0, 0, 0x00020000],
+        [1, 0, 0, 0x00010000],
+        [11, 0, 0, 0x00010000],
+        [120, 0, 0, 0x00020000],
+        [125, 0, 0, 0x00020000],
+        [125, 0, 0, unchecked((int)0x80020000)],
+        [120, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0x001c0000],
+        [10, 0, 0, 0x001c0000],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [0, 1, 0, 0x00010000],
+        [0, 10, 0, 0x00010000],
+    ];
+    return inputs.Select(bits => new { bits,
+        canonical = decimal.IsCanonical(new decimal(bits)) }).ToArray();
+}
 static object ObserveDecimalMagnitudeExtrema()
 {
     int[] zero = [0, 0, 0, 0];
@@ -2160,6 +2188,7 @@ static object ObserveDecimalMagnitudeExtrema()
     int[] tiny = [1, 0, 0, 0x001c0000];
     int[] negativeTiny = [1, 0, 0, unchecked((int)0x801c0000)];
     int[] oneScaled = [100, 0, 0, 0x00020000];
+    int[] negativeOneScaled = [100, 0, 0, unchecked((int)0x80020000)];
     var inputs = new (int[] left, int[] right)[]
     {
         (zero, negativeZero),
@@ -2182,6 +2211,8 @@ static object ObserveDecimalMagnitudeExtrema()
         (zero, negativeTiny),
         (one, oneScaled),
         (oneScaled, one),
+        (negativeOne, negativeOneScaled),
+        (negativeOneScaled, negativeOne),
     };
     return inputs.Select(input =>
     {
@@ -6689,6 +6720,7 @@ var result = new
     selectedDecimalCopySign = ObserveDecimalCopySign(),
     selectedDecimalMaxMin = ObserveDecimalMaxMin(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
+    selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

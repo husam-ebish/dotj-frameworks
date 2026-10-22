@@ -48,7 +48,8 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalToInt64Consumer", "ProductDecimalToUInt32Consumer",
     "ProductDecimalToUInt64Consumer", "ProductDecimalSmallIntegerConsumer",
     "ProductDecimalFloatingConsumer", "ProductDecimalCopySignConsumer",
-    "ProductDecimalMaxMinConsumer", "ProductDecimalMagnitudeConsumer")]
+    "ProductDecimalMaxMinConsumer", "ProductDecimalMagnitudeConsumer",
+    "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -528,7 +529,7 @@ def main():
     assert max_min_vectors[2]["maximum"] == [1, 0, 0, 0]
     assert max_min_vectors[2]["minimum"] == [100, 0, 0, 131072]
     magnitude_vectors = metadata["selectedDecimalMagnitudeExtrema"]
-    assert len(magnitude_vectors) == 20
+    assert len(magnitude_vectors) == 22
     assert all(len(entry["left"]) == len(entry["right"])
                == len(entry["maximum"]) == len(entry["minimum"]) == 4
                for entry in magnitude_vectors)
@@ -536,6 +537,14 @@ def main():
     assert magnitude_vectors[0]["minimum"] == [0, 0, 0, -2147352576]
     assert magnitude_vectors[3]["maximum"] == [1, 0, 0, 0]
     assert magnitude_vectors[3]["minimum"] == [1, 0, 0, -2147483648]
+    assert magnitude_vectors[20]["maximum"] == [100, 0, 0, -2147352576]
+    assert magnitude_vectors[20]["minimum"] == [1, 0, 0, -2147483648]
+    canonical_vectors = metadata["selectedDecimalIsCanonical"]
+    assert len(canonical_vectors) == 20
+    assert all(len(entry["bits"]) == 4 and type(entry["canonical"]) is bool
+               for entry in canonical_vectors)
+    assert [entry["canonical"] for entry in canonical_vectors[:8]] == [
+        True, True, False, False, True, True, False, False]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -1218,6 +1227,13 @@ def main():
         )) for entry in magnitude_vectors]
     magnitude_result = run("java", "-cp", classpath,
                            "consumer.ProductDecimalMagnitudeConsumer", *magnitude_args).strip()
+    canonical_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            str(entry["canonical"]).lower(),
+        )) for entry in canonical_vectors]
+    canonical_result = run("java", "-cp", classpath,
+                           "consumer.ProductDecimalCanonicalConsumer", *canonical_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -1244,6 +1260,7 @@ def main():
     assert copy_sign_result == "PASS external selected Decimal CopySign"
     assert max_min_result == "PASS external selected Decimal Max and Min"
     assert magnitude_result == "PASS external selected Decimal magnitude extrema"
+    assert canonical_result == "PASS external selected Decimal canonical encodings"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
