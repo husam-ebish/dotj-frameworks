@@ -612,6 +612,13 @@ public final class Decimal implements IConvertible {
             return mantissa.toPlainString() + format.charAt(0)
                     + (exponent < 0 ? "-" : "+") + exponentDigits;
         }
+        if (format.equals("C") || format.equals("c")
+                || format.matches("[Cc][0-9]{1,2}")) {
+            int decimals = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+            BigDecimal rounded = this.value.setScale(decimals, RoundingMode.HALF_UP);
+            String currency = "¤" + groupedDecimal(rounded.abs());
+            return rounded.signum() < 0 ? "(" + currency + ")" : currency;
+        }
         throw new FormatException("Format string was not supported");
     }
 
