@@ -455,6 +455,38 @@ public final class Decimal implements IConvertible {
         return Compare(left, right) < 0 ? left : right;
     }
 
+    public static Decimal MaxMagnitude(Decimal left, Decimal right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        int order = left.value.abs().compareTo(right.value.abs());
+        if (order != 0) {
+            return order > 0 ? left : right;
+        }
+        boolean leftNegative = IsNegative(left);
+        boolean rightNegative = IsNegative(right);
+        return leftNegative == rightNegative ? left : (leftNegative ? right : left);
+    }
+
+    public static Decimal MinMagnitude(Decimal left, Decimal right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        int order = left.value.abs().compareTo(right.value.abs());
+        if (order != 0) {
+            return order < 0 ? left : right;
+        }
+        boolean leftNegative = IsNegative(left);
+        boolean rightNegative = IsNegative(right);
+        return leftNegative == rightNegative ? right : (leftNegative ? left : right);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
