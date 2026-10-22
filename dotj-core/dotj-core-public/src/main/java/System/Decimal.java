@@ -562,6 +562,16 @@ public final class Decimal implements IConvertible {
         if (text == null) {
             throw new ArgumentNullException("s");
         }
+        if (NumberStyles.Number.equals(style)) {
+            String trimmed = text.strip();
+            if (!trimmed.matches("(?:[+-]?(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)|(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)[+-])")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            boolean negative = trimmed.startsWith("-") || trimmed.endsWith("-");
+            String unsigned = trimmed.replaceFirst("^[+-]", "").replaceFirst("[+-]$", "");
+            BigDecimal parsed = new BigDecimal(unsigned.replace(",", ""));
+            return bounded(negative ? parsed.negate() : parsed, negative);
+        }
         if (!NumberStyles.Float.equals(style)) {
             throw new ArgumentException("Number style was not supported", "style");
         }
