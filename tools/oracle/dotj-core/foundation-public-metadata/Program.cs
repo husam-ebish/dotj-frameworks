@@ -1869,6 +1869,45 @@ static object ObserveDecimalIntegerPredicates()
             even = decimal.IsEvenInteger(value), odd = decimal.IsOddInteger(value) };
     }).ToArray();
 }
+static object ObserveDecimalToInt64()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [199, 0, 0, 0x00020000],
+        [199, 0, 0, unchecked((int)0x80020000)],
+        [25, 0, 0, 0x00010000],
+        [25, 0, 0, unchecked((int)0x80010000)],
+        [-1, int.MaxValue, 0, 0],
+        [0, int.MinValue, 0, 0],
+        [0, int.MinValue, 0, unchecked((int)0x80000000)],
+        [1, int.MinValue, 0, unchecked((int)0x80000000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x001c0000],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [0, 1, 0, 0],
+        [0, 1, 0, unchecked((int)0x80000000)],
+        [0, 0, 1, 0],
+        [0, 0, 1, unchecked((int)0x80000000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        try
+        {
+            return new { bits, result = (long?)decimal.ToInt64(new decimal(bits)),
+                error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { bits, result = (long?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6358,6 +6397,7 @@ var result = new
     selectedDecimalToInt32 = ObserveDecimalToInt32(),
     selectedDecimalSignPredicates = ObserveDecimalSignPredicates(),
     selectedDecimalIntegerPredicates = ObserveDecimalIntegerPredicates(),
+    selectedDecimalToInt64 = ObserveDecimalToInt64(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
