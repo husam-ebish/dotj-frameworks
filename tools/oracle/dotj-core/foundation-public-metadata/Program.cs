@@ -2484,6 +2484,35 @@ static object ObserveDecimalCustomZeroFormatting()
         text = new decimal(input.bits).ToString(input.format,
             System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
 }
+static object ObserveDecimalCustomOptionalFormatting()
+{
+    var inputs = new (int[] bits, string format)[]
+    {
+        ([0, 0, 0, 0], "0.##"),
+        ([0, 0, 0, unchecked((int)0x80020000)], "0.####"),
+        ([1, 0, 0, 0], "0.##"),
+        ([1, 0, 0, unchecked((int)0x80000000)], "0.####"),
+        ([1, 0, 0, 0x00020000], "0.##"),
+        ([1, 0, 0, unchecked((int)0x80020000)], "0.####"),
+        ([100, 0, 0, 0x00020000], "0.##"),
+        ([100, 0, 0, unchecked((int)0x80020000)], "0.####"),
+        ([125, 0, 0, 0x00020000], "0.##"),
+        ([125, 0, 0, unchecked((int)0x80020000)], "0.####"),
+        ([1005, 0, 0, 0x00030000], "0.##"),
+        ([1005, 0, 0, unchecked((int)0x80030000)], "0.##"),
+        ([1, 0, 0, 0x001c0000], "0.##"),
+        ([1, 0, 0, unchecked((int)0x801c0000)], "0.####"),
+        ([12345, 0, 0, 0x00040000], "0.#"),
+        ([12345, 0, 0, unchecked((int)0x80040000)], "0.###"),
+        ([1000, 0, 0, 0], "0.##"),
+        ([1000, 0, 0, unchecked((int)0x80000000)], "0.####"),
+        ([-1, -1, -1, 0], "0.##"),
+        ([-1, -1, -1, unchecked((int)0x80000000)], "0.####"),
+    };
+    return inputs.Select(input => new { input.bits, input.format,
+        text = new decimal(input.bits).ToString(input.format,
+            System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -7067,6 +7096,7 @@ var result = new
     selectedDecimalExponentialFormatting = ObserveDecimalExponentialFormatting(),
     selectedDecimalCurrencyFormatting = ObserveDecimalCurrencyFormatting(),
     selectedDecimalCustomZeroFormatting = ObserveDecimalCustomZeroFormatting(),
+    selectedDecimalCustomOptionalFormatting = ObserveDecimalCustomOptionalFormatting(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
