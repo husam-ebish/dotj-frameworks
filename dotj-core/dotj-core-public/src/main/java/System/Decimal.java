@@ -685,6 +685,16 @@ public final class Decimal implements IConvertible {
             }
             return bounded(new BigDecimal(text), false);
         }
+        if (NumberStyles.AllowExponent.equals(style)) {
+            if (!text.matches("[0-9]+(?:[Ee][+-]?[0-9]+)?")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            try {
+                return bounded(new BigDecimal(text), false);
+            } catch (NumberFormatException invalid) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+        }
         if (NumberStyles.Integer.equals(style)) {
             String trimmed = text.strip();
             if (!trimmed.matches("[+-]?[0-9]+")) {

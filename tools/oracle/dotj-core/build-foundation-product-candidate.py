@@ -71,6 +71,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalNoneStyleParseConsumer",
     "ProductDecimalThousandsStyleParseConsumer",
     "ProductDecimalPointStyleParseConsumer",
+    "ProductDecimalExponentStyleParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -330,6 +331,16 @@ def main():
     assert point_style_vectors[1]["bits"] == [125, 0, 0, 131072]
     assert point_style_vectors[4]["error"] == "System.FormatException"
     assert point_style_vectors[16]["error"] == "System.OverflowException"
+    exponent_style_vectors = metadata["selectedDecimalExponentStyleParse"]
+    assert len(exponent_style_vectors) == 20
+    assert all((entry["bits"] is not None and len(entry["bits"]) == 4
+                and entry["error"] is None)
+               or (entry["bits"] is None and entry["error"] in
+                   ("System.FormatException", "System.OverflowException"))
+               for entry in exponent_style_vectors)
+    assert exponent_style_vectors[2]["bits"] == [100, 0, 0, 0]
+    assert exponent_style_vectors[5]["error"] == "System.FormatException"
+    assert exponent_style_vectors[13]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1382,6 +1393,15 @@ def main():
     point_style_result = run("java", "-cp", classpath,
                              "consumer.ProductDecimalPointStyleParseConsumer",
                              *point_style_args).strip()
+    exponent_style_args = [
+        ":".join((
+            entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in exponent_style_vectors]
+    exponent_style_result = run("java", "-cp", classpath,
+                                "consumer.ProductDecimalExponentStyleParseConsumer",
+                                *exponent_style_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1660,6 +1680,7 @@ def main():
     assert none_style_result == "PASS external selected Decimal None-style parsing"
     assert thousands_style_result == "PASS external selected Decimal Thousands-style parsing"
     assert point_style_result == "PASS external selected Decimal Point-style parsing"
+    assert exponent_style_result == "PASS external selected Decimal Exponent-style parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
