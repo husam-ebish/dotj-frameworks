@@ -384,6 +384,34 @@ public final class Decimal implements IConvertible {
         return truncated;
     }
 
+    private static long truncateRange(Decimal value, long minimum, long maximum) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        BigInteger truncated = value.value.setScale(0, RoundingMode.DOWN).toBigIntegerExact();
+        if (truncated.compareTo(BigInteger.valueOf(minimum)) < 0
+                || truncated.compareTo(BigInteger.valueOf(maximum)) > 0) {
+            throw new OverflowException("Value was outside the target integer range");
+        }
+        return truncated.longValue();
+    }
+
+    public static short ToByte(Decimal value) {
+        return (short) truncateRange(value, 0, 255);
+    }
+
+    public static byte ToSByte(Decimal value) {
+        return (byte) truncateRange(value, -128, 127);
+    }
+
+    public static short ToInt16(Decimal value) {
+        return (short) truncateRange(value, Short.MIN_VALUE, Short.MAX_VALUE);
+    }
+
+    public static int ToUInt16(Decimal value) {
+        return (int) truncateRange(value, 0, 65535);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

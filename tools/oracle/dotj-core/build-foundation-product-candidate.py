@@ -46,7 +46,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCompareToConsumer", "ProductDecimalToInt32Consumer",
     "ProductDecimalSignConsumer", "ProductDecimalIntegerPredicateConsumer",
     "ProductDecimalToInt64Consumer", "ProductDecimalToUInt32Consumer",
-    "ProductDecimalToUInt64Consumer")]
+    "ProductDecimalToUInt64Consumer", "ProductDecimalSmallIntegerConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -484,6 +484,17 @@ def main():
     assert to_uint64_vectors[8]["result"] == 18446744073709551615
     assert to_uint64_vectors[16]["result"] == 18446744073709551615
     assert to_uint64_vectors[17]["error"] == "System.OverflowException"
+    small_vectors = metadata["selectedDecimalSmallIntegerConversions"]
+    assert len(small_vectors) == 20
+    small_fields = ("toByte", "toSByte", "toInt16", "toUInt16")
+    assert all(len(entry["bits"]) == 4 and all(
+        (entry[field]["result"] is None)
+        == (entry[field]["error"] == "System.OverflowException")
+        for field in small_fields) for entry in small_vectors)
+    assert [small_vectors[0][field]["result"] for field in small_fields] == [0, 0, 0, 0]
+    assert [small_vectors[7][field]["result"] for field in small_fields] == [
+        None, -128, -128, None]
+    assert small_vectors[16]["toUInt16"]["result"] == 65535
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -1125,6 +1136,14 @@ def main():
         )) for entry in to_uint64_vectors]
     to_uint64_result = run("java", "-cp", classpath,
                            "consumer.ProductDecimalToUInt64Consumer", *to_uint64_args).strip()
+    small_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            *("OVERFLOW" if entry[field]["result"] is None
+              else str(entry[field]["result"]) for field in small_fields),
+        )) for entry in small_vectors]
+    small_result = run("java", "-cp", classpath,
+                       "consumer.ProductDecimalSmallIntegerConsumer", *small_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -1146,6 +1165,7 @@ def main():
     assert to_int64_result == "PASS external selected Decimal ToInt64"
     assert to_uint32_result == "PASS external selected Decimal ToUInt32"
     assert to_uint64_result == "PASS external selected Decimal ToUInt64"
+    assert small_result == "PASS external selected Decimal small-integer conversions"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],

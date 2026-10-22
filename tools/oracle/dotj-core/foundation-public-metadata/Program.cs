@@ -1986,6 +1986,52 @@ static object ObserveDecimalToUInt64()
         }
     }).ToArray();
 }
+static object ObserveDecimalSmallIntegerConversions()
+{
+    static object Observe(Func<decimal, long> conversion, decimal value)
+    {
+        try
+        {
+            return new { result = (long?)conversion(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { result = (long?)null, error = exception.GetType().FullName };
+        }
+    }
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [127, 0, 0, 0],
+        [127, 0, 0, unchecked((int)0x80000000)],
+        [128, 0, 0, 0],
+        [128, 0, 0, unchecked((int)0x80000000)],
+        [255, 0, 0, 0],
+        [255, 0, 0, unchecked((int)0x80000000)],
+        [256, 0, 0, 0],
+        [256, 0, 0, unchecked((int)0x80000000)],
+        [32767, 0, 0, 0],
+        [32768, 0, 0, unchecked((int)0x80000000)],
+        [32768, 0, 0, 0],
+        [32769, 0, 0, unchecked((int)0x80000000)],
+        [65535, 0, 0, 0],
+        [65536, 0, 0, 0],
+        [199, 0, 0, 0x00020000],
+        [99, 0, 0, unchecked((int)0x80020000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        decimal value = new decimal(bits);
+        return new { bits,
+            toByte = Observe(number => decimal.ToByte(number), value),
+            toSByte = Observe(number => decimal.ToSByte(number), value),
+            toInt16 = Observe(number => decimal.ToInt16(number), value),
+            toUInt16 = Observe(number => decimal.ToUInt16(number), value) };
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6478,6 +6524,7 @@ var result = new
     selectedDecimalToInt64 = ObserveDecimalToInt64(),
     selectedDecimalToUInt32 = ObserveDecimalToUInt32(),
     selectedDecimalToUInt64 = ObserveDecimalToUInt64(),
+    selectedDecimalSmallIntegerConversions = ObserveDecimalSmallIntegerConversions(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
