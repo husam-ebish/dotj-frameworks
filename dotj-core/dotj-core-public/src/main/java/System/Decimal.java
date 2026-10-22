@@ -322,6 +322,17 @@ public final class Decimal implements IConvertible {
         return truncated.intValue();
     }
 
+    public static boolean IsNegative(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        return value.value.signum() < 0 || value.negativeZero;
+    }
+
+    public static boolean IsPositive(Decimal value) {
+        return !IsNegative(value);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
