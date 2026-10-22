@@ -3084,6 +3084,41 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalPercentGroupSizes()
+{
+    var repeated = new System.Globalization.NumberFormatInfo
+    {
+        PercentGroupSeparator = "_",
+        PercentGroupSizes = [3, 2],
+        PercentDecimalSeparator = "@",
+        PercentSymbol = "pct",
+    };
+    var stopped = new System.Globalization.NumberFormatInfo
+    {
+        PercentGroupSeparator = "_",
+        PercentGroupSizes = [3, 2, 0],
+        PercentDecimalSeparator = "@",
+        PercentSymbol = "pct",
+    };
+    (int[] bits, string format, int mode)[] inputs =
+    [
+        ([123456789, 0, 0, 0], "P0", 0),
+        ([123456789, 0, 0, unchecked((int)0x80000000)], "P0", 0),
+        ([123456789, 0, 0, 0x00010000], "P1", 0),
+        ([123456789, 0, 0, unchecked((int)0x80010000)], "P1", 0),
+        ([12345, 0, 0, 0], "P0", 0),
+        ([12345, 0, 0, unchecked((int)0x80000000)], "P0", 0),
+        ([123456789, 0, 0, 0], "P0", 1),
+        ([123456789, 0, 0, unchecked((int)0x80000000)], "P0", 1),
+        ([123456789, 0, 0, 0x00010000], "P1", 1),
+        ([123456789, 0, 0, unchecked((int)0x80010000)], "P1", 1),
+        ([12345, 0, 0, 0], "P0", 1),
+        ([12345, 0, 0, unchecked((int)0x80000000)], "P0", 1),
+    ];
+    return inputs.Select(input => new { input.bits, input.format, input.mode,
+        text = new decimal(input.bits).ToString(input.format,
+            input.mode == 0 ? repeated : stopped) }).ToArray();
+}
 static object ObserveDecimalCurrencyGroupSizes()
 {
     var repeated = new System.Globalization.NumberFormatInfo
@@ -8217,6 +8252,7 @@ var result = new
     selectedDecimalCustomProviderFormatting = ObserveDecimalCustomProviderFormatting(),
     selectedDecimalNumberGroupSizes = ObserveDecimalNumberGroupSizes(),
     selectedDecimalCurrencyGroupSizes = ObserveDecimalCurrencyGroupSizes(),
+    selectedDecimalPercentGroupSizes = ObserveDecimalPercentGroupSizes(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),
