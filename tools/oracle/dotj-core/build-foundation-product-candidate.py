@@ -85,6 +85,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalSpanTryParseConsumer",
     "ProductDecimalUtf8SpanParseConsumer",
     "ProductDecimalSpanProviderTryParseConsumer",
+    "ProductDecimalParseProviderConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -478,6 +479,18 @@ def main():
     assert span_provider_vectors[0]["bits"] == [123450, 0, 0, 131072]
     assert span_provider_vectors[3]["success"] is False
     assert span_provider_vectors[15]["bits"] == [1, 0, 0, 1835008]
+    parse_provider_vectors = metadata["selectedDecimalParseProvider"]
+    assert len(parse_provider_vectors) == 20
+    assert all(entry["carrier"] in ("String", "Char", "Utf8")
+               and ((entry["bits"] is not None and len(entry["bits"]) == 4
+                     and entry["error"] is None)
+                    or (entry["bits"] is None and entry["error"] in
+                        ("System.ArgumentNullException", "System.FormatException",
+                         "System.OverflowException")))
+               for entry in parse_provider_vectors)
+    assert parse_provider_vectors[0]["bits"] == [123450, 0, 0, 131072]
+    assert parse_provider_vectors[6]["error"] == "System.ArgumentNullException"
+    assert parse_provider_vectors[19]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1654,6 +1667,16 @@ def main():
     span_provider_result = run("java", "-cp", classpath,
                                "consumer.ProductDecimalSpanProviderTryParseConsumer",
                                *span_provider_args).strip()
+    parse_provider_args = [
+        ":".join((
+            entry["carrier"],
+            entry["text"] if entry["text"] is not None else "<NULL>",
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in parse_provider_vectors]
+    parse_provider_result = run("java", "-cp", classpath,
+                                "consumer.ProductDecimalParseProviderConsumer",
+                                *parse_provider_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1946,6 +1969,7 @@ def main():
     assert span_try_result == "PASS external selected Decimal span TryParse results"
     assert utf8_span_result == "PASS external selected Decimal UTF-8 span parsing"
     assert span_provider_result == "PASS external selected Decimal span provider TryParse"
+    assert parse_provider_result == "PASS external selected Decimal Parse provider overloads"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
