@@ -958,7 +958,14 @@ public final class Decimal implements IConvertible {
     }
 
     public String ToString(IFormatProvider provider) {
-        return this.value.toPlainString();
+        String text = this.value.toPlainString();
+        if (provider instanceof NumberFormatInfo format) {
+            if (text.startsWith("-")) {
+                text = format.get_NegativeSign() + text.substring(1);
+            }
+            return text.replace(".", format.get_NumberDecimalSeparator());
+        }
+        return text;
     }
 
     public String ToString(String format, IFormatProvider provider) {
