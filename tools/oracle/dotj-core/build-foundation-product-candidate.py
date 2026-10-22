@@ -59,6 +59,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCurrencyProviderFormattingConsumer",
     "ProductDecimalExponentialProviderFormattingConsumer",
     "ProductDecimalCustomProviderFormattingConsumer",
+    "ProductDecimalNumberGroupSizesConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
@@ -892,6 +893,11 @@ def main():
     assert len(custom_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["format"]) is str
                and type(entry["text"]) is str for entry in custom_format_provider_vectors)
+    number_group_size_vectors = metadata["selectedDecimalNumberGroupSizes"]
+    assert len(number_group_size_vectors) == 12
+    assert all(len(entry["bits"]) == 4 and type(entry["format"]) is str
+               and entry["mode"] in (0, 1) and type(entry["text"]) is str
+               for entry in number_group_size_vectors)
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -1961,6 +1967,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalCustomProviderFormattingConsumer",
         *custom_format_provider_args).strip()
+    number_group_size_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], str(entry["mode"]), entry["text"],
+        )) for entry in number_group_size_vectors]
+    number_group_size_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalNumberGroupSizesConsumer",
+        *number_group_size_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2104,6 +2119,7 @@ def main():
     assert currency_provider_result == "PASS external selected Decimal currency provider formatting"
     assert exponential_provider_result == "PASS external selected Decimal exponential provider formatting"
     assert custom_format_provider_result == "PASS external selected Decimal custom provider formatting"
+    assert number_group_size_result == "PASS external selected Decimal number group sizes"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"
