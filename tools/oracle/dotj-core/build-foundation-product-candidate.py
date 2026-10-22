@@ -39,7 +39,8 @@ SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/throwing/ThrowSite.jav
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer",
     "ProductInt32BitConsumer", "ProductInt32ArithmeticConsumer", "ProductInt32SpanConsumer",
-    "ProductDecimalBitsConsumer", "ProductDecimalMultiplyConsumer")]
+    "ProductDecimalBitsConsumer", "ProductDecimalMultiplyConsumer",
+    "ProductDecimalDivideConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -357,6 +358,16 @@ def main():
     assert multiply_vectors[7]["result"] == [0, 0, 0, -2147221504]
     assert multiply_vectors[15]["result"] == [0, 0, 0, 0]
     assert multiply_vectors[28]["result"] == [-1, -1, -1, 65536]
+    divide_vectors = metadata["selectedDecimalDivide"]
+    assert len(divide_vectors) == 20
+    assert all(len(entry["left"]) == len(entry["right"]) == 4
+               and (entry["result"] is None or len(entry["result"]) == 4)
+               and (entry["error"] is None) == (entry["result"] is not None)
+               for entry in divide_vectors)
+    assert divide_vectors[1]["result"] == [89478485, 347537611, 180700362, 1835008]
+    assert divide_vectors[6]["error"] == "System.DivideByZeroException"
+    assert divide_vectors[14]["error"] == "System.OverflowException"
+    assert divide_vectors[15]["result"] == [0, 0, 0, 0]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -894,6 +905,16 @@ def main():
         )) for entry in multiply_vectors]
     multiply_result = run("java", "-cp", classpath,
                           "consumer.ProductDecimalMultiplyConsumer", *multiply_args).strip()
+    divide_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["left"]),
+            ",".join(str(word) for word in entry["right"]),
+            ("DIVIDE_ZERO" if entry["error"] == "System.DivideByZeroException"
+             else "OVERFLOW") if entry["result"] is None else
+            ",".join(str(word) for word in entry["result"]),
+        )) for entry in divide_vectors]
+    divide_result = run("java", "-cp", classpath,
+                        "consumer.ProductDecimalDivideConsumer", *divide_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -902,6 +923,7 @@ def main():
     assert span_result == "PASS external selected Int32 span parsing and formatting"
     assert decimal_result == "PASS external selected Decimal bits"
     assert multiply_result == "PASS external selected Decimal multiplication"
+    assert divide_result == "PASS external selected Decimal division"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
@@ -920,6 +942,7 @@ def main():
         "int32SpanConsumer": span_result,
         "decimalBitsConsumer": decimal_result,
         "decimalMultiplyConsumer": multiply_result,
+        "decimalDivideConsumer": divide_result,
         "exceptionStackBoundary": {
             "dotNetPrethrowStackNull": True,
             "dotNetThrownStackNonEmpty": True,
