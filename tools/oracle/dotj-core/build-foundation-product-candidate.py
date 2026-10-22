@@ -62,6 +62,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCustomOptionalFormattingConsumer",
     "ProductDecimalFloatStyleParseConsumer",
     "ProductDecimalNumberStyleParseConsumer",
+    "ProductDecimalIntegerStyleParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -230,6 +231,16 @@ def main():
     assert number_style_vectors[0]["bits"] == [123450, 0, 0, 131072]
     assert number_style_vectors[5]["error"] == "System.FormatException"
     assert number_style_vectors[17]["error"] == "System.OverflowException"
+    integer_style_vectors = metadata["selectedDecimalIntegerStyleParse"]
+    assert len(integer_style_vectors) == 20
+    assert all((entry["bits"] is not None and len(entry["bits"]) == 4
+                and entry["error"] is None)
+               or (entry["bits"] is None and entry["error"] in
+                   ("System.FormatException", "System.OverflowException"))
+               for entry in integer_style_vectors)
+    assert integer_style_vectors[1]["bits"] == [0, 0, 0, -2147483648]
+    assert integer_style_vectors[7]["error"] == "System.FormatException"
+    assert integer_style_vectors[13]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1201,6 +1212,15 @@ def main():
     number_style_result = run("java", "-cp", classpath,
                               "consumer.ProductDecimalNumberStyleParseConsumer",
                               *number_style_args).strip()
+    integer_style_args = [
+        ":".join((
+            entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in integer_style_vectors]
+    integer_style_result = run("java", "-cp", classpath,
+                               "consumer.ProductDecimalIntegerStyleParseConsumer",
+                               *integer_style_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1470,6 +1490,7 @@ def main():
     assert decimal_result == "PASS external selected Decimal bits"
     assert float_style_result == "PASS external selected Decimal Float-style parsing"
     assert number_style_result == "PASS external selected Decimal Number-style parsing"
+    assert integer_style_result == "PASS external selected Decimal Integer-style parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
