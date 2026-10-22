@@ -293,6 +293,23 @@ public final class Decimal implements IConvertible {
         return GetHashCode();
     }
 
+    public int CompareTo(Decimal value) {
+        if (value == null) {
+            return 1;
+        }
+        return Compare(this, value);
+    }
+
+    public int CompareTo(java.lang.Object value) {
+        if (value == null) {
+            return 1;
+        }
+        if (!(value instanceof Decimal other)) {
+            throw new ArgumentException("Object must be Decimal");
+        }
+        return Compare(this, other);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

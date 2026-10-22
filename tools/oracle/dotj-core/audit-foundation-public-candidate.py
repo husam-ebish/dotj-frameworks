@@ -163,6 +163,8 @@ def main():
                                     "public boolean Equals(java.lang.Object);",
                                     "public boolean equals(java.lang.Object);",
                                     "public int hashCode();",
+                                    "public int CompareTo(System.Decimal);",
+                                    "public int CompareTo(java.lang.Object);",
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
