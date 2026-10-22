@@ -366,6 +366,19 @@ public final class Decimal implements IConvertible {
         return truncated.longValue();
     }
 
+    public static long ToOACurrency(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        BigInteger units = value.value.movePointRight(4)
+                .setScale(0, RoundingMode.HALF_EVEN).toBigIntegerExact();
+        if (units.compareTo(BigInteger.valueOf(Long.MIN_VALUE)) < 0
+                || units.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0) {
+            throw new OverflowException("Value was outside the OLE currency range");
+        }
+        return units.longValue();
+    }
+
     public static long ToUInt32(Decimal value) {
         if (value == null) {
             throw new ArgumentNullException("value");

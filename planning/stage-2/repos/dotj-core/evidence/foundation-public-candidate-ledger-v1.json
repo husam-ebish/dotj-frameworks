@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "61cd5141f1b145202ea5c3ff637fa9fa65b7dfc2586b08bacb0e73ec0522e3d3",
+  "candidateJarSha256": "4bd9088ffbb04d48f38c5d6e87d8f87c7a6b7657d420780fc5f8ed056b5b3453",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -218,6 +218,7 @@
         "public static boolean IsEvenInteger(System.Decimal);",
         "public static boolean IsOddInteger(System.Decimal);",
         "public static long ToInt64(System.Decimal);",
+        "public static long ToOACurrency(System.Decimal);",
         "public static long ToUInt32(System.Decimal);",
         "public static java.math.BigInteger ToUInt64(System.Decimal);",
         "public static short ToByte(System.Decimal);",
