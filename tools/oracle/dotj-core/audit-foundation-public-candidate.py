@@ -190,6 +190,7 @@ def main():
                                     "public static System.Decimal MinMagnitude(System.Decimal, System.Decimal);",
                                     "public static boolean IsCanonical(System.Decimal);",
                                     "public static System.Decimal Parse(java.lang.String);",
+                                    "public static System.Decimal Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);",
                                     "public java.lang.String ToString();",
                                     "public java.lang.String ToString(System.IFormatProvider);",
                                     "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",

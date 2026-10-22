@@ -5,6 +5,7 @@ package System;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
+import System.Globalization.NumberStyles;
 
 /** Bounded immutable Decimal candidate for integer construction and invariant text. */
 public final class Decimal implements IConvertible {
@@ -557,8 +558,31 @@ public final class Decimal implements IConvertible {
         return bounded(parsed, trimmed.startsWith("-"));
     }
 
+    public static Decimal Parse(String text, NumberStyles style, IFormatProvider provider) {
+        if (text == null) {
+            throw new ArgumentNullException("s");
+        }
+        if (!NumberStyles.Float.equals(style)) {
+            throw new ArgumentException("Number style was not supported", "style");
+        }
+        String trimmed = text.strip();
+        if (!trimmed.matches("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)(?:[Ee][+-]?[0-9]+)?")) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        BigDecimal parsed;
+        try {
+            parsed = new BigDecimal(trimmed);
+        } catch (NumberFormatException invalid) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+        return bounded(parsed, trimmed.startsWith("-"));
+    }
+
     private static Decimal bounded(BigDecimal parsed, boolean negativeZero) {
-        for (int scale = Math.min(parsed.scale(), 28); scale >= 0; scale--) {
+        if (parsed.precision() - parsed.scale() > 29) {
+            throw new OverflowException("Value was outside the range of Decimal");
+        }
+        for (int scale = Math.max(0, Math.min(parsed.scale(), 28)); scale >= 0; scale--) {
             BigDecimal rounded = parsed.setScale(scale, RoundingMode.HALF_EVEN);
             if (rounded.unscaledValue().abs().bitLength() <= 96
                     && rounded.abs().compareTo(MAX_MAGNITUDE) <= 0) {

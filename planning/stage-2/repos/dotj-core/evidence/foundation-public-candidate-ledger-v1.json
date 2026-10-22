@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "29d6bd9df92163f8e11ffe1f1fef0fcc7d272b7a11e8008f368ef96f5bc70014",
+  "candidateJarSha256": "ab25a4e206de9e5ab7b6584b5f9900e4759760582171711a7b5ae8ea07235b21",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -236,6 +236,7 @@
         "public static System.Decimal MinMagnitude(System.Decimal, System.Decimal);",
         "public static boolean IsCanonical(System.Decimal);",
         "public static System.Decimal Parse(java.lang.String);",
+        "public static System.Decimal Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);",
         "public java.lang.String ToString();",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
