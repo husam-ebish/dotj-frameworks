@@ -27573,6 +27573,143 @@
       "error": "System.OverflowException"
     }
   ],
+  "selectedDecimalCustomCurrencySymbolStyleParse": [
+    {
+      "text": "USD1",
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "1USD",
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "USD0",
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "0USD",
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "USD1USD",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "USD 1",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "1 USD",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "-USD1",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "USD-1",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "(USD1)",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "\u00a41",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "$1",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "USD1.0",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "USD1,000",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "USD1e2",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "1",
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "0001USD",
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "USD79228162514264337593543950335",
+      "bits": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "USD79228162514264337593543950336",
+      "bits": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "text": " USD1",
+      "bits": null,
+      "error": "System.FormatException"
+    }
+  ],
   "selectedDecimalTruncate": [
     {
       "input": [
@@ -42498,6 +42635,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "05c98f4b6bf921bfa2cd552a02480c33d192a7aa72b9f129637f6b1c56850c8a",
+  "oracleProgramSha256": "630b6cb1bc2bc7162f151eec2edb63bd14052fc552c66c0674bc6869098f42d8",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

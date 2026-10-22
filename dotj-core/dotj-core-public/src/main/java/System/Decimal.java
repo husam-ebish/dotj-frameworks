@@ -564,6 +564,15 @@ public final class Decimal implements IConvertible {
             throw new ArgumentNullException("s");
         }
         if (provider instanceof NumberFormatInfo format
+                && NumberStyles.AllowCurrencySymbol.equals(style)) {
+            String symbol = format.get_CurrencySymbol();
+            if (!symbol.equals("¤") && text.contains("¤")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            String normalized = symbol.isEmpty() ? text : text.replace(symbol, "¤");
+            return Parse(normalized, style, null);
+        }
+        if (provider instanceof NumberFormatInfo format
                 && NumberStyles.Any.equals(style)) {
             String currencySymbol = format.get_CurrencySymbol();
             String currencyGroup = format.get_CurrencyGroupSeparator();
