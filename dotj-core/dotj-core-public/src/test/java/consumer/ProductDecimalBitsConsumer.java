@@ -310,6 +310,7 @@ public final class ProductDecimalBitsConsumer {
             {1, 0, 0, 0}, {1, 0, 0, 0x80000000},
             {-1, -1, -1, 0x80000000}, {1, 0, 0, 0x00010000},
             {5, 0, 0, 0x00010000}, {5, 0, 0, 0x80010000},
+            {200, 0, 0, 0x00020000}, {1, 0, 0, 0x801c0000},
         };
         int[][] addPairs = {
             {0, 0}, {1, 1}, {1, 0}, {0, 1}, {2, 3},
@@ -341,6 +342,41 @@ public final class ProductDecimalBitsConsumer {
             } catch (OverflowException caught) {
                 if (addExpected[index] != null) {
                     throw new AssertionError("Decimal Add overflow changed: " + index, caught);
+                }
+            }
+        }
+        int[][] subtractPairs = {
+            {0, 0}, {1, 0}, {0, 1}, {1, 1},
+            {2, 14}, {14, 2}, {5, 5}, {4, 4},
+            {7, 9}, {7, 8}, {10, 8}, {10, 9},
+            {6, 6}, {15, 15}, {12, 12}, {13, 13},
+            {7, 7}, {10, 10},
+        };
+        int[][] subtractExpected = {
+            {0, 0, 0, 0}, {0, 0, 0, 0x80020000},
+            {0, 0, 0, 0x00020000}, {0, 0, 0, 0x80020000},
+            {100, 0, 0, 0x80020000}, {100, 0, 0, 0x00020000},
+            {0, 0, 0, 0x00020000}, {0, 0, 0, 0x80020000},
+            null, {-2, -1, -1, 0}, null,
+            {-2, -1, -1, 0x80000000},
+            {0, 0, 0, 0x001c0000}, {0, 0, 0, 0x801c0000},
+            {0, 0, 0, 0x00010000}, {0, 0, 0, 0x80010000},
+            {0, 0, 0, 0}, {0, 0, 0, 0x80000000},
+        };
+        for (int index = 0; index < subtractPairs.length; index++) {
+            int[] pair = subtractPairs[index];
+            try {
+                int[] bits = Decimal.GetBits(Decimal.Subtract(
+                        new Decimal(addOperands[pair[0]]),
+                        new Decimal(addOperands[pair[1]])));
+                if (subtractExpected[index] == null
+                        || !Arrays.equals(bits, subtractExpected[index])) {
+                    throw new AssertionError("Decimal Subtract changed: " + index);
+                }
+            } catch (OverflowException caught) {
+                if (subtractExpected[index] != null) {
+                    throw new AssertionError("Decimal Subtract overflow changed: "
+                        + index, caught);
                 }
             }
         }
