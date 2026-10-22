@@ -568,6 +568,10 @@ public final class Decimal implements IConvertible {
         throw new OverflowException("Value was outside the range of Decimal");
     }
 
+    public String ToString() {
+        return this.ToString(null);
+    }
+
     public String ToString(IFormatProvider provider) {
         return this.value.toPlainString();
     }

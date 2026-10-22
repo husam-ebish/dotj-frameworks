@@ -2245,6 +2245,38 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalFormatting()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, 0x00020000],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x00020000],
+        [1, 0, 0, unchecked((int)0x80020000)],
+        [100, 0, 0, 0x00020000],
+        [100, 0, 0, unchecked((int)0x80020000)],
+        [125, 0, 0, 0x00020000],
+        [125, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0x001c0000],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [0, 1, 0, 0x00010000],
+        [0, 1, 0, unchecked((int)0x80010000)],
+        [0, 0, 1, 0x001c0000],
+        [0, 0, 1, unchecked((int)0x801c0000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        decimal value = new decimal(bits);
+        return new { bits,
+            invariant = value.ToString(System.Globalization.CultureInfo.InvariantCulture) };
+    }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -6820,6 +6852,7 @@ var result = new
     selectedDecimalClamp = ObserveDecimalClamp(),
     selectedDecimalOACurrency = ObserveDecimalOACurrency(),
     selectedDecimalFromOACurrency = ObserveDecimalFromOACurrency(),
+    selectedDecimalFormatting = ObserveDecimalFormatting(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),

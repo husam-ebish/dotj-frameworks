@@ -51,6 +51,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalMaxMinConsumer", "ProductDecimalClampConsumer", "ProductDecimalMagnitudeConsumer",
     "ProductDecimalOACurrencyConsumer",
     "ProductDecimalFromOACurrencyConsumer",
+    "ProductDecimalFormattingConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -553,6 +554,12 @@ def main():
                for entry in from_oa_currency_vectors)
     assert from_oa_currency_vectors[0]["bits"] == [0, 0, 0, 262144]
     assert from_oa_currency_vectors[9]["bits"] == [1, 0, 0, 0]
+    formatting_vectors = metadata["selectedDecimalFormatting"]
+    assert len(formatting_vectors) == 20
+    assert all(len(entry["bits"]) == 4 and type(entry["invariant"]) is str
+               for entry in formatting_vectors)
+    assert [entry["invariant"] for entry in formatting_vectors[:4]] == [
+        "0", "0", "0.00", "0.00"]
     magnitude_vectors = metadata["selectedDecimalMagnitudeExtrema"]
     assert len(magnitude_vectors) == 22
     assert all(len(entry["left"]) == len(entry["right"])
@@ -1270,6 +1277,14 @@ def main():
     from_oa_currency_result = run("java", "-cp", classpath,
                                   "consumer.ProductDecimalFromOACurrencyConsumer",
                                   *from_oa_currency_args).strip()
+    formatting_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["invariant"],
+        )) for entry in formatting_vectors]
+    formatting_result = run("java", "-cp", classpath,
+                            "consumer.ProductDecimalFormattingConsumer",
+                            *formatting_args).strip()
     magnitude_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1315,6 +1330,7 @@ def main():
     assert clamp_result == "PASS external selected Decimal Clamp"
     assert oa_currency_result == "PASS external selected Decimal ToOACurrency"
     assert from_oa_currency_result == "PASS external selected Decimal FromOACurrency"
+    assert formatting_result == "PASS external selected Decimal invariant formatting"
     assert canonical_result == "PASS external selected Decimal canonical encodings"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
