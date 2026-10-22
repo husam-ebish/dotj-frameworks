@@ -41,7 +41,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductInt32BitConsumer", "ProductInt32ArithmeticConsumer", "ProductInt32SpanConsumer",
     "ProductDecimalBitsConsumer", "ProductDecimalMultiplyConsumer",
     "ProductDecimalDivideConsumer", "ProductDecimalRemainderConsumer",
-    "ProductDecimalCompareConsumer")]
+    "ProductDecimalCompareConsumer", "ProductDecimalEqualsConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -387,6 +387,14 @@ def main():
         0, 0, 0, 1, -1, -1, 1, 0, 0]
     assert compare_vectors[11]["result"] == 1
     assert compare_vectors[17]["result"] == -1
+    equals_vectors = metadata["selectedDecimalEquals"]
+    assert len(equals_vectors) == 20
+    assert all(len(entry["left"]) == len(entry["right"]) == 4
+               and type(entry["result"]) is bool for entry in equals_vectors)
+    assert [entry["result"] for entry in equals_vectors[:8]] == [
+        True, True, True, True, False, False, True, True]
+    assert equals_vectors[16]["result"] is True
+    assert equals_vectors[17]["result"] is False
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -951,6 +959,14 @@ def main():
         )) for entry in compare_vectors]
     compare_result = run("java", "-cp", classpath,
                          "consumer.ProductDecimalCompareConsumer", *compare_args).strip()
+    equals_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["left"]),
+            ",".join(str(word) for word in entry["right"]),
+            str(entry["result"]).lower(),
+        )) for entry in equals_vectors]
+    equals_result = run("java", "-cp", classpath,
+                        "consumer.ProductDecimalEqualsConsumer", *equals_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -962,6 +978,7 @@ def main():
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
     assert compare_result == "PASS external selected Decimal comparison"
+    assert equals_result == "PASS external selected Decimal equality"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],

@@ -127,3 +127,5 @@ Selected `Decimal.Divide` now searches for an exact representable quotient from 
 Selected `Decimal.Remainder` now returns the truncated quotient remainder with the dividend sign and observed scale, including negative zero. Twenty .NET 10 pairs pin sign combinations, fractional operands, maximum magnitude, zero dividends and divide-by-zero. The packaged external consumer compares exact result bits or the exception type. Broader remainder parity and CLR ABI remain open.
 
 Selected `Decimal.Compare` now orders values numerically across differing scales and treats signed zero as equal. Twenty .NET 10 pairs pin sign, equality, extrema, scale and tiny-fraction behavior. The packaged external consumer compares each integer result with the oracle. Other comparison overloads and CLR ABI remain open.
+
+Selected static `Decimal.Equals` now compares numeric value across differing scales and signed zero. Twenty .NET 10 pairs pin equal and unequal signs, extrema, scales and fractions. The packaged external consumer compares every boolean with the oracle. Instance and object equality, hashing, operators and CLR ABI remain open.
