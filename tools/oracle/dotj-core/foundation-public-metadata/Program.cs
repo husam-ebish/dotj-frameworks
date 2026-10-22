@@ -1700,6 +1700,31 @@ static object ObserveDecimalTrailingWhiteStyleParse()
         }
     }).ToArray();
 }
+static object ObserveDecimalCurrencySymbolStyleParse()
+{
+    string[] texts =
+    [
+        "¤1", "1¤", "¤ 1", "1 ¤", "-¤1", "¤-1", "(¤1)",
+        "¤1.0", "¤1,000", "¤1e2", "$1", "1", "0", "¤0",
+        "¤¤1", "¤", "¤79228162514264337593543950335",
+        "¤79228162514264337593543950336", " ¤1", "¤1 "
+    ];
+    return texts.Select(text =>
+    {
+        try
+        {
+            decimal value = decimal.Parse(text,
+                System.Globalization.NumberStyles.AllowCurrencySymbol,
+                System.Globalization.CultureInfo.InvariantCulture);
+            return new { text, bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { text, bits = (int[]?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7574,6 +7599,7 @@ var result = new
     selectedDecimalParenthesesStyleParse = ObserveDecimalParenthesesStyleParse(),
     selectedDecimalLeadingWhiteStyleParse = ObserveDecimalLeadingWhiteStyleParse(),
     selectedDecimalTrailingWhiteStyleParse = ObserveDecimalTrailingWhiteStyleParse(),
+    selectedDecimalCurrencySymbolStyleParse = ObserveDecimalCurrencySymbolStyleParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),

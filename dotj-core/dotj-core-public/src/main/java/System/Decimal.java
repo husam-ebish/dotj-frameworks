@@ -743,6 +743,12 @@ public final class Decimal implements IConvertible {
             BigDecimal parsed = new BigDecimal(unsigned);
             return bounded(negative ? parsed.negate() : parsed, negative);
         }
+        if (NumberStyles.AllowCurrencySymbol.equals(style)) {
+            if (!text.matches("(?:¤?[0-9]+|[0-9]+¤)")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            return bounded(new BigDecimal(text.replace("¤", "")), false);
+        }
         if (NumberStyles.Integer.equals(style)) {
             String trimmed = text.strip();
             if (!trimmed.matches("[+-]?[0-9]+")) {

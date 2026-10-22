@@ -77,6 +77,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalParenthesesStyleParseConsumer",
     "ProductDecimalLeadingWhiteStyleParseConsumer",
     "ProductDecimalTrailingWhiteStyleParseConsumer",
+    "ProductDecimalCurrencySymbolStyleParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -396,6 +397,16 @@ def main():
     assert trailing_white_vectors[1]["bits"] == [42, 0, 0, 0]
     assert trailing_white_vectors[5]["error"] == "System.FormatException"
     assert trailing_white_vectors[19]["error"] == "System.OverflowException"
+    currency_symbol_vectors = metadata["selectedDecimalCurrencySymbolStyleParse"]
+    assert len(currency_symbol_vectors) == 20
+    assert all((entry["bits"] is not None and len(entry["bits"]) == 4
+                and entry["error"] is None)
+               or (entry["bits"] is None and entry["error"] in
+                   ("System.FormatException", "System.OverflowException"))
+               for entry in currency_symbol_vectors)
+    assert currency_symbol_vectors[0]["bits"] == [1, 0, 0, 0]
+    assert currency_symbol_vectors[2]["error"] == "System.FormatException"
+    assert currency_symbol_vectors[17]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1502,6 +1513,15 @@ def main():
     trailing_white_result = run("java", "-cp", classpath,
                                 "consumer.ProductDecimalTrailingWhiteStyleParseConsumer",
                                 *trailing_white_args).strip()
+    currency_symbol_args = [
+        ":".join((
+            entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in currency_symbol_vectors]
+    currency_symbol_result = run("java", "-cp", classpath,
+                                 "consumer.ProductDecimalCurrencySymbolStyleParseConsumer",
+                                 *currency_symbol_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1786,6 +1806,7 @@ def main():
     assert parentheses_result == "PASS external selected Decimal Parentheses-style parsing"
     assert leading_white_result == "PASS external selected Decimal LeadingWhite-style parsing"
     assert trailing_white_result == "PASS external selected Decimal TrailingWhite-style parsing"
+    assert currency_symbol_result == "PASS external selected Decimal CurrencySymbol-style parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
