@@ -39,7 +39,7 @@ SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/throwing/ThrowSite.jav
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer",
     "ProductInt32BitConsumer", "ProductInt32ArithmeticConsumer", "ProductInt32SpanConsumer",
-    "ProductDecimalBitsConsumer")]
+    "ProductDecimalBitsConsumer", "ProductDecimalMultiplyConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -348,6 +348,15 @@ def main():
         (add_operands[left], add_operands[right], result,
          "System.OverflowException" if result is None else None)
         for (left, right), result in zip(subtract_pairs, subtract_results)]
+    multiply_vectors = metadata["selectedDecimalMultiply"]
+    assert len(multiply_vectors) == 38
+    assert all(len(entry["left"]) == len(entry["right"]) == 4
+               and (entry["result"] is None or len(entry["result"]) == 4)
+               and (entry["error"] == "System.OverflowException") == (entry["result"] is None)
+               for entry in multiply_vectors)
+    assert multiply_vectors[7]["result"] == [0, 0, 0, -2147221504]
+    assert multiply_vectors[15]["result"] == [0, 0, 0, 0]
+    assert multiply_vectors[28]["result"] == [-1, -1, -1, 65536]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -876,6 +885,15 @@ def main():
     arithmetic_result = run("java", "-cp", classpath, "consumer.ProductInt32ArithmeticConsumer").strip()
     span_result = run("java", "-cp", classpath, "consumer.ProductInt32SpanConsumer").strip()
     decimal_result = run("java", "-cp", classpath, "consumer.ProductDecimalBitsConsumer").strip()
+    multiply_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["left"]),
+            ",".join(str(word) for word in entry["right"]),
+            "OVERFLOW" if entry["result"] is None else
+            ",".join(str(word) for word in entry["result"]),
+        )) for entry in multiply_vectors]
+    multiply_result = run("java", "-cp", classpath,
+                          "consumer.ProductDecimalMultiplyConsumer", *multiply_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -883,6 +901,7 @@ def main():
     assert arithmetic_result == "PASS external selected Int32 signed arithmetic"
     assert span_result == "PASS external selected Int32 span parsing and formatting"
     assert decimal_result == "PASS external selected Decimal bits"
+    assert multiply_result == "PASS external selected Decimal multiplication"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
@@ -900,6 +919,7 @@ def main():
         "int32ArithmeticConsumer": arithmetic_result,
         "int32SpanConsumer": span_result,
         "decimalBitsConsumer": decimal_result,
+        "decimalMultiplyConsumer": multiply_result,
         "exceptionStackBoundary": {
             "dotNetPrethrowStackNull": True,
             "dotNetThrownStackNonEmpty": True,

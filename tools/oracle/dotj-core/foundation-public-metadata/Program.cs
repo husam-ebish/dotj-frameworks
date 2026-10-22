@@ -1454,6 +1454,69 @@ static object ObserveDecimalSubtract()
         }
     }).ToArray();
 }
+static object ObserveDecimalMultiply()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        ([1, 0, 0, 0], [2, 0, 0, 0]),
+        ([12, 0, 0, 0x00010000], [34, 0, 0, 0x00010000]),
+        ([12, 0, 0, unchecked((int)0x80010000)], [34, 0, 0, 0x00010000]),
+        (negativeZero, [2, 0, 0, 0]),
+        (negativeZero, [2, 0, 0, unchecked((int)0x80000000)]),
+        (negativeZero, negativeZero),
+        (negativeZero, [0, 0, 0, 0x00020000]),
+        ([0, 0, 0, 0x00020000], negativeZero),
+        ([0, 0, 0, 0x00020000], [0, 0, 0, 0x00020000]),
+        ([0, 0, 0, 0x001c0000], [0, 0, 0, 0x001c0000]),
+        (max, [1, 0, 0, 0]),
+        (max, [2, 0, 0, 0]),
+        (min, [1, 0, 0, unchecked((int)0x80000000)]),
+        (min, [2, 0, 0, 0]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x001c0000]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x00020000]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x000a0000]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x00120000]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x00130000]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x00140000]),
+        ([1, 0, 0, unchecked((int)0x801c0000)], [1, 0, 0, 0x00140000]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x001b0000]),
+        ([0, 0, 0, 0x001c0000], [1, 0, 0, 0]),
+        ([0, 0, 0, 0x001c0000], [1, 0, 0, 0x00010000]),
+        ([0, 0, 0, 0x001c0000], [0, 0, 0, 0x001b0000]),
+        ([6, 0, 0, 0x001c0000], [1, 0, 0, 0x00010000]),
+        ([5, 0, 0, 0x001c0000], [1, 0, 0, 0x00010000]),
+        (max, [1, 0, 0, 0x00010000]),
+        ([125, 0, 0, 0x00020000], [200, 0, 0, 0x00020000]),
+        (zero, min),
+        (min, zero),
+        ([0, 0, 0, 0x00020000], min),
+        (min, [0, 0, 0, 0x00020000]),
+        (zero, negativeZero),
+        (negativeZero, zero),
+        (negativeZero, max),
+        (max, negativeZero),
+    };
+    return inputs.Select(input =>
+    {
+        try
+        {
+            decimal product = decimal.Multiply(new decimal(input.left),
+                new decimal(input.right));
+            return new { left = input.left, right = input.right,
+                result = decimal.GetBits(product), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { left = input.left, right = input.right,
+                result = (int[]?)null, error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5932,6 +5995,7 @@ var result = new
     selectedDecimalNegate = ObserveDecimalNegate(),
     selectedDecimalAdd = ObserveDecimalAdd(),
     selectedDecimalSubtract = ObserveDecimalSubtract(),
+    selectedDecimalMultiply = ObserveDecimalMultiply(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
