@@ -1843,6 +1843,32 @@ static object ObserveDecimalSignPredicates()
             positive = decimal.IsPositive(value) };
     }).ToArray();
 }
+static object ObserveDecimalIntegerPredicates()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [2, 0, 0, 0],
+        [2, 0, 0, unchecked((int)0x80000000)],
+        [100, 0, 0, 0x00020000],
+        [150, 0, 0, 0x00020000],
+        [250, 0, 0, 0x00020000],
+        [1, 0, 0, 0x001c0000],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [200, 0, 0, 0x00020000],
+        [200, 0, 0, unchecked((int)0x80020000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        decimal value = new decimal(bits);
+        return new { bits, integer = decimal.IsInteger(value),
+            even = decimal.IsEvenInteger(value), odd = decimal.IsOddInteger(value) };
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6331,6 +6357,7 @@ var result = new
     selectedDecimalCompareTo = ObserveDecimalCompareTo(),
     selectedDecimalToInt32 = ObserveDecimalToInt32(),
     selectedDecimalSignPredicates = ObserveDecimalSignPredicates(),
+    selectedDecimalIntegerPredicates = ObserveDecimalIntegerPredicates(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
