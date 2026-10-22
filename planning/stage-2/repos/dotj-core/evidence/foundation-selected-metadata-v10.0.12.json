@@ -26990,6 +26990,148 @@
       "error": null
     }
   ],
+  "selectedDecimalLeadingWhiteStyleParse": [
+    {
+      "text": "0",
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": " 42",
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "\t42",
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "\n42",
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "\r\n42",
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "42 ",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "42\t",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": " 42 ",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "-42",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "+42",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "1.0",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "1,000",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "1e2",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": " ",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "\u00a042",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "text": "42",
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": "   00042",
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": " 79228162514264337593543950335",
+      "bits": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "error": null
+    },
+    {
+      "text": " 79228162514264337593543950336",
+      "bits": null,
+      "error": "System.OverflowException"
+    }
+  ],
   "selectedDecimalTruncate": [
     {
       "input": [
@@ -41915,6 +42057,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "40c5f9ed9cf99ef49c05c369a9955da81e1ae708719b91cb3dd19bc1064654e1",
+  "oracleProgramSha256": "2c60e1d5f80bea1eea0c17b5f0aec70119976b9f3e3936dd3c27f659cc6ddb62",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
