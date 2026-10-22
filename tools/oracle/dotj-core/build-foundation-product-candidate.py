@@ -66,6 +66,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCurrencyStyleParseConsumer",
     "ProductDecimalAnyStyleParseConsumer",
     "ProductDecimalCustomProviderParseConsumer",
+    "ProductDecimalCustomCurrencyProviderParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -275,6 +276,16 @@ def main():
     assert custom_provider_vectors[0]["bits"] == [123450, 0, 0, 131072]
     assert custom_provider_vectors[5]["error"] == "System.FormatException"
     assert custom_provider_vectors[17]["error"] == "System.OverflowException"
+    custom_currency_vectors = metadata["selectedDecimalCustomCurrencyProviderParse"]
+    assert len(custom_currency_vectors) == 20
+    assert all((entry["bits"] is not None and len(entry["bits"]) == 4
+                and entry["error"] is None)
+               or (entry["bits"] is None and entry["error"] in
+                   ("System.FormatException", "System.OverflowException"))
+               for entry in custom_currency_vectors)
+    assert custom_currency_vectors[0]["bits"] == [123450, 0, 0, 131072]
+    assert custom_currency_vectors[8]["error"] == "System.FormatException"
+    assert custom_currency_vectors[17]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1282,6 +1293,15 @@ def main():
     custom_provider_result = run("java", "-cp", classpath,
                                  "consumer.ProductDecimalCustomProviderParseConsumer",
                                  *custom_provider_args).strip()
+    custom_currency_args = [
+        ":".join((
+            entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in custom_currency_vectors]
+    custom_currency_result = run("java", "-cp", classpath,
+                                 "consumer.ProductDecimalCustomCurrencyProviderParseConsumer",
+                                 *custom_currency_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1555,6 +1575,7 @@ def main():
     assert currency_style_result == "PASS external selected Decimal Currency-style parsing"
     assert any_style_result == "PASS external selected Decimal Any-style parsing"
     assert custom_provider_result == "PASS external selected Decimal custom-provider parsing"
+    assert custom_currency_result == "PASS external selected Decimal custom-currency-provider parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
