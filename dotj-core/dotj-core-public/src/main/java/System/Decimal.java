@@ -1073,7 +1073,18 @@ public final class Decimal implements IConvertible {
                         + groupDigits(whole, currencyFormat.get_CurrencyGroupSizes(),
                         currencyFormat.get_CurrencyGroupSeparator())
                         + fraction;
-                return rounded.signum() < 0 ? "(" + formatted + ")" : formatted;
+                if (rounded.signum() >= 0) {
+                    return formatted;
+                }
+                String sign = currencyFormat.get_NegativeSign();
+                return switch (currencyFormat.get_CurrencyNegativePattern()) {
+                    case 0 -> "(" + formatted + ")";
+                    case 1 -> sign + formatted;
+                    case 2 -> currencyFormat.get_CurrencySymbol() + sign
+                            + formatted.substring(currencyFormat.get_CurrencySymbol().length());
+                    case 3 -> formatted + sign;
+                    default -> "(" + formatted + ")";
+                };
             }
             String currency = "¤" + groupedDecimal(rounded.abs());
             return rounded.signum() < 0 ? "(" + currency + ")" : currency;
