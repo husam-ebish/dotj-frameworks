@@ -43,7 +43,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalDivideConsumer", "ProductDecimalRemainderConsumer",
     "ProductDecimalCompareConsumer", "ProductDecimalEqualsConsumer",
     "ProductDecimalHashConsumer", "ProductDecimalInstanceEqualityConsumer",
-    "ProductDecimalCompareToConsumer")]
+    "ProductDecimalCompareToConsumer", "ProductDecimalToInt32Consumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -426,6 +426,15 @@ def main():
                for entry in compare_to_vectors)
     assert [entry["typedResult"] for entry in compare_to_vectors] == [
         0, 0, 1, -1, -1, 0, 1, -1, 1, 1, -1, -1]
+    to_int32_vectors = metadata["selectedDecimalToInt32"]
+    assert len(to_int32_vectors) == 20
+    assert all(len(entry["bits"]) == 4
+               and (entry["result"] is None) == (entry["error"] == "System.OverflowException")
+               for entry in to_int32_vectors)
+    assert [entry["result"] for entry in to_int32_vectors[:9]] == [
+        0, 0, 1, -1, 1, -1, 2, -2, 2147483647]
+    assert to_int32_vectors[10]["result"] == -2147483648
+    assert to_int32_vectors[16]["result"] == 2147483647
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -1024,6 +1033,13 @@ def main():
         )) for entry in compare_to_vectors]
     compare_to_result = run("java", "-cp", classpath,
                             "consumer.ProductDecimalCompareToConsumer", *compare_to_args).strip()
+    to_int32_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            "OVERFLOW" if entry["result"] is None else str(entry["result"]),
+        )) for entry in to_int32_vectors]
+    to_int32_result = run("java", "-cp", classpath,
+                          "consumer.ProductDecimalToInt32Consumer", *to_int32_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -1039,6 +1055,7 @@ def main():
     assert hash_result == "PASS external selected Decimal hash codes"
     assert instance_equals_result == "PASS external selected Decimal instance equality"
     assert compare_to_result == "PASS external selected Decimal instance comparison"
+    assert to_int32_result == "PASS external selected Decimal ToInt32"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],

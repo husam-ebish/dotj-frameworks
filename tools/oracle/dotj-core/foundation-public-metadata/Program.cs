@@ -1780,6 +1780,45 @@ static object ObserveDecimalCompareTo()
             wrongTypeError };
     }).ToArray();
 }
+static object ObserveDecimalToInt32()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [199, 0, 0, 0x00020000],
+        [199, 0, 0, unchecked((int)0x80020000)],
+        [25, 0, 0, 0x00010000],
+        [25, 0, 0, unchecked((int)0x80010000)],
+        [int.MaxValue, 0, 0, 0],
+        [int.MinValue, 0, 0, 0],
+        [int.MinValue, 0, 0, unchecked((int)0x80000000)],
+        [-2147483647, 0, 0, unchecked((int)0x80000000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x001c0000],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [-1, 4, 0, 0x00010000],
+        [-1, 4, 0, unchecked((int)0x80010000)],
+        [0, 1, 0, 0x00010000],
+        [0, 1, 0, unchecked((int)0x80010000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        try
+        {
+            return new { bits, result = (int?)decimal.ToInt32(new decimal(bits)),
+                error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { bits, result = (int?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6266,6 +6305,7 @@ var result = new
     selectedDecimalHashCodes = ObserveDecimalHashCodes(),
     selectedDecimalInstanceEquals = ObserveDecimalInstanceEquals(),
     selectedDecimalCompareTo = ObserveDecimalCompareTo(),
+    selectedDecimalToInt32 = ObserveDecimalToInt32(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
