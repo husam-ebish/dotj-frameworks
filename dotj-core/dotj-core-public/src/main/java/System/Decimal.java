@@ -564,6 +564,39 @@ public final class Decimal implements IConvertible {
             throw new ArgumentNullException("s");
         }
         if (provider instanceof NumberFormatInfo format
+                && NumberStyles.Currency.equals(style)) {
+            String symbol = format.get_CurrencySymbol();
+            boolean hasSymbol = !symbol.isEmpty() && text.contains(symbol);
+            String group = format.get_CurrencyGroupSeparator();
+            String decimal = format.get_CurrencyDecimalSeparator();
+            String negative = format.get_NegativeSign();
+            String positive = format.get_PositiveSign();
+            if ((!symbol.equals("¤") && text.contains("¤"))
+                    || (hasSymbol && ((!group.equals(",") && text.contains(","))
+                    || (!decimal.equals(".") && text.contains("."))))
+                    || (!negative.equals("-") && text.contains("-"))
+                    || (!positive.equals("+") && text.contains("+"))) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            String normalized = text;
+            if (hasSymbol) {
+                normalized = normalized.replace(symbol, "¤");
+                if (!group.isEmpty()) {
+                    normalized = normalized.replace(group, ",");
+                }
+                if (!decimal.isEmpty()) {
+                    normalized = normalized.replace(decimal, ".");
+                }
+            }
+            if (!negative.isEmpty()) {
+                normalized = normalized.replace(negative, "-");
+            }
+            if (!positive.isEmpty()) {
+                normalized = normalized.replace(positive, "+");
+            }
+            return Parse(normalized, style, null);
+        }
+        if (provider instanceof NumberFormatInfo format
                 && (NumberStyles.Integer.equals(style) || NumberStyles.Number.equals(style)
                 || NumberStyles.Float.equals(style))) {
             String group = format.get_NumberGroupSeparator();

@@ -1384,6 +1384,42 @@ static object ObserveDecimalCustomProviderParse()
         }
     }).ToArray();
 }
+static object ObserveDecimalCustomCurrencyProviderParse()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        CurrencySymbol = "USD",
+        CurrencyGroupSeparator = "_",
+        CurrencyDecimalSeparator = "@",
+        NegativeSign = "~",
+        PositiveSign = "plus"
+    };
+    string[] texts =
+    [
+        "USD1_234@50", "~USD1_234@50", "USD~1_234@50",
+        "(USD1_234@50)", "1_234@50USD", "USD1_234@50~",
+        "USD 1_234@50", "USD1_23", "USD1_234.50",
+        "USD1,234@50", "¤1_234@50", "+USD1_234@50",
+        "plusUSD1_234@50", "USD0", "~USD0@00", "USD1e2",
+        "USD79228162514264337593543950335",
+        "USD79228162514264337593543950336",
+        "1,234.50", "USD1_234@50plus"
+    ];
+    return texts.Select(text =>
+    {
+        try
+        {
+            decimal value = decimal.Parse(text,
+                System.Globalization.NumberStyles.Currency, provider);
+            return new { text, bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { text, bits = (int[]?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7247,6 +7283,7 @@ var result = new
     selectedDecimalCurrencyStyleParse = ObserveDecimalCurrencyStyleParse(),
     selectedDecimalAnyStyleParse = ObserveDecimalAnyStyleParse(),
     selectedDecimalCustomProviderParse = ObserveDecimalCustomProviderParse(),
+    selectedDecimalCustomCurrencyProviderParse = ObserveDecimalCustomCurrencyProviderParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
