@@ -2234,6 +2234,17 @@ static object ObserveDecimalOACurrency()
         }
     }).ToArray();
 }
+static object ObserveDecimalFromOACurrency()
+{
+    long[] inputs = [
+        0, 1, -1, 10, -10, 100, -100, 1000, -1000,
+        10000, -10000, 12345, -12345, 100000000, -100000000,
+        long.MaxValue, long.MinValue, long.MaxValue - 1, long.MinValue + 1,
+        1000000000000
+    ];
+    return inputs.Select(value => new { value,
+        bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -6808,6 +6819,7 @@ var result = new
     selectedDecimalMaxMin = ObserveDecimalMaxMin(),
     selectedDecimalClamp = ObserveDecimalClamp(),
     selectedDecimalOACurrency = ObserveDecimalOACurrency(),
+    selectedDecimalFromOACurrency = ObserveDecimalFromOACurrency(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),

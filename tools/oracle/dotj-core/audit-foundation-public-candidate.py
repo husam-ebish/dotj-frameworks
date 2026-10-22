@@ -173,6 +173,7 @@ def main():
                                     "public static boolean IsOddInteger(System.Decimal);",
                                     "public static long ToInt64(System.Decimal);",
                                     "public static long ToOACurrency(System.Decimal);",
+                                    "public static System.Decimal FromOACurrency(long);",
                                     "public static long ToUInt32(System.Decimal);",
                                     "public static java.math.BigInteger ToUInt64(System.Decimal);",
                                     "public static short ToByte(System.Decimal);",
