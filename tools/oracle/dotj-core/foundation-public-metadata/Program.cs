@@ -1765,6 +1765,35 @@ static object ObserveDecimalComposedStyleParse()
         }
     }).ToArray();
 }
+static object ObserveDecimalCustomCurrencySymbolStyleParse()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        CurrencySymbol = "USD"
+    };
+    string[] texts =
+    [
+        "USD1", "1USD", "USD0", "0USD", "USD1USD", "USD 1",
+        "1 USD", "-USD1", "USD-1", "(USD1)", "¤1", "$1",
+        "USD1.0", "USD1,000", "USD1e2", "1", "0001USD",
+        "USD79228162514264337593543950335",
+        "USD79228162514264337593543950336", " USD1"
+    ];
+    return texts.Select(text =>
+    {
+        try
+        {
+            decimal value = decimal.Parse(text,
+                System.Globalization.NumberStyles.AllowCurrencySymbol, provider);
+            return new { text, bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { text, bits = (int[]?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7641,6 +7670,7 @@ var result = new
     selectedDecimalTrailingWhiteStyleParse = ObserveDecimalTrailingWhiteStyleParse(),
     selectedDecimalCurrencySymbolStyleParse = ObserveDecimalCurrencySymbolStyleParse(),
     selectedDecimalComposedStyleParse = ObserveDecimalComposedStyleParse(),
+    selectedDecimalCustomCurrencySymbolStyleParse = ObserveDecimalCustomCurrencySymbolStyleParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
