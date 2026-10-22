@@ -58,6 +58,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalPercentProviderFormattingConsumer",
     "ProductDecimalCurrencyProviderFormattingConsumer",
     "ProductDecimalExponentialProviderFormattingConsumer",
+    "ProductDecimalCustomProviderFormattingConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
@@ -887,6 +888,10 @@ def main():
     assert len(exponential_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["format"]) is str
                and type(entry["text"]) is str for entry in exponential_provider_vectors)
+    custom_format_provider_vectors = metadata["selectedDecimalCustomProviderFormatting"]
+    assert len(custom_format_provider_vectors) == 12
+    assert all(len(entry["bits"]) == 4 and type(entry["format"]) is str
+               and type(entry["text"]) is str for entry in custom_format_provider_vectors)
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -1947,6 +1952,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalExponentialProviderFormattingConsumer",
         *exponential_provider_args).strip()
+    custom_format_provider_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], entry["text"],
+        )) for entry in custom_format_provider_vectors]
+    custom_format_provider_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalCustomProviderFormattingConsumer",
+        *custom_format_provider_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2089,6 +2103,7 @@ def main():
     assert percent_provider_result == "PASS external selected Decimal percent provider formatting"
     assert currency_provider_result == "PASS external selected Decimal currency provider formatting"
     assert exponential_provider_result == "PASS external selected Decimal exponential provider formatting"
+    assert custom_format_provider_result == "PASS external selected Decimal custom provider formatting"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"

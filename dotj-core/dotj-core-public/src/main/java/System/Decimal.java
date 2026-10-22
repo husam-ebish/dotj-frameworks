@@ -1076,12 +1076,13 @@ public final class Decimal implements IConvertible {
             int magnitudeDot = magnitude.indexOf('.');
             int wholeDigits = magnitudeDot < 0 ? magnitude.length() : magnitudeDot;
             String padding = "0".repeat(Math.max(0, integerDigits - wholeDigits));
-            return (rounded.signum() < 0 ? "-" : "") + padding + magnitude;
+            return applyNumberFormat((rounded.signum() < 0 ? "-" : "")
+                    + padding + magnitude, provider);
         }
         if (format.matches("0\\.#{1,99}")) {
             int decimals = format.length() - 2;
-            return this.value.setScale(decimals, RoundingMode.HALF_UP)
-                    .stripTrailingZeros().toPlainString();
+            return applyNumberFormat(this.value.setScale(decimals, RoundingMode.HALF_UP)
+                    .stripTrailingZeros().toPlainString(), provider);
         }
         throw new FormatException("Format string was not supported");
     }
