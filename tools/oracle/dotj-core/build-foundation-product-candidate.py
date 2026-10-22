@@ -78,6 +78,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalLeadingWhiteStyleParseConsumer",
     "ProductDecimalTrailingWhiteStyleParseConsumer",
     "ProductDecimalCurrencySymbolStyleParseConsumer",
+    "ProductDecimalComposedStyleParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -407,6 +408,17 @@ def main():
     assert currency_symbol_vectors[0]["bits"] == [1, 0, 0, 0]
     assert currency_symbol_vectors[2]["error"] == "System.FormatException"
     assert currency_symbol_vectors[17]["error"] == "System.OverflowException"
+    composed_style_vectors = metadata["selectedDecimalComposedStyleParse"]
+    assert len(composed_style_vectors) == 20
+    assert all(entry["style"] in (36, 96, 3) and
+               ((entry["bits"] is not None and len(entry["bits"]) == 4
+                 and entry["error"] is None)
+                or (entry["bits"] is None and entry["error"] in
+                    ("System.FormatException", "System.OverflowException")))
+               for entry in composed_style_vectors)
+    assert composed_style_vectors[0]["bits"] == [125, 0, 0, -2147352576]
+    assert composed_style_vectors[9]["bits"] == [125, 0, 0, 65536]
+    assert composed_style_vectors[19]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1522,6 +1534,15 @@ def main():
     currency_symbol_result = run("java", "-cp", classpath,
                                  "consumer.ProductDecimalCurrencySymbolStyleParseConsumer",
                                  *currency_symbol_args).strip()
+    composed_style_args = [
+        ":".join((
+            str(entry["style"]), entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in composed_style_vectors]
+    composed_style_result = run("java", "-cp", classpath,
+                                "consumer.ProductDecimalComposedStyleParseConsumer",
+                                *composed_style_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1807,6 +1828,7 @@ def main():
     assert leading_white_result == "PASS external selected Decimal LeadingWhite-style parsing"
     assert trailing_white_result == "PASS external selected Decimal TrailingWhite-style parsing"
     assert currency_symbol_result == "PASS external selected Decimal CurrencySymbol-style parsing"
+    assert composed_style_result == "PASS external selected Decimal composed-style parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
