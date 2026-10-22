@@ -585,6 +585,27 @@ public final class Decimal implements IConvertible {
             int decimals = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
             return this.value.setScale(decimals, RoundingMode.HALF_UP).toPlainString();
         }
+        if (format.equals("N") || format.equals("n")
+                || format.matches("[Nn][0-9]{1,2}")) {
+            int decimals = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+            String rounded = this.value.setScale(decimals, RoundingMode.HALF_UP).toPlainString();
+            int integerEnd = rounded.indexOf('.');
+            if (integerEnd < 0) {
+                integerEnd = rounded.length();
+            }
+            int start = rounded.startsWith("-") ? 1 : 0;
+            StringBuilder grouped = new StringBuilder(rounded.length() + integerEnd / 3);
+            if (start == 1) {
+                grouped.append('-');
+            }
+            for (int index = start; index < integerEnd; index++) {
+                if (index > start && (integerEnd - index) % 3 == 0) {
+                    grouped.append(',');
+                }
+                grouped.append(rounded.charAt(index));
+            }
+            return grouped.append(rounded.substring(integerEnd)).toString();
+        }
         throw new FormatException("Format string was not supported");
     }
 

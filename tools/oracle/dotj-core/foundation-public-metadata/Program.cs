@@ -2339,6 +2339,35 @@ static object ObserveDecimalFixedPrecision()
         text = new decimal(input.bits).ToString(input.format,
             System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
 }
+static object ObserveDecimalNumberFormatting()
+{
+    var inputs = new (int[] bits, string format)[]
+    {
+        ([0, 0, 0, 0], "N"),
+        ([0, 0, 0, unchecked((int)0x80020000)], "N4"),
+        ([1, 0, 0, 0], "N0"),
+        ([1, 0, 0, unchecked((int)0x80000000)], "N4"),
+        ([999, 0, 0, 0], "N0"),
+        ([1000, 0, 0, 0], "N0"),
+        ([1000000, 0, 0, 0], "N2"),
+        ([1000000, 0, 0, unchecked((int)0x80000000)], "N2"),
+        ([123456789, 0, 0, 0x00020000], "N2"),
+        ([123456789, 0, 0, unchecked((int)0x80020000)], "N2"),
+        ([125, 0, 0, 0x00020000], "N1"),
+        ([125, 0, 0, unchecked((int)0x80020000)], "N1"),
+        ([1005, 0, 0, 0x00030000], "N2"),
+        ([1005, 0, 0, unchecked((int)0x80030000)], "N2"),
+        ([1, 0, 0, 0x001c0000], "N2"),
+        ([1, 0, 0, unchecked((int)0x801c0000)], "N2"),
+        ([-1, -1, -1, 0], "N0"),
+        ([-1, -1, -1, unchecked((int)0x80000000)], "N4"),
+        ([123456789, 0, 0, 0x00020000], "n3"),
+        ([123456789, 0, 0, 0x00020000], "N"),
+    };
+    return inputs.Select(input => new { input.bits, input.format,
+        text = new decimal(input.bits).ToString(input.format,
+            System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -6917,6 +6946,7 @@ var result = new
     selectedDecimalFormatting = ObserveDecimalFormatting(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
+    selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
