@@ -1091,6 +1091,14 @@ public final class Decimal implements IConvertible {
                             + sign + currencyFormat.get_CurrencySymbol();
                     case 7 -> formatted.substring(currencyFormat.get_CurrencySymbol().length())
                             + currencyFormat.get_CurrencySymbol() + sign;
+                    case 8 -> sign + formatted.substring(currencyFormat.get_CurrencySymbol().length())
+                            + " " + currencyFormat.get_CurrencySymbol();
+                    case 9 -> sign + currencyFormat.get_CurrencySymbol() + " "
+                            + formatted.substring(currencyFormat.get_CurrencySymbol().length());
+                    case 10 -> formatted.substring(currencyFormat.get_CurrencySymbol().length())
+                            + " " + currencyFormat.get_CurrencySymbol() + sign;
+                    case 11 -> currencyFormat.get_CurrencySymbol() + " "
+                            + formatted.substring(currencyFormat.get_CurrencySymbol().length()) + sign;
                     default -> "(" + formatted + ")";
                 };
             }

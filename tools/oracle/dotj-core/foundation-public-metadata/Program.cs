@@ -3084,6 +3084,28 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalCurrencyNegativePatterns8To11()
+{
+    int[][] inputs =
+    [
+        [42, 0, 0, unchecked((int)0x80000000)],
+        [12345, 0, 0, unchecked((int)0x80000000)],
+        [12345, 0, 0, unchecked((int)0x80020000)],
+    ];
+    return Enumerable.Range(8, 4).SelectMany(pattern =>
+    {
+        var provider = new System.Globalization.NumberFormatInfo
+        {
+            CurrencySymbol = "USD",
+            CurrencyGroupSeparator = "_",
+            CurrencyDecimalSeparator = "@",
+            CurrencyNegativePattern = pattern,
+            NegativeSign = "~",
+        };
+        return inputs.Select(bits => new { bits, pattern,
+            text = new decimal(bits).ToString("C2", provider) });
+    }).ToArray();
+}
 static object ObserveDecimalCurrencyNegativePatterns4To7()
 {
     int[][] inputs =
@@ -8299,6 +8321,7 @@ var result = new
     selectedDecimalPercentGroupSizes = ObserveDecimalPercentGroupSizes(),
     selectedDecimalCurrencyNegativePatterns = ObserveDecimalCurrencyNegativePatterns(),
     selectedDecimalCurrencyNegativePatterns4To7 = ObserveDecimalCurrencyNegativePatterns4To7(),
+    selectedDecimalCurrencyNegativePatterns8To11 = ObserveDecimalCurrencyNegativePatterns8To11(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),
