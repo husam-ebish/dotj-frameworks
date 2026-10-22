@@ -455,6 +455,25 @@ public final class Decimal implements IConvertible {
         return Compare(left, right) < 0 ? left : right;
     }
 
+    public static Decimal Clamp(Decimal value, Decimal min, Decimal max) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        if (min == null) {
+            throw new ArgumentNullException("min");
+        }
+        if (max == null) {
+            throw new ArgumentNullException("max");
+        }
+        if (Compare(min, max) > 0) {
+            throw new ArgumentException("Minimum exceeds maximum");
+        }
+        if (Compare(value, min) < 0) {
+            return min;
+        }
+        return Compare(value, max) > 0 ? max : value;
+    }
+
     public static Decimal MaxMagnitude(Decimal left, Decimal right) {
         if (left == null) {
             throw new ArgumentNullException("left");

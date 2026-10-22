@@ -183,6 +183,7 @@ def main():
                                     "public static System.Decimal CopySign(System.Decimal, System.Decimal);",
                                     "public static System.Decimal Max(System.Decimal, System.Decimal);",
                                     "public static System.Decimal Min(System.Decimal, System.Decimal);",
+                                    "public static System.Decimal Clamp(System.Decimal, System.Decimal, System.Decimal);",
                                     "public static System.Decimal MaxMagnitude(System.Decimal, System.Decimal);",
                                     "public static System.Decimal MinMagnitude(System.Decimal, System.Decimal);",
                                     "public static boolean IsCanonical(System.Decimal);",
