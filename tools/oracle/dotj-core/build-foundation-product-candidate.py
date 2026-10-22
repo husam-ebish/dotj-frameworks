@@ -42,7 +42,8 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalBitsConsumer", "ProductDecimalMultiplyConsumer",
     "ProductDecimalDivideConsumer", "ProductDecimalRemainderConsumer",
     "ProductDecimalCompareConsumer", "ProductDecimalEqualsConsumer",
-    "ProductDecimalHashConsumer", "ProductDecimalInstanceEqualityConsumer")]
+    "ProductDecimalHashConsumer", "ProductDecimalInstanceEqualityConsumer",
+    "ProductDecimalCompareToConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -415,6 +416,16 @@ def main():
                for entry in instance_equals_vectors)
     assert [entry["typedResult"] for entry in instance_equals_vectors] == [
         True, True, True, True, True, False, True, True, False, False, True, False]
+    compare_to_vectors = metadata["selectedDecimalCompareTo"]
+    assert len(compare_to_vectors) == 12
+    assert all(len(entry["left"]) == len(entry["right"]) == 4
+               and entry["typedResult"] == entry["objectResult"]
+               and entry["typedResult"] in (-1, 0, 1)
+               and entry["nullResult"] == 1
+               and entry["wrongTypeError"] == "System.ArgumentException"
+               for entry in compare_to_vectors)
+    assert [entry["typedResult"] for entry in compare_to_vectors] == [
+        0, 0, 1, -1, -1, 0, 1, -1, 1, 1, -1, -1]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -1004,6 +1015,15 @@ def main():
     instance_equals_result = run("java", "-cp", classpath,
                                  "consumer.ProductDecimalInstanceEqualityConsumer",
                                  *instance_equals_args).strip()
+    compare_to_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["left"]),
+            ",".join(str(word) for word in entry["right"]),
+            str(entry["typedResult"]), str(entry["objectResult"]),
+            str(entry["nullResult"]), entry["wrongTypeError"],
+        )) for entry in compare_to_vectors]
+    compare_to_result = run("java", "-cp", classpath,
+                            "consumer.ProductDecimalCompareToConsumer", *compare_to_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -1018,6 +1038,7 @@ def main():
     assert equals_result == "PASS external selected Decimal equality"
     assert hash_result == "PASS external selected Decimal hash codes"
     assert instance_equals_result == "PASS external selected Decimal instance equality"
+    assert compare_to_result == "PASS external selected Decimal instance comparison"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],

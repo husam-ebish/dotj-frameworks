@@ -1737,6 +1737,49 @@ static object ObserveDecimalInstanceEquals()
             hashMatches = !left.Equals(right) || left.GetHashCode() == right.GetHashCode() };
     }).ToArray();
 }
+static object ObserveDecimalCompareTo()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        (zero, zero),
+        (negativeZero, zero),
+        ([1, 0, 0, 0], zero),
+        (zero, [1, 0, 0, 0]),
+        ([1, 0, 0, unchecked((int)0x80000000)], zero),
+        ([1, 0, 0, 0], [100, 0, 0, 0x00020000]),
+        (max, min),
+        (min, max),
+        ([125, 0, 0, 0x00020000], [124, 0, 0, 0x00020000]),
+        ([1, 0, 0, 0x001c0000], zero),
+        (zero, [1, 0, 0, 0x001c0000]),
+        ([125, 0, 0, unchecked((int)0x80020000)],
+            [124, 0, 0, unchecked((int)0x80020000)]),
+    };
+    return inputs.Select(input =>
+    {
+        decimal left = new decimal(input.left);
+        decimal right = new decimal(input.right);
+        string? wrongTypeError;
+        try
+        {
+            left.CompareTo((object)"1");
+            wrongTypeError = null;
+        }
+        catch (Exception exception)
+        {
+            wrongTypeError = exception.GetType().FullName;
+        }
+        return new { left = input.left, right = input.right,
+            typedResult = left.CompareTo(right),
+            objectResult = left.CompareTo((object)right),
+            nullResult = left.CompareTo((object?)null),
+            wrongTypeError };
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6222,6 +6265,7 @@ var result = new
     selectedDecimalEquals = ObserveDecimalEquals(),
     selectedDecimalHashCodes = ObserveDecimalHashCodes(),
     selectedDecimalInstanceEquals = ObserveDecimalInstanceEquals(),
+    selectedDecimalCompareTo = ObserveDecimalCompareTo(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
