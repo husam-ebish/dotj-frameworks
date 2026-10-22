@@ -1702,6 +1702,41 @@ static object ObserveDecimalHashCodes()
     return inputs.Select(bits => new { bits,
         result = new decimal(bits).GetHashCode() }).ToArray();
 }
+static object ObserveDecimalInstanceEquals()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        (zero, zero),
+        (negativeZero, zero),
+        (zero, negativeZero),
+        ([1, 0, 0, 0], [100, 0, 0, 0x00020000]),
+        ([125, 0, 0, 0x00020000], [12500, 0, 0, 0x00040000]),
+        ([125, 0, 0, unchecked((int)0x80020000)],
+            [125, 0, 0, 0x00020000]),
+        (max, max),
+        (min, min),
+        (max, min),
+        ([1, 0, 0, 0x001c0000], zero),
+        ([1, 0, 0, unchecked((int)0x80000000)],
+            [10, 0, 0, unchecked((int)0x80010000)]),
+        ([1, 0, 0, 0], [1, 0, 0, unchecked((int)0x80000000)]),
+    };
+    return inputs.Select(input =>
+    {
+        decimal left = new decimal(input.left);
+        decimal right = new decimal(input.right);
+        return new { left = input.left, right = input.right,
+            typedResult = left.Equals(right),
+            objectResult = left.Equals((object)right),
+            unrelatedResult = left.Equals("1"),
+            nullResult = left.Equals((object?)null),
+            hashMatches = !left.Equals(right) || left.GetHashCode() == right.GetHashCode() };
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6186,6 +6221,7 @@ var result = new
     selectedDecimalCompare = ObserveDecimalCompare(),
     selectedDecimalEquals = ObserveDecimalEquals(),
     selectedDecimalHashCodes = ObserveDecimalHashCodes(),
+    selectedDecimalInstanceEquals = ObserveDecimalInstanceEquals(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
