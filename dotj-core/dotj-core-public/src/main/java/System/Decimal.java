@@ -619,6 +619,17 @@ public final class Decimal implements IConvertible {
             String currency = "¤" + groupedDecimal(rounded.abs());
             return rounded.signum() < 0 ? "(" + currency + ")" : currency;
         }
+        if (format.matches("0+(\\.0+)?")) {
+            int dot = format.indexOf('.');
+            int integerDigits = dot < 0 ? format.length() : dot;
+            int decimals = dot < 0 ? 0 : format.length() - dot - 1;
+            BigDecimal rounded = this.value.setScale(decimals, RoundingMode.HALF_UP);
+            String magnitude = rounded.abs().toPlainString();
+            int magnitudeDot = magnitude.indexOf('.');
+            int wholeDigits = magnitudeDot < 0 ? magnitude.length() : magnitudeDot;
+            String padding = "0".repeat(Math.max(0, integerDigits - wholeDigits));
+            return (rounded.signum() < 0 ? "-" : "") + padding + magnitude;
+        }
         throw new FormatException("Format string was not supported");
     }
 

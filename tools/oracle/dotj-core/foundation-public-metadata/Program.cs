@@ -2455,6 +2455,35 @@ static object ObserveDecimalCurrencyFormatting()
         text = new decimal(input.bits).ToString(input.format,
             System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
 }
+static object ObserveDecimalCustomZeroFormatting()
+{
+    var inputs = new (int[] bits, string format)[]
+    {
+        ([0, 0, 0, 0], "0.000"),
+        ([0, 0, 0, unchecked((int)0x80020000)], "0000.00"),
+        ([1, 0, 0, 0], "0.000"),
+        ([1, 0, 0, unchecked((int)0x80000000)], "0000.00"),
+        ([1, 0, 0, 0x00020000], "0.000"),
+        ([1, 0, 0, unchecked((int)0x80020000)], "0000.00"),
+        ([125, 0, 0, 0x00020000], "0.000"),
+        ([125, 0, 0, unchecked((int)0x80020000)], "0000.00"),
+        ([1005, 0, 0, 0x00030000], "0.00"),
+        ([1005, 0, 0, unchecked((int)0x80030000)], "0.00"),
+        ([15, 0, 0, 0x00010000], "0"),
+        ([15, 0, 0, unchecked((int)0x80010000)], "0"),
+        ([25, 0, 0, 0x00010000], "000"),
+        ([25, 0, 0, unchecked((int)0x80010000)], "000"),
+        ([1, 0, 0, 0x001c0000], "0.000"),
+        ([1, 0, 0, unchecked((int)0x801c0000)], "0000.00"),
+        ([1000, 0, 0, 0], "0000.00"),
+        ([1000, 0, 0, unchecked((int)0x80000000)], "0000.00"),
+        ([-1, -1, -1, 0], "0.000"),
+        ([-1, -1, -1, unchecked((int)0x80000000)], "0000.00"),
+    };
+    return inputs.Select(input => new { input.bits, input.format,
+        text = new decimal(input.bits).ToString(input.format,
+            System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -7037,6 +7066,7 @@ var result = new
     selectedDecimalPercentFormatting = ObserveDecimalPercentFormatting(),
     selectedDecimalExponentialFormatting = ObserveDecimalExponentialFormatting(),
     selectedDecimalCurrencyFormatting = ObserveDecimalCurrencyFormatting(),
+    selectedDecimalCustomZeroFormatting = ObserveDecimalCustomZeroFormatting(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
