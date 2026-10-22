@@ -1031,7 +1031,14 @@ public final class Decimal implements IConvertible {
                         percentFormat.get_PercentGroupSeparator()) + fraction;
                 String symbol = percentFormat.get_PercentSymbol();
                 if (negative) {
-                    return percentFormat.get_NegativeSign() + amount + " " + symbol;
+                    String sign = percentFormat.get_NegativeSign();
+                    return switch (percentFormat.get_PercentNegativePattern()) {
+                        case 0 -> sign + amount + " " + symbol;
+                        case 1 -> sign + amount + symbol;
+                        case 2 -> sign + symbol + amount;
+                        case 3 -> symbol + sign + amount;
+                        default -> sign + amount + " " + symbol;
+                    };
                 }
                 return switch (percentFormat.get_PercentPositivePattern()) {
                     case 0 -> amount + " " + symbol;
