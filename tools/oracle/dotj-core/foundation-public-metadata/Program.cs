@@ -2310,6 +2310,35 @@ static object ObserveDecimalFormatStrings()
             fixed2 = value.ToString("F2", provider) };
     }).ToArray();
 }
+static object ObserveDecimalFixedPrecision()
+{
+    var inputs = new (int[] bits, string format)[]
+    {
+        ([0, 0, 0, 0], "F0"),
+        ([0, 0, 0, unchecked((int)0x80020000)], "F4"),
+        ([1, 0, 0, 0], "F0"),
+        ([1, 0, 0, unchecked((int)0x80000000)], "F4"),
+        ([15, 0, 0, 0x00010000], "F0"),
+        ([15, 0, 0, unchecked((int)0x80010000)], "F0"),
+        ([25, 0, 0, 0x00010000], "F0"),
+        ([25, 0, 0, unchecked((int)0x80010000)], "F0"),
+        ([125, 0, 0, 0x00020000], "F1"),
+        ([125, 0, 0, unchecked((int)0x80020000)], "F1"),
+        ([1005, 0, 0, 0x00030000], "F4"),
+        ([1005, 0, 0, unchecked((int)0x80030000)], "F4"),
+        ([1, 0, 0, 0x001c0000], "F0"),
+        ([1, 0, 0, unchecked((int)0x801c0000)], "F4"),
+        ([1, 0, 0, 0x001c0000], "F28"),
+        ([1, 0, 0, unchecked((int)0x801c0000)], "F28"),
+        ([-1, -1, -1, 0], "F0"),
+        ([-1, -1, -1, unchecked((int)0x80000000)], "F4"),
+        ([125, 0, 0, 0x00020000], "F"),
+        ([125, 0, 0, 0x00020000], "f3"),
+    };
+    return inputs.Select(input => new { input.bits, input.format,
+        text = new decimal(input.bits).ToString(input.format,
+            System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -6887,6 +6916,7 @@ var result = new
     selectedDecimalFromOACurrency = ObserveDecimalFromOACurrency(),
     selectedDecimalFormatting = ObserveDecimalFormatting(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
+    selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
