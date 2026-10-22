@@ -1833,6 +1833,31 @@ static object ObserveDecimalTryParse()
         return new { mode, text, success, bits = decimal.GetBits(value) };
     }).ToArray();
 }
+static object ObserveDecimalProviderTryParse()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = "@",
+        NegativeSign = "~",
+        PositiveSign = "plus"
+    };
+    string?[] texts =
+    [
+        "1_234@50", "~1_234@50", "plus1_234@50",
+        "1_234@50~", "1_234@50plus", "-1_234@50",
+        "+1_234@50", "1,234@50", "1_234.50", "1e2",
+        "~0@00", "0@00000000000000000000000000006",
+        "79228162514264337593543950335",
+        "79228162514264337593543950336",
+        "", null, "@5", "1_", "1_2", "42"
+    ];
+    return texts.Select(text =>
+    {
+        bool success = decimal.TryParse(text, provider, out decimal value);
+        return new { text, success, bits = decimal.GetBits(value) };
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7711,6 +7736,7 @@ var result = new
     selectedDecimalComposedStyleParse = ObserveDecimalComposedStyleParse(),
     selectedDecimalCustomCurrencySymbolStyleParse = ObserveDecimalCustomCurrencySymbolStyleParse(),
     selectedDecimalTryParse = ObserveDecimalTryParse(),
+    selectedDecimalProviderTryParse = ObserveDecimalProviderTryParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
