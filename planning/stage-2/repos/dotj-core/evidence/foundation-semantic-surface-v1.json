@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "b907e66497bb6e7be197d763ea47dd0371ee4429c41a2d2ba699dcd6e1e65a2b",
+  "oracleEvidenceSha256": "0ffd37f7bf73c2ff43ac56745f6bf377bece677ec97a6cb8a5ba206139d1b5b2",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "ce585cada9a29e95d10df8161b939af2f41b187a3e305b886b6b6259a1dea4ef",
+  "javaCandidateEvidenceSha256": "a3c21b6f0e9f561cad46749a64ff1a3abda5f6a25fef34a6587984a9c8966457",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 100,
+  "nameLevelMissingMethodCount": 99,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -3282,6 +3282,7 @@
         "public static System.Decimal Multiply(System.Decimal, System.Decimal);",
         "public static System.Decimal Divide(System.Decimal, System.Decimal);",
         "public static System.Decimal Remainder(System.Decimal, System.Decimal);",
+        "public static int Compare(System.Decimal, System.Decimal);",
         "public static System.Decimal Parse(java.lang.String);",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public System.TypeCode GetTypeCode();",
@@ -3360,6 +3361,7 @@
           "Abs": 1,
           "Add": 1,
           "Ceiling": 1,
+          "Compare": 1,
           "Divide": 1,
           "Floor": 1,
           "GetBits": 1,
@@ -3391,7 +3393,6 @@
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "Clamp",
-          "Compare",
           "CompareTo",
           "ConvertToInteger",
           "ConvertToIntegerNative",

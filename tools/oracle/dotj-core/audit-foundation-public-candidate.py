@@ -156,6 +156,7 @@ def main():
                                     "public static System.Decimal Multiply(System.Decimal, System.Decimal);",
                                     "public static System.Decimal Divide(System.Decimal, System.Decimal);",
                                     "public static System.Decimal Remainder(System.Decimal, System.Decimal);",
+                                    "public static int Compare(System.Decimal, System.Decimal);",
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
