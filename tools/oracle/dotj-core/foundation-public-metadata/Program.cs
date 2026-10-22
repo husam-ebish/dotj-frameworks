@@ -3084,6 +3084,39 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalNumberGroupSizes()
+{
+    var repeated = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberGroupSizes = [3, 2],
+        NumberDecimalSeparator = "@",
+    };
+    var stopped = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberGroupSizes = [3, 2, 0],
+        NumberDecimalSeparator = "@",
+    };
+    (int[] bits, string format, int mode)[] inputs =
+    [
+        ([123456789, 0, 0, 0], "N0", 0),
+        ([123456789, 0, 0, unchecked((int)0x80000000)], "N0", 0),
+        ([123456789, 0, 0, 0x00010000], "N1", 0),
+        ([123456789, 0, 0, unchecked((int)0x80010000)], "N1", 0),
+        ([12345, 0, 0, 0], "N0", 0),
+        ([12345, 0, 0, unchecked((int)0x80000000)], "N0", 0),
+        ([123456789, 0, 0, 0], "N0", 1),
+        ([123456789, 0, 0, unchecked((int)0x80000000)], "N0", 1),
+        ([123456789, 0, 0, 0x00010000], "N1", 1),
+        ([123456789, 0, 0, unchecked((int)0x80010000)], "N1", 1),
+        ([12345, 0, 0, 0], "N0", 1),
+        ([12345, 0, 0, unchecked((int)0x80000000)], "N0", 1),
+    ];
+    return inputs.Select(input => new { input.bits, input.format, input.mode,
+        text = new decimal(input.bits).ToString(input.format,
+            input.mode == 0 ? repeated : stopped) }).ToArray();
+}
 static object ObserveDecimalCustomProviderFormatting()
 {
     var provider = new System.Globalization.NumberFormatInfo
@@ -8147,6 +8180,7 @@ var result = new
     selectedDecimalCurrencyProviderFormatting = ObserveDecimalCurrencyProviderFormatting(),
     selectedDecimalExponentialProviderFormatting = ObserveDecimalExponentialProviderFormatting(),
     selectedDecimalCustomProviderFormatting = ObserveDecimalCustomProviderFormatting(),
+    selectedDecimalNumberGroupSizes = ObserveDecimalNumberGroupSizes(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),

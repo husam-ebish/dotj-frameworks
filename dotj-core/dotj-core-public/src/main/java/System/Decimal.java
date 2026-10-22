@@ -995,11 +995,17 @@ public final class Decimal implements IConvertible {
                 boolean negative = grouped.startsWith("-");
                 String magnitude = negative ? grouped.substring(1) : grouped;
                 int dot = magnitude.indexOf('.');
-                String whole = dot < 0 ? magnitude : magnitude.substring(0, dot);
+                String whole = this.value.setScale(decimals, RoundingMode.HALF_UP)
+                        .abs().toPlainString();
+                int plainDot = whole.indexOf('.');
+                if (plainDot >= 0) {
+                    whole = whole.substring(0, plainDot);
+                }
                 String fraction = dot < 0 ? "" : numberFormat.get_NumberDecimalSeparator()
                         + magnitude.substring(dot + 1);
                 return (negative ? numberFormat.get_NegativeSign() : "")
-                        + whole.replace(",", numberFormat.get_NumberGroupSeparator()) + fraction;
+                        + groupDigits(whole, numberFormat.get_NumberGroupSizes(),
+                        numberFormat.get_NumberGroupSeparator()) + fraction;
             }
             return grouped;
         }
@@ -1105,6 +1111,28 @@ public final class Decimal implements IConvertible {
             grouped.append(rounded.charAt(index));
         }
         return grouped.append(rounded.substring(integerEnd)).toString();
+    }
+
+    private static String groupDigits(String digits, int[] sizes, String separator) {
+        if (sizes.length == 0 || sizes[0] == 0) {
+            return digits;
+        }
+        StringBuilder grouped = new StringBuilder();
+        int end = digits.length();
+        int sizeIndex = 0;
+        while (end > 0) {
+            int size = sizes[sizeIndex];
+            if (size == 0 || end <= size) {
+                grouped.insert(0, digits.substring(0, end));
+                break;
+            }
+            grouped.insert(0, separator + digits.substring(end - size, end));
+            end -= size;
+            if (sizeIndex + 1 < sizes.length) {
+                sizeIndex++;
+            }
+        }
+        return grouped.toString();
     }
 
     @Override
