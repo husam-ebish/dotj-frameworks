@@ -1027,10 +1027,19 @@ public final class Decimal implements IConvertible {
                 String whole = plainDot < 0 ? plain : plain.substring(0, plainDot);
                 String fraction = dot < 0 ? "" : percentFormat.get_PercentDecimalSeparator()
                         + magnitude.substring(dot + 1);
-                return (negative ? percentFormat.get_NegativeSign() : "")
-                        + groupDigits(whole, percentFormat.get_PercentGroupSizes(),
-                        percentFormat.get_PercentGroupSeparator())
-                        + fraction + " " + percentFormat.get_PercentSymbol();
+                String amount = groupDigits(whole, percentFormat.get_PercentGroupSizes(),
+                        percentFormat.get_PercentGroupSeparator()) + fraction;
+                String symbol = percentFormat.get_PercentSymbol();
+                if (negative) {
+                    return percentFormat.get_NegativeSign() + amount + " " + symbol;
+                }
+                return switch (percentFormat.get_PercentPositivePattern()) {
+                    case 0 -> amount + " " + symbol;
+                    case 1 -> amount + symbol;
+                    case 2 -> symbol + amount;
+                    case 3 -> symbol + " " + amount;
+                    default -> amount + " " + symbol;
+                };
             }
             return grouped + " %";
         }

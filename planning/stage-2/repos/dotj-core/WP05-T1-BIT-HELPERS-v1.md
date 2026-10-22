@@ -263,3 +263,5 @@ Selected `Decimal.ToString("C", provider)` now also honors currency negative pat
 Selected `Decimal.ToString("C", provider)` now also honors currency negative patterns 8 through 11. Twelve .NET 10 vectors pin each pattern across ungrouped, grouped and fractional values; the packaged external consumer checks exact text. Other currency patterns and provider implementations remain open.
 
 Selected `Decimal.ToString("C", provider)` now also honors currency negative patterns 12 through 16. Fifteen .NET 10 vectors pin each pattern across ungrouped, grouped and fractional values; the packaged external consumer checks exact text. All seventeen currency negative patterns are represented in bounded vectors; other provider implementations remain open.
+
+Selected `Decimal.ToString("P", provider)` now honors percent positive patterns 0 through 3. Twelve .NET 10 vectors pin each pattern across ungrouped, grouped and fractional values; a packaged external consumer checks exact text. Percent negative patterns and other provider implementations remain open.
