@@ -673,6 +673,18 @@ public final class Decimal implements IConvertible {
             }
             return bounded(new BigDecimal(text), false);
         }
+        if (NumberStyles.AllowLeadingWhite.equals(style)) {
+            int start = 0;
+            while (start < text.length() && (text.charAt(start) == ' '
+                    || (text.charAt(start) >= '\t' && text.charAt(start) <= '\r'))) {
+                start++;
+            }
+            String digits = text.substring(start);
+            if (!digits.matches("[0-9]+")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            return bounded(new BigDecimal(digits), false);
+        }
         if (NumberStyles.AllowThousands.equals(style)) {
             if (!text.matches("[0-9][0-9,]*")) {
                 throw new FormatException("Input string was not in a correct format");

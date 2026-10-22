@@ -75,6 +75,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalLeadingSignStyleParseConsumer",
     "ProductDecimalTrailingSignStyleParseConsumer",
     "ProductDecimalParenthesesStyleParseConsumer",
+    "ProductDecimalLeadingWhiteStyleParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -374,6 +375,16 @@ def main():
     assert parentheses_vectors[1]["bits"] == [0, 0, 0, -2147483648]
     assert parentheses_vectors[5]["error"] == "System.FormatException"
     assert parentheses_vectors[18]["error"] == "System.OverflowException"
+    leading_white_vectors = metadata["selectedDecimalLeadingWhiteStyleParse"]
+    assert len(leading_white_vectors) == 20
+    assert all((entry["bits"] is not None and len(entry["bits"]) == 4
+                and entry["error"] is None)
+               or (entry["bits"] is None and entry["error"] in
+                   ("System.FormatException", "System.OverflowException"))
+               for entry in leading_white_vectors)
+    assert leading_white_vectors[1]["bits"] == [42, 0, 0, 0]
+    assert leading_white_vectors[5]["error"] == "System.FormatException"
+    assert leading_white_vectors[19]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1462,6 +1473,15 @@ def main():
     parentheses_result = run("java", "-cp", classpath,
                              "consumer.ProductDecimalParenthesesStyleParseConsumer",
                              *parentheses_args).strip()
+    leading_white_args = [
+        ":".join((
+            entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in leading_white_vectors]
+    leading_white_result = run("java", "-cp", classpath,
+                               "consumer.ProductDecimalLeadingWhiteStyleParseConsumer",
+                               *leading_white_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1744,6 +1764,7 @@ def main():
     assert leading_sign_result == "PASS external selected Decimal LeadingSign-style parsing"
     assert trailing_sign_result == "PASS external selected Decimal TrailingSign-style parsing"
     assert parentheses_result == "PASS external selected Decimal Parentheses-style parsing"
+    assert leading_white_result == "PASS external selected Decimal LeadingWhite-style parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
