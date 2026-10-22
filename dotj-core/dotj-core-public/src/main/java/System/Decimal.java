@@ -877,6 +877,33 @@ public final class Decimal implements IConvertible {
         return bounded(parsed, trimmed.startsWith("-"));
     }
 
+    public static boolean TryParse(String text, Decimal[] result) {
+        result[0] = new Decimal(0);
+        if (text == null) {
+            return false;
+        }
+        try {
+            result[0] = Parse(text);
+            return true;
+        } catch (FormatException | OverflowException expected) {
+            return false;
+        }
+    }
+
+    public static boolean TryParse(String text, NumberStyles style,
+                                   IFormatProvider provider, Decimal[] result) {
+        result[0] = new Decimal(0);
+        if (text == null) {
+            return false;
+        }
+        try {
+            result[0] = Parse(text, style, provider);
+            return true;
+        } catch (FormatException | OverflowException expected) {
+            return false;
+        }
+    }
+
     private static Decimal bounded(BigDecimal parsed, boolean negativeZero) {
         if (parsed.precision() - parsed.scale() > 29) {
             throw new OverflowException("Value was outside the range of Decimal");

@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "df38da1d5d03f345cf3391afb8e5edce2518616928f2eef787024fb106f0ba68",
+  "oracleEvidenceSha256": "e29d5b9ac140ac10d37c46ca530a4e7973530ef1560668ae1f5775495957c1eb",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "c845738b1fdadab50330fc9768d3af7bbffac12186ed6380ec835e35afe89c86",
+  "javaCandidateEvidenceSha256": "724c66e7e700a4408d91a515006364ccf9e60ad7eb05e47d8ac1b198ccdd377e",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 82,
+  "nameLevelMissingMethodCount": 81,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -3317,6 +3317,8 @@
         "public static boolean IsCanonical(System.Decimal);",
         "public static System.Decimal Parse(java.lang.String);",
         "public static System.Decimal Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);",
+        "public static boolean TryParse(java.lang.String, System.Decimal[]);",
+        "public static boolean TryParse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider, System.Decimal[]);",
         "public java.lang.String ToString();",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
@@ -3442,6 +3444,7 @@
           "ToUInt32": 2,
           "ToUInt64": 2,
           "Truncate": 1,
+          "TryParse": 2,
           "equals": 1,
           "hashCode": 1
         },
@@ -3452,8 +3455,7 @@
           "CreateSaturating",
           "CreateTruncating",
           "TryFormat",
-          "TryGetBits",
-          "TryParse"
+          "TryGetBits"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
           "Scale"

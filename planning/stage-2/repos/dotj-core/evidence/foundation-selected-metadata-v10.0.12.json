@@ -27710,6 +27710,228 @@
       "error": "System.FormatException"
     }
   ],
+  "selectedDecimalTryParse": [
+    {
+      "mode": "Simple",
+      "text": "42",
+      "success": true,
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Simple",
+      "text": "-0.00",
+      "success": true,
+      "bits": [
+        0,
+        0,
+        0,
+        -2147352576
+      ]
+    },
+    {
+      "mode": "Simple",
+      "text": "bad",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Simple",
+      "text": "79228162514264337593543950336",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Simple",
+      "text": null,
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Number",
+      "text": "1,234.50",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ]
+    },
+    {
+      "mode": "Number",
+      "text": "(42)",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Number",
+      "text": "42-",
+      "success": true,
+      "bits": [
+        42,
+        0,
+        0,
+        -2147483648
+      ]
+    },
+    {
+      "mode": "Number",
+      "text": "1e2",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Number",
+      "text": "79228162514264337593543950336",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Number",
+      "text": null,
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Float",
+      "text": "1e2",
+      "success": true,
+      "bits": [
+        100,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Float",
+      "text": "1,234",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Float",
+      "text": "1e9999",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Float",
+      "text": "5e-29",
+      "success": true,
+      "bits": [
+        0,
+        0,
+        0,
+        1835008
+      ]
+    },
+    {
+      "mode": "Float",
+      "text": null,
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Integer",
+      "text": "42",
+      "success": true,
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Integer",
+      "text": "1.0",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "mode": "Integer",
+      "text": "-0",
+      "success": true,
+      "bits": [
+        0,
+        0,
+        0,
+        -2147483648
+      ]
+    },
+    {
+      "mode": "Integer",
+      "text": "79228162514264337593543950336",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
   "selectedDecimalTruncate": [
     {
       "input": [
@@ -42635,6 +42857,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "630b6cb1bc2bc7162f151eec2edb63bd14052fc552c66c0674bc6869098f42d8",
+  "oracleProgramSha256": "f39ad3f97e807230f2e8813748d352d5f907689929c51993fd98241e7c1bef8b",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
