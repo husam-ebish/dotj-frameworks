@@ -1005,9 +1005,24 @@ public final class Decimal implements IConvertible {
         }
         if (format.equals("P") || format.equals("p")
                 || format.matches("[Pp][0-9]{1,2}")) {
-            int decimals = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
-            return groupedDecimal(this.value.movePointRight(2)
-                    .setScale(decimals, RoundingMode.HALF_UP)) + " %";
+            int decimals = format.length() == 1
+                    ? provider instanceof NumberFormatInfo percentFormat
+                    ? percentFormat.get_PercentDecimalDigits() : 2
+                    : Integer.parseInt(format.substring(1));
+            String grouped = groupedDecimal(this.value.movePointRight(2)
+                    .setScale(decimals, RoundingMode.HALF_UP));
+            if (provider instanceof NumberFormatInfo percentFormat) {
+                boolean negative = grouped.startsWith("-");
+                String magnitude = negative ? grouped.substring(1) : grouped;
+                int dot = magnitude.indexOf('.');
+                String whole = dot < 0 ? magnitude : magnitude.substring(0, dot);
+                String fraction = dot < 0 ? "" : percentFormat.get_PercentDecimalSeparator()
+                        + magnitude.substring(dot + 1);
+                return (negative ? percentFormat.get_NegativeSign() : "")
+                        + whole.replace(",", percentFormat.get_PercentGroupSeparator())
+                        + fraction + " " + percentFormat.get_PercentSymbol();
+            }
+            return grouped + " %";
         }
         if (format.equals("E") || format.equals("e")
                 || format.matches("[Ee][0-9]{1,2}")) {
