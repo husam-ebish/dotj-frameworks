@@ -596,6 +596,22 @@ public final class Decimal implements IConvertible {
             return groupedDecimal(this.value.movePointRight(2)
                     .setScale(decimals, RoundingMode.HALF_UP)) + " %";
         }
+        if (format.equals("E") || format.equals("e")
+                || format.matches("[Ee][0-9]{1,2}")) {
+            int decimals = format.length() == 1 ? 6 : Integer.parseInt(format.substring(1));
+            int exponent = this.value.signum() == 0 ? 0
+                    : this.value.precision() - this.value.scale() - 1;
+            BigDecimal mantissa = this.value.movePointLeft(exponent)
+                    .setScale(decimals, RoundingMode.HALF_UP);
+            if (mantissa.abs().compareTo(BigDecimal.TEN) >= 0) {
+                mantissa = mantissa.movePointLeft(1).setScale(decimals);
+                exponent++;
+            }
+            String exponentDigits = String.format(java.util.Locale.ROOT, "%03d",
+                    Math.abs(exponent));
+            return mantissa.toPlainString() + format.charAt(0)
+                    + (exponent < 0 ? "-" : "+") + exponentDigits;
+        }
         throw new FormatException("Format string was not supported");
     }
 

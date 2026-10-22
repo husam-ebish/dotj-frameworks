@@ -56,6 +56,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
     "ProductDecimalPercentFormattingConsumer",
+    "ProductDecimalExponentialFormattingConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -588,6 +589,12 @@ def main():
                and type(entry["text"]) is str for entry in percent_format_vectors)
     assert percent_format_vectors[0]["text"] == "0.00 %"
     assert percent_format_vectors[14]["text"] == "100,000 %"
+    exponential_format_vectors = metadata["selectedDecimalExponentialFormatting"]
+    assert len(exponential_format_vectors) == 20
+    assert all(len(entry["bits"]) == 4 and type(entry["format"]) is str
+               and type(entry["text"]) is str for entry in exponential_format_vectors)
+    assert exponential_format_vectors[10]["text"] == "1.00E+001"
+    assert exponential_format_vectors[12]["text"] == "1.00E-028"
     magnitude_vectors = metadata["selectedDecimalMagnitudeExtrema"]
     assert len(magnitude_vectors) == 22
     assert all(len(entry["left"]) == len(entry["right"])
@@ -1345,6 +1352,14 @@ def main():
     percent_format_result = run("java", "-cp", classpath,
                                 "consumer.ProductDecimalPercentFormattingConsumer",
                                 *percent_format_args).strip()
+    exponential_format_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], entry["text"],
+        )) for entry in exponential_format_vectors]
+    exponential_format_result = run("java", "-cp", classpath,
+                                    "consumer.ProductDecimalExponentialFormattingConsumer",
+                                    *exponential_format_args).strip()
     magnitude_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1395,6 +1410,7 @@ def main():
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"
     assert percent_format_result == "PASS external selected Decimal percent formatting"
+    assert exponential_format_result == "PASS external selected Decimal exponential formatting"
     assert canonical_result == "PASS external selected Decimal canonical encodings"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
