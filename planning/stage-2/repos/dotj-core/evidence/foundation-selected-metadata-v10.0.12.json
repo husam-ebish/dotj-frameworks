@@ -30729,6 +30729,208 @@
       "error": null
     }
   ],
+  "selectedDecimalToUInt64": [
+    {
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "result": 0,
+      "error": null
+    },
+    {
+      "bits": [
+        0,
+        0,
+        0,
+        -2147352576
+      ],
+      "result": 0,
+      "error": null
+    },
+    {
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "result": 1,
+      "error": null
+    },
+    {
+      "bits": [
+        1,
+        0,
+        0,
+        -2147483648
+      ],
+      "result": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "bits": [
+        199,
+        0,
+        0,
+        131072
+      ],
+      "result": 1,
+      "error": null
+    },
+    {
+      "bits": [
+        199,
+        0,
+        0,
+        -2147352576
+      ],
+      "result": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "bits": [
+        25,
+        0,
+        0,
+        65536
+      ],
+      "result": 2,
+      "error": null
+    },
+    {
+      "bits": [
+        25,
+        0,
+        0,
+        -2147418112
+      ],
+      "result": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "bits": [
+        -1,
+        -1,
+        0,
+        0
+      ],
+      "result": 18446744073709551615,
+      "error": null
+    },
+    {
+      "bits": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "result": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "bits": [
+        1,
+        0,
+        0,
+        -2145648640
+      ],
+      "result": 0,
+      "error": null
+    },
+    {
+      "bits": [
+        1,
+        0,
+        0,
+        1835008
+      ],
+      "result": 0,
+      "error": null
+    },
+    {
+      "bits": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "result": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "bits": [
+        -1,
+        -1,
+        -1,
+        -2147483648
+      ],
+      "result": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "bits": [
+        9,
+        0,
+        0,
+        -2147418112
+      ],
+      "result": 0,
+      "error": null
+    },
+    {
+      "bits": [
+        9,
+        0,
+        0,
+        65536
+      ],
+      "result": 0,
+      "error": null
+    },
+    {
+      "bits": [
+        -1,
+        -1,
+        9,
+        65536
+      ],
+      "result": 18446744073709551615,
+      "error": null
+    },
+    {
+      "bits": [
+        9,
+        0,
+        10,
+        65536
+      ],
+      "result": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "bits": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "result": 4294967296,
+      "error": null
+    },
+    {
+      "bits": [
+        0,
+        0,
+        1,
+        65536
+      ],
+      "result": 1844674407370955161,
+      "error": null
+    }
+  ],
   "selectedInt32GeneralFlagStyles": {
     "signDecimalValue": 44,
     "signDecimal": [
@@ -34225,6 +34427,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "fa76c07f130f2e7228949b63c5375febddaaaca52c8486d1a705572999d5ce35",
+  "oracleProgramSha256": "20e360460ede34e00019233878a63a12c74fa8914129ff76439cfaf49a939a2e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

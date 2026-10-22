@@ -1947,6 +1947,45 @@ static object ObserveDecimalToUInt32()
         }
     }).ToArray();
 }
+static object ObserveDecimalToUInt64()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [199, 0, 0, 0x00020000],
+        [199, 0, 0, unchecked((int)0x80020000)],
+        [25, 0, 0, 0x00010000],
+        [25, 0, 0, unchecked((int)0x80010000)],
+        [-1, -1, 0, 0],
+        [0, 0, 1, 0],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [1, 0, 0, 0x001c0000],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [9, 0, 0, unchecked((int)0x80010000)],
+        [9, 0, 0, 0x00010000],
+        [-1, -1, 9, 0x00010000],
+        [9, 0, 10, 0x00010000],
+        [0, 1, 0, 0],
+        [0, 0, 1, 0x00010000],
+    ];
+    return inputs.Select(bits =>
+    {
+        try
+        {
+            return new { bits, result = (ulong?)decimal.ToUInt64(new decimal(bits)),
+                error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { bits, result = (ulong?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6438,6 +6477,7 @@ var result = new
     selectedDecimalIntegerPredicates = ObserveDecimalIntegerPredicates(),
     selectedDecimalToInt64 = ObserveDecimalToInt64(),
     selectedDecimalToUInt32 = ObserveDecimalToUInt32(),
+    selectedDecimalToUInt64 = ObserveDecimalToUInt64(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
