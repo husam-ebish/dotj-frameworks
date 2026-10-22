@@ -170,6 +170,27 @@ public final class Decimal implements IConvertible {
         return bounded(difference, negativeZero);
     }
 
+    public static Decimal Multiply(Decimal left, Decimal right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        BigDecimal product = left.value.multiply(right.value);
+        boolean negative = (left.value.signum() < 0 || left.negativeZero)
+                ^ (right.value.signum() < 0 || right.negativeZero);
+        if (product.scale() > 47
+                && product.setScale(28, RoundingMode.HALF_EVEN).signum() == 0) {
+            return new Decimal(BigDecimal.ZERO, false);
+        }
+        if (product.signum() == 0 && (left.value.unscaledValue().abs().bitLength() > 64
+                || right.value.unscaledValue().abs().bitLength() > 64)) {
+            return new Decimal(BigDecimal.ZERO, false);
+        }
+        return bounded(product, negative);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
