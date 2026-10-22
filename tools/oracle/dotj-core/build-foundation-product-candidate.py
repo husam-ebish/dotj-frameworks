@@ -84,6 +84,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalProviderTryParseConsumer",
     "ProductDecimalSpanTryParseConsumer",
     "ProductDecimalUtf8SpanParseConsumer",
+    "ProductDecimalSpanProviderTryParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -469,6 +470,14 @@ def main():
     assert utf8_span_vectors[0]["bits"] == [42, 0, 0, 0]
     assert utf8_span_vectors[2]["error"] == "System.FormatException"
     assert utf8_span_vectors[11]["error"] == "System.OverflowException"
+    span_provider_vectors = metadata["selectedDecimalSpanProviderTryParse"]
+    assert len(span_provider_vectors) == 20
+    assert all(entry["carrier"] in ("Char", "Utf8")
+               and isinstance(entry["success"], bool)
+               and len(entry["bits"]) == 4 for entry in span_provider_vectors)
+    assert span_provider_vectors[0]["bits"] == [123450, 0, 0, 131072]
+    assert span_provider_vectors[3]["success"] is False
+    assert span_provider_vectors[15]["bits"] == [1, 0, 0, 1835008]
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1637,6 +1646,14 @@ def main():
     utf8_span_result = run("java", "-cp", classpath,
                            "consumer.ProductDecimalUtf8SpanParseConsumer",
                            *utf8_span_args).strip()
+    span_provider_args = [
+        ":".join((
+            entry["carrier"], entry["text"], str(entry["success"]).lower(),
+            ",".join(str(word) for word in entry["bits"]),
+        )) for entry in span_provider_vectors]
+    span_provider_result = run("java", "-cp", classpath,
+                               "consumer.ProductDecimalSpanProviderTryParseConsumer",
+                               *span_provider_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1928,6 +1945,7 @@ def main():
     assert provider_try_result == "PASS external selected Decimal provider TryParse results"
     assert span_try_result == "PASS external selected Decimal span TryParse results"
     assert utf8_span_result == "PASS external selected Decimal UTF-8 span parsing"
+    assert span_provider_result == "PASS external selected Decimal span provider TryParse"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"

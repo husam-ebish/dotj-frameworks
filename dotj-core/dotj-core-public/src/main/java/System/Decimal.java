@@ -907,6 +907,11 @@ public final class Decimal implements IConvertible {
         return TryParse(text, NumberStyles.Number, provider, result);
     }
 
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider,
+                                       Decimal[] result) {
+        return TryParse(text.selectedText(), NumberStyles.Number, provider, result);
+    }
+
     public static boolean TryParse(String text, NumberStyles style,
                                    IFormatProvider provider, Decimal[] result) {
         result[0] = new Decimal(0);

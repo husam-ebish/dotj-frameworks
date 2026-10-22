@@ -28598,6 +28598,228 @@
       "error": null
     }
   ],
+  "selectedDecimalSpanProviderTryParse": [
+    {
+      "carrier": "Char",
+      "text": "1_234@50",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "~1_234@50",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        -2147352576
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "plus1_234@50",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "-1_234@50",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "1,234@50",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "1e2",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "~0@00",
+      "success": true,
+      "bits": [
+        0,
+        0,
+        0,
+        -2147352576
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "79228162514264337593543950336",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "@5",
+      "success": true,
+      "bits": [
+        5,
+        0,
+        0,
+        65536
+      ]
+    },
+    {
+      "carrier": "Char",
+      "text": "1_",
+      "success": true,
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_234@50",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_234@50~",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        -2147352576
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_234@50plus",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "+1_234@50",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_234.50",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "0@00000000000000000000000000006",
+      "success": true,
+      "bits": [
+        1,
+        0,
+        0,
+        1835008
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "79228162514264337593543950335",
+      "success": true,
+      "bits": [
+        -1,
+        -1,
+        -1,
+        0
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_2",
+      "success": true,
+      "bits": [
+        12,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "carrier": "Utf8",
+      "text": "42",
+      "success": true,
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
   "selectedDecimalTruncate": [
     {
       "input": [
@@ -43523,6 +43745,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "a44d6f956ec1f51d74f374dda035b1a75bdd89f3034edff2469b7aa181a4da61",
+  "oracleProgramSha256": "c9b47ea550323c389b05e2cc24e545bbb5271b3ec6e6544b44a3387641d2ad4d",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

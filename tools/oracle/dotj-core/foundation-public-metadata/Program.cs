@@ -1958,6 +1958,41 @@ static object ObserveDecimalUtf8SpanParse()
         return new { mode, text, success, bits = decimal.GetBits(value), error };
     }).ToArray();
 }
+static object ObserveDecimalSpanProviderTryParse()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = "@",
+        NegativeSign = "~",
+        PositiveSign = "plus"
+    };
+    (string carrier, string text)[] cases =
+    [
+        ("Char", "1_234@50"), ("Char", "~1_234@50"),
+        ("Char", "plus1_234@50"), ("Char", "-1_234@50"),
+        ("Char", "1,234@50"), ("Char", "1e2"),
+        ("Char", "~0@00"),
+        ("Char", "79228162514264337593543950336"),
+        ("Char", "@5"), ("Char", "1_"),
+        ("Utf8", "1_234@50"), ("Utf8", "1_234@50~"),
+        ("Utf8", "1_234@50plus"), ("Utf8", "+1_234@50"),
+        ("Utf8", "1_234.50"),
+        ("Utf8", "0@00000000000000000000000000006"),
+        ("Utf8", "79228162514264337593543950335"),
+        ("Utf8", ""), ("Utf8", "1_2"), ("Utf8", "42")
+    ];
+    return cases.Select(entry =>
+    {
+        var (carrier, text) = entry;
+        decimal value;
+        bool success = carrier == "Char"
+            ? decimal.TryParse(text.AsSpan(), provider, out value)
+            : decimal.TryParse(System.Text.Encoding.UTF8.GetBytes(text).AsSpan(),
+                provider, out value);
+        return new { carrier, text, success, bits = decimal.GetBits(value) };
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7839,6 +7874,7 @@ var result = new
     selectedDecimalProviderTryParse = ObserveDecimalProviderTryParse(),
     selectedDecimalSpanTryParse = ObserveDecimalSpanTryParse(),
     selectedDecimalUtf8SpanParse = ObserveDecimalUtf8SpanParse(),
+    selectedDecimalSpanProviderTryParse = ObserveDecimalSpanProviderTryParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
