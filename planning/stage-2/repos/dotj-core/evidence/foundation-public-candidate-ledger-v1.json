@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "fc56bad493ca607c72a83830d8183b0b2f1d988282eb59290d478c571b2f6340",
+  "candidateJarSha256": "356ee95f0cf87c08b05432c9015a0a9eb83443ca84e91eb9a880197a3a121b22",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -211,6 +211,7 @@
         "public int hashCode();",
         "public int CompareTo(System.Decimal);",
         "public int CompareTo(java.lang.Object);",
+        "public static int ToInt32(System.Decimal);",
         "public static System.Decimal Parse(java.lang.String);",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public System.TypeCode GetTypeCode();",

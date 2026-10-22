@@ -684,7 +684,7 @@ public final class TypeIdentityCandidateTest {
         if (!Type.GetType("System.Decimal").IsAssignableTo(Type.GetType("System.IConvertible"))
                 || decimalConvertible.GetTypeCode() != TypeCode.Decimal
                 || decimalConvertible.ToInt32(null) != 12
-                || Decimal.Parse("13.5").ToInt32(null) != 14
+                || ((IConvertible) Decimal.Parse("13.5")).ToInt32(null) != 14
                 || decimalConvertible.ToDouble(null) != 12.5d
                 || !decimalConvertible.ToBoolean(null)
                 || !"12.5".equals(decimalConvertible.ToString(null))
