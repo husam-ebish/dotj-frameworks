@@ -710,6 +710,15 @@ public final class Decimal implements IConvertible {
             BigDecimal parsed = new BigDecimal(unsigned);
             return bounded(negative ? parsed.negate() : parsed, negative);
         }
+        if (NumberStyles.AllowParentheses.equals(style)) {
+            if (!text.matches("(?:[0-9]+|\\([0-9]+\\))")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            boolean negative = text.startsWith("(");
+            String unsigned = negative ? text.substring(1, text.length() - 1) : text;
+            BigDecimal parsed = new BigDecimal(unsigned);
+            return bounded(negative ? parsed.negate() : parsed, negative);
+        }
         if (NumberStyles.Integer.equals(style)) {
             String trimmed = text.strip();
             if (!trimmed.matches("[+-]?[0-9]+")) {
