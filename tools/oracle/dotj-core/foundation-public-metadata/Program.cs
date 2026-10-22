@@ -1819,6 +1819,30 @@ static object ObserveDecimalToInt32()
         }
     }).ToArray();
 }
+static object ObserveDecimalSignPredicates()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, 0x00020000],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x001c0000],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [125, 0, 0, 0x00020000],
+        [125, 0, 0, unchecked((int)0x80020000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        decimal value = new decimal(bits);
+        return new { bits, negative = decimal.IsNegative(value),
+            positive = decimal.IsPositive(value) };
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6306,6 +6330,7 @@ var result = new
     selectedDecimalInstanceEquals = ObserveDecimalInstanceEquals(),
     selectedDecimalCompareTo = ObserveDecimalCompareTo(),
     selectedDecimalToInt32 = ObserveDecimalToInt32(),
+    selectedDecimalSignPredicates = ObserveDecimalSignPredicates(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

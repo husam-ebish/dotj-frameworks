@@ -166,6 +166,8 @@ def main():
                                     "public int CompareTo(System.Decimal);",
                                     "public int CompareTo(java.lang.Object);",
                                     "public static int ToInt32(System.Decimal);",
+                                    "public static boolean IsNegative(System.Decimal);",
+                                    "public static boolean IsPositive(System.Decimal);",
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
