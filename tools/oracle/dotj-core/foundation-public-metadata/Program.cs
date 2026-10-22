@@ -1725,6 +1725,46 @@ static object ObserveDecimalCurrencySymbolStyleParse()
         }
     }).ToArray();
 }
+static object ObserveDecimalComposedStyleParse()
+{
+    var signedPoint = System.Globalization.NumberStyles.AllowLeadingSign
+        | System.Globalization.NumberStyles.AllowDecimalPoint;
+    var groupedPoint = System.Globalization.NumberStyles.AllowThousands
+        | System.Globalization.NumberStyles.AllowDecimalPoint;
+    var bothWhite = System.Globalization.NumberStyles.AllowLeadingWhite
+        | System.Globalization.NumberStyles.AllowTrailingWhite;
+    (System.Globalization.NumberStyles style, string text)[] cases =
+    [
+        (signedPoint, "-1.25"), (signedPoint, "+.5"),
+        (signedPoint, "-0.00"), (signedPoint, "1,234.5"),
+        (signedPoint, "1e2"), (signedPoint, " 1.25"),
+        (signedPoint, "79228162514264337593543950336"),
+        (groupedPoint, "1,234.50"), (groupedPoint, "1,23.5"),
+        (groupedPoint, "1,,2.5"), (groupedPoint, ".5"),
+        (groupedPoint, "-1,234.5"), (groupedPoint, "1.2,3"),
+        (groupedPoint, "79,228,162,514,264,337,593,543,950,336"),
+        (bothWhite, " 42 "), (bothWhite, "\t42\n"),
+        (bothWhite, "-42"), (bothWhite, "1.0"),
+        (bothWhite, " \u00a042"),
+        (bothWhite, " 79228162514264337593543950336 ")
+    ];
+    return cases.Select(entry =>
+    {
+        var (style, text) = entry;
+        try
+        {
+            decimal value = decimal.Parse(text, style,
+                System.Globalization.CultureInfo.InvariantCulture);
+            return new { style = (int)style, text,
+                bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { style = (int)style, text,
+                bits = (int[]?)null, error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7600,6 +7640,7 @@ var result = new
     selectedDecimalLeadingWhiteStyleParse = ObserveDecimalLeadingWhiteStyleParse(),
     selectedDecimalTrailingWhiteStyleParse = ObserveDecimalTrailingWhiteStyleParse(),
     selectedDecimalCurrencySymbolStyleParse = ObserveDecimalCurrencySymbolStyleParse(),
+    selectedDecimalComposedStyleParse = ObserveDecimalComposedStyleParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),

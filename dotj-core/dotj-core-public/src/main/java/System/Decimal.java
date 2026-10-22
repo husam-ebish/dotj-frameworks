@@ -667,6 +667,35 @@ public final class Decimal implements IConvertible {
             }
             return Parse(normalized, style, null);
         }
+        if (style != null && style.get_Value() == 36) {
+            if (!text.matches("[+-]?(?:[0-9]+(?:\\.[0-9]*)?|\\.[0-9]+)")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            return bounded(new BigDecimal(text), text.startsWith("-"));
+        }
+        if (style != null && style.get_Value() == 96) {
+            if (!text.matches("(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            return bounded(new BigDecimal(text.replace(",", "")), false);
+        }
+        if (style != null && style.get_Value() == 3) {
+            int start = 0;
+            int end = text.length();
+            while (start < end && (text.charAt(start) == ' '
+                    || (text.charAt(start) >= '\t' && text.charAt(start) <= '\r'))) {
+                start++;
+            }
+            while (end > start && (text.charAt(end - 1) == ' '
+                    || (text.charAt(end - 1) >= '\t' && text.charAt(end - 1) <= '\r'))) {
+                end--;
+            }
+            String digits = text.substring(start, end);
+            if (!digits.matches("[0-9]+")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            return bounded(new BigDecimal(digits), false);
+        }
         if (NumberStyles.None.equals(style)) {
             if (!text.matches("[0-9]+")) {
                 throw new FormatException("Input string was not in a correct format");
