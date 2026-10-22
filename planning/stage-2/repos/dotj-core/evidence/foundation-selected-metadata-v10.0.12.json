@@ -39315,6 +39315,128 @@
       "text": "-12_34_500 pct"
     }
   ],
+  "selectedDecimalCurrencyNegativePatterns": [
+    {
+      "bits": [
+        42,
+        0,
+        0,
+        -2147483648
+      ],
+      "pattern": 0,
+      "text": "(USD42@00)"
+    },
+    {
+      "bits": [
+        12345,
+        0,
+        0,
+        -2147483648
+      ],
+      "pattern": 0,
+      "text": "(USD12_345@00)"
+    },
+    {
+      "bits": [
+        12345,
+        0,
+        0,
+        -2147352576
+      ],
+      "pattern": 0,
+      "text": "(USD123@45)"
+    },
+    {
+      "bits": [
+        42,
+        0,
+        0,
+        -2147483648
+      ],
+      "pattern": 1,
+      "text": "~USD42@00"
+    },
+    {
+      "bits": [
+        12345,
+        0,
+        0,
+        -2147483648
+      ],
+      "pattern": 1,
+      "text": "~USD12_345@00"
+    },
+    {
+      "bits": [
+        12345,
+        0,
+        0,
+        -2147352576
+      ],
+      "pattern": 1,
+      "text": "~USD123@45"
+    },
+    {
+      "bits": [
+        42,
+        0,
+        0,
+        -2147483648
+      ],
+      "pattern": 2,
+      "text": "USD~42@00"
+    },
+    {
+      "bits": [
+        12345,
+        0,
+        0,
+        -2147483648
+      ],
+      "pattern": 2,
+      "text": "USD~12_345@00"
+    },
+    {
+      "bits": [
+        12345,
+        0,
+        0,
+        -2147352576
+      ],
+      "pattern": 2,
+      "text": "USD~123@45"
+    },
+    {
+      "bits": [
+        42,
+        0,
+        0,
+        -2147483648
+      ],
+      "pattern": 3,
+      "text": "USD42@00~"
+    },
+    {
+      "bits": [
+        12345,
+        0,
+        0,
+        -2147483648
+      ],
+      "pattern": 3,
+      "text": "USD12_345@00~"
+    },
+    {
+      "bits": [
+        12345,
+        0,
+        0,
+        -2147352576
+      ],
+      "pattern": 3,
+      "text": "USD123@45~"
+    }
+  ],
   "selectedDecimalFormatStrings": [
     {
       "bits": [
@@ -45183,6 +45305,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "f0583a2f22e4280e4f1cb671bec467396839b2303732f02a341807f6e44a637e",
+  "oracleProgramSha256": "edaec9185107241167b86f4705880b14d672d7dd69ac3c9d08aa8c3a2e3dc86f",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

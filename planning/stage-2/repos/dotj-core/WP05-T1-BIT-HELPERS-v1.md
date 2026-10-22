@@ -255,3 +255,5 @@ Selected `Decimal.ToString("N", provider)` now honors repeated and terminal-zero
 Selected `Decimal.ToString("C", provider)` now honors repeated and terminal-zero `CurrencyGroupSizes` sequences. Twelve .NET 10 vectors pin positive and negative values at two scales under `[3,2]` and `[3,2,0]`; a packaged external consumer checks exact text. Other currency patterns and provider implementations remain open.
 
 Selected `Decimal.ToString("P", provider)` now honors repeated and terminal-zero `PercentGroupSizes` sequences. Twelve .NET 10 vectors pin positive and negative values at two scales under `[3,2]` and `[3,2,0]`; a packaged external consumer checks exact text. Other percent patterns and provider implementations remain open.
+
+Selected `Decimal.ToString("C", provider)` now honors currency negative patterns 0 through 3 and a custom negative sign. Twelve .NET 10 vectors pin each pattern across ungrouped, grouped and fractional values; a packaged external consumer checks exact text. Other currency patterns and provider implementations remain open.
