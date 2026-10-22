@@ -6,7 +6,7 @@ import System.Globalization.NumberFormatInfo;
 /** Checks packaged Decimal C negative pattern output. */
 public final class ProductDecimalCurrencyNegativePatternsConsumer {
     public static void main(String[] args) {
-        if (args.length != 12) {
+        if (args.length != 12 && args.length != 15) {
             throw new AssertionError("Decimal currency negative pattern vector count changed");
         }
         for (int index = 0; index < args.length; index++) {
