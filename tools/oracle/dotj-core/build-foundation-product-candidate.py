@@ -53,6 +53,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalFromOACurrencyConsumer",
     "ProductDecimalFormattingConsumer",
     "ProductDecimalProviderFormattingConsumer",
+    "ProductDecimalFixedProviderFormattingConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
@@ -858,6 +859,11 @@ def main():
                and type(entry["general"]) is str for entry in provider_formatting_vectors)
     assert [entry["text"] for entry in provider_formatting_vectors[:4]] == [
         "0", "0", "0@00", "0@00"]
+    fixed_provider_vectors = metadata["selectedDecimalFixedProviderFormatting"]
+    assert len(fixed_provider_vectors) == 12
+    assert all(len(entry["bits"]) == 4 and type(entry["format"]) is str
+               and type(entry["text"]) is str for entry in fixed_provider_vectors)
+    assert fixed_provider_vectors[0]["text"] == "0@000"
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -1873,6 +1879,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalProviderFormattingConsumer",
         *provider_formatting_args).strip()
+    fixed_provider_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], entry["text"],
+        )) for entry in fixed_provider_vectors]
+    fixed_provider_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalFixedProviderFormattingConsumer",
+        *fixed_provider_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2010,6 +2025,7 @@ def main():
     assert from_oa_currency_result == "PASS external selected Decimal FromOACurrency"
     assert formatting_result == "PASS external selected Decimal invariant formatting"
     assert provider_formatting_result == "PASS external selected Decimal provider formatting"
+    assert fixed_provider_result == "PASS external selected Decimal fixed provider formatting"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"

@@ -958,7 +958,10 @@ public final class Decimal implements IConvertible {
     }
 
     public String ToString(IFormatProvider provider) {
-        String text = this.value.toPlainString();
+        return applyNumberFormat(this.value.toPlainString(), provider);
+    }
+
+    private static String applyNumberFormat(String text, IFormatProvider provider) {
         if (provider instanceof NumberFormatInfo format) {
             if (text.startsWith("-")) {
                 text = format.get_NegativeSign() + text.substring(1);
@@ -974,8 +977,12 @@ public final class Decimal implements IConvertible {
         }
         if (format.equals("F") || format.equals("f")
                 || format.matches("[Ff][0-9]{1,2}")) {
-            int decimals = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
-            return this.value.setScale(decimals, RoundingMode.HALF_UP).toPlainString();
+            int decimals = format.length() == 1
+                    ? provider instanceof NumberFormatInfo numberFormat
+                    ? numberFormat.get_NumberDecimalDigits() : 2
+                    : Integer.parseInt(format.substring(1));
+            return applyNumberFormat(this.value.setScale(decimals, RoundingMode.HALF_UP)
+                    .toPlainString(), provider);
         }
         if (format.equals("N") || format.equals("n")
                 || format.matches("[Nn][0-9]{1,2}")) {
