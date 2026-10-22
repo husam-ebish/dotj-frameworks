@@ -564,6 +564,49 @@ public final class Decimal implements IConvertible {
             throw new ArgumentNullException("s");
         }
         if (provider instanceof NumberFormatInfo format
+                && NumberStyles.Any.equals(style)) {
+            String currencySymbol = format.get_CurrencySymbol();
+            String currencyGroup = format.get_CurrencyGroupSeparator();
+            String currencyDecimal = format.get_CurrencyDecimalSeparator();
+            String numberGroup = format.get_NumberGroupSeparator();
+            String numberDecimal = format.get_NumberDecimalSeparator();
+            String negative = format.get_NegativeSign();
+            String positive = format.get_PositiveSign();
+            boolean currencyTokens = (!currencySymbol.isEmpty() && text.contains(currencySymbol))
+                    || (!currencyGroup.isEmpty() && text.contains(currencyGroup))
+                    || (!currencyDecimal.isEmpty() && text.contains(currencyDecimal));
+            if ((!currencySymbol.equals("¤") && text.contains("¤"))
+                    || (!negative.equals("-") && text.contains("-"))
+                    || (!positive.equals("+") && text.contains("+"))
+                    || (currencyTokens && ((!numberGroup.isEmpty() && text.contains(numberGroup))
+                    || (!numberDecimal.isEmpty() && text.contains(numberDecimal))))) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            String group = currencyTokens ? currencyGroup : numberGroup;
+            String decimal = currencyTokens ? currencyDecimal : numberDecimal;
+            if ((!group.equals(",") && text.contains(","))
+                    || (!decimal.equals(".") && text.contains("."))) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            String normalized = text;
+            if (!currencySymbol.isEmpty()) {
+                normalized = normalized.replace(currencySymbol, "¤");
+            }
+            if (!group.isEmpty()) {
+                normalized = normalized.replace(group, ",");
+            }
+            if (!decimal.isEmpty()) {
+                normalized = normalized.replace(decimal, ".");
+            }
+            if (!negative.isEmpty()) {
+                normalized = normalized.replace(negative, "-");
+            }
+            if (!positive.isEmpty()) {
+                normalized = normalized.replace(positive, "+");
+            }
+            return Parse(normalized, style, null);
+        }
+        if (provider instanceof NumberFormatInfo format
                 && NumberStyles.Currency.equals(style)) {
             String symbol = format.get_CurrencySymbol();
             boolean hasSymbol = !symbol.isEmpty() && text.contains(symbol);
