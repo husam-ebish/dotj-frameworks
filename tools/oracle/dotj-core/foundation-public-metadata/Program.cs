@@ -3084,6 +3084,27 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalPercentPositivePatterns()
+{
+    int[][] inputs =
+    [
+        [42, 0, 0, 0],
+        [12345, 0, 0, 0],
+        [12345, 0, 0, 0x00020000],
+    ];
+    return Enumerable.Range(0, 4).SelectMany(pattern =>
+    {
+        var provider = new System.Globalization.NumberFormatInfo
+        {
+            PercentSymbol = "pct",
+            PercentGroupSeparator = "_",
+            PercentDecimalSeparator = "@",
+            PercentPositivePattern = pattern,
+        };
+        return inputs.Select(bits => new { bits, pattern,
+            text = new decimal(bits).ToString("P2", provider) });
+    }).ToArray();
+}
 static object ObserveDecimalCurrencyNegativePatterns12To16()
 {
     int[][] inputs =
@@ -8345,6 +8366,7 @@ var result = new
     selectedDecimalCurrencyNegativePatterns4To7 = ObserveDecimalCurrencyNegativePatterns4To7(),
     selectedDecimalCurrencyNegativePatterns8To11 = ObserveDecimalCurrencyNegativePatterns8To11(),
     selectedDecimalCurrencyNegativePatterns12To16 = ObserveDecimalCurrencyNegativePatterns12To16(),
+    selectedDecimalPercentPositivePatterns = ObserveDecimalPercentPositivePatterns(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),
