@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 import System.Globalization.NumberStyles;
+import System.Globalization.NumberFormatInfo;
 
 /** Bounded immutable Decimal candidate for integer construction and invariant text. */
 public final class Decimal implements IConvertible {
@@ -561,6 +562,34 @@ public final class Decimal implements IConvertible {
     public static Decimal Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (text == null) {
             throw new ArgumentNullException("s");
+        }
+        if (provider instanceof NumberFormatInfo format
+                && (NumberStyles.Integer.equals(style) || NumberStyles.Number.equals(style)
+                || NumberStyles.Float.equals(style))) {
+            String group = format.get_NumberGroupSeparator();
+            String decimal = format.get_NumberDecimalSeparator();
+            String negative = format.get_NegativeSign();
+            String positive = format.get_PositiveSign();
+            if ((!group.equals(",") && text.contains(","))
+                    || (!decimal.equals(".") && text.contains("."))
+                    || (!negative.equals("-") && text.contains("-"))
+                    || (!positive.equals("+") && text.contains("+"))) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            String normalized = text;
+            if (!group.isEmpty()) {
+                normalized = normalized.replace(group, ",");
+            }
+            if (!decimal.isEmpty()) {
+                normalized = normalized.replace(decimal, ".");
+            }
+            if (!negative.isEmpty()) {
+                normalized = normalized.replace(negative, "-");
+            }
+            if (!positive.isEmpty()) {
+                normalized = normalized.replace(positive, "+");
+            }
+            return Parse(normalized, style, null);
         }
         if (NumberStyles.Integer.equals(style)) {
             String trimmed = text.strip();
