@@ -255,6 +255,26 @@ public final class Decimal implements IConvertible {
         return Compare(left, right) == 0;
     }
 
+    public int GetHashCode() {
+        BigInteger coefficient = this.value.unscaledValue().abs();
+        if (coefficient.signum() == 0) {
+            return 0;
+        }
+        int scale = this.value.scale();
+        while (scale > 0) {
+            BigInteger[] division = coefficient.divideAndRemainder(BigInteger.TEN);
+            if (division[1].signum() != 0) {
+                break;
+            }
+            coefficient = division[0];
+            scale--;
+        }
+        int flags = (scale << 16) | (this.value.signum() < 0 ? 0x80000000 : 0);
+        return flags ^ coefficient.intValue()
+                ^ coefficient.shiftRight(32).intValue()
+                ^ coefficient.shiftRight(64).intValue();
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
