@@ -1037,6 +1037,12 @@ public final class Decimal implements IConvertible {
             }
             String exponentDigits = String.format(java.util.Locale.ROOT, "%03d",
                     Math.abs(exponent));
+            if (provider instanceof NumberFormatInfo numberFormat) {
+                return applyNumberFormat(mantissa.toPlainString(), provider)
+                        + format.charAt(0)
+                        + (exponent < 0 ? numberFormat.get_NegativeSign()
+                        : numberFormat.get_PositiveSign()) + exponentDigits;
+            }
             return mantissa.toPlainString() + format.charAt(0)
                     + (exponent < 0 ? "-" : "+") + exponentDigits;
         }
