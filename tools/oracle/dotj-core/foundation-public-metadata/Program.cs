@@ -1674,6 +1674,34 @@ static object ObserveDecimalEquals()
     return inputs.Select(input => new { left = input.left, right = input.right,
         result = decimal.Equals(new decimal(input.left), new decimal(input.right)) }).ToArray();
 }
+static object ObserveDecimalHashCodes()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, 0x00020000],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [10, 0, 0, 0x00010000],
+        [100, 0, 0, 0x00020000],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [10, 0, 0, unchecked((int)0x80010000)],
+        [125, 0, 0, 0x00020000],
+        [12500, 0, 0, 0x00040000],
+        [125, 0, 0, unchecked((int)0x80020000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x001c0000],
+        [10, 0, 0, 0x001c0000],
+        [0, 1, 0, 0],
+        [0, 1, 0, 0x00010000],
+        [0, 0, 1, 0],
+        [0, 0, 1, 0x00010000],
+    ];
+    return inputs.Select(bits => new { bits,
+        result = new decimal(bits).GetHashCode() }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6157,6 +6185,7 @@ var result = new
     selectedDecimalRemainder = ObserveDecimalRemainder(),
     selectedDecimalCompare = ObserveDecimalCompare(),
     selectedDecimalEquals = ObserveDecimalEquals(),
+    selectedDecimalHashCodes = ObserveDecimalHashCodes(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
