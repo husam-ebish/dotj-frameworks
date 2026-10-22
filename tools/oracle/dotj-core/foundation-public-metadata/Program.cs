@@ -2065,6 +2065,43 @@ static object ObserveDecimalFloatingConversions()
             singleBits = BitConverter.SingleToInt32Bits(decimal.ToSingle(value)) };
     }).ToArray();
 }
+static object ObserveDecimalCopySign()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] positiveOne = [1, 0, 0, 0];
+    int[] negativeOne = [1, 0, 0, unchecked((int)0x80000000)];
+    int[] positiveTwo = [2, 0, 0, 0];
+    int[] negativeTwo = [2, 0, 0, unchecked((int)0x80000000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] value, int[] sign)[]
+    {
+        (zero, zero),
+        (zero, negativeZero),
+        (negativeZero, zero),
+        (negativeZero, negativeZero),
+        (positiveOne, zero),
+        (positiveOne, negativeZero),
+        (negativeOne, zero),
+        (negativeOne, negativeZero),
+        (positiveOne, positiveTwo),
+        (positiveOne, negativeTwo),
+        (negativeOne, positiveTwo),
+        (negativeOne, negativeTwo),
+        (max, min),
+        (min, max),
+        ([125, 0, 0, 0x00020000], negativeZero),
+        ([125, 0, 0, unchecked((int)0x80020000)], zero),
+        ([1, 0, 0, 0x001c0000], negativeTwo),
+        ([1, 0, 0, unchecked((int)0x801c0000)], positiveTwo),
+        (negativeZero, positiveTwo),
+        ([0, 0, 0, 0x00020000], negativeTwo),
+    };
+    return inputs.Select(input => new { input.value, input.sign,
+        result = decimal.GetBits(decimal.CopySign(new decimal(input.value),
+            new decimal(input.sign))) }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6559,6 +6596,7 @@ var result = new
     selectedDecimalToUInt64 = ObserveDecimalToUInt64(),
     selectedDecimalSmallIntegerConversions = ObserveDecimalSmallIntegerConversions(),
     selectedDecimalFloatingConversions = ObserveDecimalFloatingConversions(),
+    selectedDecimalCopySign = ObserveDecimalCopySign(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

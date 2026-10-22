@@ -47,7 +47,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalSignConsumer", "ProductDecimalIntegerPredicateConsumer",
     "ProductDecimalToInt64Consumer", "ProductDecimalToUInt32Consumer",
     "ProductDecimalToUInt64Consumer", "ProductDecimalSmallIntegerConsumer",
-    "ProductDecimalFloatingConsumer")]
+    "ProductDecimalFloatingConsumer", "ProductDecimalCopySignConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -509,6 +509,14 @@ def main():
         (0, 0), (-9223372036854775808, -2147483648),
         (4607182418800017408, 1065353216),
         (-4616189618054758400, -1082130432)]
+    copy_sign_vectors = metadata["selectedDecimalCopySign"]
+    assert len(copy_sign_vectors) == 20
+    assert all(len(entry["value"]) == len(entry["sign"]) == len(entry["result"]) == 4
+               for entry in copy_sign_vectors)
+    assert [entry["result"] for entry in copy_sign_vectors[:4]] == [
+        [0, 0, 0, 0], [0, 0, 0, -2147483648],
+        [0, 0, 0, 131072], [0, 0, 0, -2147352576]]
+    assert copy_sign_vectors[12]["result"] == [-1, -1, -1, -2147483648]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -1165,6 +1173,14 @@ def main():
         )) for entry in floating_vectors]
     floating_result = run("java", "-cp", classpath,
                           "consumer.ProductDecimalFloatingConsumer", *floating_args).strip()
+    copy_sign_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["value"]),
+            ",".join(str(word) for word in entry["sign"]),
+            ",".join(str(word) for word in entry["result"]),
+        )) for entry in copy_sign_vectors]
+    copy_sign_result = run("java", "-cp", classpath,
+                           "consumer.ProductDecimalCopySignConsumer", *copy_sign_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -1188,6 +1204,7 @@ def main():
     assert to_uint64_result == "PASS external selected Decimal ToUInt64"
     assert small_result == "PASS external selected Decimal small-integer conversions"
     assert floating_result == "PASS external selected Decimal floating conversions"
+    assert copy_sign_result == "PASS external selected Decimal CopySign"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
