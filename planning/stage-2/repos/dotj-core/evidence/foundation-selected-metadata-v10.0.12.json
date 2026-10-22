@@ -28820,6 +28820,188 @@
       ]
     }
   ],
+  "selectedDecimalParseProvider": [
+    {
+      "carrier": "String",
+      "text": "1_234@50",
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ],
+      "error": null
+    },
+    {
+      "carrier": "String",
+      "text": "~1_234@50",
+      "bits": [
+        123450,
+        0,
+        0,
+        -2147352576
+      ],
+      "error": null
+    },
+    {
+      "carrier": "String",
+      "text": "plus1_234@50",
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ],
+      "error": null
+    },
+    {
+      "carrier": "String",
+      "text": "-1_234@50",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "carrier": "String",
+      "text": "1,234@50",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "carrier": "String",
+      "text": "79228162514264337593543950336",
+      "bits": null,
+      "error": "System.OverflowException"
+    },
+    {
+      "carrier": "String",
+      "text": null,
+      "bits": null,
+      "error": "System.ArgumentNullException"
+    },
+    {
+      "carrier": "String",
+      "text": "",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "carrier": "Char",
+      "text": "1_234@50",
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Char",
+      "text": "1_234@50~",
+      "bits": [
+        123450,
+        0,
+        0,
+        -2147352576
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Char",
+      "text": "~0@00",
+      "bits": [
+        0,
+        0,
+        0,
+        -2147352576
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Char",
+      "text": "1e2",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "carrier": "Char",
+      "text": "0@00000000000000000000000000006",
+      "bits": [
+        1,
+        0,
+        0,
+        1835008
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Char",
+      "text": "79228162514264337593543950335",
+      "bits": [
+        -1,
+        -1,
+        -1,
+        0
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_234@50",
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_234@50plus",
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_234.50",
+      "bits": null,
+      "error": "System.FormatException"
+    },
+    {
+      "carrier": "Utf8",
+      "text": "@5",
+      "bits": [
+        5,
+        0,
+        0,
+        65536
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Utf8",
+      "text": "1_",
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "error": null
+    },
+    {
+      "carrier": "Utf8",
+      "text": "79228162514264337593543950336",
+      "bits": null,
+      "error": "System.OverflowException"
+    }
+  ],
   "selectedDecimalTruncate": [
     {
       "input": [
@@ -43745,6 +43927,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "c9b47ea550323c389b05e2cc24e545bbb5271b3ec6e6544b44a3387641d2ad4d",
+  "oracleProgramSha256": "f2ed77e9c115650bfb5c3d37be578a05d7453e1df38b1ec3cd6b522854f21954",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -1993,6 +1993,53 @@ static object ObserveDecimalSpanProviderTryParse()
         return new { carrier, text, success, bits = decimal.GetBits(value) };
     }).ToArray();
 }
+static object ObserveDecimalParseProvider()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = "@",
+        NegativeSign = "~",
+        PositiveSign = "plus"
+    };
+    (string carrier, string? text)[] cases =
+    [
+        ("String", "1_234@50"), ("String", "~1_234@50"),
+        ("String", "plus1_234@50"), ("String", "-1_234@50"),
+        ("String", "1,234@50"),
+        ("String", "79228162514264337593543950336"),
+        ("String", null), ("String", ""),
+        ("Char", "1_234@50"), ("Char", "1_234@50~"),
+        ("Char", "~0@00"), ("Char", "1e2"),
+        ("Char", "0@00000000000000000000000000006"),
+        ("Char", "79228162514264337593543950335"),
+        ("Utf8", "1_234@50"), ("Utf8", "1_234@50plus"),
+        ("Utf8", "1_234.50"), ("Utf8", "@5"),
+        ("Utf8", "1_"),
+        ("Utf8", "79228162514264337593543950336")
+    ];
+    return cases.Select(entry =>
+    {
+        var (carrier, text) = entry;
+        try
+        {
+            decimal value = carrier switch
+            {
+                "String" => decimal.Parse(text!, provider),
+                "Char" => decimal.Parse(text.AsSpan(), provider),
+                _ => decimal.Parse(System.Text.Encoding.UTF8.GetBytes(text!).AsSpan(),
+                    provider)
+            };
+            return new { carrier, text, bits = decimal.GetBits(value),
+                error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { carrier, text, bits = (int[]?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7875,6 +7922,7 @@ var result = new
     selectedDecimalSpanTryParse = ObserveDecimalSpanTryParse(),
     selectedDecimalUtf8SpanParse = ObserveDecimalUtf8SpanParse(),
     selectedDecimalSpanProviderTryParse = ObserveDecimalSpanProviderTryParse(),
+    selectedDecimalParseProvider = ObserveDecimalParseProvider(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),

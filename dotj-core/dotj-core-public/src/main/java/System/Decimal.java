@@ -563,6 +563,14 @@ public final class Decimal implements IConvertible {
         return Parse(text.selectedText());
     }
 
+    public static Decimal Parse(String text, IFormatProvider provider) {
+        return Parse(text, NumberStyles.Number, provider);
+    }
+
+    public static <T> Decimal Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
+        return Parse(text.selectedText(), NumberStyles.Number, provider);
+    }
+
     public static Decimal Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (text == null) {
             throw new ArgumentNullException("s");
