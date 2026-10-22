@@ -569,6 +569,40 @@ public final class Decimal implements IConvertible {
             }
             return bounded(new BigDecimal(trimmed), trimmed.startsWith("-"));
         }
+        if (NumberStyles.Any.equals(style)) {
+            String trimmed = text.strip();
+            boolean parentheses = trimmed.startsWith("(") && trimmed.endsWith(")");
+            if (parentheses) {
+                trimmed = trimmed.substring(1, trimmed.length() - 1).strip();
+            }
+            int symbol = trimmed.indexOf('¤');
+            if (symbol >= 0) {
+                if (trimmed.lastIndexOf('¤') != symbol
+                        || (symbol != 0 && symbol != trimmed.length() - 1
+                        && !(symbol == 1 && (trimmed.charAt(0) == '-'
+                        || trimmed.charAt(0) == '+')))) {
+                    throw new FormatException("Input string was not in a correct format");
+                }
+                trimmed = trimmed.substring(0, symbol)
+                        + trimmed.substring(symbol + 1);
+            }
+            trimmed = trimmed.strip();
+            if (parentheses) {
+                trimmed = "-" + trimmed;
+            }
+            if (!trimmed.matches("(?:[+-]?(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)(?:[Ee][+-]?[0-9]+)?|(?:[0-9][0-9,]*(?:\\.[0-9]*)?|\\.[0-9]+)[+-])")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            boolean negative = trimmed.startsWith("-") || trimmed.endsWith("-");
+            String unsigned = trimmed.replaceFirst("^[+-]", "").replaceFirst("[+-]$", "");
+            BigDecimal parsed;
+            try {
+                parsed = new BigDecimal(unsigned.replace(",", ""));
+            } catch (NumberFormatException invalid) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            return bounded(negative ? parsed.negate() : parsed, negative);
+        }
         if (NumberStyles.Currency.equals(style)) {
             String trimmed = text.strip();
             boolean parentheses = trimmed.startsWith("(") && trimmed.endsWith(")");
