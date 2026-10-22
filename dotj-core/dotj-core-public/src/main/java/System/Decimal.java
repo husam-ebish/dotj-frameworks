@@ -701,6 +701,15 @@ public final class Decimal implements IConvertible {
             }
             return bounded(new BigDecimal(text), text.startsWith("-"));
         }
+        if (NumberStyles.AllowTrailingSign.equals(style)) {
+            if (!text.matches("[0-9]+[+-]?")) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            boolean negative = text.endsWith("-");
+            String unsigned = text.replaceFirst("[+-]$", "");
+            BigDecimal parsed = new BigDecimal(unsigned);
+            return bounded(negative ? parsed.negate() : parsed, negative);
+        }
         if (NumberStyles.Integer.equals(style)) {
             String trimmed = text.strip();
             if (!trimmed.matches("[+-]?[0-9]+")) {

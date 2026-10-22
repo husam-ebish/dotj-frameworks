@@ -73,6 +73,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalPointStyleParseConsumer",
     "ProductDecimalExponentStyleParseConsumer",
     "ProductDecimalLeadingSignStyleParseConsumer",
+    "ProductDecimalTrailingSignStyleParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -352,6 +353,16 @@ def main():
     assert leading_sign_vectors[1]["bits"] == [0, 0, 0, -2147483648]
     assert leading_sign_vectors[6]["error"] == "System.FormatException"
     assert leading_sign_vectors[17]["error"] == "System.OverflowException"
+    trailing_sign_vectors = metadata["selectedDecimalTrailingSignStyleParse"]
+    assert len(trailing_sign_vectors) == 20
+    assert all((entry["bits"] is not None and len(entry["bits"]) == 4
+                and entry["error"] is None)
+               or (entry["bits"] is None and entry["error"] in
+                   ("System.FormatException", "System.OverflowException"))
+               for entry in trailing_sign_vectors)
+    assert trailing_sign_vectors[1]["bits"] == [0, 0, 0, -2147483648]
+    assert trailing_sign_vectors[6]["error"] == "System.FormatException"
+    assert trailing_sign_vectors[17]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1422,6 +1433,15 @@ def main():
     leading_sign_result = run("java", "-cp", classpath,
                               "consumer.ProductDecimalLeadingSignStyleParseConsumer",
                               *leading_sign_args).strip()
+    trailing_sign_args = [
+        ":".join((
+            entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in trailing_sign_vectors]
+    trailing_sign_result = run("java", "-cp", classpath,
+                               "consumer.ProductDecimalTrailingSignStyleParseConsumer",
+                               *trailing_sign_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1702,6 +1722,7 @@ def main():
     assert point_style_result == "PASS external selected Decimal Point-style parsing"
     assert exponent_style_result == "PASS external selected Decimal Exponent-style parsing"
     assert leading_sign_result == "PASS external selected Decimal LeadingSign-style parsing"
+    assert trailing_sign_result == "PASS external selected Decimal TrailingSign-style parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
