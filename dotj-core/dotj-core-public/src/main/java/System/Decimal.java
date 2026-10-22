@@ -576,6 +576,16 @@ public final class Decimal implements IConvertible {
         return this.value.toPlainString();
     }
 
+    public String ToString(String format, IFormatProvider provider) {
+        if (format == null || format.isEmpty() || format.equals("G") || format.equals("g")) {
+            return this.ToString(provider);
+        }
+        if (format.equals("F2") || format.equals("f2")) {
+            return this.value.setScale(2, RoundingMode.HALF_UP).toPlainString();
+        }
+        throw new FormatException("Format string was not supported");
+    }
+
     @Override
     public TypeCode GetTypeCode() {
         return TypeCode.Decimal;

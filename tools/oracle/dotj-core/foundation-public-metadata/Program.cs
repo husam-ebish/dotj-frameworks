@@ -2277,6 +2277,39 @@ static object ObserveDecimalFormatting()
             invariant = value.ToString(System.Globalization.CultureInfo.InvariantCulture) };
     }).ToArray();
 }
+static object ObserveDecimalFormatStrings()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, 0x00020000],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x00020000],
+        [1, 0, 0, unchecked((int)0x80020000)],
+        [100, 0, 0, 0x00020000],
+        [100, 0, 0, unchecked((int)0x80020000)],
+        [125, 0, 0, 0x00020000],
+        [125, 0, 0, unchecked((int)0x80020000)],
+        [1005, 0, 0, 0x00030000],
+        [1015, 0, 0, 0x00030000],
+        [1005, 0, 0, unchecked((int)0x80030000)],
+        [1015, 0, 0, unchecked((int)0x80030000)],
+        [1, 0, 0, 0x001c0000],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        decimal value = new decimal(bits);
+        var provider = System.Globalization.CultureInfo.InvariantCulture;
+        return new { bits, general = value.ToString("G", provider),
+            fixed2 = value.ToString("F2", provider) };
+    }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -6853,6 +6886,7 @@ var result = new
     selectedDecimalOACurrency = ObserveDecimalOACurrency(),
     selectedDecimalFromOACurrency = ObserveDecimalFromOACurrency(),
     selectedDecimalFormatting = ObserveDecimalFormatting(),
+    selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
