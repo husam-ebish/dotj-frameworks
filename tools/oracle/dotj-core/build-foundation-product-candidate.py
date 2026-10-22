@@ -52,6 +52,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalOACurrencyConsumer",
     "ProductDecimalFromOACurrencyConsumer",
     "ProductDecimalFormattingConsumer",
+    "ProductDecimalProviderFormattingConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
@@ -851,6 +852,12 @@ def main():
                for entry in formatting_vectors)
     assert [entry["invariant"] for entry in formatting_vectors[:4]] == [
         "0", "0", "0.00", "0.00"]
+    provider_formatting_vectors = metadata["selectedDecimalProviderFormatting"]
+    assert len(provider_formatting_vectors) == 12
+    assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
+               and type(entry["general"]) is str for entry in provider_formatting_vectors)
+    assert [entry["text"] for entry in provider_formatting_vectors[:4]] == [
+        "0", "0", "0@00", "0@00"]
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -1857,6 +1864,15 @@ def main():
     formatting_result = run("java", "-cp", classpath,
                             "consumer.ProductDecimalFormattingConsumer",
                             *formatting_args).strip()
+    provider_formatting_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["text"], entry["general"],
+        )) for entry in provider_formatting_vectors]
+    provider_formatting_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalProviderFormattingConsumer",
+        *provider_formatting_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -1993,6 +2009,7 @@ def main():
     assert oa_currency_result == "PASS external selected Decimal ToOACurrency"
     assert from_oa_currency_result == "PASS external selected Decimal FromOACurrency"
     assert formatting_result == "PASS external selected Decimal invariant formatting"
+    assert provider_formatting_result == "PASS external selected Decimal provider formatting"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"
