@@ -58,6 +58,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalPercentFormattingConsumer",
     "ProductDecimalExponentialFormattingConsumer",
     "ProductDecimalCurrencyFormattingConsumer",
+    "ProductDecimalCustomZeroFormattingConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -602,6 +603,12 @@ def main():
                and type(entry["text"]) is str for entry in currency_format_vectors)
     assert currency_format_vectors[0]["text"] == "¤0.00"
     assert currency_format_vectors[3]["text"] == "(¤1.00)"
+    custom_zero_vectors = metadata["selectedDecimalCustomZeroFormatting"]
+    assert len(custom_zero_vectors) == 20
+    assert all(len(entry["bits"]) == 4 and type(entry["format"]) is str
+               and type(entry["text"]) is str for entry in custom_zero_vectors)
+    assert custom_zero_vectors[3]["text"] == "-0001.00"
+    assert custom_zero_vectors[12]["text"] == "003"
     magnitude_vectors = metadata["selectedDecimalMagnitudeExtrema"]
     assert len(magnitude_vectors) == 22
     assert all(len(entry["left"]) == len(entry["right"])
@@ -1375,6 +1382,14 @@ def main():
     currency_format_result = run("java", "-cp", classpath,
                                  "consumer.ProductDecimalCurrencyFormattingConsumer",
                                  *currency_format_args).strip()
+    custom_zero_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], entry["text"],
+        )) for entry in custom_zero_vectors]
+    custom_zero_result = run("java", "-cp", classpath,
+                             "consumer.ProductDecimalCustomZeroFormattingConsumer",
+                             *custom_zero_args).strip()
     magnitude_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1427,6 +1442,7 @@ def main():
     assert percent_format_result == "PASS external selected Decimal percent formatting"
     assert exponential_format_result == "PASS external selected Decimal exponential formatting"
     assert currency_format_result == "PASS external selected Decimal currency formatting"
+    assert custom_zero_result == "PASS external selected Decimal custom zero formatting"
     assert canonical_result == "PASS external selected Decimal canonical encodings"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
