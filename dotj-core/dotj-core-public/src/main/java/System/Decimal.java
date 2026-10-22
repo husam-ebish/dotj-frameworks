@@ -1037,6 +1037,10 @@ public final class Decimal implements IConvertible {
                         case 1 -> sign + amount + symbol;
                         case 2 -> sign + symbol + amount;
                         case 3 -> symbol + sign + amount;
+                        case 4 -> symbol + amount + sign;
+                        case 5 -> amount + sign + symbol;
+                        case 6 -> amount + symbol + sign;
+                        case 7 -> sign + symbol + " " + amount;
                         default -> sign + amount + " " + symbol;
                     };
                 }
