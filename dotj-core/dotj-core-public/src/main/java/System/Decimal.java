@@ -191,6 +191,41 @@ public final class Decimal implements IConvertible {
         return bounded(product, negative);
     }
 
+    public static Decimal Divide(Decimal left, Decimal right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        if (right.value.signum() == 0) {
+            throw new DivideByZeroException();
+        }
+        boolean negative = (left.value.signum() < 0 || left.negativeZero)
+                ^ (right.value.signum() < 0 || right.negativeZero);
+        int minimumScale = Math.max(0, left.value.scale() - right.value.scale());
+        for (int scale = minimumScale; scale <= 28; scale++) {
+            try {
+                BigDecimal exact = left.value.divide(right.value, scale, RoundingMode.UNNECESSARY);
+                if (exact.unscaledValue().abs().bitLength() <= 96) {
+                    return new Decimal(exact, exact.signum() == 0 && negative);
+                }
+            } catch (java.lang.ArithmeticException inexact) {
+                // A higher scale can represent the exact quotient.
+            }
+        }
+        for (int scale = 28; scale >= 0; scale--) {
+            BigDecimal rounded = left.value.divide(right.value, scale, RoundingMode.HALF_EVEN);
+            if (rounded.unscaledValue().abs().bitLength() <= 96) {
+                if (rounded.signum() == 0 && left.value.signum() != 0) {
+                    return new Decimal(BigDecimal.ZERO, negative);
+                }
+                return new Decimal(rounded, rounded.signum() == 0 && negative);
+            }
+        }
+        throw new OverflowException("Value was outside the range of Decimal");
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

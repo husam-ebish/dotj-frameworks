@@ -1517,6 +1517,50 @@ static object ObserveDecimalMultiply()
         }
     }).ToArray();
 }
+static object ObserveDecimalDivide()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] max = [-1, -1, -1, 0];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        ([1, 0, 0, 0], [2, 0, 0, 0]),
+        ([1, 0, 0, 0], [3, 0, 0, 0]),
+        ([2, 0, 0, 0], [3, 0, 0, 0]),
+        ([10, 0, 0, 0], [2, 0, 0, 0]),
+        ([100, 0, 0, 0x00020000], [2, 0, 0, 0]),
+        ([100, 0, 0, 0x00020000], [20, 0, 0, 0x00010000]),
+        (zero, zero),
+        ([1, 0, 0, 0], zero),
+        (negativeZero, [2, 0, 0, 0]),
+        (zero, [2, 0, 0, unchecked((int)0x80000000)]),
+        (negativeZero, [2, 0, 0, unchecked((int)0x80000000)]),
+        (max, [1, 0, 0, 0]),
+        (max, [2, 0, 0, 0]),
+        (max, [3, 0, 0, 0]),
+        (max, [1, 0, 0, 0x00010000]),
+        ([1, 0, 0, 0x001c0000], [2, 0, 0, 0]),
+        ([1, 0, 0, 0x001c0000], [3, 0, 0, 0]),
+        ([1, 0, 0, 0], [1, 0, 0, 0x001c0000]),
+        ([125, 0, 0, 0x00020000], [5, 0, 0, 0x00010000]),
+        ([125, 0, 0, unchecked((int)0x80020000)], [5, 0, 0, 0x00010000]),
+    };
+    return inputs.Select(input =>
+    {
+        try
+        {
+            decimal quotient = decimal.Divide(new decimal(input.left),
+                new decimal(input.right));
+            return new { left = input.left, right = input.right,
+                result = decimal.GetBits(quotient), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { left = input.left, right = input.right,
+                result = (int[]?)null, error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5996,6 +6040,7 @@ var result = new
     selectedDecimalAdd = ObserveDecimalAdd(),
     selectedDecimalSubtract = ObserveDecimalSubtract(),
     selectedDecimalMultiply = ObserveDecimalMultiply(),
+    selectedDecimalDivide = ObserveDecimalDivide(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
