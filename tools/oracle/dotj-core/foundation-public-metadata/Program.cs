@@ -2102,6 +2102,51 @@ static object ObserveDecimalCopySign()
         result = decimal.GetBits(decimal.CopySign(new decimal(input.value),
             new decimal(input.sign))) }).ToArray();
 }
+static object ObserveDecimalMaxMin()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] one = [1, 0, 0, 0];
+    int[] oneScaled = [100, 0, 0, 0x00020000];
+    int[] negativeOne = [1, 0, 0, unchecked((int)0x80000000)];
+    int[] tiny = [1, 0, 0, 0x001c0000];
+    int[] negativeTiny = [1, 0, 0, unchecked((int)0x801c0000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        (zero, negativeZero),
+        (negativeZero, zero),
+        (one, oneScaled),
+        (oneScaled, one),
+        (max, min),
+        (min, max),
+        (negativeOne, zero),
+        (zero, negativeOne),
+        (one, zero),
+        (zero, one),
+        (tiny, zero),
+        (zero, tiny),
+        (negativeTiny, zero),
+        (zero, negativeTiny),
+        ([125, 0, 0, 0x00020000], [124, 0, 0, 0x00020000]),
+        ([124, 0, 0, 0x00020000], [125, 0, 0, 0x00020000]),
+        ([125, 0, 0, unchecked((int)0x80020000)],
+            [124, 0, 0, unchecked((int)0x80020000)]),
+        ([124, 0, 0, unchecked((int)0x80020000)],
+            [125, 0, 0, unchecked((int)0x80020000)]),
+        (max, max),
+        (min, min),
+    };
+    return inputs.Select(input =>
+    {
+        decimal left = new decimal(input.left);
+        decimal right = new decimal(input.right);
+        return new { input.left, input.right,
+            maximum = decimal.GetBits(decimal.Max(left, right)),
+            minimum = decimal.GetBits(decimal.Min(left, right)) };
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6597,6 +6642,7 @@ var result = new
     selectedDecimalSmallIntegerConversions = ObserveDecimalSmallIntegerConversions(),
     selectedDecimalFloatingConversions = ObserveDecimalFloatingConversions(),
     selectedDecimalCopySign = ObserveDecimalCopySign(),
+    selectedDecimalMaxMin = ObserveDecimalMaxMin(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

@@ -447,6 +447,14 @@ public final class Decimal implements IConvertible {
                 magnitude.signum() == 0 && negative);
     }
 
+    public static Decimal Max(Decimal left, Decimal right) {
+        return Compare(left, right) >= 0 ? left : right;
+    }
+
+    public static Decimal Min(Decimal left, Decimal right) {
+        return Compare(left, right) < 0 ? left : right;
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
