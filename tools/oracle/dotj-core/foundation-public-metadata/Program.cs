@@ -1411,6 +1411,49 @@ static object ObserveDecimalAdd()
         }
     }).ToArray();
 }
+static object ObserveDecimalSubtract()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        (zero, zero), (negativeZero, zero), (zero, negativeZero),
+        (negativeZero, negativeZero),
+        ([100, 0, 0, 0x00020000], [200, 0, 0, 0x00020000]),
+        ([200, 0, 0, 0x00020000], [100, 0, 0, 0x00020000]),
+        ([125, 0, 0, 0x00020000], [125, 0, 0, 0x00020000]),
+        ([125, 0, 0, unchecked((int)0x80020000)],
+            [125, 0, 0, unchecked((int)0x80020000)]),
+        (max, [1, 0, 0, unchecked((int)0x80000000)]),
+        (max, [1, 0, 0, 0]),
+        (min, [1, 0, 0, 0]),
+        (min, [1, 0, 0, unchecked((int)0x80000000)]),
+        ([1, 0, 0, 0x001c0000], [1, 0, 0, 0x001c0000]),
+        ([1, 0, 0, unchecked((int)0x801c0000)],
+            [1, 0, 0, unchecked((int)0x801c0000)]),
+        ([5, 0, 0, 0x00010000], [5, 0, 0, 0x00010000]),
+        ([5, 0, 0, unchecked((int)0x80010000)],
+            [5, 0, 0, unchecked((int)0x80010000)]),
+        (max, max), (min, min),
+    };
+    return inputs.Select(input =>
+    {
+        try
+        {
+            decimal difference = decimal.Subtract(new decimal(input.left),
+                new decimal(input.right));
+            return new { left = input.left, right = input.right,
+                result = decimal.GetBits(difference), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { left = input.left, right = input.right,
+                result = (int[]?)null, error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -5888,6 +5931,7 @@ var result = new
     selectedDecimalAbsSign = ObserveDecimalAbsSign(),
     selectedDecimalNegate = ObserveDecimalNegate(),
     selectedDecimalAdd = ObserveDecimalAdd(),
+    selectedDecimalSubtract = ObserveDecimalSubtract(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {

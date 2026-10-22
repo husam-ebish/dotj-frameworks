@@ -157,6 +157,19 @@ public final class Decimal implements IConvertible {
         return bounded(sum, negativeZero);
     }
 
+    public static Decimal Subtract(Decimal left, Decimal right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        BigDecimal difference = left.value.subtract(right.value);
+        boolean negativeZero = difference.signum() < 0 || (difference.signum() == 0
+                && (left.value.signum() < 0 || left.negativeZero));
+        return bounded(difference, negativeZero);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
