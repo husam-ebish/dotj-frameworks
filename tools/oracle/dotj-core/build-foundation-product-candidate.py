@@ -83,6 +83,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalTryParseConsumer",
     "ProductDecimalProviderTryParseConsumer",
     "ProductDecimalSpanTryParseConsumer",
+    "ProductDecimalUtf8SpanParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -457,6 +458,17 @@ def main():
     assert span_try_vectors[0]["bits"] == [42, 0, 0, 0]
     assert span_try_vectors[2]["success"] is False
     assert span_try_vectors[12]["bits"] == [0, 0, 0, 1835008]
+    utf8_span_vectors = metadata["selectedDecimalUtf8SpanParse"]
+    assert len(utf8_span_vectors) == 20
+    assert all(entry["mode"] in ("Simple", "Number", "Float", "Integer")
+               and isinstance(entry["success"], bool)
+               and len(entry["bits"]) == 4
+               and entry["error"] in (None, "System.FormatException",
+                                       "System.OverflowException")
+               for entry in utf8_span_vectors)
+    assert utf8_span_vectors[0]["bits"] == [42, 0, 0, 0]
+    assert utf8_span_vectors[2]["error"] == "System.FormatException"
+    assert utf8_span_vectors[11]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1616,6 +1628,15 @@ def main():
     span_try_result = run("java", "-cp", classpath,
                           "consumer.ProductDecimalSpanTryParseConsumer",
                           *span_try_args).strip()
+    utf8_span_args = [
+        ":".join((
+            entry["mode"], entry["text"], str(entry["success"]).lower(),
+            ",".join(str(word) for word in entry["bits"]),
+            entry["error"] or "",
+        )) for entry in utf8_span_vectors]
+    utf8_span_result = run("java", "-cp", classpath,
+                           "consumer.ProductDecimalUtf8SpanParseConsumer",
+                           *utf8_span_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1906,6 +1927,7 @@ def main():
     assert decimal_try_result == "PASS external selected Decimal TryParse results"
     assert provider_try_result == "PASS external selected Decimal provider TryParse results"
     assert span_try_result == "PASS external selected Decimal span TryParse results"
+    assert utf8_span_result == "PASS external selected Decimal UTF-8 span parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"

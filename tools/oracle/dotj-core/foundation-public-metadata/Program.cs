@@ -1896,6 +1896,68 @@ static object ObserveDecimalSpanTryParse()
         return new { mode, text, success, bits = decimal.GetBits(value) };
     }).ToArray();
 }
+static object ObserveDecimalUtf8SpanParse()
+{
+    (string mode, string text)[] cases =
+    [
+        ("Simple", "42"), ("Simple", "-0.00"),
+        ("Simple", "bad"),
+        ("Simple", "79228162514264337593543950336"),
+        ("Number", "1,234.50"), ("Number", "42-"),
+        ("Number", "(42)"), ("Number", "1e2"),
+        ("Number", "0.00000000000000000000000000006"),
+        ("Float", "1e2"), ("Float", "1,234"),
+        ("Float", "1e9999"), ("Float", "5e-29"),
+        ("Float", ".5e1"),
+        ("Integer", "42"), ("Integer", "-0"),
+        ("Integer", "1.0"), ("Integer", "1,000"),
+        ("Integer", "79228162514264337593543950336"),
+        ("Integer", " +42 ")
+    ];
+    return cases.Select(entry =>
+    {
+        var (mode, text) = entry;
+        byte[] bytes = System.Text.Encoding.UTF8.GetBytes(text);
+        decimal value;
+        bool success = mode switch
+        {
+            "Simple" => decimal.TryParse(bytes.AsSpan(), out value),
+            "Number" => decimal.TryParse(bytes.AsSpan(),
+                System.Globalization.NumberStyles.Number,
+                System.Globalization.CultureInfo.InvariantCulture, out value),
+            "Float" => decimal.TryParse(bytes.AsSpan(),
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture, out value),
+            _ => decimal.TryParse(bytes.AsSpan(),
+                System.Globalization.NumberStyles.Integer,
+                System.Globalization.CultureInfo.InvariantCulture, out value)
+        };
+        string? error = null;
+        try
+        {
+            _ = mode switch
+            {
+                "Simple" => decimal.Parse(bytes.AsSpan(),
+                    System.Globalization.NumberStyles.Number,
+                    System.Globalization.CultureInfo.InvariantCulture),
+                "Number" => decimal.Parse(bytes.AsSpan(),
+                    System.Globalization.NumberStyles.Number,
+                    System.Globalization.CultureInfo.InvariantCulture),
+                "Float" => decimal.Parse(bytes.AsSpan(),
+                    System.Globalization.NumberStyles.Float,
+                    System.Globalization.CultureInfo.InvariantCulture),
+                _ => decimal.Parse(bytes.AsSpan(),
+                    System.Globalization.NumberStyles.Integer,
+                    System.Globalization.CultureInfo.InvariantCulture)
+            };
+        }
+        catch (Exception exception)
+        {
+            error = exception.GetType().FullName;
+        }
+        return new { mode, text, success, bits = decimal.GetBits(value), error };
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7776,6 +7838,7 @@ var result = new
     selectedDecimalTryParse = ObserveDecimalTryParse(),
     selectedDecimalProviderTryParse = ObserveDecimalProviderTryParse(),
     selectedDecimalSpanTryParse = ObserveDecimalSpanTryParse(),
+    selectedDecimalUtf8SpanParse = ObserveDecimalUtf8SpanParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),

@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "296552b66e73e581072392ce35de296000cac37b30ebcd57530794deffc81e36",
+  "candidateJarSha256": "b8cb9d121249f231088f694ff0100d470cea99413a61a5198809a8282e81427c",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -236,7 +236,9 @@
         "public static System.Decimal MinMagnitude(System.Decimal, System.Decimal);",
         "public static boolean IsCanonical(System.Decimal);",
         "public static System.Decimal Parse(java.lang.String);",
+        "public static <T> System.Decimal Parse(System.ReadOnlySpan<T>);",
         "public static System.Decimal Parse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider);",
+        "public static <T> System.Decimal Parse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider);",
         "public static boolean TryParse(java.lang.String, System.Decimal[]);",
         "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Decimal[]);",
         "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.Decimal[]);",

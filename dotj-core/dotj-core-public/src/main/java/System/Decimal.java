@@ -559,6 +559,10 @@ public final class Decimal implements IConvertible {
         return bounded(parsed, trimmed.startsWith("-"));
     }
 
+    public static <T> Decimal Parse(ReadOnlySpan<T> text) {
+        return Parse(text.selectedText());
+    }
+
     public static Decimal Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (text == null) {
             throw new ArgumentNullException("s");
@@ -875,6 +879,11 @@ public final class Decimal implements IConvertible {
             throw new FormatException("Input string was not in a correct format");
         }
         return bounded(parsed, trimmed.startsWith("-"));
+    }
+
+    public static <T> Decimal Parse(ReadOnlySpan<T> text, NumberStyles style,
+                                    IFormatProvider provider) {
+        return Parse(text.selectedText(), style, provider);
     }
 
     public static boolean TryParse(String text, Decimal[] result) {
