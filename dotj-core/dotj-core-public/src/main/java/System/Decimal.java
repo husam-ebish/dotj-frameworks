@@ -251,6 +251,10 @@ public final class Decimal implements IConvertible {
         return left.value.compareTo(right.value);
     }
 
+    public static boolean Equals(Decimal left, Decimal right) {
+        return Compare(left, right) == 0;
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

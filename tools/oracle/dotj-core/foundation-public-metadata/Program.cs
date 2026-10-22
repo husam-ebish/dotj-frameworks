@@ -1640,6 +1640,40 @@ static object ObserveDecimalCompare()
     return inputs.Select(input => new { left = input.left, right = input.right,
         result = decimal.Compare(new decimal(input.left), new decimal(input.right)) }).ToArray();
 }
+static object ObserveDecimalEquals()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] left, int[] right)[]
+    {
+        (zero, zero),
+        (negativeZero, zero),
+        (zero, negativeZero),
+        (negativeZero, negativeZero),
+        ([1, 0, 0, 0], zero),
+        (zero, [1, 0, 0, 0]),
+        ([1, 0, 0, 0], [100, 0, 0, 0x00020000]),
+        ([100, 0, 0, 0x00020000], [1, 0, 0, 0]),
+        ([1, 0, 0, 0x001c0000], zero),
+        (zero, [1, 0, 0, 0x001c0000]),
+        (max, max),
+        (min, min),
+        (max, min),
+        (min, max),
+        ([125, 0, 0, 0x00020000], [125, 0, 0, 0x00020000]),
+        ([125, 0, 0, 0x00020000], [124, 0, 0, 0x00020000]),
+        ([125, 0, 0, unchecked((int)0x80020000)],
+            [125, 0, 0, unchecked((int)0x80020000)]),
+        ([125, 0, 0, unchecked((int)0x80020000)],
+            [125, 0, 0, 0x00020000]),
+        ([100, 0, 0, 0x00020000], [10, 0, 0, 0x00010000]),
+        ([1, 0, 0, 0], [1, 0, 0, unchecked((int)0x80000000)]),
+    };
+    return inputs.Select(input => new { left = input.left, right = input.right,
+        result = decimal.Equals(new decimal(input.left), new decimal(input.right)) }).ToArray();
+}
 static object ObserveInt32StyleError(Action operation)
 {
     try
@@ -6122,6 +6156,7 @@ var result = new
     selectedDecimalDivide = ObserveDecimalDivide(),
     selectedDecimalRemainder = ObserveDecimalRemainder(),
     selectedDecimalCompare = ObserveDecimalCompare(),
+    selectedDecimalEquals = ObserveDecimalEquals(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
     selectedInt32FixedFormatBehavior = new
     {
