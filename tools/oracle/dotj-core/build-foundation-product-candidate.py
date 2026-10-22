@@ -81,6 +81,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalComposedStyleParseConsumer",
     "ProductDecimalCustomCurrencySymbolParseConsumer",
     "ProductDecimalTryParseConsumer",
+    "ProductDecimalProviderTryParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -440,6 +441,13 @@ def main():
     assert decimal_try_vectors[0]["success"] is True
     assert decimal_try_vectors[2]["bits"] == [0, 0, 0, 0]
     assert decimal_try_vectors[14]["bits"] == [0, 0, 0, 1835008]
+    provider_try_vectors = metadata["selectedDecimalProviderTryParse"]
+    assert len(provider_try_vectors) == 20
+    assert all(isinstance(entry["success"], bool)
+               and len(entry["bits"]) == 4 for entry in provider_try_vectors)
+    assert provider_try_vectors[0]["bits"] == [123450, 0, 0, 131072]
+    assert provider_try_vectors[5]["success"] is False
+    assert provider_try_vectors[15]["bits"] == [0, 0, 0, 0]
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1582,6 +1590,15 @@ def main():
     decimal_try_result = run("java", "-cp", classpath,
                              "consumer.ProductDecimalTryParseConsumer",
                              *decimal_try_args).strip()
+    provider_try_args = [
+        ":".join((
+            entry["text"] if entry["text"] is not None else "<NULL>",
+            str(entry["success"]).lower(),
+            ",".join(str(word) for word in entry["bits"]),
+        )) for entry in provider_try_vectors]
+    provider_try_result = run("java", "-cp", classpath,
+                              "consumer.ProductDecimalProviderTryParseConsumer",
+                              *provider_try_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1870,6 +1887,7 @@ def main():
     assert composed_style_result == "PASS external selected Decimal composed-style parsing"
     assert custom_symbol_result == "PASS external selected Decimal CustomCurrencySymbol parsing"
     assert decimal_try_result == "PASS external selected Decimal TryParse results"
+    assert provider_try_result == "PASS external selected Decimal provider TryParse results"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"

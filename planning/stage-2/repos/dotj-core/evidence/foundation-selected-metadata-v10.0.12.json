@@ -27932,6 +27932,208 @@
       ]
     }
   ],
+  "selectedDecimalProviderTryParse": [
+    {
+      "text": "1_234@50",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ]
+    },
+    {
+      "text": "~1_234@50",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        -2147352576
+      ]
+    },
+    {
+      "text": "plus1_234@50",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ]
+    },
+    {
+      "text": "1_234@50~",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        -2147352576
+      ]
+    },
+    {
+      "text": "1_234@50plus",
+      "success": true,
+      "bits": [
+        123450,
+        0,
+        0,
+        131072
+      ]
+    },
+    {
+      "text": "-1_234@50",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "+1_234@50",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "1,234@50",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "1_234.50",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "1e2",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "~0@00",
+      "success": true,
+      "bits": [
+        0,
+        0,
+        0,
+        -2147352576
+      ]
+    },
+    {
+      "text": "0@00000000000000000000000000006",
+      "success": true,
+      "bits": [
+        1,
+        0,
+        0,
+        1835008
+      ]
+    },
+    {
+      "text": "79228162514264337593543950335",
+      "success": true,
+      "bits": [
+        -1,
+        -1,
+        -1,
+        0
+      ]
+    },
+    {
+      "text": "79228162514264337593543950336",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "",
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": null,
+      "success": false,
+      "bits": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "@5",
+      "success": true,
+      "bits": [
+        5,
+        0,
+        0,
+        65536
+      ]
+    },
+    {
+      "text": "1_",
+      "success": true,
+      "bits": [
+        1,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "1_2",
+      "success": true,
+      "bits": [
+        12,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "text": "42",
+      "success": true,
+      "bits": [
+        42,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
   "selectedDecimalTruncate": [
     {
       "input": [
@@ -42857,6 +43059,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "f39ad3f97e807230f2e8813748d352d5f907689929c51993fd98241e7c1bef8b",
+  "oracleProgramSha256": "723cf4fcbc6fe0a69bbb759377ef3a42895b993697ef3804994116bac1641aab",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
