@@ -3084,6 +3084,41 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalCurrencyGroupSizes()
+{
+    var repeated = new System.Globalization.NumberFormatInfo
+    {
+        CurrencyGroupSeparator = "_",
+        CurrencyGroupSizes = [3, 2],
+        CurrencyDecimalSeparator = "@",
+        CurrencySymbol = "USD",
+    };
+    var stopped = new System.Globalization.NumberFormatInfo
+    {
+        CurrencyGroupSeparator = "_",
+        CurrencyGroupSizes = [3, 2, 0],
+        CurrencyDecimalSeparator = "@",
+        CurrencySymbol = "USD",
+    };
+    (int[] bits, string format, int mode)[] inputs =
+    [
+        ([123456789, 0, 0, 0], "C0", 0),
+        ([123456789, 0, 0, unchecked((int)0x80000000)], "C0", 0),
+        ([123456789, 0, 0, 0x00010000], "C1", 0),
+        ([123456789, 0, 0, unchecked((int)0x80010000)], "C1", 0),
+        ([12345, 0, 0, 0], "C0", 0),
+        ([12345, 0, 0, unchecked((int)0x80000000)], "C0", 0),
+        ([123456789, 0, 0, 0], "C0", 1),
+        ([123456789, 0, 0, unchecked((int)0x80000000)], "C0", 1),
+        ([123456789, 0, 0, 0x00010000], "C1", 1),
+        ([123456789, 0, 0, unchecked((int)0x80010000)], "C1", 1),
+        ([12345, 0, 0, 0], "C0", 1),
+        ([12345, 0, 0, unchecked((int)0x80000000)], "C0", 1),
+    ];
+    return inputs.Select(input => new { input.bits, input.format, input.mode,
+        text = new decimal(input.bits).ToString(input.format,
+            input.mode == 0 ? repeated : stopped) }).ToArray();
+}
 static object ObserveDecimalNumberGroupSizes()
 {
     var repeated = new System.Globalization.NumberFormatInfo
@@ -8181,6 +8216,7 @@ var result = new
     selectedDecimalExponentialProviderFormatting = ObserveDecimalExponentialProviderFormatting(),
     selectedDecimalCustomProviderFormatting = ObserveDecimalCustomProviderFormatting(),
     selectedDecimalNumberGroupSizes = ObserveDecimalNumberGroupSizes(),
+    selectedDecimalCurrencyGroupSizes = ObserveDecimalCurrencyGroupSizes(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),

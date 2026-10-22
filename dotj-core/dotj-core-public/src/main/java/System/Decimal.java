@@ -1060,13 +1060,14 @@ public final class Decimal implements IConvertible {
                     : Integer.parseInt(format.substring(1));
             BigDecimal rounded = this.value.setScale(decimals, RoundingMode.HALF_UP);
             if (provider instanceof NumberFormatInfo currencyFormat) {
-                String grouped = groupedDecimal(rounded.abs());
-                int dot = grouped.indexOf('.');
-                String whole = dot < 0 ? grouped : grouped.substring(0, dot);
+                String plain = rounded.abs().toPlainString();
+                int dot = plain.indexOf('.');
+                String whole = dot < 0 ? plain : plain.substring(0, dot);
                 String fraction = dot < 0 ? "" : currencyFormat.get_CurrencyDecimalSeparator()
-                        + grouped.substring(dot + 1);
+                        + plain.substring(dot + 1);
                 String formatted = currencyFormat.get_CurrencySymbol()
-                        + whole.replace(",", currencyFormat.get_CurrencyGroupSeparator())
+                        + groupDigits(whole, currencyFormat.get_CurrencyGroupSizes(),
+                        currencyFormat.get_CurrencyGroupSeparator())
                         + fraction;
                 return rounded.signum() < 0 ? "(" + formatted + ")" : formatted;
             }
