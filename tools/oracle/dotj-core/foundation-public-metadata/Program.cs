@@ -1201,6 +1201,33 @@ static object ObserveDecimalParseBounds()
         }
     }).ToArray();
 }
+static object ObserveDecimalFloatStyleParse()
+{
+    string[] texts =
+    [
+        "1e2", "-1e2", "+1.25e+3", "1e-2", "-0e4",
+        "-0.00e2", "0.0000000000000000000000000001e-1",
+        "5e-29", "6e-29", "79228162514264337593543950335e0",
+        "79228162514264337593543950336e0", "1e9999", "1e-999",
+        "1e", "1,000e2", ".5e1", "1.e2", "  +1.2E-3  ",
+        "1.2345e3", "-7.9228162514264337593543950335e28"
+    ];
+    return texts.Select(text =>
+    {
+        try
+        {
+            decimal value = decimal.Parse(text,
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture);
+            return new { text, bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { text, bits = (int[]?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7058,6 +7085,7 @@ var result = new
     selectedDecimalBitPatterns = ObserveDecimalBitPatterns(),
     selectedDecimalWordConstructor = ObserveDecimalWordConstructor(),
     selectedDecimalParseBounds = ObserveDecimalParseBounds(),
+    selectedDecimalFloatStyleParse = ObserveDecimalFloatStyleParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
