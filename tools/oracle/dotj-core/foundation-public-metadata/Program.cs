@@ -2147,6 +2147,54 @@ static object ObserveDecimalMaxMin()
             minimum = decimal.GetBits(decimal.Min(left, right)) };
     }).ToArray();
 }
+static object ObserveDecimalClamp()
+{
+    int[] zero = [0, 0, 0, 0];
+    int[] negativeZero = [0, 0, 0, unchecked((int)0x80020000)];
+    int[] one = [1, 0, 0, 0];
+    int[] oneScaled = [100, 0, 0, 0x00020000];
+    int[] negativeOne = [1, 0, 0, unchecked((int)0x80000000)];
+    int[] max = [-1, -1, -1, 0];
+    int[] min = [-1, -1, -1, unchecked((int)0x80000000)];
+    var inputs = new (int[] value, int[] lower, int[] upper)[]
+    {
+        (zero, negativeOne, one),
+        (negativeZero, zero, one),
+        (zero, negativeZero, one),
+        (one, zero, one),
+        (oneScaled, zero, one),
+        (negativeOne, zero, one),
+        (one, negativeOne, zero),
+        (max, negativeOne, one),
+        (min, negativeOne, one),
+        (one, zero, max),
+        (negativeOne, min, zero),
+        (max, min, max),
+        (min, min, max),
+        ([125, 0, 0, 0x00020000], one, [150, 0, 0, 0x00020000]),
+        ([75, 0, 0, 0x00020000], one, [150, 0, 0, 0x00020000]),
+        ([175, 0, 0, 0x00020000], one, [150, 0, 0, 0x00020000]),
+        ([1, 0, 0, 0x001c0000], zero, one),
+        ([1, 0, 0, unchecked((int)0x801c0000)], zero, one),
+        (one, one, zero),
+        (zero, max, min),
+    };
+    return inputs.Select(input =>
+    {
+        try
+        {
+            return new { input.value, input.lower, input.upper,
+                result = decimal.GetBits(decimal.Clamp(new decimal(input.value),
+                    new decimal(input.lower), new decimal(input.upper))),
+                exception = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { input.value, input.lower, input.upper,
+                result = (int[]?)null, exception = exception.GetType().Name };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -6719,6 +6767,7 @@ var result = new
     selectedDecimalFloatingConversions = ObserveDecimalFloatingConversions(),
     selectedDecimalCopySign = ObserveDecimalCopySign(),
     selectedDecimalMaxMin = ObserveDecimalMaxMin(),
+    selectedDecimalClamp = ObserveDecimalClamp(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),

@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "b0b91ed000d331d5d740771b04055f0afcf5496c0e90a840bc894fc858b487cc",
+  "oracleEvidenceSha256": "316d4844c859e77f1344b857b75f2c803dac1052dd6dabf56371d43a73f83084",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "df41ccb051f7ba33862aa5139a0a74edbc1153954a64fb25e8e3f7d680388d6c",
+  "javaCandidateEvidenceSha256": "a21245f1085f97a34fff5df46ea3a0517216b9801088867d55fad3936d1703e8",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 85,
+  "nameLevelMissingMethodCount": 84,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -3309,6 +3309,7 @@
         "public static System.Decimal CopySign(System.Decimal, System.Decimal);",
         "public static System.Decimal Max(System.Decimal, System.Decimal);",
         "public static System.Decimal Min(System.Decimal, System.Decimal);",
+        "public static System.Decimal Clamp(System.Decimal, System.Decimal, System.Decimal);",
         "public static System.Decimal MaxMagnitude(System.Decimal, System.Decimal);",
         "public static System.Decimal MinMagnitude(System.Decimal, System.Decimal);",
         "public static boolean IsCanonical(System.Decimal);",
@@ -3390,6 +3391,7 @@
           "Abs": 1,
           "Add": 1,
           "Ceiling": 1,
+          "Clamp": 1,
           "Compare": 1,
           "CompareTo": 2,
           "CopySign": 1,
@@ -3437,7 +3439,6 @@
           "hashCode": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "Clamp",
           "ConvertToInteger",
           "ConvertToIntegerNative",
           "CreateChecked",

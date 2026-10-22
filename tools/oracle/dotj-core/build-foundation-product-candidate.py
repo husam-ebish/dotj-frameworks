@@ -48,7 +48,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalToInt64Consumer", "ProductDecimalToUInt32Consumer",
     "ProductDecimalToUInt64Consumer", "ProductDecimalSmallIntegerConsumer",
     "ProductDecimalFloatingConsumer", "ProductDecimalCopySignConsumer",
-    "ProductDecimalMaxMinConsumer", "ProductDecimalMagnitudeConsumer",
+    "ProductDecimalMaxMinConsumer", "ProductDecimalClampConsumer", "ProductDecimalMagnitudeConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -528,6 +528,16 @@ def main():
     assert max_min_vectors[0]["minimum"] == [0, 0, 0, -2147352576]
     assert max_min_vectors[2]["maximum"] == [1, 0, 0, 0]
     assert max_min_vectors[2]["minimum"] == [100, 0, 0, 131072]
+    clamp_vectors = metadata["selectedDecimalClamp"]
+    assert len(clamp_vectors) == 20
+    assert all(len(entry["value"]) == len(entry["lower"])
+               == len(entry["upper"]) == 4 for entry in clamp_vectors)
+    assert all((entry["result"] is not None and len(entry["result"]) == 4
+                and entry["exception"] is None)
+               or (entry["result"] is None and entry["exception"] == "ArgumentException")
+               for entry in clamp_vectors)
+    assert clamp_vectors[18]["exception"] == "ArgumentException"
+    assert clamp_vectors[19]["exception"] == "ArgumentException"
     magnitude_vectors = metadata["selectedDecimalMagnitudeExtrema"]
     assert len(magnitude_vectors) == 22
     assert all(len(entry["left"]) == len(entry["right"])
@@ -1218,6 +1228,16 @@ def main():
         )) for entry in max_min_vectors]
     max_min_result = run("java", "-cp", classpath,
                          "consumer.ProductDecimalMaxMinConsumer", *max_min_args).strip()
+    clamp_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["value"]),
+            ",".join(str(word) for word in entry["lower"]),
+            ",".join(str(word) for word in entry["upper"]),
+            ",".join(str(word) for word in entry["result"] or []),
+            entry["exception"] or "none",
+        )) for entry in clamp_vectors]
+    clamp_result = run("java", "-cp", classpath,
+                       "consumer.ProductDecimalClampConsumer", *clamp_args).strip()
     magnitude_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1260,6 +1280,7 @@ def main():
     assert copy_sign_result == "PASS external selected Decimal CopySign"
     assert max_min_result == "PASS external selected Decimal Max and Min"
     assert magnitude_result == "PASS external selected Decimal magnitude extrema"
+    assert clamp_result == "PASS external selected Decimal Clamp"
     assert canonical_result == "PASS external selected Decimal canonical encodings"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
