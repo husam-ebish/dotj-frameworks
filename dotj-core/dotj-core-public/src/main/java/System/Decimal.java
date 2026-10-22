@@ -434,6 +434,19 @@ public final class Decimal implements IConvertible {
         return (float) ToDouble(value);
     }
 
+    public static Decimal CopySign(Decimal value, Decimal sign) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        if (sign == null) {
+            throw new ArgumentNullException("sign");
+        }
+        boolean negative = sign.value.signum() < 0 || sign.negativeZero;
+        BigDecimal magnitude = value.value.abs();
+        return new Decimal(negative ? magnitude.negate() : magnitude,
+                magnitude.signum() == 0 && negative);
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

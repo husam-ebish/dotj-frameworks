@@ -180,6 +180,7 @@ def main():
                                     "public static int ToUInt16(System.Decimal);",
                                     "public static double ToDouble(System.Decimal);",
                                     "public static float ToSingle(System.Decimal);",
+                                    "public static System.Decimal CopySign(System.Decimal, System.Decimal);",
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString(System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
