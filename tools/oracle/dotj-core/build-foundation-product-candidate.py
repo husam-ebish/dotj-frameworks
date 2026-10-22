@@ -80,6 +80,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCurrencySymbolStyleParseConsumer",
     "ProductDecimalComposedStyleParseConsumer",
     "ProductDecimalCustomCurrencySymbolParseConsumer",
+    "ProductDecimalTryParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -430,6 +431,15 @@ def main():
     assert custom_symbol_vectors[0]["bits"] == [1, 0, 0, 0]
     assert custom_symbol_vectors[4]["error"] == "System.FormatException"
     assert custom_symbol_vectors[18]["error"] == "System.OverflowException"
+    decimal_try_vectors = metadata["selectedDecimalTryParse"]
+    assert len(decimal_try_vectors) == 20
+    assert all(entry["mode"] in ("Simple", "Number", "Float", "Integer")
+               and isinstance(entry["success"], bool)
+               and len(entry["bits"]) == 4
+               for entry in decimal_try_vectors)
+    assert decimal_try_vectors[0]["success"] is True
+    assert decimal_try_vectors[2]["bits"] == [0, 0, 0, 0]
+    assert decimal_try_vectors[14]["bits"] == [0, 0, 0, 1835008]
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1563,6 +1573,15 @@ def main():
     custom_symbol_result = run("java", "-cp", classpath,
                                "consumer.ProductDecimalCustomCurrencySymbolParseConsumer",
                                *custom_symbol_args).strip()
+    decimal_try_args = [
+        ":".join((
+            entry["mode"], entry["text"] if entry["text"] is not None else "<NULL>",
+            str(entry["success"]).lower(),
+            ",".join(str(word) for word in entry["bits"]),
+        )) for entry in decimal_try_vectors]
+    decimal_try_result = run("java", "-cp", classpath,
+                             "consumer.ProductDecimalTryParseConsumer",
+                             *decimal_try_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1850,6 +1869,7 @@ def main():
     assert currency_symbol_result == "PASS external selected Decimal CurrencySymbol-style parsing"
     assert composed_style_result == "PASS external selected Decimal composed-style parsing"
     assert custom_symbol_result == "PASS external selected Decimal CustomCurrencySymbol parsing"
+    assert decimal_try_result == "PASS external selected Decimal TryParse results"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"

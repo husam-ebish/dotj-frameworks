@@ -1794,6 +1794,45 @@ static object ObserveDecimalCustomCurrencySymbolStyleParse()
         }
     }).ToArray();
 }
+static object ObserveDecimalTryParse()
+{
+    (string mode, string? text)[] cases =
+    [
+        ("Simple", "42"), ("Simple", "-0.00"),
+        ("Simple", "bad"),
+        ("Simple", "79228162514264337593543950336"),
+        ("Simple", null),
+        ("Number", "1,234.50"), ("Number", "(42)"),
+        ("Number", "42-"), ("Number", "1e2"),
+        ("Number", "79228162514264337593543950336"),
+        ("Number", null),
+        ("Float", "1e2"), ("Float", "1,234"),
+        ("Float", "1e9999"), ("Float", "5e-29"),
+        ("Float", null),
+        ("Integer", "42"), ("Integer", "1.0"),
+        ("Integer", "-0"),
+        ("Integer", "79228162514264337593543950336")
+    ];
+    return cases.Select(entry =>
+    {
+        var (mode, text) = entry;
+        decimal value;
+        bool success = mode switch
+        {
+            "Simple" => decimal.TryParse(text, out value),
+            "Number" => decimal.TryParse(text,
+                System.Globalization.NumberStyles.Number,
+                System.Globalization.CultureInfo.InvariantCulture, out value),
+            "Float" => decimal.TryParse(text,
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture, out value),
+            _ => decimal.TryParse(text,
+                System.Globalization.NumberStyles.Integer,
+                System.Globalization.CultureInfo.InvariantCulture, out value)
+        };
+        return new { mode, text, success, bits = decimal.GetBits(value) };
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7671,6 +7710,7 @@ var result = new
     selectedDecimalCurrencySymbolStyleParse = ObserveDecimalCurrencySymbolStyleParse(),
     selectedDecimalComposedStyleParse = ObserveDecimalComposedStyleParse(),
     selectedDecimalCustomCurrencySymbolStyleParse = ObserveDecimalCustomCurrencySymbolStyleParse(),
+    selectedDecimalTryParse = ObserveDecimalTryParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
