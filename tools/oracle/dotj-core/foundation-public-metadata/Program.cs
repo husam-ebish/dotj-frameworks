@@ -1674,6 +1674,32 @@ static object ObserveDecimalLeadingWhiteStyleParse()
         }
     }).ToArray();
 }
+static object ObserveDecimalTrailingWhiteStyleParse()
+{
+    string[] texts =
+    [
+        "0", "42 ", "42\t", "42\n", "42\r\n", " 42", "\t42",
+        " 42 ", "-42", "+42", "1.0", "1,000", "1e2",
+        "", " ", "42\u00a0", "42", "00042   ",
+        "79228162514264337593543950335 ",
+        "79228162514264337593543950336 "
+    ];
+    return texts.Select(text =>
+    {
+        try
+        {
+            decimal value = decimal.Parse(text,
+                System.Globalization.NumberStyles.AllowTrailingWhite,
+                System.Globalization.CultureInfo.InvariantCulture);
+            return new { text, bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { text, bits = (int[]?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7547,6 +7573,7 @@ var result = new
     selectedDecimalTrailingSignStyleParse = ObserveDecimalTrailingSignStyleParse(),
     selectedDecimalParenthesesStyleParse = ObserveDecimalParenthesesStyleParse(),
     selectedDecimalLeadingWhiteStyleParse = ObserveDecimalLeadingWhiteStyleParse(),
+    selectedDecimalTrailingWhiteStyleParse = ObserveDecimalTrailingWhiteStyleParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
