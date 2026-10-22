@@ -196,6 +196,7 @@ def main():
                                     "public static boolean TryParse(java.lang.String, System.Decimal[]);",
                                     "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Decimal[]);",
                                     "public static boolean TryParse(java.lang.String, System.IFormatProvider, System.Decimal[]);",
+                                    "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.IFormatProvider, System.Decimal[]);",
                                     "public static boolean TryParse(java.lang.String, System.Globalization.NumberStyles, System.IFormatProvider, System.Decimal[]);",
                                     "public static <T> boolean TryParse(System.ReadOnlySpan<T>, System.Globalization.NumberStyles, System.IFormatProvider, System.Decimal[]);",
                                     "public java.lang.String ToString();",
