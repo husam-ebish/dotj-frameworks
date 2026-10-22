@@ -275,6 +275,24 @@ public final class Decimal implements IConvertible {
                 ^ coefficient.shiftRight(64).intValue();
     }
 
+    public boolean Equals(Decimal value) {
+        return value != null && Equals(this, value);
+    }
+
+    public boolean Equals(java.lang.Object value) {
+        return value instanceof Decimal other && Equals(this, other);
+    }
+
+    @Override
+    public boolean equals(java.lang.Object value) {
+        return Equals(value);
+    }
+
+    @Override
+    public int hashCode() {
+        return GetHashCode();
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");

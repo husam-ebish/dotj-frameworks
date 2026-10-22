@@ -42,7 +42,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalBitsConsumer", "ProductDecimalMultiplyConsumer",
     "ProductDecimalDivideConsumer", "ProductDecimalRemainderConsumer",
     "ProductDecimalCompareConsumer", "ProductDecimalEqualsConsumer",
-    "ProductDecimalHashConsumer")]
+    "ProductDecimalHashConsumer", "ProductDecimalInstanceEqualityConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -405,6 +405,16 @@ def main():
     assert hash_values[7] == hash_values[8] == -2147483647
     assert hash_values[9] == hash_values[10] == 131197
     assert hash_values[12:14] == [-1, 2147483647]
+    instance_equals_vectors = metadata["selectedDecimalInstanceEquals"]
+    assert len(instance_equals_vectors) == 12
+    assert all(len(entry["left"]) == len(entry["right"]) == 4
+               and entry["typedResult"] == entry["objectResult"]
+               and entry["unrelatedResult"] is False
+               and entry["nullResult"] is False
+               and entry["hashMatches"] is True
+               for entry in instance_equals_vectors)
+    assert [entry["typedResult"] for entry in instance_equals_vectors] == [
+        True, True, True, True, True, False, True, True, False, False, True, False]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -984,6 +994,16 @@ def main():
         )) for entry in hash_vectors]
     hash_result = run("java", "-cp", classpath,
                       "consumer.ProductDecimalHashConsumer", *hash_args).strip()
+    instance_equals_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["left"]),
+            ",".join(str(word) for word in entry["right"]),
+            *(str(entry[field]).lower() for field in (
+                "typedResult", "objectResult", "unrelatedResult", "nullResult", "hashMatches")),
+        )) for entry in instance_equals_vectors]
+    instance_equals_result = run("java", "-cp", classpath,
+                                 "consumer.ProductDecimalInstanceEqualityConsumer",
+                                 *instance_equals_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -997,6 +1017,7 @@ def main():
     assert compare_result == "PASS external selected Decimal comparison"
     assert equals_result == "PASS external selected Decimal equality"
     assert hash_result == "PASS external selected Decimal hash codes"
+    assert instance_equals_result == "PASS external selected Decimal instance equality"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
