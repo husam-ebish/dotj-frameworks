@@ -18,7 +18,7 @@ public final class ProductDecimalMagnitudeConsumer {
     }
 
     public static void main(String[] args) {
-        if (args.length != 20) {
+        if (args.length != 22) {
             throw new AssertionError("Decimal magnitude vector count changed");
         }
         for (int index = 0; index < args.length; index++) {

@@ -466,9 +466,7 @@ public final class Decimal implements IConvertible {
         if (order != 0) {
             return order > 0 ? left : right;
         }
-        boolean leftNegative = IsNegative(left);
-        boolean rightNegative = IsNegative(right);
-        return leftNegative == rightNegative ? left : (leftNegative ? right : left);
+        return IsNegative(left) ? right : left;
     }
 
     public static Decimal MinMagnitude(Decimal left, Decimal right) {
@@ -482,9 +480,15 @@ public final class Decimal implements IConvertible {
         if (order != 0) {
             return order < 0 ? left : right;
         }
-        boolean leftNegative = IsNegative(left);
-        boolean rightNegative = IsNegative(right);
-        return leftNegative == rightNegative ? right : (leftNegative ? left : right);
+        return IsNegative(left) ? left : right;
+    }
+
+    public static boolean IsCanonical(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        return value.value.scale() == 0
+                || value.value.unscaledValue().abs().remainder(BigInteger.TEN).signum() != 0;
     }
 
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {

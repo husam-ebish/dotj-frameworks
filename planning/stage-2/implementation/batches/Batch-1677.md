@@ -10,6 +10,10 @@
 | Limitation | Other generic-number operations and CLR ABI remain open |
 | Public API qualification | OPEN; no fully qualified public .j facade. |
 
+## Follow-up correction
+
+Batch 1678 adds equal negative values with different scales to the magnitude oracle and corrects the tie selection in `MaxMagnitude` and `MinMagnitude`. The twenty vectors reported here did not cover that case; consult the Batch 1678 report for the expanded validation.
+
 ## Progress
 
 | Metric | Actual value |
