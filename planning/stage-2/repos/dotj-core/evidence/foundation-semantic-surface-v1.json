@@ -3,11 +3,11 @@
   "profile": ".NET 10.0.12 CoreLib and Java 21 foundation candidate",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
-  "oracleEvidenceSha256": "316d4844c859e77f1344b857b75f2c803dac1052dd6dabf56371d43a73f83084",
+  "oracleEvidenceSha256": "d2d1c820648e320a84eed4718bcd233ed0bdff89411e3aec77af99fe0b1cbc82",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "a21245f1085f97a34fff5df46ea3a0517216b9801088867d55fad3936d1703e8",
+  "javaCandidateEvidenceSha256": "2c1c006750ec5390d8ec2da7a5d9374b3ee7209df4b117d08b7f111da5387c5c",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 84,
+  "nameLevelMissingMethodCount": 83,
   "nameLevelMissingPublicGetterCount": 33,
   "types": [
     {
@@ -3298,6 +3298,7 @@
         "public static boolean IsEvenInteger(System.Decimal);",
         "public static boolean IsOddInteger(System.Decimal);",
         "public static long ToInt64(System.Decimal);",
+        "public static long ToOACurrency(System.Decimal);",
         "public static long ToUInt32(System.Decimal);",
         "public static java.math.BigInteger ToUInt64(System.Decimal);",
         "public static short ToByte(System.Decimal);",
@@ -3427,6 +3428,7 @@
           "ToInt16": 2,
           "ToInt32": 2,
           "ToInt64": 2,
+          "ToOACurrency": 1,
           "ToSByte": 2,
           "ToSingle": 2,
           "ToString": 1,
@@ -3445,7 +3447,6 @@
           "CreateSaturating",
           "CreateTruncating",
           "FromOACurrency",
-          "ToOACurrency",
           "TryFormat",
           "TryGetBits",
           "TryParse"

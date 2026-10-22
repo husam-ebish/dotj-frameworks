@@ -2195,6 +2195,45 @@ static object ObserveDecimalClamp()
         }
     }).ToArray();
 }
+static object ObserveDecimalOACurrency()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, 0],
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, 0x00020000],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0],
+        [1, 0, 0, unchecked((int)0x80000000)],
+        [1, 0, 0, 0x00040000],
+        [1, 0, 0, unchecked((int)0x80040000)],
+        [5, 0, 0, 0x00050000],
+        [5, 0, 0, unchecked((int)0x80050000)],
+        [15, 0, 0, 0x00050000],
+        [15, 0, 0, unchecked((int)0x80050000)],
+        [25, 0, 0, 0x00050000],
+        [25, 0, 0, unchecked((int)0x80050000)],
+        [125, 0, 0, 0x00020000],
+        [125, 0, 0, unchecked((int)0x80020000)],
+        [1, 0, 0, 0x001c0000],
+        [1, 0, 0, unchecked((int)0x801c0000)],
+        [-1, -1, -1, 0],
+        [-1, -1, -1, unchecked((int)0x80000000)],
+    ];
+    return inputs.Select(bits =>
+    {
+        try
+        {
+            return new { bits, result = (long?)decimal.ToOACurrency(new decimal(bits)),
+                exception = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { bits, result = (long?)null,
+                exception = exception.GetType().Name };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -6768,6 +6807,7 @@ var result = new
     selectedDecimalCopySign = ObserveDecimalCopySign(),
     selectedDecimalMaxMin = ObserveDecimalMaxMin(),
     selectedDecimalClamp = ObserveDecimalClamp(),
+    selectedDecimalOACurrency = ObserveDecimalOACurrency(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
