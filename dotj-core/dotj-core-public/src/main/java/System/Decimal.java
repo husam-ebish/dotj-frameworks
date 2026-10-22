@@ -890,6 +890,10 @@ public final class Decimal implements IConvertible {
         }
     }
 
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, Decimal[] result) {
+        return TryParse(text.selectedText(), result);
+    }
+
     public static boolean TryParse(String text, IFormatProvider provider, Decimal[] result) {
         return TryParse(text, NumberStyles.Number, provider, result);
     }
@@ -906,6 +910,11 @@ public final class Decimal implements IConvertible {
         } catch (FormatException | OverflowException expected) {
             return false;
         }
+    }
+
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, NumberStyles style,
+                                       IFormatProvider provider, Decimal[] result) {
+        return TryParse(text.selectedText(), style, provider, result);
     }
 
     private static Decimal bounded(BigDecimal parsed, boolean negativeZero) {

@@ -52,6 +52,10 @@ public final class ReadOnlySpan<T> {
     }
 
     String selectedInt32Text() {
+        return selectedText();
+    }
+
+    String selectedText() {
         return this.chars != null
                 ? new String(this.chars, this.offset, this.length)
                 : new String(this.bytes, this.offset, this.length, StandardCharsets.UTF_8);

@@ -1858,6 +1858,44 @@ static object ObserveDecimalProviderTryParse()
         return new { text, success, bits = decimal.GetBits(value) };
     }).ToArray();
 }
+static object ObserveDecimalSpanTryParse()
+{
+    (string mode, string text)[] cases =
+    [
+        ("Simple", "42"), ("Simple", "-0.00"),
+        ("Simple", "bad"),
+        ("Simple", "79228162514264337593543950336"),
+        ("Number", "1,234.50"), ("Number", "42-"),
+        ("Number", "(42)"), ("Number", "1e2"),
+        ("Number", "0.00000000000000000000000000006"),
+        ("Float", "1e2"), ("Float", "1,234"),
+        ("Float", "1e9999"), ("Float", "5e-29"),
+        ("Float", ".5e1"),
+        ("Integer", "42"), ("Integer", "-0"),
+        ("Integer", "1.0"), ("Integer", "1,000"),
+        ("Integer", "79228162514264337593543950336"),
+        ("Integer", " +42 ")
+    ];
+    return cases.Select(entry =>
+    {
+        var (mode, text) = entry;
+        decimal value;
+        bool success = mode switch
+        {
+            "Simple" => decimal.TryParse(text.AsSpan(), out value),
+            "Number" => decimal.TryParse(text.AsSpan(),
+                System.Globalization.NumberStyles.Number,
+                System.Globalization.CultureInfo.InvariantCulture, out value),
+            "Float" => decimal.TryParse(text.AsSpan(),
+                System.Globalization.NumberStyles.Float,
+                System.Globalization.CultureInfo.InvariantCulture, out value),
+            _ => decimal.TryParse(text.AsSpan(),
+                System.Globalization.NumberStyles.Integer,
+                System.Globalization.CultureInfo.InvariantCulture, out value)
+        };
+        return new { mode, text, success, bits = decimal.GetBits(value) };
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7737,6 +7775,7 @@ var result = new
     selectedDecimalCustomCurrencySymbolStyleParse = ObserveDecimalCustomCurrencySymbolStyleParse(),
     selectedDecimalTryParse = ObserveDecimalTryParse(),
     selectedDecimalProviderTryParse = ObserveDecimalProviderTryParse(),
+    selectedDecimalSpanTryParse = ObserveDecimalSpanTryParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
