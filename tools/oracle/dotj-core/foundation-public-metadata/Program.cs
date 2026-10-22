@@ -3084,6 +3084,32 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalExponentialProviderFormatting()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = "@",
+        NegativeSign = "~",
+        PositiveSign = "plus",
+    };
+    (int[] bits, string format)[] inputs =
+    [
+        ([0, 0, 0, 0], "E"),
+        ([0, 0, 0, unchecked((int)0x80000000)], "E"),
+        ([42, 0, 0, 0], "E2"),
+        ([42, 0, 0, unchecked((int)0x80000000)], "E2"),
+        ([1, 0, 0, 0x00020000], "E2"),
+        ([1, 0, 0, unchecked((int)0x80020000)], "E2"),
+        ([12345, 0, 0, 0], "E0"),
+        ([12345, 0, 0, unchecked((int)0x80000000)], "E0"),
+        ([12345, 0, 0, 0x00020000], "e1"),
+        ([12345, 0, 0, unchecked((int)0x80020000)], "e1"),
+        ([1, 0, 0, 0x001c0000], "E2"),
+        ([1, 0, 0, unchecked((int)0x801c0000)], "E2"),
+    ];
+    return inputs.Select(input => new { input.bits, input.format,
+        text = new decimal(input.bits).ToString(input.format, provider) }).ToArray();
+}
 static object ObserveDecimalCurrencyProviderFormatting()
 {
     var provider = new System.Globalization.NumberFormatInfo
@@ -8094,6 +8120,7 @@ var result = new
     selectedDecimalNumberProviderFormatting = ObserveDecimalNumberProviderFormatting(),
     selectedDecimalPercentProviderFormatting = ObserveDecimalPercentProviderFormatting(),
     selectedDecimalCurrencyProviderFormatting = ObserveDecimalCurrencyProviderFormatting(),
+    selectedDecimalExponentialProviderFormatting = ObserveDecimalExponentialProviderFormatting(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),
