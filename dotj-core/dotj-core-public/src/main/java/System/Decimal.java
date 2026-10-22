@@ -360,6 +360,18 @@ public final class Decimal implements IConvertible {
         return truncated.longValue();
     }
 
+    public static long ToUInt32(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        BigInteger truncated = value.value.setScale(0, RoundingMode.DOWN).toBigIntegerExact();
+        if (truncated.signum() < 0
+                || truncated.compareTo(BigInteger.valueOf(4294967295L)) > 0) {
+            throw new OverflowException("Value was outside the range of UInt32");
+        }
+        return truncated.longValue();
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
