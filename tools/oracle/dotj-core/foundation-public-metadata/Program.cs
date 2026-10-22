@@ -1513,6 +1513,33 @@ static object ObserveDecimalThousandsStyleParse()
         }
     }).ToArray();
 }
+static object ObserveDecimalPointStyleParse()
+{
+    string[] texts =
+    [
+        "0", "1.25", ".5", "1.", "-1.25", "+1.25",
+        " 1.25", "1.25 ", "1,234.5", "1.25e2", "1.2.3", ".",
+        "0.00", "0.00000000000000000000000000006",
+        "79228162514264337593543950335",
+        "79228162514264337593543950335.0",
+        "79228162514264337593543950336", "", "0001.20", "1.25-"
+    ];
+    return texts.Select(text =>
+    {
+        try
+        {
+            decimal value = decimal.Parse(text,
+                System.Globalization.NumberStyles.AllowDecimalPoint,
+                System.Globalization.CultureInfo.InvariantCulture);
+            return new { text, bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { text, bits = (int[]?)null,
+                error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7380,6 +7407,7 @@ var result = new
     selectedDecimalAnyCustomProviderParse = ObserveDecimalAnyCustomProviderParse(),
     selectedDecimalNoneStyleParse = ObserveDecimalNoneStyleParse(),
     selectedDecimalThousandsStyleParse = ObserveDecimalThousandsStyleParse(),
+    selectedDecimalPointStyleParse = ObserveDecimalPointStyleParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
