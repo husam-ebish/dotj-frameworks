@@ -1042,8 +1042,22 @@ public final class Decimal implements IConvertible {
         }
         if (format.equals("C") || format.equals("c")
                 || format.matches("[Cc][0-9]{1,2}")) {
-            int decimals = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+            int decimals = format.length() == 1
+                    ? provider instanceof NumberFormatInfo currencyFormat
+                    ? currencyFormat.get_CurrencyDecimalDigits() : 2
+                    : Integer.parseInt(format.substring(1));
             BigDecimal rounded = this.value.setScale(decimals, RoundingMode.HALF_UP);
+            if (provider instanceof NumberFormatInfo currencyFormat) {
+                String grouped = groupedDecimal(rounded.abs());
+                int dot = grouped.indexOf('.');
+                String whole = dot < 0 ? grouped : grouped.substring(0, dot);
+                String fraction = dot < 0 ? "" : currencyFormat.get_CurrencyDecimalSeparator()
+                        + grouped.substring(dot + 1);
+                String formatted = currencyFormat.get_CurrencySymbol()
+                        + whole.replace(",", currencyFormat.get_CurrencyGroupSeparator())
+                        + fraction;
+                return rounded.signum() < 0 ? "(" + formatted + ")" : formatted;
+            }
             String currency = "¤" + groupedDecimal(rounded.abs());
             return rounded.signum() < 0 ? "(" + currency + ")" : currency;
         }

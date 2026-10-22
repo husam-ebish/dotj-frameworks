@@ -3084,6 +3084,33 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalCurrencyProviderFormatting()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        CurrencyGroupSeparator = "_",
+        CurrencyDecimalSeparator = "@",
+        CurrencySymbol = "USD",
+        CurrencyDecimalDigits = 3,
+    };
+    (int[] bits, string format)[] inputs =
+    [
+        ([0, 0, 0, 0], "C"),
+        ([0, 0, 0, unchecked((int)0x80000000)], "C"),
+        ([1, 0, 0, 0], "C"),
+        ([1, 0, 0, unchecked((int)0x80000000)], "C"),
+        ([12345, 0, 0, 0], "C"),
+        ([12345, 0, 0, unchecked((int)0x80000000)], "C"),
+        ([12345, 0, 0, 0x00020000], "C0"),
+        ([12345, 0, 0, unchecked((int)0x80020000)], "C0"),
+        ([1234567, 0, 0, 0x00010000], "C1"),
+        ([1234567, 0, 0, unchecked((int)0x80010000)], "C1"),
+        ([42, 0, 0, 0], "c2"),
+        ([42, 0, 0, unchecked((int)0x80000000)], "c2"),
+    ];
+    return inputs.Select(input => new { input.bits, input.format,
+        text = new decimal(input.bits).ToString(input.format, provider) }).ToArray();
+}
 static object ObserveDecimalPercentProviderFormatting()
 {
     var provider = new System.Globalization.NumberFormatInfo
@@ -8066,6 +8093,7 @@ var result = new
     selectedDecimalFixedProviderFormatting = ObserveDecimalFixedProviderFormatting(),
     selectedDecimalNumberProviderFormatting = ObserveDecimalNumberProviderFormatting(),
     selectedDecimalPercentProviderFormatting = ObserveDecimalPercentProviderFormatting(),
+    selectedDecimalCurrencyProviderFormatting = ObserveDecimalCurrencyProviderFormatting(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),
