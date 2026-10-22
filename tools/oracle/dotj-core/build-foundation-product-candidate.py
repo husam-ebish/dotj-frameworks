@@ -40,7 +40,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer",
     "ProductInt32BitConsumer", "ProductInt32ArithmeticConsumer", "ProductInt32SpanConsumer",
     "ProductDecimalBitsConsumer", "ProductDecimalMultiplyConsumer",
-    "ProductDecimalDivideConsumer")]
+    "ProductDecimalDivideConsumer", "ProductDecimalRemainderConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
 CONSUMER_CLASSES = BUILD / "consumer-classes"
@@ -368,6 +368,16 @@ def main():
     assert divide_vectors[6]["error"] == "System.DivideByZeroException"
     assert divide_vectors[14]["error"] == "System.OverflowException"
     assert divide_vectors[15]["result"] == [0, 0, 0, 0]
+    remainder_vectors = metadata["selectedDecimalRemainder"]
+    assert len(remainder_vectors) == 20
+    assert all(len(entry["left"]) == len(entry["right"]) == 4
+               and (entry["result"] is None or len(entry["result"]) == 4)
+               and (entry["error"] == "System.DivideByZeroException") == (entry["result"] is None)
+               for entry in remainder_vectors)
+    assert remainder_vectors[4]["result"] == [25, 0, 0, 131072]
+    assert remainder_vectors[9]["result"] == [0, 0, 0, -2147352576]
+    assert remainder_vectors[11]["error"] == "System.DivideByZeroException"
+    assert remainder_vectors[14]["result"] == [0, 0, 0, 0]
     assert metadata["selectedSpanFormattingBehavior"] == {
         "enough": {"success": True, "charsWritten": 2, "text": "42"},
         "shortBuffer": {"success": False, "charsWritten": 0, "text": ""},
@@ -915,6 +925,15 @@ def main():
         )) for entry in divide_vectors]
     divide_result = run("java", "-cp", classpath,
                         "consumer.ProductDecimalDivideConsumer", *divide_args).strip()
+    remainder_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["left"]),
+            ",".join(str(word) for word in entry["right"]),
+            "DIVIDE_ZERO" if entry["result"] is None else
+            ",".join(str(word) for word in entry["result"]),
+        )) for entry in remainder_vectors]
+    remainder_result = run("java", "-cp", classpath,
+                           "consumer.ProductDecimalRemainderConsumer", *remainder_args).strip()
     assert disposal_result.startswith("PASS: product IDisposable shape")
     assert type_result == "PASS external System.Type selected identity consumer"
     assert exception_result == "PASS external selected Exception constructors and inner identity"
@@ -924,6 +943,7 @@ def main():
     assert decimal_result == "PASS external selected Decimal bits"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
+    assert remainder_result == "PASS external selected Decimal remainder"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],

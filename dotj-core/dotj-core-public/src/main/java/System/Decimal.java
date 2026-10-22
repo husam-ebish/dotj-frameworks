@@ -226,6 +226,21 @@ public final class Decimal implements IConvertible {
         throw new OverflowException("Value was outside the range of Decimal");
     }
 
+    public static Decimal Remainder(Decimal left, Decimal right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        if (right.value.signum() == 0) {
+            throw new DivideByZeroException();
+        }
+        BigDecimal remainder = left.value.remainder(right.value);
+        return new Decimal(remainder, remainder.signum() == 0
+                && (left.value.signum() < 0 || left.negativeZero));
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
