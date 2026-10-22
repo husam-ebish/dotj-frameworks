@@ -53,6 +53,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalFromOACurrencyConsumer",
     "ProductDecimalFormattingConsumer",
     "ProductDecimalFormatStringsConsumer",
+    "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -567,6 +568,12 @@ def main():
                and type(entry["fixed2"]) is str for entry in format_string_vectors)
     assert format_string_vectors[12]["fixed2"] == "1.01"
     assert format_string_vectors[14]["fixed2"] == "-1.01"
+    fixed_precision_vectors = metadata["selectedDecimalFixedPrecision"]
+    assert len(fixed_precision_vectors) == 20
+    assert all(len(entry["bits"]) == 4 and type(entry["format"]) is str
+               and type(entry["text"]) is str for entry in fixed_precision_vectors)
+    assert fixed_precision_vectors[4]["text"] == "2"
+    assert fixed_precision_vectors[14]["text"] == "0.0000000000000000000000000001"
     magnitude_vectors = metadata["selectedDecimalMagnitudeExtrema"]
     assert len(magnitude_vectors) == 22
     assert all(len(entry["left"]) == len(entry["right"])
@@ -1300,6 +1307,14 @@ def main():
     format_string_result = run("java", "-cp", classpath,
                                "consumer.ProductDecimalFormatStringsConsumer",
                                *format_string_args).strip()
+    fixed_precision_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], entry["text"],
+        )) for entry in fixed_precision_vectors]
+    fixed_precision_result = run("java", "-cp", classpath,
+                                 "consumer.ProductDecimalFixedPrecisionConsumer",
+                                 *fixed_precision_args).strip()
     magnitude_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1347,6 +1362,7 @@ def main():
     assert from_oa_currency_result == "PASS external selected Decimal FromOACurrency"
     assert formatting_result == "PASS external selected Decimal invariant formatting"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
+    assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert canonical_result == "PASS external selected Decimal canonical encodings"
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,

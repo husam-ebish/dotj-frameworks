@@ -580,8 +580,10 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty() || format.equals("G") || format.equals("g")) {
             return this.ToString(provider);
         }
-        if (format.equals("F2") || format.equals("f2")) {
-            return this.value.setScale(2, RoundingMode.HALF_UP).toPlainString();
+        if (format.equals("F") || format.equals("f")
+                || format.matches("[Ff][0-9]{1,2}")) {
+            int decimals = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
+            return this.value.setScale(decimals, RoundingMode.HALF_UP).toPlainString();
         }
         throw new FormatException("Format string was not supported");
     }
