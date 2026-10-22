@@ -2368,6 +2368,35 @@ static object ObserveDecimalNumberFormatting()
         text = new decimal(input.bits).ToString(input.format,
             System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
 }
+static object ObserveDecimalPercentFormatting()
+{
+    var inputs = new (int[] bits, string format)[]
+    {
+        ([0, 0, 0, 0], "P"),
+        ([0, 0, 0, unchecked((int)0x80020000)], "P4"),
+        ([1, 0, 0, 0], "P0"),
+        ([1, 0, 0, unchecked((int)0x80000000)], "P2"),
+        ([1, 0, 0, 0x00020000], "P2"),
+        ([1, 0, 0, unchecked((int)0x80020000)], "P2"),
+        ([125, 0, 0, 0x00020000], "P1"),
+        ([125, 0, 0, unchecked((int)0x80020000)], "P1"),
+        ([1005, 0, 0, 0x00030000], "P0"),
+        ([1005, 0, 0, unchecked((int)0x80030000)], "P0"),
+        ([10005, 0, 0, 0x00050000], "P2"),
+        ([10005, 0, 0, unchecked((int)0x80050000)], "P2"),
+        ([1, 0, 0, 0x001c0000], "P2"),
+        ([1, 0, 0, unchecked((int)0x801c0000)], "P2"),
+        ([1000, 0, 0, 0], "P0"),
+        ([1000, 0, 0, unchecked((int)0x80000000)], "P0"),
+        ([-1, -1, -1, 0], "P0"),
+        ([-1, -1, -1, unchecked((int)0x80000000)], "P4"),
+        ([125, 0, 0, 0x00020000], "p3"),
+        ([125, 0, 0, 0x00020000], "P"),
+    };
+    return inputs.Select(input => new { input.bits, input.format,
+        text = new decimal(input.bits).ToString(input.format,
+            System.Globalization.CultureInfo.InvariantCulture) }).ToArray();
+}
 static object ObserveDecimalIsCanonical()
 {
     int[][] inputs =
@@ -6947,6 +6976,7 @@ var result = new
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),
+    selectedDecimalPercentFormatting = ObserveDecimalPercentFormatting(),
     selectedDecimalMagnitudeExtrema = ObserveDecimalMagnitudeExtrema(),
     selectedDecimalIsCanonical = ObserveDecimalIsCanonical(),
     selectedInt32GeneralFlagStyles = ObserveInt32GeneralFlagStyles(),
