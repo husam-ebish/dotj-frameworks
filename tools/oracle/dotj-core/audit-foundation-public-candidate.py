@@ -192,6 +192,7 @@ def main():
                                     "public static System.Decimal Parse(java.lang.String);",
                                     "public java.lang.String ToString();",
                                     "public java.lang.String ToString(System.IFormatProvider);",
+                                    "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
                                     "public System.TypeCode GetTypeCode();",
                                     "public boolean ToBoolean(System.IFormatProvider);",
                                     "public char ToChar(System.IFormatProvider);",
