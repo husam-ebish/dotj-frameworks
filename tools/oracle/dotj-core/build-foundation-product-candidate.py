@@ -72,6 +72,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalThousandsStyleParseConsumer",
     "ProductDecimalPointStyleParseConsumer",
     "ProductDecimalExponentStyleParseConsumer",
+    "ProductDecimalLeadingSignStyleParseConsumer",
     "ProductDecimalCanonicalConsumer")]
 BUILD = PRODUCT / "build/foundation-v1"
 CLASSES = BUILD / "classes"
@@ -341,6 +342,16 @@ def main():
     assert exponent_style_vectors[2]["bits"] == [100, 0, 0, 0]
     assert exponent_style_vectors[5]["error"] == "System.FormatException"
     assert exponent_style_vectors[13]["error"] == "System.OverflowException"
+    leading_sign_vectors = metadata["selectedDecimalLeadingSignStyleParse"]
+    assert len(leading_sign_vectors) == 20
+    assert all((entry["bits"] is not None and len(entry["bits"]) == 4
+                and entry["error"] is None)
+               or (entry["bits"] is None and entry["error"] in
+                   ("System.FormatException", "System.OverflowException"))
+               for entry in leading_sign_vectors)
+    assert leading_sign_vectors[1]["bits"] == [0, 0, 0, -2147483648]
+    assert leading_sign_vectors[6]["error"] == "System.FormatException"
+    assert leading_sign_vectors[17]["error"] == "System.OverflowException"
     assert [(entry["text"], entry["bits"], entry["error"])
             for entry in parse_bounds] == [
         ("0", [0, 0, 0, 0], None),
@@ -1402,6 +1413,15 @@ def main():
     exponent_style_result = run("java", "-cp", classpath,
                                 "consumer.ProductDecimalExponentStyleParseConsumer",
                                 *exponent_style_args).strip()
+    leading_sign_args = [
+        ":".join((
+            entry["text"],
+            ",".join(str(word) for word in entry["bits"] or []),
+            entry["error"] or "",
+        )) for entry in leading_sign_vectors]
+    leading_sign_result = run("java", "-cp", classpath,
+                              "consumer.ProductDecimalLeadingSignStyleParseConsumer",
+                              *leading_sign_args).strip()
     multiply_args = [
         ":".join((
             ",".join(str(word) for word in entry["left"]),
@@ -1681,6 +1701,7 @@ def main():
     assert thousands_style_result == "PASS external selected Decimal Thousands-style parsing"
     assert point_style_result == "PASS external selected Decimal Point-style parsing"
     assert exponent_style_result == "PASS external selected Decimal Exponent-style parsing"
+    assert leading_sign_result == "PASS external selected Decimal LeadingSign-style parsing"
     assert multiply_result == "PASS external selected Decimal multiplication"
     assert divide_result == "PASS external selected Decimal division"
     assert remainder_result == "PASS external selected Decimal remainder"
