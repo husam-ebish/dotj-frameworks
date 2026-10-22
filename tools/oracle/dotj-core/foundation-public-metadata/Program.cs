@@ -1335,6 +1335,55 @@ static object ObserveDecimalAnyStyleParse()
         }
     }).ToArray();
 }
+static object ObserveDecimalCustomProviderParse()
+{
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = "@",
+        NegativeSign = "~",
+        PositiveSign = "plus"
+    };
+    (System.Globalization.NumberStyles style, string text)[] cases =
+    [
+        (System.Globalization.NumberStyles.Number, "1_234@50"),
+        (System.Globalization.NumberStyles.Number, "~1_234@50"),
+        (System.Globalization.NumberStyles.Number, "plus1_234@50"),
+        (System.Globalization.NumberStyles.Number, "1_234@50~"),
+        (System.Globalization.NumberStyles.Number, "1_234@50plus"),
+        (System.Globalization.NumberStyles.Number, "-1_234@50"),
+        (System.Globalization.NumberStyles.Number, "+1_234@50"),
+        (System.Globalization.NumberStyles.Number, "1,234@50"),
+        (System.Globalization.NumberStyles.Number, "1_234.50"),
+        (System.Globalization.NumberStyles.Number, "_1@2"),
+        (System.Globalization.NumberStyles.Float, "1@25e2"),
+        (System.Globalization.NumberStyles.Float, "~1@25eplus2"),
+        (System.Globalization.NumberStyles.Float, "1@25e~2"),
+        (System.Globalization.NumberStyles.Float, "1@25e+2"),
+        (System.Globalization.NumberStyles.Float, "plus1@25e2"),
+        (System.Globalization.NumberStyles.Float, "1_234@5"),
+        (System.Globalization.NumberStyles.Float,
+            "0@00000000000000000000000000006"),
+        (System.Globalization.NumberStyles.Float, "1@0e9999"),
+        (System.Globalization.NumberStyles.Float, "~0@00"),
+        (System.Globalization.NumberStyles.Float, "1@2e")
+    ];
+    return cases.Select(entry =>
+    {
+        var (style, text) = entry;
+        try
+        {
+            decimal value = decimal.Parse(text, style, provider);
+            return new { style = style.ToString(), text,
+                bits = decimal.GetBits(value), error = (string?)null };
+        }
+        catch (Exception exception)
+        {
+            return new { style = style.ToString(), text,
+                bits = (int[]?)null, error = exception.GetType().FullName };
+        }
+    }).ToArray();
+}
 static object ObserveDecimalTruncate()
 {
     int[][] inputs =
@@ -7197,6 +7246,7 @@ var result = new
     selectedDecimalIntegerStyleParse = ObserveDecimalIntegerStyleParse(),
     selectedDecimalCurrencyStyleParse = ObserveDecimalCurrencyStyleParse(),
     selectedDecimalAnyStyleParse = ObserveDecimalAnyStyleParse(),
+    selectedDecimalCustomProviderParse = ObserveDecimalCustomProviderParse(),
     selectedDecimalTruncate = ObserveDecimalTruncate(),
     selectedDecimalFloorCeiling = ObserveDecimalFloorCeiling(),
     selectedDecimalRound = ObserveDecimalRound(),
