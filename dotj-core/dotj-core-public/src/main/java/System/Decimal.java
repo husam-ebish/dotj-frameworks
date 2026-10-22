@@ -986,8 +986,22 @@ public final class Decimal implements IConvertible {
         }
         if (format.equals("N") || format.equals("n")
                 || format.matches("[Nn][0-9]{1,2}")) {
-            int decimals = format.length() == 1 ? 2 : Integer.parseInt(format.substring(1));
-            return groupedDecimal(this.value.setScale(decimals, RoundingMode.HALF_UP));
+            int decimals = format.length() == 1
+                    ? provider instanceof NumberFormatInfo numberFormat
+                    ? numberFormat.get_NumberDecimalDigits() : 2
+                    : Integer.parseInt(format.substring(1));
+            String grouped = groupedDecimal(this.value.setScale(decimals, RoundingMode.HALF_UP));
+            if (provider instanceof NumberFormatInfo numberFormat) {
+                boolean negative = grouped.startsWith("-");
+                String magnitude = negative ? grouped.substring(1) : grouped;
+                int dot = magnitude.indexOf('.');
+                String whole = dot < 0 ? magnitude : magnitude.substring(0, dot);
+                String fraction = dot < 0 ? "" : numberFormat.get_NumberDecimalSeparator()
+                        + magnitude.substring(dot + 1);
+                return (negative ? numberFormat.get_NegativeSign() : "")
+                        + whole.replace(",", numberFormat.get_NumberGroupSeparator()) + fraction;
+            }
+            return grouped;
         }
         if (format.equals("P") || format.equals("p")
                 || format.matches("[Pp][0-9]{1,2}")) {
