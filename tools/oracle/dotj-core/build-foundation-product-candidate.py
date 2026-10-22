@@ -952,6 +952,12 @@ def main():
     assert all(len(entry["bits"]) == 4 and entry["pattern"] in (4, 5, 6, 7)
                and type(entry["text"]) is str
                for entry in percent_negative_pattern_4to7_vectors)
+    percent_negative_pattern_8to11_vectors = metadata[
+        "selectedDecimalPercentNegativePatterns8To11"]
+    assert len(percent_negative_pattern_8to11_vectors) == 12
+    assert all(len(entry["bits"]) == 4 and entry["pattern"] in (8, 9, 10, 11)
+               and type(entry["text"]) is str
+               for entry in percent_negative_pattern_8to11_vectors)
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -2111,6 +2117,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalPercentNegativePatternsConsumer",
         *percent_negative_pattern_4to7_args).strip()
+    percent_negative_pattern_8to11_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            str(entry["pattern"]), entry["text"],
+        )) for entry in percent_negative_pattern_8to11_vectors]
+    percent_negative_pattern_8to11_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalPercentNegativePatternsConsumer",
+        *percent_negative_pattern_8to11_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2264,6 +2279,7 @@ def main():
     assert percent_positive_pattern_result == "PASS external selected Decimal percent positive patterns"
     assert percent_negative_pattern_0to3_result == "PASS external selected Decimal percent negative patterns"
     assert percent_negative_pattern_4to7_result == "PASS external selected Decimal percent negative patterns"
+    assert percent_negative_pattern_8to11_result == "PASS external selected Decimal percent negative patterns"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"
