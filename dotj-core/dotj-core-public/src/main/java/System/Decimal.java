@@ -348,6 +348,18 @@ public final class Decimal implements IConvertible {
         return IsInteger(value) && value.value.toBigIntegerExact().testBit(0);
     }
 
+    public static long ToInt64(Decimal value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        BigInteger truncated = value.value.setScale(0, RoundingMode.DOWN).toBigIntegerExact();
+        if (truncated.compareTo(BigInteger.valueOf(Long.MIN_VALUE)) < 0
+                || truncated.compareTo(BigInteger.valueOf(Long.MAX_VALUE)) > 0) {
+            throw new OverflowException("Value was outside the range of Int64");
+        }
+        return truncated.longValue();
+    }
+
     private static Decimal roundIntegral(Decimal value, RoundingMode mode) {
         if (value == null) {
             throw new ArgumentNullException("value");
