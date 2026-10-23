@@ -427,3 +427,5 @@ Selected ungrouped `Decimal` custom formatting now supports `0.#` and mixed mand
 Selected `Int32` and `Decimal` custom percent formatting now distinguishes scaled `0%` and `0.0%` from escaped `0\%`. Eighteen .NET 10 vectors cover signs, zero, rounding and provider decimal separators through a packaged external consumer. Broader custom percent grammar remains open.
 
 Selected custom percent formatting now uses `NumberFormatInfo.PercentSymbol` for scaled percent placeholders while `0\%` keeps a literal percent sign. Eighteen .NET 10 vectors cover `Int32` and `Decimal` with a custom symbol through a packaged external consumer. Broader custom percent grammar remains open.
+
+Selected custom percent formatting now supports two mandatory or two optional fractional places using the provider percent symbol. Twelve .NET 10 vectors cover `Int32` and `Decimal` signs, zero and trailing-zero behavior through a packaged external consumer. Broader custom percent precision remains open.

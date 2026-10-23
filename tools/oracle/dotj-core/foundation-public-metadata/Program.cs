@@ -4465,6 +4465,25 @@ static object ObserveCustomPercentSymbolProvider()
                 : decimalValue.ToString(format, provider) };
     }))).ToArray();
 }
+static object ObserveCustomPercentPrecision()
+{
+    string[] formats = ["0.00%", "0.##%"];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberDecimalSeparator = "@",
+        PercentSymbol = "pct"
+    };
+    return formats.SelectMany(format => new[] { "Int32", "Decimal" }.SelectMany(target =>
+        new[] { -1, 0, 1 }.Select(sign =>
+    {
+        int intValue = sign * 42;
+        decimal decimalValue = sign * 1.234m;
+        return new { target, format, intValue,
+            bits = decimal.GetBits(decimalValue),
+            text = target == "Int32" ? intValue.ToString(format, provider)
+                : decimalValue.ToString(format, provider) };
+    }))).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9852,6 +9871,7 @@ var result = new
     selectedUngroupedMixedRounding = ObserveUngroupedMixedRounding(),
     selectedCustomPercentScaling = ObserveCustomPercentScaling(),
     selectedCustomPercentSymbolProvider = ObserveCustomPercentSymbolProvider(),
+    selectedCustomPercentPrecision = ObserveCustomPercentPrecision(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
