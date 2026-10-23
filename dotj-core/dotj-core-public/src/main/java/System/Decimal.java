@@ -1048,7 +1048,7 @@ public final class Decimal implements IConvertible {
             return sign + grouped + (dot < 0 ? "" : (numberFormat == null ? "."
                     : numberFormat.get_NumberDecimalSeparator()) + plain.substring(dot + 1));
         }
-        if (format.matches("0\\.0{1,32}|0\\.#{2,28}|0\\.0{1,14}#{1,14}")) {
+        if (format.matches("0\\.0{1,32}|0\\.#{1,28}|0\\.0{1,14}#{1,14}")) {
             int places = format.length() - 2;
             int mandatory = 0;
             while (mandatory < places && format.charAt(2 + mandatory) == '0') mandatory++;
