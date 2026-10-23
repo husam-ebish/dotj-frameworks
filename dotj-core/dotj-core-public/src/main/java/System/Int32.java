@@ -1249,6 +1249,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     : numberFormat.get_PercentPositivePattern();
             if (pattern == 0) return sign + grouped + fraction + " " + symbol;
             if (pattern == 1) return sign + grouped + fraction + symbol;
+            if (this.value >= 0 && pattern == 2) return symbol + grouped + fraction;
+            if (this.value >= 0 && pattern == 3) return symbol + " " + grouped + fraction;
             throw new UnsupportedOperationException("Percent pattern is not mapped");
         }
         if (format.matches("[eE][0-9]*")) {
