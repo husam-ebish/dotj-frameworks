@@ -449,3 +449,5 @@ Selected grouped `Decimal` percent formatting has fourteen pinned rounding vecto
 Selected grouped `Int32` and `Decimal` percent formatting now supports mixed required and optional fractional places in `#,##0.0#%` and `#,##0.00##%`. Twelve .NET 10 vectors cover signs, zero, provider grouping and percent symbols through a packaged external consumer. Broader grouped percent grammar remains open.
 
 Selected grouped `Decimal` mixed-percent formatting has fourteen pinned rounding vectors across two mixed placeholder patterns. They cover positive and negative boundary values and small nonzero values through a packaged external consumer. Broader grouped percent rounding remains open.
+
+Selected grouped `Decimal` percent formatting now supports twenty or thirty required places followed by the same number of optional places. Eighteen .NET 10 vectors cover scale twenty-eight values, tiny signed values and zero through a packaged external consumer. Broader grouped percent grammar remains open.
