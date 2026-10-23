@@ -59,6 +59,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalPrecisionOverflowConsumer",
     "ProductDecimalGeneralPrecisionConsumer",
     "ProductDecimalRoundtripFormatConsumer",
+    "ProductGeneralFormatInvalidBoundariesConsumer",
     "ProductDecimalNumberProviderFormattingConsumer",
     "ProductDecimalPercentProviderFormattingConsumer",
     "ProductDecimalCurrencyProviderFormattingConsumer",
@@ -1074,6 +1075,13 @@ def main():
                and entry["format"] in ("G", "g", "G0", "G1", "R", "r", "R0", "R1")
                and type(entry["text"]) is str
                for entry in decimal_general_signed_zero_vectors)
+    general_format_invalid_vectors = metadata["selectedGeneralFormatInvalidBoundaries"]
+    assert len(general_format_invalid_vectors) == 40
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and len(entry["bits"]) == 4 and type(entry["intValue"]) is int
+               and ((type(entry["text"]) is str and entry["exception"] is None)
+                    or (entry["text"] is None and entry["exception"] == "FormatException"))
+               for entry in general_format_invalid_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2520,6 +2528,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalRoundtripFormatConsumer",
         *decimal_general_signed_zero_args).strip()
+    general_format_invalid_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"] or "", entry["exception"] or "none"))
+        for entry in general_format_invalid_vectors]
+    general_format_invalid_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *general_format_invalid_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -2887,6 +2904,7 @@ def main():
     assert decimal_roundtrip_format_result == "PASS external Decimal roundtrip format"
     assert decimal_general_extrema_result == "PASS external Decimal roundtrip format"
     assert decimal_general_signed_zero_result == "PASS external Decimal roundtrip format"
+    assert general_format_invalid_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"

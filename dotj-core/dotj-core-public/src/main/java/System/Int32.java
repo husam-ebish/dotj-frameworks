@@ -1074,6 +1074,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format.equals("0.00")) {
             return this.ToString("F2", provider);
         }
+        if (format.matches("[GgRr](?:-1|x)")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + format;
+        }
         if (format.matches("[gG][0-9]*")) {
             int precision;
             try {
