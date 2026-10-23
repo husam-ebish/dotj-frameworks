@@ -959,11 +959,13 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return prefixed + suffix;
         }
         if (format != null && format.indexOf('\\') >= 0
-                && format.matches("(\\\\[A-Za-z0-9!?() ])?#,##0\\.00%(\\\\[A-Za-z0-9!?() ])?")) {
-            String core = this.ToString("#,##0.00%", provider);
-            int coreStart = format.indexOf("#,##0.00%");
+                && format.matches("(\\\\[A-Za-z0-9!?() ])?#,##0\\.(00|0#|###)%(\\\\[A-Za-z0-9!?() ])?")) {
+            String coreFormat = format.contains("#,##0.###%") ? "#,##0.###%"
+                    : format.contains("#,##0.0#%") ? "#,##0.0#%" : "#,##0.00%";
+            String core = this.ToString(coreFormat, provider);
+            int coreStart = format.indexOf(coreFormat);
             String prefix = coreStart == 0 ? "" : format.substring(1, 2);
-            int suffixStart = coreStart + "#,##0.00%".length();
+            int suffixStart = coreStart + coreFormat.length();
             String suffix = suffixStart == format.length() ? ""
                     : format.substring(suffixStart + 1);
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
