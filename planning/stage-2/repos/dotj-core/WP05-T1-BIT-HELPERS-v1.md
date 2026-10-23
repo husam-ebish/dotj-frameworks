@@ -403,3 +403,5 @@ Selected custom `Int32` and `Decimal` grouping now supports provider group sizes
 Selected custom `Int32` and `Decimal` grouping now supports terminal-zero group sizes `[3,0]`, `[2,0]` and `[3,2,0]` for `#,##0` and `#,##0.0000`. Twelve .NET 10 vectors cover negative values and rounding through a packaged external consumer. Broader grouping grammar remains open.
 
 Selected grouped `Int32` and `Decimal` custom formats now support five and six mandatory fractional places. Twelve .NET 10 vectors cover signs, zero, provider separators and rounding through a packaged external consumer. Broader grouped custom precision remains open.
+
+Selected grouped `Int32` and `Decimal` custom formats now support ten and twenty-eight mandatory fractional places. Twelve .NET 10 vectors cover signs, zero, provider separators, padding and rounding through a packaged external consumer. Broader grouped custom precision remains open.

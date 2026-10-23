@@ -1235,6 +1235,14 @@ def main():
                and entry["format"] in ("#,##0.00000", "#,##0.000000")
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in grouped_custom_precision_vectors)
+    grouped_custom_high_precision_vectors = metadata[
+        "selectedGroupedCustomHighPrecision"]
+    assert len(grouped_custom_high_precision_vectors) == 12
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ("#,##0.0000000000",
+                                       "#,##0.0000000000000000000000000000")
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in grouped_custom_high_precision_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2899,6 +2907,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *grouped_custom_precision_args).strip()
+    grouped_custom_high_precision_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none", "@", "_"))
+        for entry in grouped_custom_high_precision_vectors]
+    grouped_custom_high_precision_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *grouped_custom_high_precision_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -3290,6 +3307,7 @@ def main():
     assert custom_grouping_sizes_result == "PASS external general format boundaries"
     assert grouping_terminal_sizes_result == "PASS external general format boundaries"
     assert grouped_custom_precision_result == "PASS external general format boundaries"
+    assert grouped_custom_high_precision_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
