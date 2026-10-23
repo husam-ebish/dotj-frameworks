@@ -3969,6 +3969,21 @@ static object ObserveSelectedDecimalPlaceCustomFormats()
                 : decimalValue.ToString(format, provider) };
     }))).ToArray();
 }
+static object ObserveOptionalDecimalPlaceRoundingBoundaries()
+{
+    string[] formats = ["0.##", "0.00", "0.###"];
+    decimal[] values = [-1.235m, -1.234m, -0.005m, -0.004m,
+        0m, 0.004m, 0.005m, 1.234m, 1.235m];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberDecimalSeparator = "@"
+    };
+    return formats.SelectMany(format => values.Select(value => new
+    {
+        target = "Decimal", format, intValue = 0,
+        bits = decimal.GetBits(value), text = value.ToString(format, provider)
+    })).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9322,6 +9337,8 @@ var result = new
     selectedEscapedNumericCustomFormats = ObserveEscapedNumericCustomFormats(),
     selectedNumericCustomSections = ObserveSelectedNumericCustomSections(),
     selectedDecimalPlaceCustomFormats = ObserveSelectedDecimalPlaceCustomFormats(),
+    selectedOptionalDecimalPlaceRoundingBoundaries =
+        ObserveOptionalDecimalPlaceRoundingBoundaries(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
