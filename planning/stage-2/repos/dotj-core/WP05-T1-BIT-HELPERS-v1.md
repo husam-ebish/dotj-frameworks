@@ -379,3 +379,5 @@ Selected `Decimal` formatting now supports six and ten optional decimal places. 
 Selected `Decimal` formatting now supports twelve and twenty-eight optional decimal places. Eighteen .NET 10 vectors cover full scale 28 values, signed tiny values and rounding to zero with provider separators through a packaged external consumer. Broader optional decimal-place grammar remains open.
 
 Selected `Decimal` formatting now supports three and four mandatory decimal places via `0.000` and `0.0000`. Eighteen .NET 10 vectors cover ties, near-zero rounding and provider separators through a packaged external consumer. Broader mandatory decimal-place grammar remains open.
+
+Selected `Decimal` formatting now supports twenty-eight and thirty-two mandatory decimal places. Eighteen .NET 10 vectors cover full scale 28 values, tiny signed values and zero padding with provider separators through a packaged external consumer. Broader mandatory decimal-place grammar remains open.
