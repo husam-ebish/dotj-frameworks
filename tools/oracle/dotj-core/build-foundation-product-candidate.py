@@ -1584,6 +1584,14 @@ def main():
                                        "\\L#,##0.00%\\R")
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in grouped_percent_affix_negative_vectors)
+    grouped_percent_affix_symbol_vectors = metadata["selectedGroupedPercentAffixSymbols"]
+    assert len(grouped_percent_affix_symbol_vectors) == 12
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ('"pre"#,##0.00%"post"',
+                                       "\\L#,##0.00%\\R")
+               and entry["symbol"] in ("<pct>", "")
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in grouped_percent_affix_symbol_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -3712,6 +3720,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *grouped_percent_affix_negative_args).strip()
+    grouped_percent_affix_symbol_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none", "@", "_", "1", "2", entry["symbol"]))
+        for entry in grouped_percent_affix_symbol_vectors]
+    grouped_percent_affix_symbol_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *grouped_percent_affix_symbol_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -4154,6 +4171,7 @@ def main():
     assert grouped_percent_escaped_core_result == "PASS external general format boundaries"
     assert grouped_percent_no_fraction_affix_result == "PASS external general format boundaries"
     assert grouped_percent_affix_negative_result == "PASS external general format boundaries"
+    assert grouped_percent_affix_symbol_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
