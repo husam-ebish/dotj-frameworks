@@ -959,12 +959,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return prefixed + suffix;
         }
         if (format != null && format.indexOf('\\') >= 0
-                && format.matches("(\\\\[A-Za-z0-9!?() ])?#,##0(\\.(00|0#|###))?%(\\\\[A-Za-z0-9!?() ])?")) {
-            String coreFormat = format.contains("#,##0%") ? "#,##0%"
-                    : format.contains("#,##0.###%") ? "#,##0.###%"
-                    : format.contains("#,##0.0#%") ? "#,##0.0#%" : "#,##0.00%";
+                && format.matches("(\\\\[A-Za-z0-9!?() ])?#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?%(\\\\[A-Za-z0-9!?() ])?")) {
+            int coreStart = format.indexOf("#,##0");
+            String coreFormat = format.substring(coreStart, format.indexOf('%', coreStart) + 1);
             String core = this.ToString(coreFormat, provider);
-            int coreStart = format.indexOf(coreFormat);
             String prefix = coreStart == 0 ? "" : format.substring(1, 2);
             int suffixStart = coreStart + coreFormat.length();
             String suffix = suffixStart == format.length() ? ""
@@ -976,12 +974,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return prefixed + suffix;
         }
         if (format != null && format.indexOf('"') >= 0
-                && format.matches("(\"[^\";:]{1,20}\")?#,##0(\\.(00|0#|###))?%(\"[^\";:]{1,20}\")?")) {
-            String coreFormat = format.contains("#,##0%") ? "#,##0%"
-                    : format.contains("#,##0.###%") ? "#,##0.###%"
-                    : format.contains("#,##0.0#%") ? "#,##0.0#%" : "#,##0.00%";
+                && format.matches("(\"[^\";:]{1,20}\")?#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?%(\"[^\";:]{1,20}\")?")) {
+            int coreStart = format.indexOf("#,##0");
+            String coreFormat = format.substring(coreStart, format.indexOf('%', coreStart) + 1);
             String core = this.ToString(coreFormat, provider);
-            int coreStart = format.indexOf(coreFormat);
             String quotedPrefix = format.substring(0, coreStart);
             String quotedSuffix = format.substring(coreStart + coreFormat.length());
             String prefix = quotedPrefix.isEmpty() ? ""
@@ -1157,7 +1153,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.matches("#,##0(\\.0{1,6}|\\.#{1,6}|\\.0{1,6}#{1,6})?%")) {
+        if (format.matches("#,##0(\\.0{1,30}|\\.#{1,30}|\\.0{1,30}#{1,30})?%")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String digits = BigInteger.valueOf(this.value).abs()
                     .multiply(BigInteger.valueOf(100)).toString();
