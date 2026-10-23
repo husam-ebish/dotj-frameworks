@@ -1087,7 +1087,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 2048) {
+            if (precision > 4096) {
                 throw new UnsupportedOperationException("Int32 decimal precision is not mapped");
             }
             String digits = BigInteger.valueOf(this.value).abs().toString();
@@ -1103,7 +1103,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 2048) {
+            if (precision > 4096) {
                 throw new UnsupportedOperationException("Int32 hexadecimal precision is not mapped");
             }
             String digits = Integer.toHexString(this.value);
@@ -1117,7 +1117,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 2048) {
+            if (precision > 4096) {
                 throw new UnsupportedOperationException("Int32 binary precision is not mapped");
             }
             String digits = Integer.toBinaryString(this.value);
@@ -1133,7 +1133,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 2048) {
+            if (precision > 4096) {
                 throw new UnsupportedOperationException("Int32 number precision is not mapped");
             }
             String digits = BigInteger.valueOf(this.value).abs().toString();
@@ -1164,7 +1164,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 2048) {
+            if (precision > 4096) {
                 throw new UnsupportedOperationException("Int32 currency precision is not mapped");
             }
             String digits = BigInteger.valueOf(this.value).abs().toString();
@@ -1220,7 +1220,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 2048) {
+            if (precision > 4096) {
                 throw new UnsupportedOperationException("Int32 fixed precision is not mapped");
             }
             String fraction = precision == 0 ? "" : (numberFormat == null ? "."
@@ -1239,7 +1239,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 2048) {
+            if (precision > 4096) {
                 throw new UnsupportedOperationException("Int32 percent precision is not mapped");
             }
             String digits = BigInteger.valueOf(this.value).abs()
@@ -1279,7 +1279,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 2048) {
+            if (precision > 4096) {
                 throw new UnsupportedOperationException("Int32 exponential precision is not mapped");
             }
             java.math.BigDecimal rounded = new java.math.BigDecimal(
