@@ -1041,7 +1041,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             }
             return scaled;
         }
-        if (format.equals("0.##")) {
+        if (format.matches("0\\.#{1,28}")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             return this.value < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign())
