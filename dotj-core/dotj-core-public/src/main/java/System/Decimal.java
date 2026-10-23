@@ -992,14 +992,24 @@ public final class Decimal implements IConvertible {
 
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
-        if ("0\u2030".equals(format)) {
+        if (format != null && format.matches("0(\\.0{1,28}|\\.#{1,28})?\u2030")) {
             NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
                     ? selected : null;
+            int dotFormat = format.indexOf('.');
+            int places = dotFormat < 0 ? 0 : format.length() - dotFormat - 2;
+            int mandatory = 0;
+            while (mandatory < places && format.charAt(dotFormat + 1 + mandatory) == '0') mandatory++;
             BigDecimal scaled = this.value.movePointRight(3)
-                    .setScale(0, RoundingMode.HALF_UP);
+                    .setScale(places, RoundingMode.HALF_UP);
+            if (mandatory < places) {
+                scaled = scaled.stripTrailingZeros();
+                if (scaled.scale() < mandatory) scaled = scaled.setScale(mandatory);
+            }
             String sign = scaled.signum() < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign()) : "";
-            return sign + scaled.abs().toPlainString()
+            String number = scaled.abs().toPlainString().replace(".", numberFormat == null
+                    ? "." : numberFormat.get_NumberDecimalSeparator());
+            return sign + number
                     + (numberFormat == null ? "\u2030"
                     : numberFormat.get_PerMilleSymbol());
         }

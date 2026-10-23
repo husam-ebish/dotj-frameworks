@@ -1086,6 +1086,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return sign + digits + (numberFormat == null ? "\u2030"
                     : numberFormat.get_PerMilleSymbol());
         }
+        if (format.matches("0\\.(0{1,28}|#{1,28})\u2030")) {
+            return new Decimal(this.value).ToString(format, provider);
+        }
         if (format.equals("0,") || format.equals("0,,") || format.equals("#,##0,")) {
             long divisor = format.equals("0,,") ? 1_000_000L : 1_000L;
             int scaled = BigDecimal.valueOf(this.value)
