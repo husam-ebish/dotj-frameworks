@@ -1073,7 +1073,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         }
         if (format.matches("0+")) {
             String digits = BigInteger.valueOf(this.value).abs().toString();
-            String sign = this.value < 0 ? "-" : "";
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
             return sign + "0".repeat(Math.max(0, format.length() - digits.length())) + digits;
         }
         if (format.equals("#,##0")) {
