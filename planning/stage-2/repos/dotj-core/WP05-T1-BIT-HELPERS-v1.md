@@ -507,3 +507,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now supports quoted or
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for quoted or escaped affixes with a multi-character provider negative sign. They cover sign placement, zero and provider symbols through a packaged external consumer. Broader affix and sign combinations remain open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for quoted or escaped affixes with a custom or empty provider percent symbol. They cover signs and zero through a packaged external consumer. Broader affix and symbol combinations remain open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for quoted or escaped affixes with two provider group-size sequences. They cover signs, zero and stop-grouping behavior through a packaged external consumer. Broader affix and grouping combinations remain open.
