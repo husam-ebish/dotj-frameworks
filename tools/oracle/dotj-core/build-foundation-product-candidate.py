@@ -58,6 +58,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalStandardPrecision100Consumer",
     "ProductDecimalPrecisionOverflowConsumer",
     "ProductDecimalGeneralPrecisionConsumer",
+    "ProductDecimalRoundtripFormatConsumer",
     "ProductDecimalNumberProviderFormattingConsumer",
     "ProductDecimalPercentProviderFormattingConsumer",
     "ProductDecimalCurrencyProviderFormattingConsumer",
@@ -1056,6 +1057,12 @@ def main():
     assert all(len(entry["bits"]) == 4 and entry["format"] in ("G", "g")
                and entry["precision"] in (1, 2, 3) and type(entry["text"]) is str
                for entry in decimal_general_rounding_vectors)
+    decimal_roundtrip_format_vectors = metadata["selectedDecimalRoundtripFormat"]
+    assert len(decimal_roundtrip_format_vectors) == 30
+    assert all(len(entry["bits"]) == 4
+               and entry["format"] in ("R", "r", "R0", "r0", "R1", "r1")
+               and type(entry["text"]) is str and entry["exception"] is None
+               for entry in decimal_roundtrip_format_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2475,6 +2482,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalGeneralPrecisionConsumer",
         *decimal_general_rounding_args).strip()
+    decimal_roundtrip_format_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], entry["text"],
+        )) for entry in decimal_roundtrip_format_vectors]
+    decimal_roundtrip_format_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalRoundtripFormatConsumer",
+        *decimal_roundtrip_format_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -2839,6 +2855,7 @@ def main():
     assert decimal_standard_precision_4097_result == "PASS external Decimal standard precision 100"
     assert decimal_general_precision_result == "PASS external Decimal general precision"
     assert decimal_general_rounding_result == "PASS external Decimal general precision"
+    assert decimal_roundtrip_format_result == "PASS external Decimal roundtrip format"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
