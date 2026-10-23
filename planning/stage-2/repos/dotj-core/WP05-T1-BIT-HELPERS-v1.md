@@ -603,3 +603,5 @@ Selected grouped `Int32` and `Decimal` per-mille formatting now has twelve .NET 
 Selected grouped `Int32` and `Decimal` per-mille formatting now has twelve .NET 10 vectors with an empty provider group separator. They cover both signs and zero through a packaged consumer. Broader grouping combinations remain open.
 
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 vectors for twenty required or optional fractional places at high precision rounding boundaries. They run through a packaged consumer. Broader high precision combinations remain open.
+
+Selected grouped Int32 and Decimal per-mille formatting now supports quoted prefixes and suffixes. Twelve .NET 10 vectors cover both signs and zero through a packaged consumer. Broader affix combinations remain open.
