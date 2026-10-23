@@ -995,14 +995,18 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
-        if (format.matches("0%|0\\.0{1,28}%|0\\.#{1,28}%")) {
+        if (format.matches("0%|0\\.0{1,28}%|0\\.#{1,28}%"
+                + "|0\\.0{1,14}#{1,14}%")) {
             int places = format.equals("0%") ? 0 : format.length() - 3;
+            int mandatory = 0;
+            while (mandatory < places && format.charAt(2 + mandatory) == '0') mandatory++;
             String symbol = provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_PercentSymbol() : "%";
             BigDecimal scaled = this.value.movePointRight(2)
                     .setScale(places, RoundingMode.HALF_UP);
-            if (places > 0 && format.charAt(2) == '#') {
+            if (mandatory < places) {
                 scaled = scaled.stripTrailingZeros();
+                if (scaled.scale() < mandatory) scaled = scaled.setScale(mandatory);
             }
             return applyNumberFormat(scaled.toPlainString(), provider) + symbol;
         }
