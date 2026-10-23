@@ -357,3 +357,5 @@ Selected `Decimal.ToString("G"/"R", provider)` now also has minimum, maximum and
 Selected `Decimal.ToString("G"/"R", provider)` now also has negative-zero and stored-scale evidence. Forty .NET 10 vectors cover five Decimal bit patterns across plain and explicit precision formats; a packaged external consumer checks exact text. Broader formatting behavior remains open.
 
 Selected `Int32` and `Decimal` formatting now recognizes `G-1`, `g-1`, `R-1`, `r-1`, `Gx` and `Rx` as custom literal formats with provider negative signs. Four oversized numeric precision spellings still report `FormatException`. Forty .NET 10 vectors cover both signs and both types; a packaged external consumer checks text and exception classes. Broader custom format grammar remains open.
+
+Selected `Int32` and `Decimal` formatting now recognizes letter-only custom format strings of length two or more as literals, including `abc`, `xyz`, `Qx`, `hello`, `GG`, `RR`, `ee` and `FF`. Thirty-two .NET 10 vectors cover both signs and both types with provider negative signs; a packaged external consumer checks exact text. Broader custom format grammar remains open.
