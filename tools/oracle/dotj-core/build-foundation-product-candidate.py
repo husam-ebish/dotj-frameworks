@@ -71,6 +71,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductInt32CurrencyNegativePatternsConsumer",
     "ProductInt32PercentPositivePatternsConsumer",
     "ProductInt32PercentNegativePatternsConsumer",
+    "ProductInt32NumberNegativePatternsConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
@@ -1013,6 +1014,10 @@ def main():
     assert len(int32_percent_negative_10to11_vectors) == 12
     assert all(type(entry["value"]) is int and entry["pattern"] in (10, 11)
                and type(entry["text"]) is str for entry in int32_percent_negative_10to11_vectors)
+    int32_number_negative_vectors = metadata["selectedInt32NumberNegativePatterns"]
+    assert len(int32_number_negative_vectors) == 15
+    assert all(type(entry["value"]) is int and entry["pattern"] in range(5)
+               and type(entry["text"]) is str for entry in int32_number_negative_vectors)
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -2255,6 +2260,13 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductInt32PercentNegativePatternsConsumer",
         *int32_percent_negative_10to11_args).strip()
+    int32_number_negative_args = [
+        ":".join((str(entry["value"]), str(entry["pattern"]), entry["text"]))
+        for entry in int32_number_negative_vectors]
+    int32_number_negative_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductInt32NumberNegativePatternsConsumer",
+        *int32_number_negative_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2419,6 +2431,7 @@ def main():
     assert int32_percent_negative_2to5_result == "PASS external selected Int32 percent negative patterns"
     assert int32_percent_negative_6to9_result == "PASS external selected Int32 percent negative patterns"
     assert int32_percent_negative_10to11_result == "PASS external selected Int32 percent negative patterns"
+    assert int32_number_negative_result == "PASS external selected Int32 number negative patterns"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"

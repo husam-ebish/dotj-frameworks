@@ -41118,6 +41118,83 @@
       "text": "214_748_364_800@00~ pct"
     }
   ],
+  "selectedInt32NumberNegativePatterns": [
+    {
+      "value": -42,
+      "pattern": 0,
+      "text": "(42@00)"
+    },
+    {
+      "value": -12345,
+      "pattern": 0,
+      "text": "(12_345@00)"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 0,
+      "text": "(2_147_483_648@00)"
+    },
+    {
+      "value": -42,
+      "pattern": 1,
+      "text": "~42@00"
+    },
+    {
+      "value": -12345,
+      "pattern": 1,
+      "text": "~12_345@00"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 1,
+      "text": "~2_147_483_648@00"
+    },
+    {
+      "value": -42,
+      "pattern": 2,
+      "text": "~ 42@00"
+    },
+    {
+      "value": -12345,
+      "pattern": 2,
+      "text": "~ 12_345@00"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 2,
+      "text": "~ 2_147_483_648@00"
+    },
+    {
+      "value": -42,
+      "pattern": 3,
+      "text": "42@00~"
+    },
+    {
+      "value": -12345,
+      "pattern": 3,
+      "text": "12_345@00~"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 3,
+      "text": "2_147_483_648@00~"
+    },
+    {
+      "value": -42,
+      "pattern": 4,
+      "text": "42@00 ~"
+    },
+    {
+      "value": -12345,
+      "pattern": 4,
+      "text": "12_345@00 ~"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 4,
+      "text": "2_147_483_648@00 ~"
+    }
+  ],
   "selectedDecimalFormatStrings": [
     {
       "bits": [
@@ -46986,6 +47063,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "dde12291afcaa09a6c1f6f212eadb7ffcc9311495642aa64314266132a180811",
+  "oracleProgramSha256": "a1d9e05ec5b82e63b242b4053505a158e2a46c364c43e3d5e0db697506226b54",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

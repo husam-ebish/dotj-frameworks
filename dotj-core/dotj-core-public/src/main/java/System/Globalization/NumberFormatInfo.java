@@ -14,6 +14,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     private int[] numberGroupSizes = {3};
     private String numberDecimalSeparator = ".";
     private int numberDecimalDigits = 2;
+    private int numberNegativePattern = 1;
     private String negativeSign = "-";
     private String positiveSign = "+";
     private String currencySymbol = "\u00a4";
@@ -77,6 +78,15 @@ public final class NumberFormatInfo implements IFormatProvider {
             throw new ArgumentOutOfRangeException("value");
         }
         this.numberDecimalDigits = value;
+    }
+
+    public int get_NumberNegativePattern() {
+        return this.numberNegativePattern;
+    }
+
+    public void set_NumberNegativePattern(int value) {
+        if (value < 0 || value > 4) throw new ArgumentOutOfRangeException("value");
+        this.numberNegativePattern = value;
     }
 
     public String get_NegativeSign() {

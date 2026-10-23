@@ -3101,6 +3101,22 @@ static object ObserveInt32PercentNegativePatterns10To11()
             text = value.ToString("P2", provider) });
     }).ToArray();
 }
+static object ObserveInt32NumberNegativePatterns()
+{
+    int[] values = [-42, -12345, int.MinValue];
+    return Enumerable.Range(0, 5).SelectMany(pattern =>
+    {
+        var provider = new System.Globalization.NumberFormatInfo
+        {
+            NumberGroupSeparator = "_",
+            NumberDecimalSeparator = "@",
+            NumberNegativePattern = pattern,
+            NegativeSign = "~",
+        };
+        return values.Select(value => new { value, pattern,
+            text = value.ToString("N2", provider) });
+    }).ToArray();
+}
 static object ObserveInt32PercentNegativePatterns6To9()
 {
     int[] values = [-42, -12345, int.MinValue];
@@ -8628,6 +8644,7 @@ var result = new
     selectedInt32PercentNegativePatterns2To5 = ObserveInt32PercentNegativePatterns2To5(),
     selectedInt32PercentNegativePatterns6To9 = ObserveInt32PercentNegativePatterns6To9(),
     selectedInt32PercentNegativePatterns10To11 = ObserveInt32PercentNegativePatterns10To11(),
+    selectedInt32NumberNegativePatterns = ObserveInt32NumberNegativePatterns(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),

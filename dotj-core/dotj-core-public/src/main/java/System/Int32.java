@@ -1144,7 +1144,15 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     : numberFormat.get_NegativeSign()) : "";
             String fraction = precision == 0 ? "" : (numberFormat == null ? "."
                     : numberFormat.get_NumberDecimalSeparator()) + "0".repeat(precision);
-            return sign + grouped + fraction;
+            String magnitude = grouped + fraction;
+            if (this.value >= 0 || numberFormat == null) return sign + magnitude;
+            return switch (numberFormat.get_NumberNegativePattern()) {
+                case 0 -> "(" + magnitude + ")";
+                case 2 -> sign + " " + magnitude;
+                case 3 -> magnitude + sign;
+                case 4 -> magnitude + " " + sign;
+                default -> sign + magnitude;
+            };
         }
         if (format.matches("[cC][0-9]*")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
