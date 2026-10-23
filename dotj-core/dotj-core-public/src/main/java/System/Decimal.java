@@ -992,6 +992,17 @@ public final class Decimal implements IConvertible {
 
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
+        if ("0\u2030".equals(format)) {
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            BigDecimal scaled = this.value.movePointRight(3)
+                    .setScale(0, RoundingMode.HALF_UP);
+            String sign = scaled.signum() < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + scaled.abs().toPlainString()
+                    + (numberFormat == null ? "\u2030"
+                    : numberFormat.get_PerMilleSymbol());
+        }
         if (format != null && format.matches("(\"[^\";:]{1,20}\"|\\\\[A-Za-z0-9!?() ])#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?%(\"[^\";:]{1,20}\"|\\\\[A-Za-z0-9!?() ])")) {
             int coreStart = format.indexOf("#,##0");
             String coreFormat = format.substring(coreStart, format.indexOf('%', coreStart) + 1);
