@@ -1088,8 +1088,11 @@ public final class Decimal implements IConvertible {
             return grouped + " %";
         }
         if (format.equals("E") || format.equals("e")
-                || format.matches("[Ee][0-9]{1,2}")) {
+                || format.matches("[Ee][0-9]+")) {
             int decimals = format.length() == 1 ? 6 : Integer.parseInt(format.substring(1));
+            if (decimals > 4096) {
+                throw new UnsupportedOperationException("Decimal exponential precision is not mapped");
+            }
             int exponent = this.value.signum() == 0 ? 0
                     : this.value.precision() - this.value.scale() - 1;
             BigDecimal mantissa = this.value.movePointLeft(exponent)
