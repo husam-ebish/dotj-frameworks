@@ -289,3 +289,5 @@ Selected `Int32.ToString("P", provider)` now honors percent positive patterns 0 
 Selected `Int32.ToString("P", provider)` now also honors percent negative patterns 2 through 5. Twelve .NET 10 vectors pin each pattern for small, grouped and minimum values; a packaged external consumer checks exact text. Other percent negative patterns remain open.
 
 Selected `Int32.ToString("P", provider)` now also honors percent negative patterns 6 through 9. Twelve .NET 10 vectors pin each pattern for small, grouped and minimum values; the packaged external consumer checks exact text. Other percent negative patterns remain open.
+
+Selected `Int32.ToString("P", provider)` now also honors percent negative patterns 10 and 11. Twelve .NET 10 vectors pin the two patterns across six negative values; the packaged external consumer checks exact text. All twelve percent negative patterns are represented in bounded Int32 vectors, while other culture behavior remains open.
