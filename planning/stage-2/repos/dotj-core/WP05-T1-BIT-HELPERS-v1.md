@@ -399,3 +399,5 @@ Selected `Int32` and `Decimal` formatting now supports `#,##0` and `#,##0.00` wi
 Selected custom grouped `Int32` and `Decimal` formats now use a leading provider negative sign independently of `NumberNegativePattern`. Twenty .NET 10 vectors cover all five patterns for `#,##0` and `#,##0.00` through a packaged external consumer. Broader grouping grammar remains open.
 
 Selected custom `Int32` and `Decimal` grouping now supports provider group sizes of `[2]`, `[3,2]` and `[4]` for `#,##0`, `#,##0.00` and `#,##0.000`. Eighteen .NET 10 vectors cover negative values and rounding through a packaged external consumer. Broader grouping grammar remains open.
+
+Selected custom `Int32` and `Decimal` grouping now supports terminal-zero group sizes `[3,0]`, `[2,0]` and `[3,2,0]` for `#,##0` and `#,##0.0000`. Twelve .NET 10 vectors cover negative values and rounding through a packaged external consumer. Broader grouping grammar remains open.
