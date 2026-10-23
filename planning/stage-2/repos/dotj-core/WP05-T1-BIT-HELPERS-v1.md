@@ -433,3 +433,5 @@ Selected custom percent formatting now supports two mandatory or two optional fr
 Selected custom `Decimal` percent formatting now supports optional fractional precision through twenty-eight places. Eighteen .NET 10 vectors cover ties, near-zero rounding and provider percent symbols through a packaged external consumer. Broader custom percent precision remains open.
 
 Selected custom `Int32` and `Decimal` percent formatting now supports mixed required and optional fractional places in `0.0#%` and `0.00##%`. Twelve .NET 10 vectors cover signs, zero and provider percent symbols through a packaged external consumer. Broader custom percent grammar remains open.
+
+Selected custom `Decimal` percent mixed-fraction formatting now has eighteen pinned rounding vectors for `0.000###%` and `0.0000####%`. They cover ties and near-zero values with a provider percent symbol through a packaged external consumer. Broader custom percent grammar remains open.
