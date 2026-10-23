@@ -1063,6 +1063,11 @@ def main():
                and entry["format"] in ("R", "r", "R0", "r0", "R1", "r1")
                and type(entry["text"]) is str and entry["exception"] is None
                for entry in decimal_roundtrip_format_vectors)
+    decimal_general_extrema_vectors = metadata["selectedDecimalGeneralExtrema"]
+    assert len(decimal_general_extrema_vectors) == 24
+    assert all(len(entry["bits"]) == 4
+               and entry["format"] in ("G0", "G1", "G10", "R0", "R1", "R10")
+               and type(entry["text"]) is str for entry in decimal_general_extrema_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2491,6 +2496,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalRoundtripFormatConsumer",
         *decimal_roundtrip_format_args).strip()
+    decimal_general_extrema_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], entry["text"],
+        )) for entry in decimal_general_extrema_vectors]
+    decimal_general_extrema_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalRoundtripFormatConsumer",
+        *decimal_general_extrema_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -2856,6 +2870,7 @@ def main():
     assert decimal_general_precision_result == "PASS external Decimal general precision"
     assert decimal_general_rounding_result == "PASS external Decimal general precision"
     assert decimal_roundtrip_format_result == "PASS external Decimal roundtrip format"
+    assert decimal_general_extrema_result == "PASS external Decimal roundtrip format"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"

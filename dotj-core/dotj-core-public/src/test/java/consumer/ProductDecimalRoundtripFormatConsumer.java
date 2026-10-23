@@ -6,7 +6,7 @@ import System.Globalization.NumberFormatInfo;
 /** Checks packaged Decimal R/r formatting against the selected .NET oracle. */
 public final class ProductDecimalRoundtripFormatConsumer {
     public static void main(String[] args) {
-        if (args.length != 30) {
+        if (args.length != 30 && args.length != 24) {
             throw new AssertionError("Decimal roundtrip format vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();
