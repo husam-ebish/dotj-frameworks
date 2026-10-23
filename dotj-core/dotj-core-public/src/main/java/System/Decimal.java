@@ -1024,7 +1024,7 @@ public final class Decimal implements IConvertible {
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.matches("#,##0(\\.0{2,28}|\\.#{1,28})?")) {
+        if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28})?")) {
             int dotFormat = format.indexOf('.');
             int places = dotFormat < 0 ? 0 : format.length() - dotFormat - 1;
             BigDecimal rounded = this.value.setScale(places, RoundingMode.HALF_UP);
