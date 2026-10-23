@@ -495,3 +495,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned 
 Selected grouped `Int32` and `Decimal` percent formatting now supports escaped exclamation, question-mark and parenthesis affixes around `#,##0.00%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader escape grammar remains open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now supports escaped digit affixes around `#,##0.00%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader escape grammar remains open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now supports an escaped space before or after `#,##0.00%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader escape grammar remains open.
