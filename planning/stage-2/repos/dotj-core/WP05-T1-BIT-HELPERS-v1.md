@@ -599,3 +599,5 @@ Selected grouped `Decimal` per-mille formatting now has eighteen .NET 10 roundin
 Selected grouped `Decimal` per-mille formatting now has eighteen .NET 10 vectors around zero, signed zero and tiny values with optional or mixed fractional places. They run through a packaged consumer. Broader zero-formatting behavior remains open.
 
 Selected grouped `Int32` and `Decimal` per-mille formatting now has twelve .NET 10 vectors for multi-character provider group and decimal separators. They cover both signs and zero through a packaged consumer. Broader separator combinations remain open.
+
+Selected grouped `Int32` and `Decimal` per-mille formatting now has twelve .NET 10 vectors with an empty provider group separator. They cover both signs and zero through a packaged consumer. Broader grouping combinations remain open.
