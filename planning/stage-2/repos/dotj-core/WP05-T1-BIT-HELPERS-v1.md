@@ -455,3 +455,5 @@ Selected grouped `Decimal` percent formatting now supports twenty or thirty requ
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for two provider group-size sequences. They cover signs, zero, grouping and the custom percent symbol through a packaged external consumer. Broader provider grouping combinations remain open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for zero-terminated provider group sizes. They cover signs, zero and the stop-grouping rule through a packaged external consumer. Broader provider grouping combinations remain open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for two-character provider group and decimal separators. They cover required and mixed optional digits through a packaged external consumer. Broader provider separator combinations remain open.
