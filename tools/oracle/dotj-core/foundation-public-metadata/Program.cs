@@ -5801,6 +5801,20 @@ static object ObserveCurrencyDecimalSeparatorEmpty()
             parameter = error.ParamName ?? "none" };
     }
 }
+static object ObservePercentDecimalSeparatorEmpty()
+{
+    var provider = new System.Globalization.NumberFormatInfo();
+    try
+    {
+        provider.PercentDecimalSeparator = "";
+        return new { error = "none", parameter = "none" };
+    }
+    catch (ArgumentException error)
+    {
+        return new { error = error.GetType().FullName ?? "none",
+            parameter = error.ParamName ?? "none" };
+    }
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -11254,6 +11268,7 @@ var result = new
     selectedGroupedPercentMixedAffixEmptyGroupSeparator = ObserveGroupedPercentMixedAffixEmptyGroupSeparator(),
     selectedGroupedPercentMixedAffixEmptyDecimalSeparator = ObserveGroupedPercentMixedAffixEmptyDecimalSeparator(),
     selectedCurrencyDecimalSeparatorEmpty = ObserveCurrencyDecimalSeparatorEmpty(),
+    selectedPercentDecimalSeparatorEmpty = ObservePercentDecimalSeparatorEmpty(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
