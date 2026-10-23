@@ -41347,6 +41347,38 @@
       "text": "2_147_483_648@00 ~"
     }
   ],
+  "selectedNumberNegativePatternBoundaries": {
+    "initial": 1,
+    "accepted": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "failures": [
+      {
+        "value": -1,
+        "exception": "ArgumentOutOfRangeException",
+        "retained": 4
+      },
+      {
+        "value": 5,
+        "exception": "ArgumentOutOfRangeException",
+        "retained": 4
+      },
+      {
+        "value": -2147483648,
+        "exception": "ArgumentOutOfRangeException",
+        "retained": 4
+      },
+      {
+        "value": 2147483647,
+        "exception": "ArgumentOutOfRangeException",
+        "retained": 4
+      }
+    ]
+  },
   "selectedDecimalFormatStrings": [
     {
       "bits": [
@@ -47215,6 +47247,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "818dba4efe594c62e3494d2a80197ccef755e5b4fe28e69ef4043bf630be7057",
+  "oracleProgramSha256": "295de32cbb684502b6865071f737a0c48570c297e941e9abb8934a4c31041271",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

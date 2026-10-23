@@ -295,3 +295,5 @@ Selected `Int32.ToString("P", provider)` now also honors percent negative patter
 Selected `Int32.ToString("N", provider)` now honors `NumberFormatInfo.NumberNegativePattern` values 0 through 4. Fifteen .NET 10 vectors pin each pattern across small, grouped and minimum negative values; a packaged external consumer checks exact text. Decimal number patterns and other culture behavior remain open.
 
 Selected `Decimal.ToString("N", provider)` now honors `NumberFormatInfo.NumberNegativePattern` values 0 through 4. Fifteen .NET 10 vectors pin each pattern across small, grouped and fractional negative values; a packaged external consumer checks exact text. Other Decimal culture behavior remains open.
+
+The `NumberFormatInfo.NumberNegativePattern` property now has a selected boundary contract: default 1, accepted values 0 through 4, and `ArgumentOutOfRangeException` for four invalid inputs while preserving the last valid value. A .NET 10 oracle and packaged external consumer agree on those cases; broader globalization behavior remains open.
