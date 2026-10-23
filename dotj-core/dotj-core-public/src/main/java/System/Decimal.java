@@ -995,6 +995,18 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
+        if ((format.length() == 2 && format.charAt(0) == '\\')
+                || (format.length() >= 2 && ((format.charAt(0) == '\''
+                && format.charAt(format.length() - 1) == '\'')
+                || (format.charAt(0) == '"'
+                && format.charAt(format.length() - 1) == '"')))) {
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String sign = this.value.signum() < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + (format.charAt(0) == '\\' ? format.substring(1)
+                    : format.substring(1, format.length() - 1));
+        }
         if (format.matches("[GgRr]-1|[A-Za-z]{2,}")) {
             NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
                     ? selected : null;

@@ -1074,6 +1074,17 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format.equals("0.00")) {
             return this.ToString("F2", provider);
         }
+        if ((format.length() == 2 && format.charAt(0) == '\\')
+                || (format.length() >= 2 && ((format.charAt(0) == '\''
+                && format.charAt(format.length() - 1) == '\'')
+                || (format.charAt(0) == '"'
+                && format.charAt(format.length() - 1) == '"')))) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + (format.charAt(0) == '\\' ? format.substring(1)
+                    : format.substring(1, format.length() - 1));
+        }
         if (format.matches("[GgRr]-1|[A-Za-z]{2,}")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String sign = this.value < 0 ? (numberFormat == null ? "-"
