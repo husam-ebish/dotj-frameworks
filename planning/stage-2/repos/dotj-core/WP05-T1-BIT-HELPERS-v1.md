@@ -573,3 +573,5 @@ All three `NumberFormatInfo` decimal-separator setters now have pinned .NET 10 a
 `NumberFormatInfo.PositiveSign` and `NegativeSign` now have pinned .NET 10 and packaged Java checks for accepted empty strings and null `ArgumentNullException` results with parameter `value`. Other provider setter boundaries remain open.
 
 `NumberFormatInfo.CurrencySymbol` now has pinned .NET 10 and packaged Java checks for an accepted empty string and a null `ArgumentNullException` with parameter `value`. Other symbol boundaries remain open.
+
+`NumberFormatInfo.PercentSymbol` now has pinned .NET 10 and packaged Java checks for an accepted empty string and a null `ArgumentNullException` with parameter `value`. Other symbol boundaries remain open.
