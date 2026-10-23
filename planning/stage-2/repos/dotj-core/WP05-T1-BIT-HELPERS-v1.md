@@ -471,3 +471,5 @@ Selected grouped `Int32` percent formatting now has eighteen pinned vectors for 
 Selected grouped `Decimal` percent formatting now has eighteen pinned vectors for both decimal range endpoints, tiny nonzero values and two grouped percent patterns. They run through a packaged external consumer. Broader decimal formatting combinations remain open.
 
 Selected grouped `Int32` and `Decimal` mixed-percent formatting now has twenty pinned vectors across five negative-pattern settings. They verify provider pattern interaction through a packaged external consumer. Broader grouped percent pattern combinations remain open.
+
+Selected grouped `Decimal` percent formatting now has eighteen pinned vectors for zero, signed zero and small values that round to zero or retain optional digits. They run through a packaged external consumer. Broader zero-formatting combinations remain open.
