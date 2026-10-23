@@ -461,3 +461,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for an empty provider percent symbol. They cover signs, zero and required fractional places through a packaged external consumer. Broader provider symbol combinations remain open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for an empty provider group separator with two group sizes. They cover signs, zero and required fractional places through a packaged external consumer. Broader provider separator combinations remain open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for a multi-character provider negative sign. They cover two fractional patterns and all signs through a packaged external consumer. Broader provider sign combinations remain open.
