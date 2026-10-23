@@ -3188,6 +3188,24 @@ static object ObserveInt32CurrencyHighPrecision()
             text = value.ToString("C" + precision, provider) };
     })).ToArray();
 }
+static object ObserveInt32PercentHighPrecision()
+{
+    int[] values = [-42, 0, 42];
+    int[] precisions = [1001, 1024];
+    return values.SelectMany(value => precisions.Select(precision =>
+    {
+        var provider = new System.Globalization.NumberFormatInfo
+        {
+            PercentSymbol = "pct",
+            PercentDecimalSeparator = "@",
+            PercentNegativePattern = 11,
+            PercentPositivePattern = 3,
+            NegativeSign = "~",
+        };
+        return new { value, precision,
+            text = value.ToString("P" + precision, provider) };
+    })).ToArray();
+}
 static object ObserveNumberNegativePatternBoundaries()
 {
     var provider = new System.Globalization.NumberFormatInfo();
@@ -8792,6 +8810,7 @@ var result = new
     selectedInt32BinaryHighPrecision = ObserveInt32BinaryHighPrecision(),
     selectedInt32FixedHighPrecision = ObserveInt32FixedHighPrecision(),
     selectedInt32CurrencyHighPrecision = ObserveInt32CurrencyHighPrecision(),
+    selectedInt32PercentHighPrecision = ObserveInt32PercentHighPrecision(),
     selectedNumberNegativePatternBoundaries = ObserveNumberNegativePatternBoundaries(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
