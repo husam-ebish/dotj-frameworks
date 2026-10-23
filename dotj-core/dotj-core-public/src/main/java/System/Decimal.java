@@ -996,7 +996,7 @@ public final class Decimal implements IConvertible {
             return this.ToString(provider);
         }
         if (format.matches("0%|0\\.0{1,28}%|0\\.#{1,28}%"
-                + "|0\\.0{1,14}#{1,14}%")) {
+                + "|0\\.0{1,30}#{1,30}%")) {
             int places = format.equals("0%") ? 0 : format.length() - 3;
             int mandatory = 0;
             while (mandatory < places && format.charAt(2 + mandatory) == '0') mandatory++;
