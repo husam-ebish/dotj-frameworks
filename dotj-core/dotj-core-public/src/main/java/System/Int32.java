@@ -943,6 +943,16 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public String ToString(String format, IFormatProvider provider) {
+        if (format != null && format.matches("\"[A-Za-z]{1,12}\"#,##0\\.00%|#,##0\\.00%\"[A-Za-z]{1,12}\"")) {
+            String core = this.ToString("#,##0.00%", provider);
+            int opening = format.indexOf('"');
+            String literal = format.substring(opening + 1, format.indexOf('"', opening + 1));
+            if (opening > 0) return core + literal;
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+            return !sign.isEmpty() && core.startsWith(sign)
+                    ? sign + literal + core.substring(sign.length()) : literal + core;
+        }
         if (format == null || format.isEmpty() || format.equals("D")) {
             if (this.value >= 0) return Integer.toString(this.value);
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
