@@ -37,6 +37,14 @@ public final class ProductExceptionContractConsumer {
                 throw new AssertionError("Empty NumberDecimalSeparator parameter changed");
             }
         }
+        try {
+            new NumberFormatInfo().set_CurrencyDecimalSeparator("");
+            throw new AssertionError("Empty CurrencyDecimalSeparator was accepted");
+        } catch (ArgumentException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Empty CurrencyDecimalSeparator parameter changed");
+            }
+        }
         Exception inner = new Exception("inner");
         ArgumentException outer = new ArgumentException("outer", "value", inner);
         if (!"outer (Parameter 'value')".equals(outer.get_Message()) || !"value".equals(outer.get_ParamName())
