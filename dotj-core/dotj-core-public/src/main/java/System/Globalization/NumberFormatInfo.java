@@ -66,6 +66,7 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public void set_NumberDecimalSeparator(String value) {
         if (value == null) throw new ArgumentNullException("value");
+        if (value.isEmpty()) throw new ArgumentException("The value cannot be an empty string.", "value");
         this.numberDecimalSeparator = value;
     }
 

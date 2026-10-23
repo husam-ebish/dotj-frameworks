@@ -18,6 +18,7 @@ import System.Runtime.Serialization.SerializationInfoEnumerator;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Reflection.MemberTypes;
+import System.Globalization.NumberFormatInfo;
 import System.Collections.IDictionary;
 import System.Collections.ICollection;
 import System.Collections.IEnumerable;
@@ -28,6 +29,14 @@ import System.Collections.DictionaryEntry;
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
     public static void main(String[] args) {
+        try {
+            new NumberFormatInfo().set_NumberDecimalSeparator("");
+            throw new AssertionError("Empty NumberDecimalSeparator was accepted");
+        } catch (ArgumentException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Empty NumberDecimalSeparator parameter changed");
+            }
+        }
         Exception inner = new Exception("inner");
         ArgumentException outer = new ArgumentException("outer", "value", inner);
         if (!"outer (Parameter 'value')".equals(outer.get_Message()) || !"value".equals(outer.get_ParamName())
