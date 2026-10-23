@@ -1001,7 +1001,7 @@ public final class Decimal implements IConvertible {
                     ? provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_NumberDecimalDigits() : 2
                     : parseExplicitFormatPrecision(format);
-            if (decimals > 4096) {
+            if (decimals > 8192) {
                 throw new UnsupportedOperationException("Decimal fixed precision is not mapped");
             }
             return applyNumberFormat(this.value.setScale(decimals, RoundingMode.HALF_UP)
@@ -1013,7 +1013,7 @@ public final class Decimal implements IConvertible {
                     ? provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_NumberDecimalDigits() : 2
                     : parseExplicitFormatPrecision(format);
-            if (decimals > 4096) {
+            if (decimals > 8192) {
                 throw new UnsupportedOperationException("Decimal number precision is not mapped");
             }
             String grouped = groupedDecimal(this.value.setScale(decimals, RoundingMode.HALF_UP));
@@ -1049,7 +1049,7 @@ public final class Decimal implements IConvertible {
                     ? provider instanceof NumberFormatInfo percentFormat
                     ? percentFormat.get_PercentDecimalDigits() : 2
                     : parseExplicitFormatPrecision(format);
-            if (decimals > 4096) {
+            if (decimals > 8192) {
                 throw new UnsupportedOperationException("Decimal percent precision is not mapped");
             }
             String grouped = groupedDecimal(this.value.movePointRight(2)
@@ -1098,7 +1098,7 @@ public final class Decimal implements IConvertible {
         if (format.equals("E") || format.equals("e")
                 || format.matches("[Ee][0-9]+")) {
             int decimals = format.length() == 1 ? 6 : parseExplicitFormatPrecision(format);
-            if (decimals > 4096) {
+            if (decimals > 8192) {
                 throw new UnsupportedOperationException("Decimal exponential precision is not mapped");
             }
             int exponent = this.value.signum() == 0 ? 0
@@ -1126,7 +1126,7 @@ public final class Decimal implements IConvertible {
                     ? provider instanceof NumberFormatInfo currencyFormat
                     ? currencyFormat.get_CurrencyDecimalDigits() : 2
                     : parseExplicitFormatPrecision(format);
-            if (decimals > 4096) {
+            if (decimals > 8192) {
                 throw new UnsupportedOperationException("Decimal currency precision is not mapped");
             }
             BigDecimal rounded = this.value.setScale(decimals, RoundingMode.HALF_UP);
