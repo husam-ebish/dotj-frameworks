@@ -5931,6 +5931,23 @@ static object ObservePercentSymbolBoundaries()
             parameter = error.ParamName ?? "none" };
     }
 }
+static object ObservePerMilleSymbolBoundaries()
+{
+    var provider = new System.Globalization.NumberFormatInfo();
+    string initial = provider.PerMilleSymbol;
+    provider.PerMilleSymbol = "";
+    string empty = provider.PerMilleSymbol;
+    try
+    {
+        provider.PerMilleSymbol = null!;
+        return new { initial, empty, error = "none", parameter = "none" };
+    }
+    catch (ArgumentNullException error)
+    {
+        return new { initial, empty, error = error.GetType().FullName ?? "none",
+            parameter = error.ParamName ?? "none" };
+    }
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -11392,6 +11409,7 @@ var result = new
     selectedSignSetterBoundaries = ObserveSignSetterBoundaries(),
     selectedCurrencySymbolBoundaries = ObserveCurrencySymbolBoundaries(),
     selectedPercentSymbolBoundaries = ObservePercentSymbolBoundaries(),
+    selectedPerMilleSymbolBoundaries = ObservePerMilleSymbolBoundaries(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
