@@ -995,7 +995,7 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
-        if (format.matches("[GgRr](?:-1|x)")) {
+        if (format.matches("[GgRr]-1|[A-Za-z]{2,}")) {
             NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
                     ? selected : null;
             String sign = this.value.signum() < 0 ? (numberFormat == null ? "-"

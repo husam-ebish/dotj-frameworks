@@ -3856,6 +3856,30 @@ static object ObserveGeneralFormatInvalidBoundaries()
             bits = decimal.GetBits(decimalValue), text, exception };
     }))).ToArray();
 }
+static object ObserveLetterOnlyCustomFormats()
+{
+    string[] formats = ["abc", "xyz", "Qx", "hello", "GG", "RR", "ee", "FF"];
+    var provider = new System.Globalization.NumberFormatInfo { NegativeSign = "~" };
+    return formats.SelectMany(format => new[] { "Int32", "Decimal" }.SelectMany(target =>
+        new[] { -1, 1 }.Select(sign =>
+    {
+        int intValue = sign * 42;
+        decimal decimalValue = sign * 1.23m;
+        string? text = null;
+        string? exception = null;
+        try
+        {
+            text = target == "Int32" ? intValue.ToString(format, provider)
+                : decimalValue.ToString(format, provider);
+        }
+        catch (Exception error)
+        {
+            exception = error.GetType().Name;
+        }
+        return new { target, format, intValue,
+            bits = decimal.GetBits(decimalValue), text, exception };
+    }))).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9203,6 +9227,7 @@ var result = new
     selectedDecimalGeneralExtrema = ObserveDecimalGeneralExtrema(),
     selectedDecimalGeneralSignedZeroScale = ObserveDecimalGeneralSignedZeroScale(),
     selectedGeneralFormatInvalidBoundaries = ObserveGeneralFormatInvalidBoundaries(),
+    selectedLetterOnlyCustomFormats = ObserveLetterOnlyCustomFormats(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
