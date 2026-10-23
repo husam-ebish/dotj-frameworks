@@ -425,3 +425,5 @@ Selected ungrouped `Int32` and `Decimal` custom formats now support mixed mandat
 Selected ungrouped `Decimal` custom formatting now supports `0.#` and mixed mandatory/optional rounding near zero. Eighteen .NET 10 vectors cover ties, zero and provider separators through a packaged external consumer. Broader ungrouped mixed fractional grammar remains open.
 
 Selected `Int32` and `Decimal` custom percent formatting now distinguishes scaled `0%` and `0.0%` from escaped `0\%`. Eighteen .NET 10 vectors cover signs, zero, rounding and provider decimal separators through a packaged external consumer. Broader custom percent grammar remains open.
+
+Selected custom percent formatting now uses `NumberFormatInfo.PercentSymbol` for scaled percent placeholders while `0\%` keeps a literal percent sign. Eighteen .NET 10 vectors cover `Int32` and `Decimal` with a custom symbol through a packaged external consumer. Broader custom percent grammar remains open.
