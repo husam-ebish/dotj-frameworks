@@ -5965,6 +5965,25 @@ static object ObserveCustomPerMilleFormatting()
             text = value.ToString("0‰", provider) }))
         .ToArray();
 }
+static object ObserveProviderPerMilleSymbolFormatting()
+{
+    string[] symbols = ["pm", ""];
+    return symbols.SelectMany(symbol =>
+        new[] { "Int32", "Decimal" }.SelectMany(target =>
+        new[] { -1, 0, 1 }.Select(sign =>
+    {
+        var provider = new System.Globalization.NumberFormatInfo
+        {
+            NegativeSign = "~", PerMilleSymbol = symbol
+        };
+        int intValue = sign * 1234;
+        decimal decimalValue = sign * 12.3456m;
+        return new { target, format = "0‰", symbol, intValue,
+            bits = decimal.GetBits(decimalValue),
+            text = target == "Int32" ? intValue.ToString("0‰", provider)
+                : decimalValue.ToString("0‰", provider) };
+    }))).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -11428,6 +11447,7 @@ var result = new
     selectedPercentSymbolBoundaries = ObservePercentSymbolBoundaries(),
     selectedPerMilleSymbolBoundaries = ObservePerMilleSymbolBoundaries(),
     selectedCustomPerMilleFormatting = ObserveCustomPerMilleFormatting(),
+    selectedProviderPerMilleSymbolFormatting = ObserveProviderPerMilleSymbolFormatting(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),

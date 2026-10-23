@@ -579,3 +579,5 @@ All three `NumberFormatInfo` decimal-separator setters now have pinned .NET 10 a
 `NumberFormatInfo.PerMilleSymbol` now exposes the .NET 10 default U+2030 symbol, accepts an empty string, and rejects null with `ArgumentNullException` and parameter `value`. The packaged consumer checks each boundary. Per-mille custom formatting remains open.
 
 Selected `Int32` and `Decimal` custom `0‰` formatting now scales by one thousand and uses the provider negative sign and per-mille symbol. Twelve .NET 10 vectors cover signed integers, decimal rounding boundaries, and zero through a packaged consumer. Grouped and fractional per-mille patterns remain open.
+
+Selected `Int32` and `Decimal` custom `0‰` formatting now has twelve .NET 10 vectors for a custom or empty provider `PerMilleSymbol` across both signs and zero. The packaged consumer checks the provider symbol path. Broader per-mille grammar remains open.
