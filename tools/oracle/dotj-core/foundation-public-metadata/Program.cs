@@ -3084,6 +3084,33 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveDecimalGetFormatProvider()
+{
+    var format = new System.Globalization.NumberFormatInfo
+    {
+        NumberGroupSeparator = "_",
+        NumberDecimalSeparator = "@",
+        NegativeSign = "~",
+        PositiveSign = "plus",
+    };
+    var provider = new SelectedDecimalProvider(format);
+    string[] inputs =
+    [
+        "0", "0@00", "1", "~1", "1@25", "~1@25",
+        "1_234@50", "~1_234@50", "plus1_234@50",
+        "0@0000000000000000000000000001",
+        "79228162514264337593543950335",
+        "~79228162514264337593543950335",
+    ];
+    return inputs.Select(text =>
+    {
+        decimal value = decimal.Parse(text,
+            System.Globalization.NumberStyles.Number, provider);
+        return new { text, bits = decimal.GetBits(value),
+            general = value.ToString(provider),
+            number = value.ToString("N2", provider) };
+    }).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns8To11()
 {
     int[][] inputs =
@@ -8436,6 +8463,7 @@ var result = new
     selectedDecimalPercentNegativePatterns0To3 = ObserveDecimalPercentNegativePatterns0To3(),
     selectedDecimalPercentNegativePatterns4To7 = ObserveDecimalPercentNegativePatterns4To7(),
     selectedDecimalPercentNegativePatterns8To11 = ObserveDecimalPercentNegativePatterns8To11(),
+    selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),

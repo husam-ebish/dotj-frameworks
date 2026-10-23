@@ -571,10 +571,20 @@ public final class Decimal implements IConvertible {
         return Parse(text.selectedText(), NumberStyles.Number, provider);
     }
 
+    private static NumberFormatInfo selectedNumberFormatInfo(IFormatProvider provider) {
+        if (provider == null) {
+            return null;
+        }
+        Object supplied = provider.GetFormat(
+                Type.GetType("System.Globalization.NumberFormatInfo"));
+        return supplied instanceof NumberFormatInfo format ? format : null;
+    }
+
     public static Decimal Parse(String text, NumberStyles style, IFormatProvider provider) {
         if (text == null) {
             throw new ArgumentNullException("s");
         }
+        provider = selectedNumberFormatInfo(provider);
         if (provider instanceof NumberFormatInfo format
                 && NumberStyles.AllowCurrencySymbol.equals(style)) {
             String symbol = format.get_CurrencySymbol();
@@ -958,6 +968,7 @@ public final class Decimal implements IConvertible {
     }
 
     public String ToString(IFormatProvider provider) {
+        provider = selectedNumberFormatInfo(provider);
         return applyNumberFormat(this.value.toPlainString(), provider);
     }
 
@@ -972,6 +983,7 @@ public final class Decimal implements IConvertible {
     }
 
     public String ToString(String format, IFormatProvider provider) {
+        provider = selectedNumberFormatInfo(provider);
         if (format == null || format.isEmpty() || format.equals("G") || format.equals("g")) {
             return this.ToString(provider);
         }

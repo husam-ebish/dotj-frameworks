@@ -271,3 +271,5 @@ Selected `Decimal.ToString("P", provider)` now honors percent negative patterns 
 Selected `Decimal.ToString("P", provider)` now also honors percent negative patterns 4 through 7. Twelve .NET 10 vectors pin each pattern across ungrouped, grouped and fractional values; the packaged external consumer checks exact text. Remaining percent negative patterns and other provider implementations remain open.
 
 Selected `Decimal.ToString("P", provider)` now also honors percent negative patterns 8 through 11. Twelve .NET 10 vectors pin each pattern across ungrouped, grouped and fractional values; the packaged external consumer checks exact text. All twelve percent negative patterns are represented in bounded vectors; other provider implementations remain open.
+
+Selected Decimal parsing and formatting now resolve `NumberFormatInfo` through `IFormatProvider.GetFormat`. Twelve .NET 10 vectors pin exact bits and general and number-format text through a non-NumberFormatInfo wrapper provider; a packaged external consumer checks the same wrapper behavior. Broader provider contracts and Decimal semantics remain open.
