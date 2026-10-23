@@ -19,12 +19,12 @@ public final class ProductGeneralFormatInvalidBoundariesConsumer {
             String[] fields = args[index].split(":", -1);
             if (fields.length != 6 && fields.length != 7 && fields.length != 8
                     && fields.length != 9 && fields.length != 10
-                    && fields.length != 11) {
+                    && fields.length != 11 && fields.length != 12) {
                 throw new AssertionError("Malformed general format boundary vector");
             }
             provider.set_NumberDecimalSeparator(fields.length >= 7 ? fields[6] : ".");
             provider.set_NumberGroupSeparator(fields.length >= 8 ? fields[7] : ",");
-            provider.set_NumberNegativePattern(fields.length == 9
+            provider.set_NumberNegativePattern(fields.length == 9 || fields.length == 12
                     ? Integer.parseInt(fields[8]) : 1);
             if (fields.length >= 10) {
                 String[] sizes = fields[9].split(",");
@@ -36,7 +36,9 @@ public final class ProductGeneralFormatInvalidBoundariesConsumer {
             } else {
                 provider.set_NumberGroupSizes(new int[] {3});
             }
-            provider.set_PercentSymbol(fields.length == 11 ? fields[10] : "%");
+            provider.set_PercentSymbol(fields.length >= 11 ? fields[10] : "%");
+            provider.set_PercentNegativePattern(fields.length == 12
+                    ? Integer.parseInt(fields[11]) : 0);
             String actual = null;
             String exception = "none";
             try {
