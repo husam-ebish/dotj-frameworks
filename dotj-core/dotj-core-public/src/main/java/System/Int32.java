@@ -1106,7 +1106,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.matches("#,##0(\\.0{1,6}|\\.#{1,6})?%")) {
+        if (format.matches("#,##0(\\.0{1,6}|\\.#{1,6}|\\.0{1,6}#{1,6})?%")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String digits = BigInteger.valueOf(this.value).abs()
                     .multiply(BigInteger.valueOf(100)).toString();
