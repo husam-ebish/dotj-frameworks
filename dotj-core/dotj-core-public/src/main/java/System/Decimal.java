@@ -1039,10 +1039,17 @@ public final class Decimal implements IConvertible {
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.equals("#,##0%") || format.equals("#,##0.00%")) {
-            int places = format.equals("#,##0%") ? 0 : 2;
+        if (format.matches("#,##0(\\.0{1,6}|\\.#{1,6})?%")) {
+            int dotFormat = format.indexOf('.');
+            int places = dotFormat < 0 ? 0 : format.length() - dotFormat - 2;
+            int mandatory = 0;
+            while (mandatory < places && format.charAt(dotFormat + 1 + mandatory) == '0') mandatory++;
             BigDecimal scaled = this.value.movePointRight(2)
                     .setScale(places, RoundingMode.HALF_UP);
+            if (mandatory < places) {
+                scaled = scaled.stripTrailingZeros();
+                if (scaled.scale() < mandatory) scaled = scaled.setScale(mandatory);
+            }
             NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
                     ? selected : null;
             String plain = scaled.abs().toPlainString();
