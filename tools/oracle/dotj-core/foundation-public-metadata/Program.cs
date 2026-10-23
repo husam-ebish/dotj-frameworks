@@ -3558,6 +3558,25 @@ static object ObserveDecimalExponentialPrecision100()
             text = new decimal(bits).ToString("E" + precision, provider) }))
         .ToArray();
 }
+static object ObserveDecimalPrecisionOverflowErrors()
+{
+    string[] formats = ["F", "N", "P", "C", "E"];
+    string[] precisions = ["2147483648", "999999999999999999999999999999"];
+    return formats.SelectMany(format => precisions.Select(precision =>
+    {
+        string exception;
+        try
+        {
+            _ = 1.23m.ToString(format + precision);
+            exception = "none";
+        }
+        catch (Exception error)
+        {
+            exception = error.GetType().Name;
+        }
+        return new { format, precision, exception };
+    })).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -8895,6 +8914,7 @@ var result = new
     selectedDecimalPercentPrecision100 = ObserveDecimalPercentPrecision100(),
     selectedDecimalCurrencyPrecision100 = ObserveDecimalCurrencyPrecision100(),
     selectedDecimalExponentialPrecision100 = ObserveDecimalExponentialPrecision100(),
+    selectedDecimalPrecisionOverflowErrors = ObserveDecimalPrecisionOverflowErrors(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),

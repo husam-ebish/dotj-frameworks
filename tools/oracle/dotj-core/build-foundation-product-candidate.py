@@ -56,6 +56,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalFixedProviderFormattingConsumer",
     "ProductDecimalFixedPrecision100Consumer",
     "ProductDecimalStandardPrecision100Consumer",
+    "ProductDecimalPrecisionOverflowConsumer",
     "ProductDecimalNumberProviderFormattingConsumer",
     "ProductDecimalPercentProviderFormattingConsumer",
     "ProductDecimalCurrencyProviderFormattingConsumer",
@@ -1012,6 +1013,13 @@ def main():
     assert all(len(entry["bits"]) == 4 and entry["format"] == "E"
                and entry["precision"] in (100, 101) and type(entry["text"]) is str
                for entry in decimal_exponential_precision_100_vectors)
+    decimal_precision_overflow_vectors = metadata["selectedDecimalPrecisionOverflowErrors"]
+    assert len(decimal_precision_overflow_vectors) == 10
+    assert {entry["format"] for entry in decimal_precision_overflow_vectors} == {
+        "F", "N", "P", "C", "E"}
+    assert all(entry["precision"] in ("2147483648", "999999999999999999999999999999")
+               and entry["exception"] == "FormatException"
+               for entry in decimal_precision_overflow_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2351,6 +2359,13 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalStandardPrecision100Consumer",
         *decimal_exponential_precision_100_args).strip()
+    decimal_precision_overflow_args = [
+        ":".join((entry["format"], entry["precision"], entry["exception"]))
+        for entry in decimal_precision_overflow_vectors]
+    decimal_precision_overflow_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalPrecisionOverflowConsumer",
+        *decimal_precision_overflow_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -2671,6 +2686,7 @@ def main():
     assert decimal_percent_precision_100_result == "PASS external Decimal standard precision 100"
     assert decimal_currency_precision_100_result == "PASS external Decimal standard precision 100"
     assert decimal_exponential_precision_100_result == "PASS external Decimal standard precision 100"
+    assert decimal_precision_overflow_result == "PASS external Decimal precision overflow errors"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"

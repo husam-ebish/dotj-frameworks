@@ -982,6 +982,14 @@ public final class Decimal implements IConvertible {
         return text;
     }
 
+    private static int parseExplicitFormatPrecision(String format) {
+        try {
+            return Integer.parseInt(format.substring(1));
+        } catch (NumberFormatException expected) {
+            throw new FormatException("Format precision is invalid");
+        }
+    }
+
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
         if (format == null || format.isEmpty() || format.equals("G") || format.equals("g")) {
@@ -992,7 +1000,7 @@ public final class Decimal implements IConvertible {
             int decimals = format.length() == 1
                     ? provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_NumberDecimalDigits() : 2
-                    : Integer.parseInt(format.substring(1));
+                    : parseExplicitFormatPrecision(format);
             if (decimals > 4096) {
                 throw new UnsupportedOperationException("Decimal fixed precision is not mapped");
             }
@@ -1004,7 +1012,7 @@ public final class Decimal implements IConvertible {
             int decimals = format.length() == 1
                     ? provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_NumberDecimalDigits() : 2
-                    : Integer.parseInt(format.substring(1));
+                    : parseExplicitFormatPrecision(format);
             if (decimals > 4096) {
                 throw new UnsupportedOperationException("Decimal number precision is not mapped");
             }
@@ -1040,7 +1048,7 @@ public final class Decimal implements IConvertible {
             int decimals = format.length() == 1
                     ? provider instanceof NumberFormatInfo percentFormat
                     ? percentFormat.get_PercentDecimalDigits() : 2
-                    : Integer.parseInt(format.substring(1));
+                    : parseExplicitFormatPrecision(format);
             if (decimals > 4096) {
                 throw new UnsupportedOperationException("Decimal percent precision is not mapped");
             }
@@ -1089,7 +1097,7 @@ public final class Decimal implements IConvertible {
         }
         if (format.equals("E") || format.equals("e")
                 || format.matches("[Ee][0-9]+")) {
-            int decimals = format.length() == 1 ? 6 : Integer.parseInt(format.substring(1));
+            int decimals = format.length() == 1 ? 6 : parseExplicitFormatPrecision(format);
             if (decimals > 4096) {
                 throw new UnsupportedOperationException("Decimal exponential precision is not mapped");
             }
@@ -1117,7 +1125,7 @@ public final class Decimal implements IConvertible {
             int decimals = format.length() == 1
                     ? provider instanceof NumberFormatInfo currencyFormat
                     ? currencyFormat.get_CurrencyDecimalDigits() : 2
-                    : Integer.parseInt(format.substring(1));
+                    : parseExplicitFormatPrecision(format);
             if (decimals > 4096) {
                 throw new UnsupportedOperationException("Decimal currency precision is not mapped");
             }
