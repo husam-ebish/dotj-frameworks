@@ -1009,7 +1009,7 @@ public final class Decimal implements IConvertible {
             return prefixed + suffix;
         }
         if (format != null && format.indexOf('\\') >= 0
-                && format.matches("(\\\\[A-Za-z!?()])?#,##0\\.00%(\\\\[A-Za-z!?()])?")) {
+                && format.matches("(\\\\[A-Za-z0-9!?()])?#,##0\\.00%(\\\\[A-Za-z0-9!?()])?")) {
             String core = this.ToString("#,##0.00%", provider);
             int coreStart = format.indexOf("#,##0.00%");
             String prefix = coreStart == 0 ? "" : format.substring(1, 2);
