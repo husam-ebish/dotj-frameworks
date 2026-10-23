@@ -9,7 +9,7 @@ import System.Globalization.NumberFormatInfo;
 public final class ProductGeneralFormatInvalidBoundariesConsumer {
     public static void main(String[] args) {
         if (args.length != 40 && args.length != 32 && args.length != 18
-                && args.length != 24 && args.length != 27) {
+                && args.length != 24 && args.length != 27 && args.length != 12) {
             throw new AssertionError("General format boundary vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();

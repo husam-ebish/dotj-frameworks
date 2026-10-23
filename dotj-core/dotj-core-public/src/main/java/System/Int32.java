@@ -1082,11 +1082,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format.equals("#,##0.00")) {
             return this.ToString("N2", provider);
         }
-        if (format.equals("0.00")) {
-            return this.ToString("F2", provider);
-        }
-        if (format.equals("0.0")) {
-            return this.ToString("F1", provider);
+        if (format.matches("0\\.0{1,32}")) {
+            return this.ToString("F" + (format.length() - 2), provider);
         }
         if ((format.length() == 2 && format.charAt(0) == '\\')
                 || (format.length() >= 2 && ((format.charAt(0) == '\''

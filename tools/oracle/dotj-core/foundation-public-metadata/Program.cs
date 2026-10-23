@@ -4068,6 +4068,20 @@ static object ObserveMandatoryDecimalPrecisionExtremes()
         bits = decimal.GetBits(value), text = value.ToString(format, provider)
     })).ToArray();
 }
+static object ObserveInt32MandatoryDecimalPlaces()
+{
+    string[] formats = ["0.000", "0.0000", "0.000000",
+        "0.0000000000000000000000000000"];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberDecimalSeparator = "@"
+    };
+    return formats.SelectMany(format => new[] { -42, 0, 42 }.Select(value => new
+    {
+        target = "Int32", format, intValue = value,
+        bits = decimal.GetBits(0m), text = value.ToString(format, provider)
+    })).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9430,6 +9444,7 @@ var result = new
         ObserveMandatoryDecimalPlaceCustomFormats(),
     selectedMandatoryDecimalPrecisionExtremes =
         ObserveMandatoryDecimalPrecisionExtremes(),
+    selectedInt32MandatoryDecimalPlaces = ObserveInt32MandatoryDecimalPlaces(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
