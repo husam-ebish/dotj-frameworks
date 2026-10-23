@@ -511,3 +511,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for quoted or escaped affixes with two provider group-size sequences. They cover signs, zero and stop-grouping behavior through a packaged external consumer. Broader affix and grouping combinations remain open.
 
 Selected grouped `Decimal` percent formatting now has eighteen pinned rounding vectors for quoted or escaped affixes around mixed or optional fractional patterns. They cover signed values near rounding boundaries through a packaged external consumer. Broader affixed rounding remains open.
+
+Selected grouped `Decimal` percent formatting now has eighteen pinned vectors for quoted or escaped affixes at both decimal range endpoints and tiny nonzero values. They run through a packaged external consumer. Broader affixed extreme-value formatting remains open.
