@@ -351,3 +351,5 @@ Selected `Decimal.ToString("G"/"g", provider)` now supports explicit significant
 Selected `Decimal.ToString("G"/"g", provider)` now also has midpoint-rounding and fixed/scientific boundary evidence. Forty-two .NET 10 vectors cover seven Decimal bit patterns at three precisions in both cases; a packaged external consumer checks exact text. Broader general-format cases remain open.
 
 Selected `Decimal.ToString("R"/"r", provider)` now accepts both round-trip specifier cases and explicit precision 0 and 1. Thirty .NET 10 vectors cover five Decimal bit patterns across six spellings, including stored trailing zeros and scientific text; a packaged external consumer checks exact text. Broader round-trip format cases remain open.
+
+Selected `Decimal.ToString("G"/"R", provider)` now also has minimum, maximum and scale-28 magnitude evidence. Twenty-four .NET 10 vectors cover four extreme Decimal bit patterns at precisions 0, 1 and 10; a packaged external consumer checks exact text. Broader formatting behavior remains open.
