@@ -1010,7 +1010,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return format.equals("\\Q0") ? sign + "Q" + digits
                     : sign + digits + format.charAt(2);
         }
-        if (format.matches("0%|0\\.0{1,6}%|0\\.#{1,6}%")) {
+        if (format.matches("0%|0\\.0{1,28}%|0\\.#{1,28}%")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String sign = this.value < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign()) : "";
