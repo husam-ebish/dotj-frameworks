@@ -29,6 +29,22 @@ import System.Collections.DictionaryEntry;
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
     public static void main(String[] args) {
+        NumberFormatInfo perMilleProvider = new NumberFormatInfo();
+        if (!"\u2030".equals(perMilleProvider.get_PerMilleSymbol())) {
+            throw new AssertionError("Default PerMilleSymbol changed");
+        }
+        perMilleProvider.set_PerMilleSymbol("");
+        if (!"".equals(perMilleProvider.get_PerMilleSymbol())) {
+            throw new AssertionError("Empty PerMilleSymbol changed");
+        }
+        try {
+            perMilleProvider.set_PerMilleSymbol(null);
+            throw new AssertionError("Null PerMilleSymbol was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null PerMilleSymbol parameter changed");
+            }
+        }
         NumberFormatInfo percentSymbolProvider = new NumberFormatInfo();
         percentSymbolProvider.set_PercentSymbol("");
         if (!"".equals(percentSymbolProvider.get_PercentSymbol())) {

@@ -25,6 +25,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     private int currencyPositivePattern = 0;
     private int currencyNegativePattern = 0;
     private String percentSymbol = "%";
+    private String perMilleSymbol = "\u2030";
     private String percentGroupSeparator = ",";
     private int[] percentGroupSizes = {3};
     private String percentDecimalSeparator = ".";
@@ -179,6 +180,15 @@ public final class NumberFormatInfo implements IFormatProvider {
     public void set_PercentSymbol(String value) {
         if (value == null) throw new ArgumentNullException("value");
         this.percentSymbol = value;
+    }
+
+    public String get_PerMilleSymbol() {
+        return this.perMilleSymbol;
+    }
+
+    public void set_PerMilleSymbol(String value) {
+        if (value == null) throw new ArgumentNullException("value");
+        this.perMilleSymbol = value;
     }
 
     public String get_PercentGroupSeparator() {
