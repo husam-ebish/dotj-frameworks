@@ -1093,7 +1093,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.equals("#,##0")) {
+        if (format.matches("#,##0(\\.0{2,3})?")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String digits = BigInteger.valueOf(this.value).abs().toString();
             String grouped = selectedGroupDigits(digits, numberFormat == null
@@ -1101,18 +1101,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
             String sign = this.value < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign()) : "";
-            return sign + grouped;
-        }
-        if (format.equals("#,##0.00")) {
-            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
-            String digits = BigInteger.valueOf(this.value).abs().toString();
-            String grouped = selectedGroupDigits(digits, numberFormat == null
-                    ? new int[] {3} : numberFormat.get_NumberGroupSizes(),
-                    numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
-            String sign = this.value < 0 ? (numberFormat == null ? "-"
-                    : numberFormat.get_NegativeSign()) : "";
-            return sign + grouped + (numberFormat == null ? "."
-                    : numberFormat.get_NumberDecimalSeparator()) + "00";
+            int dot = format.indexOf('.');
+            return sign + grouped + (dot < 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator())
+                    + "0".repeat(format.length() - dot - 1));
         }
         if (format.matches("0\\.0{1,32}")) {
             return this.ToString("F" + (format.length() - 2), provider);

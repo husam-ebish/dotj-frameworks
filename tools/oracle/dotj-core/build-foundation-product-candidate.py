@@ -1215,6 +1215,13 @@ def main():
                and entry["pattern"] in (0, 1, 2, 3, 4)
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in grouping_negative_pattern_vectors)
+    custom_grouping_sizes_vectors = metadata["selectedCustomGroupingSizes"]
+    assert len(custom_grouping_sizes_vectors) == 18
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ("#,##0", "#,##0.00", "#,##0.000")
+               and entry["groupSizes"] in ([2], [3, 2], [4])
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in custom_grouping_sizes_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2850,6 +2857,16 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *grouping_negative_pattern_args).strip()
+    custom_grouping_sizes_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none", "@", "_", "1",
+                  ",".join(str(size) for size in entry["groupSizes"])))
+        for entry in custom_grouping_sizes_vectors]
+    custom_grouping_sizes_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *custom_grouping_sizes_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -3238,6 +3255,7 @@ def main():
     assert mixed_integer_result == "PASS external general format boundaries"
     assert custom_integer_grouping_result == "PASS external general format boundaries"
     assert grouping_negative_pattern_result == "PASS external general format boundaries"
+    assert custom_grouping_sizes_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"

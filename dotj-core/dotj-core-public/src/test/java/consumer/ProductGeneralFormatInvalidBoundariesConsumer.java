@@ -18,13 +18,23 @@ public final class ProductGeneralFormatInvalidBoundariesConsumer {
         for (int index = 0; index < args.length; index++) {
             String[] fields = args[index].split(":", -1);
             if (fields.length != 6 && fields.length != 7 && fields.length != 8
-                    && fields.length != 9) {
+                    && fields.length != 9 && fields.length != 10) {
                 throw new AssertionError("Malformed general format boundary vector");
             }
             provider.set_NumberDecimalSeparator(fields.length >= 7 ? fields[6] : ".");
             provider.set_NumberGroupSeparator(fields.length >= 8 ? fields[7] : ",");
             provider.set_NumberNegativePattern(fields.length == 9
                     ? Integer.parseInt(fields[8]) : 1);
+            if (fields.length == 10) {
+                String[] sizes = fields[9].split(",");
+                int[] groupSizes = new int[sizes.length];
+                for (int part = 0; part < sizes.length; part++) {
+                    groupSizes[part] = Integer.parseInt(sizes[part]);
+                }
+                provider.set_NumberGroupSizes(groupSizes);
+            } else {
+                provider.set_NumberGroupSizes(new int[] {3});
+            }
             String actual = null;
             String exception = "none";
             try {
