@@ -335,3 +335,5 @@ Selected `Decimal.ToString` standard formats F, N, P, C and E now have precision
 Selected `Decimal.ToString` standard formats F, N, P, C and E now support precision 4097. Five .NET 10 vectors check one negative fractional value across all five formats against a packaged external consumer. The implementation guards remain bounded at 8192; higher precision and broader Decimal semantics remain open.
 
 Selected `Decimal.ToString` formats F, N, P, C and E accept explicit precision 100 with both six-digit and thirty-two-digit leading-zero spellings. Ten .NET 10 vectors check exact text against a packaged external consumer. Other precision syntax and culture behavior remain open.
+
+Selected `Int32.ToString` formats D, N, x, B, C, F, P and E accept explicit precision 100 with both six-digit and thirty-two-digit leading-zero spellings. Sixteen .NET 10 vectors check exact text against a packaged external consumer. Other precision syntax and culture behavior remain open.
