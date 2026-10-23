@@ -995,6 +995,10 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
+        if (format.matches("[Rr][0-9]*")) {
+            return this.ToString((format.charAt(0) == 'R' ? "G" : "g")
+                    + format.substring(1), provider);
+        }
         if (format.matches("[Gg][0-9]*")) {
             int precision = format.length() == 1 ? -1 : parseExplicitFormatPrecision(format);
             if (precision < 0) return this.ToString(provider);
