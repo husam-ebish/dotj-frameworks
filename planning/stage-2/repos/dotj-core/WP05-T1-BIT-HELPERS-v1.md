@@ -277,3 +277,5 @@ Selected Decimal parsing and formatting now resolve `NumberFormatInfo` through `
 The `NumberFormatInfo.CurrencyPositivePattern` projection now exposes patterns 0 through 3, and selected `Decimal.ToString("C", provider)` uses them. Twelve .NET 10 vectors pin each pattern across ungrouped, grouped and fractional values; a packaged external consumer checks exact text. Broader provider contracts and Decimal semantics remain open.
 
 Selected `Int32.ToString("C", provider)` now also honors currency positive patterns 0 through 3. Twelve .NET 10 vectors pin each pattern for small, grouped and maximum values; a packaged external consumer checks exact text. Other currency formatting behavior remains open.
+
+Selected `Int32.ToString("C", provider)` now also honors currency negative patterns 2 through 5. Twelve .NET 10 vectors pin each pattern for small, grouped and minimum values; a packaged external consumer checks exact text. Other currency negative patterns remain open.

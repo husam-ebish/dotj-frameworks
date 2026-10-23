@@ -68,6 +68,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalGetFormatProviderConsumer",
     "ProductDecimalCurrencyPositivePatternsConsumer",
     "ProductInt32CurrencyPositivePatternsConsumer",
+    "ProductInt32CurrencyNegativePatternsConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
@@ -975,6 +976,12 @@ def main():
     assert all(type(entry["value"]) is int and entry["pattern"] in (0, 1, 2, 3)
                and type(entry["text"]) is str
                for entry in int32_currency_positive_pattern_vectors)
+    int32_currency_negative_2to5_vectors = metadata[
+        "selectedInt32CurrencyNegativePatterns2To5"]
+    assert len(int32_currency_negative_2to5_vectors) == 12
+    assert all(type(entry["value"]) is int and entry["pattern"] in (2, 3, 4, 5)
+               and type(entry["text"]) is str
+               for entry in int32_currency_negative_2to5_vectors)
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -2168,6 +2175,13 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductInt32CurrencyPositivePatternsConsumer",
         *int32_currency_positive_pattern_args).strip()
+    int32_currency_negative_2to5_args = [
+        ":".join((str(entry["value"]), str(entry["pattern"]), entry["text"]))
+        for entry in int32_currency_negative_2to5_vectors]
+    int32_currency_negative_2to5_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductInt32CurrencyNegativePatternsConsumer",
+        *int32_currency_negative_2to5_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2325,6 +2339,7 @@ def main():
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
+    assert int32_currency_negative_2to5_result == "PASS external selected Int32 currency negative patterns"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"
