@@ -1168,7 +1168,18 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String symbol = numberFormat == null ? "\u00a4"
                     : numberFormat.get_CurrencySymbol();
             String positive = symbol + grouped + fraction;
-            if (this.value >= 0) return positive;
+            if (this.value >= 0) {
+                int pattern = numberFormat == null ? 0
+                        : numberFormat.get_CurrencyPositivePattern();
+                String amount = grouped + fraction;
+                return switch (pattern) {
+                    case 0 -> positive;
+                    case 1 -> amount + symbol;
+                    case 2 -> symbol + " " + amount;
+                    case 3 -> amount + " " + symbol;
+                    default -> positive;
+                };
+            }
             int pattern = numberFormat == null ? 0 : numberFormat.get_CurrencyNegativePattern();
             if (pattern == 0) return "(" + positive + ")";
             if (pattern == 1) return numberFormat.get_NegativeSign() + positive;
