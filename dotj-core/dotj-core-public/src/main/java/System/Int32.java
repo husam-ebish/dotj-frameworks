@@ -1113,6 +1113,11 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format.matches("0\\.0{1,32}")) {
             return this.ToString("F" + (format.length() - 2), provider);
         }
+        if (format.matches("0\\.0{1,14}#{1,14}")) {
+            int mandatory = 0;
+            while (format.charAt(2 + mandatory) == '0') mandatory++;
+            return this.ToString("F" + mandatory, provider);
+        }
         if ((format.length() == 2 && format.charAt(0) == '\\')
                 || (format.length() >= 2 && ((format.charAt(0) == '\''
                 && format.charAt(format.length() - 1) == '\'')
