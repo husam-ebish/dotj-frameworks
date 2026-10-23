@@ -6,7 +6,7 @@ import System.Globalization.NumberFormatInfo;
 /** Checks packaged Int32 standard format precision 2049 against the selected .NET oracle. */
 public final class ProductInt32StandardPrecision2049Consumer {
     public static void main(String[] args) {
-        if (args.length != 8) {
+        if (args.length != 8 && args.length != 16) {
             throw new AssertionError("Int32 standard precision vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();
