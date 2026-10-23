@@ -539,3 +539,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now supports punctuati
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10 vectors for digit literals in mixed quoted and escaped affixes. They cover both signs and zero through a packaged external consumer. Broader mixed affix grammar remains open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10 vectors for whitespace literals in mixed quoted and escaped affixes. They cover both signs and zero through a packaged external consumer. Broader mixed affix grammar remains open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10 vectors for parentheses literals in mixed quoted and escaped affixes. They cover both signs and zero through a packaged external consumer. Broader mixed affix grammar remains open.
