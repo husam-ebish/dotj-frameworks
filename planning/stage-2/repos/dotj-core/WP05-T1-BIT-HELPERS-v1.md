@@ -319,3 +319,5 @@ Selected `Int32.ToString("E", provider)` now supports precision 1001 and 1024. S
 Selected `Int32.ToString` standard formats D, N, x, B, C, F, P and E now support precision 2049. Eight .NET 10 vectors check one negative value across those formats against a packaged external consumer. The implementation guards remain bounded at 4096; higher precision and broader format semantics remain open.
 
 Selected `Decimal.ToString("F", provider)` now accepts explicit precision 100 and 101. Six .NET 10 vectors check positive, negative and zero values with custom number decimal separator and sign against a packaged external consumer. Explicit precision above 4096 and broader Decimal format semantics remain open.
+
+Selected `Decimal.ToString("N", provider)` now accepts explicit precision 100 and 101. Six .NET 10 vectors check positive, negative and zero values against a packaged external consumer. Explicit precision above 4096 and broader Decimal number semantics remain open.
