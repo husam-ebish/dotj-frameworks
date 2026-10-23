@@ -1039,6 +1039,25 @@ public final class Decimal implements IConvertible {
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
+        if (format.equals("#,##0%") || format.equals("#,##0.00%")) {
+            int places = format.equals("#,##0%") ? 0 : 2;
+            BigDecimal scaled = this.value.movePointRight(2)
+                    .setScale(places, RoundingMode.HALF_UP);
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String plain = scaled.abs().toPlainString();
+            int dot = plain.indexOf('.');
+            String whole = dot < 0 ? plain : plain.substring(0, dot);
+            String grouped = groupDigits(whole, numberFormat == null
+                    ? new int[] {3} : numberFormat.get_NumberGroupSizes(),
+                    numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
+            String sign = scaled.signum() < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String fraction = dot < 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + plain.substring(dot + 1);
+            return sign + grouped + fraction
+                    + (numberFormat == null ? "%" : numberFormat.get_PercentSymbol());
+        }
         if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28}|\\.0{1,14}#{1,14})?")) {
             int dotFormat = format.indexOf('.');
             int places = dotFormat < 0 ? 0 : format.length() - dotFormat - 1;
