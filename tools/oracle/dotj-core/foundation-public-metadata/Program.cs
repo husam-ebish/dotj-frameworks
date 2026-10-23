@@ -3710,6 +3710,38 @@ static object ObserveDecimalStandardPrecision4097()
         bits = decimal.GetBits(value),
         text = value.ToString(format + "4097", provider) }).ToArray();
 }
+static object ObserveDecimalGeneralPrecision()
+{
+    int[][] inputs =
+    [
+        [123, 0, 0, 0x00020000],
+        [12300, 0, 0, 0x00040000],
+        [123, 0, 0, unchecked((int)0x80020000)],
+        [123456789, 0, 0, 0x00040000],
+        [12345, 0, 0, 0x00090000],
+        [0, 0, 0, 0],
+    ];
+    int[] precisions = [-1, 0, 1, 2, 5, 10, 100];
+    string[] formats = ["G", "g"];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberDecimalSeparator = "@", PositiveSign = "plus",
+    };
+    return formats.SelectMany(format => inputs.SelectMany(bits => precisions.Select(precision =>
+    {
+        string? text = null;
+        string? exception = null;
+        try
+        {
+            text = new decimal(bits).ToString(format + (precision < 0 ? "" : precision), provider);
+        }
+        catch (Exception error)
+        {
+            exception = error.GetType().Name;
+        }
+        return new { bits, format, precision, text, exception };
+    }))).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9051,6 +9083,7 @@ var result = new
     selectedDecimalLeadingZeroPrecision = ObserveDecimalLeadingZeroPrecision(),
     selectedDecimalStandardPrecision1024 = ObserveDecimalStandardPrecision1024(),
     selectedDecimalStandardPrecision4097 = ObserveDecimalStandardPrecision4097(),
+    selectedDecimalGeneralPrecision = ObserveDecimalGeneralPrecision(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),

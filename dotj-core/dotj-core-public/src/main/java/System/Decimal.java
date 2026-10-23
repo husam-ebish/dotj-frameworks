@@ -992,8 +992,38 @@ public final class Decimal implements IConvertible {
 
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
-        if (format == null || format.isEmpty() || format.equals("G") || format.equals("g")) {
+        if (format == null || format.isEmpty()) {
             return this.ToString(provider);
+        }
+        if (format.matches("[Gg][0-9]*")) {
+            int precision = format.length() == 1 ? -1 : parseExplicitFormatPrecision(format);
+            if (precision < 0) return this.ToString(provider);
+            if (this.value.signum() == 0) {
+                return "0";
+            }
+            BigDecimal rounded = precision == 0 ? this.value : this.value.round(
+                    new java.math.MathContext(precision, RoundingMode.HALF_UP));
+            rounded = rounded.stripTrailingZeros();
+            int exponent = rounded.precision() - rounded.scale() - 1;
+            if (exponent >= -4 && (precision <= 0 || exponent < precision)) {
+                return applyNumberFormat(rounded.toPlainString(), provider);
+            }
+            String significant = rounded.unscaledValue().abs().toString();
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String decimalSeparator = numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator();
+            String mantissa = significant.substring(0, 1)
+                    + (significant.length() == 1 ? ""
+                    : decimalSeparator + significant.substring(1));
+            String valueSign = rounded.signum() < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String exponentSign = exponent < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : (numberFormat == null ? "+"
+                    : numberFormat.get_PositiveSign());
+            return valueSign + mantissa + (format.charAt(0) == 'g' ? 'e' : 'E')
+                    + exponentSign + String.format(java.util.Locale.ROOT, "%02d",
+                    Math.abs(exponent));
         }
         if (format.equals("F") || format.equals("f")
                 || format.matches("[Ff][0-9]+")) {
