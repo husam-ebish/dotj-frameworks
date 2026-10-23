@@ -553,3 +553,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10
 Selected grouped `Int32` and `Decimal` percent formatting now has twenty .NET 10 vectors for mixed quoted and escaped affixes across provider negative patterns zero through four. They run through a packaged external consumer. Broader mixed affix negative-pattern behavior remains open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10 vectors for mixed quoted and escaped affixes with multi-character provider group and decimal separators. They cover both signs and zero through a packaged external consumer. Broader mixed affix separator behavior remains open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10 vectors for mixed quoted and escaped affixes with an empty provider group separator. They cover both signs and zero through a packaged external consumer. Broader mixed affix separator behavior remains open.
