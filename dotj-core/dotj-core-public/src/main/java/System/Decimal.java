@@ -1000,11 +1000,14 @@ public final class Decimal implements IConvertible {
                     .toPlainString(), provider);
         }
         if (format.equals("N") || format.equals("n")
-                || format.matches("[Nn][0-9]{1,2}")) {
+                || format.matches("[Nn][0-9]+")) {
             int decimals = format.length() == 1
                     ? provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_NumberDecimalDigits() : 2
                     : Integer.parseInt(format.substring(1));
+            if (decimals > 4096) {
+                throw new UnsupportedOperationException("Decimal number precision is not mapped");
+            }
             String grouped = groupedDecimal(this.value.setScale(decimals, RoundingMode.HALF_UP));
             if (provider instanceof NumberFormatInfo numberFormat) {
                 boolean negative = grouped.startsWith("-");
