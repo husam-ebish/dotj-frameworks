@@ -4320,6 +4320,25 @@ static object ObserveGroupedNumericExtrema()
                 : decimalValue.ToString(format, provider) };
     }))).ToArray();
 }
+static object ObserveGroupedDecimalSignedZero()
+{
+    string[] formats = ["0", "#,##0", "#,##0.00", "#,##0.##",
+        "#,##0.############################"];
+    int[][] values = [[0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [0, 0, 0, unchecked((int)0x801c0000)],
+        [0, 0, 0, 0], [0, 0, 0, 0x00020000]];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberGroupSeparator = "_",
+        NumberDecimalSeparator = "@"
+    };
+    return formats.SelectMany(format => values.Select(bits => new
+    {
+        target = "Decimal", format, intValue = 0, bits,
+        text = new decimal(bits).ToString(format, provider)
+    })).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9698,6 +9717,7 @@ var result = new
     selectedGroupedOptionalRoundingBoundaries =
         ObserveGroupedOptionalRoundingBoundaries(),
     selectedGroupedNumericExtrema = ObserveGroupedNumericExtrema(),
+    selectedGroupedDecimalSignedZero = ObserveGroupedDecimalSignedZero(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
