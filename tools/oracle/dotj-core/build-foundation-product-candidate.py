@@ -1481,6 +1481,12 @@ def main():
                                        "#,##0." + "#" * 20 + "%")
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in grouped_percent_high_precision_vectors)
+    grouped_percent_literal_vectors = metadata["selectedGroupedPercentLiteralAffixes"]
+    assert len(grouped_percent_literal_vectors) == 12
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ('"pre"#,##0.00%', '#,##0.00%"post"')
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in grouped_percent_literal_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -3474,6 +3480,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *grouped_percent_high_precision_args).strip()
+    grouped_percent_literal_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none", "@", "_", "1", "2", "pct"))
+        for entry in grouped_percent_literal_vectors]
+    grouped_percent_literal_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *grouped_percent_literal_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -3901,6 +3916,7 @@ def main():
     assert grouped_percent_pattern_result == "PASS external general format boundaries"
     assert grouped_percent_optional_zero_result == "PASS external general format boundaries"
     assert grouped_percent_high_precision_result == "PASS external general format boundaries"
+    assert grouped_percent_literal_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
