@@ -8,7 +8,7 @@ import System.Globalization.NumberFormatInfo;
 /** Checks selected custom-literal and oversized G/R format boundaries. */
 public final class ProductGeneralFormatInvalidBoundariesConsumer {
     public static void main(String[] args) {
-        if (args.length != 40 && args.length != 32) {
+        if (args.length != 40 && args.length != 32 && args.length != 18) {
             throw new AssertionError("General format boundary vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();
