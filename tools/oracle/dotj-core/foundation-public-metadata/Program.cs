@@ -3272,6 +3272,26 @@ static object ObserveInt32GeneralExtrema()
         new { value, format, precision,
             text = value.ToString(format + precision, provider) }))).ToArray();
 }
+static object ObserveInt32RoundtripFormatBoundary()
+{
+    int[] values = [int.MinValue, -42, 0, 42, int.MaxValue];
+    string[] formats = ["R", "r"];
+    var provider = new System.Globalization.NumberFormatInfo { NegativeSign = "~" };
+    return formats.SelectMany(format => values.Select(value =>
+    {
+        string? text = null;
+        string? exception = null;
+        try
+        {
+            text = value.ToString(format, provider);
+        }
+        catch (Exception error)
+        {
+            exception = error.GetType().Name;
+        }
+        return new { value, format, text, exception };
+    })).ToArray();
+}
 static object ObserveNumberNegativePatternBoundaries()
 {
     var provider = new System.Globalization.NumberFormatInfo();
@@ -9031,6 +9051,7 @@ var result = new
     selectedInt32LeadingZeroPrecision = ObserveInt32LeadingZeroPrecision(),
     selectedInt32GeneralPrecision = ObserveInt32GeneralPrecision(),
     selectedInt32GeneralExtrema = ObserveInt32GeneralExtrema(),
+    selectedInt32RoundtripFormatBoundary = ObserveInt32RoundtripFormatBoundary(),
     selectedNumberNegativePatternBoundaries = ObserveNumberNegativePatternBoundaries(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
