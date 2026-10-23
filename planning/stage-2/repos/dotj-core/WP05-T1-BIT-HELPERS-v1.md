@@ -479,3 +479,5 @@ Selected grouped `Decimal` percent formatting now has eighteen pinned vectors at
 Selected grouped `Int32` and `Decimal` percent formatting now supports a quoted alphabetic prefix or suffix around `#,##0.00%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader literal grammar remains open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now supports paired quoted alphabetic prefix and suffix literals around `#,##0.00%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader literal grammar remains open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now supports one escaped alphabetic prefix or suffix character around `#,##0.00%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader escape grammar remains open.
