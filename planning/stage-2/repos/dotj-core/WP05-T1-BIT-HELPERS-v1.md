@@ -589,3 +589,5 @@ Selected `Int32` and `Decimal` per-mille formatting now supports `#,##0‰` and `#
 Selected grouped `Decimal` per-mille formatting now has eighteen .NET 10 vectors for optional and mixed fractional placeholders, signed rounding boundaries, and zero through a packaged consumer. Broader grouped per-mille precision remains open.
 
 Selected grouped `Decimal` per-mille formatting now has eighteen .NET 10 vectors for twenty or thirty required places followed by optional places. They cover tiny signed values and scale twenty-eight through a packaged consumer. Broader grouped per-mille precision remains open.
+
+Selected grouped `Int32` and `Decimal` per-mille formatting now has twelve .NET 10 vectors for two provider group-size sequences, including stop grouping. They cover both signs and zero through a packaged consumer. Broader grouping combinations remain open.
