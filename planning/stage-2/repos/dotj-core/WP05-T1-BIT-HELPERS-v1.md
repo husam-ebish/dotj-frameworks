@@ -341,3 +341,5 @@ Selected `Int32.ToString` formats D, N, x, B, C, F, P and E accept explicit prec
 Selected `Int32.ToString("G"/"g", provider)` now honors explicit significant-digit precision, including scientific notation, rounding, exponent letter case and custom provider signs/separator. One hundred eight .NET 10 vectors cover nine signed, zero and midpoint values at six precisions in both cases; a packaged external consumer checks exact text. Broader general-format cases remain open.
 
 Selected `Int32.ToString("G"/"g", provider)` now also has extrema and power-of-ten rounding evidence. Forty-eight .NET 10 vectors cover six values at four precisions in both cases; a packaged external consumer checks exact text. Broader general-format cases remain open.
+
+Selected `Int32.ToString("R"/"r", provider)` now accepts both round-trip specifier cases. Ten .NET 10 vectors cover minimum, maximum, zero and signed values with a custom negative sign; a packaged external consumer checks exact text. Other format behavior remains open.
