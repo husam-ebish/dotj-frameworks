@@ -501,3 +501,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now supports an escape
 Selected grouped `Int32` and `Decimal` percent formatting now supports quoted affixes around `#,##0.0#%` and `#,##0.###%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader affixed custom percent grammar remains open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now supports escaped affixes around `#,##0.0#%` and `#,##0.###%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader affixed custom percent grammar remains open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now supports quoted or escaped affixes around no-fraction `#,##0%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader affixed custom percent grammar remains open.
