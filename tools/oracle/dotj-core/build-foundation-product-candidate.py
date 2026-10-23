@@ -65,6 +65,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalCurrencyNegativePatternsConsumer",
     "ProductDecimalPercentPositivePatternsConsumer",
     "ProductDecimalPercentNegativePatternsConsumer",
+    "ProductDecimalGetFormatProviderConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
@@ -958,6 +959,11 @@ def main():
     assert all(len(entry["bits"]) == 4 and entry["pattern"] in (8, 9, 10, 11)
                and type(entry["text"]) is str
                for entry in percent_negative_pattern_8to11_vectors)
+    get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
+    assert len(get_format_provider_vectors) == 12
+    assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
+               and type(entry["general"]) is str and type(entry["number"]) is str
+               for entry in get_format_provider_vectors)
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -2126,6 +2132,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalPercentNegativePatternsConsumer",
         *percent_negative_pattern_8to11_args).strip()
+    get_format_provider_args = [
+        ":".join((
+            entry["text"], ",".join(str(word) for word in entry["bits"]),
+            entry["general"], entry["number"],
+        )) for entry in get_format_provider_vectors]
+    get_format_provider_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalGetFormatProviderConsumer",
+        *get_format_provider_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2280,6 +2295,7 @@ def main():
     assert percent_negative_pattern_0to3_result == "PASS external selected Decimal percent negative patterns"
     assert percent_negative_pattern_4to7_result == "PASS external selected Decimal percent negative patterns"
     assert percent_negative_pattern_8to11_result == "PASS external selected Decimal percent negative patterns"
+    assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"
