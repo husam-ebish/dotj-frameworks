@@ -1920,6 +1920,13 @@ def main():
                and entry["format"] in ("\\p#,##0.00\u2030", "#,##0.00\u2030\\s")
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in grouped_permille_escaped_vectors)
+    grouped_permille_paired_escaped_vectors = metadata[
+        "selectedGroupedPerMillePairedEscapedAffixes"]
+    assert len(grouped_permille_paired_escaped_vectors) == 12
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ("\\p#,##0.00\u2030\\s", "\\L#,##0.##\u2030\\R")
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in grouped_permille_paired_escaped_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -4438,6 +4445,16 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *grouped_permille_escaped_args).strip()
+    grouped_permille_paired_escaped_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none", "@", "_", "1", "2", "%", "0",
+                  "~", "pm"))
+        for entry in grouped_permille_paired_escaped_vectors]
+    grouped_permille_paired_escaped_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *grouped_permille_paired_escaped_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -4921,6 +4938,7 @@ def main():
     assert grouped_permille_quoted_result == "PASS external general format boundaries"
     assert grouped_permille_paired_result == "PASS external general format boundaries"
     assert grouped_permille_escaped_result == "PASS external general format boundaries"
+    assert grouped_permille_paired_escaped_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
