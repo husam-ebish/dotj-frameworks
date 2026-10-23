@@ -413,3 +413,5 @@ Selected grouped `Decimal` optional-fraction formatting now covers two and twent
 Selected grouped `Int32` and `Decimal` custom formatting now covers `#,##0.0` and a twenty-eight-place optional pattern at numeric extrema. Twelve .NET 10 vectors cover minima, maxima and zero with provider separators through a packaged external consumer. Broader grouped custom grammar remains open.
 
 Selected `Decimal` custom and grouped formatting now handles stored negative zero at scales zero, two and twenty-eight like positive zero. Twenty-five .NET 10 vectors cover `0` and four grouped patterns through a packaged external consumer. Broader signed-zero custom grammar remains open.
+
+Selected grouped `Int32` and `Decimal` custom formats now support mixed mandatory and optional fractional placeholders in `#,##0.0#` and `#,##0.00##`. Twelve .NET 10 vectors cover signs, zero and trailing-zero preservation through a packaged external consumer. Broader mixed fractional grammar remains open.

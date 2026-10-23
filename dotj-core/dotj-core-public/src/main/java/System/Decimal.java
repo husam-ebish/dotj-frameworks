@@ -1024,12 +1024,16 @@ public final class Decimal implements IConvertible {
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28})?")) {
+        if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28}|\\.0{1,2}#{1,2})?")) {
             int dotFormat = format.indexOf('.');
             int places = dotFormat < 0 ? 0 : format.length() - dotFormat - 1;
+            int mandatory = 0;
+            while (dotFormat >= 0 && dotFormat + 1 + mandatory < format.length()
+                    && format.charAt(dotFormat + 1 + mandatory) == '0') mandatory++;
             BigDecimal rounded = this.value.setScale(places, RoundingMode.HALF_UP);
-            if (dotFormat >= 0 && format.charAt(dotFormat + 1) == '#') {
+            if (mandatory < places) {
                 rounded = rounded.stripTrailingZeros();
+                if (rounded.scale() < mandatory) rounded = rounded.setScale(mandatory);
             }
             NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
                     ? selected : null;

@@ -1093,7 +1093,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28})?")) {
+        if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28}|\\.0{1,2}#{1,2})?")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String digits = BigInteger.valueOf(this.value).abs().toString();
             String grouped = selectedGroupDigits(digits, numberFormat == null
@@ -1102,10 +1102,13 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             String sign = this.value < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign()) : "";
             int dot = format.indexOf('.');
-            return sign + grouped + (dot < 0 || format.charAt(dot + 1) == '#'
-                    ? "" : (numberFormat == null ? "."
+            int mandatory = 0;
+            while (dot >= 0 && dot + 1 + mandatory < format.length()
+                    && format.charAt(dot + 1 + mandatory) == '0') mandatory++;
+            return sign + grouped + (mandatory == 0 ? ""
+                    : (numberFormat == null ? "."
                     : numberFormat.get_NumberDecimalSeparator())
-                    + "0".repeat(format.length() - dot - 1));
+                    + "0".repeat(mandatory));
         }
         if (format.matches("0\\.0{1,32}")) {
             return this.ToString("F" + (format.length() - 2), provider);
