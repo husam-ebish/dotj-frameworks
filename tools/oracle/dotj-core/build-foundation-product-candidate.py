@@ -85,6 +85,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductInt32PercentHighPrecisionConsumer",
     "ProductInt32ExponentialHighPrecisionConsumer",
     "ProductInt32StandardPrecision2049Consumer",
+    "ProductInt32GeneralPrecisionConsumer",
     "ProductNumberNegativePatternBoundariesConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
@@ -1150,6 +1151,12 @@ def main():
                and entry["precision"] in ("000100", "00000000000000000000000000000100")
                and type(entry["text"]) is str and entry["exception"] is None
                for entry in int32_leading_zero_precision_vectors)
+    int32_general_precision_vectors = metadata["selectedInt32GeneralPrecision"]
+    assert len(int32_general_precision_vectors) == 108
+    assert all(entry["format"] in ("G", "g")
+               and entry["precision"] in (0, 1, 2, 5, 10, 100)
+               and type(entry["text"]) is str
+               for entry in int32_general_precision_vectors)
     number_negative_boundaries = metadata["selectedNumberNegativePatternBoundaries"]
     assert number_negative_boundaries["initial"] == 1
     assert number_negative_boundaries["accepted"] == list(range(5))
@@ -2578,6 +2585,14 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductInt32StandardPrecision2049Consumer",
         *int32_leading_zero_precision_args).strip()
+    int32_general_precision_args = [
+        ":".join((str(entry["value"]), entry["format"],
+                  str(entry["precision"]), entry["text"]))
+        for entry in int32_general_precision_vectors]
+    int32_general_precision_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductInt32GeneralPrecisionConsumer",
+        *int32_general_precision_args).strip()
     number_negative_boundaries_args = [
         str(number_negative_boundaries["initial"]),
         ",".join(str(value) for value in number_negative_boundaries["accepted"]),
@@ -2775,6 +2790,7 @@ def main():
     assert int32_exponential_high_precision_result == "PASS external Int32 exponential high precision"
     assert int32_standard_precision_2049_result == "PASS external Int32 standard precision 2049"
     assert int32_leading_zero_precision_result == "PASS external Int32 standard precision 2049"
+    assert int32_general_precision_result == "PASS external Int32 general precision"
     assert number_negative_boundaries_result == "PASS external NumberNegativePattern boundaries"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"

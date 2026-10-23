@@ -1075,7 +1075,34 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return this.ToString("F2", provider);
         }
         if (format.matches("[gG][0-9]*")) {
-            return this.ToString("D", provider);
+            int precision;
+            try {
+                precision = format.length() == 1 ? 0 : Integer.parseInt(format.substring(1));
+            } catch (NumberFormatException expected) {
+                throw new FormatException("Format precision is invalid");
+            }
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            if (precision == 0 || precision >= digits.length()) {
+                return this.ToString("D", provider);
+            }
+            if (precision > 4096) {
+                throw new UnsupportedOperationException("Int32 general precision is not mapped");
+            }
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            java.math.BigDecimal rounded = new java.math.BigDecimal(digits).round(
+                    new java.math.MathContext(precision, java.math.RoundingMode.HALF_UP))
+                    .stripTrailingZeros();
+            int exponent = rounded.precision() - rounded.scale() - 1;
+            String significant = rounded.unscaledValue().abs().toString();
+            String mantissa = significant.substring(0, 1)
+                    + (significant.length() == 1 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + significant.substring(1));
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String exponentSign = numberFormat == null ? "+"
+                    : numberFormat.get_PositiveSign();
+            return sign + mantissa + (format.charAt(0) == 'g' ? 'e' : 'E')
+                    + exponentSign + String.format(java.util.Locale.ROOT, "%02d", exponent);
         }
         if (format.equals("R")) {
             return this.ToString("D", provider);
