@@ -995,6 +995,18 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
+        if (format.equals("0;(0);'zero'") || format.equals("0;[0];'none'")
+                || format.equals("0;'minus '0;'zero'")) {
+            if (this.value.signum() == 0) {
+                return format.equals("0;[0];'none'") ? "none" : "zero";
+            }
+            String digits = this.value.abs().setScale(0, RoundingMode.HALF_UP)
+                    .toPlainString();
+            if (this.value.signum() > 0) return digits;
+            if (format.equals("0;(0);'zero'")) return "(" + digits + ")";
+            return format.equals("0;[0];'none'") ? "[" + digits + "]"
+                    : "minus " + digits;
+        }
         if (format.equals("0\\Q") || format.equals("0\\%")
                 || format.equals("0\\G") || format.equals("\\Q0")) {
             BigDecimal rounded = this.value.setScale(0, RoundingMode.HALF_UP);

@@ -1107,6 +1107,13 @@ def main():
                and entry["format"] in ("0\\Q", "0\\%", "0\\G", "\\Q0")
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in escaped_numeric_custom_vectors)
+    numeric_custom_sections_vectors = metadata["selectedNumericCustomSections"]
+    assert len(numeric_custom_sections_vectors) == 18
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ("0;(0);'zero'", "0;[0];'none'",
+                                       "0;'minus '0;'zero'")
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in numeric_custom_sections_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2598,6 +2605,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *escaped_numeric_custom_args).strip()
+    numeric_custom_sections_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none"))
+        for entry in numeric_custom_sections_vectors]
+    numeric_custom_sections_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *numeric_custom_sections_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -2970,6 +2986,7 @@ def main():
     assert escaped_custom_literal_result == "PASS external general format boundaries"
     assert quoted_numeric_custom_result == "PASS external general format boundaries"
     assert escaped_numeric_custom_result == "PASS external general format boundaries"
+    assert numeric_custom_sections_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
