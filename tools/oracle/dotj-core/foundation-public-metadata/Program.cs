@@ -3935,6 +3935,22 @@ static object ObserveEscapedNumericCustomFormats()
                 : decimalValue.ToString(format, provider) };
     }))).ToArray();
 }
+static object ObserveSelectedNumericCustomSections()
+{
+    string[] formats = ["0;(0);'zero'", "0;[0];'none'",
+        "0;'minus '0;'zero'"];
+    var provider = new System.Globalization.NumberFormatInfo { NegativeSign = "~" };
+    return formats.SelectMany(format => new[] { "Int32", "Decimal" }.SelectMany(target =>
+        new[] { -1, 0, 1 }.Select(sign =>
+    {
+        int intValue = sign * 42;
+        decimal decimalValue = sign * 1.23m;
+        return new { target, format, intValue,
+            bits = decimal.GetBits(decimalValue),
+            text = target == "Int32" ? intValue.ToString(format, provider)
+                : decimalValue.ToString(format, provider) };
+    }))).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9286,6 +9302,7 @@ var result = new
     selectedEscapedCustomLiterals = ObserveEscapedCustomLiterals(),
     selectedQuotedNumericCustomFormats = ObserveQuotedNumericCustomFormats(),
     selectedEscapedNumericCustomFormats = ObserveEscapedNumericCustomFormats(),
+    selectedNumericCustomSections = ObserveSelectedNumericCustomSections(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),

@@ -952,7 +952,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         if (format.equals("D-1") || format.equals("X-1")) {
             return format;
         }
-        if (format.equals("0;(0);zero")) {
+        if (format.equals("0;(0);zero") || format.equals("0;(0);'zero'")) {
             if (this.value == 0) {
                 return "zero";
             }
