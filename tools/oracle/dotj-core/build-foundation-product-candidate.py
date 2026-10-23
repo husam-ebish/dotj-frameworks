@@ -1005,6 +1005,10 @@ def main():
     assert len(int32_percent_negative_2to5_vectors) == 12
     assert all(type(entry["value"]) is int and entry["pattern"] in (2, 3, 4, 5)
                and type(entry["text"]) is str for entry in int32_percent_negative_2to5_vectors)
+    int32_percent_negative_6to9_vectors = metadata["selectedInt32PercentNegativePatterns6To9"]
+    assert len(int32_percent_negative_6to9_vectors) == 12
+    assert all(type(entry["value"]) is int and entry["pattern"] in (6, 7, 8, 9)
+               and type(entry["text"]) is str for entry in int32_percent_negative_6to9_vectors)
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -2233,6 +2237,13 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductInt32PercentNegativePatternsConsumer",
         *int32_percent_negative_2to5_args).strip()
+    int32_percent_negative_6to9_args = [
+        ":".join((str(entry["value"]), str(entry["pattern"]), entry["text"]))
+        for entry in int32_percent_negative_6to9_vectors]
+    int32_percent_negative_6to9_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductInt32PercentNegativePatternsConsumer",
+        *int32_percent_negative_6to9_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2395,6 +2406,7 @@ def main():
     assert int32_currency_negative_10to16_result == "PASS external selected Int32 currency negative patterns"
     assert int32_percent_positive_pattern_result == "PASS external selected Int32 percent positive patterns"
     assert int32_percent_negative_2to5_result == "PASS external selected Int32 percent negative patterns"
+    assert int32_percent_negative_6to9_result == "PASS external selected Int32 percent negative patterns"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"
