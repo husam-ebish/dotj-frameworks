@@ -29,6 +29,31 @@ import System.Collections.DictionaryEntry;
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
     public static void main(String[] args) {
+        NumberFormatInfo decimalProvider = new NumberFormatInfo();
+        try {
+            decimalProvider.set_NumberDecimalSeparator(null);
+            throw new AssertionError("Null NumberDecimalSeparator was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null NumberDecimalSeparator parameter changed");
+            }
+        }
+        try {
+            decimalProvider.set_CurrencyDecimalSeparator(null);
+            throw new AssertionError("Null CurrencyDecimalSeparator was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null CurrencyDecimalSeparator parameter changed");
+            }
+        }
+        try {
+            decimalProvider.set_PercentDecimalSeparator(null);
+            throw new AssertionError("Null PercentDecimalSeparator was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null PercentDecimalSeparator parameter changed");
+            }
+        }
         NumberFormatInfo groupProvider = new NumberFormatInfo();
         groupProvider.set_NumberGroupSeparator("");
         if (!"".equals(groupProvider.get_NumberGroupSeparator())) {
