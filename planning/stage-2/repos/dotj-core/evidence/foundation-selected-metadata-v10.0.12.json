@@ -41009,6 +41009,58 @@
       "text": "0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000E+000"
     }
   ],
+  "selectedDecimalPrecisionOverflowErrors": [
+    {
+      "format": "F",
+      "precision": "2147483648",
+      "exception": "FormatException"
+    },
+    {
+      "format": "F",
+      "precision": "999999999999999999999999999999",
+      "exception": "FormatException"
+    },
+    {
+      "format": "N",
+      "precision": "2147483648",
+      "exception": "FormatException"
+    },
+    {
+      "format": "N",
+      "precision": "999999999999999999999999999999",
+      "exception": "FormatException"
+    },
+    {
+      "format": "P",
+      "precision": "2147483648",
+      "exception": "FormatException"
+    },
+    {
+      "format": "P",
+      "precision": "999999999999999999999999999999",
+      "exception": "FormatException"
+    },
+    {
+      "format": "C",
+      "precision": "2147483648",
+      "exception": "FormatException"
+    },
+    {
+      "format": "C",
+      "precision": "999999999999999999999999999999",
+      "exception": "FormatException"
+    },
+    {
+      "format": "E",
+      "precision": "2147483648",
+      "exception": "FormatException"
+    },
+    {
+      "format": "E",
+      "precision": "999999999999999999999999999999",
+      "exception": "FormatException"
+    }
+  ],
   "selectedDecimalGetFormatProvider": [
     {
       "text": "0",
@@ -48143,6 +48195,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "10a9b953744c7ff3047afd77ffaca0433252bee98c5db31011d062937916852c",
+  "oracleProgramSha256": "317386ce56d797ea8ea0f9b58eed6cca8833b0fd2ed00427fe342e9a64bdb1ba",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
