@@ -992,6 +992,24 @@ public final class Decimal implements IConvertible {
 
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
+        if (format != null && format.indexOf('"') >= 0
+                && format.matches("(\"[^\";:]{1,20}\")?#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?\u2030(\"[^\";:]{1,20}\")?")) {
+            int coreStart = format.indexOf("#,##0");
+            String coreFormat = format.substring(coreStart, format.indexOf('\u2030', coreStart) + 1);
+            String core = this.ToString(coreFormat, provider);
+            String quotedPrefix = format.substring(0, coreStart);
+            String quotedSuffix = format.substring(coreStart + coreFormat.length());
+            String prefix = quotedPrefix.isEmpty() ? ""
+                    : quotedPrefix.substring(1, quotedPrefix.length() - 1);
+            String suffix = quotedSuffix.isEmpty() ? ""
+                    : quotedSuffix.substring(1, quotedSuffix.length() - 1);
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String sign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+            String prefixed = !sign.isEmpty() && core.startsWith(sign)
+                    ? sign + prefix + core.substring(sign.length()) : prefix + core;
+            return prefixed + suffix;
+        }
         if (format != null && format.matches("0(\\.0{1,28}|\\.#{1,28})?\u2030")) {
             NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
                     ? selected : null;
