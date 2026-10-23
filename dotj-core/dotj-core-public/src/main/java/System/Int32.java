@@ -1078,7 +1078,13 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return Integer.toString(this.value) + "\u2030";
         }
         if (format.equals("0\u2030")) {
-            return BigInteger.valueOf(this.value).multiply(BigInteger.valueOf(1000)) + "\u2030";
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String digits = BigInteger.valueOf(this.value).abs()
+                    .multiply(BigInteger.valueOf(1000)).toString();
+            return sign + digits + (numberFormat == null ? "\u2030"
+                    : numberFormat.get_PerMilleSymbol());
         }
         if (format.equals("0,") || format.equals("0,,") || format.equals("#,##0,")) {
             long divisor = format.equals("0,,") ? 1_000_000L : 1_000L;
