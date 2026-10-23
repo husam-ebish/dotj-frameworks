@@ -339,3 +339,5 @@ Selected `Decimal.ToString` formats F, N, P, C and E accept explicit precision 1
 Selected `Int32.ToString` formats D, N, x, B, C, F, P and E accept explicit precision 100 with both six-digit and thirty-two-digit leading-zero spellings. Sixteen .NET 10 vectors check exact text against a packaged external consumer. Other precision syntax and culture behavior remain open.
 
 Selected `Int32.ToString("G"/"g", provider)` now honors explicit significant-digit precision, including scientific notation, rounding, exponent letter case and custom provider signs/separator. One hundred eight .NET 10 vectors cover nine signed, zero and midpoint values at six precisions in both cases; a packaged external consumer checks exact text. Broader general-format cases remain open.
+
+Selected `Int32.ToString("G"/"g", provider)` now also has extrema and power-of-ten rounding evidence. Forty-eight .NET 10 vectors cover six values at four precisions in both cases; a packaged external consumer checks exact text. Broader general-format cases remain open.
