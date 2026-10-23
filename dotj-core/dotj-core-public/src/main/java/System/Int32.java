@@ -1163,6 +1163,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
+        if (format.matches("#,##0(\\.0{1,30}|\\.#{1,30}|\\.0{1,30}#{1,30})?\u2030")) {
+            return new Decimal(this.value).ToString(format, provider);
+        }
         if (format.matches("#,##0(\\.0{1,30}|\\.#{1,30}|\\.0{1,30}#{1,30})?%")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String digits = BigInteger.valueOf(this.value).abs()
