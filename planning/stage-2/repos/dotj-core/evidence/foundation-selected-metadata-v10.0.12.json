@@ -40932,6 +40932,68 @@
       "text": "pct 214_748_364_700@00"
     }
   ],
+  "selectedInt32PercentNegativePatterns2To5": [
+    {
+      "value": -42,
+      "pattern": 2,
+      "text": "~pct4_200@00"
+    },
+    {
+      "value": -12345,
+      "pattern": 2,
+      "text": "~pct1_234_500@00"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 2,
+      "text": "~pct214_748_364_800@00"
+    },
+    {
+      "value": -42,
+      "pattern": 3,
+      "text": "pct~4_200@00"
+    },
+    {
+      "value": -12345,
+      "pattern": 3,
+      "text": "pct~1_234_500@00"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 3,
+      "text": "pct~214_748_364_800@00"
+    },
+    {
+      "value": -42,
+      "pattern": 4,
+      "text": "pct4_200@00~"
+    },
+    {
+      "value": -12345,
+      "pattern": 4,
+      "text": "pct1_234_500@00~"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 4,
+      "text": "pct214_748_364_800@00~"
+    },
+    {
+      "value": -42,
+      "pattern": 5,
+      "text": "4_200@00~pct"
+    },
+    {
+      "value": -12345,
+      "pattern": 5,
+      "text": "1_234_500@00~pct"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 5,
+      "text": "214_748_364_800@00~pct"
+    }
+  ],
   "selectedDecimalFormatStrings": [
     {
       "bits": [
@@ -46800,6 +46862,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "f43b5200e624b1a00370c18071ecf787560ff66547b5a974489a9c2b9f717b3d",
+  "oracleProgramSha256": "288afa92662d1befdf3436b586f3dd064d77ef349d485b6be46f94bd35fcc2ac",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }
