@@ -1093,7 +1093,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.matches("#,##0(\\.0{2,28}|\\.#{1,28})?")) {
+        if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28})?")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String digits = BigInteger.valueOf(this.value).abs().toString();
             String grouped = selectedGroupDigits(digits, numberFormat == null
