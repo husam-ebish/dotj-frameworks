@@ -1078,6 +1078,13 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     : numberFormat.get_NegativeSign()) : "";
             return sign + "0".repeat(Math.max(0, format.length() - digits.length())) + digits;
         }
+        if (format.matches("#+")) {
+            if (this.value == 0) return "";
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + BigInteger.valueOf(this.value).abs();
+        }
         if (format.equals("#,##0")) {
             return this.ToString("N0", provider);
         }

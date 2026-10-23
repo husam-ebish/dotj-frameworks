@@ -1189,6 +1189,12 @@ def main():
                and entry["format"] in ("00", "000", "00000")
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in decimal_zero_padding_vectors)
+    optional_integer_vectors = metadata["selectedOptionalIntegerPlaceholders"]
+    assert len(optional_integer_vectors) == 18
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ("#", "##", "###")
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in optional_integer_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2788,6 +2794,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *decimal_zero_padding_args).strip()
+    optional_integer_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none"))
+        for entry in optional_integer_vectors]
+    optional_integer_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *optional_integer_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -3172,6 +3187,7 @@ def main():
     assert int32_optional_decimal_result == "PASS external general format boundaries"
     assert int32_zero_padding_result == "PASS external general format boundaries"
     assert decimal_zero_padding_result == "PASS external general format boundaries"
+    assert optional_integer_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
