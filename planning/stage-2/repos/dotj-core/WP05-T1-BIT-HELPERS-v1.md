@@ -421,3 +421,5 @@ Selected grouped `Decimal` mixed-fraction formatting now supports three and four
 Selected grouped `Decimal` mixed-fraction formatting now supports ten required plus ten optional places and fourteen required plus fourteen optional places. Eighteen .NET 10 vectors cover scale twenty-eight values, tiny signed values and zero through a packaged external consumer. Broader mixed fractional grammar remains open.
 
 Selected ungrouped `Int32` and `Decimal` custom formats now support mixed mandatory and optional fractional placeholders in `0.0#`, `0.00##` and `0.000###`. Eighteen .NET 10 vectors cover signs, zero and trailing-zero preservation through a packaged external consumer. Broader mixed fractional grammar remains open.
+
+Selected ungrouped `Decimal` custom formatting now supports `0.#` and mixed mandatory/optional rounding near zero. Eighteen .NET 10 vectors cover ties, zero and provider separators through a packaged external consumer. Broader ungrouped mixed fractional grammar remains open.
