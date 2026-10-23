@@ -3528,6 +3528,21 @@ static object ObserveDecimalPercentPrecision100()
             text = new decimal(bits).ToString("P" + precision, provider) }))
         .ToArray();
 }
+static object ObserveDecimalCurrencyPrecision100()
+{
+    int[][] inputs =
+    [
+        [123, 0, 0, 0x00020000],
+        [123, 0, 0, unchecked((int)0x80020000)],
+        [0, 0, 0, 0],
+    ];
+    int[] precisions = [100, 101];
+    var provider = new System.Globalization.NumberFormatInfo();
+    return inputs.SelectMany(bits => precisions.Select(precision =>
+        new { bits, format = "C", precision,
+            text = new decimal(bits).ToString("C" + precision, provider) }))
+        .ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -8863,6 +8878,7 @@ var result = new
     selectedDecimalFixedPrecision100 = ObserveDecimalFixedPrecision100(),
     selectedDecimalNumberPrecision100 = ObserveDecimalNumberPrecision100(),
     selectedDecimalPercentPrecision100 = ObserveDecimalPercentPrecision100(),
+    selectedDecimalCurrencyPrecision100 = ObserveDecimalCurrencyPrecision100(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
