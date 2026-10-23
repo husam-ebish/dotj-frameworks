@@ -5113,6 +5113,26 @@ static object ObserveGroupedPercentEscapedPunctuation()
                 : decimalValue.ToString(format, provider) };
     }))).ToArray();
 }
+static object ObserveGroupedPercentEscapedDigits()
+{
+    string[] formats = ["\\1#,##0.00%\\2", "\\0#,##0.00%\\9"];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberGroupSeparator = "_",
+        NumberDecimalSeparator = "@", NumberGroupSizes = [2],
+        PercentSymbol = "pct"
+    };
+    return formats.SelectMany(format => new[] { "Int32", "Decimal" }.SelectMany(target =>
+        new[] { -1, 0, 1 }.Select(sign =>
+    {
+        int intValue = sign * 1234567;
+        decimal decimalValue = sign * 12345.6789m;
+        return new { target, format, intValue,
+            bits = decimal.GetBits(decimalValue),
+            text = target == "Int32" ? intValue.ToString(format, provider)
+                : decimalValue.ToString(format, provider) };
+    }))).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -10533,6 +10553,7 @@ var result = new
     selectedGroupedPercentQuotedWhitespace = ObserveGroupedPercentQuotedWhitespace(),
     selectedGroupedPercentQuotedDigits = ObserveGroupedPercentQuotedDigits(),
     selectedGroupedPercentEscapedPunctuation = ObserveGroupedPercentEscapedPunctuation(),
+    selectedGroupedPercentEscapedDigits = ObserveGroupedPercentEscapedDigits(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
