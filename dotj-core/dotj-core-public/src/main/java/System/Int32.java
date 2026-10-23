@@ -1085,6 +1085,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     : numberFormat.get_NegativeSign()) : "";
             return sign + BigInteger.valueOf(this.value).abs();
         }
+        if (format.matches("#+0|0#+")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            int width = format.charAt(0) == '0' ? format.length() : 1;
+            return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
+        }
         if (format.equals("#,##0")) {
             return this.ToString("N0", provider);
         }
