@@ -1110,11 +1110,14 @@ public final class Decimal implements IConvertible {
                     + (exponent < 0 ? "-" : "+") + exponentDigits;
         }
         if (format.equals("C") || format.equals("c")
-                || format.matches("[Cc][0-9]{1,2}")) {
+                || format.matches("[Cc][0-9]+")) {
             int decimals = format.length() == 1
                     ? provider instanceof NumberFormatInfo currencyFormat
                     ? currencyFormat.get_CurrencyDecimalDigits() : 2
                     : Integer.parseInt(format.substring(1));
+            if (decimals > 4096) {
+                throw new UnsupportedOperationException("Decimal currency precision is not mapped");
+            }
             BigDecimal rounded = this.value.setScale(decimals, RoundingMode.HALF_UP);
             if (provider instanceof NumberFormatInfo currencyFormat) {
                 String plain = rounded.abs().toPlainString();

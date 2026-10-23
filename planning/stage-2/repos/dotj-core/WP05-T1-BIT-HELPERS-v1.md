@@ -323,3 +323,5 @@ Selected `Decimal.ToString("F", provider)` now accepts explicit precision 100 an
 Selected `Decimal.ToString("N", provider)` now accepts explicit precision 100 and 101. Six .NET 10 vectors check positive, negative and zero values against a packaged external consumer. Explicit precision above 4096 and broader Decimal number semantics remain open.
 
 Selected `Decimal.ToString("P", provider)` now accepts explicit precision 100 and 101. Six .NET 10 vectors check positive, negative and zero values against a packaged external consumer. Explicit precision above 4096 and broader Decimal percent semantics remain open.
+
+Selected `Decimal.ToString("C", provider)` now accepts explicit precision 100 and 101. Six .NET 10 vectors check positive, negative and zero values against a packaged external consumer. Explicit precision above 4096 and broader Decimal currency semantics remain open.

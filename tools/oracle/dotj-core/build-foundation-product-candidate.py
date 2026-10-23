@@ -1002,6 +1002,11 @@ def main():
     assert all(len(entry["bits"]) == 4 and entry["format"] == "P"
                and entry["precision"] in (100, 101) and type(entry["text"]) is str
                for entry in decimal_percent_precision_100_vectors)
+    decimal_currency_precision_100_vectors = metadata["selectedDecimalCurrencyPrecision100"]
+    assert len(decimal_currency_precision_100_vectors) == 6
+    assert all(len(entry["bits"]) == 4 and entry["format"] == "C"
+               and entry["precision"] in (100, 101) and type(entry["text"]) is str
+               for entry in decimal_currency_precision_100_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2323,6 +2328,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalStandardPrecision100Consumer",
         *decimal_percent_precision_100_args).strip()
+    decimal_currency_precision_100_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            entry["format"], str(entry["precision"]), entry["text"],
+        )) for entry in decimal_currency_precision_100_vectors]
+    decimal_currency_precision_100_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalStandardPrecision100Consumer",
+        *decimal_currency_precision_100_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -2641,6 +2655,7 @@ def main():
     assert decimal_fixed_precision_100_result == "PASS external Decimal fixed precision 100"
     assert decimal_number_precision_100_result == "PASS external Decimal standard precision 100"
     assert decimal_percent_precision_100_result == "PASS external Decimal standard precision 100"
+    assert decimal_currency_precision_100_result == "PASS external Decimal standard precision 100"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
