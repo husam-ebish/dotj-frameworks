@@ -21,10 +21,11 @@ public final class ProductGeneralFormatInvalidBoundariesConsumer {
             if (fields.length != 6 && fields.length != 7 && fields.length != 8
                     && fields.length != 9 && fields.length != 10
                     && fields.length != 11 && fields.length != 12
-                    && fields.length != 13) {
+                    && fields.length != 13 && fields.length != 14) {
                 throw new AssertionError("Malformed general format boundary vector");
             }
-            provider.set_NegativeSign(fields.length == 13 ? fields[12] : "~");
+            provider.set_NegativeSign(fields.length >= 13 ? fields[12] : "~");
+            provider.set_PerMilleSymbol(fields.length == 14 ? fields[13] : "\u2030");
             provider.set_NumberDecimalSeparator(fields.length >= 7 ? fields[6] : ".");
             provider.set_NumberGroupSeparator(fields.length >= 8 ? fields[7] : ",");
             provider.set_NumberNegativePattern(fields.length == 9 || fields.length >= 12
