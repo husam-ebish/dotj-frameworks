@@ -1042,7 +1042,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return scaled;
         }
         if (format.equals("0.##")) {
-            return Integer.toString(this.value);
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            return this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign())
+                    + BigInteger.valueOf(this.value).abs() : Integer.toString(this.value);
         }
         if (format.equals("0,.##") || format.equals("#,##0,.##")) {
             String scaled = BigDecimal.valueOf(this.value)
@@ -1081,6 +1084,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         }
         if (format.equals("0.00")) {
             return this.ToString("F2", provider);
+        }
+        if (format.equals("0.0")) {
+            return this.ToString("F1", provider);
         }
         if ((format.length() == 2 && format.charAt(0) == '\\')
                 || (format.length() >= 2 && ((format.charAt(0) == '\''
