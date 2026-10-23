@@ -3206,6 +3206,18 @@ static object ObserveInt32PercentHighPrecision()
             text = value.ToString("P" + precision, provider) };
     })).ToArray();
 }
+static object ObserveInt32ExponentialHighPrecision()
+{
+    int[] values = [-42, 0, 42];
+    int[] precisions = [1001, 1024];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = "@", NegativeSign = "~", PositiveSign = "plus",
+    };
+    return values.SelectMany(value => precisions.Select(precision =>
+        new { value, precision, text = value.ToString("E" + precision, provider) }))
+        .ToArray();
+}
 static object ObserveNumberNegativePatternBoundaries()
 {
     var provider = new System.Globalization.NumberFormatInfo();
@@ -8811,6 +8823,7 @@ var result = new
     selectedInt32FixedHighPrecision = ObserveInt32FixedHighPrecision(),
     selectedInt32CurrencyHighPrecision = ObserveInt32CurrencyHighPrecision(),
     selectedInt32PercentHighPrecision = ObserveInt32PercentHighPrecision(),
+    selectedInt32ExponentialHighPrecision = ObserveInt32ExponentialHighPrecision(),
     selectedNumberNegativePatternBoundaries = ObserveNumberNegativePatternBoundaries(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
