@@ -1103,8 +1103,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 1000) {
-                throw new UnsupportedOperationException("Int32 precision is not mapped");
+            if (precision > 2048) {
+                throw new UnsupportedOperationException("Int32 hexadecimal precision is not mapped");
             }
             String digits = Integer.toHexString(this.value);
             String value = "0".repeat(Math.max(0, precision - digits.length())) + digits;
