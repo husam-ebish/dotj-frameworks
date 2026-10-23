@@ -407,3 +407,5 @@ Selected grouped `Int32` and `Decimal` custom formats now support five and six m
 Selected grouped `Int32` and `Decimal` custom formats now support ten and twenty-eight mandatory fractional places. Twelve .NET 10 vectors cover signs, zero, provider separators, padding and rounding through a packaged external consumer. Broader grouped custom precision remains open.
 
 Selected grouped `Int32` and `Decimal` custom formats now support one, three and ten optional fractional placeholders. Eighteen .NET 10 vectors cover signs, zero, provider separators and trailing-zero removal through a packaged external consumer. Broader grouped optional-fraction grammar remains open.
+
+Selected grouped `Decimal` optional-fraction formatting now covers two and twenty-eight places at ties and near-zero boundaries. Eighteen .NET 10 vectors verify rounding and sign removal after rounding to zero through a packaged external consumer. Broader grouped optional-fraction grammar remains open.
