@@ -10,18 +10,21 @@ public final class ProductGeneralFormatInvalidBoundariesConsumer {
     public static void main(String[] args) {
         if (args.length != 40 && args.length != 32 && args.length != 18
                 && args.length != 24 && args.length != 27 && args.length != 12
-                && args.length != 15) {
+                && args.length != 15 && args.length != 20) {
             throw new AssertionError("General format boundary vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();
         provider.set_NegativeSign("~");
         for (int index = 0; index < args.length; index++) {
             String[] fields = args[index].split(":", -1);
-            if (fields.length != 6 && fields.length != 7 && fields.length != 8) {
+            if (fields.length != 6 && fields.length != 7 && fields.length != 8
+                    && fields.length != 9) {
                 throw new AssertionError("Malformed general format boundary vector");
             }
             provider.set_NumberDecimalSeparator(fields.length >= 7 ? fields[6] : ".");
-            provider.set_NumberGroupSeparator(fields.length == 8 ? fields[7] : ",");
+            provider.set_NumberGroupSeparator(fields.length >= 8 ? fields[7] : ",");
+            provider.set_NumberNegativePattern(fields.length == 9
+                    ? Integer.parseInt(fields[8]) : 1);
             String actual = null;
             String exception = "none";
             try {

@@ -1025,7 +1025,20 @@ public final class Decimal implements IConvertible {
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
         if (format.equals("#,##0") || format.equals("#,##0.00")) {
-            return this.ToString(format.equals("#,##0") ? "N0" : "N2", provider);
+            int places = format.equals("#,##0") ? 0 : 2;
+            BigDecimal rounded = this.value.setScale(places, RoundingMode.HALF_UP);
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String plain = rounded.abs().toPlainString();
+            int dot = plain.indexOf('.');
+            String whole = dot < 0 ? plain : plain.substring(0, dot);
+            String grouped = groupDigits(whole, numberFormat == null
+                    ? new int[] {3} : numberFormat.get_NumberGroupSizes(),
+                    numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
+            String sign = rounded.signum() < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + grouped + (dot < 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + plain.substring(dot + 1));
         }
         if (format.matches("0\\.0{1,32}")
                 || format.matches("0\\.#{2,28}")) {
