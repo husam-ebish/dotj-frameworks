@@ -1024,7 +1024,7 @@ public final class Decimal implements IConvertible {
             return prefixed + suffix;
         }
         if (format != null && format.indexOf('"') >= 0
-                && format.matches("(\"[A-Za-z]{1,12}\")?#,##0\\.00%(\"[A-Za-z]{1,12}\")?")) {
+                && format.matches("(\"[^\";:]{1,20}\")?#,##0\\.00%(\"[^\";:]{1,20}\")?")) {
             String core = this.ToString("#,##0.00%", provider);
             int coreStart = format.indexOf("#,##0.00%");
             String quotedPrefix = format.substring(0, coreStart);

@@ -485,3 +485,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now supports one escap
 Selected grouped `Int32` and `Decimal` percent formatting now supports paired escaped alphabetic prefix and suffix characters around `#,##0.00%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader escape grammar remains open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now supports a quoted literal on one side and an escaped character on the other around `#,##0.00%`. Twelve .NET 10 vectors cover signs, zero and provider symbols through a packaged external consumer. Broader mixed literal grammar remains open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now supports quoted punctuation around `#,##0.00%`. Twelve .NET 10 vectors cover bracket and parenthesis affixes across signs and zero through a packaged external consumer. Broader quoted literal grammar remains open.
