@@ -988,11 +988,14 @@ public final class Decimal implements IConvertible {
             return this.ToString(provider);
         }
         if (format.equals("F") || format.equals("f")
-                || format.matches("[Ff][0-9]{1,2}")) {
+                || format.matches("[Ff][0-9]+")) {
             int decimals = format.length() == 1
                     ? provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_NumberDecimalDigits() : 2
                     : Integer.parseInt(format.substring(1));
+            if (decimals > 4096) {
+                throw new UnsupportedOperationException("Decimal fixed precision is not mapped");
+            }
             return applyNumberFormat(this.value.setScale(decimals, RoundingMode.HALF_UP)
                     .toPlainString(), provider);
         }
