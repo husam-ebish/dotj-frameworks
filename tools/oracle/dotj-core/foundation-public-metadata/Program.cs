@@ -3245,6 +3245,19 @@ static object ObserveInt32LeadingZeroPrecision()
         return new { value = -42, format, precision, text, exception };
     })).ToArray();
 }
+static object ObserveInt32GeneralPrecision()
+{
+    int[] values = [-12345, -42, 0, 42, 985, 995, 1995, 9995, 12345];
+    int[] precisions = [0, 1, 2, 5, 10, 100];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberDecimalSeparator = "@", PositiveSign = "plus",
+    };
+    string[] formats = ["G", "g"];
+    return formats.SelectMany(format => values.SelectMany(value => precisions.Select(precision =>
+        new { value, format, precision,
+            text = value.ToString(format + precision, provider) }))).ToArray();
+}
 static object ObserveNumberNegativePatternBoundaries()
 {
     var provider = new System.Globalization.NumberFormatInfo();
@@ -9002,6 +9015,7 @@ var result = new
     selectedInt32ExponentialHighPrecision = ObserveInt32ExponentialHighPrecision(),
     selectedInt32StandardPrecision2049 = ObserveInt32StandardPrecision2049(),
     selectedInt32LeadingZeroPrecision = ObserveInt32LeadingZeroPrecision(),
+    selectedInt32GeneralPrecision = ObserveInt32GeneralPrecision(),
     selectedNumberNegativePatternBoundaries = ObserveNumberNegativePatternBoundaries(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
