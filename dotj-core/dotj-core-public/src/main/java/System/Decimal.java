@@ -1015,9 +1015,17 @@ public final class Decimal implements IConvertible {
                 }
                 String fraction = dot < 0 ? "" : numberFormat.get_NumberDecimalSeparator()
                         + magnitude.substring(dot + 1);
-                return (negative ? numberFormat.get_NegativeSign() : "")
-                        + groupDigits(whole, numberFormat.get_NumberGroupSizes(),
+                String formatted = groupDigits(whole, numberFormat.get_NumberGroupSizes(),
                         numberFormat.get_NumberGroupSeparator()) + fraction;
+                if (!negative) return formatted;
+                String sign = numberFormat.get_NegativeSign();
+                return switch (numberFormat.get_NumberNegativePattern()) {
+                    case 0 -> "(" + formatted + ")";
+                    case 2 -> sign + " " + formatted;
+                    case 3 -> formatted + sign;
+                    case 4 -> formatted + " " + sign;
+                    default -> sign + formatted;
+                };
             }
             return grouped;
         }

@@ -293,3 +293,5 @@ Selected `Int32.ToString("P", provider)` now also honors percent negative patter
 Selected `Int32.ToString("P", provider)` now also honors percent negative patterns 10 and 11. Twelve .NET 10 vectors pin the two patterns across six negative values; the packaged external consumer checks exact text. All twelve percent negative patterns are represented in bounded Int32 vectors, while other culture behavior remains open.
 
 Selected `Int32.ToString("N", provider)` now honors `NumberFormatInfo.NumberNegativePattern` values 0 through 4. Fifteen .NET 10 vectors pin each pattern across small, grouped and minimum negative values; a packaged external consumer checks exact text. Decimal number patterns and other culture behavior remain open.
+
+Selected `Decimal.ToString("N", provider)` now honors `NumberFormatInfo.NumberNegativePattern` values 0 through 4. Fifteen .NET 10 vectors pin each pattern across small, grouped and fractional negative values; a packaged external consumer checks exact text. Other Decimal culture behavior remains open.
