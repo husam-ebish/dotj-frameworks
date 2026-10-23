@@ -515,3 +515,5 @@ Selected grouped `Decimal` percent formatting now has eighteen pinned rounding v
 Selected grouped `Decimal` percent formatting now has eighteen pinned vectors for quoted or escaped affixes at both decimal range endpoints and tiny nonzero values. They run through a packaged external consumer. Broader affixed extreme-value formatting remains open.
 
 Selected grouped `Decimal` percent formatting now has eighteen pinned vectors for quoted or escaped affixes around zero, signed zero and tiny values. They run through a packaged external consumer. Broader affixed zero-formatting behavior remains open.
+
+Selected grouped `Decimal` percent formatting now supports affixed patterns with twenty or thirty required places followed by the same number of optional places. Eighteen .NET 10 vectors cover scale twenty-eight and tiny signed values through a packaged external consumer. Broader affixed precision grammar remains open.
