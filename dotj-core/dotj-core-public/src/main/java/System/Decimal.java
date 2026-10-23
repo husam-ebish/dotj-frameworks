@@ -995,7 +995,7 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
-        if (format.matches("0%|0\\.0{1,6}%|0\\.#{1,6}%")) {
+        if (format.matches("0%|0\\.0{1,28}%|0\\.#{1,28}%")) {
             int places = format.equals("0%") ? 0 : format.length() - 3;
             String symbol = provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_PercentSymbol() : "%";
