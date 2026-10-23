@@ -5879,6 +5879,26 @@ static object ObserveDecimalSeparatorNullBoundaries()
         percent = Capture(() => provider.PercentDecimalSeparator = null!)
     };
 }
+static object ObserveSignSetterBoundaries()
+{
+    static string Capture(Action action)
+    {
+        try { action(); return "none"; }
+        catch (ArgumentNullException error)
+        { return $"{error.GetType().FullName}:{error.ParamName}"; }
+    }
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        PositiveSign = "", NegativeSign = ""
+    };
+    return new
+    {
+        positiveEmpty = provider.PositiveSign,
+        negativeEmpty = provider.NegativeSign,
+        positiveNull = Capture(() => provider.PositiveSign = null!),
+        negativeNull = Capture(() => provider.NegativeSign = null!)
+    };
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -11337,6 +11357,7 @@ var result = new
     selectedCurrencyGroupSeparatorBoundaries = ObserveCurrencyGroupSeparatorBoundaries(),
     selectedPercentGroupSeparatorBoundaries = ObservePercentGroupSeparatorBoundaries(),
     selectedDecimalSeparatorNullBoundaries = ObserveDecimalSeparatorNullBoundaries(),
+    selectedSignSetterBoundaries = ObserveSignSetterBoundaries(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),

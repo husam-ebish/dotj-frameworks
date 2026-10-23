@@ -29,6 +29,29 @@ import System.Collections.DictionaryEntry;
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
     public static void main(String[] args) {
+        NumberFormatInfo signProvider = new NumberFormatInfo();
+        signProvider.set_PositiveSign("");
+        signProvider.set_NegativeSign("");
+        if (!"".equals(signProvider.get_PositiveSign())
+                || !"".equals(signProvider.get_NegativeSign())) {
+            throw new AssertionError("Empty sign setter changed");
+        }
+        try {
+            signProvider.set_PositiveSign(null);
+            throw new AssertionError("Null PositiveSign was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null PositiveSign parameter changed");
+            }
+        }
+        try {
+            signProvider.set_NegativeSign(null);
+            throw new AssertionError("Null NegativeSign was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null NegativeSign parameter changed");
+            }
+        }
         NumberFormatInfo decimalProvider = new NumberFormatInfo();
         try {
             decimalProvider.set_NumberDecimalSeparator(null);
