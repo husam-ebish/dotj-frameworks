@@ -42,6 +42,19 @@ public final class ProductExceptionContractConsumer {
                 throw new AssertionError("Null NumberGroupSeparator parameter changed");
             }
         }
+        NumberFormatInfo currencyGroupProvider = new NumberFormatInfo();
+        currencyGroupProvider.set_CurrencyGroupSeparator("");
+        if (!"".equals(currencyGroupProvider.get_CurrencyGroupSeparator())) {
+            throw new AssertionError("Empty CurrencyGroupSeparator changed");
+        }
+        try {
+            currencyGroupProvider.set_CurrencyGroupSeparator(null);
+            throw new AssertionError("Null CurrencyGroupSeparator was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null CurrencyGroupSeparator parameter changed");
+            }
+        }
         try {
             new NumberFormatInfo().set_NumberDecimalSeparator("");
             throw new AssertionError("Empty NumberDecimalSeparator was accepted");
