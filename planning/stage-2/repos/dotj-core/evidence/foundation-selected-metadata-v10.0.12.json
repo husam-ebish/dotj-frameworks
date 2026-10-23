@@ -40639,6 +40639,68 @@
       "text": "2_147_483_647@00 USD"
     }
   ],
+  "selectedInt32CurrencyNegativePatterns2To5": [
+    {
+      "value": -42,
+      "pattern": 2,
+      "text": "USD~42@00"
+    },
+    {
+      "value": -12345,
+      "pattern": 2,
+      "text": "USD~12_345@00"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 2,
+      "text": "USD~2_147_483_648@00"
+    },
+    {
+      "value": -42,
+      "pattern": 3,
+      "text": "USD42@00~"
+    },
+    {
+      "value": -12345,
+      "pattern": 3,
+      "text": "USD12_345@00~"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 3,
+      "text": "USD2_147_483_648@00~"
+    },
+    {
+      "value": -42,
+      "pattern": 4,
+      "text": "(42@00USD)"
+    },
+    {
+      "value": -12345,
+      "pattern": 4,
+      "text": "(12_345@00USD)"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 4,
+      "text": "(2_147_483_648@00USD)"
+    },
+    {
+      "value": -42,
+      "pattern": 5,
+      "text": "~42@00USD"
+    },
+    {
+      "value": -12345,
+      "pattern": 5,
+      "text": "~12_345@00USD"
+    },
+    {
+      "value": -2147483648,
+      "pattern": 5,
+      "text": "~2_147_483_648@00USD"
+    }
+  ],
   "selectedDecimalFormatStrings": [
     {
       "bits": [
@@ -46507,6 +46569,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "17e7b9221f1edac1c0932bd2e4900945b017b4fc7625c02f8d074d8daf6fff57",
+  "oracleProgramSha256": "3200fc27137409842512fbb0dd78c84799f36950ba0bf8944bffe5bef4eceb8f",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

@@ -1181,8 +1181,14 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                 };
             }
             int pattern = numberFormat == null ? 0 : numberFormat.get_CurrencyNegativePattern();
+            String sign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+            String amount = grouped + fraction;
             if (pattern == 0) return "(" + positive + ")";
-            if (pattern == 1) return numberFormat.get_NegativeSign() + positive;
+            if (pattern == 1) return sign + positive;
+            if (pattern == 2) return symbol + sign + amount;
+            if (pattern == 3) return positive + sign;
+            if (pattern == 4) return "(" + amount + symbol + ")";
+            if (pattern == 5) return sign + amount + symbol;
             throw new UnsupportedOperationException("CurrencyNegativePattern is not mapped");
         }
         if (format.matches("[fF][0-9]*")) {
