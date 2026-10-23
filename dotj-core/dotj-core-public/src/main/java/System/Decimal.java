@@ -995,12 +995,16 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
-        if (format.equals("0%") || format.equals("0.0%")) {
-            int places = format.equals("0%") ? 0 : 1;
+        if (format.matches("0%|0\\.0{1,6}%|0\\.#{1,6}%")) {
+            int places = format.equals("0%") ? 0 : format.length() - 3;
             String symbol = provider instanceof NumberFormatInfo numberFormat
                     ? numberFormat.get_PercentSymbol() : "%";
-            return applyNumberFormat(this.value.movePointRight(2)
-                    .setScale(places, RoundingMode.HALF_UP).toPlainString(), provider) + symbol;
+            BigDecimal scaled = this.value.movePointRight(2)
+                    .setScale(places, RoundingMode.HALF_UP);
+            if (places > 0 && format.charAt(2) == '#') {
+                scaled = scaled.stripTrailingZeros();
+            }
+            return applyNumberFormat(scaled.toPlainString(), provider) + symbol;
         }
         if (format.matches("0{1,32}")) {
             BigDecimal rounded = this.value.setScale(0, RoundingMode.HALF_UP);
