@@ -1168,6 +1168,11 @@ def main():
     assert len(int32_roundtrip_format_vectors) == 10
     assert all(entry["format"] in ("R", "r") and type(entry["text"]) is str
                and entry["exception"] is None for entry in int32_roundtrip_format_vectors)
+    int32_roundtrip_precision_vectors = metadata["selectedInt32RoundtripPrecisionBoundary"]
+    assert len(int32_roundtrip_precision_vectors) == 16
+    assert all(entry["format"] in ("R0", "R1", "R2", "R10", "r0", "r1", "r2", "r10")
+               and type(entry["text"]) is str and entry["exception"] is None
+               for entry in int32_roundtrip_precision_vectors)
     number_negative_boundaries = metadata["selectedNumberNegativePatternBoundaries"]
     assert number_negative_boundaries["initial"] == 1
     assert number_negative_boundaries["accepted"] == list(range(5))
@@ -2619,6 +2624,13 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductInt32RoundtripFormatConsumer",
         *int32_roundtrip_format_args).strip()
+    int32_roundtrip_precision_args = [
+        ":".join((str(entry["value"]), entry["format"], entry["text"]))
+        for entry in int32_roundtrip_precision_vectors]
+    int32_roundtrip_precision_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductInt32RoundtripFormatConsumer",
+        *int32_roundtrip_precision_args).strip()
     number_negative_boundaries_args = [
         str(number_negative_boundaries["initial"]),
         ",".join(str(value) for value in number_negative_boundaries["accepted"]),
@@ -2819,6 +2831,7 @@ def main():
     assert int32_general_precision_result == "PASS external Int32 general precision"
     assert int32_general_extrema_result == "PASS external Int32 general precision"
     assert int32_roundtrip_format_result == "PASS external Int32 roundtrip format"
+    assert int32_roundtrip_precision_result == "PASS external Int32 roundtrip format"
     assert number_negative_boundaries_result == "PASS external NumberNegativePattern boundaries"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"

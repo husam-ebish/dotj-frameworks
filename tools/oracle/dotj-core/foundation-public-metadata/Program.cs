@@ -3292,6 +3292,29 @@ static object ObserveInt32RoundtripFormatBoundary()
         return new { value, format, text, exception };
     })).ToArray();
 }
+static object ObserveInt32RoundtripPrecisionBoundary()
+{
+    int[] values = [-42, 42];
+    string[] formats = ["R0", "R1", "R2", "R10", "r0", "r1", "r2", "r10"];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", PositiveSign = "plus",
+    };
+    return formats.SelectMany(format => values.Select(value =>
+    {
+        string? text = null;
+        string? exception = null;
+        try
+        {
+            text = value.ToString(format, provider);
+        }
+        catch (Exception error)
+        {
+            exception = error.GetType().Name;
+        }
+        return new { value, format, text, exception };
+    })).ToArray();
+}
 static object ObserveNumberNegativePatternBoundaries()
 {
     var provider = new System.Globalization.NumberFormatInfo();
@@ -9052,6 +9075,7 @@ var result = new
     selectedInt32GeneralPrecision = ObserveInt32GeneralPrecision(),
     selectedInt32GeneralExtrema = ObserveInt32GeneralExtrema(),
     selectedInt32RoundtripFormatBoundary = ObserveInt32RoundtripFormatBoundary(),
+    selectedInt32RoundtripPrecisionBoundary = ObserveInt32RoundtripPrecisionBoundary(),
     selectedNumberNegativePatternBoundaries = ObserveNumberNegativePatternBoundaries(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),

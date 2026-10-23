@@ -6,11 +6,12 @@ import System.Globalization.NumberFormatInfo;
 /** Checks packaged Int32 R/r text against the selected .NET oracle. */
 public final class ProductInt32RoundtripFormatConsumer {
     public static void main(String[] args) {
-        if (args.length != 10) {
+        if (args.length != 10 && args.length != 16) {
             throw new AssertionError("Int32 roundtrip format vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();
         provider.set_NegativeSign("~");
+        provider.set_PositiveSign("plus");
         for (int index = 0; index < args.length; index++) {
             String[] fields = args[index].split(":", -1);
             if (fields.length != 3) {
