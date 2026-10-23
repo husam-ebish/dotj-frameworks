@@ -617,3 +617,5 @@ Selected grouped Int32 and Decimal per-mille formatting now supports mixed quote
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for quoted punctuation affixes. They cover both signs and zero through a packaged consumer. Broader punctuation combinations remain open.
 
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for quoted whitespace affixes. They cover both signs and zero through a packaged consumer. Broader whitespace combinations remain open.
+
+Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for quoted digit affixes. They cover both signs and zero through a packaged consumer. Broader quoted digit combinations remain open.
