@@ -519,3 +519,5 @@ Selected grouped `Decimal` percent formatting now has eighteen pinned vectors fo
 Selected grouped `Decimal` percent formatting now supports affixed patterns with twenty or thirty required places followed by the same number of optional places. Eighteen .NET 10 vectors cover scale twenty-eight and tiny signed values through a packaged external consumer. Broader affixed precision grammar remains open.
 
 Selected grouped `Decimal` percent formatting now has eighteen pinned rounding vectors at twenty required or optional fractional places with quoted or escaped affixes. They cover tiny boundary values through a packaged external consumer. Broader affixed high-precision rounding remains open.
+
+Selected grouped `Decimal` percent formatting now supports mixed quoted and escaped affixes around twenty or thirty required places followed by optional places. Eighteen .NET 10 vectors cover tiny and scale twenty-eight values through a packaged external consumer. Broader mixed affix grammar remains open.

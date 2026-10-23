@@ -992,11 +992,12 @@ public final class Decimal implements IConvertible {
 
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
-        if (format != null && format.matches("\"[A-Za-z]{1,12}\"#,##0\\.00%\\\\[A-Za-z]|\\\\[A-Za-z]#,##0\\.00%\"[A-Za-z]{1,12}\"")) {
-            String core = this.ToString("#,##0.00%", provider);
-            int coreStart = format.indexOf("#,##0.00%");
+        if (format != null && format.matches("(\"[A-Za-z]{1,12}\"|\\\\[A-Za-z])#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?%(\"[A-Za-z]{1,12}\"|\\\\[A-Za-z])")) {
+            int coreStart = format.indexOf("#,##0");
+            String coreFormat = format.substring(coreStart, format.indexOf('%', coreStart) + 1);
+            String core = this.ToString(coreFormat, provider);
             String before = format.substring(0, coreStart);
-            String after = format.substring(coreStart + "#,##0.00%".length());
+            String after = format.substring(coreStart + coreFormat.length());
             String prefix = before.charAt(0) == '"'
                     ? before.substring(1, before.length() - 1) : before.substring(1);
             String suffix = after.charAt(0) == '"'
