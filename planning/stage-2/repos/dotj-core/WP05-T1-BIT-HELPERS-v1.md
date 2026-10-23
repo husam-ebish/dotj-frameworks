@@ -441,3 +441,5 @@ Selected custom `Decimal` percent mixed-fraction formatting now supports twenty 
 Selected `Int32` and `Decimal` custom grouped percent formatting now supports `#,##0%` and `#,##0.00%` with provider group sizes and percent symbols. Twelve .NET 10 vectors cover signs, zero and rounding through a packaged external consumer. Broader grouped percent grammar remains open.
 
 Selected custom grouped percent formatting keeps its leading provider negative sign across five `NumberNegativePattern` and `PercentNegativePattern` settings. Twenty .NET 10 vectors cover `Int32` and `Decimal` through a packaged external consumer. Broader grouped percent grammar remains open.
+
+Selected grouped custom `Int32` and `Decimal` percent formatting now supports three required or three optional fractional places with provider group sizes and percent symbols. Twelve .NET 10 vectors cover signs, zero and trailing-zero behavior through a packaged external consumer. Broader grouped percent grammar remains open.

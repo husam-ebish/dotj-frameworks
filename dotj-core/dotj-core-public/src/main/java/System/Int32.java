@@ -1106,7 +1106,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.equals("#,##0%") || format.equals("#,##0.00%")) {
+        if (format.matches("#,##0(\\.0{1,6}|\\.#{1,6})?%")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String digits = BigInteger.valueOf(this.value).abs()
                     .multiply(BigInteger.valueOf(100)).toString();
@@ -1115,8 +1115,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
             String sign = this.value < 0 ? (numberFormat == null ? "-"
                     : numberFormat.get_NegativeSign()) : "";
-            String fraction = format.equals("#,##0.00%") ? (numberFormat == null ? "."
-                    : numberFormat.get_NumberDecimalSeparator()) + "00" : "";
+            int dot = format.indexOf('.');
+            int places = dot < 0 ? 0 : format.length() - dot - 2;
+            int mandatory = 0;
+            while (mandatory < places && format.charAt(dot + 1 + mandatory) == '0') mandatory++;
+            String fraction = mandatory == 0 ? "" : (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + "0".repeat(mandatory);
             return sign + grouped + fraction
                     + (numberFormat == null ? "%" : numberFormat.get_PercentSymbol());
         }
