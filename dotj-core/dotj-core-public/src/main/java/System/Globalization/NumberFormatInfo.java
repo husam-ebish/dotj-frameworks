@@ -21,6 +21,7 @@ public final class NumberFormatInfo implements IFormatProvider {
     private int[] currencyGroupSizes = {3};
     private String currencyDecimalSeparator = ".";
     private int currencyDecimalDigits = 2;
+    private int currencyPositivePattern = 0;
     private int currencyNegativePattern = 0;
     private String percentSymbol = "%";
     private String percentGroupSeparator = ",";
@@ -143,6 +144,15 @@ public final class NumberFormatInfo implements IFormatProvider {
 
     public int get_CurrencyNegativePattern() {
         return this.currencyNegativePattern;
+    }
+
+    public int get_CurrencyPositivePattern() {
+        return this.currencyPositivePattern;
+    }
+
+    public void set_CurrencyPositivePattern(int value) {
+        if (value < 0 || value > 3) throw new ArgumentOutOfRangeException("value");
+        this.currencyPositivePattern = value;
     }
 
     public void set_CurrencyNegativePattern(int value) {
