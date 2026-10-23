@@ -29,6 +29,19 @@ import System.Collections.DictionaryEntry;
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
     public static void main(String[] args) {
+        NumberFormatInfo currencySymbolProvider = new NumberFormatInfo();
+        currencySymbolProvider.set_CurrencySymbol("");
+        if (!"".equals(currencySymbolProvider.get_CurrencySymbol())) {
+            throw new AssertionError("Empty CurrencySymbol changed");
+        }
+        try {
+            currencySymbolProvider.set_CurrencySymbol(null);
+            throw new AssertionError("Null CurrencySymbol was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null CurrencySymbol parameter changed");
+            }
+        }
         NumberFormatInfo signProvider = new NumberFormatInfo();
         signProvider.set_PositiveSign("");
         signProvider.set_NegativeSign("");
