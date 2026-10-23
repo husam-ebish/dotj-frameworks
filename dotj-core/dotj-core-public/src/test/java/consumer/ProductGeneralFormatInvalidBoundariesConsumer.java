@@ -17,10 +17,11 @@ public final class ProductGeneralFormatInvalidBoundariesConsumer {
         provider.set_NegativeSign("~");
         for (int index = 0; index < args.length; index++) {
             String[] fields = args[index].split(":", -1);
-            if (fields.length != 6 && fields.length != 7) {
+            if (fields.length != 6 && fields.length != 7 && fields.length != 8) {
                 throw new AssertionError("Malformed general format boundary vector");
             }
-            provider.set_NumberDecimalSeparator(fields.length == 7 ? fields[6] : ".");
+            provider.set_NumberDecimalSeparator(fields.length >= 7 ? fields[6] : ".");
+            provider.set_NumberGroupSeparator(fields.length == 8 ? fields[7] : ",");
             String actual = null;
             String exception = "none";
             try {
