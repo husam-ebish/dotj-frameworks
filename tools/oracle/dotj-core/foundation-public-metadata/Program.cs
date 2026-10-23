@@ -3351,6 +3351,27 @@ static object ObserveDecimalNumberNegativePatterns()
             text = new decimal(bits).ToString("N2", provider) });
     }).ToArray();
 }
+static object ObserveDecimalNumberNegativeRounding()
+{
+    int[][] inputs =
+    [
+        [1, 0, 0, unchecked((int)0x80030000)],
+        [4, 0, 0, unchecked((int)0x80030000)],
+        [5, 0, 0, unchecked((int)0x80030000)],
+        [0, 0, 0, unchecked((int)0x80000000)],
+    ];
+    return Enumerable.Range(0, 5).SelectMany(pattern =>
+    {
+        var provider = new System.Globalization.NumberFormatInfo
+        {
+            NumberDecimalSeparator = "@",
+            NumberNegativePattern = pattern,
+            NegativeSign = "~",
+        };
+        return inputs.Select(bits => new { bits, pattern,
+            text = new decimal(bits).ToString("N2", provider) });
+    }).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -8682,6 +8703,7 @@ var result = new
     selectedDecimalPercentNegativePatterns4To7 = ObserveDecimalPercentNegativePatterns4To7(),
     selectedDecimalPercentNegativePatterns8To11 = ObserveDecimalPercentNegativePatterns8To11(),
     selectedDecimalNumberNegativePatterns = ObserveDecimalNumberNegativePatterns(),
+    selectedDecimalNumberNegativeRounding = ObserveDecimalNumberNegativeRounding(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),

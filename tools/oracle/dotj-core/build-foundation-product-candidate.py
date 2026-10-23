@@ -66,6 +66,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDecimalPercentPositivePatternsConsumer",
     "ProductDecimalPercentNegativePatternsConsumer",
     "ProductDecimalNumberNegativePatternsConsumer",
+    "ProductDecimalNumberNegativeRoundingConsumer",
     "ProductDecimalGetFormatProviderConsumer",
     "ProductDecimalCurrencyPositivePatternsConsumer",
     "ProductInt32CurrencyPositivePatternsConsumer",
@@ -971,6 +972,11 @@ def main():
     assert len(decimal_number_negative_vectors) == 15
     assert all(len(entry["bits"]) == 4 and entry["pattern"] in range(5)
                and type(entry["text"]) is str for entry in decimal_number_negative_vectors)
+    decimal_number_negative_rounding_vectors = metadata["selectedDecimalNumberNegativeRounding"]
+    assert len(decimal_number_negative_rounding_vectors) == 20
+    assert all(len(entry["bits"]) == 4 and entry["pattern"] in range(5)
+               and type(entry["text"]) is str
+               for entry in decimal_number_negative_rounding_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2209,6 +2215,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalNumberNegativePatternsConsumer",
         *decimal_number_negative_args).strip()
+    decimal_number_negative_rounding_args = [
+        ":".join((
+            ",".join(str(word) for word in entry["bits"]),
+            str(entry["pattern"]), entry["text"],
+        )) for entry in decimal_number_negative_rounding_vectors]
+    decimal_number_negative_rounding_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalNumberNegativeRoundingConsumer",
+        *decimal_number_negative_rounding_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -2456,6 +2471,7 @@ def main():
     assert percent_negative_pattern_4to7_result == "PASS external selected Decimal percent negative patterns"
     assert percent_negative_pattern_8to11_result == "PASS external selected Decimal percent negative patterns"
     assert decimal_number_negative_result == "PASS external selected Decimal number negative patterns"
+    assert decimal_number_negative_rounding_result == "PASS external Decimal number negative rounding"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
