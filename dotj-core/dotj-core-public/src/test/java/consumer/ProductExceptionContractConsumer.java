@@ -55,6 +55,19 @@ public final class ProductExceptionContractConsumer {
                 throw new AssertionError("Null CurrencyGroupSeparator parameter changed");
             }
         }
+        NumberFormatInfo percentGroupProvider = new NumberFormatInfo();
+        percentGroupProvider.set_PercentGroupSeparator("");
+        if (!"".equals(percentGroupProvider.get_PercentGroupSeparator())) {
+            throw new AssertionError("Empty PercentGroupSeparator changed");
+        }
+        try {
+            percentGroupProvider.set_PercentGroupSeparator(null);
+            throw new AssertionError("Null PercentGroupSeparator was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null PercentGroupSeparator parameter changed");
+            }
+        }
         try {
             new NumberFormatInfo().set_NumberDecimalSeparator("");
             throw new AssertionError("Empty NumberDecimalSeparator was accepted");
