@@ -595,3 +595,5 @@ Selected grouped `Int32` and `Decimal` per-mille formatting now has twelve .NET 
 Selected grouped `Decimal` per-mille formatting now has eighteen .NET 10 vectors at both decimal range endpoints and tiny signed values. They run through a packaged consumer. Broader extreme-value per-mille formatting remains open.
 
 Selected grouped `Decimal` per-mille formatting now has eighteen .NET 10 rounding-boundary vectors for required or optional two-place patterns. They cover signed values near small and large rounding thresholds through a packaged consumer. Broader rounding behavior remains open.
+
+Selected grouped `Decimal` per-mille formatting now has eighteen .NET 10 vectors around zero, signed zero and tiny values with optional or mixed fractional places. They run through a packaged consumer. Broader zero-formatting behavior remains open.
