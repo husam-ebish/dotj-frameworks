@@ -992,6 +992,22 @@ public final class Decimal implements IConvertible {
 
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
+        if (format != null && format.matches("\"[A-Za-z]{1,12}\"#,##0\\.00%\\\\[A-Za-z]|\\\\[A-Za-z]#,##0\\.00%\"[A-Za-z]{1,12}\"")) {
+            String core = this.ToString("#,##0.00%", provider);
+            int coreStart = format.indexOf("#,##0.00%");
+            String before = format.substring(0, coreStart);
+            String after = format.substring(coreStart + "#,##0.00%".length());
+            String prefix = before.charAt(0) == '"'
+                    ? before.substring(1, before.length() - 1) : before.substring(1);
+            String suffix = after.charAt(0) == '"'
+                    ? after.substring(1, after.length() - 1) : after.substring(1);
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String sign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+            String prefixed = !sign.isEmpty() && core.startsWith(sign)
+                    ? sign + prefix + core.substring(sign.length()) : prefix + core;
+            return prefixed + suffix;
+        }
         if (format != null && format.indexOf('\\') >= 0
                 && format.matches("(\\\\[A-Za-z])?#,##0\\.00%(\\\\[A-Za-z])?")) {
             String core = this.ToString("#,##0.00%", provider);
