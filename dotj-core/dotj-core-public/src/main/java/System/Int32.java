@@ -1018,7 +1018,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     .multiply(BigInteger.valueOf(100)).toString();
             return sign + digits + (format.equals("0.0%")
                     ? (numberFormat == null ? "."
-                    : numberFormat.get_NumberDecimalSeparator()) + "0" : "") + "%";
+                    : numberFormat.get_NumberDecimalSeparator()) + "0" : "")
+                    + (numberFormat == null ? "%" : numberFormat.get_PercentSymbol());
         }
         if (format.equals("0\\\u2030")) {
             return Integer.toString(this.value) + "\u2030";
