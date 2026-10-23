@@ -3812,6 +3812,25 @@ static object ObserveDecimalGeneralExtrema()
         new { bits, format,
             text = new decimal(bits).ToString(format, provider) })).ToArray();
 }
+static object ObserveDecimalGeneralSignedZeroScale()
+{
+    int[][] inputs =
+    [
+        [0, 0, 0, unchecked((int)0x80000000)],
+        [0, 0, 0, unchecked((int)0x80020000)],
+        [0, 0, 0, 0x00020000],
+        [12300, 0, 0, 0x00040000],
+        [12300, 0, 0, unchecked((int)0x80040000)],
+    ];
+    string[] formats = ["G", "g", "G0", "G1", "R", "r", "R0", "R1"];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberDecimalSeparator = "@", PositiveSign = "plus",
+    };
+    return formats.SelectMany(format => inputs.Select(bits =>
+        new { bits, format,
+            text = new decimal(bits).ToString(format, provider) })).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9157,6 +9176,7 @@ var result = new
     selectedDecimalGeneralRoundingBoundaries = ObserveDecimalGeneralRoundingBoundaries(),
     selectedDecimalRoundtripFormat = ObserveDecimalRoundtripFormat(),
     selectedDecimalGeneralExtrema = ObserveDecimalGeneralExtrema(),
+    selectedDecimalGeneralSignedZeroScale = ObserveDecimalGeneralSignedZeroScale(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
