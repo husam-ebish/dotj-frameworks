@@ -995,6 +995,11 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
+        if (format.equals("0%") || format.equals("0.0%")) {
+            int places = format.equals("0%") ? 0 : 1;
+            return applyNumberFormat(this.value.movePointRight(2)
+                    .setScale(places, RoundingMode.HALF_UP).toPlainString(), provider) + "%";
+        }
         if (format.matches("0{1,32}")) {
             BigDecimal rounded = this.value.setScale(0, RoundingMode.HALF_UP);
             NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected

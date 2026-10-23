@@ -1010,8 +1010,15 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return format.equals("\\Q0") ? sign + "Q" + digits
                     : sign + digits + format.charAt(2);
         }
-        if (format.equals("0%")) {
-            return BigInteger.valueOf(this.value).multiply(BigInteger.valueOf(100)) + "%";
+        if (format.equals("0%") || format.equals("0.0%")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String digits = BigInteger.valueOf(this.value).abs()
+                    .multiply(BigInteger.valueOf(100)).toString();
+            return sign + digits + (format.equals("0.0%")
+                    ? (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + "0" : "") + "%";
         }
         if (format.equals("0\\\u2030")) {
             return Integer.toString(this.value) + "\u2030";
