@@ -6,7 +6,7 @@ import System.Globalization.NumberFormatInfo;
 /** Checks packaged Decimal standard precision 100 and 101 against .NET vectors. */
 public final class ProductDecimalStandardPrecision100Consumer {
     public static void main(String[] args) {
-        if (args.length != 6) {
+        if (args.length != 6 && args.length != 10) {
             throw new AssertionError("Decimal standard precision vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();

@@ -329,3 +329,5 @@ Selected `Decimal.ToString("C", provider)` now accepts explicit precision 100 an
 Selected `Decimal.ToString("E", provider)` now accepts explicit precision 100 and 101. Six .NET 10 vectors check positive, negative and zero values against a packaged external consumer. Explicit precision above 4096 and broader Decimal exponential semantics remain open.
 
 Selected `Decimal.ToString` standard formats F, N, P, C and E now report `FormatException` for explicit precision strings that exceed Java integer parsing. Ten .NET 10 vectors check two oversized strings across all five formats against a packaged external consumer. Other format error cases remain open.
+
+Selected `Decimal.ToString` standard formats F, N, P, C and E now have precision-1024 comparison evidence. Ten .NET 10 vectors check positive and negative fractional values in all five formats against a packaged external consumer. Explicit precision above 4096 and broader Decimal format semantics remain open.
