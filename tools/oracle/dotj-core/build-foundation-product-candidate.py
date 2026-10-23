@@ -1762,6 +1762,15 @@ def main():
                                        '\\p#,##0.00%"post"')
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in grouped_percent_mixed_affix_empty_negative_sign_vectors)
+    grouped_percent_mixed_affix_negative_pattern_vectors = metadata[
+        "selectedGroupedPercentMixedAffixNegativePatterns"]
+    assert len(grouped_percent_mixed_affix_negative_pattern_vectors) == 20
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ('"pre"#,##0.00%\\s',
+                                       '\\p#,##0.00%"post"')
+               and entry["pattern"] in (0, 1, 2, 3, 4)
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in grouped_percent_mixed_affix_negative_pattern_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -4092,6 +4101,16 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *grouped_percent_mixed_affix_empty_negative_sign_args).strip()
+    grouped_percent_mixed_affix_negative_pattern_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none", "@", "_", str(entry["pattern"]),
+                  "2", "pct", str(entry["pattern"])))
+        for entry in grouped_percent_mixed_affix_negative_pattern_vectors]
+    grouped_percent_mixed_affix_negative_pattern_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *grouped_percent_mixed_affix_negative_pattern_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -4556,6 +4575,7 @@ def main():
     assert grouped_percent_mixed_affix_question_result == "PASS external general format boundaries"
     assert grouped_percent_mixed_affix_negative_sign_result == "PASS external general format boundaries"
     assert grouped_percent_mixed_affix_empty_negative_sign_result == "PASS external general format boundaries"
+    assert grouped_percent_mixed_affix_negative_pattern_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
