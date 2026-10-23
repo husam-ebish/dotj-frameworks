@@ -943,6 +943,10 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public String ToString(String format, IFormatProvider provider) {
+        if (format != null && format.indexOf('\\') >= 0
+                && format.matches("(\\\\[A-Za-z0-9!?() ])?#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?\u2030(\\\\[A-Za-z0-9!?() ])?")) {
+            return new Decimal(this.value).ToString(format, provider);
+        }
         if (format != null && format.indexOf('"') >= 0
                 && format.matches("(\"[^\";:]{1,20}\")?#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?\u2030(\"[^\";:]{1,20}\")?")) {
             return new Decimal(this.value).ToString(format, provider);
