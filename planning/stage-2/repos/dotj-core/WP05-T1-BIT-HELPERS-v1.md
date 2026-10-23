@@ -281,3 +281,5 @@ Selected `Int32.ToString("C", provider)` now also honors currency positive patte
 Selected `Int32.ToString("C", provider)` now also honors currency negative patterns 2 through 5. Twelve .NET 10 vectors pin each pattern for small, grouped and minimum values; a packaged external consumer checks exact text. Other currency negative patterns remain open.
 
 Selected `Int32.ToString("C", provider)` now also honors currency negative patterns 6 through 9. Twelve .NET 10 vectors pin each pattern for small, grouped and minimum values; the packaged external consumer checks exact text. Other currency negative patterns remain open.
+
+Selected `Int32.ToString("C", provider)` now also honors currency negative patterns 10 through 16. Twenty-one .NET 10 vectors pin each pattern for small, grouped and minimum values; the packaged external consumer checks exact text. All seventeen currency negative patterns are represented in bounded Int32 vectors, while other culture behavior remains open.
