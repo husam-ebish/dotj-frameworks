@@ -943,15 +943,21 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public String ToString(String format, IFormatProvider provider) {
-        if (format != null && format.matches("\"[A-Za-z]{1,12}\"#,##0\\.00%|#,##0\\.00%\"[A-Za-z]{1,12}\"")) {
+        if (format != null && format.indexOf('"') >= 0
+                && format.matches("(\"[A-Za-z]{1,12}\")?#,##0\\.00%(\"[A-Za-z]{1,12}\")?")) {
             String core = this.ToString("#,##0.00%", provider);
-            int opening = format.indexOf('"');
-            String literal = format.substring(opening + 1, format.indexOf('"', opening + 1));
-            if (opening > 0) return core + literal;
+            int coreStart = format.indexOf("#,##0.00%");
+            String quotedPrefix = format.substring(0, coreStart);
+            String quotedSuffix = format.substring(coreStart + "#,##0.00%".length());
+            String prefix = quotedPrefix.isEmpty() ? ""
+                    : quotedPrefix.substring(1, quotedPrefix.length() - 1);
+            String suffix = quotedSuffix.isEmpty() ? ""
+                    : quotedSuffix.substring(1, quotedSuffix.length() - 1);
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String sign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
-            return !sign.isEmpty() && core.startsWith(sign)
-                    ? sign + literal + core.substring(sign.length()) : literal + core;
+            String prefixed = !sign.isEmpty() && core.startsWith(sign)
+                    ? sign + prefix + core.substring(sign.length()) : prefix + core;
+            return prefixed + suffix;
         }
         if (format == null || format.isEmpty() || format.equals("D")) {
             if (this.value >= 0) return Integer.toString(this.value);
