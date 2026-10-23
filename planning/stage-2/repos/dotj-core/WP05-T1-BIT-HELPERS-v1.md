@@ -369,3 +369,5 @@ Selected `Int32` and `Decimal` formatting now supports `0\Q`, `0\%`, `0\G` and `
 Selected `Int32` and `Decimal` formatting now supports three positive, negative and zero custom sections: `0;(0);'zero'`, `0;[0];'none'` and `0;'minus '0;'zero'`. Eighteen .NET 10 vectors check section selection and rounding through a packaged external consumer. Broader custom section grammar remains open.
 
 Selected `Int32` and `Decimal` formatting now supports `0.0`, `0.00` and `0.##` decimal-place custom formats with provider decimal separators and negative signs. Eighteen .NET 10 vectors cover negative, zero and positive values through a packaged external consumer. Broader decimal-place custom grammar remains open.
+
+Selected `Decimal` formatting now supports `0.###` alongside `0.##` and `0.00` rounding boundaries. Twenty-seven .NET 10 vectors cover negative and positive ties, near-zero values and custom separators through a packaged external consumer. Broader optional decimal-place grammar remains open.
