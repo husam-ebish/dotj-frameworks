@@ -559,3 +559,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10
 `NumberFormatInfo.NumberDecimalSeparator` now rejects an empty string with `ArgumentException` and parameter `value`, matching .NET 10. The packaged consumer checks the exception and parameter. This boundary was found while probing mixed-affix provider separators.
 
 `NumberFormatInfo.CurrencyDecimalSeparator` now rejects an empty string with `ArgumentException` and parameter `value`, matching .NET 10. The packaged consumer checks the exception and parameter.
+
+`NumberFormatInfo.PercentDecimalSeparator` now rejects an empty string with `ArgumentException` and parameter `value`, matching .NET 10. The packaged consumer checks the exception and parameter.
