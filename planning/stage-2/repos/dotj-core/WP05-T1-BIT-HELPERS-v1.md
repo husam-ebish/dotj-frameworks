@@ -371,3 +371,5 @@ Selected `Int32` and `Decimal` formatting now supports three positive, negative 
 Selected `Int32` and `Decimal` formatting now supports `0.0`, `0.00` and `0.##` decimal-place custom formats with provider decimal separators and negative signs. Eighteen .NET 10 vectors cover negative, zero and positive values through a packaged external consumer. Broader decimal-place custom grammar remains open.
 
 Selected `Decimal` formatting now supports `0.###` alongside `0.##` and `0.00` rounding boundaries. Twenty-seven .NET 10 vectors cover negative and positive ties, near-zero values and custom separators through a packaged external consumer. Broader optional decimal-place grammar remains open.
+
+Selected `Decimal` formatting now supports four and five optional decimal places via `0.####` and `0.#####`. Eighteen .NET 10 vectors cover ties and near-zero rounding with provider separators through a packaged external consumer. Broader optional decimal-place grammar remains open.
