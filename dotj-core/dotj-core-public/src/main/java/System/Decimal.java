@@ -1039,7 +1039,7 @@ public final class Decimal implements IConvertible {
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.matches("#,##0(\\.0{1,6}|\\.#{1,6})?%")) {
+        if (format.matches("#,##0(\\.0{1,6}|\\.#{1,6}|\\.0{1,6}#{1,6})?%")) {
             int dotFormat = format.indexOf('.');
             int places = dotFormat < 0 ? 0 : format.length() - dotFormat - 2;
             int mandatory = 0;
