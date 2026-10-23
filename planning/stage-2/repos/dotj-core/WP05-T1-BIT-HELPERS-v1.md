@@ -343,3 +343,5 @@ Selected `Int32.ToString("G"/"g", provider)` now honors explicit significant-dig
 Selected `Int32.ToString("G"/"g", provider)` now also has extrema and power-of-ten rounding evidence. Forty-eight .NET 10 vectors cover six values at four precisions in both cases; a packaged external consumer checks exact text. Broader general-format cases remain open.
 
 Selected `Int32.ToString("R"/"r", provider)` now accepts both round-trip specifier cases. Ten .NET 10 vectors cover minimum, maximum, zero and signed values with a custom negative sign; a packaged external consumer checks exact text. Other format behavior remains open.
+
+Selected `Int32.ToString("R"/"r", provider)` now also honors explicit significant-digit precision. Sixteen .NET 10 vectors cover 0, 1, 2 and 10 digits in both letter cases, including scientific notation and custom signs; a packaged external consumer checks exact text. Broader round-trip format cases remain open.

@@ -1104,8 +1104,9 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return sign + mantissa + (format.charAt(0) == 'g' ? 'e' : 'E')
                     + exponentSign + String.format(java.util.Locale.ROOT, "%02d", exponent);
         }
-        if (format.equals("R") || format.equals("r")) {
-            return this.ToString("D", provider);
+        if (format.matches("[Rr][0-9]*")) {
+            return this.ToString((format.charAt(0) == 'R' ? "G" : "g")
+                    + format.substring(1), provider);
         }
         if (format.matches("[dD][0-9]+")) {
             int precision;
