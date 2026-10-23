@@ -58380,6 +58380,152 @@
       "text": "1_23_45_67@89pct "
     }
   ],
+  "selectedGroupedPercentAffixCoreVariants": [
+    {
+      "target": "Int32",
+      "format": "\"pre\"#,##0.0#%\"post\"",
+      "intValue": -1234567,
+      "bits": [
+        123456789,
+        0,
+        0,
+        -2147221504
+      ],
+      "text": "~pre1_23_45_67_00@0pctpost"
+    },
+    {
+      "target": "Int32",
+      "format": "\"pre\"#,##0.0#%\"post\"",
+      "intValue": 0,
+      "bits": [
+        0,
+        0,
+        0,
+        262144
+      ],
+      "text": "pre0@0pctpost"
+    },
+    {
+      "target": "Int32",
+      "format": "\"pre\"#,##0.0#%\"post\"",
+      "intValue": 1234567,
+      "bits": [
+        123456789,
+        0,
+        0,
+        262144
+      ],
+      "text": "pre1_23_45_67_00@0pctpost"
+    },
+    {
+      "target": "Decimal",
+      "format": "\"pre\"#,##0.0#%\"post\"",
+      "intValue": -1234567,
+      "bits": [
+        123456789,
+        0,
+        0,
+        -2147221504
+      ],
+      "text": "~pre1_23_45_67@89pctpost"
+    },
+    {
+      "target": "Decimal",
+      "format": "\"pre\"#,##0.0#%\"post\"",
+      "intValue": 0,
+      "bits": [
+        0,
+        0,
+        0,
+        262144
+      ],
+      "text": "pre0@0pctpost"
+    },
+    {
+      "target": "Decimal",
+      "format": "\"pre\"#,##0.0#%\"post\"",
+      "intValue": 1234567,
+      "bits": [
+        123456789,
+        0,
+        0,
+        262144
+      ],
+      "text": "pre1_23_45_67@89pctpost"
+    },
+    {
+      "target": "Int32",
+      "format": "\"[\"#,##0.###%\"]\"",
+      "intValue": -1234567,
+      "bits": [
+        123456789,
+        0,
+        0,
+        -2147221504
+      ],
+      "text": "~[1_23_45_67_00pct]"
+    },
+    {
+      "target": "Int32",
+      "format": "\"[\"#,##0.###%\"]\"",
+      "intValue": 0,
+      "bits": [
+        0,
+        0,
+        0,
+        262144
+      ],
+      "text": "[0pct]"
+    },
+    {
+      "target": "Int32",
+      "format": "\"[\"#,##0.###%\"]\"",
+      "intValue": 1234567,
+      "bits": [
+        123456789,
+        0,
+        0,
+        262144
+      ],
+      "text": "[1_23_45_67_00pct]"
+    },
+    {
+      "target": "Decimal",
+      "format": "\"[\"#,##0.###%\"]\"",
+      "intValue": -1234567,
+      "bits": [
+        123456789,
+        0,
+        0,
+        -2147221504
+      ],
+      "text": "~[1_23_45_67@89pct]"
+    },
+    {
+      "target": "Decimal",
+      "format": "\"[\"#,##0.###%\"]\"",
+      "intValue": 0,
+      "bits": [
+        0,
+        0,
+        0,
+        262144
+      ],
+      "text": "[0pct]"
+    },
+    {
+      "target": "Decimal",
+      "format": "\"[\"#,##0.###%\"]\"",
+      "intValue": 1234567,
+      "bits": [
+        123456789,
+        0,
+        0,
+        262144
+      ],
+      "text": "[1_23_45_67@89pct]"
+    }
+  ],
   "selectedDecimalGetFormatProvider": [
     {
       "text": "0",
@@ -66728,6 +66874,6 @@
       "publicConstructors": []
     }
   ],
-  "oracleProgramSha256": "3eb4f27578fd575cd84385d55456b065d93b1d50f720c0d7b111a19cc4e50739",
+  "oracleProgramSha256": "f871cae46c0cb6dc00b46c0787aae4da16118c4c5f5b296b5ad64f359368427e",
   "scope": "Selected CoreLib public identities and declarations; excludes full behavior and conditional-source inventory"
 }

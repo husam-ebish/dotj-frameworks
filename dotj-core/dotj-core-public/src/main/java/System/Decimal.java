@@ -1024,11 +1024,13 @@ public final class Decimal implements IConvertible {
             return prefixed + suffix;
         }
         if (format != null && format.indexOf('"') >= 0
-                && format.matches("(\"[^\";:]{1,20}\")?#,##0\\.00%(\"[^\";:]{1,20}\")?")) {
-            String core = this.ToString("#,##0.00%", provider);
-            int coreStart = format.indexOf("#,##0.00%");
+                && format.matches("(\"[^\";:]{1,20}\")?#,##0\\.(00|0#|###)%(\"[^\";:]{1,20}\")?")) {
+            String coreFormat = format.contains("#,##0.###%") ? "#,##0.###%"
+                    : format.contains("#,##0.0#%") ? "#,##0.0#%" : "#,##0.00%";
+            String core = this.ToString(coreFormat, provider);
+            int coreStart = format.indexOf(coreFormat);
             String quotedPrefix = format.substring(0, coreStart);
-            String quotedSuffix = format.substring(coreStart + "#,##0.00%".length());
+            String quotedSuffix = format.substring(coreStart + coreFormat.length());
             String prefix = quotedPrefix.isEmpty() ? ""
                     : quotedPrefix.substring(1, quotedPrefix.length() - 1);
             String suffix = quotedSuffix.isEmpty() ? ""
