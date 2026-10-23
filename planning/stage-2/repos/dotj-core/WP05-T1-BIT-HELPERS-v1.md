@@ -363,3 +363,5 @@ Selected `Int32` and `Decimal` formatting now recognizes letter-only custom form
 Selected `Int32` and `Decimal` formatting now recognizes a one-character backslash escape and whole single- or double-quoted custom literals. Thirty-two .NET 10 vectors cover eight escaped or quoted spellings, both signs and both types with provider negative signs; a packaged external consumer checks exact text. Broader custom format grammar remains open.
 
 Selected `Int32` and `Decimal` formatting now supports three quoted-text forms around one mandatory digit: `'item '0`, `0' units'` and `'['0']'`. Eighteen .NET 10 vectors cover negative, zero and positive values for both types with provider negative signs; a packaged external consumer checks exact text. Broader mixed numeric/literal grammar remains open.
+
+Selected `Int32` and `Decimal` formatting now supports `0\Q`, `0\%`, `0\G` and `\Q0` escaped numeric forms. Twenty-four .NET 10 vectors cover negative, zero and positive values with provider negative signs; a packaged external consumer checks exact text. Broader escaped numeric grammar remains open.
