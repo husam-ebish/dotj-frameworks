@@ -1110,7 +1110,15 @@ public final class Decimal implements IConvertible {
                         currencyFormat.get_CurrencyGroupSeparator())
                         + fraction;
                 if (rounded.signum() >= 0) {
-                    return formatted;
+                    String amount = formatted.substring(
+                            currencyFormat.get_CurrencySymbol().length());
+                    return switch (currencyFormat.get_CurrencyPositivePattern()) {
+                        case 0 -> formatted;
+                        case 1 -> amount + currencyFormat.get_CurrencySymbol();
+                        case 2 -> currencyFormat.get_CurrencySymbol() + " " + amount;
+                        case 3 -> amount + " " + currencyFormat.get_CurrencySymbol();
+                        default -> formatted;
+                    };
                 }
                 String sign = currencyFormat.get_NegativeSign();
                 return switch (currencyFormat.get_CurrencyNegativePattern()) {
