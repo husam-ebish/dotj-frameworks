@@ -1036,11 +1036,14 @@ public final class Decimal implements IConvertible {
             return grouped;
         }
         if (format.equals("P") || format.equals("p")
-                || format.matches("[Pp][0-9]{1,2}")) {
+                || format.matches("[Pp][0-9]+")) {
             int decimals = format.length() == 1
                     ? provider instanceof NumberFormatInfo percentFormat
                     ? percentFormat.get_PercentDecimalDigits() : 2
                     : Integer.parseInt(format.substring(1));
+            if (decimals > 4096) {
+                throw new UnsupportedOperationException("Decimal percent precision is not mapped");
+            }
             String grouped = groupedDecimal(this.value.movePointRight(2)
                     .setScale(decimals, RoundingMode.HALF_UP));
             if (provider instanceof NumberFormatInfo percentFormat) {
