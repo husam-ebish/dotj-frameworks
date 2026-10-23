@@ -629,3 +629,5 @@ Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 v
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for quoted affixes around whole-number and mixed fractional cores. They cover both signs and zero through a packaged consumer. Broader affix core formats remain open.
 
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for escaped affixes around whole-number and mixed fractional cores. They cover both signs and zero through a packaged consumer. Broader escaped core formats remain open.
+
+Selected grouped Decimal per-mille formatting now has eighteen .NET 10 no-fraction affix vectors at signed rounding boundaries and zero. They run through a packaged consumer. Broader no-fraction affix cases remain open.
