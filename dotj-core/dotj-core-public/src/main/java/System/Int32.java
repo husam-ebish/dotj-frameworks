@@ -1106,6 +1106,20 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
+        if (format.equals("#,##0%") || format.equals("#,##0.00%")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String digits = BigInteger.valueOf(this.value).abs()
+                    .multiply(BigInteger.valueOf(100)).toString();
+            String grouped = selectedGroupDigits(digits, numberFormat == null
+                    ? new int[] {3} : numberFormat.get_NumberGroupSizes(),
+                    numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String fraction = format.equals("#,##0.00%") ? (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + "00" : "";
+            return sign + grouped + fraction
+                    + (numberFormat == null ? "%" : numberFormat.get_PercentSymbol());
+        }
         if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28}|\\.0{1,14}#{1,14})?")) {
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String digits = BigInteger.valueOf(this.value).abs().toString();
