@@ -1094,10 +1094,25 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
         if (format.equals("#,##0")) {
-            return this.ToString("N0", provider);
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            String grouped = selectedGroupDigits(digits, numberFormat == null
+                    ? new int[] {3} : numberFormat.get_NumberGroupSizes(),
+                    numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + grouped;
         }
         if (format.equals("#,##0.00")) {
-            return this.ToString("N2", provider);
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String digits = BigInteger.valueOf(this.value).abs().toString();
+            String grouped = selectedGroupDigits(digits, numberFormat == null
+                    ? new int[] {3} : numberFormat.get_NumberGroupSizes(),
+                    numberFormat == null ? "," : numberFormat.get_NumberGroupSeparator());
+            String sign = this.value < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + grouped + (numberFormat == null ? "."
+                    : numberFormat.get_NumberDecimalSeparator()) + "00";
         }
         if (format.matches("0\\.0{1,32}")) {
             return this.ToString("F" + (format.length() - 2), provider);
