@@ -583,3 +583,5 @@ Selected `Int32` and `Decimal` custom `0‰` formatting now scales by one thousand
 Selected `Int32` and `Decimal` custom `0‰` formatting now has twelve .NET 10 vectors for a custom or empty provider `PerMilleSymbol` across both signs and zero. The packaged consumer checks the provider symbol path. Broader per-mille grammar remains open.
 
 Selected `Int32` and `Decimal` per-mille formatting now supports `0.00‰` and `0.##‰` with provider decimal separator, negative sign, and per-mille symbol. Twenty-four .NET 10 vectors cover signed values, zero, and decimal rounding through a packaged consumer. Grouped per-mille patterns remain open.
+
+Selected `Int32` and `Decimal` per-mille formatting now supports `#,##0‰` and `#,##0.00‰` with provider grouping, decimal separator, sign and per-mille symbol. Twelve .NET 10 vectors cover both signs and zero through a packaged consumer. Broader grouped per-mille grammar remains open.

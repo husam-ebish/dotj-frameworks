@@ -1111,12 +1111,13 @@ public final class Decimal implements IConvertible {
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
-        if (format.matches("#,##0(\\.0{1,30}|\\.#{1,30}|\\.0{1,30}#{1,30})?%")) {
+        if (format.matches("#,##0(\\.0{1,30}|\\.#{1,30}|\\.0{1,30}#{1,30})?[%\u2030]")) {
+            boolean perMille = format.endsWith("\u2030");
             int dotFormat = format.indexOf('.');
             int places = dotFormat < 0 ? 0 : format.length() - dotFormat - 2;
             int mandatory = 0;
             while (mandatory < places && format.charAt(dotFormat + 1 + mandatory) == '0') mandatory++;
-            BigDecimal scaled = this.value.movePointRight(2)
+            BigDecimal scaled = this.value.movePointRight(perMille ? 3 : 2)
                     .setScale(places, RoundingMode.HALF_UP);
             if (mandatory < places) {
                 scaled = scaled.stripTrailingZeros();
@@ -1135,7 +1136,9 @@ public final class Decimal implements IConvertible {
             String fraction = dot < 0 ? "" : (numberFormat == null ? "."
                     : numberFormat.get_NumberDecimalSeparator()) + plain.substring(dot + 1);
             return sign + grouped + fraction
-                    + (numberFormat == null ? "%" : numberFormat.get_PercentSymbol());
+                    + (numberFormat == null ? (perMille ? "\u2030" : "%")
+                    : perMille ? numberFormat.get_PerMilleSymbol()
+                    : numberFormat.get_PercentSymbol());
         }
         if (format.matches("#,##0(\\.0{1,28}|\\.#{1,28}|\\.0{1,14}#{1,14})?")) {
             int dotFormat = format.indexOf('.');
