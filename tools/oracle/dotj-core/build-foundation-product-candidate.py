@@ -1797,6 +1797,8 @@ def main():
         "empty": "", "error": "System.ArgumentNullException", "parameter": "value"}
     assert metadata["selectedCurrencyGroupSeparatorBoundaries"] == {
         "empty": "", "error": "System.ArgumentNullException", "parameter": "value"}
+    assert metadata["selectedPercentGroupSeparatorBoundaries"] == {
+        "empty": "", "error": "System.ArgumentNullException", "parameter": "value"}
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
