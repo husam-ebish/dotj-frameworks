@@ -10,7 +10,7 @@ public final class ProductGeneralFormatInvalidBoundariesConsumer {
     public static void main(String[] args) {
         if (args.length != 40 && args.length != 32 && args.length != 18
                 && args.length != 24 && args.length != 27 && args.length != 12
-                && args.length != 15 && args.length != 20) {
+                && args.length != 15 && args.length != 20 && args.length != 25) {
             throw new AssertionError("General format boundary vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();
