@@ -1201,6 +1201,12 @@ def main():
                and entry["format"] in ("#0", "0#", "##0", "0##")
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in mixed_integer_vectors)
+    custom_integer_grouping_vectors = metadata["selectedCustomIntegerGrouping"]
+    assert len(custom_integer_grouping_vectors) == 12
+    assert all(entry["target"] in ("Int32", "Decimal")
+               and entry["format"] in ("#,##0", "#,##0.00")
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in custom_integer_grouping_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -2818,6 +2824,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *mixed_integer_args).strip()
+    custom_integer_grouping_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none", "@", "_"))
+        for entry in custom_integer_grouping_vectors]
+    custom_integer_grouping_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *custom_integer_grouping_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -3204,6 +3219,7 @@ def main():
     assert decimal_zero_padding_result == "PASS external general format boundaries"
     assert optional_integer_result == "PASS external general format boundaries"
     assert mixed_integer_result == "PASS external general format boundaries"
+    assert custom_integer_grouping_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"

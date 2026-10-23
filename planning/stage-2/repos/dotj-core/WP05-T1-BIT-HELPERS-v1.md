@@ -393,3 +393,5 @@ Selected `Decimal` custom zero padding now rounds to integer digits and uses the
 Selected `Int32` and `Decimal` formatting now supports one through three optional integer placeholders, including empty output for zero. Eighteen .NET 10 vectors cover both signs and zero with provider negative signs through a packaged external consumer. Broader optional integer grammar remains open.
 
 Selected `Int32` and `Decimal` formatting now supports mixed mandatory and optional integer placeholders: `#0`, `0#`, `##0` and `0##`. Twenty-four .NET 10 vectors cover sign, zero, padding and rounding through a packaged external consumer. Broader mixed integer grammar remains open.
+
+Selected `Int32` and `Decimal` formatting now supports `#,##0` and `#,##0.00` with provider group and decimal separators. Twelve .NET 10 vectors cover negative, zero and positive values through a packaged external consumer. Broader grouping grammar remains open.

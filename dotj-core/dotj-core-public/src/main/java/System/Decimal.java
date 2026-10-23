@@ -1024,6 +1024,9 @@ public final class Decimal implements IConvertible {
             int width = format.charAt(0) == '0' ? format.length() : 1;
             return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
         }
+        if (format.equals("#,##0") || format.equals("#,##0.00")) {
+            return this.ToString(format.equals("#,##0") ? "N0" : "N2", provider);
+        }
         if (format.matches("0\\.0{1,32}")
                 || format.matches("0\\.#{2,28}")) {
             int places = format.length() - 2;
