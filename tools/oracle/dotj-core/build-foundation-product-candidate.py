@@ -1789,6 +1789,8 @@ def main():
                for entry in grouped_percent_mixed_affix_empty_group_vectors)
     assert metadata["selectedGroupedPercentMixedAffixEmptyDecimalSeparator"] == {
         "error": "System.ArgumentException", "parameter": "value"}
+    assert metadata["selectedCurrencyDecimalSeparatorEmpty"] == {
+        "error": "System.ArgumentException", "parameter": "value"}
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
