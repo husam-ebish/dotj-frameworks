@@ -607,3 +607,5 @@ Selected grouped Decimal per-mille formatting now has eighteen .NET 10 vectors f
 Selected grouped Int32 and Decimal per-mille formatting now supports quoted prefixes and suffixes. Twelve .NET 10 vectors cover both signs and zero through a packaged consumer. Broader affix combinations remain open.
 
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for paired quoted prefixes and suffixes, including optional fractional places. They run through a packaged consumer. Broader paired affix combinations remain open.
+
+Selected grouped Int32 and Decimal per-mille formatting now supports escaped single-character prefixes and suffixes. Twelve .NET 10 vectors cover both signs and zero through a packaged consumer. Broader escaped affix combinations remain open.

@@ -992,6 +992,22 @@ public final class Decimal implements IConvertible {
 
     public String ToString(String format, IFormatProvider provider) {
         provider = selectedNumberFormatInfo(provider);
+        if (format != null && format.indexOf('\\') >= 0
+                && format.matches("(\\\\[A-Za-z0-9!?() ])?#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?\u2030(\\\\[A-Za-z0-9!?() ])?")) {
+            int coreStart = format.indexOf("#,##0");
+            String coreFormat = format.substring(coreStart, format.indexOf('\u2030', coreStart) + 1);
+            String core = this.ToString(coreFormat, provider);
+            String prefix = coreStart == 0 ? "" : format.substring(1, 2);
+            int suffixStart = coreStart + coreFormat.length();
+            String suffix = suffixStart == format.length() ? ""
+                    : format.substring(suffixStart + 1);
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String sign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
+            String prefixed = !sign.isEmpty() && core.startsWith(sign)
+                    ? sign + prefix + core.substring(sign.length()) : prefix + core;
+            return prefixed + suffix;
+        }
         if (format != null && format.indexOf('"') >= 0
                 && format.matches("(\"[^\";:]{1,20}\")?#,##0(\\.(0{1,30}|#{1,30}|0{1,30}#{1,30}))?\u2030(\"[^\";:]{1,20}\")?")) {
             int coreStart = format.indexOf("#,##0");
