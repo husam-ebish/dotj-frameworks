@@ -3158,6 +3158,18 @@ static object ObserveInt32BinaryHighPrecision()
         new { value, format = "B", precision,
             text = value.ToString("B" + precision) })).ToArray();
 }
+static object ObserveInt32FixedHighPrecision()
+{
+    int[] values = [-42, 0, 42];
+    int[] precisions = [1001, 1024];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = "@", NegativeSign = "~",
+    };
+    return values.SelectMany(value => precisions.Select(precision =>
+        new { value, precision, text = value.ToString("F" + precision, provider) }))
+        .ToArray();
+}
 static object ObserveNumberNegativePatternBoundaries()
 {
     var provider = new System.Globalization.NumberFormatInfo();
@@ -8760,6 +8772,7 @@ var result = new
     selectedInt32DecimalHighPrecision = ObserveInt32DecimalHighPrecision(),
     selectedInt32HexHighPrecision = ObserveInt32HexHighPrecision(),
     selectedInt32BinaryHighPrecision = ObserveInt32BinaryHighPrecision(),
+    selectedInt32FixedHighPrecision = ObserveInt32FixedHighPrecision(),
     selectedNumberNegativePatternBoundaries = ObserveNumberNegativePatternBoundaries(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
