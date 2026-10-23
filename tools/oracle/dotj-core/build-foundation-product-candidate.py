@@ -1020,6 +1020,14 @@ def main():
     assert all(entry["precision"] in ("2147483648", "999999999999999999999999999999")
                and entry["exception"] == "FormatException"
                for entry in decimal_precision_overflow_vectors)
+    decimal_leading_zero_precision_vectors = metadata["selectedDecimalLeadingZeroPrecision"]
+    assert len(decimal_leading_zero_precision_vectors) == 10
+    assert {entry["format"] for entry in decimal_leading_zero_precision_vectors} == {
+        "F", "N", "P", "C", "E"}
+    assert all(len(entry["bits"]) == 4
+               and entry["precision"] in ("000100", "00000000000000000000000000000100")
+               and type(entry["text"]) is str and entry["exception"] is None
+               for entry in decimal_leading_zero_precision_vectors)
     decimal_standard_precision_1024_vectors = metadata["selectedDecimalStandardPrecision1024"]
     assert len(decimal_standard_precision_1024_vectors) == 10
     assert {entry["format"] for entry in decimal_standard_precision_1024_vectors} == {
@@ -2380,6 +2388,14 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductDecimalPrecisionOverflowConsumer",
         *decimal_precision_overflow_args).strip()
+    decimal_leading_zero_precision_args = [
+        ":".join((",".join(str(word) for word in entry["bits"]), entry["format"],
+                  entry["precision"], entry["text"]))
+        for entry in decimal_leading_zero_precision_vectors]
+    decimal_leading_zero_precision_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductDecimalStandardPrecision100Consumer",
+        *decimal_leading_zero_precision_args).strip()
     decimal_standard_precision_1024_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2719,6 +2735,7 @@ def main():
     assert decimal_currency_precision_100_result == "PASS external Decimal standard precision 100"
     assert decimal_exponential_precision_100_result == "PASS external Decimal standard precision 100"
     assert decimal_precision_overflow_result == "PASS external Decimal precision overflow errors"
+    assert decimal_leading_zero_precision_result == "PASS external Decimal standard precision 100"
     assert decimal_standard_precision_1024_result == "PASS external Decimal standard precision 100"
     assert decimal_standard_precision_4097_result == "PASS external Decimal standard precision 100"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"

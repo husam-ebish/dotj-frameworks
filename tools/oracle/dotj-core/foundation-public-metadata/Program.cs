@@ -3577,6 +3577,26 @@ static object ObserveDecimalPrecisionOverflowErrors()
         return new { format, precision, exception };
     })).ToArray();
 }
+static object ObserveDecimalLeadingZeroPrecision()
+{
+    string[] formats = ["F", "N", "P", "C", "E"];
+    string[] precisions = ["000100", "00000000000000000000000000000100"];
+    var provider = new System.Globalization.NumberFormatInfo();
+    return formats.SelectMany(format => precisions.Select(precision =>
+    {
+        string? text = null;
+        string? exception = null;
+        try
+        {
+            text = (-1.23m).ToString(format + precision, provider);
+        }
+        catch (Exception error)
+        {
+            exception = error.GetType().Name;
+        }
+        return new { bits = decimal.GetBits(-1.23m), format, precision, text, exception };
+    })).ToArray();
+}
 static object ObserveDecimalStandardPrecision1024()
 {
     int[][] inputs =
@@ -8938,6 +8958,7 @@ var result = new
     selectedDecimalCurrencyPrecision100 = ObserveDecimalCurrencyPrecision100(),
     selectedDecimalExponentialPrecision100 = ObserveDecimalExponentialPrecision100(),
     selectedDecimalPrecisionOverflowErrors = ObserveDecimalPrecisionOverflowErrors(),
+    selectedDecimalLeadingZeroPrecision = ObserveDecimalLeadingZeroPrecision(),
     selectedDecimalStandardPrecision1024 = ObserveDecimalStandardPrecision1024(),
     selectedDecimalStandardPrecision4097 = ObserveDecimalStandardPrecision4097(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
