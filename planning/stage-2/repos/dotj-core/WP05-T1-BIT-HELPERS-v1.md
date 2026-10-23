@@ -567,3 +567,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10
 `NumberFormatInfo.CurrencyGroupSeparator` now has pinned .NET 10 and packaged Java checks for an accepted empty string and a null `ArgumentNullException` with parameter `value`. Other separator boundaries remain open.
 
 `NumberFormatInfo.PercentGroupSeparator` now has pinned .NET 10 and packaged Java checks for an accepted empty string and a null `ArgumentNullException` with parameter `value`. Other separator boundaries remain open.
+
+All three `NumberFormatInfo` decimal-separator setters now have pinned .NET 10 and packaged Java null checks: each throws `ArgumentNullException` with parameter `value`. Other provider setter boundaries remain open.
