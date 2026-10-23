@@ -385,3 +385,5 @@ Selected `Decimal` formatting now supports twenty-eight and thirty-two mandatory
 Selected `Int32` formatting now supports mandatory custom fractional places from one through thirty-two, including pinned three, four, six and twenty-eight place forms. Twelve .NET 10 vectors cover negative, zero and positive values with provider separators through a packaged external consumer. Broader Int32 custom decimal grammar remains open.
 
 Selected `Int32` formatting now supports one through twenty-eight optional fractional placeholders. Fifteen .NET 10 vectors cover both 32-bit extrema, negative, zero and positive values with provider negative signs through a packaged external consumer. Broader Int32 custom decimal grammar remains open.
+
+Selected `Int32` custom zero padding now uses the provider negative sign. Fifteen .NET 10 vectors cover two, three and five digit patterns across extrema, negative, zero and positive values through a packaged external consumer. Broader custom digit grammar remains open.
