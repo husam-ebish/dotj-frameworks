@@ -3480,6 +3480,24 @@ static object ObserveDecimalNumberNegativeRounding()
             text = new decimal(bits).ToString("N2", provider) });
     }).ToArray();
 }
+static object ObserveDecimalFixedPrecision100()
+{
+    int[][] inputs =
+    [
+        [123, 0, 0, 0x00020000],
+        [123, 0, 0, unchecked((int)0x80020000)],
+        [0, 0, 0, 0],
+    ];
+    int[] precisions = [100, 101];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NumberDecimalSeparator = "@", NegativeSign = "~",
+    };
+    return inputs.SelectMany(bits => precisions.Select(precision =>
+        new { bits, precision,
+            text = new decimal(bits).ToString("F" + precision, provider) }))
+        .ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -8812,6 +8830,7 @@ var result = new
     selectedDecimalPercentNegativePatterns8To11 = ObserveDecimalPercentNegativePatterns8To11(),
     selectedDecimalNumberNegativePatterns = ObserveDecimalNumberNegativePatterns(),
     selectedDecimalNumberNegativeRounding = ObserveDecimalNumberNegativeRounding(),
+    selectedDecimalFixedPrecision100 = ObserveDecimalFixedPrecision100(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
