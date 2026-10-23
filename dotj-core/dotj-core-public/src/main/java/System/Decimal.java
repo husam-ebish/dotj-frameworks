@@ -1005,6 +1005,15 @@ public final class Decimal implements IConvertible {
             return sign + "0".repeat(Math.max(0, format.length() - digits.length()))
                     + digits;
         }
+        if (format.matches("#+")) {
+            BigDecimal rounded = this.value.setScale(0, RoundingMode.HALF_UP);
+            if (rounded.signum() == 0) return "";
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String sign = rounded.signum() < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            return sign + rounded.abs().toPlainString();
+        }
         if (format.matches("0\\.0{1,32}")
                 || format.matches("0\\.#{2,28}")) {
             int places = format.length() - 2;

@@ -389,3 +389,5 @@ Selected `Int32` formatting now supports one through twenty-eight optional fract
 Selected `Int32` custom zero padding now uses the provider negative sign. Fifteen .NET 10 vectors cover two, three and five digit patterns across extrema, negative, zero and positive values through a packaged external consumer. Broader custom digit grammar remains open.
 
 Selected `Decimal` custom zero padding now rounds to integer digits and uses the provider negative sign. Fifteen .NET 10 vectors cover two, three and five digit patterns with positive, negative and rounded-zero values through a packaged external consumer. Broader custom digit grammar remains open.
+
+Selected `Int32` and `Decimal` formatting now supports one through three optional integer placeholders, including empty output for zero. Eighteen .NET 10 vectors cover both signs and zero with provider negative signs through a packaged external consumer. Broader optional integer grammar remains open.
