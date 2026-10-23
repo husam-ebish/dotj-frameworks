@@ -1014,6 +1014,16 @@ public final class Decimal implements IConvertible {
                     : numberFormat.get_NegativeSign()) : "";
             return sign + rounded.abs().toPlainString();
         }
+        if (format.matches("#+0|0#+")) {
+            BigDecimal rounded = this.value.setScale(0, RoundingMode.HALF_UP);
+            NumberFormatInfo numberFormat = provider instanceof NumberFormatInfo selected
+                    ? selected : null;
+            String sign = rounded.signum() < 0 ? (numberFormat == null ? "-"
+                    : numberFormat.get_NegativeSign()) : "";
+            String digits = rounded.abs().toPlainString();
+            int width = format.charAt(0) == '0' ? format.length() : 1;
+            return sign + "0".repeat(Math.max(0, width - digits.length())) + digits;
+        }
         if (format.matches("0\\.0{1,32}")
                 || format.matches("0\\.#{2,28}")) {
             int places = format.length() - 2;
