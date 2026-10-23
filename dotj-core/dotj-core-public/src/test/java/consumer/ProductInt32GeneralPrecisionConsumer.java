@@ -6,7 +6,7 @@ import System.Globalization.NumberFormatInfo;
 /** Checks packaged Int32 G precision against the selected .NET oracle. */
 public final class ProductInt32GeneralPrecisionConsumer {
     public static void main(String[] args) {
-        if (args.length != 108) {
+        if (args.length != 108 && args.length != 48) {
             throw new AssertionError("Int32 general precision vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();
