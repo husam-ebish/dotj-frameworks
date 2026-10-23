@@ -527,3 +527,5 @@ Selected grouped `Decimal` percent formatting now has eighteen .NET 10 rounding 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10 vectors for mixed quoted and escaped affixes with a custom or empty provider percent symbol. They cover both signs and zero through a packaged external consumer. Broader mixed affix and symbol combinations remain open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve .NET 10 vectors for mixed quoted and escaped affixes with two provider group-size sequences. They cover both signs, zero and stop-grouping behavior through a packaged external consumer. Broader mixed affix grouping remains open.
+
+Selected grouped `Decimal` percent formatting now has eighteen .NET 10 vectors for mixed quoted and escaped affixes at both decimal range endpoints and tiny signed values. They run through a packaged external consumer. Broader mixed affix extreme-value formatting remains open.
