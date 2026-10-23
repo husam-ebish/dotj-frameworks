@@ -489,3 +489,5 @@ Selected grouped `Int32` and `Decimal` percent formatting now supports a quoted 
 Selected grouped `Int32` and `Decimal` percent formatting now supports quoted punctuation around `#,##0.00%`. Twelve .NET 10 vectors cover bracket and parenthesis affixes across signs and zero through a packaged external consumer. Broader quoted literal grammar remains open.
 
 Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for spaces inside quoted prefix and suffix literals. They cover signs, zero and provider symbols through a packaged external consumer. Broader quoted literal grammar remains open.
+
+Selected grouped `Int32` and `Decimal` percent formatting now has twelve pinned vectors for digits inside quoted prefix and suffix literals. They cover signs, zero and provider symbols through a packaged external consumer. Broader quoted literal grammar remains open.
