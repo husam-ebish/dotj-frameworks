@@ -1220,8 +1220,8 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             } catch (NumberFormatException expected) {
                 throw new FormatException("Format precision is invalid");
             }
-            if (precision > 1000) {
-                throw new UnsupportedOperationException("Int32 precision is not mapped");
+            if (precision > 2048) {
+                throw new UnsupportedOperationException("Int32 fixed precision is not mapped");
             }
             String fraction = precision == 0 ? "" : (numberFormat == null ? "."
                     : numberFormat.get_NumberDecimalSeparator()) + "0".repeat(precision);

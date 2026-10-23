@@ -307,3 +307,5 @@ Selected `Int32.ToString("D", provider)` now supports precision 1001 and 1024. S
 Selected `Int32.ToString("x"/"X")` now supports precision 1001 and 1024. Twelve .NET 10 vectors check negative, zero and positive values in both cases against a packaged external consumer. The implementation guard remains bounded at 2048; higher precision and broader format semantics remain open.
 
 Selected `Int32.ToString("B")` now supports precision 1001 and 1024. Six .NET 10 vectors check negative, zero and positive values at both precisions against a packaged external consumer. The implementation guard remains bounded at 2048; higher precision and broader format semantics remain open.
+
+Selected `Int32.ToString("F", provider)` now supports precision 1001 and 1024. Six .NET 10 vectors check negative, zero and positive values with custom number decimal separator and sign at both precisions against a packaged external consumer. The implementation guard remains bounded at 2048; higher precision and broader format semantics remain open.
