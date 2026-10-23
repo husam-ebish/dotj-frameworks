@@ -1193,6 +1193,13 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             if (pattern == 7) return amount + symbol + sign;
             if (pattern == 8) return sign + amount + " " + symbol;
             if (pattern == 9) return sign + symbol + " " + amount;
+            if (pattern == 10) return amount + " " + symbol + sign;
+            if (pattern == 11) return symbol + " " + amount + sign;
+            if (pattern == 12) return symbol + " " + sign + amount;
+            if (pattern == 13) return amount + sign + " " + symbol;
+            if (pattern == 14) return "(" + symbol + " " + amount + ")";
+            if (pattern == 15) return "(" + amount + " " + symbol + ")";
+            if (pattern == 16) return symbol + sign + " " + amount;
             throw new UnsupportedOperationException("CurrencyNegativePattern is not mapped");
         }
         if (format.matches("[fF][0-9]*")) {

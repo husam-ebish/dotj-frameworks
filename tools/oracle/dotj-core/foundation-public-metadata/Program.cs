@@ -3084,6 +3084,23 @@ static object ObserveDecimalFromOACurrency()
     return inputs.Select(value => new { value,
         bits = decimal.GetBits(decimal.FromOACurrency(value)) }).ToArray();
 }
+static object ObserveInt32CurrencyNegativePatterns10To16()
+{
+    int[] values = [-42, -12345, int.MinValue];
+    return Enumerable.Range(10, 7).SelectMany(pattern =>
+    {
+        var provider = new System.Globalization.NumberFormatInfo
+        {
+            CurrencySymbol = "USD",
+            CurrencyGroupSeparator = "_",
+            CurrencyDecimalSeparator = "@",
+            CurrencyNegativePattern = pattern,
+            NegativeSign = "~",
+        };
+        return values.Select(value => new { value, pattern,
+            text = value.ToString("C2", provider) });
+    }).ToArray();
+}
 static object ObserveInt32CurrencyNegativePatterns6To9()
 {
     int[] values = [-42, -12345, int.MinValue];
@@ -8539,6 +8556,7 @@ var result = new
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
     selectedInt32CurrencyNegativePatterns2To5 = ObserveInt32CurrencyNegativePatterns2To5(),
     selectedInt32CurrencyNegativePatterns6To9 = ObserveInt32CurrencyNegativePatterns6To9(),
+    selectedInt32CurrencyNegativePatterns10To16 = ObserveInt32CurrencyNegativePatterns10To16(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),
