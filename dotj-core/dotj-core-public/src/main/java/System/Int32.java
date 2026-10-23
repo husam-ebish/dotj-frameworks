@@ -959,7 +959,7 @@ public final class Int32 implements IConvertible, ISpanFormattable,
             return prefixed + suffix;
         }
         if (format != null && format.indexOf('\\') >= 0
-                && format.matches("(\\\\[A-Za-z])?#,##0\\.00%(\\\\[A-Za-z])?")) {
+                && format.matches("(\\\\[A-Za-z!?()])?#,##0\\.00%(\\\\[A-Za-z!?()])?")) {
             String core = this.ToString("#,##0.00%", provider);
             int coreStart = format.indexOf("#,##0.00%");
             String prefix = coreStart == 0 ? "" : format.substring(1, 2);
