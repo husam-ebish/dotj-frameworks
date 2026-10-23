@@ -621,3 +621,5 @@ Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 v
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for quoted digit affixes. They cover both signs and zero through a packaged consumer. Broader quoted digit combinations remain open.
 
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for escaped punctuation affixes. They cover both signs and zero through a packaged consumer. Broader escaped punctuation combinations remain open.
+
+Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 vectors for escaped digit affixes. They cover both signs and zero through a packaged consumer. Broader escaped digit combinations remain open.
