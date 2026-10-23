@@ -81,6 +81,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductInt32CurrencyHighPrecisionConsumer",
     "ProductInt32PercentHighPrecisionConsumer",
     "ProductInt32ExponentialHighPrecisionConsumer",
+    "ProductInt32StandardPrecision2049Consumer",
     "ProductNumberNegativePatternBoundariesConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
@@ -1077,6 +1078,13 @@ def main():
     assert all(entry["value"] in (-42, 0, 42)
                and entry["precision"] in (1001, 1024) and type(entry["text"]) is str
                for entry in int32_exponential_high_precision_vectors)
+    int32_standard_precision_2049_vectors = metadata["selectedInt32StandardPrecision2049"]
+    assert len(int32_standard_precision_2049_vectors) == 8
+    assert {entry["format"] for entry in int32_standard_precision_2049_vectors} == {
+        "D", "N", "x", "B", "C", "F", "P", "E"}
+    assert all(entry["value"] == -42 and entry["precision"] == 2049
+               and type(entry["text"]) is str
+               for entry in int32_standard_precision_2049_vectors)
     number_negative_boundaries = metadata["selectedNumberNegativePatternBoundaries"]
     assert number_negative_boundaries["initial"] == 1
     assert number_negative_boundaries["accepted"] == list(range(5))
@@ -2411,6 +2419,14 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductInt32ExponentialHighPrecisionConsumer",
         *int32_exponential_high_precision_args).strip()
+    int32_standard_precision_2049_args = [
+        ":".join((str(entry["value"]), entry["format"],
+                  str(entry["precision"]), entry["text"]))
+        for entry in int32_standard_precision_2049_vectors]
+    int32_standard_precision_2049_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductInt32StandardPrecision2049Consumer",
+        *int32_standard_precision_2049_args).strip()
     number_negative_boundaries_args = [
         str(number_negative_boundaries["initial"]),
         ",".join(str(value) for value in number_negative_boundaries["accepted"]),
@@ -2597,6 +2613,7 @@ def main():
     assert int32_currency_high_precision_result == "PASS external Int32 currency high precision"
     assert int32_percent_high_precision_result == "PASS external Int32 percent high precision"
     assert int32_exponential_high_precision_result == "PASS external Int32 exponential high precision"
+    assert int32_standard_precision_2049_result == "PASS external Int32 standard precision 2049"
     assert number_negative_boundaries_result == "PASS external NumberNegativePattern boundaries"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"

@@ -315,3 +315,5 @@ Selected `Int32.ToString("C", provider)` now supports precision 1001 and 1024. S
 Selected `Int32.ToString("P", provider)` now supports precision 1001 and 1024. Six .NET 10 vectors check negative, zero and positive values with custom percent symbol, decimal separator and patterns at both precisions against a packaged external consumer. The implementation guard remains bounded at 2048; higher precision and broader format semantics remain open.
 
 Selected `Int32.ToString("E", provider)` now supports precision 1001 and 1024. Six .NET 10 vectors check negative, zero and positive values with custom number decimal separator and exponent signs at both precisions against a packaged external consumer. The implementation guard remains bounded at 2048; higher precision and broader format semantics remain open.
+
+Selected `Int32.ToString` standard formats D, N, x, B, C, F, P and E now support precision 2049. Eight .NET 10 vectors check one negative value across those formats against a packaged external consumer. The implementation guards remain bounded at 4096; higher precision and broader format semantics remain open.
