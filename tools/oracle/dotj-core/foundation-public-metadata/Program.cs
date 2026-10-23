@@ -3117,6 +3117,32 @@ static object ObserveInt32NumberNegativePatterns()
             text = value.ToString("N2", provider) });
     }).ToArray();
 }
+static object ObserveNumberNegativePatternBoundaries()
+{
+    var provider = new System.Globalization.NumberFormatInfo();
+    int initial = provider.NumberNegativePattern;
+    int[] accepted = Enumerable.Range(0, 5).Select(value =>
+    {
+        provider.NumberNegativePattern = value;
+        return provider.NumberNegativePattern;
+    }).ToArray();
+    int[] rejected = [-1, 5, int.MinValue, int.MaxValue];
+    var failures = rejected.Select(value =>
+    {
+        string exception;
+        try
+        {
+            provider.NumberNegativePattern = value;
+            exception = "none";
+        }
+        catch (Exception error)
+        {
+            exception = error.GetType().Name;
+        }
+        return new { value, exception, retained = provider.NumberNegativePattern };
+    }).ToArray();
+    return new { initial, accepted, failures };
+}
 static object ObserveInt32PercentNegativePatterns6To9()
 {
     int[] values = [-42, -12345, int.MinValue];
@@ -8667,6 +8693,7 @@ var result = new
     selectedInt32PercentNegativePatterns6To9 = ObserveInt32PercentNegativePatterns6To9(),
     selectedInt32PercentNegativePatterns10To11 = ObserveInt32PercentNegativePatterns10To11(),
     selectedInt32NumberNegativePatterns = ObserveInt32NumberNegativePatterns(),
+    selectedNumberNegativePatternBoundaries = ObserveNumberNegativePatternBoundaries(),
     selectedDecimalFormatStrings = ObserveDecimalFormatStrings(),
     selectedDecimalFixedPrecision = ObserveDecimalFixedPrecision(),
     selectedDecimalNumberFormatting = ObserveDecimalNumberFormatting(),

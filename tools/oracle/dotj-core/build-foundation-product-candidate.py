@@ -73,6 +73,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductInt32PercentPositivePatternsConsumer",
     "ProductInt32PercentNegativePatternsConsumer",
     "ProductInt32NumberNegativePatternsConsumer",
+    "ProductNumberNegativePatternBoundariesConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
     "ProductDecimalNumberFormattingConsumer",
@@ -1023,6 +1024,14 @@ def main():
     assert len(int32_number_negative_vectors) == 15
     assert all(type(entry["value"]) is int and entry["pattern"] in range(5)
                and type(entry["text"]) is str for entry in int32_number_negative_vectors)
+    number_negative_boundaries = metadata["selectedNumberNegativePatternBoundaries"]
+    assert number_negative_boundaries["initial"] == 1
+    assert number_negative_boundaries["accepted"] == list(range(5))
+    assert [entry["value"] for entry in number_negative_boundaries["failures"]] == [
+        -1, 5, -2147483648, 2147483647]
+    assert all(entry["exception"] == "ArgumentOutOfRangeException"
+               and entry["retained"] == 4
+               for entry in number_negative_boundaries["failures"])
     format_string_vectors = metadata["selectedDecimalFormatStrings"]
     assert len(format_string_vectors) == 20
     assert all(len(entry["bits"]) == 4 and type(entry["general"]) is str
@@ -2281,6 +2290,17 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductInt32NumberNegativePatternsConsumer",
         *int32_number_negative_args).strip()
+    number_negative_boundaries_args = [
+        str(number_negative_boundaries["initial"]),
+        ",".join(str(value) for value in number_negative_boundaries["accepted"]),
+        *[":".join((str(entry["value"]), entry["exception"],
+                    str(entry["retained"])))
+          for entry in number_negative_boundaries["failures"]],
+    ]
+    number_negative_boundaries_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductNumberNegativePatternBoundariesConsumer",
+        *number_negative_boundaries_args).strip()
     format_string_args = [
         ":".join((
             ",".join(str(word) for word in entry["bits"]),
@@ -2447,6 +2467,7 @@ def main():
     assert int32_percent_negative_6to9_result == "PASS external selected Int32 percent negative patterns"
     assert int32_percent_negative_10to11_result == "PASS external selected Int32 percent negative patterns"
     assert int32_number_negative_result == "PASS external selected Int32 number negative patterns"
+    assert number_negative_boundaries_result == "PASS external NumberNegativePattern boundaries"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"
     assert number_format_result == "PASS external selected Decimal number formatting"
