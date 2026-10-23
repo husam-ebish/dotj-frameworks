@@ -1630,6 +1630,14 @@ def main():
                                        + '%\\R')
                and len(entry["bits"]) == 4 and type(entry["text"]) is str
                for entry in grouped_percent_affix_scale_vectors)
+    grouped_percent_affix_high_precision_vectors = metadata[
+        "selectedGroupedPercentAffixHighPrecisionRounding"]
+    assert len(grouped_percent_affix_high_precision_vectors) == 18
+    assert all(entry["target"] == "Decimal"
+               and entry["format"] in ('"pre"#,##0.' + '0' * 20 + '%"post"',
+                                       '\\L#,##0.' + '#' * 20 + '%\\R')
+               and len(entry["bits"]) == 4 and type(entry["text"]) is str
+               for entry in grouped_percent_affix_high_precision_vectors)
     get_format_provider_vectors = metadata["selectedDecimalGetFormatProvider"]
     assert len(get_format_provider_vectors) == 12
     assert all(len(entry["bits"]) == 4 and type(entry["text"]) is str
@@ -3813,6 +3821,15 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
         *grouped_percent_affix_scale_args).strip()
+    grouped_percent_affix_high_precision_args = [
+        ":".join((entry["target"], entry["format"], str(entry["intValue"]),
+                  ",".join(str(word) for word in entry["bits"]),
+                  entry["text"], "none", "@", "_", "1", "2", "pct"))
+        for entry in grouped_percent_affix_high_precision_vectors]
+    grouped_percent_affix_high_precision_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductGeneralFormatInvalidBoundariesConsumer",
+        *grouped_percent_affix_high_precision_args).strip()
     get_format_provider_args = [
         ":".join((
             entry["text"], ",".join(str(word) for word in entry["bits"]),
@@ -4261,6 +4278,7 @@ def main():
     assert grouped_percent_affix_extreme_result == "PASS external general format boundaries"
     assert grouped_percent_affix_zero_result == "PASS external general format boundaries"
     assert grouped_percent_affix_scale_result == "PASS external general format boundaries"
+    assert grouped_percent_affix_high_precision_result == "PASS external general format boundaries"
     assert get_format_provider_result == "PASS external selected Decimal GetFormat provider"
     assert currency_positive_pattern_result == "PASS external selected Decimal currency positive patterns"
     assert int32_currency_positive_pattern_result == "PASS external selected Int32 currency positive patterns"
