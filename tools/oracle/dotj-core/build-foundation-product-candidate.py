@@ -75,6 +75,7 @@ CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductInt32PercentNegativePatternsConsumer",
     "ProductInt32NumberNegativePatternsConsumer",
     "ProductInt32NumberHighPrecisionConsumer",
+    "ProductInt32DecimalHighPrecisionConsumer",
     "ProductNumberNegativePatternBoundariesConsumer",
     "ProductDecimalFormatStringsConsumer",
     "ProductDecimalFixedPrecisionConsumer",
@@ -1036,6 +1037,11 @@ def main():
     assert all(entry["value"] == -42 and entry["pattern"] in (0, 1, 4)
                and entry["precision"] in (1001, 1024) and type(entry["text"]) is str
                for entry in int32_number_high_precision_vectors)
+    int32_decimal_high_precision_vectors = metadata["selectedInt32DecimalHighPrecision"]
+    assert len(int32_decimal_high_precision_vectors) == 6
+    assert all(entry["value"] in (-42, 0, 42)
+               and entry["precision"] in (1001, 1024) and type(entry["text"]) is str
+               for entry in int32_decimal_high_precision_vectors)
     number_negative_boundaries = metadata["selectedNumberNegativePatternBoundaries"]
     assert number_negative_boundaries["initial"] == 1
     assert number_negative_boundaries["accepted"] == list(range(5))
@@ -2319,6 +2325,13 @@ def main():
         "java", "-cp", classpath,
         "consumer.ProductInt32NumberHighPrecisionConsumer",
         *int32_number_high_precision_args).strip()
+    int32_decimal_high_precision_args = [
+        ":".join((str(entry["value"]), str(entry["precision"]), entry["text"]))
+        for entry in int32_decimal_high_precision_vectors]
+    int32_decimal_high_precision_result = run(
+        "java", "-cp", classpath,
+        "consumer.ProductInt32DecimalHighPrecisionConsumer",
+        *int32_decimal_high_precision_args).strip()
     number_negative_boundaries_args = [
         str(number_negative_boundaries["initial"]),
         ",".join(str(value) for value in number_negative_boundaries["accepted"]),
@@ -2498,6 +2511,7 @@ def main():
     assert int32_percent_negative_10to11_result == "PASS external selected Int32 percent negative patterns"
     assert int32_number_negative_result == "PASS external selected Int32 number negative patterns"
     assert int32_number_high_precision_result == "PASS external Int32 number high precision"
+    assert int32_decimal_high_precision_result == "PASS external Int32 decimal high precision"
     assert number_negative_boundaries_result == "PASS external NumberNegativePattern boundaries"
     assert format_string_result == "PASS external selected Decimal G and F2 formatting"
     assert fixed_precision_result == "PASS external selected Decimal fixed precision formatting"

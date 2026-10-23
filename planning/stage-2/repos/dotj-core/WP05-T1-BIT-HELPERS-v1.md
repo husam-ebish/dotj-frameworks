@@ -301,3 +301,5 @@ The `NumberFormatInfo.NumberNegativePattern` property now has a selected boundar
 Selected `Decimal.ToString("N2", provider)` rounding near negative zero is pinned across all five negative patterns. Twenty .NET 10 vectors confirm that rounded zero loses the negative decoration, while `-0.005` retains it after rounding to `0.01`; the packaged consumer matches. Broader rounding and globalization behavior remains open.
 
 Selected `Int32.ToString("N", provider)` now supports precision 1001 and 1024, beyond the earlier 1000 limit. Six .NET 10 vectors check three negative patterns at both precisions against a packaged external consumer. The implementation guard remains bounded at 2048; higher precision and broader format semantics remain open.
+
+Selected `Int32.ToString("D", provider)` now supports precision 1001 and 1024. Six .NET 10 vectors check negative, zero and positive values at both precisions against a packaged external consumer. The implementation guard remains bounded at 2048; higher precision and broader format semantics remain open.
