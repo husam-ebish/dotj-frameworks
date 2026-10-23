@@ -995,7 +995,7 @@ public final class Decimal implements IConvertible {
         if (format == null || format.isEmpty()) {
             return this.ToString(provider);
         }
-        if (format.matches("0\\.0{1,28}")
+        if (format.matches("0\\.0{1,32}")
                 || format.matches("0\\.#{2,28}")) {
             int places = format.length() - 2;
             BigDecimal rounded = this.value.setScale(places, RoundingMode.HALF_UP);
