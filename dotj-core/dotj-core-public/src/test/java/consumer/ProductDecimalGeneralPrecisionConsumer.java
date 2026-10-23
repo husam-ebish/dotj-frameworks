@@ -6,7 +6,7 @@ import System.Globalization.NumberFormatInfo;
 /** Checks packaged Decimal G/g precision against the selected .NET oracle. */
 public final class ProductDecimalGeneralPrecisionConsumer {
     public static void main(String[] args) {
-        if (args.length != 84) {
+        if (args.length != 84 && args.length != 42) {
             throw new AssertionError("Decimal general precision vector count changed");
         }
         NumberFormatInfo provider = new NumberFormatInfo();

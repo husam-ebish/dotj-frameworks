@@ -347,3 +347,5 @@ Selected `Int32.ToString("R"/"r", provider)` now accepts both round-trip specifi
 Selected `Int32.ToString("R"/"r", provider)` now also honors explicit significant-digit precision. Sixteen .NET 10 vectors cover 0, 1, 2 and 10 digits in both letter cases, including scientific notation and custom signs; a packaged external consumer checks exact text. Broader round-trip format cases remain open.
 
 Selected `Decimal.ToString("G"/"g", provider)` now supports explicit significant-digit precision, including `G0`, fixed/scientific selection, rounding, exponent letter case and provider symbols. Eighty-four .NET 10 vectors cover six Decimal bit patterns at seven precision states in both cases; a packaged external consumer checks exact text. Plain `G` retains the prior stored-scale behavior, while `G0` removes trailing zeros. Broader general-format cases remain open.
+
+Selected `Decimal.ToString("G"/"g", provider)` now also has midpoint-rounding and fixed/scientific boundary evidence. Forty-two .NET 10 vectors cover seven Decimal bit patterns at three precisions in both cases; a packaged external consumer checks exact text. Broader general-format cases remain open.
