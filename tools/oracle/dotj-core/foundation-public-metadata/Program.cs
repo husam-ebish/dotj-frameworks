@@ -4107,6 +4107,17 @@ static object ObserveInt32CustomZeroPadding()
         bits = decimal.GetBits(0m), text = value.ToString(format, provider)
     })).ToArray();
 }
+static object ObserveDecimalCustomZeroPaddingSelected()
+{
+    string[] formats = ["00", "000", "00000"];
+    decimal[] values = [-1.23m, -0.49m, 0m, 0.49m, 1.23m];
+    var provider = new System.Globalization.NumberFormatInfo { NegativeSign = "~" };
+    return formats.SelectMany(format => values.Select(value => new
+    {
+        target = "Decimal", format, intValue = 0,
+        bits = decimal.GetBits(value), text = value.ToString(format, provider)
+    })).ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -9472,6 +9483,7 @@ var result = new
     selectedInt32MandatoryDecimalPlaces = ObserveInt32MandatoryDecimalPlaces(),
     selectedInt32OptionalDecimalPlaces = ObserveInt32OptionalDecimalPlaces(),
     selectedInt32CustomZeroPadding = ObserveInt32CustomZeroPadding(),
+    selectedDecimalCustomZeroPaddingSelected = ObserveDecimalCustomZeroPaddingSelected(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
