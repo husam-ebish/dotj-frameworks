@@ -51,4 +51,28 @@ public final class TimeSpan {
     public long get_Ticks() {
         return this.ticks;
     }
+
+    public double get_TotalDays() {
+        return (double) this.ticks / TICKS_PER_DAY;
+    }
+
+    public double get_TotalHours() {
+        return (double) this.ticks / 36_000_000_000L;
+    }
+
+    public double get_TotalMinutes() {
+        return (double) this.ticks / 600_000_000L;
+    }
+
+    public double get_TotalSeconds() {
+        return (double) this.ticks / 10_000_000L;
+    }
+
+    public double get_TotalMilliseconds() {
+        return (double) this.ticks / 10_000L;
+    }
+
+    public double get_TotalMicroseconds() {
+        return (double) this.ticks / 10L;
+    }
 }
