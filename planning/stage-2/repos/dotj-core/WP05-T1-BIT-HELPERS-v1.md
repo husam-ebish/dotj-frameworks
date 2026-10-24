@@ -781,3 +781,5 @@ The public TimeSpan candidate now exposes FromSeconds with checked tick conversi
 The public TimeSpan candidate now exposes FromMilliseconds with checked tick conversion. A packaged consumer checks positive, negative and zero intervals and infinity rejection. Microsecond-scale conversion remains open.
 
 The public TimeSpan candidate now exposes FromMicroseconds with checked tick conversion. A packaged consumer checks positive, negative and zero submillisecond intervals and infinity rejection. Nanosecond inputs still require an explicit tick-rounding contract.
+
+The public TimeSpan candidate now exposes TotalDays, TotalHours, TotalMinutes, TotalSeconds, TotalMilliseconds and TotalMicroseconds. A packaged consumer checks a 36-hour interval and a negative fractional interval. Component getters remain open.
