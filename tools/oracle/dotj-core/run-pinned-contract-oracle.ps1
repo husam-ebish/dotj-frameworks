@@ -1,6 +1,6 @@
 <# Run a selected reference oracle against shared pinned CoreLib, never bundled CoreLib. #>
 [CmdletBinding()]
-param([Parameter(Mandatory)][ValidateSet('timespan', 'exception', 'datetime', 'temporal-type', 'temporal-span', 'temporal-span-parsing', 'temporal-span-exact', 'timespan-custom-exact', 'timespan-general-exact', 'timespan-general-format')][string]$Contract,
+param([Parameter(Mandatory)][ValidateSet('timespan', 'exception', 'datetime', 'temporal-type', 'temporal-span', 'temporal-span-parsing', 'temporal-span-exact', 'timespan-custom-exact', 'timespan-general-exact', 'timespan-general-format', 'timespan-array-exact')][string]$Contract,
       [string]$StorageRoot = 'D:\AI\Implementation\dotj Frameworks')
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
