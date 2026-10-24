@@ -255,6 +255,40 @@ foreach ($ticks in $tickInputs) {
         $customFormats += [ordered]@{ ticks = $ticks; format = $format; result = $result }
     }
 }
+$parseInputs = [Collections.Generic.List[object]]::new()
+foreach ($text in @($null, '', '-', '+0', 'garbage', '12/12/12', '00:', '00:00:-01',
+    '00:00::00', '00:00:00:', '00:00:00:00:00:00', '00:61:00', '1.2', '1:2.3',
+    '1:1:1.99999999', '1:1:1.09999999', '1:1:1.00000004', '1:1:1.00000005',
+    '1:1:1.00000000000001', '1:1:1.00000000000000', '1:1:1.0123456789',
+    '10675199.02:48:05.4775807', '10675199.02:48:05.4775808', '-10675199.02:48:05.4775808',
+    '-10675199.02:48:05.4775809', '0000000000000000000000000', '1:1:1.000000000000000000000000001',
+    '١:٢:٣', '１:２:３', '1 :2:3', '1:2:3 ', ("`0" + '12:34:56'))) { $parseInputs.Add($text) }
+foreach ($first in @('0','1','23','24','59','60','10675199','10675200','2147483647','2147483648')) {
+    foreach ($text in @($first, "${first}:02", "${first}:02:03", "${first}.02:03", "${first}:02:03:04",
+        "${first}.02:03:04", "${first}:02:03.4", "${first}:02:.04", "${first}.02:03:.004",
+        "${first}:02:03:04.0000005", "${first}.02:03:04.0000005")) {
+        $parseInputs.Add($text); $parseInputs.Add('-' + $text)
+    }
+}
+foreach ($code in @(9,10,11,12,13,28,31,32,133,160,5760,8192,8232,8233,8239,8287,12288,65279)) {
+    $parseInputs.Add([string][char]$code + '1:2:3' + [char]$code)
+}
+foreach ($fraction in @('0','1','0000000','00000000','9999999','99999999','00000001','00000005','099999999','01234567890','000000002147483648')) {
+    $parseInputs.Add('00:00:00.' + $fraction)
+}
+$parsing = @()
+$savedCulture = [Globalization.CultureInfo]::CurrentCulture
+try {
+    [Globalization.CultureInfo]::CurrentCulture = [Globalization.CultureInfo]::InvariantCulture
+    $parseMethod = [TimeSpan].GetMethod('Parse', [type[]]@([string]))
+    foreach ($text in $parseInputs) {
+        try { $result = [ordered]@{ ticks = $parseMethod.Invoke($null, [object[]]@($text)).Ticks } }
+        catch { $result = Failure $_ }
+        $outValue = [TimeSpan]::FromTicks(99)
+        $success = [TimeSpan]::TryParse([string]$text, [ref]$outValue)
+        $parsing += [ordered]@{ input = $text; result = $result; trySuccess = $success; tryTicks = $outValue.Ticks }
+    }
+} finally { [Globalization.CultureInfo]::CurrentCulture = $savedCulture }
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -272,6 +306,7 @@ $record = [ordered]@{
     checkedArithmetic = $checkedArithmetic
     formats = $formats
     customFormats = $customFormats
+    parsing = $parsing
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
