@@ -241,6 +241,7 @@ def main():
                                     "public int GetHashCode();",
                                     "public int hashCode();",
                                     "public System.DateTime AddTicks(long);",
+                                    "public System.DateTime AddMonths(int);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();", "public int get_DayOfYear();",
                                     "public System.DateTime get_Date();",

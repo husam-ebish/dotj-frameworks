@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "f843c215088420e715141ea8e01b84911837f4bb8d13bb625701968314462011",
+  "javaCandidateEvidenceSha256": "10f49bb49d2f8a5b20c2c46fb9c299d6c49b86a73340763dcfad3ea0ed3b866c",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 74,
+  "nameLevelMissingMethodCount": 73,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5905,6 +5905,7 @@
         "public int GetHashCode();",
         "public int hashCode();",
         "public System.DateTime AddTicks(long);",
+        "public System.DateTime AddMonths(int);",
         "public int get_Year();",
         "public int get_Month();",
         "public int get_Day();",
@@ -5982,6 +5983,7 @@
           "TryParseExact": 4
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "AddMonths": 1,
           "AddTicks": 1,
           "Compare": 1,
           "CompareTo": 2,
@@ -6029,7 +6031,6 @@
           "AddMicroseconds",
           "AddMilliseconds",
           "AddMinutes",
-          "AddMonths",
           "AddSeconds",
           "AddYears",
           "Deconstruct",
