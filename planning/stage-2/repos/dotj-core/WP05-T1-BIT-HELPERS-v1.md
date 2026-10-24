@@ -789,3 +789,5 @@ The public TimeSpan candidate now exposes day through nanosecond component gette
 The public TimeSpan candidate now exposes Add with checked tick arithmetic. A packaged consumer checks positive and negative results, overflow and null rejection. Subtraction and comparison remain open.
 
 Batch 1993 adds TimeSpan.Subtract with checked tick arithmetic, null rejection, and packaged consumer coverage for positive, negative, and overflow results.
+
+Batch 1994 adds TimeSpan.Duration with checked minimum-tick overflow and packaged consumer coverage for negative, positive, zero and boundary inputs.
