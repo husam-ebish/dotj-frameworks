@@ -5,7 +5,7 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "f2a2e705f60273ad61dd7cca22571fd04e3c2261f1dffd8505ff9471cd813dc9",
+  "javaCandidateEvidenceSha256": "4933d80e7394c22e5b226d34be6940f8a166bcf9ed7b84c9461431c1b5a3de26",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 39,
   "nameLevelMissingPublicGetterCount": 24,
@@ -5972,6 +5972,9 @@
         "public double ToDouble(System.IFormatProvider);",
         "public System.Decimal ToDecimal(System.IFormatProvider);",
         "public System.DateTime ToDateTime(System.IFormatProvider);",
+        "public java.lang.String ToString();",
+        "public java.lang.String ToString(java.lang.String);",
+        "public java.lang.String toString();",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
@@ -6077,7 +6080,7 @@
           "ToShortDateString": 1,
           "ToShortTimeString": 1,
           "ToSingle": 1,
-          "ToString": 2,
+          "ToString": 4,
           "ToType": 1,
           "ToUInt16": 1,
           "ToUInt32": 1,
@@ -6102,7 +6105,8 @@
           "get_Ticks": 1,
           "get_TimeOfDay": 1,
           "get_Year": 1,
-          "hashCode": 1
+          "hashCode": 1,
+          "toString": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
