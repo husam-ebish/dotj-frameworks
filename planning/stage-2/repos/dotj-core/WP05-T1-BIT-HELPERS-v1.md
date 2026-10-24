@@ -707,3 +707,5 @@ The public DateTime candidate now exposes AddDays with full tick precision for s
 The public DateTime candidate now exposes AddHours with selected full-tick fractional precision, NaN, and infinity behavior. A packaged consumer checks hour and tick additions. Broader floating arithmetic parity remains open.
 
 The public DateTime candidate now exposes AddMinutes with selected full-tick fractional precision, NaN, and infinity behavior. Day and hour arithmetic share the same checked tick conversion; their packaged checks remain in place. Broader floating arithmetic parity remains open.
+
+The public DateTime candidate now exposes AddSeconds with selected full-tick fractional precision and checked exceptional inputs. A packaged consumer checks second and tick additions. Broader floating arithmetic parity remains open.
