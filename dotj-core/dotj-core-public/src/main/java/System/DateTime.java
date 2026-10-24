@@ -654,6 +654,19 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return new DateTime(this.date, this.kind);
     }
 
+    public String ToString() {
+        return ToString((IFormatProvider) null);
+    }
+
+    public String ToString(String format) {
+        return ToString(format, null);
+    }
+
+    @Override
+    public String toString() {
+        return ToString();
+    }
+
     @Override
     public String ToString(IFormatProvider provider) {
         return String.format(java.util.Locale.ROOT, "%02d/%02d/%04d %02d:%02d:%02d",
@@ -676,6 +689,9 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public String ToString(String format, IFormatProvider provider) {
+        if (format == null || format.isEmpty()) {
+            return ToString(provider);
+        }
         if ("yyyy-MM-dd".equals(format)) {
             return this.date.format(DateTimeFormatter.ISO_LOCAL_DATE);
         }
@@ -685,6 +701,15 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if ("yyyy-MM-dd HH:mm:ss.fff".equals(format)) {
             return this.date.format(DateTimeFormatter.ofPattern(
                     "yyyy-MM-dd HH:mm:ss.SSS", java.util.Locale.ROOT));
+        }
+        if ("s".equals(format) || "yyyy-MM-dd'T'HH:mm:ss".equals(format)) {
+            return this.date.format(DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss", java.util.Locale.ROOT));
+        }
+        if ("yyyy-MM-ddTHH:mm:ss.fffffff".equals(format)) {
+            return this.date.format(DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSSSSS", java.util.Locale.ROOT));
+        }
+        if (format.length() == 1 && "dDfFgGmMoOrRstTuUyY".indexOf(format.charAt(0)) < 0) {
+            throw new FormatException("Input string was not in a correct format");
         }
         throw new UnsupportedOperationException("DateTime format is not mapped for this candidate");
     }

@@ -186,6 +186,7 @@ foreach ($code in @(9,10,11,12,13,28,31,32,133,160,5760,8192,8232,8233,8239,8287
 }
 $parsing = @()
 $exactParsing = @()
+$formats = @()
 $exactTryMethod = [DateTime].GetMethod('TryParseExact',[type[]]@([string],[string],[IFormatProvider],[Globalization.DateTimeStyles],[DateTime].MakeByRefType()))
 $bridge = [Reflection.Emit.DynamicMethod]::new('DateTimeTryParseExactOut',[bool],[type[]]@([string],[string],[IFormatProvider],[DateTime[]]))
 $il = $bridge.GetILGenerator()
@@ -237,6 +238,29 @@ try {
                 trySuccess=$success;tryTicks=$outValues[0].Ticks;tryKind=$outValues[0].Kind.ToString()}
         }
     }
+    $defaultString = [DateTime].GetMethod('ToString',[type[]]@())
+    $providerString = [DateTime].GetMethod('ToString',[type[]]@([IFormatProvider]))
+    $formatString = [DateTime].GetMethod('ToString',[type[]]@([string]))
+    $formatProviderString = [DateTime].GetMethod('ToString',[type[]]@([string],[IFormatProvider]))
+    foreach ($ticks in $ticksList) {
+        foreach ($kind in [Enum]::GetValues([DateTimeKind])) {
+            $value = [DateTime]::new($ticks,$kind)
+            $formats += [ordered]@{ticks=$ticks;kind=$kind.ToString();overload='Default';format=$null
+                result=[ordered]@{text=$defaultString.Invoke($value,[object[]]@())}}
+            $formats += [ordered]@{ticks=$ticks;kind=$kind.ToString();overload='Provider';format=$null
+                result=[ordered]@{text=$providerString.Invoke($value,[object[]]@($null))}}
+            foreach ($format in @($null,'','yyyy-MM-dd','yyyy-MM-dd HH:mm:ss','yyyy-MM-dd HH:mm:ss.fff',
+                'yyyy-MM-ddTHH:mm:ss.fffffff',"yyyy-MM-dd'T'HH:mm:ss",'s','?','S','c')) {
+                foreach ($withProvider in @($false,$true)) {
+                    try {
+                        $text = if ($withProvider) { $formatProviderString.Invoke($value,[object[]]@($format,$null)) } else { $formatString.Invoke($value,[object[]]@($format)) }
+                        $result = [ordered]@{text=$text}
+                    } catch { $result = Failure $_ }
+                    $formats += [ordered]@{ticks=$ticks;kind=$kind.ToString();overload=$(if ($withProvider) {'FormatProvider'} else {'Format'});format=$format;result=$result}
+                }
+            }
+        }
+    }
 } finally { [Globalization.CultureInfo]::CurrentCulture = $savedCulture }
 $defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
@@ -248,6 +272,7 @@ $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToStr
     checkedArithmetic=$checkedArithmetic
     parsing=$parsing
     exactParsing=$exactParsing
+    formats=$formats
     defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
     qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))
