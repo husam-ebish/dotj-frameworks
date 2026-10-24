@@ -22,6 +22,7 @@ def main():
     kinds.add_argument('--comparison', action='store_true')
     kinds.add_argument('--checked-arithmetic', action='store_true')
     kinds.add_argument('--formats', action='store_true')
+    kinds.add_argument('--custom-formats', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -35,7 +36,7 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    section = ('formats' if args.formats else 'checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
+    section = ('customFormats' if args.custom_formats else 'formats' if args.formats else 'checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
                'constructors' if args.constructors else 'factories')
     vectors = oracle['operations'] + oracle['ratios'] if args.arithmetic else oracle[section]
     for index, case in enumerate(vectors):
@@ -55,8 +56,8 @@ def main():
                        f'check(left.equals(right) == {str(case["equalsObject"]).lower()}, {index});']
             cases.append('{\n' + '\n'.join(checks) + '\n}')
             continue
-        if args.formats:
-            arguments = json.dumps(case['format']) + (', null' if case['withProvider'] else '')
+        if args.formats or args.custom_formats:
+            arguments = json.dumps(case['format']) + (', null' if args.custom_formats or case['withProvider'] else '')
             expression = f"TimeSpan.FromTicks({case['ticks']}L).ToString({arguments})"
         elif args.checked_arithmetic:
             operand = f"TimeSpan.FromTicks({case['operandTicks']}L)" if 'operandTicks' in case else ''
@@ -124,9 +125,13 @@ def main():
     args.work = args.work / section
     args.work.mkdir(parents=True, exist_ok=True)
     source = args.work / 'TimeSpanIntervalProbe.java'
+    # Keep independent blocks in small methods so larger oracle sets cannot exceed JVM method limits.
+    methods = ['static void group' + str(offset // 40) + '() throws java.lang.Exception {\n' +
+               '\n'.join(cases[offset:offset + 40]) + '\n}\n' for offset in range(0, len(cases), 40)]
     source.write_text('import System.TimeSpan;\nimport System.IFormattable;\nimport System.ArgumentException;\nimport System.ArgumentOutOfRangeException;\nimport System.OverflowException;\nimport System.FormatException;\npublic class TimeSpanIntervalProbe {\n'
                       'static void check(boolean ok, int id) { if (!ok) throw new AssertionError("case " + id); }\n'
-                      'public static void main(String[] args) throws java.lang.Exception {\n' + '\n'.join(cases) +
+                      + ''.join(methods) + 'public static void main(String[] args) throws java.lang.Exception {\n' +
+                      '\n'.join(f'group{index}();' for index in range(len(methods))) +
                       f'\njava.lang.System.out.println("PASS TimeSpan {section}: {len(cases)} pinned vectors");\n}}\n}}\n', encoding='utf-8')
     subprocess.run(['javac', '--release', '21', '-cp', str(args.jar), '-d', str(args.work), str(source)], check=True)
     subprocess.run(['java', '-cp', str(args.jar) + ';' + str(args.work), 'TimeSpanIntervalProbe'], check=True)
@@ -136,7 +141,8 @@ def main():
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
         'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    name = ('timespan-format-differential-v1.json' if args.formats else
+    name = ('timespan-custom-format-differential-v1.json' if args.custom_formats else
+            'timespan-format-differential-v1.json' if args.formats else
             'timespan-checked-arithmetic-differential-v1.json' if args.checked_arithmetic else
             'timespan-comparison-differential-v1.json' if args.comparison else
             'timespan-composite-factory-differential-v1.json' if args.composite_factories else

@@ -241,6 +241,20 @@ foreach ($ticks in $tickInputs) {
         }
     }
 }
+$customFormats = @()
+$patterns = @('dd', 'dddddddd', 'hh', 'mm', 'ss', 'ff', 'fffffff', 'FF', 'FFFFFFF',
+    '%d', '%h', '%m', '%s', '%f', '%F', 'd\.hh\:mm\:ss\.fffffff',
+    'hh\:mm\:ss\.FFFFFFF', "'literal'", '"quoted"', "'a\'b'", '\-', "''", '""',
+    'hhh', 'mmm', 'sss', 'ffffffff', 'FFFFFFFF', 'ddddddddd', 'h:m', 'ss.',
+    '%', '%%', '%z', '%\', '\', "'unclosed", '"unclosed', "'escape\", '%''', '%"')
+foreach ($ticks in $tickInputs) {
+    $span = [TimeSpan]::FromTicks($ticks)
+    foreach ($format in $patterns) {
+        try { $result = [ordered]@{ text = $formatWithProvider.Invoke($span, [object[]]@($format,$null)) } }
+        catch { $result = Failure $_ }
+        $customFormats += [ordered]@{ ticks = $ticks; format = $format; result = $result }
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -257,6 +271,7 @@ $record = [ordered]@{
     comparisons = $comparisons
     checkedArithmetic = $checkedArithmetic
     formats = $formats
+    customFormats = $customFormats
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
