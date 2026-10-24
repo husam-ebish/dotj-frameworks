@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "4e8a238019186174bb3ae217e853c6b90f7286ac7cb5cd7c13c8b00be4718589",
+  "candidateJarSha256": "a58ea38e85210203ba9cedbebefebbdb4f30e096c4029e47748ca9fb2f968222",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -279,7 +279,7 @@
       "upstreamDeclaredNonAccessorMethods": 70,
       "upstreamDeclaredProperties": 18,
       "upstreamPublicConstructors": 17,
-      "javaPublicConstructors": 6,
+      "javaPublicConstructors": 10,
       "javaPublicHeader": "public final class System.DateTime implements System.IConvertible,System.IComparable,System.ISpanFormattable {",
       "javaPublicDeclarations": [
         "public static final System.DateTime MinValue;",
@@ -291,6 +291,10 @@
         "public System.DateTime(int, int, int);",
         "public System.DateTime(int, int, int, int, int, int);",
         "public System.DateTime(int, int, int, int, int, int, int);",
+        "public System.DateTime(int, int, int, int, int, int, System.DateTimeKind);",
+        "public System.DateTime(int, int, int, int, int, int, int, System.DateTimeKind);",
+        "public System.DateTime(int, int, int, int, int, int, int, int);",
+        "public System.DateTime(int, int, int, int, int, int, int, int, System.DateTimeKind);",
         "public static System.DateTime SpecifyKind(System.DateTime, System.DateTimeKind);",
         "public static System.DateTime Parse(java.lang.String);",
         "public static boolean TryParse(java.lang.String, System.DateTime[]);",

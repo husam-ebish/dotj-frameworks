@@ -18,6 +18,10 @@ DATE_TIME_CONSTRUCTORS = [
     "public System.DateTime(int, int, int);",
     "public System.DateTime(int, int, int, int, int, int);",
     "public System.DateTime(int, int, int, int, int, int, int);",
+    "public System.DateTime(int, int, int, int, int, int, System.DateTimeKind);",
+    "public System.DateTime(int, int, int, int, int, int, int, System.DateTimeKind);",
+    "public System.DateTime(int, int, int, int, int, int, int, int);",
+    "public System.DateTime(int, int, int, int, int, int, int, int, System.DateTimeKind);",
 ]
 
 
