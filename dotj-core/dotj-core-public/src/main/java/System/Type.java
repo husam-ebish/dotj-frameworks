@@ -10,6 +10,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import System.IO.FileNotFoundException;
 import System.IO.FileLoadException;
 import System.IO.IOException;
+import System.Diagnostics.Stopwatch;
 import System.Reflection.MemberInfo;
 import System.Reflection.MethodBase;
 import System.Reflection.MethodInfo;
@@ -499,6 +500,7 @@ public abstract class Type extends MemberInfo {
             case "System.Decimal" -> fromJavaClass(Decimal.class);
             case "System.DateTime" -> fromJavaClass(DateTime.class);
             case "System.TimeSpan" -> fromJavaClass(TimeSpan.class);
+            case "System.Diagnostics.Stopwatch" -> fromJavaClass(Stopwatch.class);
             case "System.DateTimeKind" -> fromJavaClass(DateTimeKind.class);
             case "System.DayOfWeek" -> fromJavaClass(DayOfWeek.class);
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
@@ -526,6 +528,7 @@ public abstract class Type extends MemberInfo {
             case "System.String[]" -> fromJavaClass(String[].class);
             case "System.DateTime[]" -> fromJavaClass(DateTime.class).MakeArrayType();
             case "System.TimeSpan[]" -> fromJavaClass(TimeSpan.class).MakeArrayType();
+            case "System.Diagnostics.Stopwatch[]" -> fromJavaClass(Stopwatch.class).MakeArrayType();
             case "System.DateTimeKind[]" -> fromJavaClass(DateTimeKind.class).MakeArrayType();
             case "System.DayOfWeek[]" -> fromJavaClass(DayOfWeek.class).MakeArrayType();
             case "System.Boolean[]" -> fromJavaClass(Boolean.class).MakeArrayType();
@@ -666,6 +669,7 @@ public abstract class Type extends MemberInfo {
             case "system.decimal" -> ignoreCase ? fromJavaClass(Decimal.class) : null;
             case "system.datetime" -> ignoreCase ? fromJavaClass(DateTime.class) : null;
             case "system.timespan" -> ignoreCase ? fromJavaClass(TimeSpan.class) : null;
+            case "system.diagnostics.stopwatch" -> ignoreCase ? fromJavaClass(Stopwatch.class) : null;
             case "system.datetimekind" -> ignoreCase ? fromJavaClass(DateTimeKind.class) : null;
             case "system.dayofweek" -> ignoreCase ? fromJavaClass(DayOfWeek.class) : null;
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
@@ -699,6 +703,7 @@ public abstract class Type extends MemberInfo {
             case "system.string[]" -> ignoreCase ? fromJavaClass(String[].class) : null;
             case "system.datetime[]" -> ignoreCase ? fromJavaClass(DateTime.class).MakeArrayType() : null;
             case "system.timespan[]" -> ignoreCase ? fromJavaClass(TimeSpan.class).MakeArrayType() : null;
+            case "system.diagnostics.stopwatch[]" -> ignoreCase ? fromJavaClass(Stopwatch.class).MakeArrayType() : null;
             case "system.datetimekind[]" -> ignoreCase ? fromJavaClass(DateTimeKind.class).MakeArrayType() : null;
             case "system.dayofweek[]" -> ignoreCase ? fromJavaClass(DayOfWeek.class).MakeArrayType() : null;
             case "system.boolean[]" -> ignoreCase ? fromJavaClass(Boolean.class).MakeArrayType() : null;
@@ -1085,7 +1090,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsSealed() {
-        return this.definition == String.class || this.definition == Boolean.class
+        return this.get_IsArray() || this.definition == String.class || this.definition == Boolean.class
                 || this.definition == Character.class
                 || this.definition == Short.class
                 || this.definition == Long.class
@@ -1471,6 +1476,15 @@ public abstract class Type extends MemberInfo {
         if (candidate == null) {
             return false;
         }
+        if (this.get_IsArray() && candidate.get_IsArray()) {
+            if (this.GetArrayRank() != candidate.GetArrayRank() || this.get_IsSZArray() != candidate.get_IsSZArray()) { return false; }
+            Type targetElement = this.GetElementType();
+            Type sourceElement = candidate.GetElementType();
+            if (targetElement.get_IsValueType() || sourceElement.get_IsValueType()) {
+                return targetElement == sourceElement;
+            }
+            return targetElement.IsAssignableFrom(sourceElement);
+        }
         if ((candidate.definition == DateTime.class || candidate.definition == TimeSpan.class)
                 && (this.definition == IComparable.class || this.definition == IFormattable.class
                     || this.definition == ISpanFormattable.class || this.definition == IUtf8SpanFormattable.class)) {
@@ -1498,6 +1512,9 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this.definition == IConvertible.class && candidate.definition == Int32.class) {
+            return true;
+        }
+        if (this.definition == IConvertible.class && candidate.definition == String.class) {
             return true;
         }
         if (this.definition == IConvertible.class
@@ -1570,6 +1587,15 @@ public abstract class Type extends MemberInfo {
         if (value == null || this.get_IsByRef() || this.get_IsPointer()) {
             return false;
         }
+        if (this.get_IsArray()) {
+            if (!this.get_IsSZArray() || this.GetArrayRank() != 1 || !value.getClass().isArray()) { return false; }
+            Type targetElement = this.GetElementType();
+            Type component = runtimeArrayComponent(value.getClass().getComponentType());
+            if (targetElement.get_IsValueType() || component.get_IsValueType()) {
+                return targetElement == component;
+            }
+            return targetElement.IsAssignableFrom(component);
+        }
         if (this.definition == Object.class) {
             return true;
         }
@@ -1592,7 +1618,7 @@ public abstract class Type extends MemberInfo {
             return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
         }
         if (this.definition == IConvertible.class) {
-            return value instanceof Integer || value instanceof Int32 || value instanceof DBNull
+            return value instanceof String || value instanceof Integer || value instanceof Int32 || value instanceof DBNull
                     || value instanceof Byte || value instanceof SByte
                     || value instanceof UInt16 || value instanceof UInt32
                     || value instanceof DateTime || value instanceof Decimal;
@@ -1612,11 +1638,22 @@ public abstract class Type extends MemberInfo {
         if (this.definition == java.lang.reflect.Array.class) {
             return value.getClass().isArray();
         }
-        if (this instanceof ArrayType || this.definition == java.util.List.class
+        if (this.definition == java.util.List.class
                 || this.definition == java.util.Map.class) {
             return false;
         }
         return this.definition.isInstance(value);
+    }
+
+    private static Type runtimeArrayComponent(Class<?> component) {
+        if (component.isArray()) { return runtimeArrayComponent(component.getComponentType()).MakeArrayType(); }
+        if (component == boolean.class) { return fromJavaClass(Boolean.class); }
+        if (component == char.class) { return fromJavaClass(Character.class); }
+        if (component == short.class) { return fromJavaClass(Short.class); }
+        if (component == long.class) { return fromJavaClass(Long.class); }
+        if (component == float.class) { return fromJavaClass(Float.class); }
+        if (component == double.class) { return fromJavaClass(Double.class); }
+        return fromJavaClass(component);
     }
 
     public MemberInfo[] GetMember(String name) {
@@ -1831,7 +1868,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == java.util.List.class && !this.get_HasElementType()) {
             return new MemberInfo[] {new DefaultPropertyMember("Item", this)};
         }
-        if (this.definition == Object.class || this.definition == IDisposable.class
+        if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class
                 || this.definition == TypeCode.class) {
             return new MemberInfo[0];
         }
@@ -1882,7 +1919,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Decimal.class) {
             return new Type[] {fromJavaClass(IConvertible.class)};
         }
-        if (this.definition == Object.class || this.definition == IDisposable.class
+        if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class
                 || this.definition == IUtf8SpanFormattable.class) {
             return new Type[0];
         }
@@ -1982,7 +2019,7 @@ public abstract class Type extends MemberInfo {
             }
             return null;
         }
-        if (this.definition == Object.class || this.definition == IDisposable.class) {
+        if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class) {
             return null;
         }
         if (this.definition == DBNull.class) {
@@ -2088,7 +2125,7 @@ public abstract class Type extends MemberInfo {
 
     public Type GetElementType() {
         Class<?> element = this.definition.getComponentType();
-        return element == null ? null : fromJavaClass(element);
+        return element == null ? null : runtimeArrayComponent(element);
     }
 
     public int GetArrayRank() {
