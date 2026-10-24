@@ -56,7 +56,7 @@ $runRoot = Join-Path $storage ('validation/' + $RunName)
 if (Test-Path -LiteralPath $runRoot) { throw "Run directory already exists; preserve it and select another RunName: $runRoot" }
 New-Item -ItemType Directory -Force -Path $runRoot | Out-Null
 $worktree = Join-Path $runRoot 'source'
-& git -C $repository worktree add --detach $worktree $revision
+& git -c core.longpaths=true -C $repository worktree add --quiet --detach $worktree $revision
 if ($LASTEXITCODE -ne 0) { throw 'Cannot create isolated source worktree.' }
 $variables = @('PATH', 'TEMP', 'TMP', 'DOTNET_ROOT', 'DOTNET_CLI_HOME', 'NUGET_PACKAGES',
     'DOTNET_SKIP_FIRST_TIME_EXPERIENCE', 'DOTNET_CLI_TELEMETRY_OPTOUT', 'DOTNET_MULTILEVEL_LOOKUP',
