@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected invariant general exact parsing through String adapters and Char views",
+  "oracleEvidence": "timespan-general-exact-contract-v10.0.12.json",
+  "oracleSha256": "2b3c49aeb8c4acb62dc3699b43ab514a180cf3501d85d0dd660c2f9d40972157",
+  "candidateJarSha256": "74456c3d844f3ae38811f650525c16abdda72dc813b6cb3da477b59e47ea4342",
+  "casesPassed": 684,
+  "casesByType": {
+    "TimeSpan": 684
+  },
+  "referenceCasesByType": {
+    "TimeSpan": 342
+  },
+  "casesByCarrier": {
+    "span": 342,
+    "string": 342
+  },
+  "compileRejections": [
+    "TimeSpan UTF-8 input carrier",
+    "TimeSpan UTF-8 format carrier"
+  ],
+  "qualification": "BOUNDED_NONE_STYLE_ADAPTER_PASS; FULL_STYLES_AND_LANGUAGE_MAPPING_OPEN"
+}

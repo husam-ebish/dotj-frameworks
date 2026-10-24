@@ -360,6 +360,10 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
     }
 
     public static TimeSpan Parse(String input) {
+        return parseGeneralInvariant(input, false, false);
+    }
+
+    private static TimeSpan parseGeneralInvariant(String input, boolean localizedOnly, boolean requireFull) {
         if (input == null) {
             throw new ArgumentNullException("input");
         }
@@ -398,19 +402,20 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
             case 2: if (shape.equals(":")) { layouts.add("hm"); } break;
             case 3:
                 if (shape.equals(":|:")) { layouts.add("hms"); layouts.add("dhm"); }
-                if (shape.equals(".|:")) { layouts.add("dhm"); }
+                if (!localizedOnly && shape.equals(".|:")) { layouts.add("dhm"); }
                 if (shape.equals(":|:.")) { layouts.add("hmf"); }
                 break;
             case 4:
                 if (shape.equals(":|:|.")) { layouts.add("hmsf"); }
-                if (shape.equals(".|:|:") || shape.equals(":|:|:")) { layouts.add("dhms"); }
-                if (shape.equals(".|:|:.") || shape.equals(":|:|:.")) { layouts.add("dhmf"); }
+                if ((!localizedOnly && shape.equals(".|:|:")) || shape.equals(":|:|:")) { layouts.add("dhms"); }
+                if ((!localizedOnly && shape.equals(".|:|:.")) || shape.equals(":|:|:.")) { layouts.add("dhmf"); }
                 break;
             case 5:
-                if (shape.equals(".|:|:|.") || shape.equals(":|:|:|.")) { layouts.add("dhmsf"); }
+                if ((!localizedOnly && shape.equals(".|:|:|.")) || shape.equals(":|:|:|.")) { layouts.add("dhmsf"); }
                 break;
             default: break;
         }
+        if (requireFull && (numbers.size() != 5 || !shape.equals(":|:|:|."))) { layouts.clear(); }
         if (layouts.isEmpty()) { throw new FormatException(); }
         for (String layout : layouts) {
             java.math.BigInteger total = java.math.BigInteger.ZERO;
@@ -472,6 +477,10 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
     public static TimeSpan ParseExact(String input, String format, IFormatProvider formatProvider) {
         if (input == null) { throw new ArgumentNullException("input"); }
         if (format == null) { throw new ArgumentNullException("format"); }
+        if (format.equals("g") || format.equals("G")) {
+            if (formatProvider != null) { throw new UnsupportedOperationException("Only null-provider invariant general exact parsing is mapped."); }
+            return parseGeneralInvariant(input, true, format.equals("G"));
+        }
         if (!format.equals("c") && !format.equals("t") && !format.equals("T")) {
             return parseCustomExact(input, format);
         }

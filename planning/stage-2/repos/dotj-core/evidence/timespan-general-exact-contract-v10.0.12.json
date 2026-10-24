@@ -1,0 +1,5643 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "52e08bcd894828ac3547054307c6da8e4369b0a7748a27cd321f64f33d9967df",
+  "cases": [
+    {
+      "type": "TimeSpan",
+      "input": "",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -864000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -864000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -864000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1:2",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -37200000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1:2",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -37200000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1:2",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -37200000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1:2",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1:2",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-1:2",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "24:00:00",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 20736000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 20736000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "24:00:00",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 20736000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 20736000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "24:00:00",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 20736000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 20736000000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "24:00:00",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "24:00:00",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "24:00:00",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.2:3",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.2:3",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.2:3",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.2:3",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.2:3",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.2:3",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4.5",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937845000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937845000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4.5",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937845000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937845000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4.5",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937845000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937845000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4.5",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937845000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937845000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4.5",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937845000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937845000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3:4.5",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937845000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937845000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:0:0:0.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:0:0:0.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:0:0:0.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:0:0:0.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:0:0:0.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:0:0:0.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.00000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.00000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.00000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.00000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.00000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.00000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000005",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000005",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000005",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000005",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000005",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000005",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "00:00:00.00000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:.3",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37203000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37203000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:.3",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37203000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37203000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:.3",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37203000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37203000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:.3",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:.3",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:.3",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3.",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3.",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3.",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3.",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3.",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:2:3.",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\n1:2:3\n",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\n1:2:3\n",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\n1:2:3\n",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\n1:2:3\n",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\n1:2:3\n",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\n1:2:3\n",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "+01:02:03",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "+01:02:03",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "+01:02:03",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "+01:02:03",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "+01:02:03",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "+01:02:03",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.02:03:04.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.02:03:04.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.02:03:04.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.02:03:04.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.02:03:04.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1.02:03:04.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.12345678",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.12345678",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.12345678",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.12345678",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.12345678",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.12345678",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.00000005",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000001
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.00000005",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000001
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.00000005",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000001
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.00000005",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000001
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.00000005",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000001
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:02:03:04.00000005",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 937840000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000001
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:24:00:00.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:24:00:00.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:24:00:00.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:24:00:00.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:24:00:00.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "1:24:00:00.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:60:00.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:60:00.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:60:00.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:60:00.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:60:00.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:60:00.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:60.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:60.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:60.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:60.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:60.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:60.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775809",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775809",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775809",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775809",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775809",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775809",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675200:00:00:00.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675200:00:00:00.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675200:00:00:00.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675200:00:00:00.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675200:00:00:00.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675200:00:00:00.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456:00:00:00.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456:00:00:00.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456:00:00:00.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456:00:00:00.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456:00:00:00.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "268435456:00:00:00.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "99999999999999999999999999",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "99999999999999999999999999",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "99999999999999999999999999",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "99999999999999999999999999",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "99999999999999999999999999",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "99999999999999999999999999",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.OverflowException",
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0000000000000000000000000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0000000000000000000000000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0000000000000000000000000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0000000000000000000000000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0000000000000000000000000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0000000000000000000000000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": " 1:2:3 ",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\u00851:2:3\u0085",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\u00851:2:3\u0085",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\u00851:2:3\u0085",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\u00851:2:3\u0085",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\u00851:2:3\u0085",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "\u00851:2:3\u0085",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0000001",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0000001",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0000001",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0000001",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0000001",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0000001",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000001",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000001",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000001",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000001",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000001",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0000001",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00.0000001",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00.0000001",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00.0000001",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00.0000001",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00.0000001",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00.0000001",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00:00.0000001",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00:00.0000001",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00:00.0000001",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00:00.0000001",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00:00.0000001",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-0:00:00:00.0000001",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0009999",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0009999",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0009999",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0009999",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0009999",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00.0009999",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0009999",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0009999",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0009999",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0009999",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0009999",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:00.0009999",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:01",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:01",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:01",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:01",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:01",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:01",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "exception": "System.FormatException",
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:01.0000000",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:01.0000000",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:01.0000000",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:01.0000000",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:01.0000000",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "0:00:00:01.0000000",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 10000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "142:21:21:18.9012345",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 123456789012345
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 123456789012345
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:2:48:05.4775808",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:2:48:05.4775808",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:2:48:05.4775808",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:2:48:05.4775808",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:2:48:05.4775808",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:2:48:05.4775808",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "-10675199:02:48:05.4775808",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:2:48:05.4775807",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:2:48:05.4775807",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:2:48:05.4775807",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:2:48:05.4775807",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:2:48:05.4775807",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:2:48:05.4775807",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "g",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "g",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "g",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "G",
+      "offset": 0,
+      "formatOffset": 0,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "G",
+      "offset": 3,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "type": "TimeSpan",
+      "input": "10675199:02:48:05.4775807",
+      "format": "G",
+      "offset": 7,
+      "formatOffset": 2,
+      "styleValue": 0,
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    }
+  ],
+  "qualification": "SELECTED_GENERAL_EXACT_REFERENCE; INVARIANT_NULL_PROVIDER_NONE_STYLE; OTHER_CULTURES_AND_LANGUAGE_OPEN"
+}
