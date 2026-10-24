@@ -21,6 +21,7 @@ def main():
     modes.add_argument('--parsing', action='store_true')
     modes.add_argument('--exact-parsing', action='store_true')
     modes.add_argument('--formats', action='store_true')
+    modes.add_argument('--buffer-formatting', action='store_true')
     args = parser.parse_args()
     if args.jar is None:
         artifact = json.loads((EVIDENCE / 'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))
@@ -31,7 +32,7 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256(Path(__file__).with_name('capture-datetime-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    for index, row in enumerate([] if args.tick_domain or args.component_constructors or args.calendar_properties or args.floating_addition or args.checked_arithmetic or args.parsing or args.exact_parsing or args.formats else oracle['comparisons']):
+    for index, row in enumerate([] if args.tick_domain or args.component_constructors or args.calendar_properties or args.floating_addition or args.checked_arithmetic or args.parsing or args.exact_parsing or args.formats or args.buffer_formatting else oracle['comparisons']):
         checks = [f'DateTime left = value({row["ticks"]}L, DateTimeKind.{row["kind"]});']
         if 'rightTicks' in row:
             checks.append(f'DateTime right = value({row["rightTicks"]}L, DateTimeKind.{row["rightKind"]});')
@@ -179,12 +180,30 @@ check(output[0].get_Ticks() == {row['tryTicks']}L && output[0].get_Kind() == Dat
                 check=f'''try {{ {expression}; throw new AssertionError("missing format exception {index}"); }}
 catch (FormatException expected) {{ check(expected.getClass().getName().equals("{result['exception']}") && expected.get_HResult() == {result['hResult']}, {index}); }}'''
             cases.append(check)
+    if args.buffer_formatting:
+        for index,row in enumerate(oracle['bufferFormatting']):
+            utf8=row['encoding']=='Utf8'
+            array_type='byte' if utf8 else 'char'
+            interface='IUtf8SpanFormattable' if utf8 else 'ISpanFormattable'
+            expression=f'(({interface})value({row["ticks"]}L,DateTimeKind.{row["kind"]})).TryFormat(buffer,written,{json.dumps(row["format"])},null)'
+            checks=[f'{array_type}[] buffer=new {array_type}[{row["capacity"]}]; java.util.Arrays.fill(buffer,({array_type})35); int[] written={{99}};']
+            result=row['result']
+            if 'boolean' in result:
+                checks.append(f'check({expression} == {str(result["boolean"]).lower()}, {index});')
+            else:
+                checks.append(f'''try {{ {expression}; throw new AssertionError("missing buffer exception {index}"); }}
+catch (FormatException expected) {{ check(expected.getClass().getName().equals("{result['exception']}") && expected.get_HResult() == {result['hResult']}, {index}); }}''')
+            checks.append(f'check(written[0] == {row["written"]}, {index});')
+            actual='java.util.HexFormat.of().withUpperCase().formatHex(buffer)' if utf8 else 'new String(buffer)'
+            expected=row['bufferHex'] if utf8 else row['buffer']
+            checks.append(f'check({actual}.equals({json.dumps(expected)}), {index});')
+            cases.append('{\n'+'\n'.join(checks)+'\n}')
     methods = ['static void group' + str(offset//30) + '() throws java.lang.Exception {\n' + '\n'.join(cases[offset:offset+30]) + '\n}' for offset in range(0,len(cases),30)]
-    section = 'formats' if args.formats else 'exact-parsing' if args.exact_parsing else 'parsing' if args.parsing else 'checked-arithmetic' if args.checked_arithmetic else 'floating-addition' if args.floating_addition else 'calendar-properties' if args.calendar_properties else 'component-constructors' if args.component_constructors else 'tick-domain' if args.tick_domain else 'comparison'
+    section = 'buffer-formatting' if args.buffer_formatting else 'formats' if args.formats else 'exact-parsing' if args.exact_parsing else 'parsing' if args.parsing else 'checked-arithmetic' if args.checked_arithmetic else 'floating-addition' if args.floating_addition else 'calendar-properties' if args.calendar_properties else 'component-constructors' if args.component_constructors else 'tick-domain' if args.tick_domain else 'comparison'
     work = Path('D:/AI/Implementation/dotj Frameworks/verification/datetime-' + section)
     work.mkdir(parents=True, exist_ok=True)
     source = work / 'DateTimeComparisonProbe.java'
-    source.write_text('import System.DateTime;\nimport System.DateTimeKind;\nimport System.DayOfWeek;\nimport System.TimeSpan;\nimport System.Type;\nimport System.IComparable;\nimport System.IFormattable;\nimport System.IFormatProvider;\nimport System.ArgumentException;\nimport System.ArgumentNullException;\nimport System.FormatException;\nimport System.ArgumentOutOfRangeException;\n'
+    source.write_text('import System.DateTime;\nimport System.DateTimeKind;\nimport System.DayOfWeek;\nimport System.TimeSpan;\nimport System.Type;\nimport System.IComparable;\nimport System.IFormattable;\nimport System.IFormatProvider;\nimport System.ISpanFormattable;\nimport System.IUtf8SpanFormattable;\nimport System.ArgumentException;\nimport System.ArgumentNullException;\nimport System.FormatException;\nimport System.ArgumentOutOfRangeException;\n'
                       'public class DateTimeComparisonProbe {\n'
                       'static DateTime value(long ticks, DateTimeKind kind) { return DateTime.SpecifyKind(new DateTime(1,1,1).AddTicks(ticks),kind); }\n'
                       'static void check(boolean ok,int id) {if(!ok) throw new AssertionError("case " + id);}\n' + '\n'.join(methods) +
@@ -195,7 +214,7 @@ catch (FormatException expected) {{ check(expected.getClass().getName().equals("
     record = dict(schemaVersion=1,scope='DateTime selected ' + section,oracleEvidence=path.name,
                   oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),
                   casesPassed=len(cases),qualification='BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN')
-    name = 'datetime-format-differential-v1.json' if args.formats else 'datetime-exact-parse-differential-v1.json' if args.exact_parsing else 'datetime-parse-differential-v1.json' if args.parsing else 'datetime-checked-arithmetic-differential-v1.json' if args.checked_arithmetic else 'datetime-floating-addition-differential-v1.json' if args.floating_addition else 'datetime-calendar-property-differential-v1.json' if args.calendar_properties else 'datetime-component-constructor-differential-v1.json' if args.component_constructors else 'datetime-tick-domain-differential-v1.json' if args.tick_domain else 'datetime-comparison-differential-v1.json'
+    name = 'datetime-buffer-format-differential-v1.json' if args.buffer_formatting else 'datetime-format-differential-v1.json' if args.formats else 'datetime-exact-parse-differential-v1.json' if args.exact_parsing else 'datetime-parse-differential-v1.json' if args.parsing else 'datetime-checked-arithmetic-differential-v1.json' if args.checked_arithmetic else 'datetime-floating-addition-differential-v1.json' if args.floating_addition else 'datetime-calendar-property-differential-v1.json' if args.calendar_properties else 'datetime-component-constructor-differential-v1.json' if args.component_constructors else 'datetime-tick-domain-differential-v1.json' if args.tick_domain else 'datetime-comparison-differential-v1.json'
     (EVIDENCE/name).write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
 
 
