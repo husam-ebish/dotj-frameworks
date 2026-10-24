@@ -5,6 +5,8 @@ package System;
 /** Immutable tick interval for the selected DateTime arithmetic candidate. */
 public final class TimeSpan implements IComparable {
     private static final long TICKS_PER_DAY = 864_000_000_000L;
+    private static final java.util.regex.Pattern CONSTANT_PATTERN =
+            java.util.regex.Pattern.compile("(-)?(?:(\\d+)\\.)?(\\d{1,2}):(\\d{2}):(\\d{2})(?:\\.(\\d{1,7}))?");
     private final long ticks;
 
     public TimeSpan(long ticks) {
@@ -164,6 +166,41 @@ public final class TimeSpan implements IComparable {
             result += String.format(java.util.Locale.ROOT, ".%07d", fractionalTicks);
         }
         return this.ticks < 0L ? "-" + result : result;
+    }
+
+    public static TimeSpan Parse(String input) {
+        if (input == null) {
+            throw new ArgumentNullException("input");
+        }
+        java.util.regex.Matcher match = CONSTANT_PATTERN.matcher(input.strip());
+        if (!match.matches()) {
+            throw new FormatException("Input was not a valid TimeSpan constant.");
+        }
+        int hours = Integer.parseInt(match.group(3));
+        int minutes = Integer.parseInt(match.group(4));
+        int seconds = Integer.parseInt(match.group(5));
+        if (hours > 23 || minutes > 59 || seconds > 59) {
+            throw new FormatException("Input was not a valid TimeSpan constant.");
+        }
+        java.math.BigInteger days = match.group(2) == null
+                ? java.math.BigInteger.ZERO : new java.math.BigInteger(match.group(2));
+        java.math.BigInteger magnitude = days.multiply(
+                java.math.BigInteger.valueOf(TICKS_PER_DAY));
+        magnitude = magnitude.add(java.math.BigInteger.valueOf(hours * 36_000_000_000L
+                + minutes * 600_000_000L + seconds * 10_000_000L));
+        if (match.group(6) != null) {
+            String fraction = match.group(6);
+            magnitude = magnitude.add(new java.math.BigInteger(
+                    fraction + "0000000".substring(fraction.length())));
+        }
+        if (match.group(1) != null) {
+            magnitude = magnitude.negate();
+        }
+        if (magnitude.compareTo(java.math.BigInteger.valueOf(Long.MIN_VALUE)) < 0
+                || magnitude.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) > 0) {
+            throw new OverflowException("TimeSpan value was out of range.");
+        }
+        return new TimeSpan(magnitude.longValue());
     }
 
     @Override
