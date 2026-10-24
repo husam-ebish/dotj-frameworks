@@ -203,6 +203,19 @@ public final class TimeSpan implements IComparable {
         return new TimeSpan(magnitude.longValue());
     }
 
+    public static boolean TryParse(String input, TimeSpan[] result) {
+        result[0] = new TimeSpan(0L);
+        if (input == null) {
+            return false;
+        }
+        try {
+            result[0] = Parse(input);
+            return true;
+        } catch (FormatException | OverflowException expected) {
+            return false;
+        }
+    }
+
     @Override
     public String toString() {
         return ToString();

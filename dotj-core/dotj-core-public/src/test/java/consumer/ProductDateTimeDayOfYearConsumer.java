@@ -13,6 +13,17 @@ import System.TimeSpan;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        TimeSpan[] parsedSpan = {TimeSpan.FromTicks(99L)};
+        if (!TimeSpan.TryParse("1.02:03:04.0000005", parsedSpan)
+                || parsedSpan[0].get_Ticks() != 937_840_000_005L
+                || TimeSpan.TryParse("bad", parsedSpan)
+                || parsedSpan[0].get_Ticks() != 0L
+                || TimeSpan.TryParse("10675199.02:48:05.4775808", parsedSpan)
+                || parsedSpan[0].get_Ticks() != 0L
+                || TimeSpan.TryParse(null, parsedSpan)
+                || parsedSpan[0].get_Ticks() != 0L) {
+            throw new AssertionError("TimeSpan TryParse changed");
+        }
         if (TimeSpan.Parse(" 1.02:03:04.0000005 ").get_Ticks() != 937_840_000_005L
                 || TimeSpan.Parse("-00:00:00.0000001").get_Ticks() != -1L
                 || TimeSpan.Parse("00:00:00").get_Ticks() != 0L
