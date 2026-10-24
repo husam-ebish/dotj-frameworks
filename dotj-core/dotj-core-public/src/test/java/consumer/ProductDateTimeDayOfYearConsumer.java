@@ -13,6 +13,16 @@ import System.TimeSpan;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (TimeSpan.FromSeconds(1.5).get_Ticks() != 15_000_000L
+                || TimeSpan.FromSeconds(-0.25).get_Ticks() != -2_500_000L
+                || TimeSpan.FromSeconds(0.0).get_Ticks() != 0L) {
+            throw new AssertionError("TimeSpan second factory changed");
+        }
+        try {
+            TimeSpan.FromSeconds(Double.POSITIVE_INFINITY);
+            throw new AssertionError("Infinite TimeSpan seconds accepted");
+        } catch (OverflowException expected) {
+        }
         if (TimeSpan.FromMinutes(1.5).get_Ticks() != 900_000_000L
                 || TimeSpan.FromMinutes(-0.25).get_Ticks() != -150_000_000L
                 || TimeSpan.FromMinutes(0.0).get_Ticks() != 0L) {
