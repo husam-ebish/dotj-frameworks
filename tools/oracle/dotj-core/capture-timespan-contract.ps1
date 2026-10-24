@@ -100,6 +100,12 @@ $record = [ordered]@{
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
     oracleSha256 = (Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
     metadata = $metadata; factories = $factories; constructors = $constructors; operations = $operations; ratios = $ratios; properties = $properties
+    constants = @([TimeSpan].GetFields([Reflection.BindingFlags]'Public,Static') | ForEach-Object {
+        $value = $_.GetValue($null)
+        [ordered]@{ name = $_.Name; type = $_.FieldType.FullName
+            result = $(if ($value -is [TimeSpan]) { [ordered]@{ ticks = $value.Ticks } } else { [ordered]@{ value = $value } }) }
+    })
+    defaultValueTicks = [Activator]::CreateInstance([TimeSpan]).Ticks
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
