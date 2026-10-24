@@ -2,6 +2,8 @@
 
 package System;
 
+import System.Globalization.TimeSpanStyles;
+
 /** Immutable tick interval for the selected DateTime arithmetic candidate. */
 public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanFormattable {
     public static final long NanosecondsPerTick = 100L;
@@ -475,6 +477,11 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
     }
 
     public static TimeSpan ParseExact(String input, String format, IFormatProvider formatProvider) {
+        return ParseExact(input, format, formatProvider, TimeSpanStyles.None);
+    }
+
+    public static TimeSpan ParseExact(String input, String format, IFormatProvider formatProvider, TimeSpanStyles styles) {
+        boolean negativeStyle = validateStyles(styles);
         if (input == null) { throw new ArgumentNullException("input"); }
         if (format == null) { throw new ArgumentNullException("format"); }
         if (format.equals("g") || format.equals("G")) {
@@ -482,7 +489,7 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
             return parseGeneralInvariant(input, true, format.equals("G"));
         }
         if (!format.equals("c") && !format.equals("t") && !format.equals("T")) {
-            return parseCustomExact(input, format);
+            return parseCustomExact(input, format, negativeStyle);
         }
         int start = 0;
         int end = input.length();
@@ -536,7 +543,14 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
         return new TimeSpan(total.longValue());
     }
 
-    private static TimeSpan parseCustomExact(String input, String format) {
+    private static boolean validateStyles(TimeSpanStyles styles) {
+        if (styles == null) { throw new ArgumentNullException("styles"); }
+        int value = styles.get_Value();
+        if (value != 0 && value != 1) { throw new ArgumentException("Invalid TimeSpan styles value", "styles"); }
+        return value == 1;
+    }
+
+    private static TimeSpan parseCustomExact(String input, String format, boolean negativeStyle) {
         if (format.length() < 2) { throw new FormatException(); }
         long[] components = new long[5];
         boolean[] assigned = new boolean[5];
@@ -604,7 +618,9 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
                 .multiply(java.math.BigInteger.valueOf(TicksPerDay))
                 .add(java.math.BigInteger.valueOf(components[1] * TicksPerHour + components[2] * TicksPerMinute
                         + components[3] * TicksPerSecond + components[4]));
-        if (total.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) > 0) { throw new OverflowException(); }
+        if (negativeStyle) { total = total.negate(); }
+        if (total.compareTo(java.math.BigInteger.valueOf(Long.MIN_VALUE)) < 0
+                || total.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) > 0) { throw new OverflowException(); }
         return new TimeSpan(total.longValue());
     }
 
@@ -624,10 +640,16 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
     }
 
     public static boolean TryParseExact(String input, String format, IFormatProvider formatProvider, TimeSpan[] result) {
+        return TryParseExact(input, format, formatProvider, TimeSpanStyles.None, result);
+    }
+
+    public static boolean TryParseExact(String input, String format, IFormatProvider formatProvider,
+            TimeSpanStyles styles, TimeSpan[] result) {
+        validateStyles(styles);
         result[0] = Zero;
         if (input == null || format == null) { return false; }
         try {
-            result[0] = ParseExact(input, format, formatProvider);
+            result[0] = ParseExact(input, format, formatProvider, styles);
             return true;
         } catch (FormatException | OverflowException invalid) {
             return false;
@@ -635,13 +657,18 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
     }
 
     public static TimeSpan ParseExact(String input, String[] formats, IFormatProvider formatProvider) {
+        return ParseExact(input, formats, formatProvider, TimeSpanStyles.None);
+    }
+
+    public static TimeSpan ParseExact(String input, String[] formats, IFormatProvider formatProvider, TimeSpanStyles styles) {
+        validateStyles(styles);
         if (input == null) { throw new ArgumentNullException("input"); }
         if (formats == null) { throw new ArgumentNullException("formats"); }
         if (input.isEmpty()) { throw new FormatException(); }
         for (String format : formats) {
             if (format == null || format.isEmpty()) { throw new FormatException(); }
             try {
-                return ParseExact(input, format, formatProvider);
+                return ParseExact(input, format, formatProvider, styles);
             } catch (FormatException | OverflowException invalid) {
                 // Each alternative is independent; a failed alternative does not escape.
             }
@@ -651,10 +678,16 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
 
     public static boolean TryParseExact(String input, String[] formats, IFormatProvider formatProvider,
             TimeSpan[] result) {
+        return TryParseExact(input, formats, formatProvider, TimeSpanStyles.None, result);
+    }
+
+    public static boolean TryParseExact(String input, String[] formats, IFormatProvider formatProvider,
+            TimeSpanStyles styles, TimeSpan[] result) {
+        validateStyles(styles);
         result[0] = Zero;
         if (input == null || formats == null) { return false; }
         try {
-            result[0] = ParseExact(input, formats, formatProvider);
+            result[0] = ParseExact(input, formats, formatProvider, styles);
             return true;
         } catch (FormatException | OverflowException invalid) {
             return false;
@@ -663,28 +696,52 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
 
     public static TimeSpan ParseExact(ReadOnlySpan<Character> input, String[] formats,
             IFormatProvider formatProvider) {
+        return ParseExact(input, formats, formatProvider, TimeSpanStyles.None);
+    }
+
+    public static TimeSpan ParseExact(ReadOnlySpan<Character> input, String[] formats,
+            IFormatProvider formatProvider, TimeSpanStyles styles) {
+        validateStyles(styles);
         if (input == null) { throw new ArgumentNullException("input"); }
-        return ParseExact(input.selectedText(), formats, formatProvider);
+        return ParseExact(input.selectedText(), formats, formatProvider, styles);
     }
 
     public static boolean TryParseExact(ReadOnlySpan<Character> input, String[] formats,
             IFormatProvider formatProvider, TimeSpan[] result) {
+        return TryParseExact(input, formats, formatProvider, TimeSpanStyles.None, result);
+    }
+
+    public static boolean TryParseExact(ReadOnlySpan<Character> input, String[] formats,
+            IFormatProvider formatProvider, TimeSpanStyles styles, TimeSpan[] result) {
+        validateStyles(styles);
         if (input == null) { throw new ArgumentNullException("input"); }
-        return TryParseExact(input.selectedText(), formats, formatProvider, result);
+        return TryParseExact(input.selectedText(), formats, formatProvider, styles, result);
     }
 
     public static TimeSpan ParseExact(ReadOnlySpan<Character> input, ReadOnlySpan<Character> format,
             IFormatProvider formatProvider) {
+        return ParseExact(input, format, formatProvider, TimeSpanStyles.None);
+    }
+
+    public static TimeSpan ParseExact(ReadOnlySpan<Character> input, ReadOnlySpan<Character> format,
+            IFormatProvider formatProvider, TimeSpanStyles styles) {
+        validateStyles(styles);
         if (input == null) { throw new ArgumentNullException("input"); }
         if (format == null) { throw new ArgumentNullException("format"); }
-        return ParseExact(input.selectedText(), format.selectedText(), formatProvider);
+        return ParseExact(input.selectedText(), format.selectedText(), formatProvider, styles);
     }
 
     public static boolean TryParseExact(ReadOnlySpan<Character> input, ReadOnlySpan<Character> format,
             IFormatProvider formatProvider, TimeSpan[] result) {
+        return TryParseExact(input, format, formatProvider, TimeSpanStyles.None, result);
+    }
+
+    public static boolean TryParseExact(ReadOnlySpan<Character> input, ReadOnlySpan<Character> format,
+            IFormatProvider formatProvider, TimeSpanStyles styles, TimeSpan[] result) {
+        validateStyles(styles);
         if (input == null) { throw new ArgumentNullException("input"); }
         if (format == null) { throw new ArgumentNullException("format"); }
-        return TryParseExact(input.selectedText(), format.selectedText(), formatProvider, result);
+        return TryParseExact(input.selectedText(), format.selectedText(), formatProvider, styles, result);
     }
 
     public String ToString(String format) {

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "13399f8b4ee4aa2b1302b0bb856c223bf53966b5bfd8b7fc3833d63094dde855",
+  "jarSha256": "a5c8b627bb2f0ea30b7ea8365112d0c07f26a7cffe8e2740a586d6d2fa36cbf9",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 75,
-  "directNameMatchedCount": 70,
+  "sourceCount": 76,
+  "directNameMatchedCount": 71,
   "directNameMissingCount": 5,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
@@ -435,6 +435,23 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Globalization/NumberStyles.cs",
       "upstreamSha256": "2be77ed7102ba13aeed8aad8d13942331159b8c1129c0e1af4f3347d672a652d",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Globalization/TimeSpanStyles.java",
+      "productSha256": "c7e1af014d5da45c3f3e5b98ffb865eedc127f08624bdf133ccb546c1ebf7155",
+      "classEntries": [
+        "System/Globalization/TimeSpanStyles.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "584967a875b1531b829988d660ab8cb091f28993",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Globalization/TimeSpanStyles.cs",
+      "upstreamSha256": "783c7d561e5e777bd0bc5d7ba27bdcd4832eed29f3d4fac6dc0e1c414f38d51c",
       "sharedIdentifierShinglesOfLength12": 0,
       "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
       "sharedIdentifierShingleSamples": [],
@@ -1158,7 +1175,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java",
-      "productSha256": "80490e8b5b468f62ca1a558415f8f8d1d890f300d36563544717211aa8f64b20",
+      "productSha256": "6a47bf60566edd39e14c9051b15c0527e89608ad0bf483013d7e22e81f33b78d",
       "classEntries": [
         "System/TimeSpan.class"
       ],
