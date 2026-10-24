@@ -31,6 +31,9 @@ public final class ProductDecimalBitsConsumer {
             int[] input = patterns[index].clone();
             Decimal value = new Decimal(input);
             input[0] ^= 1;
+            if (value.get_Scale() != ((patterns[index][3] >>> 16) & 0xff)) {
+                throw new AssertionError("Decimal scale changed: " + index);
+            }
             if (!Arrays.equals(Decimal.GetBits(value), patterns[index])
                     || !Arrays.equals(Decimal.GetBits(value.ToDecimal(null)), patterns[index])
                     || !texts[index].equals(value.ToString(null))) {
@@ -44,7 +47,9 @@ public final class ProductDecimalBitsConsumer {
         }
         if (!Arrays.equals(Decimal.GetBits(Decimal.Parse("-0.00")), patterns[4])
                 || !Arrays.equals(Decimal.GetBits(Decimal.Parse("0.00")),
-                        new int[] {0, 0, 0, 0x00020000})) {
+                        new int[] {0, 0, 0, 0x00020000})
+                || Decimal.Parse("-0.00").get_Scale() != 2
+                || Decimal.Parse("0.00").get_Scale() != 2) {
             throw new AssertionError("Parsed Decimal zero lost sign or scale");
         }
         try {

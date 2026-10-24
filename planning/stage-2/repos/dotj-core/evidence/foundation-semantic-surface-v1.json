@@ -5,10 +5,10 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "a87eae1d99a11b3fe7e97c2265deecf0536cd12f065cd96643e4bb9eb9337a00",
+  "javaCandidateEvidenceSha256": "171b5dbc94bcdb2d01a4dc918ef17414b4968446fb03bcf75f476c50e53e99cd",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 81,
-  "nameLevelMissingPublicGetterCount": 33,
+  "nameLevelMissingPublicGetterCount": 32,
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -3266,6 +3266,7 @@
         "public System.Decimal(long);",
         "public System.Decimal(int[]);",
         "public System.Decimal(int, int, int, boolean, int);",
+        "public int get_Scale();",
         "public static int[] GetBits(System.Decimal);",
         "public static System.Decimal Truncate(System.Decimal);",
         "public static System.Decimal Floor(System.Decimal);",
@@ -3454,6 +3455,7 @@
           "Truncate": 1,
           "TryParse": 6,
           "equals": 1,
+          "get_Scale": 1,
           "hashCode": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
@@ -3465,9 +3467,7 @@
           "TryFormat",
           "TryGetBits"
         ],
-        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "Scale"
-        ],
+        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
     },
