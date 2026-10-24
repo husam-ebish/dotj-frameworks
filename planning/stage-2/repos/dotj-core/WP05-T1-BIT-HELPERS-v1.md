@@ -667,3 +667,5 @@ Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quo
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 mixed quoted and escaped affix vectors for multicharacter group and decimal separators. They are checked through a packaged consumer. Broader separator combinations remain open.
 
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 mixed quoted and escaped affix vectors for an empty group separator. They are checked through a packaged consumer. Broader grouping combinations remain open.
+
+Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quoted and escaped affix vectors for standard, word, and empty negative signs. They cover signed values and zero through a packaged consumer. Broader sign combinations remain open.
