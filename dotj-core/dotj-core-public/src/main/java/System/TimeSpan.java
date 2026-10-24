@@ -117,6 +117,33 @@ public final class TimeSpan implements IComparable {
         return Compare(this, other);
     }
 
+    public static boolean Equals(TimeSpan left, TimeSpan right) {
+        return left == right || (left != null && right != null
+                && left.ticks == right.ticks);
+    }
+
+    public boolean Equals(TimeSpan other) {
+        return Equals(this, other);
+    }
+
+    public boolean Equals(Object obj) {
+        return obj instanceof TimeSpan other && Equals(other);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return Equals(obj);
+    }
+
+    public int GetHashCode() {
+        return (int) (this.ticks ^ (this.ticks >>> 32));
+    }
+
+    @Override
+    public int hashCode() {
+        return GetHashCode();
+    }
+
     public double get_TotalDays() {
         return (double) this.ticks / TICKS_PER_DAY;
     }
