@@ -729,3 +729,5 @@ The public ArgumentException candidate now exposes ThrowIfNullOrWhiteSpace with 
 The public DateTime candidate now exposes ToBinary for the current unspecified-kind model; its binary value equals ticks. A packaged consumer checks minimum, Unix epoch, and fractional ticks. Local and UTC kind encodings and the TimeSpan dependency remain open.
 
 The public DateTime candidate now exposes FromBinary for the current unspecified-kind model. A packaged consumer checks selected valid tick values and rejects out-of-range binary values. Local and UTC kind decoding remains open.
+
+The public DateTime candidate now exposes FromFileTimeUtc with the 1601-01-01 epoch and bounds checks. A packaged consumer checks the epoch, Unix epoch, maximum and invalid values. UTC kind metadata is still absent from this candidate.

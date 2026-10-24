@@ -11,6 +11,7 @@ import java.time.format.ResolverStyle;
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
 public final class DateTime implements IConvertible, IComparable {
     private static final long TICKS_PER_DAY = 864_000_000_000L;
+    private static final long FILE_TIME_EPOCH_TICKS = 504_911_232_000_000_000L;
     private static final long MAX_TICKS = 3_155_378_975_999_999_999L;
     private final LocalDateTime date;
 
@@ -107,6 +108,13 @@ public final class DateTime implements IConvertible, IComparable {
             throw new ArgumentException("Invalid binary date value", "dateData");
         }
         return new DateTime(1, 1, 1).AddTicks(dateData);
+    }
+
+    public static DateTime FromFileTimeUtc(long fileTime) {
+        if (fileTime < 0 || fileTime > MAX_TICKS - FILE_TIME_EPOCH_TICKS) {
+            throw new ArgumentOutOfRangeException("fileTime");
+        }
+        return new DateTime(1, 1, 1).AddTicks(fileTime + FILE_TIME_EPOCH_TICKS);
     }
 
     public static boolean IsLeapYear(int year) {
