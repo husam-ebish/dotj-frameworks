@@ -1034,7 +1034,8 @@ public abstract class Type extends MemberInfo {
         }
         if (this.parameterIndex >= 0 || this.definition == String.class
                 || this.definition == java.util.List.class || this.definition == java.util.Map.class
-                || this.definition == Number.class || this.definition == java.lang.reflect.Array.class) {
+                || this.definition == Number.class || this.definition == Exception.class
+                || this.definition == java.lang.reflect.Array.class) {
             return fromJavaClass(Object.class);
         }
         Class<?> parent = this.definition.getSuperclass();
@@ -1100,7 +1101,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == DBNull.class || this.definition == NumberFormatInfo.class
                 || this.definition == SerializationInfo.class
                 || this.definition == SerializationInfoEnumerator.class
-                || this.definition == NullableAttribute.class;
+                || this.definition == NullableAttribute.class || this.definition == IndexOutOfRangeException.class;
     }
 
     public boolean get_IsPublic() {
@@ -1523,7 +1524,7 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this.definition == ISerializable.class
-                && (candidate.definition == DBNull.class || candidate.definition == Exception.class)) {
+                && (candidate.definition == DBNull.class || Exception.class.isAssignableFrom(candidate.definition))) {
             return true;
         }
         if (this.definition == ISpanFormattable.class && candidate.definition == Int32.class) {
@@ -1895,7 +1896,7 @@ public abstract class Type extends MemberInfo {
         if (this.definition == IEnumerable.class || this.definition == DictionaryEntry.class) {
             return new Type[0];
         }
-        if (this.definition == Exception.class) {
+        if (Exception.class.isAssignableFrom(this.definition)) {
             return new Type[] {fromJavaClass(ISerializable.class)};
         }
         if (this.definition == SerializationInfoEnumerator.class) {
@@ -1998,7 +1999,8 @@ public abstract class Type extends MemberInfo {
         if (fullname == null) {
             throw new ArgumentNullException("fullname");
         }
-        if (this.definition == DateTime.class || this.definition == TimeSpan.class) {
+        if (this.definition == DateTime.class || this.definition == TimeSpan.class
+                || Exception.class.isAssignableFrom(this.definition)) {
             int separator = fullname.lastIndexOf('.');
             String namespace = separator < 0 ? null : fullname.substring(0, separator);
             String name = fullname.substring(separator + 1);

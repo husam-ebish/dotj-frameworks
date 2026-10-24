@@ -3,7 +3,7 @@
 package System;
 
 /** Selected invalid-array-rank exception candidate. */
-public class IndexOutOfRangeException extends SystemException {
+public final class IndexOutOfRangeException extends SystemException {
     public IndexOutOfRangeException() {
         super();
         this.set_HResult(-2146233080);
