@@ -307,7 +307,7 @@ public final class TimeSpan implements IComparable {
             return 1;
         }
         if (!(obj instanceof TimeSpan other)) {
-            throw new ArgumentException("Object must be of type TimeSpan", "obj");
+            throw new ArgumentException("Object must be of type TimeSpan.");
         }
         return Compare(this, other);
     }
