@@ -11,6 +11,14 @@ EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence"
 METADATA = EVIDENCE / "foundation-selected-metadata-v10.0.12.json"
 ARTIFACT = EVIDENCE / "foundation-product-candidate-v1.json"
 OUTPUT = EVIDENCE / "foundation-public-candidate-ledger-v1.json"
+DATE_TIME_CONSTRUCTORS = [
+    "public System.DateTime();",
+    "public System.DateTime(long);",
+    "public System.DateTime(long, System.DateTimeKind);",
+    "public System.DateTime(int, int, int);",
+    "public System.DateTime(int, int, int, int, int, int);",
+    "public System.DateTime(int, int, int, int, int, int, int);",
+]
 
 
 def sha256(path):
@@ -38,9 +46,7 @@ def main():
                                     "public System.Decimal(int, int, int, boolean, int);"]
             assert len(upstream["publicConstructors"]) == 9
         elif name == "System.DateTime":
-            assert constructors == ["public System.DateTime(int, int, int);",
-                                    "public System.DateTime(int, int, int, int, int, int);",
-                                    "public System.DateTime(int, int, int, int, int, int, int);"]
+            assert constructors == DATE_TIME_CONSTRUCTORS
             assert len(upstream["publicConstructors"]) == 17
         elif name == "System.Int32":
             assert constructors == ["public System.Int32(int);"]
@@ -225,9 +231,10 @@ def main():
             disposition = "PARTIAL_VALUE_SURFACE; selected Decimal IConvertible, Parse and invariant text"
         elif name == "System.DateTime":
             assert header == "public final class System.DateTime implements System.IConvertible,System.IComparable,System.ISpanFormattable {"
-            assert declarations == ["public System.DateTime(int, int, int);",
-                                    "public System.DateTime(int, int, int, int, int, int);",
-                                    "public System.DateTime(int, int, int, int, int, int, int);",
+            assert declarations == ["public static final System.DateTime MinValue;",
+                                    "public static final System.DateTime MaxValue;",
+                                    "public static final System.DateTime UnixEpoch;",
+                                    *DATE_TIME_CONSTRUCTORS,
                                     "public static System.DateTime SpecifyKind(System.DateTime, System.DateTimeKind);",
                                     "public static System.DateTime Parse(java.lang.String);",
                                     "public static boolean TryParse(java.lang.String, System.DateTime[]);",
