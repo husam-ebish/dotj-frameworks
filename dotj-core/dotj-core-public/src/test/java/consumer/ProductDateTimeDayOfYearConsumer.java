@@ -168,6 +168,28 @@ public final class ProductDateTimeDayOfYearConsumer {
                 || earlier.hashCode() != earlier.GetHashCode()) {
             throw new AssertionError("DateTime equality or hash changed");
         }
+        DateTime minimum = new DateTime(1, 1, 1);
+        DateTime maximumMillisecond = new DateTime(9999, 12, 31, 23, 59, 59, 999);
+        if (minimum.AddTicks(1).get_Ticks() != 1L
+                || minimum.AddTicks(1).AddTicks(-1).get_Ticks() != 0L
+                || maximumMillisecond.AddTicks(9999).get_Ticks()
+                    != 3155378975999999999L
+                || new DateTime(2024, 2, 29).AddTicks(864000000000L)
+                    .get_DayOfYear() != 61) {
+            throw new AssertionError("DateTime AddTicks changed");
+        }
+        long[][] invalidTicks = {{0L, -1L}, {1L, 10000L}, {0L, Long.MAX_VALUE}};
+        for (long[] row : invalidTicks) {
+            DateTime target = row[0] == 0L ? minimum : maximumMillisecond;
+            try {
+                target.AddTicks(row[1]);
+                throw new AssertionError("Out-of-range ticks accepted");
+            } catch (ArgumentOutOfRangeException caught) {
+                if (!"value".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Tick parameter changed");
+                }
+            }
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }

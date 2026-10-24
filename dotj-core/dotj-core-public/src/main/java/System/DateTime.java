@@ -9,6 +9,8 @@ import java.time.format.DateTimeParseException;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
 public final class DateTime implements IConvertible, IComparable {
+    private static final long TICKS_PER_DAY = 864_000_000_000L;
+    private static final long MAX_TICKS = 3_155_378_975_999_999_999L;
     private final LocalDateTime date;
 
     public DateTime(int year, int month, int day) {
@@ -119,6 +121,22 @@ public final class DateTime implements IConvertible, IComparable {
     @Override
     public int hashCode() {
         return GetHashCode();
+    }
+
+    public DateTime AddTicks(long value) {
+        long result;
+        try {
+            result = java.lang.Math.addExact(this.get_Ticks(), value);
+        } catch (java.lang.ArithmeticException overflow) {
+            throw new ArgumentOutOfRangeException("value");
+        }
+        if (result < 0 || result > MAX_TICKS) {
+            throw new ArgumentOutOfRangeException("value");
+        }
+        LocalDateTime added = LocalDate.of(1, 1, 1).atStartOfDay()
+                .plusDays(result / TICKS_PER_DAY)
+                .plusNanos((result % TICKS_PER_DAY) * 100L);
+        return new DateTime(added);
     }
 
     public int get_Year() {
