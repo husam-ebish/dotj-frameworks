@@ -102,6 +102,13 @@ public final class DateTime implements IConvertible, IComparable {
         }
     }
 
+    public static DateTime FromBinary(long dateData) {
+        if (dateData < 0 || dateData > MAX_TICKS) {
+            throw new ArgumentException("Invalid binary date value", "dateData");
+        }
+        return new DateTime(1, 1, 1).AddTicks(dateData);
+    }
+
     public static boolean IsLeapYear(int year) {
         if (year < 1 || year > 9999) {
             throw new ArgumentOutOfRangeException("year");
