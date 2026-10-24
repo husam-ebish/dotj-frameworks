@@ -1,0 +1,2367 @@
+{
+  "schemaVersion": 1,
+  "scope": "Pinned TimeSpan metadata, interval factories, constructors, Multiply and Divide vectors; bounded oracle only",
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "20c5159e1ec8426ad7df127f0ef581065835d59768fb9385563c623abefe530f",
+  "metadata": {
+    "type": "System.TimeSpan",
+    "interfaces": [
+      "System.IComparable",
+      "System.IComparable`1[[System.TimeSpan, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "System.IEquatable`1[[System.TimeSpan, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "System.IFormattable",
+      "System.IParsable`1[[System.TimeSpan, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "System.ISpanFormattable",
+      "System.ISpanParsable`1[[System.TimeSpan, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+      "System.IUtf8SpanFormattable"
+    ],
+    "methods": [
+      "Boolean Equals(System.Object)",
+      "Boolean Equals(System.TimeSpan, System.TimeSpan)",
+      "Boolean Equals(System.TimeSpan)",
+      "Boolean op_Equality(System.TimeSpan, System.TimeSpan)",
+      "Boolean op_GreaterThan(System.TimeSpan, System.TimeSpan)",
+      "Boolean op_GreaterThanOrEqual(System.TimeSpan, System.TimeSpan)",
+      "Boolean op_Inequality(System.TimeSpan, System.TimeSpan)",
+      "Boolean op_LessThan(System.TimeSpan, System.TimeSpan)",
+      "Boolean op_LessThanOrEqual(System.TimeSpan, System.TimeSpan)",
+      "Boolean TryFormat(System.Span`1[System.Byte], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+      "Boolean TryFormat(System.Span`1[System.Char], Int32 ByRef, System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+      "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider, System.TimeSpan ByRef)",
+      "Boolean TryParse(System.ReadOnlySpan`1[System.Char], System.TimeSpan ByRef)",
+      "Boolean TryParse(System.String, System.IFormatProvider, System.TimeSpan ByRef)",
+      "Boolean TryParse(System.String, System.TimeSpan ByRef)",
+      "Boolean TryParseExact(System.ReadOnlySpan`1[System.Char], System.ReadOnlySpan`1[System.Char], System.IFormatProvider, System.Globalization.TimeSpanStyles, System.TimeSpan ByRef)",
+      "Boolean TryParseExact(System.ReadOnlySpan`1[System.Char], System.ReadOnlySpan`1[System.Char], System.IFormatProvider, System.TimeSpan ByRef)",
+      "Boolean TryParseExact(System.ReadOnlySpan`1[System.Char], System.String[], System.IFormatProvider, System.Globalization.TimeSpanStyles, System.TimeSpan ByRef)",
+      "Boolean TryParseExact(System.ReadOnlySpan`1[System.Char], System.String[], System.IFormatProvider, System.TimeSpan ByRef)",
+      "Boolean TryParseExact(System.String, System.String, System.IFormatProvider, System.Globalization.TimeSpanStyles, System.TimeSpan ByRef)",
+      "Boolean TryParseExact(System.String, System.String, System.IFormatProvider, System.TimeSpan ByRef)",
+      "Boolean TryParseExact(System.String, System.String[], System.IFormatProvider, System.Globalization.TimeSpanStyles, System.TimeSpan ByRef)",
+      "Boolean TryParseExact(System.String, System.String[], System.IFormatProvider, System.TimeSpan ByRef)",
+      "Double Divide(System.TimeSpan)",
+      "Double get_TotalDays()",
+      "Double get_TotalHours()",
+      "Double get_TotalMicroseconds()",
+      "Double get_TotalMilliseconds()",
+      "Double get_TotalMinutes()",
+      "Double get_TotalNanoseconds()",
+      "Double get_TotalSeconds()",
+      "Double op_Division(System.TimeSpan, System.TimeSpan)",
+      "Int32 Compare(System.TimeSpan, System.TimeSpan)",
+      "Int32 CompareTo(System.Object)",
+      "Int32 CompareTo(System.TimeSpan)",
+      "Int32 get_Days()",
+      "Int32 get_Hours()",
+      "Int32 get_Microseconds()",
+      "Int32 get_Milliseconds()",
+      "Int32 get_Minutes()",
+      "Int32 get_Nanoseconds()",
+      "Int32 get_Seconds()",
+      "Int32 GetHashCode()",
+      "Int64 get_Ticks()",
+      "System.String ToString()",
+      "System.String ToString(System.String, System.IFormatProvider)",
+      "System.String ToString(System.String)",
+      "System.TimeSpan Add(System.TimeSpan)",
+      "System.TimeSpan Divide(Double)",
+      "System.TimeSpan Duration()",
+      "System.TimeSpan FromDays(Double)",
+      "System.TimeSpan FromDays(Int32, Int32, Int64, Int64, Int64, Int64)",
+      "System.TimeSpan FromDays(Int32)",
+      "System.TimeSpan FromHours(Double)",
+      "System.TimeSpan FromHours(Int32, Int64, Int64, Int64, Int64)",
+      "System.TimeSpan FromHours(Int32)",
+      "System.TimeSpan FromMicroseconds(Double)",
+      "System.TimeSpan FromMicroseconds(Int64)",
+      "System.TimeSpan FromMilliseconds(Double)",
+      "System.TimeSpan FromMilliseconds(Int64, Int64)",
+      "System.TimeSpan FromMilliseconds(Int64)",
+      "System.TimeSpan FromMinutes(Double)",
+      "System.TimeSpan FromMinutes(Int64, Int64, Int64, Int64)",
+      "System.TimeSpan FromMinutes(Int64)",
+      "System.TimeSpan FromSeconds(Double)",
+      "System.TimeSpan FromSeconds(Int64, Int64, Int64)",
+      "System.TimeSpan FromSeconds(Int64)",
+      "System.TimeSpan FromTicks(Int64)",
+      "System.TimeSpan Multiply(Double)",
+      "System.TimeSpan Negate()",
+      "System.TimeSpan op_Addition(System.TimeSpan, System.TimeSpan)",
+      "System.TimeSpan op_Division(System.TimeSpan, Double)",
+      "System.TimeSpan op_Multiply(Double, System.TimeSpan)",
+      "System.TimeSpan op_Multiply(System.TimeSpan, Double)",
+      "System.TimeSpan op_Subtraction(System.TimeSpan, System.TimeSpan)",
+      "System.TimeSpan op_UnaryNegation(System.TimeSpan)",
+      "System.TimeSpan op_UnaryPlus(System.TimeSpan)",
+      "System.TimeSpan Parse(System.ReadOnlySpan`1[System.Char], System.IFormatProvider)",
+      "System.TimeSpan Parse(System.String, System.IFormatProvider)",
+      "System.TimeSpan Parse(System.String)",
+      "System.TimeSpan ParseExact(System.ReadOnlySpan`1[System.Char], System.ReadOnlySpan`1[System.Char], System.IFormatProvider, System.Globalization.TimeSpanStyles)",
+      "System.TimeSpan ParseExact(System.ReadOnlySpan`1[System.Char], System.String[], System.IFormatProvider, System.Globalization.TimeSpanStyles)",
+      "System.TimeSpan ParseExact(System.String, System.String, System.IFormatProvider, System.Globalization.TimeSpanStyles)",
+      "System.TimeSpan ParseExact(System.String, System.String, System.IFormatProvider)",
+      "System.TimeSpan ParseExact(System.String, System.String[], System.IFormatProvider, System.Globalization.TimeSpanStyles)",
+      "System.TimeSpan ParseExact(System.String, System.String[], System.IFormatProvider)",
+      "System.TimeSpan Subtract(System.TimeSpan)"
+    ],
+    "fields": [
+      {
+        "name": "Zero",
+        "type": "System.TimeSpan",
+        "value": "00:00:00"
+      },
+      {
+        "name": "MaxValue",
+        "type": "System.TimeSpan",
+        "value": "10675199.02:48:05.4775807"
+      },
+      {
+        "name": "MinValue",
+        "type": "System.TimeSpan",
+        "value": "-10675199.02:48:05.4775808"
+      },
+      {
+        "name": "NanosecondsPerTick",
+        "type": "System.Int64",
+        "value": "100"
+      },
+      {
+        "name": "TicksPerMicrosecond",
+        "type": "System.Int64",
+        "value": "10"
+      },
+      {
+        "name": "TicksPerMillisecond",
+        "type": "System.Int64",
+        "value": "10000"
+      },
+      {
+        "name": "TicksPerSecond",
+        "type": "System.Int64",
+        "value": "10000000"
+      },
+      {
+        "name": "TicksPerMinute",
+        "type": "System.Int64",
+        "value": "600000000"
+      },
+      {
+        "name": "TicksPerHour",
+        "type": "System.Int64",
+        "value": "36000000000"
+      },
+      {
+        "name": "TicksPerDay",
+        "type": "System.Int64",
+        "value": "864000000000"
+      },
+      {
+        "name": "MicrosecondsPerMillisecond",
+        "type": "System.Int64",
+        "value": "1000"
+      },
+      {
+        "name": "MicrosecondsPerSecond",
+        "type": "System.Int64",
+        "value": "1000000"
+      },
+      {
+        "name": "MicrosecondsPerMinute",
+        "type": "System.Int64",
+        "value": "60000000"
+      },
+      {
+        "name": "MicrosecondsPerHour",
+        "type": "System.Int64",
+        "value": "3600000000"
+      },
+      {
+        "name": "MicrosecondsPerDay",
+        "type": "System.Int64",
+        "value": "86400000000"
+      },
+      {
+        "name": "MillisecondsPerSecond",
+        "type": "System.Int64",
+        "value": "1000"
+      },
+      {
+        "name": "MillisecondsPerMinute",
+        "type": "System.Int64",
+        "value": "60000"
+      },
+      {
+        "name": "MillisecondsPerHour",
+        "type": "System.Int64",
+        "value": "3600000"
+      },
+      {
+        "name": "MillisecondsPerDay",
+        "type": "System.Int64",
+        "value": "86400000"
+      },
+      {
+        "name": "SecondsPerMinute",
+        "type": "System.Int64",
+        "value": "60"
+      },
+      {
+        "name": "SecondsPerHour",
+        "type": "System.Int64",
+        "value": "3600"
+      },
+      {
+        "name": "SecondsPerDay",
+        "type": "System.Int64",
+        "value": "86400"
+      },
+      {
+        "name": "MinutesPerHour",
+        "type": "System.Int64",
+        "value": "60"
+      },
+      {
+        "name": "MinutesPerDay",
+        "type": "System.Int64",
+        "value": "1440"
+      },
+      {
+        "name": "HoursPerDay",
+        "type": "System.Int32",
+        "value": "24"
+      }
+    ]
+  },
+  "factories": [
+    {
+      "method": "FromDays",
+      "inputBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "8000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "3FC851EB851EB852",
+      "result": {
+        "ticks": 164160000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "BFC851EB851EB852",
+      "result": {
+        "ticks": -164160000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "3FC3333333333333",
+      "result": {
+        "ticks": 129600000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "BFC3333333333333",
+      "result": {
+        "ticks": -129600000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "3FF8000000000000",
+      "result": {
+        "ticks": 1296000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "BFF8000000000000",
+      "result": {
+        "ticks": -1296000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "43E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "C3E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "FFEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "41645C7FE3BC40B0",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "41645C7FE3BC40AF",
+      "result": {
+        "ticks": 9223372036854773760
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "41645C7FE3BC40B1",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "C1645C7FE3BC40B0",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "C1645C7FE3BC40B1",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputBits": "C1645C7FE3BC40AF",
+      "result": {
+        "ticks": -9223372036854773760
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "8000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "3FC851EB851EB852",
+      "result": {
+        "ticks": 6840000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "BFC851EB851EB852",
+      "result": {
+        "ticks": -6840000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "3FC3333333333333",
+      "result": {
+        "ticks": 5400000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "BFC3333333333333",
+      "result": {
+        "ticks": -5400000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "3FF8000000000000",
+      "result": {
+        "ticks": 54000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "BFF8000000000000",
+      "result": {
+        "ticks": -54000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "43E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "C3E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "FFEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "41AE8ABFD59A6108",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "41AE8ABFD59A6107",
+      "result": {
+        "ticks": 9223372036854774784
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "41AE8ABFD59A6109",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "C1AE8ABFD59A6108",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "C1AE8ABFD59A6109",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputBits": "C1AE8ABFD59A6107",
+      "result": {
+        "ticks": -9223372036854774784
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "8000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "3FC851EB851EB852",
+      "result": {
+        "ticks": 114000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "BFC851EB851EB852",
+      "result": {
+        "ticks": -114000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "3FC3333333333333",
+      "result": {
+        "ticks": 90000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "BFC3333333333333",
+      "result": {
+        "ticks": -90000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "3FF8000000000000",
+      "result": {
+        "ticks": 900000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "BFF8000000000000",
+      "result": {
+        "ticks": -900000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "43E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "C3E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "FFEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "420CA213D840BAF8",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "420CA213D840BAF7",
+      "result": {
+        "ticks": 9223372036854774784
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "420CA213D840BAF9",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "C20CA213D840BAF8",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "C20CA213D840BAF9",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputBits": "C20CA213D840BAF7",
+      "result": {
+        "ticks": -9223372036854774784
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "8000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "3FC851EB851EB852",
+      "result": {
+        "ticks": 1900000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "BFC851EB851EB852",
+      "result": {
+        "ticks": -1900000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "3FC3333333333333",
+      "result": {
+        "ticks": 1500000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "BFC3333333333333",
+      "result": {
+        "ticks": -1500000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "3FF8000000000000",
+      "result": {
+        "ticks": 15000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "BFF8000000000000",
+      "result": {
+        "ticks": -15000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "43E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "C3E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "FFEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "426AD7F29ABCAF48",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "426AD7F29ABCAF47",
+      "result": {
+        "ticks": 9223372036854773760
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "426AD7F29ABCAF49",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "C26AD7F29ABCAF48",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "C26AD7F29ABCAF49",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputBits": "C26AD7F29ABCAF47",
+      "result": {
+        "ticks": -9223372036854773760
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "8000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "3FC851EB851EB852",
+      "result": {
+        "ticks": 1900
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "BFC851EB851EB852",
+      "result": {
+        "ticks": -1900
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "3FC3333333333333",
+      "result": {
+        "ticks": 1500
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "BFC3333333333333",
+      "result": {
+        "ticks": -1500
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "3FF8000000000000",
+      "result": {
+        "ticks": 15000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "BFF8000000000000",
+      "result": {
+        "ticks": -15000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "43E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "C3E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "FFEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "430A36E2EB1C432D",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "430A36E2EB1C432C",
+      "result": {
+        "ticks": 9223372036854774784
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "430A36E2EB1C432E",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "C30A36E2EB1C432D",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "C30A36E2EB1C432E",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputBits": "C30A36E2EB1C432C",
+      "result": {
+        "ticks": -9223372036854774784
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "8000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "3FC851EB851EB852",
+      "result": {
+        "ticks": 1
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "BFC851EB851EB852",
+      "result": {
+        "ticks": -1
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "3FC3333333333333",
+      "result": {
+        "ticks": 1
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "BFC3333333333333",
+      "result": {
+        "ticks": -1
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "3FF8000000000000",
+      "result": {
+        "ticks": 15
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "BFF8000000000000",
+      "result": {
+        "ticks": -15
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "43E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "C3E0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "FFEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "43A999999999999A",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "43A9999999999999",
+      "result": {
+        "ticks": 9223372036854774784
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "43A999999999999B",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "C3A999999999999A",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "C3A999999999999B",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputBits": "C3A9999999999999",
+      "result": {
+        "ticks": -9223372036854774784
+      }
+    }
+  ],
+  "constructors": [
+    {
+      "components": [
+        1,
+        2,
+        3
+      ],
+      "result": {
+        "ticks": 37230000000
+      }
+    },
+    {
+      "components": [
+        25,
+        -2,
+        61
+      ],
+      "result": {
+        "ticks": 899410000000
+      }
+    },
+    {
+      "components": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "result": {
+        "ticks": 937840000000
+      }
+    },
+    {
+      "components": [
+        -1,
+        2,
+        -3,
+        4
+      ],
+      "result": {
+        "ticks": -793760000000
+      }
+    },
+    {
+      "components": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "result": {
+        "ticks": 937840050000
+      }
+    },
+    {
+      "components": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "result": {
+        "ticks": 937840050060
+      }
+    },
+    {
+      "components": [
+        2147483647,
+        0,
+        0
+      ],
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "components": [
+        2147483647,
+        0,
+        0,
+        0
+      ],
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    }
+  ],
+  "operations": [
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "0000000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "factor"
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "divisor"
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 0,
+      "operandBits": "0000000000000001",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "operandBits": "0000000000000001",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "0000000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": 2
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": -2
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": 1
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": 1
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": -1
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": -1
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": 2
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "factor"
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "divisor"
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 1,
+      "operandBits": "0000000000000001",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "operandBits": "0000000000000001",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "0000000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": 2
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": 6
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": -2
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": -6
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": 3
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": 3
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": -3
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": -3
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": 6
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": 2
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "factor"
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "divisor"
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 3,
+      "operandBits": "0000000000000001",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "operandBits": "0000000000000001",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "0000000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": -2
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": -6
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": 2
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": 6
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": -3
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": -3
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": 3
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": 3
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": -6
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": -2
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "factor"
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "divisor"
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -3,
+      "operandBits": "0000000000000001",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "operandBits": "0000000000000001",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "0000000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": 4611686018427387904
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": -4611686018427387904
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "4000000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": 4611686018427387904
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "factor"
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "divisor"
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": 9223372036854775807,
+      "operandBits": "0000000000000001",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "operandBits": "0000000000000001",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "0000000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "0000000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "ticks": -4611686018427387904
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "3FE0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "ticks": 4611686018427387904
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "BFE0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "3FF0000000000000",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "BFF0000000000000",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "4000000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "4000000000000000",
+      "result": {
+        "ticks": -4611686018427387904
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "factor"
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "FFF8000000000000",
+      "result": {
+        "exception": "System.ArgumentException",
+        "paramName": "divisor"
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "7FF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "FFF0000000000000",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "7FEFFFFFFFFFFFFF",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Multiply",
+      "ticks": -9223372036854775808,
+      "operandBits": "0000000000000001",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "operandBits": "0000000000000001",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null
+      }
+    }
+  ],
+  "qualification": "REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION"
+}
