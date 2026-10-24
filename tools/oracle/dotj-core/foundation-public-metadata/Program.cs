@@ -6850,6 +6850,23 @@ static object ObserveGroupedPerMilleMixedAffixNegativeSigns()
             text = value.ToString(format, provider) };
     }))).ToArray();
 }
+static object ObserveGroupedPerMilleMixedAffixNoFraction()
+{
+    string[] formats = ["\"pre\"#,##0‰\\s", "\\p#,##0‰\"post\""];
+    decimal[] values = [-12345.6789m, -0.00051m, -0.00050m,
+        -0.00049m, 0m, 0.00049m, 0.00050m,
+        0.00051m, 12345.6789m];
+    var provider = new System.Globalization.NumberFormatInfo
+    {
+        NegativeSign = "~", NumberGroupSeparator = "_",
+        NumberDecimalSeparator = "@", NumberGroupSizes = [2],
+        PerMilleSymbol = "pm"
+    };
+    return formats.SelectMany(format => values.Select(value =>
+        new { target = "Decimal", format, intValue = 0,
+            bits = decimal.GetBits(value), text = value.ToString(format, provider) }))
+        .ToArray();
+}
 static object ObserveDecimalPercentNegativePatterns4To7()
 {
     int[][] inputs =
@@ -12358,6 +12375,7 @@ var result = new
     selectedGroupedPerMilleMixedAffixSeparators = ObserveGroupedPerMilleMixedAffixSeparators(),
     selectedGroupedPerMilleMixedAffixEmptyGroupSeparator = ObserveGroupedPerMilleMixedAffixEmptyGroupSeparator(),
     selectedGroupedPerMilleMixedAffixNegativeSigns = ObserveGroupedPerMilleMixedAffixNegativeSigns(),
+    selectedGroupedPerMilleMixedAffixNoFraction = ObserveGroupedPerMilleMixedAffixNoFraction(),
     selectedDecimalGetFormatProvider = ObserveDecimalGetFormatProvider(),
     selectedDecimalCurrencyPositivePatterns = ObserveDecimalCurrencyPositivePatterns(),
     selectedInt32CurrencyPositivePatterns = ObserveInt32CurrencyPositivePatterns(),
