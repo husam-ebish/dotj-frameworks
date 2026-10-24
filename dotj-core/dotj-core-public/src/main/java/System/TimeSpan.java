@@ -42,12 +42,21 @@ public final class TimeSpan implements IComparable {
     }
 
     private static TimeSpan fromScaled(double value, long ticksPerUnit) {
-        double scaled = java.lang.Math.rint(value * ticksPerUnit);
-        if (!Double.isFinite(scaled) || scaled < Long.MIN_VALUE
-                || scaled >= 0x1.0p63) {
+        if (Double.isNaN(value)) {
+            throw new ArgumentException("TimeSpan does not accept floating point Not-a-Number values.");
+        }
+        return fromDoubleTicks(value * ticksPerUnit);
+    }
+
+    private static TimeSpan fromDoubleTicks(double ticks) {
+        if (Double.isNaN(ticks) || ticks < (double) Long.MIN_VALUE
+                || ticks > (double) Long.MAX_VALUE) {
             throw new OverflowException("TimeSpan value was out of range.");
         }
-        return new TimeSpan((long) scaled);
+        if (ticks == (double) Long.MAX_VALUE) {
+            return new TimeSpan(Long.MAX_VALUE);
+        }
+        return new TimeSpan((long) ticks);
     }
 
     public long get_Ticks() {
