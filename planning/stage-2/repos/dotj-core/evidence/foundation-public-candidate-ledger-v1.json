@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "ba1d91f3eef3a2cbdf093d3970fad8acf3d0bb8465432a09dedbc35a06f4da84",
+  "candidateJarSha256": "6a353a3694e7e3cd4fc0461d31c95ebdb1e749016f3c1d38bd98f53ae3224e1d",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -308,6 +308,7 @@
         "public System.DateTime AddTicks(long);",
         "public System.DateTime Add(System.TimeSpan);",
         "public System.DateTime Subtract(System.TimeSpan);",
+        "public System.TimeSpan Subtract(System.DateTime);",
         "public System.DateTime AddMonths(int);",
         "public System.DateTime AddYears(int);",
         "public System.DateTime AddDays(double);",

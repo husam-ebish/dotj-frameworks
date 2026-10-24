@@ -767,3 +767,5 @@ The public DateTime candidate now includes DateTimeKind and SpecifyKind for sele
 The public candidate now includes a selected TimeSpan tick carrier and DateTime.Add(TimeSpan). A packaged consumer checks positive and negative intervals, tick access and null rejection. Broader TimeSpan surface and date-kind propagation remain open.
 
 The public DateTime candidate now exposes Subtract(TimeSpan) through tick arithmetic. A packaged consumer checks positive and negative intervals, null input and unnegatable minimum ticks. DateTime-DateTime subtraction remains open.
+
+The public DateTime candidate now exposes Subtract(DateTime) and returns a TimeSpan tick difference. A packaged consumer checks positive, negative and zero intervals and null rejection. DateTime kind does not alter the tick difference.
