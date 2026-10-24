@@ -13,6 +13,20 @@ import System.TimeSpan;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        long componentTicks = 864_000_000_000L + 72_000_000_000L
+                + 1_800_000_000L + 40_000_000L + 50_000L + 60L + 7L;
+        TimeSpan components = TimeSpan.FromTicks(componentTicks);
+        TimeSpan negativeComponents = TimeSpan.FromTicks(-componentTicks);
+        if (components.get_Days() != 1 || components.get_Hours() != 2
+                || components.get_Minutes() != 3 || components.get_Seconds() != 4
+                || components.get_Milliseconds() != 5
+                || components.get_Microseconds() != 6
+                || components.get_Nanoseconds() != 700
+                || negativeComponents.get_Days() != -1
+                || negativeComponents.get_Hours() != -2
+                || negativeComponents.get_Nanoseconds() != -700) {
+            throw new AssertionError("TimeSpan components changed");
+        }
         TimeSpan totalSpan = TimeSpan.FromHours(36);
         if (totalSpan.get_TotalDays() != 1.5
                 || totalSpan.get_TotalHours() != 36.0
