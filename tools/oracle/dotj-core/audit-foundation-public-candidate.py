@@ -231,6 +231,7 @@ def main():
                                     "public static System.DateTime Parse(java.lang.String);",
                                     "public static boolean IsLeapYear(int);",
                                     "public static int DaysInMonth(int, int);",
+                                    "public static int Compare(System.DateTime, System.DateTime);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();", "public int get_DayOfYear();",
                                     "public System.DateTime get_Date();",

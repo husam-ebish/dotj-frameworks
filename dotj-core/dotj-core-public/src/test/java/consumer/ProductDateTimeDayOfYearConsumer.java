@@ -2,6 +2,7 @@ package consumer;
 
 import System.DateTime;
 import System.ArgumentOutOfRangeException;
+import System.ArgumentNullException;
 
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
@@ -103,6 +104,30 @@ public final class ProductDateTimeDayOfYearConsumer {
                 if (!"year".equals(caught.get_ParamName())) {
                     throw new AssertionError("Invalid year parameter changed");
                 }
+            }
+        }
+        DateTime earlier = new DateTime(2024, 2, 29, 12, 0, 0);
+        DateTime later = new DateTime(2024, 2, 29, 12, 0, 1);
+        if (DateTime.Compare(earlier, later) != -1
+                || DateTime.Compare(later, earlier) != 1
+                || DateTime.Compare(earlier, new DateTime(2024, 2, 29, 12, 0, 0)) != 0
+                || DateTime.Compare(new DateTime(1, 1, 1), new DateTime(9999, 12, 31)) != -1) {
+            throw new AssertionError("DateTime Compare changed");
+        }
+        try {
+            DateTime.Compare(null, later);
+            throw new AssertionError("Null left DateTime accepted");
+        } catch (ArgumentNullException caught) {
+            if (!"left".equals(caught.get_ParamName())) {
+                throw new AssertionError("Left parameter changed");
+            }
+        }
+        try {
+            DateTime.Compare(earlier, null);
+            throw new AssertionError("Null right DateTime accepted");
+        } catch (ArgumentNullException caught) {
+            if (!"right".equals(caught.get_ParamName())) {
+                throw new AssertionError("Right parameter changed");
             }
         }
         java.lang.System.out.println("PASS external selected DateTime day of year");

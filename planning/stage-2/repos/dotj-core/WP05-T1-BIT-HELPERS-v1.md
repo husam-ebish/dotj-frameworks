@@ -689,3 +689,5 @@ The public DateTime candidate now exposes get_Nanosecond as the sub-microsecond 
 The public DateTime candidate now exposes IsLeapYear with Gregorian century rules and the .NET year range of 1 through 9999. A packaged consumer checks leap and common years plus out-of-range parameter names. Broader DateTime parity remains open.
 
 The public DateTime candidate now exposes DaysInMonth with Gregorian leap rules and .NET month-before-year argument validation. A packaged consumer checks month lengths and invalid parameter names. Broader DateTime parity remains open.
+
+The public DateTime candidate now exposes Compare for earlier, equal, and later tick values. A packaged consumer checks comparisons across seconds and the supported date span, plus Java null parameter names. Broader DateTime parity remains open.
