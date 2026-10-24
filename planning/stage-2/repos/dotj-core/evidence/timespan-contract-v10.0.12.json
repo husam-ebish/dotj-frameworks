@@ -3,7 +3,7 @@
   "scope": "Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only",
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "a9bccccab77d822532223dce437e54ad081195b377bb8cac0907dcf428799230",
+  "oracleSha256": "e734d36c39bdda9953d18fefce4fa7c3b13de086f694dff1bb2242d7cc4b8186",
   "metadata": {
     "type": "System.TimeSpan",
     "interfaces": [
@@ -7248,5 +7248,655 @@
     }
   ],
   "defaultValueTicks": 0,
+  "integerFactories": [
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": 0,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": 1,
+      "result": {
+        "ticks": 864000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": -1,
+      "result": {
+        "ticks": -864000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": 25,
+      "result": {
+        "ticks": 21600000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": -25,
+      "result": {
+        "ticks": -21600000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": -2147483648,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": 2147483647,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": 10675199,
+      "result": {
+        "ticks": 9223371936000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": 10675198,
+      "result": {
+        "ticks": 9223371072000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": 10675200,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": -10675199,
+      "result": {
+        "ticks": -9223371936000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": -10675200,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "inputType": "System.Int32",
+      "value": -10675198,
+      "result": {
+        "ticks": -9223371072000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": 0,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": 1,
+      "result": {
+        "ticks": 36000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": -1,
+      "result": {
+        "ticks": -36000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": 25,
+      "result": {
+        "ticks": 900000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": -25,
+      "result": {
+        "ticks": -900000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": -2147483648,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": 2147483647,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": 256204778,
+      "result": {
+        "ticks": 9223372008000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": 256204777,
+      "result": {
+        "ticks": 9223371972000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": 256204779,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": -256204778,
+      "result": {
+        "ticks": -9223372008000000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": -256204779,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "inputType": "System.Int32",
+      "value": -256204777,
+      "result": {
+        "ticks": -9223371972000000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": 0,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": 1,
+      "result": {
+        "ticks": 600000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": -1,
+      "result": {
+        "ticks": -600000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": 25,
+      "result": {
+        "ticks": 15000000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": -25,
+      "result": {
+        "ticks": -15000000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": -9223372036854775808,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": 9223372036854775807,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": 15372286728,
+      "result": {
+        "ticks": 9223372036800000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": 15372286727,
+      "result": {
+        "ticks": 9223372036200000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": 15372286729,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": -15372286728,
+      "result": {
+        "ticks": -9223372036800000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": -15372286729,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "inputType": "System.Int64",
+      "value": -15372286727,
+      "result": {
+        "ticks": -9223372036200000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": 0,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": 1,
+      "result": {
+        "ticks": 10000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": -1,
+      "result": {
+        "ticks": -10000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": 25,
+      "result": {
+        "ticks": 250000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": -25,
+      "result": {
+        "ticks": -250000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": -9223372036854775808,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": 9223372036854775807,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": 922337203685,
+      "result": {
+        "ticks": 9223372036850000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": 922337203684,
+      "result": {
+        "ticks": 9223372036840000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": 922337203686,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": -922337203685,
+      "result": {
+        "ticks": -9223372036850000000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": -922337203686,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "inputType": "System.Int64",
+      "value": -922337203684,
+      "result": {
+        "ticks": -9223372036840000000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": 0,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": 1,
+      "result": {
+        "ticks": 10000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": -1,
+      "result": {
+        "ticks": -10000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": 25,
+      "result": {
+        "ticks": 250000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": -25,
+      "result": {
+        "ticks": -250000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": -9223372036854775808,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": 9223372036854775807,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": 922337203685477,
+      "result": {
+        "ticks": 9223372036854770000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": 922337203685476,
+      "result": {
+        "ticks": 9223372036854760000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": 922337203685478,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": -922337203685477,
+      "result": {
+        "ticks": -9223372036854770000
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": -922337203685478,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "inputType": "System.Int64",
+      "value": -922337203685476,
+      "result": {
+        "ticks": -9223372036854760000
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": 0,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": 1,
+      "result": {
+        "ticks": 10
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": -1,
+      "result": {
+        "ticks": -10
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": 25,
+      "result": {
+        "ticks": 250
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": -25,
+      "result": {
+        "ticks": -250
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": -9223372036854775808,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": 9223372036854775807,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": 922337203685477580,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": 922337203685477579,
+      "result": {
+        "ticks": 9223372036854775790
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": 922337203685477581,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": -922337203685477580,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": -922337203685477581,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMicroseconds",
+      "inputType": "System.Int64",
+      "value": -922337203685477579,
+      "result": {
+        "ticks": -9223372036854775790
+      }
+    }
+  ],
   "qualification": "REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION"
 }
