@@ -42,6 +42,13 @@ public final class ProductDateTimeDayOfYearConsumer {
                     != new DateTime(2024, 2, 29).get_Ticks()) {
             throw new AssertionError("DateTime ticks changed");
         }
+        DateTime fractional = DateTime.Parse("2024-02-29T12:34:56.1234567");
+        if (fractional.get_Millisecond() != 123
+                || fractional.get_Microsecond() != 456
+                || fractional.get_Ticks() != 638448068961234567L
+                || withTime.get_Microsecond() != 0) {
+            throw new AssertionError("DateTime microsecond changed");
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }
