@@ -11,6 +11,15 @@ import System.OverflowException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        int[] deconstructedYear = {-1};
+        int[] deconstructedMonth = {-1};
+        int[] deconstructedDay = {-1};
+        new DateTime(2024, 2, 29, 23, 59, 58).Deconstruct(
+                deconstructedYear, deconstructedMonth, deconstructedDay);
+        if (deconstructedYear[0] != 2024 || deconstructedMonth[0] != 2
+                || deconstructedDay[0] != 29) {
+            throw new AssertionError("DateTime date deconstruction changed");
+        }
         java.util.TimeZone priorDaylightZone = java.util.TimeZone.getDefault();
         try {
             java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("America/New_York"));

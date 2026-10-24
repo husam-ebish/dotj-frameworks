@@ -759,3 +759,5 @@ The public DateTime candidate now exposes ToUniversalTime by interpreting its cu
 The public DateTime candidate now exposes ToLocalTime by interpreting its current date as UTC and converting to the process default time zone. A packaged consumer checks the New York Unix-epoch offset. Local kind metadata and full boundary behavior remain open.
 
 The public DateTime candidate now exposes IsDaylightSavingTime for its process-local date interpretation. A packaged consumer checks winter and summer in America/New_York. UTC kind behavior and transition-edge parity remain open.
+
+The public DateTime candidate now exposes year/month/day Deconstruct using Java one-element output arrays. A packaged consumer checks leap-day components. The DateOnly/TimeOnly overload and out-parameter lowering remain open.
