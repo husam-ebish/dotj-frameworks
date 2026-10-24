@@ -1,0 +1,3284 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "25da69c24bc8d89089ba88ce4a0e5b17705e6da70749afa33303effc8676f9e5",
+  "types": [
+    {
+      "name": "System.Array",
+      "isSerializable": true,
+      "isClass": true,
+      "isSealed": false,
+      "isAbstract": true,
+      "isArray": false,
+      "isSZArray": false,
+      "rank": 0,
+      "selectedInterfaces": [
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable"
+      ],
+      "omittedInterfaces": [
+        "System.Collections.IList",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.ICloneable"
+      ]
+    },
+    {
+      "name": "System.Int32[]",
+      "isSerializable": true,
+      "isClass": true,
+      "isSealed": true,
+      "isAbstract": false,
+      "isArray": true,
+      "isSZArray": true,
+      "rank": 1,
+      "selectedInterfaces": [
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable"
+      ],
+      "omittedInterfaces": [
+        "System.Collections.Generic.ICollection`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IList`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.Int32, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.IList",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.ICloneable"
+      ]
+    },
+    {
+      "name": "System.String[]",
+      "isSerializable": true,
+      "isClass": true,
+      "isSealed": true,
+      "isAbstract": false,
+      "isArray": true,
+      "isSZArray": true,
+      "rank": 1,
+      "selectedInterfaces": [
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable"
+      ],
+      "omittedInterfaces": [
+        "System.Collections.Generic.ICollection`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IList`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.String, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.IList",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.ICloneable"
+      ]
+    },
+    {
+      "name": "System.Int32[*]",
+      "isSerializable": true,
+      "isClass": true,
+      "isSealed": true,
+      "isAbstract": false,
+      "isArray": true,
+      "isSZArray": false,
+      "rank": 1,
+      "selectedInterfaces": [
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable"
+      ],
+      "omittedInterfaces": [
+        "System.Collections.IList",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.ICloneable"
+      ]
+    },
+    {
+      "name": "System.Int32[,]",
+      "isSerializable": true,
+      "isClass": true,
+      "isSealed": true,
+      "isAbstract": false,
+      "isArray": true,
+      "isSZArray": false,
+      "rank": 2,
+      "selectedInterfaces": [
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable"
+      ],
+      "omittedInterfaces": [
+        "System.Collections.IList",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.ICloneable"
+      ]
+    },
+    {
+      "name": "System.String[,]",
+      "isSerializable": true,
+      "isClass": true,
+      "isSealed": true,
+      "isAbstract": false,
+      "isArray": true,
+      "isSZArray": false,
+      "rank": 2,
+      "selectedInterfaces": [
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable"
+      ],
+      "omittedInterfaces": [
+        "System.Collections.IList",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.ICloneable"
+      ]
+    },
+    {
+      "name": "System.String[][]",
+      "isSerializable": true,
+      "isClass": true,
+      "isSealed": true,
+      "isAbstract": false,
+      "isArray": true,
+      "isSZArray": true,
+      "rank": 1,
+      "selectedInterfaces": [
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable"
+      ],
+      "omittedInterfaces": [
+        "System.Collections.Generic.ICollection`1[[System.String[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IEnumerable`1[[System.String[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IList`1[[System.String[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyCollection`1[[System.String[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.Generic.IReadOnlyList`1[[System.String[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Collections.IList",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.ICloneable"
+      ]
+    },
+    {
+      "name": "System.Int32*[]",
+      "isSerializable": true,
+      "isClass": true,
+      "isSealed": true,
+      "isAbstract": false,
+      "isArray": true,
+      "isSZArray": true,
+      "rank": 1,
+      "selectedInterfaces": [
+        "System.Collections.ICollection",
+        "System.Collections.IEnumerable"
+      ],
+      "omittedInterfaces": [
+        "System.Collections.IList",
+        "System.Collections.IStructuralComparable",
+        "System.Collections.IStructuralEquatable",
+        "System.ICloneable"
+      ]
+    }
+  ],
+  "lookups": [
+    {
+      "source": "System.Array",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "system.collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "system.collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.Collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.Collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "system.collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "system.collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Array",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "system.collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "system.collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "system.collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "system.collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "system.collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "system.collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[*]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "system.collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "system.collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32[,]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "system.collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "system.collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[,]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "system.collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "system.collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.String[][]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.Collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "system.collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "system.collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.Collections.icollection",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.ICollection"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "system.collections.ICollection",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.Collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "system.collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "System.Collections.ienumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Collections.IEnumerable"
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Int32*[]",
+      "query": "system.collections.IEnumerable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    }
+  ],
+  "relations": [
+    {
+      "source": "System.Array",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Array",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Collections.IEnumerable",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Collections.ICollection",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Collections.IDictionary",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Collections.IEnumerator",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Int32[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.String[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Int32[*]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Int32[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.String[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.String[][]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Array",
+      "target": "System.Int32*[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Array",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Collections.IEnumerable",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Collections.ICollection",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Collections.IDictionary",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Collections.IEnumerator",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Int32[]",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.String[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Int32[*]",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Int32[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.String[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.String[][]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Int32*[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Array",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Collections.IEnumerable",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Collections.ICollection",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Collections.IDictionary",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Collections.IEnumerator",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Int32[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.String[]",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Int32[*]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Int32[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.String[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.String[][]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Int32*[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Array",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Collections.IEnumerable",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Collections.ICollection",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Collections.IDictionary",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Collections.IEnumerator",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Int32[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.String[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Int32[*]",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Int32[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.String[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.String[][]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[*]",
+      "target": "System.Int32*[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Array",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Collections.IEnumerable",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Collections.ICollection",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Collections.IDictionary",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Collections.IEnumerator",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Int32[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.String[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Int32[*]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Int32[,]",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.String[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.String[][]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32[,]",
+      "target": "System.Int32*[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Array",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Collections.IEnumerable",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Collections.ICollection",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Collections.IDictionary",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Collections.IEnumerator",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Int32[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.String[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Int32[*]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Int32[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.String[,]",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.String[][]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[,]",
+      "target": "System.Int32*[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Array",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Collections.IEnumerable",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Collections.ICollection",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Collections.IDictionary",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Collections.IEnumerator",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Int32[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.String[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Int32[*]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Int32[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.String[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.String[][]",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.String[][]",
+      "target": "System.Int32*[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Array",
+      "assignable": true,
+      "subclass": true
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Collections.IEnumerable",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Collections.ICollection",
+      "assignable": true,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Collections.IDictionary",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Collections.IEnumerator",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Int32[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.String[]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Int32[*]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Int32[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.String[,]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.String[][]",
+      "assignable": false,
+      "subclass": false
+    },
+    {
+      "source": "System.Int32*[]",
+      "target": "System.Int32*[]",
+      "assignable": true,
+      "subclass": false
+    }
+  ],
+  "instances": [
+    {
+      "sample": "intArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Int32[]",
+      "result": true
+    },
+    {
+      "sample": "intArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Int32[*]",
+      "result": true
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Int32[,]",
+      "result": false
+    },
+    {
+      "sample": "intArray",
+      "target": "System.String[,]",
+      "result": false
+    },
+    {
+      "sample": "intArray",
+      "target": "System.String[][]",
+      "result": false
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Int32*[]",
+      "result": false
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Collections.IEnumerable",
+      "result": true
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Collections.ICollection",
+      "result": true
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Collections.IDictionary",
+      "result": false
+    },
+    {
+      "sample": "intArray",
+      "target": "System.Collections.IEnumerator",
+      "result": false
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.String[]",
+      "result": true
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Int32[*]",
+      "result": false
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Int32[,]",
+      "result": false
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.String[,]",
+      "result": false
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.String[][]",
+      "result": false
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Int32*[]",
+      "result": false
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Collections.IEnumerable",
+      "result": true
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Collections.ICollection",
+      "result": true
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Collections.IDictionary",
+      "result": false
+    },
+    {
+      "sample": "stringArray",
+      "target": "System.Collections.IEnumerator",
+      "result": false
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "jagged",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Int32[*]",
+      "result": false
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Int32[,]",
+      "result": false
+    },
+    {
+      "sample": "jagged",
+      "target": "System.String[,]",
+      "result": false
+    },
+    {
+      "sample": "jagged",
+      "target": "System.String[][]",
+      "result": true
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Int32*[]",
+      "result": false
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Collections.IEnumerable",
+      "result": true
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Collections.ICollection",
+      "result": true
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Collections.IDictionary",
+      "result": false
+    },
+    {
+      "sample": "jagged",
+      "target": "System.Collections.IEnumerator",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Int32[*]",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Int32[,]",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.String[,]",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.String[][]",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Int32*[]",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Collections.IEnumerable",
+      "result": true
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Collections.ICollection",
+      "result": true
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Collections.IDictionary",
+      "result": false
+    },
+    {
+      "sample": "objectArray",
+      "target": "System.Collections.IEnumerator",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Int32[*]",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Int32[,]",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.String[,]",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.String[][]",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Int32*[]",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "object",
+      "target": "System.Collections.IEnumerable",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Collections.ICollection",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Collections.IDictionary",
+      "result": false
+    },
+    {
+      "sample": "object",
+      "target": "System.Collections.IEnumerator",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Int32[*]",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Int32[,]",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.String[,]",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.String[][]",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Int32*[]",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Object",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Collections.IEnumerable",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Collections.ICollection",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Collections.IDictionary",
+      "result": false
+    },
+    {
+      "sample": "null",
+      "target": "System.Collections.IEnumerator",
+      "result": false
+    }
+  ],
+  "qualification": "BOUNDED_SELECTED_ARRAY_COLLECTION_PROJECTION_REFERENCE; OMITTED_INTERFACES_DISPATCH_AND_RELEASE_OPEN"
+}
