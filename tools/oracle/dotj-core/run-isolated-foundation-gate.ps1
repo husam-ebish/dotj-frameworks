@@ -14,6 +14,7 @@ Set-StrictMode -Version Latest
 $repository = (Resolve-Path (Join-Path $PSScriptRoot '../../..')).Path
 $storage = [IO.Path]::GetFullPath($StorageRoot)
 if ([IO.Path]::GetPathRoot($storage) -ine 'D:\') { throw 'Validation storage must be on D:.' }
+if ($RunName -and $RunName -notmatch '^[a-zA-Z0-9_-]+$') { throw 'RunName must be a single directory name.' }
 if (-not $PythonHome) { $PythonHome = Join-Path $storage 'toolchains/python-3.13.9' }
 if (-not $DotnetHome) { $DotnetHome = Join-Path $storage 'toolchains/dotnet' }
 if (-not $JdkHome) {
@@ -47,8 +48,10 @@ if ($PreflightOnly) { $binaryChecks | ConvertTo-Json -Depth 4; return }
 
 $revision = (& git -C $repository rev-parse HEAD).Trim()
 if ($LASTEXITCODE -ne 0) { throw 'Cannot resolve source revision.' }
+$sourceChanges = @(& git -C $repository status --porcelain)
+if ($LASTEXITCODE -ne 0) { throw 'Cannot inspect source checkout.' }
+if ($sourceChanges.Count -ne 0) { throw 'Commit or resolve source checkout changes before validating HEAD.' }
 if (-not $RunName) { $RunName = $revision.Substring(0, 12) }
-if ($RunName -notmatch '^[a-zA-Z0-9_-]+$') { throw 'RunName must be a single directory name.' }
 $runRoot = Join-Path $storage ('validation/' + $RunName)
 if (Test-Path -LiteralPath $runRoot) { throw "Run directory already exists; preserve it and select another RunName: $runRoot" }
 New-Item -ItemType Directory -Force -Path $runRoot | Out-Null
@@ -87,7 +90,7 @@ try {
     $record = [ordered]@{
         schemaVersion = 1; sourceRevision = $revision; runRoot = $runRoot
         pinnedBinaryChecks = $binaryChecks; gatePassed = $true
-        changedEvidencePaths = $changed; evidenceExported = [bool]$ExportEvidence
+        changedEvidencePaths = $changed; evidenceExportRequested = [bool]$ExportEvidence; evidenceExported = $false
         qualification = 'BOUNDED_CANDIDATE_ONLY; E01/E02/E03/N01/Q01_OPEN'
     }
     [IO.File]::WriteAllText((Join-Path $runRoot 'isolated-validation.json'), ($record | ConvertTo-Json -Depth 8) + "`n", (New-Object Text.UTF8Encoding($false)))
@@ -98,6 +101,8 @@ try {
             if (@(& git -C $repository status --porcelain -- $relative).Count -ne 0) { throw "Refusing to overwrite modified evidence: $relative" }
         }
         foreach ($relative in $changed) { Copy-Item -LiteralPath (Join-Path $worktree $relative) -Destination (Join-Path $repository $relative) }
+        $record.evidenceExported = $true
+        [IO.File]::WriteAllText((Join-Path $runRoot 'isolated-validation.json'), ($record | ConvertTo-Json -Depth 8) + "`n", (New-Object Text.UTF8Encoding($false)))
     }
     Write-Output "PASS isolated foundation validation: $revision; builds, caches and logs on D:"
 } finally {
