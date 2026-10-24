@@ -26,6 +26,7 @@ def main():
     kinds.add_argument('--parsing', action='store_true')
     kinds.add_argument('--char-formatting', action='store_true')
     kinds.add_argument('--utf8-formatting', action='store_true')
+    kinds.add_argument('--exact-parsing', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -39,7 +40,7 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    section = ('utf8Formatting' if args.utf8_formatting else 'charFormatting' if args.char_formatting else 'parsing' if args.parsing else 'customFormats' if args.custom_formats else 'formats' if args.formats else 'checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
+    section = ('exactParsing' if args.exact_parsing else 'utf8Formatting' if args.utf8_formatting else 'charFormatting' if args.char_formatting else 'parsing' if args.parsing else 'customFormats' if args.custom_formats else 'formats' if args.formats else 'checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
                'constructors' if args.constructors else 'factories')
     vectors = oracle['operations'] + oracle['ratios'] if args.arithmetic else oracle[section]
     for index, case in enumerate(vectors):
@@ -62,9 +63,11 @@ def main():
         if args.char_formatting or args.utf8_formatting:
             interface = 'IUtf8SpanFormattable' if args.utf8_formatting else 'ISpanFormattable'
             expression = f'(({interface}) TimeSpan.FromTicks({case["ticks"]}L)).TryFormat(buffer, written, {json.dumps(case["format"])}, null)'
-        elif args.parsing:
+        elif args.parsing or args.exact_parsing:
             input_value = '(String)null' if case['input'] is None else json.dumps(case['input'])
-            expression = f'TimeSpan.Parse({input_value})'
+            arguments = input_value + (',' + json.dumps(case['format']) + ',null' if args.exact_parsing else '')
+            parse_method = 'ParseExact' if args.exact_parsing else 'Parse'
+            expression = f'TimeSpan.{parse_method}({arguments})'
         elif args.formats or args.custom_formats:
             arguments = json.dumps(case['format']) + (', null' if args.custom_formats or case['withProvider'] else '')
             expression = f"TimeSpan.FromTicks({case['ticks']}L).ToString({arguments})"
@@ -128,9 +131,15 @@ def main():
         if args.composite_factories:
             parameter_types = ', '.join('int.class' if kind == 'System.Int32' else 'long.class' for kind in case['parameterTypes'])
             cases[-1] = f'check(TimeSpan.class.getMethod("{case["method"]}", {parameter_types}).getReturnType() == TimeSpan.class, {index});\n' + cases[-1]
-        if args.parsing:
+        if args.parsing or args.exact_parsing:
+            if args.exact_parsing and 'exception' in case['tryResult']:
+                expected = case['tryResult']
+                try_check = f'''try {{ TimeSpan.Try{parse_method}({arguments}, output); throw new AssertionError("missing try exception {index}"); }}
+catch ({expected['exception'].split('.')[-1]} expected) {{check(expected.get_HResult() == {expected['hResult']}, {index});}}'''
+            else:
+                try_check = f'check(TimeSpan.Try{parse_method}({arguments}, output) == {str(case["trySuccess"]).lower()}, {index});'
             cases[-1] = ('{\n' + cases[-1] + '\nTimeSpan[] output = {TimeSpan.FromTicks(99L)};\n' +
-                         f'check(TimeSpan.TryParse({input_value}, output) == {str(case["trySuccess"]).lower()}, {index});\n' +
+                         try_check + '\n' +
                          f'check(output[0].get_Ticks() == {case["tryTicks"]}L, {index});\n}}')
         if args.char_formatting:
             cases[-1] = ('{\n' + f'char[] buffer = new char[{case["capacity"]}]; java.util.Arrays.fill(buffer, \'#\'); int[] written = {{99}};\n' +
@@ -162,7 +171,8 @@ def main():
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
         'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    name = ('timespan-utf8-format-differential-v1.json' if args.utf8_formatting else
+    name = ('timespan-exact-parse-differential-v1.json' if args.exact_parsing else
+            'timespan-utf8-format-differential-v1.json' if args.utf8_formatting else
             'timespan-char-format-differential-v1.json' if args.char_formatting else
             'timespan-parse-differential-v1.json' if args.parsing else
             'timespan-custom-format-differential-v1.json' if args.custom_formats else

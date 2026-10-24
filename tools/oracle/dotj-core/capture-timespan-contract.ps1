@@ -346,6 +346,30 @@ foreach ($ticks in @([long]::MinValue, -123456789012345, 0, 1, 123456789012345, 
         }
     }
 }
+$exactParsing = @()
+$exactMethod = [TimeSpan].GetMethod('ParseExact',[type[]]@([string],[string],[IFormatProvider]))
+$tryExactMethod = [TimeSpan].GetMethod('TryParseExact',[type[]]@([string],[string],[IFormatProvider],[TimeSpan].MakeByRefType()))
+$bridge = [Reflection.Emit.DynamicMethod]::new('TimeSpanTryExactOut',[bool],[type[]]@([string],[string],[IFormatProvider],[TimeSpan[]]))
+$il = $bridge.GetILGenerator()
+$il.Emit([Reflection.Emit.OpCodes]::Ldarg_0); $il.Emit([Reflection.Emit.OpCodes]::Ldarg_1); $il.Emit([Reflection.Emit.OpCodes]::Ldarg_2)
+$il.Emit([Reflection.Emit.OpCodes]::Ldarg_3); $il.Emit([Reflection.Emit.OpCodes]::Ldc_I4_0); $il.Emit([Reflection.Emit.OpCodes]::Ldelema,[TimeSpan])
+$il.Emit([Reflection.Emit.OpCodes]::Call,$tryExactMethod); $il.Emit([Reflection.Emit.OpCodes]::Ret)
+$tryExact = $bridge.CreateDelegate([Func[string,string,IFormatProvider,TimeSpan[],bool]])
+$exactInputs = @($null,'','0','1','1:2','1:2:3','1.2:3','24:00:00','1:2:.3','1:2.3','1:2:','1:2:.','00:00:00.',
+    '00:00:00.00000005','00:00:00.00000000',"`t1:2 `t",([string][char]160+'1:2'),'+00:00','-00:00','garbage',
+    '10675199.02:48:05.4775807','10675199.02:48:05.4775808','-10675199.02:48:05.4775808','-10675199.02:48:05.4775809',
+    '10675200','2147483648','00:61:00','00:00:60','0.24:00:00','0000000000000000000')
+foreach ($ticks in $tickInputs) { $exactInputs += [TimeSpan]::FromTicks($ticks).ToString() }
+foreach ($text in $exactInputs) {
+    foreach ($format in @($null,'','c','t','T','?')) {
+        try { $result = [ordered]@{ticks=$exactMethod.Invoke($null,[object[]]@($text,$format,$null)).Ticks} }
+        catch { $result = Failure $_ }
+        $output = [TimeSpan[]]@([TimeSpan]::FromTicks(99))
+        try { $success = $tryExact.Invoke($text,$format,$null,$output); $tryResult = [ordered]@{boolean=$success} }
+        catch { $success=$null; $tryResult=Failure $_ }
+        $exactParsing += [ordered]@{input=$text;format=$format;result=$result;tryResult=$tryResult;trySuccess=$success;tryTicks=$output[0].Ticks}
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -366,6 +390,7 @@ $record = [ordered]@{
     parsing = $parsing
     charFormatting = $charFormatting
     utf8Formatting = $utf8Formatting
+    exactParsing = $exactParsing
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
