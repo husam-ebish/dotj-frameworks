@@ -744,7 +744,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
 
     @Override
     public DateTime ToDateTime(IFormatProvider provider) {
-        return new DateTime(this.date, this.kind);
+        return new DateTime(this.date, this.kind, this.localOverlapDaylight);
     }
 
     public String ToString() {
@@ -770,10 +770,13 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     @Override
     public Object ToType(Type conversionType, IFormatProvider provider) {
         if (conversionType == null) {
-            throw new ArgumentNullException("conversionType");
+            throw new ArgumentNullException("targetType");
         }
         if (conversionType == Type.GetType("System.DateTime")) {
             return this.ToDateTime(provider);
+        }
+        if (conversionType == Type.GetType("System.Object")) {
+            return this;
         }
         if (conversionType == Type.GetType("System.String")) {
             return this.ToString(provider);
