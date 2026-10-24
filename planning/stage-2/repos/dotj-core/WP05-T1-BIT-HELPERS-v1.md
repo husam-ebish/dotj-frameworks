@@ -799,3 +799,5 @@ Batch 1996 adds TimeSpan.Compare and typed and object CompareTo with packaged co
 Batch 1997 adds TimeSpan static and instance equality, Java equality, and matching hash codes, with packaged consumer coverage for equal, unequal and null operands.
 
 Batch 1998 adds invariant TimeSpan.ToString and Java toString in constant form, including optional days and fractional ticks and minimum-tick formatting.
+
+Batch 1999 adds TimeSpan.Parse for the invariant constant grammar with day and fractional-tick components, whitespace, format rejection, and signed 64-bit overflow checks.
