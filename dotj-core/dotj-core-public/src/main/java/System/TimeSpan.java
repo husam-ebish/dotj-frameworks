@@ -553,6 +553,20 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
         }
     }
 
+    public static TimeSpan ParseExact(ReadOnlySpan<Character> input, ReadOnlySpan<Character> format,
+            IFormatProvider formatProvider) {
+        if (input == null) { throw new ArgumentNullException("input"); }
+        if (format == null) { throw new ArgumentNullException("format"); }
+        return ParseExact(input.selectedText(), format.selectedText(), formatProvider);
+    }
+
+    public static boolean TryParseExact(ReadOnlySpan<Character> input, ReadOnlySpan<Character> format,
+            IFormatProvider formatProvider, TimeSpan[] result) {
+        if (input == null) { throw new ArgumentNullException("input"); }
+        if (format == null) { throw new ArgumentNullException("format"); }
+        return TryParseExact(input.selectedText(), format.selectedText(), formatProvider, result);
+    }
+
     public String ToString(String format) {
         return ToString(format, null);
     }

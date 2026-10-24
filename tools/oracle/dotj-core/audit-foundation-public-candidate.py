@@ -250,6 +250,8 @@ def main():
                                     "public static boolean TryParse(System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider, System.DateTime[]);",
                                     "public static System.DateTime ParseExact(java.lang.String, java.lang.String, System.IFormatProvider);",
                                     "public static boolean TryParseExact(java.lang.String, java.lang.String, System.IFormatProvider, System.DateTime[]);",
+                                    "public static System.DateTime ParseExact(System.ReadOnlySpan<java.lang.Character>, System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+                                    "public static boolean TryParseExact(System.ReadOnlySpan<java.lang.Character>, System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider, System.DateTime[]);",
                                     "public static System.DateTime FromBinary(long);",
                                     "public static System.DateTime FromFileTimeUtc(long);",
                                     "public static System.DateTime FromFileTime(long);",

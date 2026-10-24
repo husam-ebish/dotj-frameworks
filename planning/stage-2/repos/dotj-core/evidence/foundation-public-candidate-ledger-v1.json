@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "20708fb5ab30a4373df5f5646b8548292b4a6b8a3ca38f98d1df022479119ac1",
+  "candidateJarSha256": "ed7f9bc2e377b116be60ffc9f98112e08fc88f7938c4de8975f910e6e4a88720",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -306,6 +306,8 @@
         "public static boolean TryParse(System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider, System.DateTime[]);",
         "public static System.DateTime ParseExact(java.lang.String, java.lang.String, System.IFormatProvider);",
         "public static boolean TryParseExact(java.lang.String, java.lang.String, System.IFormatProvider, System.DateTime[]);",
+        "public static System.DateTime ParseExact(System.ReadOnlySpan<java.lang.Character>, System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);",
+        "public static boolean TryParseExact(System.ReadOnlySpan<java.lang.Character>, System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider, System.DateTime[]);",
         "public static System.DateTime FromBinary(long);",
         "public static System.DateTime FromFileTimeUtc(long);",
         "public static System.DateTime FromFileTime(long);",
