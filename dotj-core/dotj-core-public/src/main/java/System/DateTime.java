@@ -862,17 +862,48 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
 
     public String[] GetDateTimeFormats(char format, IFormatProvider provider) {
         return switch (format) {
-            case 'd' -> new String[] {this.ToShortDateString()};
-            case 'D' -> new String[] {this.ToLongDateString()};
-            case 't' -> new String[] {this.ToShortTimeString()};
-            case 'T' -> new String[] {this.ToLongTimeString()};
+            case 'd' -> new String[] {ToShortDateString(), ToString("yyyy-MM-dd", provider)};
+            case 'D' -> new String[] {ToLongDateString()};
+            case 't' -> new String[] {ToShortTimeString(),
+                    this.date.format(DateTimeFormatter.ofPattern("hh:mm a", java.util.Locale.US)),
+                    this.date.format(DateTimeFormatter.ofPattern("H:mm", java.util.Locale.US)),
+                    this.date.format(DateTimeFormatter.ofPattern("h:mm a", java.util.Locale.US))};
+            case 'T' -> new String[] {ToLongTimeString()};
+            case 'f' -> selectedDateTimeCombinations(GetDateTimeFormats('D', provider), GetDateTimeFormats('t', provider));
+            case 'F' -> selectedDateTimeCombinations(GetDateTimeFormats('D', provider), GetDateTimeFormats('T', provider));
+            case 'g' -> selectedDateTimeCombinations(GetDateTimeFormats('d', provider), GetDateTimeFormats('t', provider));
+            case 'G' -> selectedDateTimeCombinations(GetDateTimeFormats('d', provider), GetDateTimeFormats('T', provider));
+            case 'm', 'M', 'o', 'O', 'r', 'R', 's', 'u', 'y', 'Y' -> new String[] {ToString(String.valueOf(format), provider)};
+            case 'U' -> ToUniversalTime().GetDateTimeFormats('F', provider);
             default -> throw new FormatException("Format specifier was invalid");
         };
     }
 
+    public String[] GetDateTimeFormats(char format) {
+        return GetDateTimeFormats(format, null);
+    }
+
+    public String[] GetDateTimeFormats(IFormatProvider provider) {
+        java.util.ArrayList<String> result = new java.util.ArrayList<>();
+        for (char format : "dDfFgGmMoOrRstTuUyY".toCharArray()) {
+            java.util.Collections.addAll(result, GetDateTimeFormats(format, provider));
+        }
+        return result.toArray(String[]::new);
+    }
+
     public String[] GetDateTimeFormats() {
-        return new String[] {this.ToShortDateString(), this.ToLongDateString(),
-                this.ToShortTimeString(), this.ToLongTimeString()};
+        return GetDateTimeFormats((IFormatProvider) null);
+    }
+
+    private static String[] selectedDateTimeCombinations(String[] dates, String[] times) {
+        String[] result = new String[dates.length * times.length];
+        int index = 0;
+        for (String date : dates) {
+            for (String time : times) {
+                result[index++] = date + " " + time;
+            }
+        }
+        return result;
     }
 
     @Override

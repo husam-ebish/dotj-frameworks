@@ -361,9 +361,10 @@ public final class ProductDateTimeDayOfYearConsumer {
         DateTime formatDate = new DateTime(2024, 2, 29, 23, 59, 58);
         String[] shortDateFormats = formatDate.GetDateTimeFormats('d', null);
         String[] allDateFormats = formatDate.GetDateTimeFormats();
-        if (shortDateFormats.length != 1
+        if (shortDateFormats.length != 2
                 || !"02/29/2024".equals(shortDateFormats[0])
-                || allDateFormats.length != 4
+                || !"2024-02-29".equals(shortDateFormats[1])
+                || allDateFormats.length != 34
                 || !"23:59:58".equals(formatDate.GetDateTimeFormats('T', null)[0])) {
             throw new AssertionError("Selected DateTime format variants changed");
         }
