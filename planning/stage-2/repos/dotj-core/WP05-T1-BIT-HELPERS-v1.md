@@ -763,3 +763,5 @@ The public DateTime candidate now exposes IsDaylightSavingTime for its process-l
 The public DateTime candidate now exposes year/month/day Deconstruct using Java one-element output arrays. A packaged consumer checks leap-day components. The DateOnly/TimeOnly overload and out-parameter lowering remain open.
 
 The public DateTime candidate now includes DateTimeKind and SpecifyKind for selected identity behavior. A packaged consumer checks default, UTC and local kinds, tick preservation and selected arithmetic/round trips. Full local binary encoding and ambiguous-time metadata remain open.
+
+The public candidate now includes a selected TimeSpan tick carrier and DateTime.Add(TimeSpan). A packaged consumer checks positive and negative intervals, tick access and null rejection. Broader TimeSpan surface and date-kind propagation remain open.

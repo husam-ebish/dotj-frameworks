@@ -260,6 +260,13 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return new DateTime(added, this.kind);
     }
 
+    public DateTime Add(TimeSpan value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        return this.AddTicks(value.get_Ticks());
+    }
+
     public DateTime AddMonths(int months) {
         if (months < -120_000 || months > 120_000) {
             throw new ArgumentOutOfRangeException("months");
