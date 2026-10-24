@@ -15,6 +15,7 @@ Reference: .NET 10.0.12, CoreLib SHA-256 `1125acc8106c43fc8bad2d203c4c4485df6182
 | TryParse out result | Existing one-element TimeSpan array carrier | Full out-parameter and invalid-carrier lowering remain open |
 | Invariant Parse and TryParse | Day-only, hour/minute, seconds, day-prefixed and abbreviated fraction shapes; checked ranges, .NET whitespace and selected fraction rounding | Reference culture fixed to invariant; ambient cultures, non-null providers and full parsing qualification remain open |
 | Custom-format ToString with null provider | Component and fractional tokens, percent selectors, escaped and quoted literals; magnitude output including MinValue | Bounded pinned cases only; non-null custom providers deliberately remain unsupported and throw FormatException in this candidate. Provider callbacks and DateTimeFormatInfo integration are open |
+| Character TryFormat and ISpanFormattable | Existing Java char-array and one-element int-array carriers; entire result copied on success, count zero and buffer unchanged when short | Bounded reference vectors include sentinels, custom literals and format exceptions; offset spans and full language lowering remain open |
 
 Composite arithmetic normalizes signed and out-of-unit-range components by their combined value. It uses JDK BigInteger for the bounded Int128 calculation domain rather than overflowing an intermediate long. Public component constructors retain their separately observed CLR arithmetic semantics; they are not reused as composite factory implementations.
 

@@ -289,6 +289,47 @@ try {
         $parsing += [ordered]@{ input = $text; result = $result; trySuccess = $success; tryTicks = $outValue.Ticks }
     }
 } finally { [Globalization.CultureInfo]::CurrentCulture = $savedCulture }
+function New-TimeSpanBufferFormatter([type]$ElementType) {
+    # Reflection cannot box Span<T>. A transient IL delegate bridges arrays to the actual CLR overload.
+    # No C# source compilation or third-party scripting dependency is involved.
+    $arrayType = $ElementType.MakeArrayType()
+    $spanType = [type]'System.Span`1'
+    $spanType = $spanType.MakeGenericType($ElementType)
+    $signature = [type[]]@([TimeSpan], $arrayType, [int[]], [string], [IFormatProvider])
+    $method = [Reflection.Emit.DynamicMethod]::new('TimeSpanBufferTryFormat', [bool], $signature)
+    $il = $method.GetILGenerator()
+    $toSpan = $spanType.GetMethod('op_Implicit', [type[]]@($arrayType))
+    $toReadOnly = [MemoryExtensions].GetMethod('AsSpan', [type[]]@([string]))
+    $target = [TimeSpan].GetMethod('TryFormat', [type[]]@($spanType, [int].MakeByRefType(), [type]'System.ReadOnlySpan[char]', [IFormatProvider]))
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarga_S, [byte]0)
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarg_1)
+    $il.Emit([Reflection.Emit.OpCodes]::Call, $toSpan)
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarg_2)
+    $il.Emit([Reflection.Emit.OpCodes]::Ldc_I4_0)
+    $il.Emit([Reflection.Emit.OpCodes]::Ldelema, [int])
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarg_3)
+    $il.Emit([Reflection.Emit.OpCodes]::Call, $toReadOnly)
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarg_S, [byte]4)
+    $il.Emit([Reflection.Emit.OpCodes]::Call, $target)
+    $il.Emit([Reflection.Emit.OpCodes]::Ret)
+    $delegateType = [type]'System.Func`6'
+    $delegateType = $delegateType.MakeGenericType([type[]]@([TimeSpan], $arrayType, [int[]], [string], [IFormatProvider], [bool]))
+    return $method.CreateDelegate($delegateType)
+}
+$charFormatter = New-TimeSpanBufferFormatter ([char])
+$charFormatting = @()
+foreach ($ticks in @([long]::MinValue, -123456789012345, 0, 1, 123456789012345, [long]::MaxValue)) {
+    foreach ($format in @($null, '', 'c', 't', 'T', '%d', 'hh\:mm\:ss\.FFFFFFF', "'東京'", "'😀'", 'z', "'unclosed")) {
+        foreach ($capacity in @(0,1,7,8,16,26,40)) {
+            $buffer = [char[]]('#' * $capacity)
+            $written = [int[]]@(99)
+            try { $result = [ordered]@{ boolean = $charFormatter.Invoke([TimeSpan]::FromTicks($ticks),$buffer,$written,$format,$null) } }
+            catch { $result = Failure $_ }
+            $charFormatting += [ordered]@{ ticks = $ticks; format = $format; capacity = $capacity; result = $result
+                written = $written[0]; buffer = [string]::new($buffer) }
+        }
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -307,6 +348,7 @@ $record = [ordered]@{
     formats = $formats
     customFormats = $customFormats
     parsing = $parsing
+    charFormatting = $charFormatting
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
