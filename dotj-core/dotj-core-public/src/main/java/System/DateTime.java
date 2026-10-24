@@ -150,6 +150,17 @@ public final class DateTime implements IConvertible, IComparable {
         return new DateTime(added);
     }
 
+    public DateTime AddYears(int years) {
+        if (years < -10_000 || years > 10_000) {
+            throw new ArgumentOutOfRangeException("years");
+        }
+        LocalDateTime added = this.date.plusYears(years);
+        if (added.getYear() < 1 || added.getYear() > 9999) {
+            throw new ArgumentOutOfRangeException("years");
+        }
+        return new DateTime(added);
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }

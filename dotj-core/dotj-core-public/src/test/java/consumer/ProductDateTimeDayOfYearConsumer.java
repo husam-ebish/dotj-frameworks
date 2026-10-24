@@ -214,6 +214,27 @@ public final class ProductDateTimeDayOfYearConsumer {
                 }
             }
         }
+        DateTime leapDay = new DateTime(2024, 2, 29, 12, 34, 56, 789);
+        if (leapDay.AddYears(-1).get_Day() != 28
+                || leapDay.AddYears(1).get_Day() != 28
+                || leapDay.AddYears(4).get_Day() != 29
+                || leapDay.AddYears(1).get_Hour() != 12
+                || leapDay.AddYears(1).get_Millisecond() != 789
+                || leapDay.AddYears(0).get_Ticks() != leapDay.get_Ticks()) {
+            throw new AssertionError("DateTime AddYears changed");
+        }
+        int[][] invalidYearsDelta = {{1, -1}, {9999, 1}, {2024, -10001},
+            {2024, 10001}};
+        for (int[] row : invalidYearsDelta) {
+            try {
+                new DateTime(row[0], 1, 1).AddYears(row[1]);
+                throw new AssertionError("Out-of-range year addition accepted");
+            } catch (ArgumentOutOfRangeException caught) {
+                if (!"years".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Year addition parameter changed");
+                }
+            }
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }

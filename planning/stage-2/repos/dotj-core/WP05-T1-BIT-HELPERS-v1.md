@@ -699,3 +699,5 @@ The public DateTime candidate now exposes Equals and GetHashCode and aligns Java
 The public DateTime candidate now exposes AddTicks with 100-nanosecond arithmetic and .NET date-range checks. A packaged consumer checks epoch increments, leap-day rollover, maximum ticks, and overflow parameter names. Broader DateTime arithmetic remains open.
 
 The public DateTime candidate now exposes AddMonths with end-of-month clipping, preserved time fields, and .NET month and date ranges. A packaged consumer checks leap and common February and invalid month deltas. Broader DateTime arithmetic remains open.
+
+The public DateTime candidate now exposes AddYears with leap-day clipping, preserved time fields, and .NET year-range checks. A packaged consumer checks leap transitions and invalid year deltas. Broader DateTime arithmetic remains open.
