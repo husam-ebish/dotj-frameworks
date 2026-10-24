@@ -18,6 +18,8 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     private static final long OA_MIN_TICKS = 31_241_376_000_000_000L;
     private static final long MILLIS_PER_DAY = 86_400_000L;
     private static final long MAX_TICKS = 3_155_378_975_999_999_999L;
+    private static final java.util.regex.Pattern ISO_LOCAL_PATTERN = java.util.regex.Pattern.compile(
+            "([0-9]{4})-([0-9]{2})-([0-9]{2})(?:[Tt ]([0-9]{2}):([0-9]{2})(?::([0-9]{2})(?:\\.([0-9]+))?)?)?");
     public static final DateTime MinValue = new DateTime(0L);
     public static final DateTime MaxValue = new DateTime(MAX_TICKS);
     public static final DateTime UnixEpoch = new DateTime(621_355_968_000_000_000L, DateTimeKind.Utc);
@@ -120,17 +122,35 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (text == null) {
             throw new ArgumentNullException("s");
         }
-        try {
-            LocalDateTime parsed = LocalDateTime.parse(text.strip(), DateTimeFormatter.ISO_LOCAL_DATE_TIME);
-            return new DateTime(parsed);
-        } catch (DateTimeParseException ignored) {
-            try {
-                LocalDate parsed = LocalDate.parse(text.strip(), DateTimeFormatter.ISO_LOCAL_DATE);
-                return new DateTime(parsed.getYear(), parsed.getMonthValue(), parsed.getDayOfMonth());
-            } catch (DateTimeParseException invalid) {
-                throw new FormatException("Input string was not in a correct format");
-            }
+        int start = 0;
+        int end = text.length();
+        while (start < end && parseSpace(text.charAt(start))) { start++; }
+        while (end > start && parseSpace(text.charAt(end - 1))) { end--; }
+        java.util.regex.Matcher match = ISO_LOCAL_PATTERN.matcher(text.substring(start, end));
+        if (!match.matches()) {
+            throw new FormatException("Input string was not in a correct format");
         }
+        try {
+            DateTime parsed = new DateTime(Integer.parseInt(match.group(1)), Integer.parseInt(match.group(2)),
+                    Integer.parseInt(match.group(3)), match.group(4) == null ? 0 : Integer.parseInt(match.group(4)),
+                    match.group(5) == null ? 0 : Integer.parseInt(match.group(5)),
+                    match.group(6) == null ? 0 : Integer.parseInt(match.group(6)));
+            String fraction = match.group(7);
+            if (fraction != null) {
+                int width = java.lang.Math.min(7, fraction.length());
+                long ticks = Long.parseLong(fraction.substring(0, width))
+                        * (long) java.lang.Math.pow(10, 7 - width);
+                if (fraction.length() > 7 && fraction.charAt(7) >= '5') { ticks++; }
+                parsed = parsed.AddTicks(ticks);
+            }
+            return parsed;
+        } catch (ArgumentOutOfRangeException invalid) {
+            throw new FormatException("Input string was not in a correct format");
+        }
+    }
+
+    private static boolean parseSpace(char value) {
+        return value >= '\t' && value <= '\r' || value == '\u0085' || Character.isSpaceChar(value);
     }
 
     public static boolean TryParse(String text, DateTime[] result) {

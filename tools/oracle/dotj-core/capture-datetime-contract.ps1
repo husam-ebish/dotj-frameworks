@@ -172,6 +172,31 @@ foreach ($date in @(@(1,1,1),@(9999,12,31),@(1900,2,28),@(2000,2,29),@(2023,1,31
         }
     }
 }
+$parsingInputs = [Collections.Generic.List[object]]::new()
+foreach ($text in @($null,'','garbage','0000-01-01','-0001-01-01','+10000-01-01','10000-01-01','0001-01-01','9999-12-31',
+    '1900-02-29','2000-02-29','2023-02-29','2024-02-29','2024-00-01','2024-13-01','2024-02-30',
+    '2024-02-29T12:34','2024-02-29t12:34:56','2024-02-29 12:34:56','2024-02-29T12:34:56.',
+    '2024-02-29T24:00:00','2024-02-29T23:60:00','2024-02-29T23:59:60',("`0"+'2024-02-29'))) { $parsingInputs.Add($text) }
+foreach ($prefix in @('0001-01-01T00:00:00','2024-02-29T12:34:56','9999-12-31T23:59:59')) {
+    foreach ($fraction in @('0','1','1234567','12345665','12345675','00000004','00000005','00000015','99999994','99999995',
+        '0000000500000000000','99999999999999','0000000000000000001')) { $parsingInputs.Add($prefix+'.'+$fraction) }
+}
+foreach ($code in @(9,10,11,12,13,28,31,32,133,160,5760,8192,8232,8233,8239,8287,12288,65279)) {
+    $parsingInputs.Add([string][char]$code+'2024-02-29T12:34:56'+[char]$code)
+}
+$parsing = @()
+$savedCulture = [Globalization.CultureInfo]::CurrentCulture
+try {
+    [Globalization.CultureInfo]::CurrentCulture = [Globalization.CultureInfo]::InvariantCulture
+    $parseMethod = [DateTime].GetMethod('Parse',[type[]]@([string]))
+    foreach ($text in $parsingInputs) {
+        try { $value = $parseMethod.Invoke($null,[object[]]@($text)); $result = [ordered]@{ticks=$value.Ticks;kind=$value.Kind.ToString()} }
+        catch { $result = Failure $_ }
+        $outValue = [DateTime]::new(2000,1,1)
+        $success = [DateTime]::TryParse([string]$text,[ref]$outValue)
+        $parsing += [ordered]@{input=$text;result=$result;trySuccess=$success;tryTicks=$outValue.Ticks;tryKind=$outValue.Kind.ToString()}
+    }
+} finally { [Globalization.CultureInfo]::CurrentCulture = $savedCulture }
 $defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
     oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -180,6 +205,7 @@ $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToStr
     calendarProperties=$calendarProperties;enums=$enums
     floatingAddition=$floatingAddition
     checkedArithmetic=$checkedArithmetic
+    parsing=$parsing
     defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
     qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))

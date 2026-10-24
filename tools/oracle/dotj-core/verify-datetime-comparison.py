@@ -18,6 +18,7 @@ def main():
     modes.add_argument('--calendar-properties', action='store_true')
     modes.add_argument('--floating-addition', action='store_true')
     modes.add_argument('--checked-arithmetic', action='store_true')
+    modes.add_argument('--parsing', action='store_true')
     args = parser.parse_args()
     if args.jar is None:
         artifact = json.loads((EVIDENCE / 'foundation-product-candidate-v1.json').read_text(encoding='utf-8'))
@@ -28,7 +29,7 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256(Path(__file__).with_name('capture-datetime-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    for index, row in enumerate([] if args.tick_domain or args.component_constructors or args.calendar_properties or args.floating_addition or args.checked_arithmetic else oracle['comparisons']):
+    for index, row in enumerate([] if args.tick_domain or args.component_constructors or args.calendar_properties or args.floating_addition or args.checked_arithmetic or args.parsing else oracle['comparisons']):
         checks = [f'DateTime left = value({row["ticks"]}L, DateTimeKind.{row["kind"]});']
         if 'rightTicks' in row:
             checks.append(f'DateTime right = value({row["rightTicks"]}L, DateTimeKind.{row["rightKind"]});')
@@ -130,12 +131,30 @@ check(expected.getClass().getName().equals("{result['exception']}"), {index});
 check(expected.get_HResult() == {result['hResult']}, {index});
 check(java.util.Objects.equals(expected.get_ParamName(), {json.dumps(result['paramName'])}), {index});
 }}''')
+    if args.parsing:
+        for index,row in enumerate(oracle['parsing']):
+            expression=f'DateTime.Parse({json.dumps(row["input"])})'
+            result=row['result']
+            if 'ticks' in result:
+                check=f'DateTime parsed={expression}; check(parsed.get_Ticks() == {result["ticks"]}L && parsed.get_Kind() == DateTimeKind.{result["kind"]}, {index});'
+            else:
+                parameter=(f'check(java.util.Objects.equals(expected.get_ParamName(), {json.dumps(result["paramName"])}), {index});'
+                           if result['exception']=='System.ArgumentNullException' else '')
+                check=f'''try {{ {expression}; throw new AssertionError("missing exception {index}"); }}
+catch ({result['exception'].split('.')[-1]} expected) {{
+check(expected.getClass().getName().equals("{result['exception']}"), {index});
+check(expected.get_HResult() == {result['hResult']}, {index});
+{parameter}
+}}'''
+            cases.append('{\n'+check+f'''\nDateTime[] output={{new DateTime(2000,1,1)}};
+check(DateTime.TryParse({json.dumps(row['input'])},output) == {str(row['trySuccess']).lower()}, {index});
+check(output[0].get_Ticks() == {row['tryTicks']}L && output[0].get_Kind() == DateTimeKind.{row['tryKind']}, {index});\n}}''')
     methods = ['static void group' + str(offset//30) + '() throws java.lang.Exception {\n' + '\n'.join(cases[offset:offset+30]) + '\n}' for offset in range(0,len(cases),30)]
-    section = 'checked-arithmetic' if args.checked_arithmetic else 'floating-addition' if args.floating_addition else 'calendar-properties' if args.calendar_properties else 'component-constructors' if args.component_constructors else 'tick-domain' if args.tick_domain else 'comparison'
+    section = 'parsing' if args.parsing else 'checked-arithmetic' if args.checked_arithmetic else 'floating-addition' if args.floating_addition else 'calendar-properties' if args.calendar_properties else 'component-constructors' if args.component_constructors else 'tick-domain' if args.tick_domain else 'comparison'
     work = Path('D:/AI/Implementation/dotj Frameworks/verification/datetime-' + section)
     work.mkdir(parents=True, exist_ok=True)
     source = work / 'DateTimeComparisonProbe.java'
-    source.write_text('import System.DateTime;\nimport System.DateTimeKind;\nimport System.DayOfWeek;\nimport System.TimeSpan;\nimport System.Type;\nimport System.IComparable;\nimport System.ArgumentException;\nimport System.ArgumentOutOfRangeException;\n'
+    source.write_text('import System.DateTime;\nimport System.DateTimeKind;\nimport System.DayOfWeek;\nimport System.TimeSpan;\nimport System.Type;\nimport System.IComparable;\nimport System.ArgumentException;\nimport System.ArgumentNullException;\nimport System.FormatException;\nimport System.ArgumentOutOfRangeException;\n'
                       'public class DateTimeComparisonProbe {\n'
                       'static DateTime value(long ticks, DateTimeKind kind) { return DateTime.SpecifyKind(new DateTime(1,1,1).AddTicks(ticks),kind); }\n'
                       'static void check(boolean ok,int id) {if(!ok) throw new AssertionError("case " + id);}\n' + '\n'.join(methods) +
@@ -146,7 +165,7 @@ check(java.util.Objects.equals(expected.get_ParamName(), {json.dumps(result['par
     record = dict(schemaVersion=1,scope='DateTime selected ' + section,oracleEvidence=path.name,
                   oracleSha256=hashlib.sha256(path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(args.jar.read_bytes()).hexdigest(),
                   casesPassed=len(cases),qualification='BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN')
-    name = 'datetime-checked-arithmetic-differential-v1.json' if args.checked_arithmetic else 'datetime-floating-addition-differential-v1.json' if args.floating_addition else 'datetime-calendar-property-differential-v1.json' if args.calendar_properties else 'datetime-component-constructor-differential-v1.json' if args.component_constructors else 'datetime-tick-domain-differential-v1.json' if args.tick_domain else 'datetime-comparison-differential-v1.json'
+    name = 'datetime-parse-differential-v1.json' if args.parsing else 'datetime-checked-arithmetic-differential-v1.json' if args.checked_arithmetic else 'datetime-floating-addition-differential-v1.json' if args.floating_addition else 'datetime-calendar-property-differential-v1.json' if args.calendar_properties else 'datetime-component-constructor-differential-v1.json' if args.component_constructors else 'datetime-tick-domain-differential-v1.json' if args.tick_domain else 'datetime-comparison-differential-v1.json'
     (EVIDENCE/name).write_text(json.dumps(record,indent=2)+'\n',encoding='utf-8')
 
 

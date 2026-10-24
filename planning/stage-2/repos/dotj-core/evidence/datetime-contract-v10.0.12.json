@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "edc6a1bca447bc997a0d76b226f12a91957ea548c25f19e4d2db04a6748e24c9",
+  "oracleSha256": "0626906affd1b1a45d5e76e115ee743b1b0a0a2088e0f475099ddb49e8b327d0",
   "comparisons": [
     {
       "ticks": 0,
@@ -85590,6 +85590,840 @@
         "paramName": "value",
         "hResult": -2146233086
       }
+    }
+  ],
+  "parsing": [
+    {
+      "input": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "s",
+        "hResult": -2147467261
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "-0001-01-01",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "+10000-01-01",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "10000-01-01",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01",
+      "result": {
+        "ticks": 0,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31",
+      "result": {
+        "ticks": 3155378112000000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378112000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "1900-02-29",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2000-02-29",
+      "result": {
+        "ticks": 630873792000000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 630873792000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2023-02-29",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29",
+      "result": {
+        "ticks": 638447616000000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638447616000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-00-01",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-13-01",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-30",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34",
+      "result": {
+        "ticks": 638448068400000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068400000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29t12:34:56",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 12:34:56",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T24:00:00",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:60:00",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:60",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\u00002024-02-29",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.0",
+      "result": {
+        "ticks": 0,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.1",
+      "result": {
+        "ticks": 1000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 1000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.1234567",
+      "result": {
+        "ticks": 1234567,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 1234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.12345665",
+      "result": {
+        "ticks": 1234567,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 1234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.12345675",
+      "result": {
+        "ticks": 1234568,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 1234568,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.00000004",
+      "result": {
+        "ticks": 0,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.00000005",
+      "result": {
+        "ticks": 1,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 1,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.00000015",
+      "result": {
+        "ticks": 2,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 2,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.99999994",
+      "result": {
+        "ticks": 9999999,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 9999999,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.99999995",
+      "result": {
+        "ticks": 10000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.0000000500000000000",
+      "result": {
+        "ticks": 1,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 1,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.99999999999999",
+      "result": {
+        "ticks": 10000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 10000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T00:00:00.0000000000000000001",
+      "result": {
+        "ticks": 0,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.0",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.1",
+      "result": {
+        "ticks": 638448068961000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068961000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.1234567",
+      "result": {
+        "ticks": 638448068961234567,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068961234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.12345665",
+      "result": {
+        "ticks": 638448068961234567,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068961234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.12345675",
+      "result": {
+        "ticks": 638448068961234568,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068961234568,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.00000004",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.00000005",
+      "result": {
+        "ticks": 638448068960000001,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000001,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.00000015",
+      "result": {
+        "ticks": 638448068960000002,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000002,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.99999994",
+      "result": {
+        "ticks": 638448068969999999,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068969999999,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.99999995",
+      "result": {
+        "ticks": 638448068970000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068970000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.0000000500000000000",
+      "result": {
+        "ticks": 638448068960000001,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000001,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.99999999999999",
+      "result": {
+        "ticks": 638448068970000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068970000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56.0000000000000000001",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0",
+      "result": {
+        "ticks": 3155378975990000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975990000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1",
+      "result": {
+        "ticks": 3155378975991000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975991000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1234567",
+      "result": {
+        "ticks": 3155378975991234567,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975991234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.12345665",
+      "result": {
+        "ticks": 3155378975991234567,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975991234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.12345675",
+      "result": {
+        "ticks": 3155378975991234568,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975991234568,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.00000004",
+      "result": {
+        "ticks": 3155378975990000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975990000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.00000005",
+      "result": {
+        "ticks": 3155378975990000001,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975990000001,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.00000015",
+      "result": {
+        "ticks": 3155378975990000002,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975990000002,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999994",
+      "result": {
+        "ticks": 3155378975999999999,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975999999999,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999995",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0000000500000000000",
+      "result": {
+        "ticks": 3155378975990000001,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975990000001,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999999999999",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0000000000000000001",
+      "result": {
+        "ticks": 3155378975990000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975990000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\t2024-02-29T12:34:56\t",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\n2024-02-29T12:34:56\n",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\u000b2024-02-29T12:34:56\u000b",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\f2024-02-29T12:34:56\f",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\r2024-02-29T12:34:56\r",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\u001c2024-02-29T12:34:56\u001c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\u001f2024-02-29T12:34:56\u001f",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29T12:34:56 ",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\u00852024-02-29T12:34:56\u0085",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29T12:34:56 ",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29T12:34:56 ",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29T12:34:56 ",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\u20282024-02-29T12:34:56\u2028",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "\u20292024-02-29T12:34:56\u2029",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29T12:34:56 ",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29T12:34:56 ",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "　2024-02-29T12:34:56　",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "﻿2024-02-29T12:34:56﻿",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
     }
   ],
   "defaultValue": {
