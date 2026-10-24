@@ -1533,7 +1533,7 @@ public final class TypeIdentityCandidateTest {
         if (Type.GetType("System.Void") != voidType
                 || !"System.Void".equals(voidType.get_FullName())
                 || voidType.get_BaseType() != Type.fromJavaClass(Number.class)
-                || !voidType.get_IsValueType() || !voidType.get_IsPrimitive()) {
+                || !voidType.get_IsValueType() || voidType.get_IsPrimitive()) {
             throw new AssertionError("Pinned Void return Type identity changed");
         }
         if (Type.GetType("System.Reflection.MethodBase") != methodBaseType
