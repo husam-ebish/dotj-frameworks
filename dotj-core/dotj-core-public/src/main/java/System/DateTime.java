@@ -9,7 +9,7 @@ import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
-public final class DateTime implements IConvertible, IComparable {
+public final class DateTime implements IConvertible, IComparable, ISpanFormattable {
     private static final long TICKS_PER_DAY = 864_000_000_000L;
     private static final long FILE_TIME_EPOCH_TICKS = 504_911_232_000_000_000L;
     private static final long OA_EPOCH_TICKS = 599_264_352_000_000_000L;
@@ -495,5 +495,19 @@ public final class DateTime implements IConvertible, IComparable {
     public String ToShortTimeString() {
         return this.date.format(DateTimeFormatter.ofPattern(
                 "HH:mm", java.util.Locale.US));
+    }
+
+    @Override
+    public boolean TryFormat(char[] destination, int[] charsWritten, String format,
+                             IFormatProvider provider) {
+        String text = format == null ? this.ToString(provider)
+                : this.ToString(format, provider);
+        if (destination.length < text.length()) {
+            charsWritten[0] = 0;
+            return false;
+        }
+        text.getChars(0, text.length(), destination, 0);
+        charsWritten[0] = text.length();
+        return true;
     }
 }
