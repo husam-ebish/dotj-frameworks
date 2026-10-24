@@ -162,22 +162,22 @@ public final class DateTime implements IConvertible, IComparable {
     }
 
     public DateTime AddDays(double value) {
-        if (Double.isNaN(value)) {
-            return new DateTime(this.date);
-        }
-        double ticks = java.lang.Math.rint(value * TICKS_PER_DAY);
-        if (!Double.isFinite(ticks) || ticks < Long.MIN_VALUE
-                || ticks >= 0x1.0p63) {
-            throw new ArgumentOutOfRangeException("value");
-        }
-        return AddTicks((long) ticks);
+        return addScaled(value, TICKS_PER_DAY);
     }
 
     public DateTime AddHours(double value) {
+        return addScaled(value, 36_000_000_000L);
+    }
+
+    public DateTime AddMinutes(double value) {
+        return addScaled(value, 600_000_000L);
+    }
+
+    private DateTime addScaled(double value, long ticksPerUnit) {
         if (Double.isNaN(value)) {
             return new DateTime(this.date);
         }
-        double ticks = java.lang.Math.rint(value * 36_000_000_000L);
+        double ticks = java.lang.Math.rint(value * ticksPerUnit);
         if (!Double.isFinite(ticks) || ticks < Long.MIN_VALUE
                 || ticks >= 0x1.0p63) {
             throw new ArgumentOutOfRangeException("value");
