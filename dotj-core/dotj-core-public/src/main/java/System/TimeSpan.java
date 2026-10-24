@@ -74,6 +74,13 @@ public final class TimeSpan {
         }
     }
 
+    public TimeSpan Duration() {
+        if (this.ticks == Long.MIN_VALUE) {
+            throw new OverflowException("TimeSpan value was out of range.");
+        }
+        return new TimeSpan(java.lang.Math.abs(this.ticks));
+    }
+
     public double get_TotalDays() {
         return (double) this.ticks / TICKS_PER_DAY;
     }
