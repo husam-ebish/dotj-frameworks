@@ -418,6 +418,14 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return this.date.getDayOfYear();
     }
 
+    public DayOfWeek get_DayOfWeek() {
+        return DayOfWeek.values()[this.date.getDayOfWeek().getValue() % 7];
+    }
+
+    public TimeSpan get_TimeOfDay() {
+        return TimeSpan.FromTicks(this.date.toLocalTime().toNanoOfDay() / 100L);
+    }
+
     public DateTime get_Date() {
         return new DateTime(this.date.toLocalDate().atStartOfDay(), this.kind);
     }

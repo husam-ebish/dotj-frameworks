@@ -498,6 +498,8 @@ public abstract class Type extends MemberInfo {
             case "System.IO.FileNotFoundException" -> fromJavaClass(FileNotFoundException.class);
             case "System.Decimal" -> fromJavaClass(Decimal.class);
             case "System.DateTime" -> fromJavaClass(DateTime.class);
+            case "System.DateTimeKind" -> fromJavaClass(DateTimeKind.class);
+            case "System.DayOfWeek" -> fromJavaClass(DayOfWeek.class);
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
             case "System.InvalidCastException" -> fromJavaClass(InvalidCastException.class);
             case "System.InvalidOperationException" -> fromJavaClass(InvalidOperationException.class);
@@ -658,6 +660,8 @@ public abstract class Type extends MemberInfo {
             case "system.io.filenotfoundexception" -> ignoreCase ? fromJavaClass(FileNotFoundException.class) : null;
             case "system.decimal" -> ignoreCase ? fromJavaClass(Decimal.class) : null;
             case "system.datetime" -> ignoreCase ? fromJavaClass(DateTime.class) : null;
+            case "system.datetimekind" -> ignoreCase ? fromJavaClass(DateTimeKind.class) : null;
+            case "system.dayofweek" -> ignoreCase ? fromJavaClass(DayOfWeek.class) : null;
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
             case "system.invalidcastexception" -> ignoreCase ? fromJavaClass(InvalidCastException.class) : null;
             case "system.invalidoperationexception" -> ignoreCase
@@ -1000,7 +1004,8 @@ public abstract class Type extends MemberInfo {
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == ParameterAttributes.class
                 || this.definition == TypeCode.class
-                || this.definition == NumberStyles.class) {
+                || this.definition == NumberStyles.class
+                || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class) {
             return fromJavaClass(Enum.class);
         }
         if (this.definition == Enum.class) {
@@ -1044,7 +1049,8 @@ public abstract class Type extends MemberInfo {
                         || this.definition == StreamingContextStates.class
                         || this.definition == GenericParameterAttributes.class
                         || this.definition == ParameterAttributes.class
-                        || this.definition == TypeCode.class || this.definition == NumberStyles.class);
+                        || this.definition == TypeCode.class || this.definition == NumberStyles.class
+                        || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class);
     }
 
     public boolean get_IsPrimitive() {
@@ -1235,7 +1241,8 @@ public abstract class Type extends MemberInfo {
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == ParameterAttributes.class
                 || this.definition == TypeCode.class
-                || this.definition == NumberStyles.class;
+                || this.definition == NumberStyles.class
+                || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class;
     }
 
     public Type GetEnumUnderlyingType() {
@@ -1412,6 +1419,9 @@ public abstract class Type extends MemberInfo {
     }
 
     private static int enumNumericValue(Object constant) {
+        if (constant instanceof DateTimeKind || constant instanceof DayOfWeek) {
+            return ((java.lang.Enum<?>) constant).ordinal();
+        }
         if (constant instanceof TypeCode code) {
             return code.get_Value();
         }

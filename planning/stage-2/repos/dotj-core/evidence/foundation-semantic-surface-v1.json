@@ -5,10 +5,10 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "e3954ca794ae23ab262c4416ae50fdb6b9c477f030e5d43469fd396428c27cc0",
+  "javaCandidateEvidenceSha256": "aa197c758047787b8f4b5774ddc1d09aedd176d24fcc3482d62d1dce9098b14d",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 39,
-  "nameLevelMissingPublicGetterCount": 26,
+  "nameLevelMissingPublicGetterCount": 24,
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -5938,6 +5938,8 @@
         "public int get_Month();",
         "public int get_Day();",
         "public int get_DayOfYear();",
+        "public System.DayOfWeek get_DayOfWeek();",
+        "public System.TimeSpan get_TimeOfDay();",
         "public System.DateTime get_Date();",
         "public System.DateTimeKind get_Kind();",
         "public long get_Ticks();",
@@ -6087,6 +6089,7 @@
           "equals": 1,
           "get_Date": 1,
           "get_Day": 1,
+          "get_DayOfWeek": 1,
           "get_DayOfYear": 1,
           "get_Hour": 1,
           "get_Kind": 1,
@@ -6097,14 +6100,13 @@
           "get_Nanosecond": 1,
           "get_Second": 1,
           "get_Ticks": 1,
+          "get_TimeOfDay": 1,
           "get_Year": 1,
           "hashCode": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "DayOfWeek",
           "Now",
-          "TimeOfDay",
           "Today",
           "UtcNow"
         ],

@@ -273,6 +273,8 @@ def main():
                                     "public System.DateTime AddMicroseconds(double);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();", "public int get_DayOfYear();",
+                                    "public System.DayOfWeek get_DayOfWeek();",
+                                    "public System.TimeSpan get_TimeOfDay();",
                                     "public System.DateTime get_Date();",
                                     "public System.DateTimeKind get_Kind();",
                                     "public long get_Ticks();",
