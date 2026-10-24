@@ -103,28 +103,7 @@ public final class UInt32 implements IConvertible {
 
     @Override
     public Object ToType(Type conversionType, IFormatProvider provider) {
-        if (conversionType == null) {
-            throw new ArgumentNullException("conversionType");
-        }
-        if (conversionType == Type.GetType("System.UInt32")) {
-            return this;
-        }
-        if (conversionType == Type.GetType("System.UInt16")) {
-            return new UInt16(this.ToUInt16(provider));
-        }
-        if (conversionType == Type.GetType("System.Int64")) {
-            return this.ToInt64(provider);
-        }
-        if (conversionType == Type.GetType("System.String")) {
-            return this.ToString(provider);
-        }
-        if (conversionType == Type.GetType("System.Decimal")) {
-            return this.ToDecimal(provider);
-        }
-        if (conversionType == Type.GetType("System.Int32")) {
-            return new Int32(this.ToInt32(provider));
-        }
-        throw new UnsupportedOperationException("UInt32 target type is not mapped");
+        return Int32.selectedDefaultToType(this, conversionType, provider);
     }
 
     private char checkedChar() {
