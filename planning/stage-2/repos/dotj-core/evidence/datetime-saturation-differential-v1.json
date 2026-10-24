@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected DateTime conversion and file-time saturation; historical and alternative-converter scopes explicit",
+  "oracleEvidence": "datetime-saturation-contract-v10.0.12.json",
+  "oracleSha256": "9f85347b1a2af1e065b30df906c40e9bfac1aff2d0161bfd445d9c45c51d5a81",
+  "candidateJarSha256": "4ba5545743d62c0dc02aec642226f5bbae76385d4a403cdf71a50a6bbc92880c",
+  "casesPassed": 36,
+  "casesByComparison": {
+    "exact": 30,
+    "classificationAndNormalizationOnly": 6
+  },
+  "casesByScenario": {
+    "direct": 24,
+    "fileTime": 8,
+    "explicitNegativeZoneConverter": 4
+  },
+  "qualification": "BOUNDED_SATURATION_PASS; HISTORICAL_LOCAL_TICK_PARITY_OTHER_ZONES_FULL_RANGE_AND_LANGUAGE_OPEN"
+}
