@@ -8,10 +8,25 @@ import System.IComparable;
 import System.FormatException;
 import System.OverflowException;
 import System.DateTimeKind;
+import System.TimeSpan;
 
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        DateTime spanOrigin = new DateTime(2024, 2, 29);
+        if (spanOrigin.Add(TimeSpan.FromTicks(10_000_000L)).get_Second() != 1
+                || spanOrigin.Add(new TimeSpan(-10_000_000L)).get_Day() != 28
+                || TimeSpan.FromTicks(123L).get_Ticks() != 123L) {
+            throw new AssertionError("DateTime TimeSpan addition changed");
+        }
+        try {
+            spanOrigin.Add(null);
+            throw new AssertionError("Null TimeSpan was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null TimeSpan parameter changed");
+            }
+        }
         DateTime unspecified = new DateTime(2024, 2, 29);
         DateTime specifiedUtc = DateTime.SpecifyKind(unspecified, DateTimeKind.Utc);
         DateTime specifiedLocal = DateTime.SpecifyKind(unspecified, DateTimeKind.Local);
