@@ -11,7 +11,7 @@ import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
-public final class DateTime implements IConvertible, IComparable, ISpanFormattable {
+public final class DateTime implements IConvertible, IComparable, ISpanFormattable, IUtf8SpanFormattable {
     private static final long TICKS_PER_DAY = 864_000_000_000L;
     private static final long FILE_TIME_EPOCH_TICKS = 504_911_232_000_000_000L;
     private static final long OA_EPOCH_TICKS = 599_264_352_000_000_000L;
@@ -754,12 +754,49 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                              IFormatProvider provider) {
         String text = format == null ? this.ToString(provider)
                 : this.ToString(format, provider);
+        int copyLength = selectedFormatCopyLength(format, text.length(), destination.length);
+        text.getChars(0, copyLength, destination, 0);
         if (destination.length < text.length()) {
             charsWritten[0] = 0;
             return false;
         }
-        text.getChars(0, text.length(), destination, 0);
         charsWritten[0] = text.length();
         return true;
+    }
+
+    @Override
+    public boolean TryFormat(byte[] destination, int[] bytesWritten, String format,
+            IFormatProvider provider) {
+        byte[] text = ToString(format, provider).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        int copyLength = selectedFormatCopyLength(format, text.length, destination.length);
+        java.lang.System.arraycopy(text, 0, destination, 0, copyLength);
+        if (destination.length < text.length) {
+            bytesWritten[0] = 0;
+            return false;
+        }
+        bytesWritten[0] = text.length;
+        return true;
+    }
+
+    private static int selectedFormatCopyLength(String format, int textLength, int capacity) {
+        if (capacity >= textLength) { return textLength; }
+        int[] chunks;
+        if ("yyyy-MM-dd".equals(format)) {
+            chunks = new int[] {4,1,2,1,2};
+        } else if ("yyyy-MM-dd HH:mm:ss".equals(format) || "yyyy-MM-dd'T'HH:mm:ss".equals(format)) {
+            chunks = new int[] {4,1,2,1,2,1,2,1,2,1,2};
+        } else if ("yyyy-MM-dd HH:mm:ss.fff".equals(format)) {
+            chunks = new int[] {4,1,2,1,2,1,2,1,2,1,2,1,3};
+        } else if ("yyyy-MM-ddTHH:mm:ss.fffffff".equals(format)) {
+            chunks = new int[] {4,1,2,1,2,1,2,1,2,1,2,1,7};
+        } else {
+            return 0;
+        }
+        int copied = 0;
+        for (int chunk : chunks) {
+            if (chunk > capacity - copied) { break; }
+            copied += chunk;
+        }
+        return copied;
     }
 }

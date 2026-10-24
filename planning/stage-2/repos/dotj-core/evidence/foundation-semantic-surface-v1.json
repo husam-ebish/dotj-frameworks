@@ -5,7 +5,7 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "4933d80e7394c22e5b226d34be6940f8a166bcf9ed7b84c9461431c1b5a3de26",
+  "javaCandidateEvidenceSha256": "6aea7bda3681700adb0bdf4fa78bc47516fbb60183d479ccd70a87b0386097a6",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 39,
   "nameLevelMissingPublicGetterCount": 24,
@@ -5887,7 +5887,7 @@
         "events": [],
         "nestedPublicTypes": []
       },
-      "javaCandidatePublicHeader": "public final class System.DateTime implements System.IConvertible,System.IComparable,System.ISpanFormattable {",
+      "javaCandidatePublicHeader": "public final class System.DateTime implements System.IConvertible,System.IComparable,System.ISpanFormattable,System.IUtf8SpanFormattable {",
       "javaCandidateDeclaredPublicDeclarations": [
         "public static final System.DateTime MinValue;",
         "public static final System.DateTime MaxValue;",
@@ -5984,7 +5984,8 @@
         "public java.lang.String ToShortTimeString();",
         "public java.lang.String[] GetDateTimeFormats(char, System.IFormatProvider);",
         "public java.lang.String[] GetDateTimeFormats();",
-        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);"
+        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
+        "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -6086,7 +6087,7 @@
           "ToUInt32": 1,
           "ToUInt64": 1,
           "ToUniversalTime": 1,
-          "TryFormat": 1,
+          "TryFormat": 2,
           "TryParse": 1,
           "TryParseExact": 1,
           "equals": 1,

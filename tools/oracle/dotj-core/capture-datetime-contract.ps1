@@ -187,6 +187,32 @@ foreach ($code in @(9,10,11,12,13,28,31,32,133,160,5760,8192,8232,8233,8239,8287
 $parsing = @()
 $exactParsing = @()
 $formats = @()
+$bufferFormatting = @()
+function New-DateTimeBufferFormatter([type]$ElementType) {
+    $arrayType = $ElementType.MakeArrayType()
+    $spanDefinition = [type]'System.Span`1'
+    $spanType = $spanDefinition.MakeGenericType($ElementType)
+    $bridge = [Reflection.Emit.DynamicMethod]::new('DateTimeBufferTryFormat',[bool],
+        [type[]]@([DateTime],$arrayType,[int[]],[string],[IFormatProvider]))
+    $il = $bridge.GetILGenerator()
+    $target = [DateTime].GetMethod('TryFormat',[type[]]@($spanType,[int].MakeByRefType(),[type]'System.ReadOnlySpan[char]',[IFormatProvider]))
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarga_S,[byte]0)
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarg_1)
+    $il.Emit([Reflection.Emit.OpCodes]::Call,$spanType.GetMethod('op_Implicit',[type[]]@($arrayType)))
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarg_2)
+    $il.Emit([Reflection.Emit.OpCodes]::Ldc_I4_0)
+    $il.Emit([Reflection.Emit.OpCodes]::Ldelema,[int])
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarg_3)
+    $il.Emit([Reflection.Emit.OpCodes]::Call,[MemoryExtensions].GetMethod('AsSpan',[type[]]@([string])))
+    $il.Emit([Reflection.Emit.OpCodes]::Ldarg_S,[byte]4)
+    $il.Emit([Reflection.Emit.OpCodes]::Call,$target)
+    $il.Emit([Reflection.Emit.OpCodes]::Ret)
+    $delegateDefinition = [type]'System.Func`6'
+    $delegateType = $delegateDefinition.MakeGenericType([type[]]@([DateTime],$arrayType,[int[]],[string],[IFormatProvider],[bool]))
+    return $bridge.CreateDelegate($delegateType)
+}
+$charFormatter = New-DateTimeBufferFormatter ([char])
+$byteFormatter = New-DateTimeBufferFormatter ([byte])
 $exactTryMethod = [DateTime].GetMethod('TryParseExact',[type[]]@([string],[string],[IFormatProvider],[Globalization.DateTimeStyles],[DateTime].MakeByRefType()))
 $bridge = [Reflection.Emit.DynamicMethod]::new('DateTimeTryParseExactOut',[bool],[type[]]@([string],[string],[IFormatProvider],[DateTime[]]))
 $il = $bridge.GetILGenerator()
@@ -261,6 +287,28 @@ try {
             }
         }
     }
+    foreach ($ticks in $ticksList) {
+        foreach ($kind in [Enum]::GetValues([DateTimeKind])) {
+            $value = [DateTime]::new($ticks,$kind)
+            foreach ($format in @($null,'','yyyy-MM-dd','yyyy-MM-dd HH:mm:ss','yyyy-MM-dd HH:mm:ss.fff',
+                'yyyy-MM-ddTHH:mm:ss.fffffff','s','?')) {
+                foreach ($capacity in @(0,1,4,5,7,8,10,11,12,13,14,16,17,19,20,23,26,27,28,40)) {
+                    foreach ($encoding in @('Char','Utf8')) {
+                        $written = [int[]]@(99)
+                        if ($encoding -eq 'Char') { $buffer = [char[]]('#' * $capacity); $formatter = $charFormatter }
+                        else { $buffer = [byte[]]::new($capacity); [Array]::Fill($buffer,[byte]35); $formatter = $byteFormatter }
+                        try { $result = [ordered]@{boolean=$formatter.Invoke($value,$buffer,$written,$format,$null)} }
+                        catch { $result = Failure $_ }
+                        $row = [ordered]@{ticks=$ticks;kind=$kind.ToString();format=$format;capacity=$capacity;encoding=$encoding
+                            result=$result;written=$written[0]}
+                        if ($encoding -eq 'Char') { $row.buffer = [string]::new($buffer) }
+                        else { $row.bufferHex = [Convert]::ToHexString($buffer) }
+                        $bufferFormatting += $row
+                    }
+                }
+            }
+        }
+    }
 } finally { [Globalization.CultureInfo]::CurrentCulture = $savedCulture }
 $defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
@@ -273,6 +321,7 @@ $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToStr
     parsing=$parsing
     exactParsing=$exactParsing
     formats=$formats
+    bufferFormatting=$bufferFormatting
     defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
     qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))
