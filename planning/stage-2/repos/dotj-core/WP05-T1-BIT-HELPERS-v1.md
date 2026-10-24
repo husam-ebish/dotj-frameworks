@@ -641,3 +641,5 @@ Selected grouped Int32 and Decimal per-mille formatting now has twenty-four .NET
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 affix vectors around positive and negative fractional rounding boundaries. Required and optional two-place formats run through a packaged consumer. Broader rounding cases remain open.
 
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 affix vectors at decimal range endpoints and tiny signed values. They run through a packaged consumer. Broader extreme-value affix cases remain open.
+
+Selected grouped Decimal per-mille formatting now has eighteen .NET 10 affix vectors around signed zero and tiny values with mixed or optional fractional places. They run through a packaged consumer. Broader signed-zero combinations remain open.
