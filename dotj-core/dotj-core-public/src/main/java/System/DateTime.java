@@ -276,6 +276,10 @@ public final class DateTime implements IConvertible, IComparable {
                 + this.date.toLocalTime().toNanoOfDay() / 100L;
     }
 
+    public long ToBinary() {
+        return this.get_Ticks();
+    }
+
     public int get_Hour() {
         return this.date.getHour();
     }
