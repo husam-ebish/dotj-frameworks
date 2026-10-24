@@ -6,6 +6,7 @@ param(
     [string]$DotnetHome,
     [string]$JdkHome,
     [string]$RunName,
+    [ValidateRange(64,1024)][int]$JavaHeapMiB = 256,
     [switch]$ExportEvidence,
     [switch]$PreflightOnly
 )
@@ -60,7 +61,7 @@ $worktree = Join-Path $runRoot 'source'
 if ($LASTEXITCODE -ne 0) { throw 'Cannot create isolated source worktree.' }
 $variables = @('PATH', 'TEMP', 'TMP', 'DOTNET_ROOT', 'DOTNET_CLI_HOME', 'NUGET_PACKAGES',
     'DOTNET_SKIP_FIRST_TIME_EXPERIENCE', 'DOTNET_CLI_TELEMETRY_OPTOUT', 'DOTNET_MULTILEVEL_LOOKUP',
-    'PYTHONPYCACHEPREFIX', 'JAVA_HOME', 'MSBUILDDISABLENODEREUSE')
+    'PYTHONPYCACHEPREFIX', 'JAVA_HOME', 'JAVA_TOOL_OPTIONS', 'MSBUILDDISABLENODEREUSE')
 $saved = @{}
 foreach ($name in $variables) { $saved[$name] = [Environment]::GetEnvironmentVariable($name, 'Process') }
 try {
@@ -71,6 +72,8 @@ try {
     $env:NUGET_PACKAGES = Join-Path $storage 'cache/nuget'
     $env:PYTHONPYCACHEPREFIX = Join-Path $storage 'cache/python'
     $env:JAVA_HOME = $JdkHome
+    # Default ergonomics can reserve a large initial heap for every concurrent consumer JVM.
+    $env:JAVA_TOOL_OPTIONS = ("$($saved['JAVA_TOOL_OPTIONS']) -Xms16m -Xmx${JavaHeapMiB}m").Trim()
     $env:DOTNET_SKIP_FIRST_TIME_EXPERIENCE = '1'; $env:DOTNET_CLI_TELEMETRY_OPTOUT = '1'
     $env:DOTNET_MULTILEVEL_LOOKUP = '0'; $env:MSBUILDDISABLENODEREUSE = '1'
     New-Item -ItemType Directory -Force -Path $env:TEMP, $env:DOTNET_CLI_HOME, $env:NUGET_PACKAGES, $env:PYTHONPYCACHEPREFIX | Out-Null
@@ -97,6 +100,7 @@ try {
     $record = [ordered]@{
         schemaVersion = 1; sourceRevision = $revision; runRoot = $runRoot
         pinnedBinaryChecks = $binaryChecks; gatePassed = $true
+        javaValidationOptions = $env:JAVA_TOOL_OPTIONS
         changedEvidencePaths = $changed; evidenceExportRequested = [bool]$ExportEvidence; evidenceExported = $false
         qualification = 'BOUNDED_CANDIDATE_ONLY; E01/E02/E03/N01/Q01_OPEN'
     }

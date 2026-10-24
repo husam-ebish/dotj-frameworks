@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 73 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 74 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "a58ea38e85210203ba9cedbebefebbdb4f30e096c4029e47748ca9fb2f968222",
+  "jarSha256": "b70402289c3652474ef029c145a5e1ae37ec85158c289aa389d4de70d446a4d9",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -152,12 +152,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
-      "productSha256": "f28cd1119ca5095d32eb9c2fcfdcf3f974a9b22437ad1aaeb7ce4161382bbf61",
+      "productSha256": "f3b02d5dee1550c05907f4e860192983e74ab1636921fec84eddf85e6533f33b",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/DateTime.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/DateTime.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "f263f835758314758c5c789271a1cd3ca222b38c93fc66948eacadd75ca558b9",
-      "productIdentifierCount": 2211,
+      "productIdentifierCount": 2232,
       "upstreamIdentifierCount": 9865,
       "sharedIdentifierShinglesOfLength12": 31,
       "sharedIdentifierShingleSamples": [
@@ -193,6 +193,18 @@
       "productIdentifierCount": 20,
       "upstreamIdentifierCount": 63,
       "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/DayOfWeek.java",
+      "productSha256": "8b622e78232eae2b2b022db66d1adcd3887d3bafa12c46ef9cd8ea749c440e30",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/DayOfWeek.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/DayOfWeek.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "03a7af6508c7b56400b0b93a190acf1901efbf8aec3b8041314f6f81a540e133",
+      "productIdentifierCount": 26,
+      "upstreamIdentifierCount": 42,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Decimal.java",
@@ -765,14 +777,15 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "b4446a437b68f1b538e3261cd08019e90ff4be711c473ceef6848036b87da4cc",
+      "productSha256": "5906df9bdb742f397d639b83247fcf7c569768cf4eb7e06ae3faec01ad1c8290",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Type.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "c8e1fdc05a12d089e6bbbd80d61a4e689eae3c3c3bfe1c6cb3498c54b27a5577",
-      "productIdentifierCount": 9306,
+      "productIdentifierCount": 9371,
       "upstreamIdentifierCount": 3542,
-      "sharedIdentifierShinglesOfLength12": 0
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/TypeCode.java",

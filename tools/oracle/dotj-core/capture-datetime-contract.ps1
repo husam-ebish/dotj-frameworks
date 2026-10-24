@@ -87,11 +87,33 @@ foreach ($length in @(3,6,7,8)) {
         }
     }
 }
+$propertyTicks = [Collections.Generic.List[long]]::new()
+foreach ($ticks in $ticksList) { $propertyTicks.Add($ticks) }
+foreach ($year in @(1,1900,2000,2024,9999)) {
+    $start = [DateTime]::new($year,3,1)
+    foreach ($day in 0..6) { $propertyTicks.Add($start.AddDays($day).AddTicks(123456789012).Ticks) }
+}
+$calendarProperties = @()
+foreach ($ticks in $propertyTicks) {
+    foreach ($kind in [Enum]::GetValues([DateTimeKind])) {
+        $value = [DateTime]::new($ticks,$kind)
+        $calendarProperties += [ordered]@{ticks=$ticks;kind=$kind.ToString();dayOfWeek=$value.DayOfWeek.ToString()
+            dayOfWeekValue=[int]$value.DayOfWeek;dateTicks=$value.Date.Ticks;dateKind=$value.Date.Kind.ToString()
+            timeOfDayTicks=$value.TimeOfDay.Ticks}
+    }
+}
+$enums = @()
+foreach ($type in @([DayOfWeek],[DateTimeKind])) {
+    $enums += [ordered]@{name=$type.FullName;underlyingType=[Enum]::GetUnderlyingType($type).FullName
+        names=[Enum]::GetNames($type);values=@([Enum]::GetValues($type)|ForEach-Object{[int]$_})
+        queries=@((-1..8)|ForEach-Object{[ordered]@{value=$_;defined=$type.IsEnumDefined([int]$_);name=$type.GetEnumName([int]$_)}})}
+}
 $defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
     oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
     comparisons=$comparisons;tickConstructors=$tickConstructors;constants=$constants
     componentConstructors=$componentConstructors
+    calendarProperties=$calendarProperties;enums=$enums
     defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
     qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))

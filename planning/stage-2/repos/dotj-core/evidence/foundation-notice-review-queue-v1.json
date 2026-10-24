@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "a58ea38e85210203ba9cedbebefebbdb4f30e096c4029e47748ca9fb2f968222",
+  "jarSha256": "b70402289c3652474ef029c145a5e1ae37ec85158c289aa389d4de70d446a4d9",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 73,
-  "directNameMatchedCount": 68,
+  "sourceCount": 74,
+  "directNameMatchedCount": 69,
   "directNameMissingCount": 5,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
@@ -235,7 +235,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
-      "productSha256": "f28cd1119ca5095d32eb9c2fcfdcf3f974a9b22437ad1aaeb7ce4161382bbf61",
+      "productSha256": "f3b02d5dee1550c05907f4e860192983e74ab1636921fec84eddf85e6533f33b",
       "classEntries": [
         "System/DateTime.class"
       ],
@@ -282,6 +282,23 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/DateTimeKind.cs",
       "upstreamSha256": "f2f046e506a2dc4fb129e120daff885130abb84e6df258070234fa30020c1eb9",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/DayOfWeek.java",
+      "productSha256": "8b622e78232eae2b2b022db66d1adcd3887d3bafa12c46ef9cd8ea749c440e30",
+      "classEntries": [
+        "System/DayOfWeek.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "236deee0399135b7ca1f5d87108c3c302fb103bb",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/DayOfWeek.cs",
+      "upstreamSha256": "03a7af6508c7b56400b0b93a190acf1901efbf8aec3b8041314f6f81a540e133",
       "sharedIdentifierShinglesOfLength12": 0,
       "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
       "sharedIdentifierShingleSamples": [],
@@ -1162,7 +1179,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "productSha256": "b4446a437b68f1b538e3261cd08019e90ff4be711c473ceef6848036b87da4cc",
+      "productSha256": "5906df9bdb742f397d639b83247fcf7c569768cf4eb7e06ae3faec01ad1c8290",
       "classEntries": [
         "System/Type.class",
         "System/Type$1.class",
