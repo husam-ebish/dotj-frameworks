@@ -20,7 +20,7 @@ public final class ProductDateTimeDayOfYearConsumer {
                 || parsedSpan[0].get_Ticks() != 0L
                 || TimeSpan.TryParse("10675199.02:48:05.4775808", parsedSpan)
                 || parsedSpan[0].get_Ticks() != 0L
-                || TimeSpan.TryParse(null, parsedSpan)
+                || TimeSpan.TryParse((String) null, parsedSpan)
                 || parsedSpan[0].get_Ticks() != 0L) {
             throw new AssertionError("TimeSpan TryParse changed");
         }
@@ -42,7 +42,7 @@ public final class ProductDateTimeDayOfYearConsumer {
         } catch (OverflowException expected) {
         }
         try {
-            TimeSpan.Parse(null);
+            TimeSpan.Parse((String) null);
             throw new AssertionError("Null TimeSpan input accepted");
         } catch (ArgumentNullException expected) {
         }
@@ -872,7 +872,7 @@ public final class ProductDateTimeDayOfYearConsumer {
                 || parsed[0].get_DayOfYear() != 60
                 || DateTime.TryParse("2023-02-29", parsed)
                 || parsed[0].get_Ticks() != 0L
-                || DateTime.TryParse(null, parsed)
+                || DateTime.TryParse((String) null, parsed)
                 || parsed[0].get_Ticks() != 0L) {
             throw new AssertionError("DateTime TryParse changed");
         }

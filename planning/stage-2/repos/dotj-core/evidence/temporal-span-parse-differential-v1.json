@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected null-provider Char-span temporal parsing and string/prefix adapters",
+  "oracleEvidence": "temporal-span-parsing-contract-v10.0.12.json",
+  "oracleSha256": "312ce27c323aeb8173507991bc302a42e3185dc6091f2e7f639ebf83544c34b8",
+  "candidateJarSha256": "9e74257b317827fe2da7c6493560d2d4fb21b5184b3ed1c0882c72ea2927630a",
+  "casesPassed": 66,
+  "casesByType": {
+    "DateTime": 33,
+    "TimeSpan": 33
+  },
+  "compileRejections": [
+    "DateTime UTF-8 parse carrier",
+    "TimeSpan UTF-8 parse carrier"
+  ],
+  "qualification": "BOUNDED_VIEW_PARSE_PASS; PROVIDERS_STYLES_AND_LANGUAGE_MAPPING_OPEN"
+}

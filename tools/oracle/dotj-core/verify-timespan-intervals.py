@@ -63,7 +63,8 @@ def main():
             interface = 'IUtf8SpanFormattable' if args.utf8_formatting else 'ISpanFormattable'
             expression = f'(({interface}) TimeSpan.FromTicks({case["ticks"]}L)).TryFormat(buffer, written, {json.dumps(case["format"])}, null)'
         elif args.parsing:
-            expression = f'TimeSpan.Parse({json.dumps(case["input"])})'
+            input_value = '(String)null' if case['input'] is None else json.dumps(case['input'])
+            expression = f'TimeSpan.Parse({input_value})'
         elif args.formats or args.custom_formats:
             arguments = json.dumps(case['format']) + (', null' if args.custom_formats or case['withProvider'] else '')
             expression = f"TimeSpan.FromTicks({case['ticks']}L).ToString({arguments})"
@@ -129,7 +130,7 @@ def main():
             cases[-1] = f'check(TimeSpan.class.getMethod("{case["method"]}", {parameter_types}).getReturnType() == TimeSpan.class, {index});\n' + cases[-1]
         if args.parsing:
             cases[-1] = ('{\n' + cases[-1] + '\nTimeSpan[] output = {TimeSpan.FromTicks(99L)};\n' +
-                         f'check(TimeSpan.TryParse({json.dumps(case["input"])}, output) == {str(case["trySuccess"]).lower()}, {index});\n' +
+                         f'check(TimeSpan.TryParse({input_value}, output) == {str(case["trySuccess"]).lower()}, {index});\n' +
                          f'check(output[0].get_Ticks() == {case["tryTicks"]}L, {index});\n}}')
         if args.char_formatting:
             cases[-1] = ('{\n' + f'char[] buffer = new char[{case["capacity"]}]; java.util.Arrays.fill(buffer, \'#\'); int[] written = {{99}};\n' +

@@ -451,6 +451,20 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
         throw new OverflowException();
     }
 
+    public static TimeSpan Parse(String input, IFormatProvider formatProvider) {
+        if (formatProvider != null) { throw new UnsupportedOperationException("Only null-provider invariant parsing is mapped."); }
+        return Parse(input);
+    }
+
+    public static TimeSpan Parse(ReadOnlySpan<Character> input) {
+        return Parse(input, null);
+    }
+
+    public static TimeSpan Parse(ReadOnlySpan<Character> input, IFormatProvider formatProvider) {
+        if (input == null) { throw new ArgumentNullException("input"); }
+        return Parse(input.selectedText(), formatProvider);
+    }
+
     private static boolean parseSpace(char value) {
         return value >= '\t' && value <= '\r' || value == '\u0085' || Character.isSpaceChar(value);
     }
@@ -610,6 +624,20 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
         } catch (FormatException | OverflowException expected) {
             return false;
         }
+    }
+
+    public static boolean TryParse(String input, IFormatProvider formatProvider, TimeSpan[] result) {
+        if (formatProvider != null) { throw new UnsupportedOperationException("Only null-provider invariant parsing is mapped."); }
+        return TryParse(input, result);
+    }
+
+    public static boolean TryParse(ReadOnlySpan<Character> input, TimeSpan[] result) {
+        return TryParse(input, null, result);
+    }
+
+    public static boolean TryParse(ReadOnlySpan<Character> input, IFormatProvider formatProvider, TimeSpan[] result) {
+        if (input == null) { throw new ArgumentNullException("input"); }
+        return TryParse(input.selectedText(), formatProvider, result);
     }
 
     /** One typed Java carrier for the selected CLR Char and Byte span signatures. */
