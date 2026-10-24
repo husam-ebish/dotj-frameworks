@@ -10,6 +10,23 @@ import System.FormatException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (DateTime.FromFileTimeUtc(0).get_Ticks() != 504911232000000000L
+                || DateTime.FromFileTimeUtc(116444736000000000L).get_Ticks()
+                    != new DateTime(1970, 1, 1).get_Ticks()
+                || DateTime.FromFileTimeUtc(2650467743999999999L).get_Ticks()
+                    != 3155378975999999999L) {
+            throw new AssertionError("UTC file-time conversion changed");
+        }
+        for (long invalid : new long[] {-1L, 2650467744000000000L}) {
+            try {
+                DateTime.FromFileTimeUtc(invalid);
+                throw new AssertionError("Invalid UTC file time accepted");
+            } catch (ArgumentOutOfRangeException expected) {
+                if (!"fileTime".equals(expected.get_ParamName())) {
+                    throw new AssertionError("UTC file-time parameter changed");
+                }
+            }
+        }
         for (long binary : new long[] {0L, 621355968000000000L,
                 638448068961234567L, 3155378975999999999L}) {
             if (DateTime.FromBinary(binary).ToBinary() != binary) {
