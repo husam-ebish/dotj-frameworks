@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "scope": "Current built dotj-core foundation candidate only; no release decision",
-  "candidateJarSha256": "9c697cac3d1ff678dc8464ab3931603ff344fa1ea8c989f42cd0c1771d58ea7b",
+  "candidateJarSha256": "c9bcb5c1577365379475e649e6c8850d90e608ddab5967cca6f6c23e57b23914",
   "candidateJarEvidence": "foundation-product-candidate-v1.json",
   "referenceProfile": {
     "release": "10.0.12",
@@ -30,6 +30,9 @@
     "missingDirectNamePath": 5,
     "throwSiteAdjacentFilesCompared": 2,
     "reviewQueueEvidence": "foundation-notice-review-queue-v1.json",
+    "lexicalOverlapReviewRequiredPaths": [
+      "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java"
+    ],
     "throwSiteEvidence": "throw-site-upstream-adjacency-v1.json"
   },
   "upstreamReferenceNoticesNotInJar": [

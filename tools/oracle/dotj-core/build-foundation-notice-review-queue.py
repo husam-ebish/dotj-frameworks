@@ -49,7 +49,8 @@ def main():
         direct_match = upstream[path]["directNameMatchedUpstreamFile"]
         assert direct_match in ("FOUND", "NOT_FOUND_AT_PINNED_PATH")
         if direct_match == "FOUND":
-            assert upstream[path]["sharedIdentifierShinglesOfLength12"] == 0
+            count = upstream[path]["sharedIdentifierShinglesOfLength12"]
+            assert isinstance(count, int) and count >= 0
         rows.append({
             "productPath": path,
             "productSha256": source_hash,
@@ -61,6 +62,10 @@ def main():
             "upstreamSha256": upstream[path].get("upstreamSha256"),
             "sharedIdentifierShinglesOfLength12": upstream[path].get(
                 "sharedIdentifierShinglesOfLength12"),
+            "lexicalReviewStatus": "OVERLAP_REVIEW_REQUIRED"
+            if upstream[path].get("sharedIdentifierShinglesOfLength12", 0) > 0
+            else "NO_SHARED_RUNS_OBSERVED" if direct_match == "FOUND" else "DIRECT_PATH_MISSING",
+            "sharedIdentifierShingleSamples": upstream[path].get("sharedIdentifierShingleSamples", []),
             "noticeApplicabilityDecision": "REVIEW_REQUIRED",
             "supplementalAdjacencyEvidence": "throw-site-upstream-adjacency-v1.json"
             if path.endswith("/org/dotj/internal/throwing/ThrowSite.java") else None,
@@ -76,16 +81,19 @@ def main():
         "sourceCount": len(rows),
         "directNameMatchedCount": found,
         "directNameMissingCount": len(rows) - found,
+        "overlapReviewRequiredPaths": [row["productPath"] for row in rows
+                                       if row["lexicalReviewStatus"] == "OVERLAP_REVIEW_REQUIRED"],
         "rows": rows,
         "upstreamReferenceNoticePathsExcludedFromJar": [
             item["path"] for item in mapping["upstreamReferenceEvidenceExcludedFromJar"]
         ],
-        "limitation": "Git introduction, SPDX labels and zero shared 12-identifier runs do not determine authorship, translated-source overlap or third-party notice applicability.",
+        "limitation": "Git introduction, SPDX labels and shared-run counts, including zero, do not determine authorship or notice applicability. Positive overlap is retained for review; no rights or release approval is granted.",
         "releaseQualification": "E01_REVIEW_OPEN",
     }
     OUTPUT.write_text(json.dumps(record, indent=2) + "\n", encoding="utf-8")
     print(f"PASS foundation notice review queue: {len(rows)} sources, "
-          f"{found} direct-name upstream files, {len(rows) - found} missing direct path")
+          f"{found} direct-name upstream files, {len(rows) - found} missing direct path; "
+          f"{len(record['overlapReviewRequiredPaths'])} overlap review required")
 
 
 if __name__ == "__main__":

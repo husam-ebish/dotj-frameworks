@@ -19,6 +19,7 @@ CHECKS = (
     "bind-foundation-file-map.py",
     "verify-span-factory-types.py",
     "verify-timespan-intervals.py",
+    "verify-timespan-constructors.py",
     "verify-idisposable-file-map.py",
     "verify-idisposable-distribution.py",
     "audit-foundation-public-candidate.py",
@@ -68,6 +69,13 @@ def main():
     assert packet["qualification"] == "E01_OPEN; NOT_RELEASE_QUALIFIED"
     assert len(packet["openDecisions"]) == 3
     assert all(item["status"] == "OPEN" for item in packet["openDecisions"])
+    overlap_paths = [row["productPath"] for row in queue["rows"]
+                     if (row.get("sharedIdentifierShinglesOfLength12") or 0) > 0]
+    assert overlap_paths == queue["overlapReviewRequiredPaths"]
+    assert all(row["noticeApplicabilityDecision"] == "REVIEW_REQUIRED" and
+               row["lexicalReviewStatus"] == "OVERLAP_REVIEW_REQUIRED" and
+               row["sharedIdentifierShingleSamples"]
+               for row in queue["rows"] if row["productPath"] in overlap_paths)
 
     evidence_files = (
         "foundation-selected-metadata-v10.0.12.json",
@@ -76,6 +84,7 @@ def main():
         "span-factory-types-v1.json",
         "timespan-contract-v10.0.12.json",
         "timespan-interval-differential-v1.json",
+        "timespan-constructor-differential-v1.json",
         "foundation-product-candidate-v1.json",
         "foundation-rights-inputs-v1.json",
         "foundation-notice-review-queue-v1.json",
@@ -94,6 +103,7 @@ def main():
         },
         "productLicense": "MIT",
         "openE01DecisionCount": 3,
+        "lexicalOverlapReviewRequiredPaths": overlap_paths,
         "status": "BOUNDED_CANDIDATE_PASS; E01/E02/E03/N01_PUBLIC_QUALIFICATION_OPEN",
         "releaseQualified": False,
     }

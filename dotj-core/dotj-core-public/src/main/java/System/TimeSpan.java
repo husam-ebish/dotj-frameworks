@@ -13,6 +13,30 @@ public final class TimeSpan implements IComparable {
         this.ticks = ticks;
     }
 
+    public TimeSpan(int hours, int minutes, int seconds) {
+        this(0, hours, minutes, seconds, 0, 0);
+    }
+
+    public TimeSpan(int days, int hours, int minutes, int seconds) {
+        this(days, hours, minutes, seconds, 0, 0);
+    }
+
+    public TimeSpan(int days, int hours, int minutes, int seconds, int milliseconds) {
+        this(days, hours, minutes, seconds, milliseconds, 0);
+    }
+
+    public TimeSpan(int days, int hours, int minutes, int seconds,
+            int milliseconds, int microseconds) {
+        long totalMicroseconds = days * 86_400_000_000L + hours * 3_600_000_000L
+                + minutes * 60_000_000L + seconds * 1_000_000L
+                + milliseconds * 1_000L + microseconds;
+        if (totalMicroseconds > Long.MAX_VALUE / 10L
+                || totalMicroseconds < Long.MIN_VALUE / 10L) {
+            throw new ArgumentOutOfRangeException(null, "TimeSpan value was out of range.");
+        }
+        this.ticks = totalMicroseconds * 10L;
+    }
+
     public static TimeSpan FromTicks(long ticks) {
         return new TimeSpan(ticks);
     }

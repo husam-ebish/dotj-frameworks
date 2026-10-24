@@ -44,7 +44,9 @@ def compare(item, cached):
     }
     prior = cached.get(product_path)
     if (prior is not None and prior.get("productSha256") == expected_hash
-            and prior.get("upstreamUrl") == row["upstreamUrl"]):
+            and prior.get("upstreamUrl") == row["upstreamUrl"]
+            and (not prior.get("sharedIdentifierShinglesOfLength12", 0)
+                 or "sharedIdentifierShingleSamples" in prior)):
         return prior
     try:
         for attempt in range(3):
@@ -70,6 +72,7 @@ def compare(item, cached):
         "productIdentifierCount": len(product_tokens),
         "upstreamIdentifierCount": len(upstream_tokens),
         "sharedIdentifierShinglesOfLength12": len(shared),
+        "sharedIdentifierShingleSamples": [" ".join(tokens) for tokens in sorted(shared)[:20]],
     })
     return row
 
