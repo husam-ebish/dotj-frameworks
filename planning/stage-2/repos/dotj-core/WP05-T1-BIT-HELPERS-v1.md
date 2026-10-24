@@ -683,3 +683,5 @@ The public DateTime candidate now exposes get_Date. The packaged consumer checks
 The public DateTime candidate now exposes get_Ticks as 100-nanosecond units from 0001-01-01. The packaged consumer checks epoch, Unix epoch, leap-day time, maximum-day time, and date truncation against .NET tick values. Broader DateTime parity remains open.
 
 The public DateTime candidate now exposes get_Microsecond as the sub-millisecond component. A packaged consumer checks seven-digit fractional seconds and the associated .NET tick value. Broader DateTime parity remains open.
+
+The public DateTime candidate now exposes get_Nanosecond as the sub-microsecond component. A packaged consumer checks a seven-digit fractional second and a millisecond constructor. Broader DateTime parity remains open.
