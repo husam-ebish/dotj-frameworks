@@ -46,22 +46,55 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public DateTime(int year, int month, int day) {
-        this.date = LocalDate.of(year, month, day).atStartOfDay();
-        this.kind = DateTimeKind.Unspecified;
+        this(year, month, day, 0, 0, 0, 0, 0, DateTimeKind.Unspecified);
     }
 
     public DateTime(int year, int month, int day, int hourOfDay,
                     int minuteOfHour, int secondOfMinute) {
-        this.date = LocalDateTime.of(year, month, day,
-                hourOfDay, minuteOfHour, secondOfMinute);
-        this.kind = DateTimeKind.Unspecified;
+        this(year, month, day, hourOfDay, minuteOfHour, secondOfMinute, 0, 0, DateTimeKind.Unspecified);
     }
 
     public DateTime(int year, int month, int day, int hourOfDay,
                     int minuteOfHour, int secondOfMinute, int millisecondOfSecond) {
-        this.date = LocalDateTime.of(year, month, day,
-                hourOfDay, minuteOfHour, secondOfMinute, millisecondOfSecond * 1_000_000);
-        this.kind = DateTimeKind.Unspecified;
+        this(year, month, day, hourOfDay, minuteOfHour, secondOfMinute, millisecondOfSecond, 0, DateTimeKind.Unspecified);
+    }
+
+    public DateTime(int year, int month, int day, int hour, int minute, int second, DateTimeKind kind) {
+        this(year, month, day, hour, minute, second, 0, 0, kind);
+    }
+
+    public DateTime(int year, int month, int day, int hour, int minute, int second,
+            int millisecond, DateTimeKind kind) {
+        this(year, month, day, hour, minute, second, millisecond, 0, kind);
+    }
+
+    public DateTime(int year, int month, int day, int hour, int minute, int second,
+            int millisecond, int microsecond) {
+        this(year, month, day, hour, minute, second, millisecond, microsecond, DateTimeKind.Unspecified);
+    }
+
+    public DateTime(int year, int month, int day, int hour, int minute, int second,
+            int millisecond, int microsecond, DateTimeKind kind) {
+        if (kind == null) {
+            throw new ArgumentException("Invalid DateTime kind", "kind");
+        }
+        LocalDateTime components;
+        if (year < 1 || year > 9999) {
+            throw new ArgumentOutOfRangeException(null, "Date components were out of range.");
+        }
+        try {
+            components = LocalDate.of(year, month, day).atTime(hour, minute, second);
+        } catch (java.time.DateTimeException invalid) {
+            throw new ArgumentOutOfRangeException(null, "Date or time components were out of range.");
+        }
+        if (millisecond < 0 || millisecond > 999) {
+            throw new ArgumentOutOfRangeException("millisecond");
+        }
+        if (microsecond < 0 || microsecond > 999) {
+            throw new ArgumentOutOfRangeException("microsecond");
+        }
+        this.date = components.withNano(millisecond * 1_000_000 + microsecond * 1_000);
+        this.kind = kind;
     }
 
     private DateTime(LocalDateTime date) {

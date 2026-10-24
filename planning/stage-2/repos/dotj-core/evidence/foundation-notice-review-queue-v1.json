@@ -1,13 +1,14 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "4e8a238019186174bb3ae217e853c6b90f7286ac7cb5cd7c13c8b00be4718589",
+  "jarSha256": "a58ea38e85210203ba9cedbebefebbdb4f30e096c4029e47748ca9fb2f968222",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
   "sourceCount": 73,
   "directNameMatchedCount": 68,
   "directNameMissingCount": 5,
   "overlapReviewRequiredPaths": [
+    "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
     "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java"
   ],
   "rows": [
@@ -234,7 +235,7 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
-      "productSha256": "edd9e05ad6de3724f00e128f41ea71d7618c00c6759473f3a546cbdb1edc7b02",
+      "productSha256": "f28cd1119ca5095d32eb9c2fcfdcf3f974a9b22437ad1aaeb7ce4161382bbf61",
       "classEntries": [
         "System/DateTime.class"
       ],
@@ -243,9 +244,30 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/DateTime.cs",
       "upstreamSha256": "f263f835758314758c5c789271a1cd3ca222b38c93fc66948eacadd75ca558b9",
-      "sharedIdentifierShinglesOfLength12": 0,
-      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
-      "sharedIdentifierShingleSamples": [],
+      "sharedIdentifierShinglesOfLength12": 31,
+      "lexicalReviewStatus": "OVERLAP_REVIEW_REQUIRED",
+      "sharedIdentifierShingleSamples": [
+        "DateTime int year int month int day int hour int minute int",
+        "day int hour int minute int second int millisecond DateTimeKind kind this",
+        "day int hour int minute int second int millisecond int microsecond DateTimeKind",
+        "day int hour int minute int second int millisecond int microsecond this",
+        "hour int minute int second int millisecond DateTimeKind kind this year month",
+        "hour int minute int second int millisecond int microsecond this year month",
+        "int day int hour int minute int second int millisecond DateTimeKind kind",
+        "int day int hour int minute int second int millisecond int microsecond",
+        "int hour int minute int second int millisecond DateTimeKind kind this year",
+        "int hour int minute int second int millisecond int microsecond DateTimeKind kind",
+        "int hour int minute int second int millisecond int microsecond this year",
+        "int microsecond this year month day hour minute second millisecond microsecond DateTimeKind",
+        "int millisecond int microsecond this year month day hour minute second millisecond",
+        "int minute int second int millisecond DateTimeKind kind this year month day",
+        "int minute int second int millisecond int microsecond this year month day",
+        "int month int day int hour int minute int second DateTimeKind kind",
+        "int month int day int hour int minute int second int millisecond",
+        "int second int millisecond DateTimeKind kind this year month day hour minute",
+        "int second int millisecond int microsecond this year month day hour minute",
+        "int year int month int day int hour int minute int second"
+      ],
       "noticeApplicabilityDecision": "REVIEW_REQUIRED",
       "supplementalAdjacencyEvidence": null
     },

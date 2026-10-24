@@ -53,10 +53,45 @@ $constants = @([DateTime].GetFields([Reflection.BindingFlags]'Public,Static') | 
     $value=$_.GetValue($null)
     [ordered]@{name=$_.Name;type=$_.FieldType.FullName;ticks=$value.Ticks;kind=$value.Kind.ToString();isInitOnly=$_.IsInitOnly}
 })
+$componentConstructors = @()
+foreach ($length in @(3,6,7,8)) {
+    $inputs = [Collections.Generic.List[object]]::new()
+    $seed = [int[]]@(2024,2,29,12,34,56,789,123)[0..($length-1)]
+    $inputs.Add($seed.Clone())
+    foreach ($date in @(@(1,1,1),@(9999,12,31),@(1900,2,28),@(1900,2,29),@(2000,2,29),@(2023,2,29))) {
+        $values = $seed.Clone(); [Array]::Copy([int[]]$date,$values,3); $inputs.Add($values)
+    }
+    foreach ($position in 0..($length-1)) {
+        foreach ($number in @([int]::MinValue,-1,0,1,23,24,59,60,999,1000,9999,10000,[int]::MaxValue)) {
+            $values = $seed.Clone(); $values[$position] = $number; $inputs.Add($values)
+        }
+    }
+    if ($length -ge 7) {
+        foreach ($position in @(0,2,3,6)) {
+            $values = $seed.Clone(); $values[$position] = -1; $values[6] = -1
+            if ($length -eq 8) { $values[7] = -1 }
+            $inputs.Add($values)
+        }
+    }
+    foreach ($values in $inputs) {
+        $kinds = if ($length -eq 3) { @($null) } else { @($null,[DateTimeKind]::Unspecified,[DateTimeKind]::Utc,[DateTimeKind]::Local) }
+        foreach ($kind in $kinds) {
+            $types = [Collections.Generic.List[type]]::new(); $arguments = [Collections.Generic.List[object]]::new()
+            foreach ($number in $values) { $types.Add([int]); $arguments.Add([int]$number) }
+            if ($null -ne $kind) { $types.Add([DateTimeKind]); $arguments.Add($kind) }
+            $ctor = [DateTime].GetConstructor($types.ToArray())
+            if ($null -eq $ctor) { throw 'Expected Gregorian component constructor missing from pinned CLR.' }
+            try { $value = $ctor.Invoke($arguments.ToArray()); $result = [ordered]@{ticks=$value.Ticks;kind=$value.Kind.ToString()} }
+            catch { $result = Failure $_ }
+            $componentConstructors += [ordered]@{components=$values;kind=$(if ($null -eq $kind) {$null} else {$kind.ToString()});result=$result}
+        }
+    }
+}
 $defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
     oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
     comparisons=$comparisons;tickConstructors=$tickConstructors;constants=$constants
+    componentConstructors=$componentConstructors
     defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
     qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))
