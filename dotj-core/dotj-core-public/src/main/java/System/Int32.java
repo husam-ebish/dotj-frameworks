@@ -1538,13 +1538,30 @@ public final class Int32 implements IConvertible, ISpanFormattable,
 
     @Override
     public Object ToType(Type conversionType, IFormatProvider provider) {
-        if (conversionType == Type.GetType("System.Int32")) {
-            return this;
-        }
-        if (conversionType == Type.GetType("System.Decimal")) {
-            return this.ToDecimal(provider);
-        }
-        throw new UnsupportedOperationException("Int32 target type is not mapped");
+        return selectedDefaultToType(this, conversionType, provider);
+    }
+
+    static Object selectedDefaultToType(IConvertible value, Type targetType,
+            IFormatProvider provider) {
+        if (targetType == null) throw new ArgumentNullException("targetType");
+        if (targetType == Type.fromJavaClass(value.getClass())
+                || targetType == Type.GetType("System.Object")) return value;
+        if (targetType == Type.GetType("System.Boolean")) return value.ToBoolean(provider);
+        if (targetType == Type.GetType("System.Char")) return value.ToChar(provider);
+        if (targetType == Type.GetType("System.SByte")) return new SByte(value.ToSByte(provider));
+        if (targetType == Type.GetType("System.Byte")) return new Byte(value.ToByte(provider));
+        if (targetType == Type.GetType("System.Int16")) return value.ToInt16(provider);
+        if (targetType == Type.GetType("System.UInt16")) return new UInt16(value.ToUInt16(provider));
+        if (targetType == Type.GetType("System.Int32")) return new Int32(value.ToInt32(provider));
+        if (targetType == Type.GetType("System.UInt32")) return new UInt32(value.ToUInt32(provider));
+        if (targetType == Type.GetType("System.Int64")) return value.ToInt64(provider);
+        if (targetType == Type.GetType("System.UInt64")) return value.ToUInt64(provider);
+        if (targetType == Type.GetType("System.Single")) return value.ToSingle(provider);
+        if (targetType == Type.GetType("System.Double")) return value.ToDouble(provider);
+        if (targetType == Type.GetType("System.Decimal")) return value.ToDecimal(provider);
+        if (targetType == Type.GetType("System.DateTime")) return value.ToDateTime(provider);
+        if (targetType == Type.GetType("System.String")) return value.ToString(provider);
+        throw new InvalidCastException("Target type is not a selected conversion type");
     }
 
     @Override
