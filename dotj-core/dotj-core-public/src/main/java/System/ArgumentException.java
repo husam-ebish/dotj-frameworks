@@ -19,6 +19,26 @@ public class ArgumentException extends SystemException {
         }
     }
 
+    public static void ThrowIfNullOrWhiteSpace(String argument) {
+        ThrowIfNullOrWhiteSpace(argument, null);
+    }
+
+    public static void ThrowIfNullOrWhiteSpace(String argument, String paramName) {
+        if (argument == null) {
+            throw new ArgumentNullException(paramName);
+        }
+        for (int offset = 0; offset < argument.length();) {
+            int codePoint = argument.codePointAt(offset);
+            if (!Character.isWhitespace(codePoint)
+                    && !Character.isSpaceChar(codePoint)
+                    && codePoint != 0x0085) {
+                return;
+            }
+            offset += Character.charCount(codePoint);
+        }
+        throw new ArgumentException("The value cannot be empty or whitespace.", paramName);
+    }
+
     public ArgumentException() {
         this(null, null, null);
     }

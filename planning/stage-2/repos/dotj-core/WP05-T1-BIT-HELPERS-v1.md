@@ -723,3 +723,5 @@ The public DateTime candidate now exposes selected TryParseExact behavior for in
 The public ArgumentNullException candidate now exposes ThrowIfNull with an explicit parameter-name overload. A packaged consumer checks accepted nonnull values and rejected null values. CallerArgumentExpression name inference remains open.
 
 The public ArgumentException candidate now exposes ThrowIfNullOrEmpty with an explicit parameter-name overload. A packaged consumer checks nonempty strings, whitespace acceptance, null rejection, and empty-string rejection. CallerArgumentExpression name inference remains open.
+
+The public ArgumentException candidate now exposes ThrowIfNullOrWhiteSpace with an explicit parameter-name overload. A packaged consumer checks nonwhite text, null, empty text, and selected Unicode whitespace. CallerArgumentExpression name inference remains open.
