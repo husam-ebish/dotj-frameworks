@@ -19,6 +19,7 @@ def main():
     kinds.add_argument('--constants', action='store_true')
     kinds.add_argument('--integer-factories', action='store_true')
     kinds.add_argument('--composite-factories', action='store_true')
+    kinds.add_argument('--comparison', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -32,11 +33,30 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    section = ('compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
+    section = ('comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
                'constructors' if args.constructors else 'factories')
     vectors = oracle['operations'] + oracle['ratios'] if args.arithmetic else oracle[section]
     for index, case in enumerate(vectors):
-        if args.composite_factories:
+        if args.comparison and 'rightTicks' in case:
+            checks = [f'TimeSpan left = TimeSpan.FromTicks({case["ticks"]}L);',
+                      f'TimeSpan right = TimeSpan.FromTicks({case["rightTicks"]}L);']
+            expressions = {
+                'compareStatic': 'TimeSpan.Compare(left, right)', 'compareTyped': 'left.CompareTo(right)',
+                'compareObject': 'left.CompareTo((java.lang.Object) right)',
+                'equalsStatic': 'TimeSpan.Equals(left, right)', 'equalsTyped': 'left.Equals(right)',
+                'equalsObject': 'left.Equals((java.lang.Object) right)',
+            }
+            for key, expression in expressions.items():
+                expected = str(case[key]).lower() if isinstance(case[key], bool) else str(case[key])
+                checks.append(f'check({expression} == {expected}, {index});')
+            checks += [f'check(left.GetHashCode() == {case["hash"]}L && left.hashCode() == {case["hash"]}L, {index});',
+                       f'check(left.equals(right) == {str(case["equalsObject"]).lower()}, {index});']
+            cases.append('{\n' + '\n'.join(checks) + '\n}')
+            continue
+        if args.comparison:
+            value = {'Null': 'null', 'Int32': 'Integer.valueOf(0)', 'String': '"wrong"', 'Object': 'new java.lang.Object()'}[case['objectKind']]
+            expression = f"TimeSpan.FromTicks({case['ticks']}L).{case['operation']}((java.lang.Object) {value})"
+        elif args.composite_factories:
             arguments = ', '.join(str(value) + ('' if kind == 'System.Int32' else 'L')
                                   for value, kind in zip(case['values'], case['parameterTypes']))
             expression = f"TimeSpan.{case['method']}({arguments})"
@@ -56,7 +76,9 @@ def main():
         else:
             expression = f"TimeSpan.{case['method']}(Double.longBitsToDouble(0x{case['inputBits']}L))"
         result = case['result']
-        if 'bits' in result:
+        if 'boolean' in result:
+            cases.append(f'check({expression} == {str(result["boolean"]).lower()}, {index});')
+        elif 'bits' in result:
             predicate = f'Double.isNaN({expression})' if result['isNaN'] else f'Double.doubleToRawLongBits({expression}) == 0x{result["bits"]}L'
             cases.append(f'check({predicate}, {index});')
         elif 'value' in result:
@@ -99,7 +121,8 @@ def main():
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
         'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    name = ('timespan-composite-factory-differential-v1.json' if args.composite_factories else
+    name = ('timespan-comparison-differential-v1.json' if args.comparison else
+            'timespan-composite-factory-differential-v1.json' if args.composite_factories else
             'timespan-integer-factory-differential-v1.json' if args.integer_factories else
             'timespan-constant-differential-v1.json' if args.constants else
             'timespan-property-differential-v1.json' if args.properties else

@@ -176,6 +176,33 @@ foreach ($spec in $compositeSpecs) {
             declaredClrParameterCount = $fullCount; trailingDefaultsOmitted = ($values.Count -lt $fullCount); result = $result }
     }
 }
+$comparisons = @()
+$comparisonTicks = [long[]]@([long]::MinValue, -4294967296, -3, -1, 0, 1, 3, 4294967296, [long]::MaxValue)
+$objectCompare = [TimeSpan].GetMethod('CompareTo', [type[]]@([object]))
+$objectEquals = [TimeSpan].GetMethod('Equals', [type[]]@([object]))
+foreach ($leftTicks in $comparisonTicks) {
+    $left = [TimeSpan]::FromTicks($leftTicks)
+    foreach ($rightTicks in $comparisonTicks) {
+        $right = [TimeSpan]::FromTicks($rightTicks)
+        $comparisons += [ordered]@{ ticks = $leftTicks; rightTicks = $rightTicks
+            compareStatic = [TimeSpan]::Compare($left, $right); compareTyped = $left.CompareTo($right)
+            compareObject = $objectCompare.Invoke($left, [object[]]@($right))
+            equalsStatic = [TimeSpan]::Equals($left, $right); equalsTyped = $left.Equals($right)
+            equalsObject = $objectEquals.Invoke($left, [object[]]@($right))
+            hash = $left.GetHashCode() }
+    }
+    foreach ($target in @(@{ kind = 'Null'; value = $null }, @{ kind = 'Int32'; value = [int]0 },
+            @{ kind = 'String'; value = 'wrong' }, @{ kind = 'Object'; value = [object]::new() })) {
+        foreach ($operation in @('CompareTo', 'Equals')) {
+            $method = if ($operation -eq 'CompareTo') { $objectCompare } else { $objectEquals }
+            try {
+                $value = $method.Invoke($left, [object[]]@($target.value))
+                $result = if ($operation -eq 'Equals') { [ordered]@{ boolean = $value } } else { [ordered]@{ value = $value } }
+            } catch { $result = Failure $_ }
+            $comparisons += [ordered]@{ ticks = $leftTicks; objectKind = $target.kind; operation = $operation; result = $result }
+        }
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -189,6 +216,7 @@ $record = [ordered]@{
     defaultValueTicks = [Activator]::CreateInstance([TimeSpan]).Ticks
     integerFactories = $integerFactories
     compositeFactories = $compositeFactories
+    comparisons = $comparisons
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
