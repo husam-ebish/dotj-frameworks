@@ -645,3 +645,5 @@ Selected grouped Decimal per-mille formatting now has eighteen .NET 10 affix vec
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 affix vectors around signed zero and tiny values with mixed or optional fractional places. They run through a packaged consumer. Broader signed-zero combinations remain open.
 
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 affix vectors for multi-character provider decimal and group separators. They cover both signs and zero through a packaged consumer. Broader separator combinations remain open.
+
+Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 affix vectors with an empty provider group separator. They cover both signs and zero through a packaged consumer. Broader grouping combinations remain open.
