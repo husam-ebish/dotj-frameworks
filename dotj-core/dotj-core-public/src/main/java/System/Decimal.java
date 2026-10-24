@@ -64,6 +64,10 @@ public final class Decimal implements IConvertible {
         this.negativeZero = negativeZero;
     }
 
+    public int get_Scale() {
+        return this.value.scale();
+    }
+
     public static int[] GetBits(Decimal value) {
         if (value == null) {
             throw new ArgumentNullException("value");
