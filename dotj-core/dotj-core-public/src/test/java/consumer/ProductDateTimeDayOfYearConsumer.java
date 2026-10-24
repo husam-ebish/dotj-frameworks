@@ -5,6 +5,7 @@ import System.ArgumentOutOfRangeException;
 import System.ArgumentNullException;
 import System.ArgumentException;
 import System.IComparable;
+import System.FormatException;
 
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
@@ -391,6 +392,25 @@ public final class ProductDateTimeDayOfYearConsumer {
                 || DateTime.TryParse(null, parsed)
                 || parsed[0].get_Ticks() != 0L) {
             throw new AssertionError("DateTime TryParse changed");
+        }
+        if (DateTime.ParseExact("2024-02-29", "yyyy-MM-dd", null).get_DayOfYear() != 60
+                || DateTime.ParseExact("2024-02-29 12:34:56",
+                    "yyyy-MM-dd HH:mm:ss", null).get_Hour() != 12
+                || DateTime.ParseExact("2024-02-29T12:34:56.1234567",
+                    "yyyy-MM-ddTHH:mm:ss.fffffff", null).get_Ticks()
+                    != 638448068961234567L) {
+            throw new AssertionError("DateTime ParseExact changed");
+        }
+        String[][] invalidExact = {{" 2024-02-29 ", "yyyy-MM-dd"},
+            {"2023-02-29", "yyyy-MM-dd"},
+            {"2024-02-29T12:34:56.123", "yyyy-MM-ddTHH:mm:ss.fffffff"},
+            {"2024-02-29", "unsupported"}};
+        for (String[] row : invalidExact) {
+            try {
+                DateTime.ParseExact(row[0], row[1], null);
+                throw new AssertionError("Invalid exact date accepted");
+            } catch (FormatException expected) {
+            }
         }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
