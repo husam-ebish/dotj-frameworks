@@ -1411,7 +1411,8 @@ public final class TypeIdentityCandidateTest {
                 || !convertibleType.IsInstanceOfType(DBNull.Value)
                 || dbnullType.GetInterface("System.IConvertible") != convertibleType
                 || dbnullType.GetInterface("system.iconvertible") != null
-                || dbnullType.GetInterface("system.iconvertible", true) != convertibleType) {
+                || dbnullType.GetInterface("system.iconvertible", true) != null
+                || dbnullType.GetInterface("System.iconvertible", true) != convertibleType) {
             throw new AssertionError("Selected DBNull IConvertible metadata changed");
         }
         if (!"".equals(convertibleNull.ToType(Type.fromJavaClass(String.class), null))

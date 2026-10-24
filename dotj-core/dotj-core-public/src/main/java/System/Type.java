@@ -1876,6 +1876,14 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
+        if (this.definition == String.class) {
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class)};
+        }
+        if (this.definition == Int32.class) {
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class),
+                    fromJavaClass(IFormattable.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
+        }
+
         if (this.definition == DateTime.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class),
                     fromJavaClass(IConvertible.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
@@ -1912,7 +1920,9 @@ public abstract class Type extends MemberInfo {
             return new Type[] {fromJavaClass(IConvertible.class)};
         }
         if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class
-                || this.definition == IUtf8SpanFormattable.class) {
+                || this.definition == IUtf8SpanFormattable.class || this.definition == IConvertible.class
+                || this.definition == IComparable.class || this.definition == IFormattable.class || this.definition == IFormatProvider.class
+                || this.definition == ISerializable.class) {
             return new Type[0];
         }
         if (this.definition == ISpanFormattable.class) {
@@ -1996,10 +2006,17 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type GetInterface(String fullname, boolean ignoreCase) {
-        if (fullname == null) {
-            throw new ArgumentNullException("fullname");
-        }
-        if (this.definition == DateTime.class || this.definition == TimeSpan.class
+        if (fullname == null) throw new ArgumentNullException("fullname");
+        if (this.definition == String.class || this.definition == Int32.class
+                || this.definition == Byte.class || this.definition == SByte.class
+                || this.definition == UInt16.class || this.definition == UInt32.class
+                || this.definition == Decimal.class || this.definition == DBNull.class
+                || this.definition == DateTime.class || this.definition == TimeSpan.class
+                || this.definition == Object.class || this.definition == Stopwatch.class
+                || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == IFormattable.class
+                || this.definition == IFormatProvider.class || this.definition == ISerializable.class
+                || this.definition == IDisposable.class || this.definition == ISpanFormattable.class
+                || this.definition == IUtf8SpanFormattable.class
                 || Exception.class.isAssignableFrom(this.definition)) {
             int separator = fullname.lastIndexOf('.');
             String namespace = separator < 0 ? null : fullname.substring(0, separator);
@@ -2011,73 +2028,6 @@ public abstract class Type extends MemberInfo {
                 }
             }
             return null;
-        }
-        if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class) {
-            return null;
-        }
-        if (this.definition == DBNull.class) {
-            if (fullname.equals("System.Runtime.Serialization.ISerializable")
-                    || fullname.equals("ISerializable")
-                    || ignoreCase && (fullname.equalsIgnoreCase(
-                        "System.Runtime.Serialization.ISerializable")
-                        || fullname.equalsIgnoreCase("ISerializable"))) {
-                return fromJavaClass(ISerializable.class);
-            }
-            if (fullname.equals("System.IConvertible") || fullname.equals("IConvertible")
-                    || ignoreCase && (fullname.equalsIgnoreCase("System.IConvertible")
-                        || fullname.equalsIgnoreCase("IConvertible"))) {
-                return fromJavaClass(IConvertible.class);
-            }
-            if (fullname.equals("system.iconvertible")) {
-                return null;
-            }
-            if (fullname.equals("system.runtime.serialization.iserializable")) {
-                return null;
-            }
-            throw new UnsupportedOperationException("DBNull interface lookup is not mapped for this name");
-        }
-        if (this.definition == String.class) {
-            if (fullname.equals("System.IComparable") || fullname.equals("IComparable")) {
-                return fromJavaClass(IComparable.class);
-            }
-            if (fullname.equals("system.icomparable") || fullname.equals("System.IDisposable")
-                    || fullname.equals("System.IFormattable")
-                    || fullname.isEmpty()) {
-                return null;
-            }
-        }
-        if (this.definition == Int32.class) {
-            if (fullname.equals("System.IUtf8SpanFormattable")
-                    || fullname.equals("IUtf8SpanFormattable")) {
-                return fromJavaClass(IUtf8SpanFormattable.class);
-            }
-            if (fullname.equals("system.iutf8spanformattable")) {
-                return null;
-            }
-            if (fullname.equals("System.ISpanFormattable") || fullname.equals("ISpanFormattable")) {
-                return fromJavaClass(ISpanFormattable.class);
-            }
-            if (fullname.equals("system.ispanformattable")) {
-                return null;
-            }
-            if (fullname.equals("System.IComparable") || fullname.equals("IComparable")) {
-                return fromJavaClass(IComparable.class);
-            }
-            if (fullname.equals("system.icomparable")) {
-                return null;
-            }
-            if (fullname.equals("System.IFormattable") || fullname.equals("IFormattable")) {
-                return fromJavaClass(IFormattable.class);
-            }
-            if (fullname.equals("system.iformattable")) {
-                return null;
-            }
-            if (fullname.equals("System.IConvertible") || fullname.equals("IConvertible")) {
-                return fromJavaClass(IConvertible.class);
-            }
-            if (fullname.equals("system.iconvertible")) {
-                return null;
-            }
         }
         throw new UnsupportedOperationException("Interface lookup is not mapped for this candidate type");
     }
