@@ -477,7 +477,7 @@ public final class ProductDateTimeDayOfYearConsumer {
                 throw new AssertionError("Unspecified DateTime binary round trip changed");
             }
         }
-        for (long invalid : new long[] {-1L, Long.MAX_VALUE}) {
+        for (long invalid : new long[] {3155378976000000000L, Long.MAX_VALUE}) {
             try {
                 DateTime.FromBinary(invalid);
                 throw new AssertionError("Invalid DateTime binary value accepted");

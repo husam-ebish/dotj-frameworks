@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected modern local binary encoding, decoding and overlap propagation; UTC/Unspecified scalar bounds; two historical scalars test classification and normalization only",
+  "oracleEvidence": "datetime-binary-contract-v10.0.12.json",
+  "oracleSha256": "642828c232ba98779668f0dc4940331f87d8895fac4157200ebf8ac89987f158",
+  "candidateJarSha256": "3dfbc6becdd07604e2fef89f3ebf41ec94541bae5117b2ee19b0842e4cae7f75",
+  "casesPassed": 2322,
+  "operations": {
+    "ToBinary": 288,
+    "BinaryRoundTrip": 288,
+    "BinaryRoundTripUtc": 288,
+    "BinaryImportedThenDaylight": 288,
+    "BinaryImportedThenAddTickUtc": 288,
+    "BinaryImportedDateThen230Utc": 288,
+    "BinaryImportedSpecifyLocalUtc": 288,
+    "BinaryWithLocalAmbiguousFlag": 288
+  },
+  "javaZoneProfile": "Europe/Zurich",
+  "javaZoneRulesVersion": "2026b",
+  "historicalClassificationAndNormalizationOnly": 2,
+  "qualification": "BOUNDED_MODERN_BINARY_PASS; HISTORICAL_LOCAL_TICK_PARITY_OTHER_ZONES_FULL_EXTREMA_AND_LANGUAGE_OPEN"
+}
