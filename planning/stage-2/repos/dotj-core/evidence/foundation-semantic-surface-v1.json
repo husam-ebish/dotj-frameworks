@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "bff5155d8d66677241bffb014a6cae065e7c40be8941681b812a8d9bab128eac",
+  "javaCandidateEvidenceSha256": "0b52ba137c2429bc189617ed9a47957453f75f98970b5a02f08f34959faaf745",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 66,
+  "nameLevelMissingMethodCount": 65,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5893,6 +5893,7 @@
         "public System.DateTime(int, int, int, int, int, int);",
         "public System.DateTime(int, int, int, int, int, int, int);",
         "public static System.DateTime Parse(java.lang.String);",
+        "public static boolean TryParse(java.lang.String, System.DateTime[]);",
         "public static boolean IsLeapYear(int);",
         "public static int DaysInMonth(int, int);",
         "public static int Compare(System.DateTime, System.DateTime);",
@@ -6023,6 +6024,7 @@
           "ToUInt16": 1,
           "ToUInt32": 1,
           "ToUInt64": 1,
+          "TryParse": 1,
           "equals": 1,
           "get_Date": 1,
           "get_Day": 1,
@@ -6061,7 +6063,6 @@
           "ToShortTimeString",
           "ToUniversalTime",
           "TryFormat",
-          "TryParse",
           "TryParseExact"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
