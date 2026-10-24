@@ -26,6 +26,7 @@ public class FileNotFoundException extends IOException {
 
     public FileNotFoundException(String message, String fileName, Exception innerException) {
         super(message, innerException);
+        this.set_HResult(-2147024894);
         this.fileName = fileName;
     }
 

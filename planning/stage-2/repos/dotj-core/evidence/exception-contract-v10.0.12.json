@@ -1,0 +1,2014 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "8714d24f3cf553f724e6e0380ff96cc06b81d9854ce5b67e4588ac704183d300",
+  "scope": "Nineteen selected exception types; public non-serialization constructor metadata and inner identity",
+  "constructors": [
+    {
+      "type": "System.Exception",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233088,
+      "innerPresent": false
+    },
+    {
+      "type": "System.Exception",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233088,
+      "innerPresent": false
+    },
+    {
+      "type": "System.Exception",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233088,
+      "innerPresent": false
+    },
+    {
+      "type": "System.Exception",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233088,
+      "innerPresent": false
+    },
+    {
+      "type": "System.Exception",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233088,
+      "innerPresent": true
+    },
+    {
+      "type": "System.Exception",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233088,
+      "innerPresent": false
+    },
+    {
+      "type": "System.SystemException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233087,
+      "innerPresent": false
+    },
+    {
+      "type": "System.SystemException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233087,
+      "innerPresent": false
+    },
+    {
+      "type": "System.SystemException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233087,
+      "innerPresent": false
+    },
+    {
+      "type": "System.SystemException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233087,
+      "innerPresent": false
+    },
+    {
+      "type": "System.SystemException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233087,
+      "innerPresent": true
+    },
+    {
+      "type": "System.SystemException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233087,
+      "innerPresent": false
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": true,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        "paramName-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": true,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        "message-value",
+        "paramName-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.ArgumentException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentNullException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2147467261,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentNullException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2147467261,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentNullException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "paramName-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147467261,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.ArgumentNullException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147467261,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentNullException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147467261,
+      "innerPresent": true,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentNullException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147467261,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentNullException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        "paramName-value",
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147467261,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.ArgumentNullException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147467261,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "paramName-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        "paramName-value",
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233086,
+      "innerPresent": true,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [
+        "System.String",
+        "System.Object",
+        "System.String"
+      ],
+      "arguments": [
+        "paramName-value",
+        17,
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.ArgumentOutOfRangeException",
+      "parameterTypes": [
+        "System.String",
+        "System.Object",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        null,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233086,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.ArithmeticException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2147024362,
+      "innerPresent": false
+    },
+    {
+      "type": "System.ArithmeticException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2147024362,
+      "innerPresent": false
+    },
+    {
+      "type": "System.ArithmeticException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024362,
+      "innerPresent": false
+    },
+    {
+      "type": "System.ArithmeticException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024362,
+      "innerPresent": false
+    },
+    {
+      "type": "System.ArithmeticException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024362,
+      "innerPresent": true
+    },
+    {
+      "type": "System.ArithmeticException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024362,
+      "innerPresent": false
+    },
+    {
+      "type": "System.DivideByZeroException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2147352558,
+      "innerPresent": false
+    },
+    {
+      "type": "System.DivideByZeroException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2147352558,
+      "innerPresent": false
+    },
+    {
+      "type": "System.DivideByZeroException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147352558,
+      "innerPresent": false
+    },
+    {
+      "type": "System.DivideByZeroException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147352558,
+      "innerPresent": false
+    },
+    {
+      "type": "System.DivideByZeroException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147352558,
+      "innerPresent": true
+    },
+    {
+      "type": "System.DivideByZeroException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147352558,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IndexOutOfRangeException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233080,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IndexOutOfRangeException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233080,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IndexOutOfRangeException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233080,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IndexOutOfRangeException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233080,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IndexOutOfRangeException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233080,
+      "innerPresent": true
+    },
+    {
+      "type": "System.IndexOutOfRangeException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233080,
+      "innerPresent": false
+    },
+    {
+      "type": "System.OverflowException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233066,
+      "innerPresent": false
+    },
+    {
+      "type": "System.OverflowException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233066,
+      "innerPresent": false
+    },
+    {
+      "type": "System.OverflowException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233066,
+      "innerPresent": false
+    },
+    {
+      "type": "System.OverflowException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233066,
+      "innerPresent": false
+    },
+    {
+      "type": "System.OverflowException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233066,
+      "innerPresent": true
+    },
+    {
+      "type": "System.OverflowException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233066,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2147467262,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2147467262,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147467262,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147467262,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147467262,
+      "innerPresent": true
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147467262,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        "message-value",
+        0
+      ],
+      "profile": "Supplied",
+      "hResult": 0,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        "message-value",
+        123
+      ],
+      "profile": "Supplied",
+      "hResult": 123,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        "message-value",
+        -1
+      ],
+      "profile": "Supplied",
+      "hResult": -1,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        "message-value",
+        -2147483648
+      ],
+      "profile": "Supplied",
+      "hResult": -2147483648,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        null,
+        0
+      ],
+      "profile": "NullReferences",
+      "hResult": 0,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        null,
+        123
+      ],
+      "profile": "NullReferences",
+      "hResult": 123,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        null,
+        -1
+      ],
+      "profile": "NullReferences",
+      "hResult": -1,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidCastException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        null,
+        -2147483648
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147483648,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidOperationException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233079,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidOperationException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233079,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidOperationException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233079,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidOperationException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233079,
+      "innerPresent": false
+    },
+    {
+      "type": "System.InvalidOperationException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233079,
+      "innerPresent": true
+    },
+    {
+      "type": "System.InvalidOperationException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233079,
+      "innerPresent": false
+    },
+    {
+      "type": "System.NullReferenceException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2147467261,
+      "innerPresent": false
+    },
+    {
+      "type": "System.NullReferenceException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2147467261,
+      "innerPresent": false
+    },
+    {
+      "type": "System.NullReferenceException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147467261,
+      "innerPresent": false
+    },
+    {
+      "type": "System.NullReferenceException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147467261,
+      "innerPresent": false
+    },
+    {
+      "type": "System.NullReferenceException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147467261,
+      "innerPresent": true
+    },
+    {
+      "type": "System.NullReferenceException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147467261,
+      "innerPresent": false
+    },
+    {
+      "type": "System.FormatException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233033,
+      "innerPresent": false
+    },
+    {
+      "type": "System.FormatException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233033,
+      "innerPresent": false
+    },
+    {
+      "type": "System.FormatException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233033,
+      "innerPresent": false
+    },
+    {
+      "type": "System.FormatException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233033,
+      "innerPresent": false
+    },
+    {
+      "type": "System.FormatException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233033,
+      "innerPresent": true
+    },
+    {
+      "type": "System.FormatException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233033,
+      "innerPresent": false
+    },
+    {
+      "type": "System.TypeLoadException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233054,
+      "innerPresent": false
+    },
+    {
+      "type": "System.TypeLoadException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233054,
+      "innerPresent": false
+    },
+    {
+      "type": "System.TypeLoadException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233054,
+      "innerPresent": false
+    },
+    {
+      "type": "System.TypeLoadException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233054,
+      "innerPresent": false
+    },
+    {
+      "type": "System.TypeLoadException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233054,
+      "innerPresent": true
+    },
+    {
+      "type": "System.TypeLoadException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233054,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146232800,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146232800,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146232800,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146232800,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        "message-value",
+        0
+      ],
+      "profile": "Supplied",
+      "hResult": 0,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        "message-value",
+        123
+      ],
+      "profile": "Supplied",
+      "hResult": 123,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        "message-value",
+        -1
+      ],
+      "profile": "Supplied",
+      "hResult": -1,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        "message-value",
+        -2147483648
+      ],
+      "profile": "Supplied",
+      "hResult": -2147483648,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        null,
+        0
+      ],
+      "profile": "NullReferences",
+      "hResult": 0,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        null,
+        123
+      ],
+      "profile": "NullReferences",
+      "hResult": 123,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        null,
+        -1
+      ],
+      "profile": "NullReferences",
+      "hResult": -1,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32"
+      ],
+      "arguments": [
+        null,
+        -2147483648
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147483648,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146232800,
+      "innerPresent": true
+    },
+    {
+      "type": "System.IO.IOException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146232800,
+      "innerPresent": false
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2147024894,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2147024894,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024894,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024894,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024894,
+      "innerPresent": true,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024894,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        "message-value",
+        "fileName-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024894,
+      "innerPresent": false,
+      "fileName": "fileName-value"
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024894,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        "fileName-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024894,
+      "innerPresent": true,
+      "fileName": "fileName-value"
+    },
+    {
+      "type": "System.IO.FileNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024894,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146232799,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146232799,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146232799,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146232799,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146232799,
+      "innerPresent": true,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146232799,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        "message-value",
+        "fileName-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146232799,
+      "innerPresent": false,
+      "fileName": "fileName-value"
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146232799,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        "fileName-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146232799,
+      "innerPresent": true,
+      "fileName": "fileName-value"
+    },
+    {
+      "type": "System.IO.FileLoadException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146232799,
+      "innerPresent": false,
+      "fileName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        "paramName-value",
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": true,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        "paramName-value",
+        "invalidCultureName-value",
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        null,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        "invalidCultureName-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": true,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        123,
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": true,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        123,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32",
+        "System.String"
+      ],
+      "arguments": [
+        "paramName-value",
+        123,
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": "paramName-value"
+    },
+    {
+      "type": "System.Globalization.CultureNotFoundException",
+      "parameterTypes": [
+        "System.String",
+        "System.Int32",
+        "System.String"
+      ],
+      "arguments": [
+        null,
+        123,
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2147024809,
+      "innerPresent": false,
+      "paramName": null
+    },
+    {
+      "type": "System.Runtime.Serialization.SerializationException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "Supplied",
+      "hResult": -2146233076,
+      "innerPresent": false
+    },
+    {
+      "type": "System.Runtime.Serialization.SerializationException",
+      "parameterTypes": [],
+      "arguments": [],
+      "profile": "NullReferences",
+      "hResult": -2146233076,
+      "innerPresent": false
+    },
+    {
+      "type": "System.Runtime.Serialization.SerializationException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        "message-value"
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233076,
+      "innerPresent": false
+    },
+    {
+      "type": "System.Runtime.Serialization.SerializationException",
+      "parameterTypes": [
+        "System.String"
+      ],
+      "arguments": [
+        null
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233076,
+      "innerPresent": false
+    },
+    {
+      "type": "System.Runtime.Serialization.SerializationException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        "message-value",
+        true
+      ],
+      "profile": "Supplied",
+      "hResult": -2146233076,
+      "innerPresent": true
+    },
+    {
+      "type": "System.Runtime.Serialization.SerializationException",
+      "parameterTypes": [
+        "System.String",
+        "System.Exception"
+      ],
+      "arguments": [
+        null,
+        false
+      ],
+      "profile": "NullReferences",
+      "hResult": -2146233076,
+      "innerPresent": false
+    }
+  ],
+  "qualification": "BOUNDED_REFERENCE_ONLY; MESSAGES_AND_SERIALIZATION_OPEN"
+}
