@@ -173,6 +173,18 @@ public final class DateTime implements IConvertible, IComparable {
         return AddTicks((long) ticks);
     }
 
+    public DateTime AddHours(double value) {
+        if (Double.isNaN(value)) {
+            return new DateTime(this.date);
+        }
+        double ticks = java.lang.Math.rint(value * 36_000_000_000L);
+        if (!Double.isFinite(ticks) || ticks < Long.MIN_VALUE
+                || ticks >= 0x1.0p63) {
+            throw new ArgumentOutOfRangeException("value");
+        }
+        return AddTicks((long) ticks);
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }
