@@ -3,7 +3,7 @@
   "scope": "Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only",
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "e734d36c39bdda9953d18fefce4fa7c3b13de086f694dff1bb2242d7cc4b8186",
+  "oracleSha256": "1a206bc2bb18855813e132c1144ae8e9c6325f07c76ed78f2212d631afbd1421",
   "metadata": {
     "type": "System.TimeSpan",
     "interfaces": [
@@ -7895,6 +7895,3798 @@
       "value": -922337203685477579,
       "result": {
         "ticks": -9223372036854775790
+      }
+    }
+  ],
+  "compositeFactories": [
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 900000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -900000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        -2
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 792000000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -2147483648,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        2147483647,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        -2147483648
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        2147483647
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 900600000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -900600000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        -2,
+        3
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 793800000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -2147483648,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        2147483647,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        -2147483648,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        2147483647,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 900610000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -900610000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        -2,
+        3,
+        -4
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 793760000000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -2147483648,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        2147483647,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        -2147483648,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        2147483647,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 900610010000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -900610010000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        -2,
+        3,
+        -4,
+        5
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 793760050000
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -2147483648,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        2147483647,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        -2147483648,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        2147483647,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        -9223372036854775808,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        9223372036854775807,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 900610010010
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -900610010010
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        1,
+        -2,
+        3,
+        -4,
+        5,
+        -6
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 793760049940
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -2147483648,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        2147483647,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        -2147483648,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        2147483647,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        -9223372036854775808,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        9223372036854775807,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        -9223372036854775808,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        9223372036854775807,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        -922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        10675200,
+        0,
+        0,
+        0,
+        0,
+        -76314522420
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromDays",
+      "values": [
+        -10675200,
+        0,
+        0,
+        0,
+        0,
+        76314522420
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 6,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 36600000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -36600000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        1,
+        -2
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 34800000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -2147483648,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        2147483647,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 36610000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -36610000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        1,
+        -2,
+        3
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 34830000000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -2147483648,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        2147483647,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 36610010000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -36610010000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        1,
+        -2,
+        3,
+        -4
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 34829960000
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -2147483648,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        2147483647,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        -9223372036854775808,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        9223372036854775807,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 36610010010
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -1,
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -36610010010
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        1,
+        -2,
+        3,
+        -4,
+        5
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 34829960050
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -2147483648,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        2147483647,
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        -9223372036854775808,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        9223372036854775807,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        -9223372036854775808,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        9223372036854775807,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        -922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        0,
+        0,
+        0,
+        0,
+        -922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        256204779,
+        0,
+        0,
+        0,
+        -714522420
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromHours",
+      "values": [
+        -256204779,
+        0,
+        0,
+        0,
+        714522420
+      ],
+      "parameterTypes": [
+        "System.Int32",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 5,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 610000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -610000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        1,
+        -2
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 580000000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 610010000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -610010000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        1,
+        -2,
+        3
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 580030000
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        -9223372036854775808,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        9223372036854775807,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 610010010
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        -1,
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -610010010
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        1,
+        -2,
+        3,
+        -4
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 580029960
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        -9223372036854775808,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        9223372036854775807,
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        -9223372036854775808,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        9223372036854775807,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        0,
+        922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        0,
+        922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        0,
+        -922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        0,
+        0,
+        0,
+        -922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        15372286729,
+        0,
+        0,
+        -54522420
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromMinutes",
+      "values": [
+        -15372286729,
+        0,
+        0,
+        54522420
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 4,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 10010000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": -10010000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        1,
+        -2
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "ticks": 9980000
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": true,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        1,
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 10010010
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        -1,
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -10010010
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        1,
+        -2,
+        3
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9980030
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        -9223372036854775808,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        9223372036854775807,
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        0,
+        922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        0,
+        922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        0,
+        -922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        0,
+        0,
+        -922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        922337203686,
+        0,
+        -522420
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromSeconds",
+      "values": [
+        -922337203686,
+        0,
+        522420
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 3,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        0,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        1,
+        1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 10010
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        -1,
+        -1
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -10010
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        1,
+        -2
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9980
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        -9223372036854775808,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        9223372036854775807,
+        0
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        0,
+        -9223372036854775808
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        0,
+        9223372036854775807
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        0,
+        922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        0,
+        922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        0,
+        -922337203685477580
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        0,
+        -922337203685477581
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "exception": "System.ArgumentOutOfRangeException",
+        "paramName": null
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        922337203685478,
+        -420
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": 9223372036854775800
+      }
+    },
+    {
+      "method": "FromMilliseconds",
+      "values": [
+        -922337203685478,
+        420
+      ],
+      "parameterTypes": [
+        "System.Int64",
+        "System.Int64"
+      ],
+      "declaredClrParameterCount": 2,
+      "trailingDefaultsOmitted": false,
+      "result": {
+        "ticks": -9223372036854775800
       }
     }
   ],

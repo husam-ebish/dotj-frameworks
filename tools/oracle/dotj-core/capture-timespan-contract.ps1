@@ -117,6 +117,65 @@ foreach ($spec in $integerSpecs) {
         $integerFactories += [ordered]@{ method = $method.Name; inputType = $spec.type.FullName; value = $boxed; result = $result }
     }
 }
+$compositeFactories = @()
+$compositeSpecs = @(
+    @{ name = 'FromDays'; types = [type[]]@([int],[int],[long],[long],[long],[long]); scale = [TimeSpan]::MicrosecondsPerDay },
+    @{ name = 'FromHours'; types = [type[]]@([int],[long],[long],[long],[long]); scale = [TimeSpan]::MicrosecondsPerHour },
+    @{ name = 'FromMinutes'; types = [type[]]@([long],[long],[long],[long]); scale = [TimeSpan]::MicrosecondsPerMinute },
+    @{ name = 'FromSeconds'; types = [type[]]@([long],[long],[long]); scale = [TimeSpan]::MicrosecondsPerSecond },
+    @{ name = 'FromMilliseconds'; types = [type[]]@([long],[long]); scale = [TimeSpan]::MicrosecondsPerMillisecond })
+$maxMicro = [long][Numerics.BigInteger]::Divide(([Numerics.BigInteger]([long]::MaxValue)), [Numerics.BigInteger]10)
+$minMicro = [long][Numerics.BigInteger]::Divide(([Numerics.BigInteger]([long]::MinValue)), [Numerics.BigInteger]10)
+foreach ($spec in $compositeSpecs) {
+    $inputs = [Collections.Generic.List[object]]::new()
+    $fullCount = $spec.types.Count
+    $method = [TimeSpan].GetMethod($spec.name, $spec.types)
+    foreach ($prefix in 2..$fullCount) {
+        for ($index = $prefix; $index -lt $fullCount; $index++) {
+            if (-not $method.GetParameters()[$index].IsOptional -or $method.GetParameters()[$index].DefaultValue -ne 0) {
+                throw 'Only actual zero-valued trailing CLR defaults may be represented by prefix overloads.'
+            }
+        }
+        foreach ($pattern in 0..3) {
+            $values = [long[]]::new($prefix)
+            for ($index = 0; $index -lt $prefix; $index++) {
+                $values[$index] = switch ($pattern) { 0 { 0 } 1 { 1 } 2 { -1 } 3 { if ($index % 2) { -($index+1) } else { $index+1 } } }
+            }
+            $inputs.Add($values)
+        }
+        foreach ($position in 0..($prefix-1)) {
+            $minimum = if ($spec.types[$position] -eq [int]) { [int]::MinValue } else { [long]::MinValue }
+            $maximum = if ($spec.types[$position] -eq [int]) { [int]::MaxValue } else { [long]::MaxValue }
+            foreach ($value in @($minimum, $maximum)) {
+                $values = [long[]]::new($prefix); $values[$position] = $value
+                $inputs.Add($values)
+            }
+        }
+    }
+    foreach ($value in @($maxMicro, ($maxMicro+1), $minMicro, ($minMicro-1))) {
+        $values = [long[]]::new($fullCount); $values[$fullCount-1] = $value
+        $inputs.Add($values)
+    }
+    foreach ($bound in @($maxMicro, $minMicro)) {
+        $first = [long][Numerics.BigInteger]::Divide(([Numerics.BigInteger]$bound), ([Numerics.BigInteger]$spec.scale))
+        $first += $(if ($bound -gt 0) { 1 } else { -1 })
+        $correction = [long]([Numerics.BigInteger]$bound - ([Numerics.BigInteger]$first * [Numerics.BigInteger]$spec.scale))
+        $values = [long[]]::new($fullCount); $values[0] = $first; $values[$fullCount-1] = $correction
+        $inputs.Add($values)
+    }
+    foreach ($values in $inputs) {
+        $arguments = [object[]]::new($fullCount)
+        for ($index = 0; $index -lt $fullCount; $index++) {
+            $value = if ($index -lt $values.Count) { $values[$index] } else { 0 }
+            $arguments[$index] = if ($spec.types[$index] -eq [int]) { [int]$value } else { [long]$value }
+        }
+        try { $result = [ordered]@{ ticks = $method.Invoke($null, $arguments).Ticks } }
+        catch { $result = Failure $_ }
+        $compositeFactories += [ordered]@{ method = $spec.name; values = $values
+            parameterTypes = @($spec.types[0..($values.Count-1)] | ForEach-Object { $_.FullName })
+            declaredClrParameterCount = $fullCount; trailingDefaultsOmitted = ($values.Count -lt $fullCount); result = $result }
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -129,6 +188,7 @@ $record = [ordered]@{
     })
     defaultValueTicks = [Activator]::CreateInstance([TimeSpan]).Ticks
     integerFactories = $integerFactories
+    compositeFactories = $compositeFactories
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))

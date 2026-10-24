@@ -18,6 +18,7 @@ def main():
     kinds.add_argument('--properties', action='store_true')
     kinds.add_argument('--constants', action='store_true')
     kinds.add_argument('--integer-factories', action='store_true')
+    kinds.add_argument('--composite-factories', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -31,11 +32,15 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    section = ('integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
+    section = ('compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
                'constructors' if args.constructors else 'factories')
     vectors = oracle['operations'] + oracle['ratios'] if args.arithmetic else oracle[section]
     for index, case in enumerate(vectors):
-        if args.integer_factories:
+        if args.composite_factories:
+            arguments = ', '.join(str(value) + ('' if kind == 'System.Int32' else 'L')
+                                  for value, kind in zip(case['values'], case['parameterTypes']))
+            expression = f"TimeSpan.{case['method']}({arguments})"
+        elif args.integer_factories:
             suffix = '' if case['inputType'] == 'System.Int32' else 'L'
             expression = f"TimeSpan.{case['method']}({case['value']}{suffix})"
         elif args.constants:
@@ -73,6 +78,9 @@ def main():
         if args.integer_factories:
             parameter_type = 'int.class' if case['inputType'] == 'System.Int32' else 'long.class'
             cases[-1] = f'check(TimeSpan.class.getMethod("{case["method"]}", {parameter_type}).getReturnType() == TimeSpan.class, {index});\n' + cases[-1]
+        if args.composite_factories:
+            parameter_types = ', '.join('int.class' if kind == 'System.Int32' else 'long.class' for kind in case['parameterTypes'])
+            cases[-1] = f'check(TimeSpan.class.getMethod("{case["method"]}", {parameter_types}).getReturnType() == TimeSpan.class, {index});\n' + cases[-1]
     if args.constants:
         cases.append(f'check(new TimeSpan().get_Ticks() == {oracle["defaultValueTicks"]}L, {len(cases)});')
         cases.append(f'check(TimeSpan.class.getFields().length == {len(vectors)}, {len(cases)});')
@@ -91,7 +99,8 @@ def main():
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
         'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    name = ('timespan-integer-factory-differential-v1.json' if args.integer_factories else
+    name = ('timespan-composite-factory-differential-v1.json' if args.composite_factories else
+            'timespan-integer-factory-differential-v1.json' if args.integer_factories else
             'timespan-constant-differential-v1.json' if args.constants else
             'timespan-property-differential-v1.json' if args.properties else
             'timespan-arithmetic-differential-v1.json' if args.arithmetic else
