@@ -27,6 +27,10 @@ public final class TimeSpan {
         return fromScaled(value, 600_000_000L);
     }
 
+    public static TimeSpan FromSeconds(double value) {
+        return fromScaled(value, 10_000_000L);
+    }
+
     private static TimeSpan fromScaled(double value, long ticksPerUnit) {
         double scaled = java.lang.Math.rint(value * ticksPerUnit);
         if (!Double.isFinite(scaled) || scaled < Long.MIN_VALUE

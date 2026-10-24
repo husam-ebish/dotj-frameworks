@@ -775,3 +775,5 @@ The public TimeSpan candidate now exposes FromDays with checked tick conversion.
 The public TimeSpan candidate now exposes FromHours with checked tick conversion. A packaged consumer checks positive, negative and zero intervals and infinity rejection. Additional interval factories remain open.
 
 The public TimeSpan candidate now exposes FromMinutes with checked tick conversion. A packaged consumer checks positive, negative and zero intervals and infinity rejection. Additional interval factories remain open.
+
+The public TimeSpan candidate now exposes FromSeconds with checked tick conversion. A packaged consumer checks positive, negative and zero intervals and infinity rejection. Finer interval factories remain open.
