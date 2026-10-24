@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "569ec45ced24fe8b16c15d5d5c913c519dd8d8e10ea8f719acd0c11fd88eb3a5",
+  "javaCandidateEvidenceSha256": "2adf17d45f4a8b42162de3f374897f7d97466ddc137b195232ba5e68c61d8092",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 44,
+  "nameLevelMissingMethodCount": 43,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5931,6 +5931,7 @@
         "public long ToFileTime();",
         "public System.DateTime ToUniversalTime();",
         "public System.DateTime ToLocalTime();",
+        "public boolean IsDaylightSavingTime();",
         "public double ToOADate();",
         "public int get_Hour();",
         "public int get_Minute();",
@@ -6030,6 +6031,7 @@
           "GetDateTimeFormats": 2,
           "GetHashCode": 1,
           "GetTypeCode": 1,
+          "IsDaylightSavingTime": 1,
           "IsLeapYear": 1,
           "Parse": 1,
           "ParseExact": 1,
@@ -6080,7 +6082,6 @@
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "Add",
           "Deconstruct",
-          "IsDaylightSavingTime",
           "SpecifyKind",
           "Subtract"
         ],
