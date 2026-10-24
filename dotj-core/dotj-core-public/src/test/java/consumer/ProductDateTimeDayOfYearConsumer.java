@@ -235,6 +235,34 @@ public final class ProductDateTimeDayOfYearConsumer {
                 }
             }
         }
+        DateTime dayOrigin = new DateTime(2024, 2, 29, 12, 0, 0);
+        double tickDay = 1.0 / 864000000000.0;
+        if (dayOrigin.AddDays(-1.0).get_Ticks() - dayOrigin.get_Ticks()
+                    != -864000000000L
+                || dayOrigin.AddDays(-0.5).get_Ticks() - dayOrigin.get_Ticks()
+                    != -432000000000L
+                || dayOrigin.AddDays(-tickDay).get_Ticks() - dayOrigin.get_Ticks() != -1L
+                || dayOrigin.AddDays(-tickDay / 2).get_Ticks() != dayOrigin.get_Ticks()
+                || dayOrigin.AddDays(tickDay / 2).get_Ticks() != dayOrigin.get_Ticks()
+                || dayOrigin.AddDays(tickDay).get_Ticks() - dayOrigin.get_Ticks() != 1L
+                || dayOrigin.AddDays(0.5).get_Ticks() - dayOrigin.get_Ticks()
+                    != 432000000000L
+                || dayOrigin.AddDays(1.0).get_Ticks() - dayOrigin.get_Ticks()
+                    != 864000000000L
+                || dayOrigin.AddDays(Double.NaN).get_Ticks() != dayOrigin.get_Ticks()) {
+            throw new AssertionError("DateTime AddDays changed");
+        }
+        for (double days : new double[] {Double.POSITIVE_INFINITY,
+                Double.NEGATIVE_INFINITY, Double.MAX_VALUE}) {
+            try {
+                dayOrigin.AddDays(days);
+                throw new AssertionError("Out-of-range day addition accepted");
+            } catch (ArgumentOutOfRangeException caught) {
+                if (!"value".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Day addition parameter changed");
+                }
+            }
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }

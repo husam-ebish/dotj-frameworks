@@ -243,6 +243,7 @@ def main():
                                     "public System.DateTime AddTicks(long);",
                                     "public System.DateTime AddMonths(int);",
                                     "public System.DateTime AddYears(int);",
+                                    "public System.DateTime AddDays(double);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();", "public int get_DayOfYear();",
                                     "public System.DateTime get_Date();",
