@@ -446,4 +446,9 @@ public final class DateTime implements IConvertible, IComparable {
         return this.date.format(DateTimeFormatter.ofPattern(
                 "MM/dd/uuuu", java.util.Locale.US));
     }
+
+    public String ToLongTimeString() {
+        return this.date.format(DateTimeFormatter.ofPattern(
+                "HH:mm:ss", java.util.Locale.US));
+    }
 }

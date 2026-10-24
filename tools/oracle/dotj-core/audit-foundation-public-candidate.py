@@ -284,7 +284,8 @@ def main():
                                     "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
                                     "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
                                     "public java.lang.String ToLongDateString();",
-                                    "public java.lang.String ToShortDateString();"]
+                                    "public java.lang.String ToShortDateString();",
+                                    "public java.lang.String ToLongTimeString();"]
             assert upstream["declaredPublicMethodCount"] == 70
             disposition = "PARTIAL_VALUE_SURFACE; selected DateTime IConvertible and date construction/Parse/properties/text"
         elif name == "System.Int32":
