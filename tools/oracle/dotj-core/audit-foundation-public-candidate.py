@@ -250,6 +250,7 @@ def main():
                                     "public int hashCode();",
                                     "public System.DateTime AddTicks(long);",
                                     "public System.DateTime Add(System.TimeSpan);",
+                                    "public System.DateTime Subtract(System.TimeSpan);",
                                     "public System.DateTime AddMonths(int);",
                                     "public System.DateTime AddYears(int);",
                                     "public System.DateTime AddDays(double);",

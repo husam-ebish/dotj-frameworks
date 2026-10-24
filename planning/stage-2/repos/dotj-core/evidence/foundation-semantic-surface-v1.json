@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "6a4eaa2a2495c75b345bebafb0692adf71d776fceac6027e2fb2567bd624f42a",
+  "javaCandidateEvidenceSha256": "cbe6bfe05bbd5e75bea46a11d344ba1c67de51643c74bf8e10c3e0ed18bf57da",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 40,
+  "nameLevelMissingMethodCount": 39,
   "nameLevelMissingPublicGetterCount": 26,
   "types": [
     {
@@ -5914,6 +5914,7 @@
         "public int hashCode();",
         "public System.DateTime AddTicks(long);",
         "public System.DateTime Add(System.TimeSpan);",
+        "public System.DateTime Subtract(System.TimeSpan);",
         "public System.DateTime AddMonths(int);",
         "public System.DateTime AddYears(int);",
         "public System.DateTime AddDays(double);",
@@ -6042,6 +6043,7 @@
           "Parse": 1,
           "ParseExact": 1,
           "SpecifyKind": 1,
+          "Subtract": 1,
           "ToBinary": 1,
           "ToBoolean": 1,
           "ToByte": 1,
@@ -6087,9 +6089,7 @@
           "get_Year": 1,
           "hashCode": 1
         },
-        "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "Subtract"
-        ],
+        "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
           "DayOfWeek",
           "Now",

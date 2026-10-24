@@ -267,6 +267,19 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return this.AddTicks(value.get_Ticks());
     }
 
+    public DateTime Subtract(TimeSpan value) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        long inverse;
+        try {
+            inverse = java.lang.Math.negateExact(value.get_Ticks());
+        } catch (java.lang.ArithmeticException overflow) {
+            throw new ArgumentOutOfRangeException("value");
+        }
+        return this.AddTicks(inverse);
+    }
+
     public DateTime AddMonths(int months) {
         if (months < -120_000 || months > 120_000) {
             throw new ArgumentOutOfRangeException("months");
