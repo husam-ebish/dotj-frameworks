@@ -11,4 +11,8 @@ Plan scope: `DJ-001-WP-05-T1`, in progress. No implementation task is accepted.
 
 The oracle records 1,862 native String cases. Candidate verification applies them through 5,138 String and Character-view groups, with explicit input/format slices and format-array null/empty coverage. Character views reuse selected native String results; this does not qualify every CLR span lifetime, allocation or source-language behavior.
 
-The source/class inventory explicitly includes the new carrier and the standalone Type/typeof build dependencies. Product runtime dependencies remain JDK-only. Full enum Type projection, cultures/providers, runtime by-reference semantics, complete parsing profiles and E01/E02/E03/N01 release qualification remain open.
+The source/class inventory explicitly includes the new carrier and the standalone Type/typeof build dependencies. Product runtime dependencies remain JDK-only.
+
+Selected enum Type projection now maps class/array identity, enum/value/sealed flags, Enum base, Int32 underlying type/type code, declared names and values, underlying-value arrays, name/defined queries and selected relationships/instances. Ninety-two native groups include undefined Int32 carrier values and null/name error behavior. Returned name/value arrays are copied. Native enum interfaces are retained as omitted scope; their dispatch is not qualified by these Type queries.
+
+Full enum reflection and interface dispatch, cultures/providers, runtime by-reference semantics, complete parsing profiles and E01/E02/E03/N01 release qualification remain open.
