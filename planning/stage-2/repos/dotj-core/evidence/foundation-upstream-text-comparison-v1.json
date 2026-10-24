@@ -3,7 +3,7 @@
   "scope": "All 73 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "9c697cac3d1ff678dc8464ab3931603ff344fa1ea8c989f42cd0c1771d58ea7b",
+  "jarSha256": "c9bcb5c1577365379475e649e6c8850d90e608ddab5967cca6f6c23e57b23914",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -700,14 +700,35 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java",
-      "productSha256": "b56a994f2a4fd784f928f00e4a4d298aa49d347e0ee9bdfc4f5cd680fb47f738",
+      "productSha256": "10b2b7ea3b4d19bad3dff93d9a578c55ab5ccd6f7fc9b5ca828c84ecf8ce5265",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/TimeSpan.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/TimeSpan.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "6746cf1817b7236af0e0b96d9d4aea7727c9aa64623da435f736073cb213fef1",
-      "productIdentifierCount": 866,
+      "productIdentifierCount": 961,
       "upstreamIdentifierCount": 4225,
-      "sharedIdentifierShinglesOfLength12": 0
+      "sharedIdentifierShinglesOfLength12": 19,
+      "sharedIdentifierShingleSamples": [
+        "TimeSpan int days int hours int minutes int seconds int milliseconds int",
+        "TimeSpan int days int hours int minutes int seconds int milliseconds this",
+        "TimeSpan int days int hours int minutes int seconds this days hours",
+        "days int hours int minutes int seconds int milliseconds int microseconds long",
+        "days int hours int minutes int seconds int milliseconds this days hours",
+        "days int hours int minutes int seconds this days hours minutes seconds",
+        "hours int minutes int seconds int milliseconds int microseconds long totalMicroseconds days",
+        "hours int minutes int seconds int milliseconds this days hours minutes seconds",
+        "hours minutes seconds public TimeSpan int days int hours int minutes int",
+        "int days int hours int minutes int seconds int milliseconds int microseconds",
+        "int days int hours int minutes int seconds int milliseconds this days",
+        "int days int hours int minutes int seconds this days hours minutes",
+        "int hours int minutes int seconds int milliseconds int microseconds long totalMicroseconds",
+        "int hours int minutes int seconds int milliseconds this days hours minutes",
+        "int minutes int seconds int milliseconds this days hours minutes seconds milliseconds",
+        "minutes seconds public TimeSpan int days int hours int minutes int seconds",
+        "public TimeSpan int days int hours int minutes int seconds int milliseconds",
+        "public TimeSpan int days int hours int minutes int seconds this days",
+        "seconds public TimeSpan int days int hours int minutes int seconds this"
+      ]
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/Type.java",

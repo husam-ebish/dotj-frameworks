@@ -24,6 +24,9 @@ try {
     $outputPath = Join-Path $root 'planning/stage-2/repos/dotj-core/evidence/timespan-contract-v10.0.12.json'
     & $dotnet exec --runtimeconfig $config $pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot 'capture-timespan-contract.ps1') -OutputPath $outputPath
     if ($LASTEXITCODE -ne 0) { throw 'Pinned TimeSpan oracle failed.' }
+    # Preserve a stable byte representation across PowerShell/checkout line endings.
+    $canonical = [IO.File]::ReadAllText($outputPath).Replace("`r`n", "`n")
+    [IO.File]::WriteAllText($outputPath, $canonical, (New-Object Text.UTF8Encoding($false)))
 } finally {
     foreach ($name in $variables) { [Environment]::SetEnvironmentVariable($name, $saved[$name], 'Process') }
 }

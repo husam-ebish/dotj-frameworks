@@ -42,7 +42,22 @@ foreach ($ticks in @([long]0, [long]1, [long]3, [long]-3, [long]::MaxValue, [lon
     }
 }
 $constructors = @()
-foreach ($components in @(@(1,2,3), @(25,-2,61), @(1,2,3,4), @(-1,2,-3,4), @(1,2,3,4,5), @(1,2,3,4,5,6), @(2147483647,0,0), @(2147483647,0,0,0))) {
+$constructorInputs = [Collections.Generic.List[object]]::new()
+foreach ($components in @(@(1,2,3), @(25,-2,61), @(1,2,3,4), @(-1,2,-3,4), @(1,2,3,4,5), @(1,2,3,4,5,6), @(2147483647,0,0), @(2147483647,0,0,0), @(10675199,2,48,5,477,580), @(10675199,2,48,5,477,581), @(-10675199,-2,-48,-5,-477,-580), @(-10675199,-2,-48,-5,-477,-581))) {
+    $constructorInputs.Add([int[]]$components)
+}
+foreach ($length in 3..6) {
+    $constructorInputs.Add([int[]]::new($length))
+    foreach ($position in 0..($length-1)) {
+        foreach ($value in @([int]::MinValue, -1000, -25, -1, 1, 25, 1000, [int]::MaxValue)) {
+            $components = [int[]]::new($length); $components[$position] = $value
+            $constructorInputs.Add($components)
+        }
+    }
+    $constructorInputs.Add([int[]]@((1..$length) | ForEach-Object { [int]::MaxValue }))
+    $constructorInputs.Add([int[]]@((1..$length) | ForEach-Object { [int]::MinValue }))
+}
+foreach ($components in $constructorInputs) {
     $parameterTypes = [type[]]@($components | ForEach-Object { [int] })
     $constructor = [TimeSpan].GetConstructor($parameterTypes)
     try { $result = [ordered]@{ ticks = $constructor.Invoke([object[]]$components).Ticks } }

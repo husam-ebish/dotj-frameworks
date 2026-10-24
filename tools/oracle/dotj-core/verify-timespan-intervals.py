@@ -12,6 +12,7 @@ EVIDENCE = ROOT / 'planning/stage-2/repos/dotj-core/evidence'
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--jar', type=Path)
+    parser.add_argument('--constructors', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -25,8 +26,9 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    for index, case in enumerate(oracle['factories']):
-        expression = f"TimeSpan.{case['method']}(Double.longBitsToDouble(0x{case['inputBits']}L))"
+    section = 'constructors' if args.constructors else 'factories'
+    for index, case in enumerate(oracle[section]):
+        expression = ('new TimeSpan(' + ','.join(str(value) for value in case['components']) + ')') if args.constructors else f"TimeSpan.{case['method']}(Double.longBitsToDouble(0x{case['inputBits']}L))"
         result = case['result']
         if 'ticks' in result:
             cases.append(f'check({expression}.get_Ticks() == {result["ticks"]}L, {index});')
@@ -35,23 +37,25 @@ def main():
             cases.append(f'''try {{ {expression}; throw new AssertionError("missing exception {index}"); }}
                 catch ({result['exception'].split('.')[-1]} expected) {{
                     check(expected.getClass().getName().equals("{result['exception']}"), {index});
-                    {'check(java.util.Objects.equals(expected.get_ParamName(), ' + parameter + '), ' + str(index) + ');' if result['exception'] == 'System.ArgumentException' else ''}
+                    {'check(java.util.Objects.equals(expected.get_ParamName(), ' + parameter + '), ' + str(index) + ');' if result['exception'] in ('System.ArgumentException', 'System.ArgumentOutOfRangeException') else ''}
                 }}''')
+    args.work = args.work / section
     args.work.mkdir(parents=True, exist_ok=True)
     source = args.work / 'TimeSpanIntervalProbe.java'
-    source.write_text('import System.TimeSpan;\nimport System.ArgumentException;\nimport System.OverflowException;\npublic class TimeSpanIntervalProbe {\n'
+    source.write_text('import System.TimeSpan;\nimport System.ArgumentException;\nimport System.ArgumentOutOfRangeException;\nimport System.OverflowException;\npublic class TimeSpanIntervalProbe {\n'
                       'static void check(boolean ok, int id) { if (!ok) throw new AssertionError("case " + id); }\n'
                       'public static void main(String[] args) {\n' + '\n'.join(cases) +
-                      f'\njava.lang.System.out.println("PASS TimeSpan intervals: {len(cases)} pinned vectors");\n}}\n}}\n', encoding='utf-8')
+                      f'\njava.lang.System.out.println("PASS TimeSpan {section}: {len(cases)} pinned vectors");\n}}\n}}\n', encoding='utf-8')
     subprocess.run(['javac', '--release', '21', '-cp', str(args.jar), '-d', str(args.work), str(source)], check=True)
     subprocess.run(['java', '-cp', str(args.jar) + ';' + str(args.work), 'TimeSpanIntervalProbe'], check=True)
     record = {
-        'schemaVersion': 1, 'scope': 'Six TimeSpan double interval factories; selected pinned boundary vectors',
+        'schemaVersion': 1, 'scope': f'TimeSpan {section}; selected pinned boundary vectors',
         'oracleEvidence': oracle_path.name, 'oracleSha256': hashlib.sha256(oracle_path.read_bytes()).hexdigest(),
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
-        'casesPassed': len(cases), 'qualification': 'BOUNDED_FACTORY_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
+        'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    (EVIDENCE / 'timespan-interval-differential-v1.json').write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
+    name = 'timespan-constructor-differential-v1.json' if args.constructors else 'timespan-interval-differential-v1.json'
+    (EVIDENCE / name).write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
 
 
 if __name__ == '__main__':

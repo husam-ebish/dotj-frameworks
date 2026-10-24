@@ -65,6 +65,7 @@ def main():
             "missingDirectNamePath": queue["directNameMissingCount"],
             "throwSiteAdjacentFilesCompared": len(adjacency["rows"]),
             "reviewQueueEvidence": "foundation-notice-review-queue-v1.json",
+            "lexicalOverlapReviewRequiredPaths": queue["overlapReviewRequiredPaths"],
             "throwSiteEvidence": "throw-site-upstream-adjacency-v1.json",
         },
         "upstreamReferenceNoticesNotInJar":
