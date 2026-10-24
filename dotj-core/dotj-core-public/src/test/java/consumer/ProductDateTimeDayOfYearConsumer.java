@@ -13,6 +13,24 @@ import System.TimeSpan;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        TimeSpan comparison = TimeSpan.FromTicks(42L);
+        if (TimeSpan.Compare(TimeSpan.FromTicks(-1L), comparison) >= 0
+                || TimeSpan.Compare(comparison, TimeSpan.FromTicks(42L)) != 0
+                || comparison.CompareTo(TimeSpan.FromTicks(41L)) <= 0
+                || comparison.CompareTo((Object) null) != 1
+                || comparison.CompareTo((Object) TimeSpan.FromTicks(43L)) >= 0) {
+            throw new AssertionError("TimeSpan comparison changed");
+        }
+        try {
+            comparison.CompareTo((Object) "42");
+            throw new AssertionError("Wrong TimeSpan comparison type accepted");
+        } catch (ArgumentException expected) {
+        }
+        try {
+            comparison.CompareTo((TimeSpan) null);
+            throw new AssertionError("Null typed TimeSpan comparison accepted");
+        } catch (ArgumentNullException expected) {
+        }
         if (TimeSpan.FromTicks(-15L).Negate().get_Ticks() != 15L
                 || TimeSpan.FromTicks(15L).Negate().get_Ticks() != -15L
                 || TimeSpan.FromTicks(0L).Negate().get_Ticks() != 0L

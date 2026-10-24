@@ -3,7 +3,7 @@
 package System;
 
 /** Immutable tick interval for the selected DateTime arithmetic candidate. */
-public final class TimeSpan {
+public final class TimeSpan implements IComparable {
     private static final long TICKS_PER_DAY = 864_000_000_000L;
     private final long ticks;
 
@@ -87,6 +87,34 @@ public final class TimeSpan {
         } catch (java.lang.ArithmeticException overflow) {
             throw new OverflowException("TimeSpan value was out of range.");
         }
+    }
+
+    public static int Compare(TimeSpan left, TimeSpan right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        return Long.compare(left.ticks, right.ticks);
+    }
+
+    public int CompareTo(TimeSpan other) {
+        if (other == null) {
+            throw new ArgumentNullException("other");
+        }
+        return Compare(this, other);
+    }
+
+    @Override
+    public int CompareTo(Object obj) {
+        if (obj == null) {
+            return 1;
+        }
+        if (!(obj instanceof TimeSpan other)) {
+            throw new ArgumentException("Object must be of type TimeSpan", "obj");
+        }
+        return Compare(this, other);
     }
 
     public double get_TotalDays() {
