@@ -173,6 +173,10 @@ public final class DateTime implements IConvertible, IComparable {
         return addScaled(value, 600_000_000L);
     }
 
+    public DateTime AddSeconds(double value) {
+        return addScaled(value, 10_000_000L);
+    }
+
     private DateTime addScaled(double value, long ticksPerUnit) {
         if (Double.isNaN(value)) {
             return new DateTime(this.date);
