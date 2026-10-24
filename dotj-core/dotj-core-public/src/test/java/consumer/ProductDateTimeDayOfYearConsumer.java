@@ -263,6 +263,27 @@ public final class ProductDateTimeDayOfYearConsumer {
                 }
             }
         }
+        double tickHour = 1.0 / 36000000000.0;
+        if (dayOrigin.AddHours(-1.0).get_Ticks() - dayOrigin.get_Ticks()
+                    != -36000000000L
+                || dayOrigin.AddHours(-0.5).get_Ticks() - dayOrigin.get_Ticks()
+                    != -18000000000L
+                || dayOrigin.AddHours(-tickHour).get_Ticks() - dayOrigin.get_Ticks() != -1L
+                || dayOrigin.AddHours(tickHour / 2).get_Ticks() != dayOrigin.get_Ticks()
+                || dayOrigin.AddHours(tickHour).get_Ticks() - dayOrigin.get_Ticks() != 1L
+                || dayOrigin.AddHours(1.0).get_Ticks() - dayOrigin.get_Ticks()
+                    != 36000000000L
+                || dayOrigin.AddHours(Double.NaN).get_Ticks() != dayOrigin.get_Ticks()) {
+            throw new AssertionError("DateTime AddHours changed");
+        }
+        try {
+            dayOrigin.AddHours(Double.POSITIVE_INFINITY);
+            throw new AssertionError("Infinite hours accepted");
+        } catch (ArgumentOutOfRangeException caught) {
+            if (!"value".equals(caught.get_ParamName())) {
+                throw new AssertionError("Hour addition parameter changed");
+            }
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }
