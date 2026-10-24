@@ -658,6 +658,10 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
                 || format.equals("t") || format.equals("T")) {
             return ToString();
         }
+        if (format.equals("g") || format.equals("G")) {
+            if (formatProvider != null) { throw new UnsupportedOperationException("Only null-provider invariant general formatting is mapped."); }
+            return generalText(format.equals("G"));
+        }
         if (format.length() > 1) {
             String result = customText(format);
             if (formatProvider == null) {
@@ -665,6 +669,28 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
             }
         }
         throw new FormatException("This candidate supports constant formats and null-provider custom formats.");
+    }
+
+    private String generalText(boolean full) {
+        long days = java.lang.Math.abs(this.ticks / TicksPerDay);
+        long remainder = java.lang.Math.abs(this.ticks % TicksPerDay);
+        long hours = remainder / TicksPerHour;
+        long minutes = remainder / TicksPerMinute % 60L;
+        long seconds = remainder / TicksPerSecond % 60L;
+        StringBuilder text = new StringBuilder();
+        if (this.ticks < 0L) { text.append('-'); }
+        if (full || days != 0L) { text.append(days).append(':'); }
+        if (full && hours < 10L) { text.append('0'); }
+        text.append(hours).append(':');
+        if (minutes < 10L) { text.append('0'); }
+        text.append(minutes).append(':');
+        if (seconds < 10L) { text.append('0'); }
+        text.append(seconds);
+        String fraction = String.format(java.util.Locale.ROOT, "%07d", remainder % TicksPerSecond);
+        int digits = fraction.length();
+        if (!full) { while (digits > 0 && fraction.charAt(digits - 1) == '0') { digits--; } }
+        if (digits != 0) { text.append('.').append(fraction, 0, digits); }
+        return text.toString();
     }
 
     private String customText(String format) {
