@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "846851bba3af8213a89da9947e56039bf84fe5ec73dc3927914b66bfe4454587",
+  "javaCandidateEvidenceSha256": "7d8e5d21ffc6e467e15f3e12c3144f9f98c936d7d77135bc32f21712dfab18fc",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 46,
+  "nameLevelMissingMethodCount": 45,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5929,6 +5929,7 @@
         "public long ToBinary();",
         "public long ToFileTimeUtc();",
         "public long ToFileTime();",
+        "public System.DateTime ToUniversalTime();",
         "public double ToOADate();",
         "public int get_Hour();",
         "public int get_Minute();",
@@ -6055,6 +6056,7 @@
           "ToUInt16": 1,
           "ToUInt32": 1,
           "ToUInt64": 1,
+          "ToUniversalTime": 1,
           "TryFormat": 1,
           "TryParse": 1,
           "TryParseExact": 1,
@@ -6079,8 +6081,7 @@
           "IsDaylightSavingTime",
           "SpecifyKind",
           "Subtract",
-          "ToLocalTime",
-          "ToUniversalTime"
+          "ToLocalTime"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
           "DayOfWeek",

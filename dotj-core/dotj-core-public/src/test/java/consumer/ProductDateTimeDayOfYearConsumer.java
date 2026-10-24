@@ -11,6 +11,17 @@ import System.OverflowException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        java.util.TimeZone priorUniversalZone = java.util.TimeZone.getDefault();
+        try {
+            java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("America/New_York"));
+            DateTime universal = new DateTime(1969, 12, 31, 19, 0, 0)
+                    .ToUniversalTime();
+            if (universal.get_Ticks() != new DateTime(1970, 1, 1).get_Ticks()) {
+                throw new AssertionError("Local to UTC conversion changed");
+            }
+        } finally {
+            java.util.TimeZone.setDefault(priorUniversalZone);
+        }
         java.util.TimeZone priorFileTimeZone = java.util.TimeZone.getDefault();
         try {
             java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("America/New_York"));
