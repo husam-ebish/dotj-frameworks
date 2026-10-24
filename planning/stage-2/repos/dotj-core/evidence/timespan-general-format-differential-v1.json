@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "scope": "Invariant g/G formatting through String, Char/Byte arrays and destination views; null provider only",
+  "oracleEvidence": "timespan-general-format-contract-v10.0.12.json",
+  "oracleSha256": "aa6bb0538aa0e8d29b486831c9132316cfac8306f15641c3132b6a0dbaaf3c3b",
+  "candidateJarSha256": "448118494cb6c635a7c2cabf7a05329fdf9d42e2457769a6756dd1045d7b1c99",
+  "casesPassed": 440,
+  "casesByType": {
+    "TimeSpan": 440
+  },
+  "compileRejections": [
+    "TimeSpan UTF-8 format carrier"
+  ],
+  "qualification": "BOUNDED_VIEW_CARRIER_PASS; CLR_BYREF_LIFETIME_AND_LANGUAGE_MAPPING_OPEN"
+}
