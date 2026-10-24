@@ -3,7 +3,7 @@
 package System;
 
 /** Immutable tick interval for the selected DateTime arithmetic candidate. */
-public final class TimeSpan implements IComparable, IFormattable {
+public final class TimeSpan implements IComparable, ISpanFormattable {
     public static final long NanosecondsPerTick = 100L;
     public static final long TicksPerMicrosecond = 10L;
     public static final long TicksPerMillisecond = 10_000L;
@@ -549,6 +549,19 @@ public final class TimeSpan implements IComparable, IFormattable {
             }
         }
         return output.toString();
+    }
+
+    @Override
+    public boolean TryFormat(char[] destination, int[] charsWritten, String format,
+            IFormatProvider provider) {
+        String text = ToString(format, provider);
+        if (text.length() > destination.length) {
+            charsWritten[0] = 0;
+            return false;
+        }
+        text.getChars(0, text.length(), destination, 0);
+        charsWritten[0] = text.length();
+        return true;
     }
 
     public static boolean TryParse(String input, TimeSpan[] result) {
