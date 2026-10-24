@@ -7,10 +7,33 @@ import System.ArgumentException;
 import System.IComparable;
 import System.FormatException;
 import System.OverflowException;
+import System.DateTimeKind;
 
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        DateTime unspecified = new DateTime(2024, 2, 29);
+        DateTime specifiedUtc = DateTime.SpecifyKind(unspecified, DateTimeKind.Utc);
+        DateTime specifiedLocal = DateTime.SpecifyKind(unspecified, DateTimeKind.Local);
+        if (unspecified.get_Kind() != DateTimeKind.Unspecified
+                || specifiedUtc.get_Kind() != DateTimeKind.Utc
+                || specifiedLocal.get_Kind() != DateTimeKind.Local
+                || specifiedUtc.get_Ticks() != unspecified.get_Ticks()
+                || specifiedUtc.AddDays(1).get_Kind() != DateTimeKind.Utc
+                || specifiedLocal.get_Date().get_Kind() != DateTimeKind.Local
+                || DateTime.FromBinary(specifiedUtc.ToBinary()).get_Kind()
+                    != DateTimeKind.Utc
+                || DateTime.FromFileTimeUtc(0).get_Kind() != DateTimeKind.Utc) {
+            throw new AssertionError("DateTime kind identity changed");
+        }
+        try {
+            DateTime.SpecifyKind(unspecified, null);
+            throw new AssertionError("Null DateTime kind accepted");
+        } catch (ArgumentException expected) {
+            if (!"kind".equals(expected.get_ParamName())) {
+                throw new AssertionError("DateTime kind parameter changed");
+            }
+        }
         int[] deconstructedYear = {-1};
         int[] deconstructedMonth = {-1};
         int[] deconstructedDay = {-1};

@@ -5,10 +5,10 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "b8084ec729082a832742fdb1817cdc118397a37ae50167b5dc56ea9f3793852b",
+  "javaCandidateEvidenceSha256": "f4bd03b8d91bfcd7633795a161a1c0ab3728fc93a55ee795db3ab5d66171a36f",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 42,
-  "nameLevelMissingPublicGetterCount": 27,
+  "nameLevelMissingMethodCount": 41,
+  "nameLevelMissingPublicGetterCount": 26,
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -5892,6 +5892,7 @@
         "public System.DateTime(int, int, int);",
         "public System.DateTime(int, int, int, int, int, int);",
         "public System.DateTime(int, int, int, int, int, int, int);",
+        "public static System.DateTime SpecifyKind(System.DateTime, System.DateTimeKind);",
         "public static System.DateTime Parse(java.lang.String);",
         "public static boolean TryParse(java.lang.String, System.DateTime[]);",
         "public static System.DateTime ParseExact(java.lang.String, java.lang.String, System.IFormatProvider);",
@@ -5925,6 +5926,7 @@
         "public int get_Day();",
         "public int get_DayOfYear();",
         "public System.DateTime get_Date();",
+        "public System.DateTimeKind get_Kind();",
         "public long get_Ticks();",
         "public long ToBinary();",
         "public long ToFileTimeUtc();",
@@ -6037,6 +6039,7 @@
           "IsLeapYear": 1,
           "Parse": 1,
           "ParseExact": 1,
+          "SpecifyKind": 1,
           "ToBinary": 1,
           "ToBoolean": 1,
           "ToByte": 1,
@@ -6071,6 +6074,7 @@
           "get_Day": 1,
           "get_DayOfYear": 1,
           "get_Hour": 1,
+          "get_Kind": 1,
           "get_Microsecond": 1,
           "get_Millisecond": 1,
           "get_Minute": 1,
@@ -6083,12 +6087,10 @@
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "Add",
-          "SpecifyKind",
           "Subtract"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
           "DayOfWeek",
-          "Kind",
           "Now",
           "TimeOfDay",
           "Today",
