@@ -687,3 +687,5 @@ The public DateTime candidate now exposes get_Microsecond as the sub-millisecond
 The public DateTime candidate now exposes get_Nanosecond as the sub-microsecond component. A packaged consumer checks a seven-digit fractional second and a millisecond constructor. Broader DateTime parity remains open.
 
 The public DateTime candidate now exposes IsLeapYear with Gregorian century rules and the .NET year range of 1 through 9999. A packaged consumer checks leap and common years plus out-of-range parameter names. Broader DateTime parity remains open.
+
+The public DateTime candidate now exposes DaysInMonth with Gregorian leap rules and .NET month-before-year argument validation. A packaged consumer checks month lengths and invalid parameter names. Broader DateTime parity remains open.

@@ -55,6 +55,16 @@ public final class DateTime implements IConvertible {
         return java.time.Year.isLeap(year);
     }
 
+    public static int DaysInMonth(int year, int month) {
+        if (month < 1 || month > 12) {
+            throw new ArgumentOutOfRangeException("month");
+        }
+        if (year < 1 || year > 9999) {
+            throw new ArgumentOutOfRangeException("year");
+        }
+        return java.time.YearMonth.of(year, month).lengthOfMonth();
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }
