@@ -778,6 +778,19 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return true;
     }
 
+    /** One typed Java carrier for the selected CLR Char and Byte span signatures. */
+    public <T> boolean TryFormat(Span<T> destination, int[] written,
+            ReadOnlySpan<Character> format, IFormatProvider provider) {
+        if (destination == null) { throw new ArgumentNullException("destination"); }
+        if (format == null) { throw new ArgumentNullException("format"); }
+        Object buffer = destination.selectedBufferCopy();
+        boolean success = buffer instanceof char[] chars
+                ? TryFormat(chars, written, format.selectedText(), provider)
+                : TryFormat((byte[]) buffer, written, format.selectedText(), provider);
+        destination.writeSelectedBuffer(buffer);
+        return success;
+    }
+
     private static int selectedFormatCopyLength(String format, int textLength, int capacity) {
         if (capacity >= textLength) { return textLength; }
         int[] chunks;

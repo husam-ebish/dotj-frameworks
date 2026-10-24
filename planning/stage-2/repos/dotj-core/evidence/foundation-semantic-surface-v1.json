@@ -5,7 +5,7 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "9e845ae056bb3e7b270953f0c31753d4c4e865df4d314da768f7d8a7115dfbfb",
+  "javaCandidateEvidenceSha256": "5c27fe9ad02ca277ee6c8a29b4ca2ad7c46c545ffa2cfd59215a66b8d4b5a03e",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 39,
   "nameLevelMissingPublicGetterCount": 24,
@@ -5985,7 +5985,8 @@
         "public java.lang.String[] GetDateTimeFormats(char, System.IFormatProvider);",
         "public java.lang.String[] GetDateTimeFormats();",
         "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
-        "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);"
+        "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+        "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -6087,7 +6088,7 @@
           "ToUInt32": 1,
           "ToUInt64": 1,
           "ToUniversalTime": 1,
-          "TryFormat": 2,
+          "TryFormat": 3,
           "TryParse": 1,
           "TryParseExact": 1,
           "equals": 1,
