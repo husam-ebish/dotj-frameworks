@@ -379,7 +379,8 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 0
             disposition = "SELECTED_FLAG_VALUES; immutable Java carrier plus Type enum projection; CLR ABI open"
         else:
-            assert header.startswith("public class " + name)
+            prefix = "public final class " if name == "System.IndexOutOfRangeException" else "public class "
+            assert header.startswith(prefix + name)
             if name == "System.Exception":
                 assert "public java.lang.String get_Message();" in declarations
                 assert "public System.Exception get_InnerException();" in declarations

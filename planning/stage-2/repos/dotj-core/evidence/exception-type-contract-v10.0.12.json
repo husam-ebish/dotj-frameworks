@@ -1,0 +1,6625 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "6a88992f4100e9101b55cf20db0233396e91cc1be59a0287423de741141cb7cd",
+  "types": [
+    {
+      "name": "System.Exception",
+      "baseType": "System.Object",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.SystemException",
+      "baseType": "System.Exception",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.ArgumentException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.ArgumentNullException",
+      "baseType": "System.ArgumentException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.ArgumentOutOfRangeException",
+      "baseType": "System.ArgumentException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.ArithmeticException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.DivideByZeroException",
+      "baseType": "System.ArithmeticException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.OverflowException",
+      "baseType": "System.ArithmeticException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.InvalidCastException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.InvalidOperationException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.NullReferenceException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.IndexOutOfRangeException",
+      "baseType": "System.SystemException",
+      "isSealed": true,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.FormatException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.TypeLoadException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.IO.IOException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.IO.FileNotFoundException",
+      "baseType": "System.IO.IOException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.IO.FileLoadException",
+      "baseType": "System.IO.IOException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.Globalization.CultureNotFoundException",
+      "baseType": "System.ArgumentException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.Runtime.Serialization.SerializationException",
+      "baseType": "System.SystemException",
+      "isSealed": false,
+      "isSerializable": true,
+      "isClass": true,
+      "isValueType": false,
+      "isAbstract": false,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "interfaces": [
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    }
+  ],
+  "lookups": [
+    {
+      "source": "System.Exception",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Exception",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.SystemException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.ArgumentException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.ArithmeticException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.OverflowException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.InvalidCastException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.NullReferenceException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.FormatException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.TypeLoadException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.IO.IOException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "System.Runtime.Serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "System.Runtime.Serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": "System.Runtime.Serialization.ISerializable"
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "system.runtime.serialization.ISerializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "system.runtime.serialization.iserializable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "IConvertible",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "NotThere",
+      "ignoreCase": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": "NotThere",
+      "ignoreCase": true,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": null,
+      "ignoreCase": false,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "query": null,
+      "ignoreCase": true,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "hResult": -2147467261,
+        "paramName": "fullname"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "source": "System.Exception",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.SystemException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.Exception",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.SystemException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.ArgumentException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.ArgumentException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.ArgumentNullException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentNullException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.ArgumentException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.ArgumentOutOfRangeException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.ArithmeticException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.ArithmeticException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.ArithmeticException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.DivideByZeroException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.DivideByZeroException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.ArithmeticException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.OverflowException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.OverflowException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.InvalidCastException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidCastException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.InvalidOperationException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.InvalidOperationException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.NullReferenceException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.NullReferenceException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.IndexOutOfRangeException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.FormatException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.FormatException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.TypeLoadException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.TypeLoadException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.IO.IOException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.IO.IOException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.IO.IOException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileNotFoundException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.IO.IOException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.IO.FileLoadException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.IO.FileLoadException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.ArgumentException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.Globalization.CultureNotFoundException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.Exception",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.SystemException",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.ArgumentException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.ArgumentNullException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.ArgumentOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.ArithmeticException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.DivideByZeroException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.OverflowException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.InvalidCastException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.InvalidOperationException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.NullReferenceException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.IndexOutOfRangeException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.FormatException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.TypeLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.IO.IOException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.IO.FileNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.IO.FileLoadException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.Globalization.CultureNotFoundException",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.Runtime.Serialization.SerializationException",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.Object",
+      "assignable": true,
+      "subclass": true,
+      "instance": true
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.Runtime.Serialization.ISerializable",
+      "assignable": true,
+      "subclass": false,
+      "instance": true
+    },
+    {
+      "source": "System.Runtime.Serialization.SerializationException",
+      "target": "System.String",
+      "assignable": false,
+      "subclass": false,
+      "instance": false
+    }
+  ],
+  "qualification": "BOUNDED_SELECTED_EXCEPTION_TYPE_HIERARCHY_REFERENCE; SERIALIZATION_AND_RELEASE_OPEN"
+}
