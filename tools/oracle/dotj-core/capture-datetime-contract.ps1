@@ -38,8 +38,26 @@ foreach ($ticks in $ticksList) {
         }
     }
 }
+$tickConstructors = @()
+foreach ($ticks in @([long]::MinValue,-1,0,1,4294967296,863999999999,864000000000,621355968000000000,
+    3155378975999999998,3155378975999999999,3155378976000000000,[long]::MaxValue)) {
+    foreach ($kind in @($null,[DateTimeKind]::Unspecified,[DateTimeKind]::Utc,[DateTimeKind]::Local)) {
+        try {
+            $value = if ($null -eq $kind) { [DateTime]::new([long]$ticks) } else { [DateTime]::new([long]$ticks,$kind) }
+            $result = [ordered]@{ticks=$value.Ticks;kind=$value.Kind.ToString()}
+        } catch { $result = Failure $_ }
+        $tickConstructors += [ordered]@{ticks=[long]$ticks;kind=$(if ($null -eq $kind) {$null} else {$kind.ToString()});result=$result}
+    }
+}
+$constants = @([DateTime].GetFields([Reflection.BindingFlags]'Public,Static') | ForEach-Object {
+    $value=$_.GetValue($null)
+    [ordered]@{name=$_.Name;type=$_.FieldType.FullName;ticks=$value.Ticks;kind=$value.Kind.ToString();isInitOnly=$_.IsInitOnly}
+})
+$defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
     oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
-    comparisons=$comparisons;qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
+    comparisons=$comparisons;tickConstructors=$tickConstructors;constants=$constants
+    defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
+    qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))
 Write-Output "PASS pinned DateTime oracle: $($comparisons.Count) comparison cases"

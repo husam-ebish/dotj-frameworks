@@ -18,8 +18,32 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     private static final long OA_MIN_TICKS = 31_241_376_000_000_000L;
     private static final long MILLIS_PER_DAY = 86_400_000L;
     private static final long MAX_TICKS = 3_155_378_975_999_999_999L;
+    public static final DateTime MinValue = new DateTime(0L);
+    public static final DateTime MaxValue = new DateTime(MAX_TICKS);
+    public static final DateTime UnixEpoch = new DateTime(621_355_968_000_000_000L, DateTimeKind.Utc);
     private final LocalDateTime date;
     private final DateTimeKind kind;
+
+    public DateTime() {
+        this(0L);
+    }
+
+    public DateTime(long ticks) {
+        this(ticks, DateTimeKind.Unspecified);
+    }
+
+    public DateTime(long ticks, DateTimeKind kind) {
+        if (ticks < 0L || ticks > MAX_TICKS) {
+            throw new ArgumentOutOfRangeException("ticks");
+        }
+        if (kind == null) {
+            throw new ArgumentException("Invalid DateTime kind", "kind");
+        }
+        this.date = LocalDate.of(1, 1, 1).atStartOfDay()
+                .plusDays(ticks / TICKS_PER_DAY)
+                .plusNanos(ticks % TICKS_PER_DAY * 100L);
+        this.kind = kind;
+    }
 
     public DateTime(int year, int month, int day) {
         this.date = LocalDate.of(year, month, day).atStartOfDay();
