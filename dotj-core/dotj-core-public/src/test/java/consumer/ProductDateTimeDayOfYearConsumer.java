@@ -11,6 +11,24 @@ import System.OverflowException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (DateTime.FromOADate(0.0).get_Ticks()
+                    != new DateTime(1899, 12, 30).get_Ticks()
+                || DateTime.FromOADate(2.0).get_Ticks()
+                    != new DateTime(1900, 1, 1).get_Ticks()
+                || DateTime.FromOADate(25569.0).get_Ticks()
+                    != new DateTime(1970, 1, 1).get_Ticks()
+                || DateTime.FromOADate(-1.5).get_Ticks()
+                    != new DateTime(1899, 12, 29, 12, 0, 0).get_Ticks()) {
+            throw new AssertionError("OLE Automation date decoding changed");
+        }
+        for (double invalid : new double[] {Double.NaN,
+                Double.POSITIVE_INFINITY, -657435.0, 2958466.0}) {
+            try {
+                DateTime.FromOADate(invalid);
+                throw new AssertionError("Invalid OLE date accepted");
+            } catch (ArgumentException expected) {
+            }
+        }
         if (new DateTime(1, 1, 1).ToOADate() != 0.0
                 || new DateTime(1899, 12, 30).ToOADate() != 0.0
                 || new DateTime(1900, 1, 1).ToOADate() != 2.0
