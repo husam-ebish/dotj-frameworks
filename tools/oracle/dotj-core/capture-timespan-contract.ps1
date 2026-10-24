@@ -95,6 +95,28 @@ foreach ($ticks in $tickInputs) {
         $properties += [ordered]@{ ticks = $ticks; property = $name; result = $result }
     }
 }
+$integerFactories = @()
+$integerSpecs = @(
+    @{ name = 'Days'; type = [int]; scale = [TimeSpan]::TicksPerDay },
+    @{ name = 'Hours'; type = [int]; scale = [TimeSpan]::TicksPerHour },
+    @{ name = 'Minutes'; type = [long]; scale = [TimeSpan]::TicksPerMinute },
+    @{ name = 'Seconds'; type = [long]; scale = [TimeSpan]::TicksPerSecond },
+    @{ name = 'Milliseconds'; type = [long]; scale = [TimeSpan]::TicksPerMillisecond },
+    @{ name = 'Microseconds'; type = [long]; scale = [TimeSpan]::TicksPerMicrosecond })
+foreach ($spec in $integerSpecs) {
+    $maximum = [long][Numerics.BigInteger]::Divide(([Numerics.BigInteger]([long]::MaxValue)), ([Numerics.BigInteger]$spec.scale))
+    $minimum = [long][Numerics.BigInteger]::Divide(([Numerics.BigInteger]([long]::MinValue)), ([Numerics.BigInteger]$spec.scale))
+    $typeMin = if ($spec.type -eq [int]) { [int]::MinValue } else { [long]::MinValue }
+    $typeMax = if ($spec.type -eq [int]) { [int]::MaxValue } else { [long]::MaxValue }
+    $values = [long[]]@(0, 1, -1, 25, -25, $typeMin, $typeMax, $maximum, ($maximum-1), ($maximum+1), $minimum, ($minimum-1), ($minimum+1))
+    $method = [TimeSpan].GetMethod('From' + $spec.name, [type[]]@($spec.type))
+    foreach ($value in $values) {
+        $boxed = if ($spec.type -eq [int]) { [int]$value } else { [long]$value }
+        try { $result = [ordered]@{ ticks = $method.Invoke($null, [object[]]@($boxed)).Ticks } }
+        catch { $result = Failure $_ }
+        $integerFactories += [ordered]@{ method = $method.Name; inputType = $spec.type.FullName; value = $boxed; result = $result }
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -106,7 +128,8 @@ $record = [ordered]@{
             result = $(if ($value -is [TimeSpan]) { [ordered]@{ ticks = $value.Ticks } } else { [ordered]@{ value = $value } }) }
     })
     defaultValueTicks = [Activator]::CreateInstance([TimeSpan]).Ticks
+    integerFactories = $integerFactories
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
-Write-Output "PASS pinned TimeSpan oracle: $($factories.Count) factories, $($constructors.Count) constructors, $($operations.Count) scaling, $($ratios.Count) ratios and $($properties.Count) property vectors"
+Write-Output "PASS pinned TimeSpan oracle: $($factories.Count) floating factories, $($integerFactories.Count) integer factories, $($constructors.Count) constructors, $($operations.Count) scaling, $($ratios.Count) ratios and $($properties.Count) properties"

@@ -71,6 +71,37 @@ public final class TimeSpan implements IComparable {
         return new TimeSpan(ticks);
     }
 
+    public static TimeSpan FromDays(int days) {
+        return fromUnits(days, TicksPerDay);
+    }
+
+    public static TimeSpan FromHours(int hours) {
+        return fromUnits(hours, TicksPerHour);
+    }
+
+    public static TimeSpan FromMinutes(long minutes) {
+        return fromUnits(minutes, TicksPerMinute);
+    }
+
+    public static TimeSpan FromSeconds(long seconds) {
+        return fromUnits(seconds, TicksPerSecond);
+    }
+
+    public static TimeSpan FromMilliseconds(long milliseconds) {
+        return fromUnits(milliseconds, TicksPerMillisecond);
+    }
+
+    public static TimeSpan FromMicroseconds(long microseconds) {
+        return fromUnits(microseconds, TicksPerMicrosecond);
+    }
+
+    private static TimeSpan fromUnits(long value, long ticksPerUnit) {
+        if (value < Long.MIN_VALUE / ticksPerUnit || value > Long.MAX_VALUE / ticksPerUnit) {
+            throw new ArgumentOutOfRangeException(null, "TimeSpan value was out of range.");
+        }
+        return new TimeSpan(value * ticksPerUnit);
+    }
+
     public static TimeSpan FromDays(double value) {
         return fromScaled(value, TICKS_PER_DAY);
     }
