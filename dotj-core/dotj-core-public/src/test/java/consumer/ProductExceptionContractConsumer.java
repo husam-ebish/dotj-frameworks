@@ -29,6 +29,27 @@ import System.Collections.DictionaryEntry;
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
     public static void main(String[] args) {
+        ArgumentException.ThrowIfNullOrWhiteSpace("text", "value");
+        ArgumentException.ThrowIfNullOrWhiteSpace(" x ");
+        try {
+            ArgumentException.ThrowIfNullOrWhiteSpace(null, "value");
+            throw new AssertionError("Null whitespace argument was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null whitespace parameter changed");
+            }
+        }
+        for (String whitespace : new String[] {"", " \t", "\u00A0", "\u0085"}) {
+            try {
+                ArgumentException.ThrowIfNullOrWhiteSpace(whitespace, "value");
+                throw new AssertionError("Whitespace argument was accepted");
+            } catch (ArgumentException expected) {
+                if (expected instanceof ArgumentNullException
+                        || !"value".equals(expected.get_ParamName())) {
+                    throw new AssertionError("Whitespace argument exception changed");
+                }
+            }
+        }
         ArgumentException.ThrowIfNullOrEmpty("value");
         ArgumentException.ThrowIfNullOrEmpty(" ", "text");
         try {
