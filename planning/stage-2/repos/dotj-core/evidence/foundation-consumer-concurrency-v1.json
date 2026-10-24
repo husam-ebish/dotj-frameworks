@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "scope": "Packaged consumer concurrency; every consumer remains a separate JVM",
+  "runnerSha256": "54b77d6d5bc15404253ac8afce753366d1e125f1896304814eec69a17684999c",
+  "measurements": [
+    {
+      "workers": 1,
+      "elapsedSeconds": 44.83,
+      "candidateJarSha256": "ceffcda4a6911656a0da71c0467235f74328296a896a12f1f5404b1bd1125fd9",
+      "allConsumerAssertionsPassed": true,
+      "evidenceIdentical": true
+    },
+    {
+      "workers": 4,
+      "elapsedSeconds": 20.883,
+      "candidateJarSha256": "ceffcda4a6911656a0da71c0467235f74328296a896a12f1f5404b1bd1125fd9",
+      "allConsumerAssertionsPassed": true,
+      "evidenceIdentical": true
+    }
+  ],
+  "qualification": "VALIDATION_TOOL_ONLY; NO_PRODUCT_OR_FRAMEWORK_ACCEPTANCE"
+}

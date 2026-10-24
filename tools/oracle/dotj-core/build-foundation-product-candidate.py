@@ -5,6 +5,7 @@ import json
 import os
 import subprocess
 import zipfile
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 
@@ -229,11 +230,79 @@ def sha256(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def run(*command):
+_JAVA_EXECUTOR = None
+_JAVA_JOBS = []
+
+
+class ConsumerOutput:
+    """Deferred stdout from one independent JVM; assertions still resolve errors."""
+
+    def __init__(self, future, strippers=()):
+        self.future = future
+        self.strippers = strippers
+
+    def text(self):
+        value = self.future.result()
+        for characters in self.strippers:
+            value = value.strip(characters)
+        return value
+
+    def strip(self, characters=None):
+        return ConsumerOutput(self.future, self.strippers + (characters,))
+
+    def __str__(self):
+        return self.text()
+
+    def __eq__(self, other):
+        return self.text() == other
+
+    def __contains__(self, item):
+        return item in self.text()
+
+    def __bool__(self):
+        return bool(self.text())
+
+    def __getattr__(self, name):
+        return getattr(self.text(), name)
+
+
+def run_command(command):
     result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True)
     if result.returncode != 0:
         raise RuntimeError(f"Command failed: {command[0]}\n{result.stderr}")
     return result.stdout
+
+
+def run(*command):
+    global _JAVA_EXECUTOR
+    if command[0] != "java":
+        return run_command(command)
+    if _JAVA_EXECUTOR is None:
+        workers = int(os.environ.get("DOTJ_JAVA_WORKERS", "4"))
+        if not 1 <= workers <= 8:
+            raise ValueError("DOTJ_JAVA_WORKERS must be between 1 and 8")
+        _JAVA_EXECUTOR = ThreadPoolExecutor(max_workers=workers)
+    future = _JAVA_EXECUTOR.submit(run_command, command)
+    _JAVA_JOBS.append(future)
+    return ConsumerOutput(future)
+
+
+def finish_java_jobs():
+    global _JAVA_EXECUTOR
+    try:
+        for future in _JAVA_JOBS:
+            future.result()
+    finally:
+        if _JAVA_EXECUTOR is not None:
+            _JAVA_EXECUTOR.shutdown(wait=True)
+            _JAVA_EXECUTOR = None
+        _JAVA_JOBS.clear()
+
+
+def consumer_json(value):
+    if isinstance(value, ConsumerOutput):
+        return value.text()
+    raise TypeError(f"Unsupported JSON value: {type(value).__name__}")
 
 
 def main():
@@ -5577,6 +5646,7 @@ def main():
     assert custom_zero_result == "PASS external selected Decimal custom zero formatting"
     assert custom_optional_result == "PASS external selected Decimal custom optional formatting"
     assert canonical_result == "PASS external selected Decimal canonical encodings"
+    finish_java_jobs()
     EVIDENCE.write_text(json.dumps({
         "schemaVersion": 1,
         "productSources": [{"path": path.relative_to(ROOT).as_posix(), "sha256": sha256(path)} for path in SOURCES],
@@ -5603,7 +5673,7 @@ def main():
             "mappingStatus": "OPEN: construction and throw capture points differ",
         },
         "status": "BUILT_FOUNDATION_CANDIDATE; complete public API, behavior, E01 release rights and framework qualification OPEN",
-    }, indent=2) + "\n", encoding="utf-8")
+    }, indent=2, default=consumer_json) + "\n", encoding="utf-8")
     print("PASS combined foundation candidate JAR and independent consumers")
 
 
