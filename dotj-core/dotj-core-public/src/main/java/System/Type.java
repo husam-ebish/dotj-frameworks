@@ -1303,11 +1303,11 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean IsEnumDefined(Object value) {
-        if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum", "enumType");
-        }
         if (value == null) {
             throw new ArgumentNullException("value");
+        }
+        if (!this.get_IsEnum()) {
+            throw new ArgumentException("Type must be an enum", "enumType");
         }
         Object[] constants = this.enumConstants();
         if (value instanceof String name) {
@@ -1340,14 +1340,15 @@ public abstract class Type extends MemberInfo {
     }
 
     public String GetEnumName(Object value) {
-        if (!this.get_IsEnum()) {
-            throw new ArgumentException("Type must be an enum", "enumType");
-        }
         if (value == null) {
             throw new ArgumentNullException("value");
         }
-        if (value instanceof String) {
+        if (!(value instanceof Integer || value instanceof Long || value instanceof Short
+                || value instanceof java.lang.Byte || Type.fromJavaClass(value.getClass()).get_IsEnum())) {
             throw new ArgumentException("Value must be an enum or its underlying type", "value");
+        }
+        if (!this.get_IsEnum()) {
+            throw new ArgumentException("Type must be an enum", "enumType");
         }
         Long number = null;
         if (value instanceof Integer || value instanceof Long
