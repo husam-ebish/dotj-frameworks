@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "f4bd03b8d91bfcd7633795a161a1c0ab3728fc93a55ee795db3ab5d66171a36f",
+  "javaCandidateEvidenceSha256": "6a4eaa2a2495c75b345bebafb0692adf71d776fceac6027e2fb2567bd624f42a",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 41,
+  "nameLevelMissingMethodCount": 40,
   "nameLevelMissingPublicGetterCount": 26,
   "types": [
     {
@@ -5913,6 +5913,7 @@
         "public int GetHashCode();",
         "public int hashCode();",
         "public System.DateTime AddTicks(long);",
+        "public System.DateTime Add(System.TimeSpan);",
         "public System.DateTime AddMonths(int);",
         "public System.DateTime AddYears(int);",
         "public System.DateTime AddDays(double);",
@@ -6014,6 +6015,7 @@
           "TryParseExact": 4
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "Add": 1,
           "AddDays": 1,
           "AddHours": 1,
           "AddMicroseconds": 1,
@@ -6086,7 +6088,6 @@
           "hashCode": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "Add",
           "Subtract"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
