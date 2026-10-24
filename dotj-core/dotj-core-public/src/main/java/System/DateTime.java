@@ -211,7 +211,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
             return 1;
         }
         if (!(obj instanceof DateTime other)) {
-            throw new ArgumentException("Object must be of type DateTime", "obj");
+            throw new ArgumentException("Object must be of type DateTime.");
         }
         return Compare(this, other);
     }

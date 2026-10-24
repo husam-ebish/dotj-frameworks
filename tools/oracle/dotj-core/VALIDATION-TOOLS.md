@@ -31,6 +31,10 @@ powershell -NoProfile -ExecutionPolicy Bypass -File tools/oracle/dotj-core/run-i
 
 # Capture TimeSpan reference vectors; verifies actual CoreLib hash.
 powershell -NoProfile -ExecutionPolicy Bypass -File tools/oracle/dotj-core/run-timespan-oracle.ps1
+
+# Other selected reference captures use the same pinned, framework-dependent runtime profile.
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/oracle/dotj-core/run-pinned-contract-oracle.ps1 -Contract exception
+powershell -NoProfile -ExecutionPolicy Bypass -File tools/oracle/dotj-core/run-pinned-contract-oracle.ps1 -Contract datetime
 ```
 
 Each validation run needs a fresh single-component RunName so prior evidence is preserved. The isolated runner validates committed HEAD, bootstraps the compile-only IDisposable JAR, and exports only reviewed JSON evidence paths when requested. The candidate JAR exists inside that D: worktree at `dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar`; it need not exist in the C: source checkout. A self-contained PowerShell package loads its bundled CoreLib and is rejected by the TimeSpan oracle; use the framework-dependent package in the manifest.

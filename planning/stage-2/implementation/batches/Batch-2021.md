@@ -3,7 +3,7 @@
 | Field | Result |
 |---|---|
 | Status | COMPLETE (bounded outcome; qualification remains open) |
-| Framework / plan scope | dotj-core / DJ-001-WP-05-T1 |
+| Framework / plan scope | dotj-core / DJ-001-WP-01-T1 (exception-cause mapping; scope corrected in Batch-2022) |
 | Outcome | Corrected selected exception constructor HRESULT and inner contracts |
 | Validation | 158 constructor cases across 19 types passed; all 36 foundation checks and acceptance audit passed; TimeSpan oracle compatibility wrapper passed |
 | Limitation | Default and localized messages, serialization, setter exposure and full public qualification remain open |
