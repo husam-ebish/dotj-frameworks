@@ -741,3 +741,5 @@ The public DateTime candidate now exposes ToShortDateString using selected invar
 The public DateTime candidate now exposes ToLongTimeString using selected invariant-culture HH:mm:ss output. A packaged consumer checks midnight and late-evening text. Current-culture formatting remains open.
 
 The public DateTime candidate now exposes ToShortTimeString using selected invariant-culture HH:mm output. A packaged consumer checks midnight and late-evening text. Current-culture formatting remains open.
+
+The public DateTime candidate now exposes ToOADate using the pinned CoreLib millisecond and negative-fraction rules. A packaged consumer checks default, epoch, post-epoch, negative fraction and lower bound. Round-trip FromOADate remains open.
