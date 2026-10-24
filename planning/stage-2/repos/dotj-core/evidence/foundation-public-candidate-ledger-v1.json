@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "ff382a71f44887b9f7e37bfab76f3711e2ead661481845028029b554f95995cb",
+  "candidateJarSha256": "f8aeeaab0857ca9bdc500810fb58c53ba64d8b36d4a0e6b65cd9b3d3943bc0f0",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -696,6 +696,8 @@
       "javaPublicConstructors": 5,
       "javaPublicHeader": "public class System.ArgumentException extends System.SystemException {",
       "javaPublicDeclarations": [
+        "public static void ThrowIfNullOrEmpty(java.lang.String);",
+        "public static void ThrowIfNullOrEmpty(java.lang.String, java.lang.String);",
         "public System.ArgumentException();",
         "public System.ArgumentException(java.lang.String);",
         "public System.ArgumentException(java.lang.String, System.Exception);",
