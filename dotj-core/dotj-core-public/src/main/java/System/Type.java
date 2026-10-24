@@ -1596,8 +1596,10 @@ public abstract class Type extends MemberInfo {
             return fromJavaClass(value.getClass()).get_IsValueType();
         }
         if (this.definition == Enum.class) {
-            return value instanceof MemberTypes || value instanceof TypeCode
-                    || value instanceof NumberStyles || value instanceof TimeSpanStyles || value instanceof DateTimeKind || value instanceof DayOfWeek;
+            return fromJavaClass(value.getClass()).get_IsEnum();
+        }
+        if (this.definition == java.lang.reflect.Array.class) {
+            return value.getClass().isArray();
         }
         if (this.definition == IComparable.class) {
             return value instanceof String || value instanceof Integer || value instanceof Int32
