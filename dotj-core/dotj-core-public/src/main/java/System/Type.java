@@ -214,13 +214,15 @@ public abstract class Type extends MemberInfo {
             Type element = GetType(name.substring(0, name.length() - 2), false, ignoreCase);
             return element == null ? null : element.MakeArrayType();
         }
-        if (name.endsWith("[,]")) {
-            Type element = GetType(name.substring(0, name.length() - 3), false, ignoreCase);
-            return element == null ? null : element.MakeArrayType(2);
-        }
-        if (name.endsWith("[,,]")) {
-            Type element = GetType(name.substring(0, name.length() - 4), false, ignoreCase);
-            return element == null ? null : element.MakeArrayType(3);
+        if (name.endsWith("]")) {
+            int opening = name.lastIndexOf('[');
+            if (opening >= 0 && opening < name.length() - 2) {
+                String dimensions = name.substring(opening + 1, name.length() - 1);
+                if (dimensions.chars().allMatch(character -> character == ',')) {
+                    Type element = GetType(name.substring(0, opening), false, ignoreCase);
+                    return element == null ? null : element.MakeArrayType(dimensions.length() + 1);
+                }
+            }
         }
         if (name.endsWith("[*]")) {
             Type element = GetType(name.substring(0, name.length() - 3), false, ignoreCase);
