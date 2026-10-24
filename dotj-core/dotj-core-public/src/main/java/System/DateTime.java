@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
-public final class DateTime implements IConvertible {
+public final class DateTime implements IConvertible, IComparable {
     private final LocalDateTime date;
 
     public DateTime(int year, int month, int day) {
@@ -73,6 +73,24 @@ public final class DateTime implements IConvertible {
             throw new ArgumentNullException("right");
         }
         return Long.compare(left.get_Ticks(), right.get_Ticks());
+    }
+
+    public int CompareTo(DateTime other) {
+        if (other == null) {
+            throw new ArgumentNullException("other");
+        }
+        return Compare(this, other);
+    }
+
+    @Override
+    public int CompareTo(Object obj) {
+        if (obj == null) {
+            return 1;
+        }
+        if (!(obj instanceof DateTime other)) {
+            throw new ArgumentException("Object must be of type DateTime", "obj");
+        }
+        return Compare(this, other);
     }
 
     public int get_Year() {

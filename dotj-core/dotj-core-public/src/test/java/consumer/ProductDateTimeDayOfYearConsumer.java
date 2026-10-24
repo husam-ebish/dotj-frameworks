@@ -3,6 +3,8 @@ package consumer;
 import System.DateTime;
 import System.ArgumentOutOfRangeException;
 import System.ArgumentNullException;
+import System.ArgumentException;
+import System.IComparable;
 
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
@@ -128,6 +130,29 @@ public final class ProductDateTimeDayOfYearConsumer {
         } catch (ArgumentNullException caught) {
             if (!"right".equals(caught.get_ParamName())) {
                 throw new AssertionError("Right parameter changed");
+            }
+        }
+        if (earlier.CompareTo(later) != -1
+                || later.CompareTo(earlier) != 1
+                || earlier.CompareTo(new DateTime(2024, 2, 29, 12, 0, 0)) != 0
+                || ((IComparable) earlier).CompareTo(later) != -1
+                || ((IComparable) later).CompareTo(null) != 1) {
+            throw new AssertionError("DateTime CompareTo changed");
+        }
+        try {
+            earlier.CompareTo((DateTime) null);
+            throw new AssertionError("Null typed DateTime accepted");
+        } catch (ArgumentNullException caught) {
+            if (!"other".equals(caught.get_ParamName())) {
+                throw new AssertionError("Typed parameter changed");
+            }
+        }
+        try {
+            ((IComparable) earlier).CompareTo("2024-02-29");
+            throw new AssertionError("Wrong comparison type accepted");
+        } catch (ArgumentException caught) {
+            if (!"obj".equals(caught.get_ParamName())) {
+                throw new AssertionError("Object parameter changed");
             }
         }
         java.lang.System.out.println("PASS external selected DateTime day of year");
