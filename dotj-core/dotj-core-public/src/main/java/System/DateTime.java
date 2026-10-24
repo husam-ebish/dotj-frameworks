@@ -295,6 +295,14 @@ public final class DateTime implements IConvertible, IComparable {
         return this.get_Ticks();
     }
 
+    public long ToFileTimeUtc() {
+        long ticks = this.get_Ticks();
+        if (ticks < FILE_TIME_EPOCH_TICKS) {
+            throw new ArgumentOutOfRangeException("fileTime");
+        }
+        return ticks - FILE_TIME_EPOCH_TICKS;
+    }
+
     public int get_Hour() {
         return this.date.getHour();
     }

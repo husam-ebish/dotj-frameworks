@@ -731,3 +731,5 @@ The public DateTime candidate now exposes ToBinary for the current unspecified-k
 The public DateTime candidate now exposes FromBinary for the current unspecified-kind model. A packaged consumer checks selected valid tick values and rejects out-of-range binary values. Local and UTC kind decoding remains open.
 
 The public DateTime candidate now exposes FromFileTimeUtc with the 1601-01-01 epoch and bounds checks. A packaged consumer checks the epoch, Unix epoch, maximum and invalid values. UTC kind metadata is still absent from this candidate.
+
+The public DateTime candidate now exposes ToFileTimeUtc for dates at or after 1601-01-01. A packaged consumer checks selected round trips and rejection before the file-time epoch. UTC kind metadata is still absent from this candidate.
