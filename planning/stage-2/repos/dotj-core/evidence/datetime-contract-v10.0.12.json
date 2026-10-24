@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "0626906affd1b1a45d5e76e115ee743b1b0a0a2088e0f475099ddb49e8b327d0",
+  "oracleSha256": "37b1d756f577f20c3f862de6c00b366369dde9f81b81592c4a1f15ee9337e0d6",
   "comparisons": [
     {
       "ticks": 0,
@@ -86420,6 +86420,7269 @@
         "exception": "System.FormatException",
         "paramName": null,
         "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    }
+  ],
+  "exactParsing": [
+    {
+      "input": null,
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "s",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": null,
+      "format": "",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "s",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": null,
+      "format": "?",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "s",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": null,
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "s",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": null,
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "s",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": null,
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "s",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": " ",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "!",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "\"",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "#",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "$",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "%",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "&",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "'",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "(",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": ")",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "*",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "+",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": ",",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "-",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": ".",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "/",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "0",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "1",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "2",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "3",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "4",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "5",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "6",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "7",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "8",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "9",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": ":",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": ";",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "<",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "=",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": ">",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "@",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "A",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "B",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "C",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "D",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "E",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "F",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "G",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "H",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "I",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "J",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "K",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "L",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "M",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "N",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "O",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "P",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "Q",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "R",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "S",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "U",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "V",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "W",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "X",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "Y",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "Z",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "[",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "\\",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "]",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "^",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "_",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "`",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "a",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "b",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "d",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "e",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "f",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "g",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "h",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "i",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "j",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "k",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "l",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "m",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "n",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "o",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "p",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "q",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "r",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "s",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "u",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "v",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "w",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "x",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "y",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "z",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "{",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "|",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "}",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "garbage",
+      "format": "~",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "-0001-01-01",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "-0001-01-01",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "-0001-01-01",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "-0001-01-01",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "-0001-01-01",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "-0001-01-01",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "+10000-01-01",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "+10000-01-01",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "+10000-01-01",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "+10000-01-01",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "+10000-01-01",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "+10000-01-01",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "ticks": 0,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "ticks": 3155378112000000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378112000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "ticks": 638447616000000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 638447616000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "1900-02-29",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "1900-02-29",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "1900-02-29",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "1900-02-29",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "1900-02-29",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "1900-02-29",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2000-02-29",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2000-02-29",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2000-02-29",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2000-02-29",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "ticks": 630873792000000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 630873792000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2000-02-29",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2000-02-29",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2023-02-29",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2023-02-29",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2023-02-29",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2023-02-29",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2023-02-29",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2023-02-29",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-13-01",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-13-01",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-13-01",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-13-01",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-13-01",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-13-01",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-01-32",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-01-32",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-01-32",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-01-32",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-01-32",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-01-32",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": " 2024-02-29",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 ",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 12:34:56",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 12:34:56",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 12:34:56",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 12:34:56",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 12:34:56",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 12:34:56",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T12:34:56",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T12:34:56",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T12:34:56",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T12:34:56",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T12:34:56",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T12:34:56",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 24:00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 24:00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 24:00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 24:00:00",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 24:00:00",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01 24:00:00",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.123456",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.123456",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.123456",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.123456",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.123456",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.123456",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1234567",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1234567",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1234567",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1234567",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1234567",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.1234567",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.12345678",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.12345678",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.12345678",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.12345678",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.12345678",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.12345678",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0000000",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0000000",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0000000",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0000000",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0000000",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.0000000",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.9999999",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.9999999",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.9999999",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.9999999",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.9999999",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.9999999",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.99999995",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.99999995",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.99999995",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.99999995",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.99999995",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0000-01-01T23:59:59.99999995",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 12:34:56",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 12:34:56",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 12:34:56",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 12:34:56",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 12:34:56",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "ticks": 452960000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 452960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 12:34:56",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T12:34:56",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T12:34:56",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T12:34:56",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T12:34:56",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T12:34:56",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T12:34:56",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 24:00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 24:00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 24:00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 24:00:00",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 24:00:00",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01 24:00:00",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.123456",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.123456",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.123456",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.123456",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.123456",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.123456",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1234567",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1234567",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1234567",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1234567",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1234567",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.1234567",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 863991234567,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 863991234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.12345678",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.12345678",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.12345678",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.12345678",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.12345678",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.12345678",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0000000",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0000000",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0000000",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0000000",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0000000",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.0000000",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 863990000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 863990000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.9999999",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.9999999",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.9999999",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.9999999",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.9999999",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.9999999",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 863999999999,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 863999999999,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.99999995",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.99999995",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.99999995",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.99999995",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.99999995",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "0001-01-01T23:59:59.99999995",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 12:34:56",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 12:34:56",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 12:34:56",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 12:34:56",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 12:34:56",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "ticks": 638448068960000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 638448068960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 12:34:56",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T12:34:56",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 24:00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 24:00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 24:00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 24:00:00",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 24:00:00",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29 24:00:00",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.123456",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.123456",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.123456",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.123456",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.123456",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.123456",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1234567",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1234567",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1234567",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1234567",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1234567",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.1234567",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 638448479991234567,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 638448479991234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.12345678",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.12345678",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.12345678",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.12345678",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.12345678",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.12345678",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0000000",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0000000",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0000000",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0000000",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0000000",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.0000000",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 638448479990000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 638448479990000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.9999999",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.9999999",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.9999999",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.9999999",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.9999999",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.9999999",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 638448479999999999,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 638448479999999999,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.99999995",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.99999995",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.99999995",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.99999995",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.99999995",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "2024-02-29T23:59:59.99999995",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 12:34:56",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 12:34:56",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 12:34:56",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 12:34:56",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 12:34:56",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "ticks": 3155378564960000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378564960000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 12:34:56",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T12:34:56",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T12:34:56",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T12:34:56",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T12:34:56",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T12:34:56",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T12:34:56",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 24:00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 24:00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 24:00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 24:00:00",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 24:00:00",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31 24:00:00",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.123456",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.123456",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.123456",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.123456",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.123456",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.123456",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1234567",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1234567",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1234567",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1234567",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1234567",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.1234567",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 3155378975991234567,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975991234567,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.12345678",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.12345678",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.12345678",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.12345678",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.12345678",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.12345678",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0000000",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0000000",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0000000",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0000000",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0000000",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.0000000",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 3155378975990000000,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975990000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.9999999",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.9999999",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.9999999",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.9999999",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.9999999",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.9999999",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "ticks": 3155378975999999999,
+        "kind": "Unspecified"
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 3155378975999999999,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999995",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999995",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999995",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": null,
+      "tryTicks": 630822816000000000,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999995",
+      "format": "yyyy-MM-dd",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999995",
+      "format": "yyyy-MM-dd HH:mm:ss",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0,
+      "tryKind": "Unspecified"
+    },
+    {
+      "input": "9999-12-31T23:59:59.99999995",
+      "format": "yyyy-MM-ddTHH:mm:ss.fffffff",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
       },
       "trySuccess": false,
       "tryTicks": 0,

@@ -174,7 +174,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
             throw new ArgumentNullException("format");
         }
         try {
-            return switch (format) {
+            DateTime parsed = switch (format) {
                 case "yyyy-MM-dd" -> new DateTime(LocalDate.parse(text,
                         DateTimeFormatter.ISO_LOCAL_DATE).atStartOfDay());
                 case "yyyy-MM-dd HH:mm:ss" -> new DateTime(LocalDateTime.parse(text,
@@ -185,6 +185,10 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                                 .withResolverStyle(ResolverStyle.STRICT)));
                 default -> throw new FormatException("Input string was not in a correct format");
             };
+            if (parsed.get_Year() < 1 || parsed.get_Year() > 9999) {
+                throw new FormatException("Input string was not in a correct format");
+            }
+            return parsed;
         } catch (DateTimeParseException invalid) {
             throw new FormatException("Input string was not in a correct format");
         }
@@ -192,6 +196,10 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
 
     public static boolean TryParseExact(String text, String format,
                                         IFormatProvider provider, DateTime[] result) {
+        if (text != null && !text.isEmpty() && format != null && format.length() == 1
+                && "dDfFgGmMoOrRstTuUyY".indexOf(format.charAt(0)) < 0) {
+            throw new FormatException("Input string was not in a correct format");
+        }
         result[0] = new DateTime(1, 1, 1);
         if (text == null || format == null) {
             return false;
