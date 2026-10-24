@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 75 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 76 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "13399f8b4ee4aa2b1302b0bb856c223bf53966b5bfd8b7fc3833d63094dde855",
+  "jarSha256": "a5c8b627bb2f0ea30b7ea8365112d0c07f26a7cffe8e2740a586d6d2fa36cbf9",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -295,6 +295,18 @@
       "productIdentifierCount": 307,
       "upstreamIdentifierCount": 296,
       "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Globalization/TimeSpanStyles.java",
+      "productSha256": "c7e1af014d5da45c3f3e5b98ffb865eedc127f08624bdf133ccb546c1ebf7155",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Globalization/TimeSpanStyles.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Globalization/TimeSpanStyles.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "783c7d561e5e777bd0bc5d7ba27bdcd4832eed29f3d4fac6dc0e1c414f38d51c",
+      "productIdentifierCount": 126,
+      "upstreamIdentifierCount": 33,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/IComparable.java",
@@ -757,12 +769,12 @@
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/TimeSpan.java",
-      "productSha256": "80490e8b5b468f62ca1a558415f8f8d1d890f300d36563544717211aa8f64b20",
+      "productSha256": "6a47bf60566edd39e14c9051b15c0527e89608ad0bf483013d7e22e81f33b78d",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/TimeSpan.cs",
       "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/TimeSpan.cs",
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamSha256": "6746cf1817b7236af0e0b96d9d4aea7727c9aa64623da435f736073cb213fef1",
-      "productIdentifierCount": 3705,
+      "productIdentifierCount": 3950,
       "upstreamIdentifierCount": 4225,
       "sharedIdentifierShinglesOfLength12": 28,
       "sharedIdentifierShingleSamples": [
