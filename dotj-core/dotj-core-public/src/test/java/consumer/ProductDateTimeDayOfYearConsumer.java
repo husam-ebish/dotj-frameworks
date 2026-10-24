@@ -11,6 +11,16 @@ import System.OverflowException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        java.util.TimeZone priorDaylightZone = java.util.TimeZone.getDefault();
+        try {
+            java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("America/New_York"));
+            if (new DateTime(2024, 1, 15).IsDaylightSavingTime()
+                    || !new DateTime(2024, 7, 15).IsDaylightSavingTime()) {
+                throw new AssertionError("Local daylight-saving status changed");
+            }
+        } finally {
+            java.util.TimeZone.setDefault(priorDaylightZone);
+        }
         java.util.TimeZone priorLocalZone = java.util.TimeZone.getDefault();
         try {
             java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("America/New_York"));
