@@ -120,6 +120,22 @@ public final class DateTime implements IConvertible, IComparable {
         return new DateTime(1, 1, 1).AddTicks(fileTime + FILE_TIME_EPOCH_TICKS);
     }
 
+    public static DateTime FromOADate(double value) {
+        if (!(value < 2_958_466.0) || !(value > -657_435.0)) {
+            throw new ArgumentException("Invalid OLE Automation date");
+        }
+        long millis = (long) (value * MILLIS_PER_DAY
+                + (value >= 0 ? 0.5 : -0.5));
+        if (millis < 0) {
+            millis -= (millis % MILLIS_PER_DAY) * 2;
+        }
+        millis += OA_EPOCH_TICKS / 10_000L;
+        if (millis < 0 || millis > MAX_TICKS / 10_000L) {
+            throw new ArgumentException("Invalid OLE Automation date scale");
+        }
+        return new DateTime(1, 1, 1).AddTicks(millis * 10_000L);
+    }
+
     public static boolean IsLeapYear(int year) {
         if (year < 1 || year > 9999) {
             throw new ArgumentOutOfRangeException("year");
