@@ -3,7 +3,7 @@
   "scope": "Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only",
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "937b364d3e1749fd1cbfa4d0c9ec0d9dc0c036e94d2250634dd47d36c973ea03",
+  "oracleSha256": "a9bccccab77d822532223dce437e54ad081195b377bb8cac0907dcf428799230",
   "metadata": {
     "type": "System.TimeSpan",
     "interfaces": [
@@ -7070,5 +7070,183 @@
       }
     }
   ],
+  "constants": [
+    {
+      "name": "Zero",
+      "type": "System.TimeSpan",
+      "result": {
+        "ticks": 0
+      }
+    },
+    {
+      "name": "MaxValue",
+      "type": "System.TimeSpan",
+      "result": {
+        "ticks": 9223372036854775807
+      }
+    },
+    {
+      "name": "MinValue",
+      "type": "System.TimeSpan",
+      "result": {
+        "ticks": -9223372036854775808
+      }
+    },
+    {
+      "name": "NanosecondsPerTick",
+      "type": "System.Int64",
+      "result": {
+        "value": 100
+      }
+    },
+    {
+      "name": "TicksPerMicrosecond",
+      "type": "System.Int64",
+      "result": {
+        "value": 10
+      }
+    },
+    {
+      "name": "TicksPerMillisecond",
+      "type": "System.Int64",
+      "result": {
+        "value": 10000
+      }
+    },
+    {
+      "name": "TicksPerSecond",
+      "type": "System.Int64",
+      "result": {
+        "value": 10000000
+      }
+    },
+    {
+      "name": "TicksPerMinute",
+      "type": "System.Int64",
+      "result": {
+        "value": 600000000
+      }
+    },
+    {
+      "name": "TicksPerHour",
+      "type": "System.Int64",
+      "result": {
+        "value": 36000000000
+      }
+    },
+    {
+      "name": "TicksPerDay",
+      "type": "System.Int64",
+      "result": {
+        "value": 864000000000
+      }
+    },
+    {
+      "name": "MicrosecondsPerMillisecond",
+      "type": "System.Int64",
+      "result": {
+        "value": 1000
+      }
+    },
+    {
+      "name": "MicrosecondsPerSecond",
+      "type": "System.Int64",
+      "result": {
+        "value": 1000000
+      }
+    },
+    {
+      "name": "MicrosecondsPerMinute",
+      "type": "System.Int64",
+      "result": {
+        "value": 60000000
+      }
+    },
+    {
+      "name": "MicrosecondsPerHour",
+      "type": "System.Int64",
+      "result": {
+        "value": 3600000000
+      }
+    },
+    {
+      "name": "MicrosecondsPerDay",
+      "type": "System.Int64",
+      "result": {
+        "value": 86400000000
+      }
+    },
+    {
+      "name": "MillisecondsPerSecond",
+      "type": "System.Int64",
+      "result": {
+        "value": 1000
+      }
+    },
+    {
+      "name": "MillisecondsPerMinute",
+      "type": "System.Int64",
+      "result": {
+        "value": 60000
+      }
+    },
+    {
+      "name": "MillisecondsPerHour",
+      "type": "System.Int64",
+      "result": {
+        "value": 3600000
+      }
+    },
+    {
+      "name": "MillisecondsPerDay",
+      "type": "System.Int64",
+      "result": {
+        "value": 86400000
+      }
+    },
+    {
+      "name": "SecondsPerMinute",
+      "type": "System.Int64",
+      "result": {
+        "value": 60
+      }
+    },
+    {
+      "name": "SecondsPerHour",
+      "type": "System.Int64",
+      "result": {
+        "value": 3600
+      }
+    },
+    {
+      "name": "SecondsPerDay",
+      "type": "System.Int64",
+      "result": {
+        "value": 86400
+      }
+    },
+    {
+      "name": "MinutesPerHour",
+      "type": "System.Int64",
+      "result": {
+        "value": 60
+      }
+    },
+    {
+      "name": "MinutesPerDay",
+      "type": "System.Int64",
+      "result": {
+        "value": 1440
+      }
+    },
+    {
+      "name": "HoursPerDay",
+      "type": "System.Int32",
+      "result": {
+        "value": 24
+      }
+    }
+  ],
+  "defaultValueTicks": 0,
   "qualification": "REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION"
 }

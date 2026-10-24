@@ -4,10 +4,40 @@ package System;
 
 /** Immutable tick interval for the selected DateTime arithmetic candidate. */
 public final class TimeSpan implements IComparable {
-    private static final long TICKS_PER_DAY = 864_000_000_000L;
+    public static final long NanosecondsPerTick = 100L;
+    public static final long TicksPerMicrosecond = 10L;
+    public static final long TicksPerMillisecond = 10_000L;
+    public static final long TicksPerSecond = 10_000_000L;
+    public static final long TicksPerMinute = 600_000_000L;
+    public static final long TicksPerHour = 36_000_000_000L;
+    public static final long TicksPerDay = 864_000_000_000L;
+    public static final long MicrosecondsPerMillisecond = 1_000L;
+    public static final long MicrosecondsPerSecond = 1_000_000L;
+    public static final long MicrosecondsPerMinute = 60_000_000L;
+    public static final long MicrosecondsPerHour = 3_600_000_000L;
+    public static final long MicrosecondsPerDay = 86_400_000_000L;
+    public static final long MillisecondsPerSecond = 1_000L;
+    public static final long MillisecondsPerMinute = 60_000L;
+    public static final long MillisecondsPerHour = 3_600_000L;
+    public static final long MillisecondsPerDay = 86_400_000L;
+    public static final long SecondsPerMinute = 60L;
+    public static final long SecondsPerHour = 3_600L;
+    public static final long SecondsPerDay = 86_400L;
+    public static final long MinutesPerHour = 60L;
+    public static final long MinutesPerDay = 1_440L;
+    public static final int HoursPerDay = 24;
+    public static final TimeSpan Zero = new TimeSpan(0L);
+    public static final TimeSpan MaxValue = new TimeSpan(Long.MAX_VALUE);
+    public static final TimeSpan MinValue = new TimeSpan(Long.MIN_VALUE);
+
+    private static final long TICKS_PER_DAY = TicksPerDay;
     private static final java.util.regex.Pattern CONSTANT_PATTERN =
             java.util.regex.Pattern.compile("(-)?(?:(\\d+)\\.)?(\\d{1,2}):(\\d{2}):(\\d{2})(?:\\.(\\d{1,7}))?");
     private final long ticks;
+
+    public TimeSpan() {
+        this(0L);
+    }
 
     public TimeSpan(long ticks) {
         this.ticks = ticks;
