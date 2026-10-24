@@ -469,6 +469,90 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
         return value >= '\t' && value <= '\r' || value == '\u0085' || Character.isSpaceChar(value);
     }
 
+    public static TimeSpan ParseExact(String input, String format, IFormatProvider formatProvider) {
+        if (input == null) { throw new ArgumentNullException("input"); }
+        if (format == null) { throw new ArgumentNullException("format"); }
+        if (!format.equals("c") && !format.equals("t") && !format.equals("T")) {
+            throw new FormatException("Only invariant constant exact formats are mapped.");
+        }
+        int start = 0;
+        int end = input.length();
+        while (start < end && (input.charAt(start) == ' ' || input.charAt(start) == '\t')) { start++; }
+        while (end > start && (input.charAt(end - 1) == ' ' || input.charAt(end - 1) == '\t')) { end--; }
+        String text = input.substring(start, end);
+        int[] position = {0};
+        boolean negative = text.startsWith("-");
+        if (negative) { position[0]++; }
+        long first = readConstantNumber(text, position, 10675199);
+        long days = 0L, hours = 0L, minutes = 0L, seconds = 0L, fraction = 0L;
+        boolean hasTime = false;
+        if (position[0] < text.length() && text.charAt(position[0]) == ':') {
+            hours = first;
+            position[0]++;
+            hasTime = true;
+        } else if (position[0] < text.length() && text.charAt(position[0]) == '.') {
+            days = first;
+            position[0]++;
+            hours = readConstantNumber(text, position, 23);
+            if (position[0] == text.length() || text.charAt(position[0]++) != ':') { throw new FormatException(); }
+            hasTime = true;
+        } else {
+            days = first;
+        }
+        if (hasTime) {
+            if (hours > 23L) { throw new OverflowException(); }
+            minutes = readConstantNumber(text, position, 59);
+            if (position[0] < text.length() && text.charAt(position[0]) == ':') {
+                position[0]++;
+                if (position[0] == text.length() || text.charAt(position[0]) != '.') {
+                    seconds = readConstantNumber(text, position, 59);
+                }
+                if (position[0] < text.length() && text.charAt(position[0]) == '.') {
+                    position[0]++;
+                    long scale = TicksPerSecond / 10L;
+                    while (position[0] < text.length() && text.charAt(position[0]) >= '0' && text.charAt(position[0]) <= '9') {
+                        if (scale == 0L) { throw new FormatException(); }
+                        fraction += (text.charAt(position[0]++) - '0') * scale;
+                        scale /= 10L;
+                    }
+                }
+            }
+        }
+        if (position[0] != text.length()) { throw new FormatException(); }
+        java.math.BigInteger total = java.math.BigInteger.valueOf(days).multiply(java.math.BigInteger.valueOf(TicksPerDay))
+                .add(java.math.BigInteger.valueOf(hours * TicksPerHour + minutes * TicksPerMinute + seconds * TicksPerSecond + fraction));
+        if (negative) { total = total.negate(); }
+        if (total.compareTo(java.math.BigInteger.valueOf(Long.MIN_VALUE)) < 0
+                || total.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) > 0) { throw new OverflowException(); }
+        return new TimeSpan(total.longValue());
+    }
+
+    private static int readConstantNumber(String text, int[] position, int limit) {
+        int start = position[0];
+        int value = 0;
+        while (position[0] < text.length()) {
+            char digit = text.charAt(position[0]);
+            if (digit < '0' || digit > '9') { break; }
+            int next = digit - '0';
+            if (value > (limit - next) / 10) { throw new OverflowException(); }
+            value = value * 10 + next;
+            position[0]++;
+        }
+        if (position[0] == start) { throw new FormatException(); }
+        return value;
+    }
+
+    public static boolean TryParseExact(String input, String format, IFormatProvider formatProvider, TimeSpan[] result) {
+        result[0] = Zero;
+        if (input == null || format == null) { return false; }
+        try {
+            result[0] = ParseExact(input, format, formatProvider);
+            return true;
+        } catch (FormatException | OverflowException invalid) {
+            return false;
+        }
+    }
+
     public String ToString(String format) {
         return ToString(format, null);
     }

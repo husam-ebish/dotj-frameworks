@@ -3,7 +3,7 @@
   "scope": "Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only",
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "455586567e069cd71d536676e639d6ef68257c8573655153eb3c9a3562bf62cf",
+  "oracleSha256": "ce43d2c330b99c25f3f76dcde477a89ebac802029cc26ffe09f347aaeb60c42e",
   "metadata": {
     "type": "System.TimeSpan",
     "interfaces": [
@@ -46000,6 +46000,4088 @@
       },
       "written": 99,
       "bufferHex": "23232323232323232323232323232323232323232323232323232323232323232323232323232323"
+    }
+  ],
+  "exactParsing": [
+    {
+      "input": null,
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "input",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": null,
+      "format": "",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "input",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": null,
+      "format": "c",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "input",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": null,
+      "format": "t",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "input",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": null,
+      "format": "T",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "input",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": null,
+      "format": "?",
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "input",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0",
+      "format": "c",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "0",
+      "format": "t",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "0",
+      "format": "T",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "0",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1",
+      "format": "c",
+      "result": {
+        "ticks": 864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000000
+    },
+    {
+      "input": "1",
+      "format": "t",
+      "result": {
+        "ticks": 864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000000
+    },
+    {
+      "input": "1",
+      "format": "T",
+      "result": {
+        "ticks": 864000000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000000
+    },
+    {
+      "input": "1",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2",
+      "format": "c",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "1:2",
+      "format": "t",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "1:2",
+      "format": "T",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "1:2",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:3",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:3",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:3",
+      "format": "c",
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "1:2:3",
+      "format": "t",
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "1:2:3",
+      "format": "T",
+      "result": {
+        "ticks": 37230000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "1:2:3",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1.2:3",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1.2:3",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1.2:3",
+      "format": "c",
+      "result": {
+        "ticks": 937800000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937800000000
+    },
+    {
+      "input": "1.2:3",
+      "format": "t",
+      "result": {
+        "ticks": 937800000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937800000000
+    },
+    {
+      "input": "1.2:3",
+      "format": "T",
+      "result": {
+        "ticks": 937800000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 937800000000
+    },
+    {
+      "input": "1.2:3",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24:00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24:00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24:00:00",
+      "format": "c",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24:00:00",
+      "format": "t",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24:00:00",
+      "format": "T",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24:00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:.3",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:.3",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:.3",
+      "format": "c",
+      "result": {
+        "ticks": 37203000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37203000000
+    },
+    {
+      "input": "1:2:.3",
+      "format": "t",
+      "result": {
+        "ticks": 37203000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37203000000
+    },
+    {
+      "input": "1:2:.3",
+      "format": "T",
+      "result": {
+        "ticks": 37203000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37203000000
+    },
+    {
+      "input": "1:2:.3",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2.3",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2.3",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2.3",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2.3",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2.3",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2.3",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:.",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:.",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:.",
+      "format": "c",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "1:2:.",
+      "format": "t",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "1:2:.",
+      "format": "T",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "1:2:.",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.",
+      "format": "c",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.",
+      "format": "t",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.",
+      "format": "T",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000005",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000005",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000005",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000005",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000005",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000005",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000000",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000000",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000000",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000000",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000000",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000000",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "\t1:2 \t",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "\t1:2 \t",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "\t1:2 \t",
+      "format": "c",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "\t1:2 \t",
+      "format": "t",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "\t1:2 \t",
+      "format": "T",
+      "result": {
+        "ticks": 37200000000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "\t1:2 \t",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": " 1:2",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": " 1:2",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": " 1:2",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": " 1:2",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": " 1:2",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": " 1:2",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "+00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "+00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "+00:00",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "+00:00",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "+00:00",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "+00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00",
+      "format": "c",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00",
+      "format": "t",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00",
+      "format": "T",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "garbage",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "garbage",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "garbage",
+      "format": "c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "garbage",
+      "format": "t",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "garbage",
+      "format": "T",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "garbage",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "c",
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "t",
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "T",
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775808",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775808",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775808",
+      "format": "c",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775808",
+      "format": "t",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775808",
+      "format": "T",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775808",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "c",
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "t",
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "T",
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775809",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775809",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775809",
+      "format": "c",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775809",
+      "format": "t",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775809",
+      "format": "T",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775809",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200",
+      "format": "c",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200",
+      "format": "t",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200",
+      "format": "T",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648",
+      "format": "c",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648",
+      "format": "t",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648",
+      "format": "T",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:61:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:61:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:61:00",
+      "format": "c",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:61:00",
+      "format": "t",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:61:00",
+      "format": "T",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:61:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:60",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:60",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:60",
+      "format": "c",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:60",
+      "format": "t",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:60",
+      "format": "T",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:60",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0.24:00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0.24:00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0.24:00:00",
+      "format": "c",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0.24:00:00",
+      "format": "t",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0.24:00:00",
+      "format": "T",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0.24:00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0000000000000000000",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0000000000000000000",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0000000000000000000",
+      "format": "c",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "0000000000000000000",
+      "format": "t",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "0000000000000000000",
+      "format": "T",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "0000000000000000000",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "c",
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "t",
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "T",
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775807",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775807",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775807",
+      "format": "c",
+      "result": {
+        "ticks": -9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775807
+    },
+    {
+      "input": "-10675199.02:48:05.4775807",
+      "format": "t",
+      "result": {
+        "ticks": -9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775807
+    },
+    {
+      "input": "-10675199.02:48:05.4775807",
+      "format": "T",
+      "result": {
+        "ticks": -9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775807
+    },
+    {
+      "input": "-10675199.02:48:05.4775807",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-1.00:00:00.0000001",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-1.00:00:00.0000001",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-1.00:00:00.0000001",
+      "format": "c",
+      "result": {
+        "ticks": -864000000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -864000000001
+    },
+    {
+      "input": "-1.00:00:00.0000001",
+      "format": "t",
+      "result": {
+        "ticks": -864000000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -864000000001
+    },
+    {
+      "input": "-1.00:00:00.0000001",
+      "format": "T",
+      "result": {
+        "ticks": -864000000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -864000000001
+    },
+    {
+      "input": "-1.00:00:00.0000001",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0010001",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0010001",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0010001",
+      "format": "c",
+      "result": {
+        "ticks": -10001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10001
+    },
+    {
+      "input": "-00:00:00.0010001",
+      "format": "t",
+      "result": {
+        "ticks": -10001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10001
+    },
+    {
+      "input": "-00:00:00.0010001",
+      "format": "T",
+      "result": {
+        "ticks": -10001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10001
+    },
+    {
+      "input": "-00:00:00.0010001",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0010000",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0010000",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0010000",
+      "format": "c",
+      "result": {
+        "ticks": -10000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10000
+    },
+    {
+      "input": "-00:00:00.0010000",
+      "format": "t",
+      "result": {
+        "ticks": -10000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10000
+    },
+    {
+      "input": "-00:00:00.0010000",
+      "format": "T",
+      "result": {
+        "ticks": -10000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10000
+    },
+    {
+      "input": "-00:00:00.0010000",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0009999",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0009999",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0009999",
+      "format": "c",
+      "result": {
+        "ticks": -9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9999
+    },
+    {
+      "input": "-00:00:00.0009999",
+      "format": "t",
+      "result": {
+        "ticks": -9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9999
+    },
+    {
+      "input": "-00:00:00.0009999",
+      "format": "T",
+      "result": {
+        "ticks": -9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9999
+    },
+    {
+      "input": "-00:00:00.0009999",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000011",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000011",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000011",
+      "format": "c",
+      "result": {
+        "ticks": -11
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -11
+    },
+    {
+      "input": "-00:00:00.0000011",
+      "format": "t",
+      "result": {
+        "ticks": -11
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -11
+    },
+    {
+      "input": "-00:00:00.0000011",
+      "format": "T",
+      "result": {
+        "ticks": -11
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -11
+    },
+    {
+      "input": "-00:00:00.0000011",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000010",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000010",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000010",
+      "format": "c",
+      "result": {
+        "ticks": -10
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10
+    },
+    {
+      "input": "-00:00:00.0000010",
+      "format": "t",
+      "result": {
+        "ticks": -10
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10
+    },
+    {
+      "input": "-00:00:00.0000010",
+      "format": "T",
+      "result": {
+        "ticks": -10
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -10
+    },
+    {
+      "input": "-00:00:00.0000010",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000009",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000009",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000009",
+      "format": "c",
+      "result": {
+        "ticks": -9
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9
+    },
+    {
+      "input": "-00:00:00.0000009",
+      "format": "t",
+      "result": {
+        "ticks": -9
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9
+    },
+    {
+      "input": "-00:00:00.0000009",
+      "format": "T",
+      "result": {
+        "ticks": -9
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -9
+    },
+    {
+      "input": "-00:00:00.0000009",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000001",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000001",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-00:00:00.0000001",
+      "format": "c",
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "input": "-00:00:00.0000001",
+      "format": "t",
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "input": "-00:00:00.0000001",
+      "format": "T",
+      "result": {
+        "ticks": -1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": -1
+    },
+    {
+      "input": "-00:00:00.0000001",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00",
+      "format": "c",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00",
+      "format": "t",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00",
+      "format": "T",
+      "result": {
+        "ticks": 0
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000001",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000001",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000001",
+      "format": "c",
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "input": "00:00:00.0000001",
+      "format": "t",
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "input": "00:00:00.0000001",
+      "format": "T",
+      "result": {
+        "ticks": 1
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "input": "00:00:00.0000001",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000009",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000009",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000009",
+      "format": "c",
+      "result": {
+        "ticks": 9
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9
+    },
+    {
+      "input": "00:00:00.0000009",
+      "format": "t",
+      "result": {
+        "ticks": 9
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9
+    },
+    {
+      "input": "00:00:00.0000009",
+      "format": "T",
+      "result": {
+        "ticks": 9
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9
+    },
+    {
+      "input": "00:00:00.0000009",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000010",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000010",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000010",
+      "format": "c",
+      "result": {
+        "ticks": 10
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10
+    },
+    {
+      "input": "00:00:00.0000010",
+      "format": "t",
+      "result": {
+        "ticks": 10
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10
+    },
+    {
+      "input": "00:00:00.0000010",
+      "format": "T",
+      "result": {
+        "ticks": 10
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10
+    },
+    {
+      "input": "00:00:00.0000010",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000011",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000011",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0000011",
+      "format": "c",
+      "result": {
+        "ticks": 11
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 11
+    },
+    {
+      "input": "00:00:00.0000011",
+      "format": "t",
+      "result": {
+        "ticks": 11
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 11
+    },
+    {
+      "input": "00:00:00.0000011",
+      "format": "T",
+      "result": {
+        "ticks": 11
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 11
+    },
+    {
+      "input": "00:00:00.0000011",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0009999",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0009999",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0009999",
+      "format": "c",
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "input": "00:00:00.0009999",
+      "format": "t",
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "input": "00:00:00.0009999",
+      "format": "T",
+      "result": {
+        "ticks": 9999
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9999
+    },
+    {
+      "input": "00:00:00.0009999",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0010000",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0010000",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0010000",
+      "format": "c",
+      "result": {
+        "ticks": 10000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000
+    },
+    {
+      "input": "00:00:00.0010000",
+      "format": "t",
+      "result": {
+        "ticks": 10000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000
+    },
+    {
+      "input": "00:00:00.0010000",
+      "format": "T",
+      "result": {
+        "ticks": 10000
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10000
+    },
+    {
+      "input": "00:00:00.0010000",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0010001",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0010001",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0010001",
+      "format": "c",
+      "result": {
+        "ticks": 10001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10001
+    },
+    {
+      "input": "00:00:00.0010001",
+      "format": "t",
+      "result": {
+        "ticks": 10001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10001
+    },
+    {
+      "input": "00:00:00.0010001",
+      "format": "T",
+      "result": {
+        "ticks": 10001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 10001
+    },
+    {
+      "input": "00:00:00.0010001",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1.00:00:00.0000001",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1.00:00:00.0000001",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1.00:00:00.0000001",
+      "format": "c",
+      "result": {
+        "ticks": 864000000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000001
+    },
+    {
+      "input": "1.00:00:00.0000001",
+      "format": "t",
+      "result": {
+        "ticks": 864000000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000001
+    },
+    {
+      "input": "1.00:00:00.0000001",
+      "format": "T",
+      "result": {
+        "ticks": 864000000001
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000001
+    },
+    {
+      "input": "1.00:00:00.0000001",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775806",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775806",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775806",
+      "format": "c",
+      "result": {
+        "ticks": 9223372036854775806
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775806
+    },
+    {
+      "input": "10675199.02:48:05.4775806",
+      "format": "t",
+      "result": {
+        "ticks": 9223372036854775806
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775806
+    },
+    {
+      "input": "10675199.02:48:05.4775806",
+      "format": "T",
+      "result": {
+        "ticks": 9223372036854775806
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775806
+    },
+    {
+      "input": "10675199.02:48:05.4775806",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "format",
+        "hResult": -2147467261
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "c",
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "t",
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "T",
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "tryResult": {
+        "boolean": true
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "format": "?",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "tryResult": {
+        "boolean": false
+      },
+      "trySuccess": false,
+      "tryTicks": 0
     }
   ],
   "qualification": "REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION"
