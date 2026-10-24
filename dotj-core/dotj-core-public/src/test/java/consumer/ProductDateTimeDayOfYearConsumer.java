@@ -34,7 +34,7 @@ public final class ProductDateTimeDayOfYearConsumer {
         try {
             TimeSpan.Parse("00:61:00");
             throw new AssertionError("Invalid TimeSpan minute accepted");
-        } catch (FormatException expected) {
+        } catch (OverflowException expected) {
         }
         try {
             TimeSpan.Parse("10675199.02:48:05.4775808");

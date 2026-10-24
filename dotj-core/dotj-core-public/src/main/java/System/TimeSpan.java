@@ -31,8 +31,6 @@ public final class TimeSpan implements IComparable, IFormattable {
     public static final TimeSpan MinValue = new TimeSpan(Long.MIN_VALUE);
 
     private static final long TICKS_PER_DAY = TicksPerDay;
-    private static final java.util.regex.Pattern CONSTANT_PATTERN =
-            java.util.regex.Pattern.compile("(-)?(?:(\\d+)\\.)?(\\d{1,2}):(\\d{2}):(\\d{2})(?:\\.(\\d{1,7}))?");
     private final long ticks;
 
     public TimeSpan() {
@@ -365,35 +363,96 @@ public final class TimeSpan implements IComparable, IFormattable {
         if (input == null) {
             throw new ArgumentNullException("input");
         }
-        java.util.regex.Matcher match = CONSTANT_PATTERN.matcher(input.strip());
-        if (!match.matches()) {
-            throw new FormatException("Input was not a valid TimeSpan constant.");
+        int start = 0;
+        int end = input.length();
+        while (start < end && parseSpace(input.charAt(start))) { start++; }
+        while (end > start && parseSpace(input.charAt(end - 1))) { end--; }
+        String text = input.substring(start, end);
+        boolean negative = text.startsWith("-");
+        if (negative) { text = text.substring(1); }
+        java.util.ArrayList<String> numbers = new java.util.ArrayList<>();
+        java.util.ArrayList<String> separators = new java.util.ArrayList<>();
+        java.util.regex.Matcher tokens = java.util.regex.Pattern.compile("[0-9]+|[^0-9]+").matcher(text);
+        boolean expectNumber = true;
+        while (tokens.find()) {
+            String token = tokens.group();
+            boolean number = token.charAt(0) >= '0' && token.charAt(0) <= '9';
+            if (number != expectNumber) { throw new FormatException(); }
+            if (number) {
+                // The pinned parser bounds numeric tokens to 28 bits before component interpretation.
+                if (new java.math.BigInteger(token).compareTo(java.math.BigInteger.valueOf(0x0fffffffL)) > 0) {
+                    throw new OverflowException();
+                }
+                numbers.add(token);
+                if (numbers.size() > 5) { throw new FormatException(); }
+            } else {
+                separators.add(token);
+            }
+            expectNumber = !expectNumber;
         }
-        int hours = Integer.parseInt(match.group(3));
-        int minutes = Integer.parseInt(match.group(4));
-        int seconds = Integer.parseInt(match.group(5));
-        if (hours > 23 || minutes > 59 || seconds > 59) {
-            throw new FormatException("Input was not a valid TimeSpan constant.");
+        if (numbers.isEmpty() || expectNumber) { throw new FormatException(); }
+        String shape = String.join("|", separators);
+        java.util.ArrayList<String> layouts = new java.util.ArrayList<>();
+        switch (numbers.size()) {
+            case 1: layouts.add("d"); break;
+            case 2: if (shape.equals(":")) { layouts.add("hm"); } break;
+            case 3:
+                if (shape.equals(":|:")) { layouts.add("hms"); layouts.add("dhm"); }
+                if (shape.equals(".|:")) { layouts.add("dhm"); }
+                if (shape.equals(":|:.")) { layouts.add("hmf"); }
+                break;
+            case 4:
+                if (shape.equals(":|:|.")) { layouts.add("hmsf"); }
+                if (shape.equals(".|:|:") || shape.equals(":|:|:")) { layouts.add("dhms"); }
+                if (shape.equals(".|:|:.") || shape.equals(":|:|:.")) { layouts.add("dhmf"); }
+                break;
+            case 5:
+                if (shape.equals(".|:|:|.") || shape.equals(":|:|:|.")) { layouts.add("dhmsf"); }
+                break;
+            default: break;
         }
-        java.math.BigInteger days = match.group(2) == null
-                ? java.math.BigInteger.ZERO : new java.math.BigInteger(match.group(2));
-        java.math.BigInteger magnitude = days.multiply(
-                java.math.BigInteger.valueOf(TICKS_PER_DAY));
-        magnitude = magnitude.add(java.math.BigInteger.valueOf(hours * 36_000_000_000L
-                + minutes * 600_000_000L + seconds * 10_000_000L));
-        if (match.group(6) != null) {
-            String fraction = match.group(6);
-            magnitude = magnitude.add(new java.math.BigInteger(
-                    fraction + "0000000".substring(fraction.length())));
+        if (layouts.isEmpty()) { throw new FormatException(); }
+        for (String layout : layouts) {
+            java.math.BigInteger total = java.math.BigInteger.ZERO;
+            boolean valid = true;
+            for (int index = 0; index < layout.length(); index++) {
+                String digits = numbers.get(index);
+                long value = Long.parseLong(digits);
+                long scale;
+                switch (layout.charAt(index)) {
+                    case 'd': valid &= value <= 10675199L; scale = TicksPerDay; break;
+                    case 'h': valid &= value <= 23L; scale = TicksPerHour; break;
+                    case 'm': valid &= value <= 59L; scale = TicksPerMinute; break;
+                    case 's': valid &= value <= 59L; scale = TicksPerSecond; break;
+                    default:
+                        scale = 1L;
+                        if (value == 0L) { break; }
+                        int zeroes = 0;
+                        while (digits.charAt(zeroes) == '0') { zeroes++; }
+                        if (zeroes == 0 && value > 9999999L) { valid = false; break; }
+                        if (digits.length() <= 7) {
+                            value *= (long) java.lang.Math.pow(10, 7 - digits.length());
+                        } else if (zeroes > 7) {
+                            value = 0L;
+                        } else {
+                            long divisor = (long) java.lang.Math.pow(10, digits.length() - 7);
+                            value = (value + divisor / 2L) / divisor;
+                        }
+                        break;
+                }
+                total = total.add(java.math.BigInteger.valueOf(value).multiply(java.math.BigInteger.valueOf(scale)));
+            }
+            if (negative) { total = total.negate(); }
+            if (valid && total.compareTo(java.math.BigInteger.valueOf(Long.MIN_VALUE)) >= 0
+                    && total.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) <= 0) {
+                return new TimeSpan(total.longValue());
+            }
         }
-        if (match.group(1) != null) {
-            magnitude = magnitude.negate();
-        }
-        if (magnitude.compareTo(java.math.BigInteger.valueOf(Long.MIN_VALUE)) < 0
-                || magnitude.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) > 0) {
-            throw new OverflowException("TimeSpan value was out of range.");
-        }
-        return new TimeSpan(magnitude.longValue());
+        throw new OverflowException();
+    }
+
+    private static boolean parseSpace(char value) {
+        return value >= '\t' && value <= '\r' || value == '\u0085' || Character.isSpaceChar(value);
     }
 
     public String ToString(String format) {

@@ -3,7 +3,7 @@
   "scope": "Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only",
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "b47f3b4e822c92ab952eaf65388a7a89ea31f20f9a99187963a62b0629bff45d",
+  "oracleSha256": "3f2728c3bedc5fc9c759e2bf83a1888bf9a5deea0fd0395bc340bddf08840cf1",
   "metadata": {
     "type": "System.TimeSpan",
     "interfaces": [
@@ -28764,6 +28764,2490 @@
         "paramName": null,
         "hResult": -2146233033
       }
+    }
+  ],
+  "parsing": [
+    {
+      "input": null,
+      "result": {
+        "exception": "System.ArgumentNullException",
+        "paramName": "input",
+        "hResult": -2147467261
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "+0",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "garbage",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "12/12/12",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:-01",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00::00",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00:",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00:00:00:00",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:61:00",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1.2",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2.3",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:1:1.99999999",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:1:1.09999999",
+      "result": {
+        "ticks": 36611000000
+      },
+      "trySuccess": true,
+      "tryTicks": 36611000000
+    },
+    {
+      "input": "1:1:1.00000004",
+      "result": {
+        "ticks": 36610000000
+      },
+      "trySuccess": true,
+      "tryTicks": 36610000000
+    },
+    {
+      "input": "1:1:1.00000005",
+      "result": {
+        "ticks": 36610000001
+      },
+      "trySuccess": true,
+      "tryTicks": 36610000001
+    },
+    {
+      "input": "1:1:1.00000000000001",
+      "result": {
+        "ticks": 36610000000
+      },
+      "trySuccess": true,
+      "tryTicks": 36610000000
+    },
+    {
+      "input": "1:1:1.00000000000000",
+      "result": {
+        "ticks": 36610000000
+      },
+      "trySuccess": true,
+      "tryTicks": 36610000000
+    },
+    {
+      "input": "1:1:1.0123456789",
+      "result": {
+        "ticks": 36610123457
+      },
+      "trySuccess": true,
+      "tryTicks": 36610123457
+    },
+    {
+      "input": "10675199.02:48:05.4775807",
+      "result": {
+        "ticks": 9223372036854775807
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372036854775807
+    },
+    {
+      "input": "10675199.02:48:05.4775808",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199.02:48:05.4775808",
+      "result": {
+        "ticks": -9223372036854775808
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372036854775808
+    },
+    {
+      "input": "-10675199.02:48:05.4775809",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0000000000000000000000000",
+      "result": {
+        "ticks": 0
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:1:1.000000000000000000000000001",
+      "result": {
+        "ticks": 36610000000
+      },
+      "trySuccess": true,
+      "tryTicks": 36610000000
+    },
+    {
+      "input": "١:٢:٣",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "１:２:３",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1 :2:3",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "1:2:3 ",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\u000012:34:56",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "0",
+      "result": {
+        "ticks": 0
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "-0",
+      "result": {
+        "ticks": 0
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "0:02",
+      "result": {
+        "ticks": 1200000000
+      },
+      "trySuccess": true,
+      "tryTicks": 1200000000
+    },
+    {
+      "input": "-0:02",
+      "result": {
+        "ticks": -1200000000
+      },
+      "trySuccess": true,
+      "tryTicks": -1200000000
+    },
+    {
+      "input": "0:02:03",
+      "result": {
+        "ticks": 1230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 1230000000
+    },
+    {
+      "input": "-0:02:03",
+      "result": {
+        "ticks": -1230000000
+      },
+      "trySuccess": true,
+      "tryTicks": -1230000000
+    },
+    {
+      "input": "0.02:03",
+      "result": {
+        "ticks": 73800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 73800000000
+    },
+    {
+      "input": "-0.02:03",
+      "result": {
+        "ticks": -73800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -73800000000
+    },
+    {
+      "input": "0:02:03:04",
+      "result": {
+        "ticks": 73840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 73840000000
+    },
+    {
+      "input": "-0:02:03:04",
+      "result": {
+        "ticks": -73840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -73840000000
+    },
+    {
+      "input": "0.02:03:04",
+      "result": {
+        "ticks": 73840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 73840000000
+    },
+    {
+      "input": "-0.02:03:04",
+      "result": {
+        "ticks": -73840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -73840000000
+    },
+    {
+      "input": "0:02:03.4",
+      "result": {
+        "ticks": 1234000000
+      },
+      "trySuccess": true,
+      "tryTicks": 1234000000
+    },
+    {
+      "input": "-0:02:03.4",
+      "result": {
+        "ticks": -1234000000
+      },
+      "trySuccess": true,
+      "tryTicks": -1234000000
+    },
+    {
+      "input": "0:02:.04",
+      "result": {
+        "ticks": 1200400000
+      },
+      "trySuccess": true,
+      "tryTicks": 1200400000
+    },
+    {
+      "input": "-0:02:.04",
+      "result": {
+        "ticks": -1200400000
+      },
+      "trySuccess": true,
+      "tryTicks": -1200400000
+    },
+    {
+      "input": "0.02:03:.004",
+      "result": {
+        "ticks": 73800040000
+      },
+      "trySuccess": true,
+      "tryTicks": 73800040000
+    },
+    {
+      "input": "-0.02:03:.004",
+      "result": {
+        "ticks": -73800040000
+      },
+      "trySuccess": true,
+      "tryTicks": -73800040000
+    },
+    {
+      "input": "0:02:03:04.0000005",
+      "result": {
+        "ticks": 73840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 73840000005
+    },
+    {
+      "input": "-0:02:03:04.0000005",
+      "result": {
+        "ticks": -73840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -73840000005
+    },
+    {
+      "input": "0.02:03:04.0000005",
+      "result": {
+        "ticks": 73840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 73840000005
+    },
+    {
+      "input": "-0.02:03:04.0000005",
+      "result": {
+        "ticks": -73840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -73840000005
+    },
+    {
+      "input": "1",
+      "result": {
+        "ticks": 864000000000
+      },
+      "trySuccess": true,
+      "tryTicks": 864000000000
+    },
+    {
+      "input": "-1",
+      "result": {
+        "ticks": -864000000000
+      },
+      "trySuccess": true,
+      "tryTicks": -864000000000
+    },
+    {
+      "input": "1:02",
+      "result": {
+        "ticks": 37200000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37200000000
+    },
+    {
+      "input": "-1:02",
+      "result": {
+        "ticks": -37200000000
+      },
+      "trySuccess": true,
+      "tryTicks": -37200000000
+    },
+    {
+      "input": "1:02:03",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "-1:02:03",
+      "result": {
+        "ticks": -37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": -37230000000
+    },
+    {
+      "input": "1.02:03",
+      "result": {
+        "ticks": 937800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 937800000000
+    },
+    {
+      "input": "-1.02:03",
+      "result": {
+        "ticks": -937800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -937800000000
+    },
+    {
+      "input": "1:02:03:04",
+      "result": {
+        "ticks": 937840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "input": "-1:02:03:04",
+      "result": {
+        "ticks": -937840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -937840000000
+    },
+    {
+      "input": "1.02:03:04",
+      "result": {
+        "ticks": 937840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000000
+    },
+    {
+      "input": "-1.02:03:04",
+      "result": {
+        "ticks": -937840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -937840000000
+    },
+    {
+      "input": "1:02:03.4",
+      "result": {
+        "ticks": 37234000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37234000000
+    },
+    {
+      "input": "-1:02:03.4",
+      "result": {
+        "ticks": -37234000000
+      },
+      "trySuccess": true,
+      "tryTicks": -37234000000
+    },
+    {
+      "input": "1:02:.04",
+      "result": {
+        "ticks": 37200400000
+      },
+      "trySuccess": true,
+      "tryTicks": 37200400000
+    },
+    {
+      "input": "-1:02:.04",
+      "result": {
+        "ticks": -37200400000
+      },
+      "trySuccess": true,
+      "tryTicks": -37200400000
+    },
+    {
+      "input": "1.02:03:.004",
+      "result": {
+        "ticks": 937800040000
+      },
+      "trySuccess": true,
+      "tryTicks": 937800040000
+    },
+    {
+      "input": "-1.02:03:.004",
+      "result": {
+        "ticks": -937800040000
+      },
+      "trySuccess": true,
+      "tryTicks": -937800040000
+    },
+    {
+      "input": "1:02:03:04.0000005",
+      "result": {
+        "ticks": 937840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000005
+    },
+    {
+      "input": "-1:02:03:04.0000005",
+      "result": {
+        "ticks": -937840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -937840000005
+    },
+    {
+      "input": "1.02:03:04.0000005",
+      "result": {
+        "ticks": 937840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 937840000005
+    },
+    {
+      "input": "-1.02:03:04.0000005",
+      "result": {
+        "ticks": -937840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -937840000005
+    },
+    {
+      "input": "23",
+      "result": {
+        "ticks": 19872000000000
+      },
+      "trySuccess": true,
+      "tryTicks": 19872000000000
+    },
+    {
+      "input": "-23",
+      "result": {
+        "ticks": -19872000000000
+      },
+      "trySuccess": true,
+      "tryTicks": -19872000000000
+    },
+    {
+      "input": "23:02",
+      "result": {
+        "ticks": 829200000000
+      },
+      "trySuccess": true,
+      "tryTicks": 829200000000
+    },
+    {
+      "input": "-23:02",
+      "result": {
+        "ticks": -829200000000
+      },
+      "trySuccess": true,
+      "tryTicks": -829200000000
+    },
+    {
+      "input": "23:02:03",
+      "result": {
+        "ticks": 829230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 829230000000
+    },
+    {
+      "input": "-23:02:03",
+      "result": {
+        "ticks": -829230000000
+      },
+      "trySuccess": true,
+      "tryTicks": -829230000000
+    },
+    {
+      "input": "23.02:03",
+      "result": {
+        "ticks": 19945800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 19945800000000
+    },
+    {
+      "input": "-23.02:03",
+      "result": {
+        "ticks": -19945800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -19945800000000
+    },
+    {
+      "input": "23:02:03:04",
+      "result": {
+        "ticks": 19945840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 19945840000000
+    },
+    {
+      "input": "-23:02:03:04",
+      "result": {
+        "ticks": -19945840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -19945840000000
+    },
+    {
+      "input": "23.02:03:04",
+      "result": {
+        "ticks": 19945840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 19945840000000
+    },
+    {
+      "input": "-23.02:03:04",
+      "result": {
+        "ticks": -19945840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -19945840000000
+    },
+    {
+      "input": "23:02:03.4",
+      "result": {
+        "ticks": 829234000000
+      },
+      "trySuccess": true,
+      "tryTicks": 829234000000
+    },
+    {
+      "input": "-23:02:03.4",
+      "result": {
+        "ticks": -829234000000
+      },
+      "trySuccess": true,
+      "tryTicks": -829234000000
+    },
+    {
+      "input": "23:02:.04",
+      "result": {
+        "ticks": 829200400000
+      },
+      "trySuccess": true,
+      "tryTicks": 829200400000
+    },
+    {
+      "input": "-23:02:.04",
+      "result": {
+        "ticks": -829200400000
+      },
+      "trySuccess": true,
+      "tryTicks": -829200400000
+    },
+    {
+      "input": "23.02:03:.004",
+      "result": {
+        "ticks": 19945800040000
+      },
+      "trySuccess": true,
+      "tryTicks": 19945800040000
+    },
+    {
+      "input": "-23.02:03:.004",
+      "result": {
+        "ticks": -19945800040000
+      },
+      "trySuccess": true,
+      "tryTicks": -19945800040000
+    },
+    {
+      "input": "23:02:03:04.0000005",
+      "result": {
+        "ticks": 19945840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 19945840000005
+    },
+    {
+      "input": "-23:02:03:04.0000005",
+      "result": {
+        "ticks": -19945840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -19945840000005
+    },
+    {
+      "input": "23.02:03:04.0000005",
+      "result": {
+        "ticks": 19945840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 19945840000005
+    },
+    {
+      "input": "-23.02:03:04.0000005",
+      "result": {
+        "ticks": -19945840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -19945840000005
+    },
+    {
+      "input": "24",
+      "result": {
+        "ticks": 20736000000000
+      },
+      "trySuccess": true,
+      "tryTicks": 20736000000000
+    },
+    {
+      "input": "-24",
+      "result": {
+        "ticks": -20736000000000
+      },
+      "trySuccess": true,
+      "tryTicks": -20736000000000
+    },
+    {
+      "input": "24:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-24:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24:02:03",
+      "result": {
+        "ticks": 20809800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 20809800000000
+    },
+    {
+      "input": "-24:02:03",
+      "result": {
+        "ticks": -20809800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -20809800000000
+    },
+    {
+      "input": "24.02:03",
+      "result": {
+        "ticks": 20809800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 20809800000000
+    },
+    {
+      "input": "-24.02:03",
+      "result": {
+        "ticks": -20809800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -20809800000000
+    },
+    {
+      "input": "24:02:03:04",
+      "result": {
+        "ticks": 20809840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 20809840000000
+    },
+    {
+      "input": "-24:02:03:04",
+      "result": {
+        "ticks": -20809840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -20809840000000
+    },
+    {
+      "input": "24.02:03:04",
+      "result": {
+        "ticks": 20809840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 20809840000000
+    },
+    {
+      "input": "-24.02:03:04",
+      "result": {
+        "ticks": -20809840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -20809840000000
+    },
+    {
+      "input": "24:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-24:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-24:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "24.02:03:.004",
+      "result": {
+        "ticks": 20809800040000
+      },
+      "trySuccess": true,
+      "tryTicks": 20809800040000
+    },
+    {
+      "input": "-24.02:03:.004",
+      "result": {
+        "ticks": -20809800040000
+      },
+      "trySuccess": true,
+      "tryTicks": -20809800040000
+    },
+    {
+      "input": "24:02:03:04.0000005",
+      "result": {
+        "ticks": 20809840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 20809840000005
+    },
+    {
+      "input": "-24:02:03:04.0000005",
+      "result": {
+        "ticks": -20809840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -20809840000005
+    },
+    {
+      "input": "24.02:03:04.0000005",
+      "result": {
+        "ticks": 20809840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 20809840000005
+    },
+    {
+      "input": "-24.02:03:04.0000005",
+      "result": {
+        "ticks": -20809840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -20809840000005
+    },
+    {
+      "input": "59",
+      "result": {
+        "ticks": 50976000000000
+      },
+      "trySuccess": true,
+      "tryTicks": 50976000000000
+    },
+    {
+      "input": "-59",
+      "result": {
+        "ticks": -50976000000000
+      },
+      "trySuccess": true,
+      "tryTicks": -50976000000000
+    },
+    {
+      "input": "59:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-59:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "59:02:03",
+      "result": {
+        "ticks": 51049800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51049800000000
+    },
+    {
+      "input": "-59:02:03",
+      "result": {
+        "ticks": -51049800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51049800000000
+    },
+    {
+      "input": "59.02:03",
+      "result": {
+        "ticks": 51049800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51049800000000
+    },
+    {
+      "input": "-59.02:03",
+      "result": {
+        "ticks": -51049800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51049800000000
+    },
+    {
+      "input": "59:02:03:04",
+      "result": {
+        "ticks": 51049840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51049840000000
+    },
+    {
+      "input": "-59:02:03:04",
+      "result": {
+        "ticks": -51049840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51049840000000
+    },
+    {
+      "input": "59.02:03:04",
+      "result": {
+        "ticks": 51049840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51049840000000
+    },
+    {
+      "input": "-59.02:03:04",
+      "result": {
+        "ticks": -51049840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51049840000000
+    },
+    {
+      "input": "59:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-59:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "59:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-59:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "59.02:03:.004",
+      "result": {
+        "ticks": 51049800040000
+      },
+      "trySuccess": true,
+      "tryTicks": 51049800040000
+    },
+    {
+      "input": "-59.02:03:.004",
+      "result": {
+        "ticks": -51049800040000
+      },
+      "trySuccess": true,
+      "tryTicks": -51049800040000
+    },
+    {
+      "input": "59:02:03:04.0000005",
+      "result": {
+        "ticks": 51049840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 51049840000005
+    },
+    {
+      "input": "-59:02:03:04.0000005",
+      "result": {
+        "ticks": -51049840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -51049840000005
+    },
+    {
+      "input": "59.02:03:04.0000005",
+      "result": {
+        "ticks": 51049840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 51049840000005
+    },
+    {
+      "input": "-59.02:03:04.0000005",
+      "result": {
+        "ticks": -51049840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -51049840000005
+    },
+    {
+      "input": "60",
+      "result": {
+        "ticks": 51840000000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51840000000000
+    },
+    {
+      "input": "-60",
+      "result": {
+        "ticks": -51840000000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51840000000000
+    },
+    {
+      "input": "60:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-60:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "60:02:03",
+      "result": {
+        "ticks": 51913800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51913800000000
+    },
+    {
+      "input": "-60:02:03",
+      "result": {
+        "ticks": -51913800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51913800000000
+    },
+    {
+      "input": "60.02:03",
+      "result": {
+        "ticks": 51913800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51913800000000
+    },
+    {
+      "input": "-60.02:03",
+      "result": {
+        "ticks": -51913800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51913800000000
+    },
+    {
+      "input": "60:02:03:04",
+      "result": {
+        "ticks": 51913840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51913840000000
+    },
+    {
+      "input": "-60:02:03:04",
+      "result": {
+        "ticks": -51913840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51913840000000
+    },
+    {
+      "input": "60.02:03:04",
+      "result": {
+        "ticks": 51913840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 51913840000000
+    },
+    {
+      "input": "-60.02:03:04",
+      "result": {
+        "ticks": -51913840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -51913840000000
+    },
+    {
+      "input": "60:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-60:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "60:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-60:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "60.02:03:.004",
+      "result": {
+        "ticks": 51913800040000
+      },
+      "trySuccess": true,
+      "tryTicks": 51913800040000
+    },
+    {
+      "input": "-60.02:03:.004",
+      "result": {
+        "ticks": -51913800040000
+      },
+      "trySuccess": true,
+      "tryTicks": -51913800040000
+    },
+    {
+      "input": "60:02:03:04.0000005",
+      "result": {
+        "ticks": 51913840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 51913840000005
+    },
+    {
+      "input": "-60:02:03:04.0000005",
+      "result": {
+        "ticks": -51913840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -51913840000005
+    },
+    {
+      "input": "60.02:03:04.0000005",
+      "result": {
+        "ticks": 51913840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 51913840000005
+    },
+    {
+      "input": "-60.02:03:04.0000005",
+      "result": {
+        "ticks": -51913840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -51913840000005
+    },
+    {
+      "input": "10675199",
+      "result": {
+        "ticks": 9223371936000000000
+      },
+      "trySuccess": true,
+      "tryTicks": 9223371936000000000
+    },
+    {
+      "input": "-10675199",
+      "result": {
+        "ticks": -9223371936000000000
+      },
+      "trySuccess": true,
+      "tryTicks": -9223371936000000000
+    },
+    {
+      "input": "10675199:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199:02:03",
+      "result": {
+        "ticks": 9223372009800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372009800000000
+    },
+    {
+      "input": "-10675199:02:03",
+      "result": {
+        "ticks": -9223372009800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372009800000000
+    },
+    {
+      "input": "10675199.02:03",
+      "result": {
+        "ticks": 9223372009800000000
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372009800000000
+    },
+    {
+      "input": "-10675199.02:03",
+      "result": {
+        "ticks": -9223372009800000000
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372009800000000
+    },
+    {
+      "input": "10675199:02:03:04",
+      "result": {
+        "ticks": 9223372009840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372009840000000
+    },
+    {
+      "input": "-10675199:02:03:04",
+      "result": {
+        "ticks": -9223372009840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372009840000000
+    },
+    {
+      "input": "10675199.02:03:04",
+      "result": {
+        "ticks": 9223372009840000000
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372009840000000
+    },
+    {
+      "input": "-10675199.02:03:04",
+      "result": {
+        "ticks": -9223372009840000000
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372009840000000
+    },
+    {
+      "input": "10675199:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675199:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675199.02:03:.004",
+      "result": {
+        "ticks": 9223372009800040000
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372009800040000
+    },
+    {
+      "input": "-10675199.02:03:.004",
+      "result": {
+        "ticks": -9223372009800040000
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372009800040000
+    },
+    {
+      "input": "10675199:02:03:04.0000005",
+      "result": {
+        "ticks": 9223372009840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372009840000005
+    },
+    {
+      "input": "-10675199:02:03:04.0000005",
+      "result": {
+        "ticks": -9223372009840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372009840000005
+    },
+    {
+      "input": "10675199.02:03:04.0000005",
+      "result": {
+        "ticks": 9223372009840000005
+      },
+      "trySuccess": true,
+      "tryTicks": 9223372009840000005
+    },
+    {
+      "input": "-10675199.02:03:04.0000005",
+      "result": {
+        "ticks": -9223372009840000005
+      },
+      "trySuccess": true,
+      "tryTicks": -9223372009840000005
+    },
+    {
+      "input": "10675200",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200:02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200:02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200.02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200.02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200:02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200:02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200.02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200.02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200.02:03:.004",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200.02:03:.004",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200:02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200:02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "10675200.02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-10675200.02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647:02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647:02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647.02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647.02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647:02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647:02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647.02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647.02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647.02:03:.004",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647.02:03:.004",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647:02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647:02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483647.02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483647.02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648:02",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648:02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648:02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648.02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648.02:03",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648:02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648:02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648.02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648.02:03:04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648:02:03.4",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648:02:.04",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648.02:03:.004",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648.02:03:.004",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648:02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648:02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "2147483648.02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "-2147483648.02:03:04.0000005",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "\t1:2:3\t",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\n1:2:3\n",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\u000b1:2:3\u000b",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\f1:2:3\f",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\r1:2:3\r",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\u001c1:2:3\u001c",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "\u001f1:2:3\u001f",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": " 1:2:3 ",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\u00851:2:3\u0085",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": " 1:2:3 ",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": " 1:2:3 ",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": " 1:2:3 ",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\u20281:2:3\u2028",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "\u20291:2:3\u2029",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": " 1:2:3 ",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": " 1:2:3 ",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "　1:2:3　",
+      "result": {
+        "ticks": 37230000000
+      },
+      "trySuccess": true,
+      "tryTicks": 37230000000
+    },
+    {
+      "input": "﻿1:2:3﻿",
+      "result": {
+        "exception": "System.FormatException",
+        "paramName": null,
+        "hResult": -2146233033
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.0",
+      "result": {
+        "ticks": 0
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.1",
+      "result": {
+        "ticks": 1000000
+      },
+      "trySuccess": true,
+      "tryTicks": 1000000
+    },
+    {
+      "input": "00:00:00.0000000",
+      "result": {
+        "ticks": 0
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000000",
+      "result": {
+        "ticks": 0
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.9999999",
+      "result": {
+        "ticks": 9999999
+      },
+      "trySuccess": true,
+      "tryTicks": 9999999
+    },
+    {
+      "input": "00:00:00.99999999",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000001",
+      "result": {
+        "ticks": 0
+      },
+      "trySuccess": true,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.00000005",
+      "result": {
+        "ticks": 1
+      },
+      "trySuccess": true,
+      "tryTicks": 1
+    },
+    {
+      "input": "00:00:00.099999999",
+      "result": {
+        "ticks": 1000000
+      },
+      "trySuccess": true,
+      "tryTicks": 1000000
+    },
+    {
+      "input": "00:00:00.01234567890",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
+    },
+    {
+      "input": "00:00:00.000000002147483648",
+      "result": {
+        "exception": "System.OverflowException",
+        "paramName": null,
+        "hResult": -2146233066
+      },
+      "trySuccess": false,
+      "tryTicks": 0
     }
   ],
   "qualification": "REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION"
