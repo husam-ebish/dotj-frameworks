@@ -48,6 +48,13 @@ public final class DateTime implements IConvertible {
         }
     }
 
+    public static boolean IsLeapYear(int year) {
+        if (year < 1 || year > 9999) {
+            throw new ArgumentOutOfRangeException("year");
+        }
+        return java.time.Year.isLeap(year);
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }

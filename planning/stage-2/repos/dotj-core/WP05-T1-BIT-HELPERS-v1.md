@@ -685,3 +685,5 @@ The public DateTime candidate now exposes get_Ticks as 100-nanosecond units from
 The public DateTime candidate now exposes get_Microsecond as the sub-millisecond component. A packaged consumer checks seven-digit fractional seconds and the associated .NET tick value. Broader DateTime parity remains open.
 
 The public DateTime candidate now exposes get_Nanosecond as the sub-microsecond component. A packaged consumer checks a seven-digit fractional second and a millisecond constructor. Broader DateTime parity remains open.
+
+The public DateTime candidate now exposes IsLeapYear with Gregorian century rules and the .NET year range of 1 through 9999. A packaged consumer checks leap and common years plus out-of-range parameter names. Broader DateTime parity remains open.

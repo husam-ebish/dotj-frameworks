@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "f6a60e48bda1256c1add647381a4052e1f93d79f040405ff19586cfe2182d84f",
+  "javaCandidateEvidenceSha256": "f58bca8eb9251691b6ea37535e7ae8e309a2d564ab16f7a27c4ca6a4e170b0a8",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 81,
+  "nameLevelMissingMethodCount": 80,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5893,6 +5893,7 @@
         "public System.DateTime(int, int, int, int, int, int);",
         "public System.DateTime(int, int, int, int, int, int, int);",
         "public static System.DateTime Parse(java.lang.String);",
+        "public static boolean IsLeapYear(int);",
         "public int get_Year();",
         "public int get_Month();",
         "public int get_Day();",
@@ -5971,6 +5972,7 @@
         },
         "javaCandidateDeclaredMethodOverloads": {
           "GetTypeCode": 1,
+          "IsLeapYear": 1,
           "Parse": 1,
           "ToBoolean": 1,
           "ToByte": 1,
@@ -6024,7 +6026,6 @@
           "GetDateTimeFormats",
           "GetHashCode",
           "IsDaylightSavingTime",
-          "IsLeapYear",
           "ParseExact",
           "SpecifyKind",
           "Subtract",
