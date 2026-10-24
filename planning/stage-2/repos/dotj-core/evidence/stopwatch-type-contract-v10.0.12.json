@@ -1,0 +1,4494 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "35e2e5774dbc2755ebc4677ddf4f7aa70e487a6fcd0233e7ed4ddb563b418116",
+  "types": [
+    {
+      "name": "System.Diagnostics.Stopwatch",
+      "simpleName": "Stopwatch",
+      "namespace": "System.Diagnostics",
+      "baseType": "System.Object",
+      "isClass": true,
+      "isValueType": false,
+      "isEnum": false,
+      "isSealed": false,
+      "isPrimitive": false,
+      "isArray": false,
+      "typeCode": 1,
+      "elementName": null
+    },
+    {
+      "name": "System.Diagnostics.Stopwatch[]",
+      "simpleName": "Stopwatch[]",
+      "namespace": "System.Diagnostics",
+      "baseType": "System.Array",
+      "isClass": true,
+      "isValueType": false,
+      "isEnum": false,
+      "isSealed": true,
+      "isPrimitive": false,
+      "isArray": true,
+      "typeCode": 1,
+      "elementName": "System.Diagnostics.Stopwatch"
+    }
+  ],
+  "assignability": [
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": true
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": true
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Object[]",
+      "result": true
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Diagnostics.Stopwatch[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Object[]",
+      "result": true
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Object[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.DateTime[]",
+      "result": true
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.DateTime[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.TimeSpan[]",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Object[]",
+      "result": true
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.String[]",
+      "result": true
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.String[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Boolean[]",
+      "result": true
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Boolean[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Char[]",
+      "result": true
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Char[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Int16[]",
+      "result": true
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Int16[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Int32[]",
+      "result": true
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Int32[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Int64[]",
+      "result": true
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Int64[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Single[]",
+      "result": true
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Single[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Double[]",
+      "result": true
+    },
+    {
+      "source": "System.Double[]",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.Byte[]",
+      "target": "System.Byte[]",
+      "result": true
+    },
+    {
+      "source": "System.String",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.String",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.IComparable",
+      "result": true
+    },
+    {
+      "source": "System.String",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.IConvertible",
+      "result": true
+    },
+    {
+      "source": "System.String",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "source": "System.String",
+      "target": "System.Byte[]",
+      "result": false
+    }
+  ],
+  "instances": [
+    {
+      "sample": "Null",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Object",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": true
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "Stopwatch",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": true
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Object[]",
+      "result": true
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "StopwatchArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "Object",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "String",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.IComparable",
+      "result": true
+    },
+    {
+      "sample": "String",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.IConvertible",
+      "result": true
+    },
+    {
+      "sample": "String",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "String",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.ValueType",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.DateTime",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.IComparable",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.IFormattable",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.IConvertible",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Array",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.ValueType",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.TimeSpan",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.IComparable",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.IFormattable",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Object[]",
+      "result": true
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "ObjectArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Object[]",
+      "result": true
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.String[]",
+      "result": true
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "StringArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.DateTime[]",
+      "result": true
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "DateTimeArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.TimeSpan[]",
+      "result": true
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "TimeSpanArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Boolean[]",
+      "result": true
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "BooleanArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Char[]",
+      "result": true
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "CharArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Int16[]",
+      "result": true
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "Int16Array",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Int32[]",
+      "result": true
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "Int32Array",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Int64[]",
+      "result": true
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "Int64Array",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Single[]",
+      "result": true
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "SingleArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Double[]",
+      "result": true
+    },
+    {
+      "sample": "DoubleArray",
+      "target": "System.Byte[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Diagnostics.Stopwatch",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Diagnostics.Stopwatch[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Array",
+      "result": true
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.IDisposable",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Object[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.DateTime[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.TimeSpan[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.String[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Boolean[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Char[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Int16[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Int32[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Int64[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Single[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Double[]",
+      "result": false
+    },
+    {
+      "sample": "ByteArray",
+      "target": "System.Byte[]",
+      "result": true
+    }
+  ],
+  "lookups": [
+    {
+      "query": "System.Diagnostics.Stopwatch",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "system.diagnostics.stopwatch",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "query": "system.diagnostics.stopwatch",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "exception": "System.TypeLoadException",
+        "hResult": -2146233054
+      }
+    },
+    {
+      "query": "system.diagnostics.stopwatch",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "system.diagnostics.stopwatch",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.stopwatch",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "query": "System.Diagnostics.stopwatch",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "exception": "System.TypeLoadException",
+        "hResult": -2146233054
+      }
+    },
+    {
+      "query": "System.Diagnostics.stopwatch",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.stopwatch",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch[]",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch[]",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch[]",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch[]",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "system.diagnostics.stopwatch[]",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "query": "system.diagnostics.stopwatch[]",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "exception": "System.TypeLoadException",
+        "hResult": -2146233054
+      }
+    },
+    {
+      "query": "system.diagnostics.stopwatch[]",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "system.diagnostics.stopwatch[]",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch[], System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch[]"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch, System.Private.CoreLib",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch, System.Private.CoreLib",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch, System.Private.CoreLib",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "System.Diagnostics.Stopwatch, System.Private.CoreLib",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "name": "System.Diagnostics.Stopwatch"
+      }
+    },
+    {
+      "query": "Stopwatch",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "query": "Stopwatch",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "exception": "System.TypeLoadException",
+        "hResult": -2146233054
+      }
+    },
+    {
+      "query": "Stopwatch",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "query": "Stopwatch",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "exception": "System.TypeLoadException",
+        "hResult": -2146233054
+      }
+    },
+    {
+      "query": "System.Diagnostics.MissingStopwatch",
+      "ignoreCase": false,
+      "throwOnError": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "query": "System.Diagnostics.MissingStopwatch",
+      "ignoreCase": false,
+      "throwOnError": true,
+      "result": {
+        "exception": "System.TypeLoadException",
+        "hResult": -2146233054
+      }
+    },
+    {
+      "query": "System.Diagnostics.MissingStopwatch",
+      "ignoreCase": true,
+      "throwOnError": false,
+      "result": {
+        "name": null
+      }
+    },
+    {
+      "query": "System.Diagnostics.MissingStopwatch",
+      "ignoreCase": true,
+      "throwOnError": true,
+      "result": {
+        "exception": "System.TypeLoadException",
+        "hResult": -2146233054
+      }
+    }
+  ],
+  "interfaces": [],
+  "interfaceLookups": [
+    {
+      "query": "System.IDisposable",
+      "ignoreCase": false,
+      "name": null
+    },
+    {
+      "query": "System.IDisposable",
+      "ignoreCase": true,
+      "name": null
+    },
+    {
+      "query": "IDisposable",
+      "ignoreCase": false,
+      "name": null
+    },
+    {
+      "query": "IDisposable",
+      "ignoreCase": true,
+      "name": null
+    },
+    {
+      "query": "System.IComparable",
+      "ignoreCase": false,
+      "name": null
+    },
+    {
+      "query": "System.IComparable",
+      "ignoreCase": true,
+      "name": null
+    },
+    {
+      "query": "icomparable",
+      "ignoreCase": false,
+      "name": null
+    },
+    {
+      "query": "icomparable",
+      "ignoreCase": true,
+      "name": null
+    }
+  ],
+  "defaultMembers": [],
+  "qualification": "SELECTED_STOPWATCH_TYPE_AND_ARRAY_REFERENCE; FULL_REFLECTION_GENERICS_LANGUAGE_AND_RELEASE_OPEN"
+}
