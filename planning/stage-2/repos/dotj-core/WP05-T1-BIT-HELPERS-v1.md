@@ -801,3 +801,5 @@ Batch 1997 adds TimeSpan static and instance equality, Java equality, and matchi
 Batch 1998 adds invariant TimeSpan.ToString and Java toString in constant form, including optional days and fractional ticks and minimum-tick formatting.
 
 Batch 1999 adds TimeSpan.Parse for the invariant constant grammar with day and fractional-tick components, whitespace, format rejection, and signed 64-bit overflow checks.
+
+Batch 2000 adds TimeSpan.TryParse for the selected invariant constant grammar, using the existing array out-carrier and resetting it to zero on invalid, overflowing and null input.
