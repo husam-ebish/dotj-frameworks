@@ -7,6 +7,7 @@ Reference: .NET 10.0.12, CoreLib SHA-256 `1125acc8106c43fc8bad2d203c4c4485df6182
 | Immutable value and zero initialization | Final class with final tick storage; zero constructor represents the zero-initialized CLR value | Full value-type, boxing, null and language lowering remain open |
 | Public constants and readonly values | Same 25 public names, widths and values; primitive constants and immutable TimeSpan objects use static final fields | Selected field projection only; CLR field metadata categories are not identical |
 | Property access | Existing CLR-style get_ accessor names | Source property lowering remains unqualified |
+| Constant-format ToString and IFormattable | Exact overload names and interface dispatch; null/empty/c/t/T ignore providers as CLR does | General g/G, custom formats and culture/language integration remain open |
 | Boxed comparison, equality and hashing | Object overloads and Java equals/hashCode hooks compared with pinned CLR outcomes | Selected ordering, value/hash results and exception type/ParamName only; typed null carriers remain outside the CLR value domain |
 | Int32/Int64 single-unit factories | Exact int/long overload widths and checked integer ranges | Bounded pinned vector coverage only |
 | Five composite integer factory declarations | Same full parameter widths, with exact intermediate accumulation before range checking | Bounded pinned vector coverage only |

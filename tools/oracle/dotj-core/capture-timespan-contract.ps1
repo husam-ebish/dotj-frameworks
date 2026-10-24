@@ -225,6 +225,22 @@ foreach ($leftTicks in $checkedTicks) {
         $checkedArithmetic += [ordered]@{ method = $name; ticks = $leftTicks; result = $result }
     }
 }
+$formats = @()
+$formatOnly = [TimeSpan].GetMethod('ToString', [type[]]@([string]))
+$formatWithProvider = [TimeSpan].GetMethod('ToString', [type[]]@([string],[IFormatProvider]))
+foreach ($ticks in $tickInputs) {
+    $span = [TimeSpan]::FromTicks($ticks)
+    foreach ($format in @($null, '', 'c', 't', 'T', 'C', 'z', 'cc', 'ddddddddd', ':')) {
+        try { $result = [ordered]@{ text = $formatOnly.Invoke($span, [object[]]@($format)) } }
+        catch { $result = Failure $_ }
+        $formats += [ordered]@{ ticks = $ticks; format = $format; withProvider = $false; referenceCulture = $null; result = $result }
+        foreach ($culture in @([Globalization.CultureInfo]::InvariantCulture, [Globalization.CultureInfo]::GetCultureInfo('fr-FR'))) {
+            try { $result = [ordered]@{ text = $formatWithProvider.Invoke($span, [object[]]@($format,$culture)) } }
+            catch { $result = Failure $_ }
+            $formats += [ordered]@{ ticks = $ticks; format = $format; withProvider = $true; referenceCulture = $culture.Name; result = $result }
+        }
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -240,6 +256,7 @@ $record = [ordered]@{
     compositeFactories = $compositeFactories
     comparisons = $comparisons
     checkedArithmetic = $checkedArithmetic
+    formats = $formats
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))

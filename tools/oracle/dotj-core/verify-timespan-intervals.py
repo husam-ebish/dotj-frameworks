@@ -21,6 +21,7 @@ def main():
     kinds.add_argument('--composite-factories', action='store_true')
     kinds.add_argument('--comparison', action='store_true')
     kinds.add_argument('--checked-arithmetic', action='store_true')
+    kinds.add_argument('--formats', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -34,7 +35,7 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    section = ('checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
+    section = ('formats' if args.formats else 'checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
                'constructors' if args.constructors else 'factories')
     vectors = oracle['operations'] + oracle['ratios'] if args.arithmetic else oracle[section]
     for index, case in enumerate(vectors):
@@ -54,7 +55,10 @@ def main():
                        f'check(left.equals(right) == {str(case["equalsObject"]).lower()}, {index});']
             cases.append('{\n' + '\n'.join(checks) + '\n}')
             continue
-        if args.checked_arithmetic:
+        if args.formats:
+            arguments = json.dumps(case['format']) + (', null' if case['withProvider'] else '')
+            expression = f"TimeSpan.FromTicks({case['ticks']}L).ToString({arguments})"
+        elif args.checked_arithmetic:
             operand = f"TimeSpan.FromTicks({case['operandTicks']}L)" if 'operandTicks' in case else ''
             expression = f"TimeSpan.FromTicks({case['ticks']}L).{case['method']}({operand})"
         elif args.comparison:
@@ -80,7 +84,13 @@ def main():
         else:
             expression = f"TimeSpan.{case['method']}(Double.longBitsToDouble(0x{case['inputBits']}L))"
         result = case['result']
-        if 'boolean' in result:
+        if 'text' in result:
+            cases.append(f'check({expression}.equals({json.dumps(result["text"])}), {index});')
+            if args.formats and case['withProvider']:
+                cases[-1] += (f'\ncheck(((IFormattable) TimeSpan.FromTicks({case["ticks"]}L)).ToString('
+                              f'{json.dumps(case["format"])}, type -> {{ throw new AssertionError("constant provider queried"); }})'
+                              f'.equals({json.dumps(result["text"])}), {index});')
+        elif 'boolean' in result:
             cases.append(f'check({expression} == {str(result["boolean"]).lower()}, {index});')
         elif 'bits' in result:
             predicate = f'Double.isNaN({expression})' if result['isNaN'] else f'Double.doubleToRawLongBits({expression}) == 0x{result["bits"]}L'
@@ -114,7 +124,7 @@ def main():
     args.work = args.work / section
     args.work.mkdir(parents=True, exist_ok=True)
     source = args.work / 'TimeSpanIntervalProbe.java'
-    source.write_text('import System.TimeSpan;\nimport System.ArgumentException;\nimport System.ArgumentOutOfRangeException;\nimport System.OverflowException;\npublic class TimeSpanIntervalProbe {\n'
+    source.write_text('import System.TimeSpan;\nimport System.IFormattable;\nimport System.ArgumentException;\nimport System.ArgumentOutOfRangeException;\nimport System.OverflowException;\nimport System.FormatException;\npublic class TimeSpanIntervalProbe {\n'
                       'static void check(boolean ok, int id) { if (!ok) throw new AssertionError("case " + id); }\n'
                       'public static void main(String[] args) throws java.lang.Exception {\n' + '\n'.join(cases) +
                       f'\njava.lang.System.out.println("PASS TimeSpan {section}: {len(cases)} pinned vectors");\n}}\n}}\n', encoding='utf-8')
@@ -126,7 +136,8 @@ def main():
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
         'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    name = ('timespan-checked-arithmetic-differential-v1.json' if args.checked_arithmetic else
+    name = ('timespan-format-differential-v1.json' if args.formats else
+            'timespan-checked-arithmetic-differential-v1.json' if args.checked_arithmetic else
             'timespan-comparison-differential-v1.json' if args.comparison else
             'timespan-composite-factory-differential-v1.json' if args.composite_factories else
             'timespan-integer-factory-differential-v1.json' if args.integer_factories else
