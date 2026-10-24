@@ -655,3 +655,5 @@ Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quo
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quoted and escaped affix vectors at positive and negative fractional rounding boundaries. Required and optional two-place formats run through a packaged consumer. Broader mixed affix rounding remains open.
 
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quoted and escaped affix vectors for standard, custom, and empty provider per-mille symbols. They cover signed values and zero through a packaged consumer. Broader symbol combinations remain open.
+
+Selected grouped Decimal per-mille formatting now has twelve .NET 10 mixed quoted and escaped affix vectors for [3,2] and [2,0] group sizes. They cover signed values and zero through a packaged consumer. Broader grouping combinations remain open.
