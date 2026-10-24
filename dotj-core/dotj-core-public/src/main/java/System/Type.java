@@ -1319,25 +1319,11 @@ public abstract class Type extends MemberInfo {
             return false;
         }
         if (value.getClass() == this.definition) {
-            if (value instanceof TimeSpanStyles styles) {
-                return styles.get_Value() == 0 || styles.get_Value() == 1;
+            int number = enumNumericValue(value);
+            for (Object constant : constants) {
+                if (enumNumericValue(constant) == number) return true;
             }
-            if (value instanceof BindingFlags flags) {
-                return flags.get_Name() != null;
-            }
-            if (value instanceof MemberTypes member) {
-                return member.get_Name() != null;
-            }
-            if (value instanceof CallingConventions convention) {
-                return convention.get_Name() != null;
-            }
-            if (value instanceof MethodImplAttributes attributes) {
-                return attributes.get_Name() != null;
-            }
-            if (value instanceof StreamingContextStates state) {
-                return state.get_Name() != null;
-            }
-            return true;
+            return false;
         }
         if (value instanceof Integer number) {
             for (Object constant : constants) {
@@ -1346,6 +1332,9 @@ public abstract class Type extends MemberInfo {
                 }
             }
             return false;
+        }
+        if (value instanceof Boolean || value instanceof Float || value instanceof Double) {
+            throw new InvalidOperationException("Unknown enum value type");
         }
         throw new ArgumentException("Value type must match the enum or its underlying type");
     }
@@ -1360,37 +1349,16 @@ public abstract class Type extends MemberInfo {
         if (value instanceof String) {
             throw new ArgumentException("Value must be an enum or its underlying type", "value");
         }
-        if (value.getClass() == this.definition) {
-            if (value instanceof TimeSpanStyles styles) {
-                return styles.get_Value() == 0 || styles.get_Value() == 1 ? styles.get_Name() : null;
-            }
-            if (value instanceof BindingFlags flags) {
-                return flags.get_Name();
-            }
-            if (value instanceof MemberTypes member) {
-                return member.get_Name();
-            }
-            if (value instanceof CallingConventions convention) {
-                return convention.get_Name();
-            }
-            if (value instanceof MethodImplAttributes attributes) {
-                return attributes.get_Name();
-            }
-            if (value instanceof StreamingContextStates state) {
-                return state.get_Name();
-            }
-            return ((java.lang.Enum<?>) value).name();
-        }
-        if (value instanceof java.lang.Enum<?> || value instanceof BindingFlags
-                || value instanceof MemberTypes || value instanceof CallingConventions
-                || value instanceof MethodImplAttributes) {
-            return null;
-        }
+        Long number = null;
         if (value instanceof Integer || value instanceof Long
                 || value instanceof Short || value instanceof java.lang.Byte) {
-            long number = ((Number) value).longValue();
+            number = ((Number) value).longValue();
+        } else if (Type.fromJavaClass(value.getClass()).get_IsEnum()) {
+            number = (long) enumNumericValue(value);
+        }
+        if (number != null) {
             for (Object constant : this.enumConstants()) {
-                if (enumNumericValue(constant) == number) {
+                if (enumNumericValue(constant) == number.longValue()) {
                     return enumConstantName(constant);
                 }
             }
