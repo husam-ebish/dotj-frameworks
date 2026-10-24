@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected 2024/2026 Windows W. Europe and JDK Europe/Zurich gap/overlap profile",
+  "oracleEvidence": "datetime-dst-contract-v10.0.12.json",
+  "oracleSha256": "e0e704cfa1d81d20bf414ebe696f7046164f562c6cc1ba9d3da2c5ae1fc9eea8",
+  "candidateJarSha256": "a6285b1f7b034c15376ae6fc76d0f293a2f5539d26627ab6192fca8e6291923e",
+  "casesPassed": 4032,
+  "operations": {
+    "ToUniversalTime": 288,
+    "ToLocalTime": 288,
+    "IsDaylightSavingTime": 288,
+    "AddTicksZeroThenUtc": 288,
+    "AddTickThenUtc": 288,
+    "AddMonthsZeroThenUtc": 288,
+    "AddYearsZeroThenUtc": 288,
+    "DateThenUtc": 288,
+    "SpecifyLocalThenUtc": 288,
+    "SpecifyUnspecifiedThenUtc": 288,
+    "DateThen230ThenUtc": 288,
+    "AddDayRoundTripUtc": 288,
+    "AddMonthsRoundTripUtc": 288,
+    "AddYearsRoundTripUtc": 288
+  },
+  "javaZoneProfile": "Europe/Zurich",
+  "javaZoneRulesVersion": "2026b",
+  "qualification": "BOUNDED_MODERN_DST_PASS; OTHER_ZONES_HISTORICAL_RULES_BINARY_AND_LANGUAGE_OPEN"
+}
