@@ -25,6 +25,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     public static final DateTime UnixEpoch = new DateTime(621_355_968_000_000_000L, DateTimeKind.Utc);
     private final LocalDateTime date;
     private final DateTimeKind kind;
+    private final boolean localOverlapDaylight;
 
     public DateTime() {
         this(0L);
@@ -45,6 +46,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                 .plusDays(ticks / TICKS_PER_DAY)
                 .plusNanos(ticks % TICKS_PER_DAY * 100L);
         this.kind = kind;
+        this.localOverlapDaylight = false;
     }
 
     public DateTime(int year, int month, int day) {
@@ -97,6 +99,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         }
         this.date = components.withNano(millisecond * 1_000_000 + microsecond * 1_000);
         this.kind = kind;
+        this.localOverlapDaylight = false;
     }
 
     private DateTime(LocalDateTime date) {
@@ -104,8 +107,13 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     private DateTime(LocalDateTime date, DateTimeKind kind) {
+        this(date, kind, false);
+    }
+
+    private DateTime(LocalDateTime date, DateTimeKind kind, boolean localOverlapDaylight) {
         this.date = date;
         this.kind = kind;
+        this.localOverlapDaylight = kind == DateTimeKind.Local && localOverlapDaylight;
     }
 
     public static DateTime SpecifyKind(DateTime value, DateTimeKind kind) {
@@ -383,7 +391,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         LocalDateTime added = LocalDate.of(1, 1, 1).atStartOfDay()
                 .plusDays(result / TICKS_PER_DAY)
                 .plusNanos((result % TICKS_PER_DAY) * 100L);
-        return new DateTime(added, this.kind);
+        return new DateTime(added, this.kind, this.localOverlapDaylight);
     }
 
     public DateTime Add(TimeSpan value) {
@@ -421,7 +429,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (added.getYear() < 1 || added.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("months");
         }
-        return new DateTime(added, this.kind);
+        return new DateTime(added, this.kind, this.localOverlapDaylight);
     }
 
     public DateTime AddYears(int value) {
@@ -432,7 +440,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (added.getYear() < 1 || added.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("value");
         }
-        return new DateTime(added, this.kind);
+        return new DateTime(added, this.kind, this.localOverlapDaylight);
     }
 
     public DateTime AddDays(double value) {
@@ -510,7 +518,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public DateTime get_Date() {
-        return new DateTime(this.date.toLocalDate().atStartOfDay(), this.kind);
+        return new DateTime(this.date.toLocalDate().atStartOfDay(), this.kind, this.localOverlapDaylight);
     }
 
     public DateTimeKind get_Kind() {
@@ -554,8 +562,8 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (this.kind == DateTimeKind.Utc) {
             return this;
         }
-        LocalDateTime utc = this.date.atZone(ZoneId.systemDefault())
-                .withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
+        ZoneId zone = ZoneId.systemDefault();
+        LocalDateTime utc = LocalDateTime.ofInstant(this.date.toInstant(selectedLocalOffset(zone)), ZoneOffset.UTC);
         if (utc.getYear() < 1 || utc.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("value");
         }
@@ -566,12 +574,15 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (this.kind == DateTimeKind.Local) {
             return this;
         }
-        LocalDateTime local = this.date.atZone(ZoneOffset.UTC)
-                .withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
+        ZoneId zone = ZoneId.systemDefault();
+        java.time.ZonedDateTime zoned = this.date.atZone(ZoneOffset.UTC).withZoneSameInstant(zone);
+        LocalDateTime local = zoned.toLocalDateTime();
         if (local.getYear() < 1 || local.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("value");
         }
-        return new DateTime(local, DateTimeKind.Local);
+        boolean daylightOverlap = zone.getRules().getValidOffsets(local).size() > 1
+                && zone.getRules().isDaylightSavings(zoned.toInstant());
+        return new DateTime(local, DateTimeKind.Local, daylightOverlap);
     }
 
     public boolean IsDaylightSavingTime() {
@@ -579,7 +590,20 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
             return false;
         }
         ZoneId zone = ZoneId.systemDefault();
-        return zone.getRules().isDaylightSavings(this.date.atZone(zone).toInstant());
+        if (zone.getRules().getValidOffsets(this.date).isEmpty()) { return false; }
+        return zone.getRules().isDaylightSavings(this.date.toInstant(selectedLocalOffset(zone)));
+    }
+
+    private ZoneOffset selectedLocalOffset(ZoneId zone) {
+        java.time.zone.ZoneRules rules = zone.getRules();
+        java.util.List<ZoneOffset> offsets = rules.getValidOffsets(this.date);
+        if (offsets.isEmpty()) { return rules.getTransition(this.date).getOffsetBefore(); }
+        if (offsets.size() == 1) { return offsets.get(0); }
+        boolean daylight = this.kind == DateTimeKind.Local && this.localOverlapDaylight;
+        for (ZoneOffset offset : offsets) {
+            if (rules.isDaylightSavings(this.date.toInstant(offset)) == daylight) { return offset; }
+        }
+        return offsets.get(offsets.size() - 1);
     }
 
     public void Deconstruct(int[] year, int[] month, int[] day) {
