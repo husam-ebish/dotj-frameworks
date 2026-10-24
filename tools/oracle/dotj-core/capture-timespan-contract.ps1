@@ -10,7 +10,7 @@ function Failure($ErrorRecord) {
     $errorObject = $ErrorRecord.Exception.GetBaseException()
     $parameter = $null
     if ($errorObject -is [ArgumentException]) { $parameter = $errorObject.ParamName }
-    [ordered]@{ exception = $errorObject.GetType().FullName; paramName = $parameter }
+    [ordered]@{ exception = $errorObject.GetType().FullName; paramName = $parameter; hResult = $errorObject.HResult }
 }
 $factories = @()
 $values = @([double]0, [double]-0.0, [double]0.19, [double]-0.19, [double]0.15,
@@ -203,6 +203,28 @@ foreach ($leftTicks in $comparisonTicks) {
         }
     }
 }
+$checkedArithmetic = @()
+$checkedTicks = [long[]]@([long]::MinValue, ([long]::MinValue+1), -4294967296, -3, -1, 0, 1, 3, 4294967296, ([long]::MaxValue-1), [long]::MaxValue)
+foreach ($leftTicks in $checkedTicks) {
+    $left = [TimeSpan]::FromTicks($leftTicks)
+    foreach ($rightTicks in $checkedTicks) {
+        $right = [TimeSpan]::FromTicks($rightTicks)
+        foreach ($name in @('Add', 'Subtract')) {
+            try {
+                $value = if ($name -eq 'Add') { $left.Add($right) } else { $left.Subtract($right) }
+                $result = [ordered]@{ ticks = $value.Ticks }
+            } catch { $result = Failure $_ }
+            $checkedArithmetic += [ordered]@{ method = $name; ticks = $leftTicks; operandTicks = $rightTicks; result = $result }
+        }
+    }
+    foreach ($name in @('Duration', 'Negate')) {
+        try {
+            $value = if ($name -eq 'Duration') { $left.Duration() } else { $left.Negate() }
+            $result = [ordered]@{ ticks = $value.Ticks }
+        } catch { $result = Failure $_ }
+        $checkedArithmetic += [ordered]@{ method = $name; ticks = $leftTicks; result = $result }
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -217,6 +239,7 @@ $record = [ordered]@{
     integerFactories = $integerFactories
     compositeFactories = $compositeFactories
     comparisons = $comparisons
+    checkedArithmetic = $checkedArithmetic
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
