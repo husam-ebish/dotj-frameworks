@@ -161,6 +161,18 @@ public final class DateTime implements IConvertible, IComparable {
         return new DateTime(added);
     }
 
+    public DateTime AddDays(double value) {
+        if (Double.isNaN(value)) {
+            return new DateTime(this.date);
+        }
+        double ticks = java.lang.Math.rint(value * TICKS_PER_DAY);
+        if (!Double.isFinite(ticks) || ticks < Long.MIN_VALUE
+                || ticks >= 0x1.0p63) {
+            throw new ArgumentOutOfRangeException("value");
+        }
+        return AddTicks((long) ticks);
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }

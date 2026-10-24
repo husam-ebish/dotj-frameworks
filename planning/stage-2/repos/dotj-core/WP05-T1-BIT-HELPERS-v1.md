@@ -701,3 +701,5 @@ The public DateTime candidate now exposes AddTicks with 100-nanosecond arithmeti
 The public DateTime candidate now exposes AddMonths with end-of-month clipping, preserved time fields, and .NET month and date ranges. A packaged consumer checks leap and common February and invalid month deltas. Broader DateTime arithmetic remains open.
 
 The public DateTime candidate now exposes AddYears with leap-day clipping, preserved time fields, and .NET year-range checks. A packaged consumer checks leap transitions and invalid year deltas. Broader DateTime arithmetic remains open.
+
+The public DateTime candidate now exposes AddDays with full tick precision for selected .NET 10 fractional-day values, including half-tick ties, NaN, and out-of-range doubles. A packaged consumer checks these boundaries. Broader floating arithmetic parity remains open.
