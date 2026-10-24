@@ -185,6 +185,20 @@ foreach ($code in @(9,10,11,12,13,28,31,32,133,160,5760,8192,8232,8233,8239,8287
     $parsingInputs.Add([string][char]$code+'2024-02-29T12:34:56'+[char]$code)
 }
 $parsing = @()
+$exactParsing = @()
+$exactTryMethod = [DateTime].GetMethod('TryParseExact',[type[]]@([string],[string],[IFormatProvider],[Globalization.DateTimeStyles],[DateTime].MakeByRefType()))
+$bridge = [Reflection.Emit.DynamicMethod]::new('DateTimeTryParseExactOut',[bool],[type[]]@([string],[string],[IFormatProvider],[DateTime[]]))
+$il = $bridge.GetILGenerator()
+$il.Emit([Reflection.Emit.OpCodes]::Ldarg_0)
+$il.Emit([Reflection.Emit.OpCodes]::Ldarg_1)
+$il.Emit([Reflection.Emit.OpCodes]::Ldarg_2)
+$il.Emit([Reflection.Emit.OpCodes]::Ldc_I4_0)
+$il.Emit([Reflection.Emit.OpCodes]::Ldarg_3)
+$il.Emit([Reflection.Emit.OpCodes]::Ldc_I4_0)
+$il.Emit([Reflection.Emit.OpCodes]::Ldelema,[DateTime])
+$il.Emit([Reflection.Emit.OpCodes]::Call,$exactTryMethod)
+$il.Emit([Reflection.Emit.OpCodes]::Ret)
+$exactTry = $bridge.CreateDelegate([Func[string,string,IFormatProvider,DateTime[],bool]])
 $savedCulture = [Globalization.CultureInfo]::CurrentCulture
 try {
     [Globalization.CultureInfo]::CurrentCulture = [Globalization.CultureInfo]::InvariantCulture
@@ -196,6 +210,33 @@ try {
         $success = [DateTime]::TryParse([string]$text,[ref]$outValue)
         $parsing += [ordered]@{input=$text;result=$result;trySuccess=$success;tryTicks=$outValue.Ticks;tryKind=$outValue.Kind.ToString()}
     }
+    $exactInputs = @($null,'','garbage','0000-01-01','-0001-01-01','+10000-01-01','0001-01-01','9999-12-31',
+        '2024-02-29','1900-02-29','2000-02-29','2023-02-29','2024-13-01','2024-01-32',
+        ' 2024-02-29','2024-02-29 ',([string][char]160+'2024-02-29'),('2024-02-29'+[char]160))
+    foreach ($date in @('0000-01-01','0001-01-01','2024-02-29','9999-12-31')) {
+        $exactInputs += $date+' 12:34:56'
+        $exactInputs += $date+'T12:34:56'
+        $exactInputs += $date+' 24:00:00'
+        foreach ($fraction in @('0','1','123456','1234567','12345678','0000000','9999999','99999995')) {
+            $exactInputs += $date+'T23:59:59.'+$fraction
+        }
+    }
+    $exactMethod = [DateTime].GetMethod('ParseExact',[type[]]@([string],[string],[IFormatProvider]))
+    foreach ($text in $exactInputs) {
+        $selectedFormats = @($null,'','?','yyyy-MM-dd','yyyy-MM-dd HH:mm:ss','yyyy-MM-ddTHH:mm:ss.fffffff')
+        if ($text -eq 'garbage') { $selectedFormats += @((32..126)|ForEach-Object{[string][char]$_}) }
+        foreach ($format in $selectedFormats) {
+            try { $value = $exactMethod.Invoke($null,[object[]]@($text,$format,$null)); $result = [ordered]@{ticks=$value.Ticks;kind=$value.Kind.ToString()} }
+            catch { $result = Failure $_ }
+            $outValues = [DateTime[]]@([DateTime]::new(2000,1,1))
+            try {
+                $success = $exactTry.Invoke($text,$format,$null,$outValues)
+                $tryResult = [ordered]@{boolean=$success}
+            } catch { $success=$null; $tryResult=Failure $_ }
+            $exactParsing += [ordered]@{input=$text;format=$format;result=$result;tryResult=$tryResult
+                trySuccess=$success;tryTicks=$outValues[0].Ticks;tryKind=$outValues[0].Kind.ToString()}
+        }
+    }
 } finally { [Globalization.CultureInfo]::CurrentCulture = $savedCulture }
 $defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
@@ -206,6 +247,7 @@ $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToStr
     floatingAddition=$floatingAddition
     checkedArithmetic=$checkedArithmetic
     parsing=$parsing
+    exactParsing=$exactParsing
     defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
     qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))
