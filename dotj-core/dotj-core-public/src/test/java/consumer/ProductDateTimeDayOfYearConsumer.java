@@ -74,6 +74,37 @@ public final class ProductDateTimeDayOfYearConsumer {
                 }
             }
         }
+        int[][] monthDays = {
+            {1, 2, 28}, {1900, 2, 28}, {2000, 2, 29},
+            {2024, 2, 29}, {2024, 4, 30}, {2024, 12, 31},
+            {9999, 12, 31},
+        };
+        for (int[] row : monthDays) {
+            if (DateTime.DaysInMonth(row[0], row[1]) != row[2]) {
+                throw new AssertionError("Month days changed: " + row[0] + "-" + row[1]);
+            }
+        }
+        int[][] invalidMonths = {{2024, 0}, {2024, 13}, {0, 0}};
+        for (int[] row : invalidMonths) {
+            try {
+                DateTime.DaysInMonth(row[0], row[1]);
+                throw new AssertionError("Invalid month accepted");
+            } catch (ArgumentOutOfRangeException caught) {
+                if (!"month".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Invalid month parameter changed");
+                }
+            }
+        }
+        for (int year : new int[] {0, 10000}) {
+            try {
+                DateTime.DaysInMonth(year, 1);
+                throw new AssertionError("Invalid year accepted");
+            } catch (ArgumentOutOfRangeException caught) {
+                if (!"year".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Invalid year parameter changed");
+                }
+            }
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }
