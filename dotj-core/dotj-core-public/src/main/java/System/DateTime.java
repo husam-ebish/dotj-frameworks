@@ -581,9 +581,8 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         }
         ZoneId zone = ZoneId.systemDefault();
         LocalDateTime utc = LocalDateTime.ofInstant(this.date.toInstant(selectedLocalOffset(zone)), ZoneOffset.UTC);
-        if (utc.getYear() < 1 || utc.getYear() > 9999) {
-            throw new ArgumentOutOfRangeException("value");
-        }
+        if (utc.getYear() < 1) { return new DateTime(0L, DateTimeKind.Utc); }
+        if (utc.getYear() > 9999) { return new DateTime(MAX_TICKS, DateTimeKind.Utc); }
         return new DateTime(utc, DateTimeKind.Utc);
     }
 
@@ -594,9 +593,8 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         ZoneId zone = ZoneId.systemDefault();
         java.time.ZonedDateTime zoned = this.date.atZone(ZoneOffset.UTC).withZoneSameInstant(zone);
         LocalDateTime local = zoned.toLocalDateTime();
-        if (local.getYear() < 1 || local.getYear() > 9999) {
-            throw new ArgumentOutOfRangeException("value");
-        }
+        if (local.getYear() < 1) { return new DateTime(0L, DateTimeKind.Local); }
+        if (local.getYear() > 9999) { return new DateTime(MAX_TICKS, DateTimeKind.Local); }
         boolean daylightOverlap = zone.getRules().getValidOffsets(local).size() > 1
                 && zone.getRules().isDaylightSavings(zoned.toInstant());
         return new DateTime(local, DateTimeKind.Local, daylightOverlap);
