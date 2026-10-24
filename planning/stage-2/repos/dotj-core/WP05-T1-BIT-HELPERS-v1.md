@@ -675,3 +675,5 @@ Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quo
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quoted and escaped affix vectors for optional fraction positions around rounding boundaries. They are checked through a packaged consumer. Broader optional-fraction combinations remain open.
 
 The public Decimal candidate now exposes get_Scale for its stored scale, including signed zero and 28-place values. The packaged Decimal bits consumer checks the property against bit patterns. Broader Decimal property parity remains open.
+
+The public DateTime candidate now exposes get_DayOfYear. An independent packaged consumer checks year 1, leap day and year end, non-leap March, and year 9999. Broader DateTime parity remains open.

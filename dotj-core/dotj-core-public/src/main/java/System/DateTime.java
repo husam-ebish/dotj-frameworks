@@ -60,6 +60,10 @@ public final class DateTime implements IConvertible {
         return this.date.getDayOfMonth();
     }
 
+    public int get_DayOfYear() {
+        return this.date.getDayOfYear();
+    }
+
     public int get_Hour() {
         return this.date.getHour();
     }

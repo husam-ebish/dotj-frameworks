@@ -39,7 +39,8 @@ SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/throwing/ThrowSite.jav
 CONSUMERS = [PRODUCT / "src/test/java/consumer" / (name + ".java") for name in (
     "ProductDisposableContractConsumer", "ProductTypeIdentityConsumer", "ProductExceptionContractConsumer",
     "ProductInt32BitConsumer", "ProductInt32ArithmeticConsumer", "ProductInt32SpanConsumer",
-    "ProductDecimalBitsConsumer", "ProductDecimalMultiplyConsumer",
+    "ProductDecimalBitsConsumer", "ProductDateTimeDayOfYearConsumer",
+    "ProductDecimalMultiplyConsumer",
     "ProductDecimalDivideConsumer", "ProductDecimalRemainderConsumer",
     "ProductDecimalCompareConsumer", "ProductDecimalEqualsConsumer",
     "ProductDecimalHashConsumer", "ProductDecimalInstanceEqualityConsumer",
@@ -2911,6 +2912,8 @@ def main():
     arithmetic_result = run("java", "-cp", classpath, "consumer.ProductInt32ArithmeticConsumer").strip()
     span_result = run("java", "-cp", classpath, "consumer.ProductInt32SpanConsumer").strip()
     decimal_result = run("java", "-cp", classpath, "consumer.ProductDecimalBitsConsumer").strip()
+    date_day_result = run("java", "-cp", classpath,
+                          "consumer.ProductDateTimeDayOfYearConsumer").strip()
     float_style_args = [
         ":".join((
             entry["text"],
@@ -5305,6 +5308,7 @@ def main():
     assert arithmetic_result == "PASS external selected Int32 signed arithmetic"
     assert span_result == "PASS external selected Int32 span parsing and formatting"
     assert decimal_result == "PASS external selected Decimal bits"
+    assert date_day_result == "PASS external selected DateTime day of year"
     assert float_style_result == "PASS external selected Decimal Float-style parsing"
     assert number_style_result == "PASS external selected Decimal Number-style parsing"
     assert integer_style_result == "PASS external selected Decimal Integer-style parsing"
