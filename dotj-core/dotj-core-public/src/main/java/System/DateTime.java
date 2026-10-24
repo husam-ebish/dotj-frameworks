@@ -240,6 +240,19 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         }
     }
 
+    public static DateTime ParseExact(ReadOnlySpan<Character> s, ReadOnlySpan<Character> format, IFormatProvider provider) {
+        if (s == null) { throw new ArgumentNullException("s"); }
+        if (format == null) { throw new ArgumentNullException("format"); }
+        return ParseExact(s.selectedText(), format.selectedText(), provider);
+    }
+
+    public static boolean TryParseExact(ReadOnlySpan<Character> s, ReadOnlySpan<Character> format,
+            IFormatProvider provider, DateTime[] result) {
+        if (s == null) { throw new ArgumentNullException("s"); }
+        if (format == null) { throw new ArgumentNullException("format"); }
+        return TryParseExact(s.selectedText(), format.selectedText(), provider, result);
+    }
+
     public static DateTime FromBinary(long dateData) {
         long ticks = dateData & 0x3fff_ffff_ffff_ffffL;
         long flags = dateData & 0xc000_0000_0000_0000L;

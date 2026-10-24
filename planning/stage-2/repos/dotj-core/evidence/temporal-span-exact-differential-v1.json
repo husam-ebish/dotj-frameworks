@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "scope": "Selected exact parsing through Char input/format views with implicit None style",
+  "oracleEvidence": "temporal-span-exact-contract-v10.0.12.json",
+  "oracleSha256": "59bd9066519957f71611c1d1f8da13601851b13653c03d8f5ff63c9dc96cebbf",
+  "candidateJarSha256": "ed7f9bc2e377b116be60ffc9f98112e08fc88f7938c4de8975f910e6e4a88720",
+  "casesPassed": 162,
+  "casesByType": {
+    "DateTime": 72,
+    "TimeSpan": 90
+  },
+  "compileRejections": [
+    "DateTime UTF-8 input carrier",
+    "DateTime UTF-8 format carrier",
+    "TimeSpan UTF-8 input carrier",
+    "TimeSpan UTF-8 format carrier"
+  ],
+  "qualification": "BOUNDED_NONE_STYLE_ADAPTER_PASS; FULL_STYLES_AND_LANGUAGE_MAPPING_OPEN"
+}
