@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "5a010fdc555437dfc2590bdea6b63e01a1e8b72654d988ca4176efad94d721fb",
+  "javaCandidateEvidenceSha256": "65cbbb2ff2c2e25066faa693d226a14977fba9c33061dd34ed8cfda497eb9a04",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 79,
+  "nameLevelMissingMethodCount": 78,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5895,6 +5895,7 @@
         "public static System.DateTime Parse(java.lang.String);",
         "public static boolean IsLeapYear(int);",
         "public static int DaysInMonth(int, int);",
+        "public static int Compare(System.DateTime, System.DateTime);",
         "public int get_Year();",
         "public int get_Month();",
         "public int get_Day();",
@@ -5972,6 +5973,7 @@
           "TryParseExact": 4
         },
         "javaCandidateDeclaredMethodOverloads": {
+          "Compare": 1,
           "DaysInMonth": 1,
           "GetTypeCode": 1,
           "IsLeapYear": 1,
@@ -6016,7 +6018,6 @@
           "AddSeconds",
           "AddTicks",
           "AddYears",
-          "Compare",
           "CompareTo",
           "Deconstruct",
           "Equals",

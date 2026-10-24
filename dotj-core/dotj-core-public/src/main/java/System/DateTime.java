@@ -65,6 +65,16 @@ public final class DateTime implements IConvertible {
         return java.time.YearMonth.of(year, month).lengthOfMonth();
     }
 
+    public static int Compare(DateTime left, DateTime right) {
+        if (left == null) {
+            throw new ArgumentNullException("left");
+        }
+        if (right == null) {
+            throw new ArgumentNullException("right");
+        }
+        return Long.compare(left.get_Ticks(), right.get_Ticks());
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }
