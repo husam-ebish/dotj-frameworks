@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "65cbbb2ff2c2e25066faa693d226a14977fba9c33061dd34ed8cfda497eb9a04",
+  "javaCandidateEvidenceSha256": "4d732bf5ef560a72b6122c76f7b3b04fb6515636ce51fecee3bcdb8666058145",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 78,
+  "nameLevelMissingMethodCount": 77,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5887,7 +5887,7 @@
         "events": [],
         "nestedPublicTypes": []
       },
-      "javaCandidatePublicHeader": "public final class System.DateTime implements System.IConvertible {",
+      "javaCandidatePublicHeader": "public final class System.DateTime implements System.IConvertible,System.IComparable {",
       "javaCandidateDeclaredPublicDeclarations": [
         "public System.DateTime(int, int, int);",
         "public System.DateTime(int, int, int, int, int, int);",
@@ -5896,6 +5896,8 @@
         "public static boolean IsLeapYear(int);",
         "public static int DaysInMonth(int, int);",
         "public static int Compare(System.DateTime, System.DateTime);",
+        "public int CompareTo(System.DateTime);",
+        "public int CompareTo(java.lang.Object);",
         "public int get_Year();",
         "public int get_Month();",
         "public int get_Day();",
@@ -5974,6 +5976,7 @@
         },
         "javaCandidateDeclaredMethodOverloads": {
           "Compare": 1,
+          "CompareTo": 2,
           "DaysInMonth": 1,
           "GetTypeCode": 1,
           "IsLeapYear": 1,
@@ -6018,7 +6021,6 @@
           "AddSeconds",
           "AddTicks",
           "AddYears",
-          "CompareTo",
           "Deconstruct",
           "Equals",
           "FromBinary",

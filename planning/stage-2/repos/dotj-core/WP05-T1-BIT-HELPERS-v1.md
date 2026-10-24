@@ -691,3 +691,5 @@ The public DateTime candidate now exposes IsLeapYear with Gregorian century rule
 The public DateTime candidate now exposes DaysInMonth with Gregorian leap rules and .NET month-before-year argument validation. A packaged consumer checks month lengths and invalid parameter names. Broader DateTime parity remains open.
 
 The public DateTime candidate now exposes Compare for earlier, equal, and later tick values. A packaged consumer checks comparisons across seconds and the supported date span, plus Java null parameter names. Broader DateTime parity remains open.
+
+The public DateTime candidate now implements IComparable and exposes typed and object CompareTo overloads. A packaged consumer checks ordering, equality, null behavior, and wrong-type rejection. Broader DateTime parity remains open.

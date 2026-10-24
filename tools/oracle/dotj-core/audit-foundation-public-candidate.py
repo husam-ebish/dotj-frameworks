@@ -224,7 +224,7 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 78
             disposition = "PARTIAL_VALUE_SURFACE; selected Decimal IConvertible, Parse and invariant text"
         elif name == "System.DateTime":
-            assert header == "public final class System.DateTime implements System.IConvertible {"
+            assert header == "public final class System.DateTime implements System.IConvertible,System.IComparable {"
             assert declarations == ["public System.DateTime(int, int, int);",
                                     "public System.DateTime(int, int, int, int, int, int);",
                                     "public System.DateTime(int, int, int, int, int, int, int);",
@@ -232,6 +232,8 @@ def main():
                                     "public static boolean IsLeapYear(int);",
                                     "public static int DaysInMonth(int, int);",
                                     "public static int Compare(System.DateTime, System.DateTime);",
+                                    "public int CompareTo(System.DateTime);",
+                                    "public int CompareTo(java.lang.Object);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();", "public int get_DayOfYear();",
                                     "public System.DateTime get_Date();",
