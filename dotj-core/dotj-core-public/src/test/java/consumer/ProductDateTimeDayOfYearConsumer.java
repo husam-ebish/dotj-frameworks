@@ -13,6 +13,24 @@ import System.TimeSpan;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        DateTime subtractOrigin = new DateTime(2024, 2, 29, 12, 0, 0);
+        if (subtractOrigin.Subtract(TimeSpan.FromTicks(10_000_000L)).get_Second() != 59
+                || subtractOrigin.Subtract(TimeSpan.FromTicks(-10_000_000L)).get_Second() != 1) {
+            throw new AssertionError("DateTime TimeSpan subtraction changed");
+        }
+        try {
+            subtractOrigin.Subtract((TimeSpan) null);
+            throw new AssertionError("Null subtraction interval accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null subtraction parameter changed");
+            }
+        }
+        try {
+            subtractOrigin.Subtract(TimeSpan.FromTicks(Long.MIN_VALUE));
+            throw new AssertionError("Unnegatable subtraction interval accepted");
+        } catch (ArgumentOutOfRangeException expected) {
+        }
         DateTime spanOrigin = new DateTime(2024, 2, 29);
         if (spanOrigin.Add(TimeSpan.FromTicks(10_000_000L)).get_Second() != 1
                 || spanOrigin.Add(new TimeSpan(-10_000_000L)).get_Day() != 28
