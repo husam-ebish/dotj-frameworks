@@ -6,6 +6,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.time.format.ResolverStyle;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
 public final class DateTime implements IConvertible, IComparable {
@@ -60,6 +61,30 @@ public final class DateTime implements IConvertible, IComparable {
             return true;
         } catch (FormatException expected) {
             return false;
+        }
+    }
+
+    public static DateTime ParseExact(String text, String format, IFormatProvider provider) {
+        if (text == null) {
+            throw new ArgumentNullException("s");
+        }
+        if (format == null) {
+            throw new ArgumentNullException("format");
+        }
+        try {
+            return switch (format) {
+                case "yyyy-MM-dd" -> new DateTime(LocalDate.parse(text,
+                        DateTimeFormatter.ISO_LOCAL_DATE).atStartOfDay());
+                case "yyyy-MM-dd HH:mm:ss" -> new DateTime(LocalDateTime.parse(text,
+                        DateTimeFormatter.ofPattern("uuuu-MM-dd HH:mm:ss")
+                                .withResolverStyle(ResolverStyle.STRICT)));
+                case "yyyy-MM-ddTHH:mm:ss.fffffff" -> new DateTime(LocalDateTime.parse(text,
+                        DateTimeFormatter.ofPattern("uuuu-MM-dd'T'HH:mm:ss.SSSSSSS")
+                                .withResolverStyle(ResolverStyle.STRICT)));
+                default -> throw new FormatException("Input string was not in a correct format");
+            };
+        } catch (DateTimeParseException invalid) {
+            throw new FormatException("Input string was not in a correct format");
         }
     }
 
