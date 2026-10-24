@@ -735,3 +735,5 @@ The public DateTime candidate now exposes FromFileTimeUtc with the 1601-01-01 ep
 The public DateTime candidate now exposes ToFileTimeUtc for dates at or after 1601-01-01. A packaged consumer checks selected round trips and rejection before the file-time epoch. UTC kind metadata is still absent from this candidate.
 
 The public DateTime candidate now exposes ToLongDateString using selected invariant-culture long-date text. A packaged consumer checks leap-day and minimum-date output. Current-culture formatting remains open.
+
+The public DateTime candidate now exposes ToShortDateString using selected invariant-culture MM/dd/yyyy output. A packaged consumer checks leap-day and minimum-date text. Current-culture formatting remains open.
