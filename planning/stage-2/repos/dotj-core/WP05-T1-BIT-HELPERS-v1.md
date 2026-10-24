@@ -721,3 +721,5 @@ The public DateTime candidate now exposes selected ParseExact behavior for invar
 The public DateTime candidate now exposes selected TryParseExact behavior for invariant formats. A packaged consumer checks exact success values and default output after invalid or null input. Broader culture and format parsing remain open.
 
 The public ArgumentNullException candidate now exposes ThrowIfNull with an explicit parameter-name overload. A packaged consumer checks accepted nonnull values and rejected null values. CallerArgumentExpression name inference remains open.
+
+The public ArgumentException candidate now exposes ThrowIfNullOrEmpty with an explicit parameter-name overload. A packaged consumer checks nonempty strings, whitespace acceptance, null rejection, and empty-string rejection. CallerArgumentExpression name inference remains open.

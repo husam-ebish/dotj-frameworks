@@ -6,6 +6,19 @@ package System;
 public class ArgumentException extends SystemException {
     private final String paramName;
 
+    public static void ThrowIfNullOrEmpty(String argument) {
+        ThrowIfNullOrEmpty(argument, null);
+    }
+
+    public static void ThrowIfNullOrEmpty(String argument, String paramName) {
+        if (argument == null) {
+            throw new ArgumentNullException(paramName);
+        }
+        if (argument.isEmpty()) {
+            throw new ArgumentException("The value cannot be an empty string.", paramName);
+        }
+    }
+
     public ArgumentException() {
         this(null, null, null);
     }

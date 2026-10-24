@@ -29,6 +29,25 @@ import System.Collections.DictionaryEntry;
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
     public static void main(String[] args) {
+        ArgumentException.ThrowIfNullOrEmpty("value");
+        ArgumentException.ThrowIfNullOrEmpty(" ", "text");
+        try {
+            ArgumentException.ThrowIfNullOrEmpty(null, "text");
+            throw new AssertionError("Null text was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"text".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null text parameter changed");
+            }
+        }
+        try {
+            ArgumentException.ThrowIfNullOrEmpty("", "text");
+            throw new AssertionError("Empty text was accepted");
+        } catch (ArgumentException expected) {
+            if (expected instanceof ArgumentNullException
+                    || !"text".equals(expected.get_ParamName())) {
+                throw new AssertionError("Empty text exception changed");
+            }
+        }
         ArgumentNullException.ThrowIfNull(new Object());
         ArgumentNullException.ThrowIfNull(new Object(), "value");
         try {
