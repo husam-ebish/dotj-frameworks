@@ -155,6 +155,19 @@ public final class ProductDateTimeDayOfYearConsumer {
                 throw new AssertionError("Object parameter changed");
             }
         }
+        DateTime equalDate = new DateTime(2024, 2, 29, 12, 0, 0);
+        if (!DateTime.Equals(earlier, equalDate)
+                || !earlier.Equals(equalDate)
+                || !earlier.Equals((Object) equalDate)
+                || !earlier.equals(equalDate)
+                || DateTime.Equals(earlier, later)
+                || earlier.Equals((Object) "2024-02-29")
+                || earlier.Equals((DateTime) null)
+                || earlier.GetHashCode() != -62334691
+                || earlier.GetHashCode() != equalDate.GetHashCode()
+                || earlier.hashCode() != earlier.GetHashCode()) {
+            throw new AssertionError("DateTime equality or hash changed");
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }

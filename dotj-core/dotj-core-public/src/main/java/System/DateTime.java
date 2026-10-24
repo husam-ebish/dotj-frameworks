@@ -93,6 +93,34 @@ public final class DateTime implements IConvertible, IComparable {
         return Compare(this, other);
     }
 
+    public static boolean Equals(DateTime left, DateTime right) {
+        return left == right || (left != null && right != null
+                && left.get_Ticks() == right.get_Ticks());
+    }
+
+    public boolean Equals(DateTime other) {
+        return Equals(this, other);
+    }
+
+    public boolean Equals(Object obj) {
+        return obj instanceof DateTime other && Equals(other);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        return Equals(obj);
+    }
+
+    public int GetHashCode() {
+        long ticks = this.get_Ticks();
+        return (int) (ticks ^ (ticks >>> 32));
+    }
+
+    @Override
+    public int hashCode() {
+        return GetHashCode();
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }
