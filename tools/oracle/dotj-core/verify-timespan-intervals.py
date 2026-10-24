@@ -20,6 +20,7 @@ def main():
     kinds.add_argument('--integer-factories', action='store_true')
     kinds.add_argument('--composite-factories', action='store_true')
     kinds.add_argument('--comparison', action='store_true')
+    kinds.add_argument('--checked-arithmetic', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -33,7 +34,7 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    section = ('comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
+    section = ('checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
                'constructors' if args.constructors else 'factories')
     vectors = oracle['operations'] + oracle['ratios'] if args.arithmetic else oracle[section]
     for index, case in enumerate(vectors):
@@ -53,7 +54,10 @@ def main():
                        f'check(left.equals(right) == {str(case["equalsObject"]).lower()}, {index});']
             cases.append('{\n' + '\n'.join(checks) + '\n}')
             continue
-        if args.comparison:
+        if args.checked_arithmetic:
+            operand = f"TimeSpan.FromTicks({case['operandTicks']}L)" if 'operandTicks' in case else ''
+            expression = f"TimeSpan.FromTicks({case['ticks']}L).{case['method']}({operand})"
+        elif args.comparison:
             value = {'Null': 'null', 'Int32': 'Integer.valueOf(0)', 'String': '"wrong"', 'Object': 'new java.lang.Object()'}[case['objectKind']]
             expression = f"TimeSpan.FromTicks({case['ticks']}L).{case['operation']}((java.lang.Object) {value})"
         elif args.composite_factories:
@@ -90,6 +94,7 @@ def main():
             cases.append(f'''try {{ {expression}; throw new AssertionError("missing exception {index}"); }}
                 catch ({result['exception'].split('.')[-1]} expected) {{
                     check(expected.getClass().getName().equals("{result['exception']}"), {index});
+                    check(expected.get_HResult() == {result['hResult']}, {index});
                     {'check(java.util.Objects.equals(expected.get_ParamName(), ' + parameter + '), ' + str(index) + ');' if result['exception'] in ('System.ArgumentException', 'System.ArgumentOutOfRangeException') else ''}
                 }}''')
         if args.constants:
@@ -121,7 +126,8 @@ def main():
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
         'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    name = ('timespan-comparison-differential-v1.json' if args.comparison else
+    name = ('timespan-checked-arithmetic-differential-v1.json' if args.checked_arithmetic else
+            'timespan-comparison-differential-v1.json' if args.comparison else
             'timespan-composite-factory-differential-v1.json' if args.composite_factories else
             'timespan-integer-factory-differential-v1.json' if args.integer_factories else
             'timespan-constant-differential-v1.json' if args.constants else
