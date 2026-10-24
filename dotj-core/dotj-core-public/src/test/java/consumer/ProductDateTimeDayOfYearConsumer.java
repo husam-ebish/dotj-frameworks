@@ -11,6 +11,19 @@ import System.OverflowException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        java.util.TimeZone priorZone = java.util.TimeZone.getDefault();
+        try {
+            java.util.TimeZone.setDefault(java.util.TimeZone.getTimeZone("America/New_York"));
+            DateTime localFileTime = DateTime.FromFileTime(116444736000000000L);
+            if (localFileTime.get_Year() != 1969
+                    || localFileTime.get_Month() != 12
+                    || localFileTime.get_Day() != 31
+                    || localFileTime.get_Hour() != 19) {
+                throw new AssertionError("Local file-time conversion changed");
+            }
+        } finally {
+            java.util.TimeZone.setDefault(priorZone);
+        }
         DateTime formatDate = new DateTime(2024, 2, 29, 23, 59, 58);
         String[] shortDateFormats = formatDate.GetDateTimeFormats('d', null);
         String[] allDateFormats = formatDate.GetDateTimeFormats();

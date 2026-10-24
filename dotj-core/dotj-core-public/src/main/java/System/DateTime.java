@@ -4,6 +4,8 @@ package System;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.format.ResolverStyle;
@@ -118,6 +120,16 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
             throw new ArgumentOutOfRangeException("fileTime");
         }
         return new DateTime(1, 1, 1).AddTicks(fileTime + FILE_TIME_EPOCH_TICKS);
+    }
+
+    public static DateTime FromFileTime(long fileTime) {
+        LocalDateTime utc = FromFileTimeUtc(fileTime).date;
+        LocalDateTime local = utc.atZone(ZoneOffset.UTC)
+                .withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
+        if (local.getYear() < 1 || local.getYear() > 9999) {
+            throw new ArgumentOutOfRangeException("fileTime");
+        }
+        return new DateTime(local);
     }
 
     public static DateTime FromOADate(double value) {
