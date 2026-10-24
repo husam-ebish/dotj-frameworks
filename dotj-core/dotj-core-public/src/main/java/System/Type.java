@@ -788,8 +788,8 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type MakeArrayType() {
-        if (this.get_IsByRef()) {
-            throw new TypeLoadException("Cannot make an array of a by-reference type");
+        if (this.get_IsByRef() || this.definition == Void.class) {
+            throw new TypeLoadException("Array element type cannot be Void or by-reference");
         }
         if (this == fromJavaClass(String.class)) {
             return fromJavaClass(String[].class);
@@ -804,11 +804,9 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type MakeArrayType(int rank) {
-        if (this.get_IsByRef()) {
-            throw new TypeLoadException("Cannot make an array of a by-reference type");
-        }
-        if (rank < 1) {
-            throw new IndexOutOfRangeException("Array rank is out of range");
+        if (rank < 1) { throw new IndexOutOfRangeException("Array rank is out of range"); }
+        if (rank > 32 || this.get_IsByRef() || this.definition == Void.class) {
+            throw new TypeLoadException("Array rank or element type is not supported");
         }
         return arrayOf(this, rank, false);
     }
