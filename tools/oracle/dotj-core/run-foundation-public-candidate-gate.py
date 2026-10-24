@@ -16,6 +16,7 @@ CHECKS = (
     "build-idisposable-product.py",
     "build-system-type-candidate.py",
     "build-foundation-product-candidate.py",
+    "bind-foundation-file-map.py",
     "verify-span-factory-types.py",
     "verify-timespan-intervals.py",
     "verify-idisposable-file-map.py",
