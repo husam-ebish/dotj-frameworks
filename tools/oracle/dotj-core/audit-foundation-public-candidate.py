@@ -264,6 +264,7 @@ def main():
                                     "public long ToFileTimeUtc();",
                                     "public long ToFileTime();",
                                     "public System.DateTime ToUniversalTime();",
+                                    "public System.DateTime ToLocalTime();",
                                     "public double ToOADate();",
                                     "public int get_Hour();",
                                     "public int get_Minute();", "public int get_Second();",

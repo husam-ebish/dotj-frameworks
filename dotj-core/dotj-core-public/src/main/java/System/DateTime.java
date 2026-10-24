@@ -352,6 +352,15 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return new DateTime(utc);
     }
 
+    public DateTime ToLocalTime() {
+        LocalDateTime local = this.date.atZone(ZoneOffset.UTC)
+                .withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
+        if (local.getYear() < 1 || local.getYear() > 9999) {
+            throw new ArgumentOutOfRangeException("value");
+        }
+        return new DateTime(local);
+    }
+
     public double ToOADate() {
         long ticks = this.get_Ticks();
         if (ticks == 0) {

@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "5e1e058d396a7072ee30dacddea9196f3d4fbed17c59be10815aacf7b8e8cf78",
+  "candidateJarSha256": "ea8ad021bb1e3197bfdfe8501ef34045133c4aa4f8261f5478ce8fcee96fb654",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -323,6 +323,7 @@
         "public long ToFileTimeUtc();",
         "public long ToFileTime();",
         "public System.DateTime ToUniversalTime();",
+        "public System.DateTime ToLocalTime();",
         "public double ToOADate();",
         "public int get_Hour();",
         "public int get_Minute();",
