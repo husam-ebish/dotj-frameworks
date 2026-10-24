@@ -657,3 +657,5 @@ Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quo
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quoted and escaped affix vectors for standard, custom, and empty provider per-mille symbols. They cover signed values and zero through a packaged consumer. Broader symbol combinations remain open.
 
 Selected grouped Decimal per-mille formatting now has twelve .NET 10 mixed quoted and escaped affix vectors for [3,2] and [2,0] group sizes. They cover signed values and zero through a packaged consumer. Broader grouping combinations remain open.
+
+Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quoted and escaped affix vectors from Decimal.MinValue through Decimal.MaxValue, including tiny magnitudes and zero. They are checked through a packaged consumer. Broader extreme combinations remain open.
