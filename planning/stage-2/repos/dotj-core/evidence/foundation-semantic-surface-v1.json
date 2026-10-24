@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "7f50f028dc2a370408bb5d369f3ca937ad191fdc0fdc100fe19fe68a3b74fb47",
+  "javaCandidateEvidenceSha256": "bff5155d8d66677241bffb014a6cae065e7c40be8941681b812a8d9bab128eac",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 67,
+  "nameLevelMissingMethodCount": 66,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5912,6 +5912,7 @@
         "public System.DateTime AddMinutes(double);",
         "public System.DateTime AddSeconds(double);",
         "public System.DateTime AddMilliseconds(double);",
+        "public System.DateTime AddMicroseconds(double);",
         "public int get_Year();",
         "public int get_Month();",
         "public int get_Day();",
@@ -5991,6 +5992,7 @@
         "javaCandidateDeclaredMethodOverloads": {
           "AddDays": 1,
           "AddHours": 1,
+          "AddMicroseconds": 1,
           "AddMilliseconds": 1,
           "AddMinutes": 1,
           "AddMonths": 1,
@@ -6038,7 +6040,6 @@
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "Add",
-          "AddMicroseconds",
           "Deconstruct",
           "FromBinary",
           "FromFileTime",

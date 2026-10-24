@@ -357,6 +357,30 @@ public final class ProductDateTimeDayOfYearConsumer {
                 throw new AssertionError("Millisecond addition parameter changed");
             }
         }
+        if (dayOrigin.AddMicroseconds(-1.0).get_Ticks() - dayOrigin.get_Ticks()
+                    != -10L
+                || dayOrigin.AddMicroseconds(-0.5).get_Ticks() - dayOrigin.get_Ticks()
+                    != -5L
+                || dayOrigin.AddMicroseconds(-0.1).get_Ticks() - dayOrigin.get_Ticks()
+                    != -1L
+                || dayOrigin.AddMicroseconds(0.05).get_Ticks()
+                    != dayOrigin.get_Ticks()
+                || dayOrigin.AddMicroseconds(0.1).get_Ticks() - dayOrigin.get_Ticks()
+                    != 1L
+                || dayOrigin.AddMicroseconds(1.0).get_Ticks() - dayOrigin.get_Ticks()
+                    != 10L
+                || dayOrigin.AddMicroseconds(Double.NaN).get_Ticks()
+                    != dayOrigin.get_Ticks()) {
+            throw new AssertionError("DateTime AddMicroseconds changed");
+        }
+        try {
+            dayOrigin.AddMicroseconds(Double.POSITIVE_INFINITY);
+            throw new AssertionError("Infinite microseconds accepted");
+        } catch (ArgumentOutOfRangeException caught) {
+            if (!"value".equals(caught.get_ParamName())) {
+                throw new AssertionError("Microsecond addition parameter changed");
+            }
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }

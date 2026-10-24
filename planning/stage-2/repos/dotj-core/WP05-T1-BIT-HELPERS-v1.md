@@ -711,3 +711,5 @@ The public DateTime candidate now exposes AddMinutes with selected full-tick fra
 The public DateTime candidate now exposes AddSeconds with selected full-tick fractional precision and checked exceptional inputs. A packaged consumer checks second and tick additions. Broader floating arithmetic parity remains open.
 
 The public DateTime candidate now exposes AddMilliseconds with selected full-tick fractional precision and checked exceptional inputs. A packaged consumer checks millisecond and tick additions. Broader floating arithmetic parity remains open.
+
+The public DateTime candidate now exposes AddMicroseconds with selected tenth-microsecond tick precision and checked exceptional inputs. A packaged consumer checks signed single-tick additions and half-tick rounding. Broader floating arithmetic parity remains open.
