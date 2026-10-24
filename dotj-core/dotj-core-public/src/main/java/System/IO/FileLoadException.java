@@ -26,6 +26,7 @@ public class FileLoadException extends IOException {
 
     public FileLoadException(String message, String fileName, Exception innerException) {
         super(message, innerException);
+        this.set_HResult(-2146232799);
         this.fileName = fileName;
     }
 
