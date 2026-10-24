@@ -10,6 +10,11 @@ import System.FormatException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (!"00:00:00".equals(new DateTime(1, 1, 1).ToLongTimeString())
+                || !"23:59:58".equals(new DateTime(2024, 2, 29, 23, 59, 58)
+                    .ToLongTimeString())) {
+            throw new AssertionError("Invariant long-time text changed");
+        }
         if (!"02/29/2024".equals(new DateTime(2024, 2, 29).ToShortDateString())
                 || !"01/01/0001".equals(new DateTime(1, 1, 1).ToShortDateString())) {
             throw new AssertionError("Invariant short-date text changed");

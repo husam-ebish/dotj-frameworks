@@ -737,3 +737,5 @@ The public DateTime candidate now exposes ToFileTimeUtc for dates at or after 16
 The public DateTime candidate now exposes ToLongDateString using selected invariant-culture long-date text. A packaged consumer checks leap-day and minimum-date output. Current-culture formatting remains open.
 
 The public DateTime candidate now exposes ToShortDateString using selected invariant-culture MM/dd/yyyy output. A packaged consumer checks leap-day and minimum-date text. Current-culture formatting remains open.
+
+The public DateTime candidate now exposes ToLongTimeString using selected invariant-culture HH:mm:ss output. A packaged consumer checks midnight and late-evening text. Current-culture formatting remains open.
