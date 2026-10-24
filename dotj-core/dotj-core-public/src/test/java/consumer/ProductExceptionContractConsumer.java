@@ -29,6 +29,24 @@ import System.Collections.DictionaryEntry;
 /** Selected constructor and inner-exception checks against the packaged classes. */
 public final class ProductExceptionContractConsumer {
     public static void main(String[] args) {
+        ArgumentNullException.ThrowIfNull(new Object());
+        ArgumentNullException.ThrowIfNull(new Object(), "value");
+        try {
+            ArgumentNullException.ThrowIfNull(null, "payload");
+            throw new AssertionError("Null argument was accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"payload".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null argument parameter changed");
+            }
+        }
+        try {
+            ArgumentNullException.ThrowIfNull(null);
+            throw new AssertionError("Null argument without parameter name was accepted");
+        } catch (ArgumentNullException expected) {
+            if (expected.get_ParamName() != null) {
+                throw new AssertionError("Unnamed null argument parameter changed");
+            }
+        }
         NumberFormatInfo perMilleProvider = new NumberFormatInfo();
         if (!"\u2030".equals(perMilleProvider.get_PerMilleSymbol())) {
             throw new AssertionError("Default PerMilleSymbol changed");

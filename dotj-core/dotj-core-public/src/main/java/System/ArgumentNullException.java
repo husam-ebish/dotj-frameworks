@@ -4,6 +4,16 @@ package System;
 
 /** Selected null-argument exception candidate; message localization remains open. */
 public class ArgumentNullException extends ArgumentException {
+    public static void ThrowIfNull(Object argument) {
+        ThrowIfNull(argument, null);
+    }
+
+    public static void ThrowIfNull(Object argument, String paramName) {
+        if (argument == null) {
+            throw new ArgumentNullException(paramName);
+        }
+    }
+
     public ArgumentNullException() {
         this((String) null);
     }
