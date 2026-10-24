@@ -95,6 +95,10 @@ public final class DateTime implements IConvertible {
         return (this.date.getNano() / 1_000) % 1_000;
     }
 
+    public int get_Nanosecond() {
+        return this.date.getNano() % 1_000;
+    }
+
     @Override
     public TypeCode GetTypeCode() {
         return TypeCode.DateTime;
