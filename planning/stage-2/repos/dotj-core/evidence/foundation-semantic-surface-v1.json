@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "c7a72de707ee50301a68fd1c055153b0d142c1a26f7cb516cdcc34ef5448a2b2",
+  "javaCandidateEvidenceSha256": "e351c01eb271b244e820f9d8995f70cbc65933fb0dbacb2825f706af96768fcd",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 63,
+  "nameLevelMissingMethodCount": 62,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -12340,6 +12340,8 @@
       },
       "javaCandidatePublicHeader": "public class System.ArgumentNullException extends System.ArgumentException {",
       "javaCandidateDeclaredPublicDeclarations": [
+        "public static void ThrowIfNull(java.lang.Object);",
+        "public static void ThrowIfNull(java.lang.Object, java.lang.String);",
         "public System.ArgumentNullException();",
         "public System.ArgumentNullException(java.lang.String);",
         "public System.ArgumentNullException(java.lang.String, System.Exception);",
@@ -12349,10 +12351,10 @@
         "upstreamNonAccessorOverloads": {
           "ThrowIfNull": 2
         },
-        "javaCandidateDeclaredMethodOverloads": {},
-        "upstreamMethodNamesAbsentFromJavaDeclarations": [
-          "ThrowIfNull"
-        ],
+        "javaCandidateDeclaredMethodOverloads": {
+          "ThrowIfNull": 2
+        },
+        "upstreamMethodNamesAbsentFromJavaDeclarations": [],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }

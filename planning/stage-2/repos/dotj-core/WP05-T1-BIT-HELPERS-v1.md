@@ -719,3 +719,5 @@ The public DateTime candidate now exposes selected TryParse behavior for ISO loc
 The public DateTime candidate now exposes selected ParseExact behavior for invariant date, second, and seven-digit fractional-second formats. A packaged consumer checks exact matches and rejected mismatches. Broader culture and format parsing remain open.
 
 The public DateTime candidate now exposes selected TryParseExact behavior for invariant formats. A packaged consumer checks exact success values and default output after invalid or null input. Broader culture and format parsing remain open.
+
+The public ArgumentNullException candidate now exposes ThrowIfNull with an explicit parameter-name overload. A packaged consumer checks accepted nonnull values and rejected null values. CallerArgumentExpression name inference remains open.
