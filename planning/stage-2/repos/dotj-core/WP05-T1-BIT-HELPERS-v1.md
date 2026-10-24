@@ -747,3 +747,5 @@ The public DateTime candidate now exposes ToOADate using the pinned CoreLib mill
 The public DateTime candidate now exposes FromOADate using the pinned CoreLib millisecond rounding, negative-fraction adjustment and range checks. A packaged consumer checks selected dates and invalid inputs. The candidate retains unspecified DateTime kind.
 
 The public DateTime candidate now implements ISpanFormattable with a selected char-array TryFormat carrier. A packaged consumer checks successful invariant date text and unchanged undersized buffers. Broader format and culture parity remains open.
+
+The public DateTime candidate now exposes selected GetDateTimeFormats variants for invariant d, D, t and T text. A packaged consumer checks format selection, new result arrays and invalid specifiers. The complete standard-format permutation set remains open.

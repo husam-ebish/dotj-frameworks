@@ -497,6 +497,21 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                 "HH:mm", java.util.Locale.US));
     }
 
+    public String[] GetDateTimeFormats(char format, IFormatProvider provider) {
+        return switch (format) {
+            case 'd' -> new String[] {this.ToShortDateString()};
+            case 'D' -> new String[] {this.ToLongDateString()};
+            case 't' -> new String[] {this.ToShortTimeString()};
+            case 'T' -> new String[] {this.ToLongTimeString()};
+            default -> throw new FormatException("Format specifier was invalid");
+        };
+    }
+
+    public String[] GetDateTimeFormats() {
+        return new String[] {this.ToShortDateString(), this.ToLongDateString(),
+                this.ToShortTimeString(), this.ToLongTimeString()};
+    }
+
     @Override
     public boolean TryFormat(char[] destination, int[] charsWritten, String format,
                              IFormatProvider provider) {
