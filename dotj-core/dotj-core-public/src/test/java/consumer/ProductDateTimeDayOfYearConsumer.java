@@ -11,6 +11,24 @@ import System.OverflowException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        DateTime formatDate = new DateTime(2024, 2, 29, 23, 59, 58);
+        String[] shortDateFormats = formatDate.GetDateTimeFormats('d', null);
+        String[] allDateFormats = formatDate.GetDateTimeFormats();
+        if (shortDateFormats.length != 1
+                || !"02/29/2024".equals(shortDateFormats[0])
+                || allDateFormats.length != 4
+                || !"23:59:58".equals(formatDate.GetDateTimeFormats('T', null)[0])) {
+            throw new AssertionError("Selected DateTime format variants changed");
+        }
+        shortDateFormats[0] = "mutated";
+        if (!"02/29/2024".equals(formatDate.GetDateTimeFormats('d', null)[0])) {
+            throw new AssertionError("DateTime format array was shared");
+        }
+        try {
+            formatDate.GetDateTimeFormats('?', null);
+            throw new AssertionError("Unsupported DateTime format accepted");
+        } catch (FormatException expected) {
+        }
         DateTime formattedDate = new DateTime(2024, 2, 29, 12, 34, 56);
         char[] dateDestination = new char[12];
         int[] dateWritten = {-1};

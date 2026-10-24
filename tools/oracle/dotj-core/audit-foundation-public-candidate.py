@@ -289,6 +289,8 @@ def main():
                                     "public java.lang.String ToShortDateString();",
                                     "public java.lang.String ToLongTimeString();",
                                     "public java.lang.String ToShortTimeString();",
+                                    "public java.lang.String[] GetDateTimeFormats(char, System.IFormatProvider);",
+                                    "public java.lang.String[] GetDateTimeFormats();",
                                     "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 70
             disposition = "PARTIAL_VALUE_SURFACE; selected DateTime IConvertible and date construction/Parse/properties/text"
