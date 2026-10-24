@@ -788,6 +788,22 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (format == null || format.isEmpty()) {
             return ToString(provider);
         }
+        if (format.length() == 1) {
+            String text = switch (format.charAt(0)) {
+                case 'd' -> ToShortDateString();
+                case 'D' -> ToLongDateString();
+                case 'f' -> ToLongDateString() + " " + ToShortTimeString();
+                case 'F' -> ToLongDateString() + " " + ToLongTimeString();
+                case 'g' -> ToShortDateString() + " " + ToShortTimeString();
+                case 'G' -> ToString(provider);
+                case 'm', 'M' -> this.date.format(DateTimeFormatter.ofPattern("MMMM dd", java.util.Locale.US));
+                case 't' -> ToShortTimeString();
+                case 'T' -> ToLongTimeString();
+                case 'y', 'Y' -> this.date.format(DateTimeFormatter.ofPattern("uuuu MMMM", java.util.Locale.US));
+                default -> null;
+            };
+            if (text != null) return text;
+        }
         if ("yyyy-MM-dd".equals(format)) {
             return this.date.format(DateTimeFormatter.ISO_LOCAL_DATE);
         }
@@ -850,7 +866,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                              IFormatProvider provider) {
         String text = format == null ? this.ToString(provider)
                 : this.ToString(format, provider);
-        int copyLength = selectedFormatCopyLength(format, text.length(), destination.length);
+        int copyLength = selectedFormatCopyLength(format, text, destination.length);
         text.getChars(0, copyLength, destination, 0);
         if (destination.length < text.length()) {
             charsWritten[0] = 0;
@@ -863,8 +879,9 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     @Override
     public boolean TryFormat(byte[] destination, int[] bytesWritten, String format,
             IFormatProvider provider) {
-        byte[] text = ToString(format, provider).getBytes(java.nio.charset.StandardCharsets.UTF_8);
-        int copyLength = selectedFormatCopyLength(format, text.length, destination.length);
+        String formatted = ToString(format, provider);
+        byte[] text = formatted.getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        int copyLength = selectedFormatCopyLength(format, formatted, destination.length);
         java.lang.System.arraycopy(text, 0, destination, 0, copyLength);
         if (destination.length < text.length) {
             bytesWritten[0] = 0;
@@ -887,10 +904,27 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return success;
     }
 
-    private static int selectedFormatCopyLength(String format, int textLength, int capacity) {
+    private int selectedFormatCopyLength(String format, String text, int capacity) {
+        int textLength = text.length();
         if (capacity >= textLength) { return textLength; }
         int[] chunks;
-        if ("yyyy-MM-dd".equals(format)) {
+        if (format != null && format.length() == 1 && "dDfFgGmMtTyY".indexOf(format.charAt(0)) >= 0) {
+            int month = this.date.getMonth().getDisplayName(java.time.format.TextStyle.FULL, java.util.Locale.US).length();
+            int weekday = this.date.getDayOfWeek().getDisplayName(java.time.format.TextStyle.FULL, java.util.Locale.US).length();
+            chunks = switch (format.charAt(0)) {
+                case 'd' -> new int[] {2,1,2,1,4};
+                case 'D' -> new int[] {weekday,1,1,2,1,month,1,4};
+                case 'f' -> new int[] {weekday,1,1,2,1,month,1,4,1,2,1,2};
+                case 'F' -> new int[] {weekday,1,1,2,1,month,1,4,1,2,1,2,1,2};
+                case 'g' -> new int[] {2,1,2,1,4,1,2,1,2};
+                case 'G' -> new int[] {2,1,2,1,4,1,2,1,2,1,2};
+                case 'm', 'M' -> new int[] {month,1,2};
+                case 't' -> new int[] {2,1,2};
+                case 'T' -> new int[] {2,1,2,1,2};
+                case 'y', 'Y' -> new int[] {4,1,month};
+                default -> throw new AssertionError("Unknown selected standard format");
+            };
+        } else if ("yyyy-MM-dd".equals(format)) {
             chunks = new int[] {4,1,2,1,2};
         } else if ("yyyy-MM-dd HH:mm:ss".equals(format) || "yyyy-MM-dd'T'HH:mm:ss".equals(format)) {
             chunks = new int[] {4,1,2,1,2,1,2,1,2,1,2};
