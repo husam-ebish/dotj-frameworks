@@ -498,6 +498,7 @@ public abstract class Type extends MemberInfo {
             case "System.IO.FileNotFoundException" -> fromJavaClass(FileNotFoundException.class);
             case "System.Decimal" -> fromJavaClass(Decimal.class);
             case "System.DateTime" -> fromJavaClass(DateTime.class);
+            case "System.TimeSpan" -> fromJavaClass(TimeSpan.class);
             case "System.DateTimeKind" -> fromJavaClass(DateTimeKind.class);
             case "System.DayOfWeek" -> fromJavaClass(DayOfWeek.class);
             case "System.OverflowException" -> fromJavaClass(OverflowException.class);
@@ -523,6 +524,10 @@ public abstract class Type extends MemberInfo {
             case "System.Collections.Generic.Dictionary`2+Entry[]" ->
                     fromJavaClass(java.util.Map.Entry.class).MakeArrayType();
             case "System.String[]" -> fromJavaClass(String[].class);
+            case "System.DateTime[]" -> fromJavaClass(DateTime.class).MakeArrayType();
+            case "System.TimeSpan[]" -> fromJavaClass(TimeSpan.class).MakeArrayType();
+            case "System.DateTimeKind[]" -> fromJavaClass(DateTimeKind.class).MakeArrayType();
+            case "System.DayOfWeek[]" -> fromJavaClass(DayOfWeek.class).MakeArrayType();
             case "System.Boolean[]" -> fromJavaClass(Boolean.class).MakeArrayType();
             case "System.Char[]" -> fromJavaClass(Character.class).MakeArrayType();
             case "System.Byte[]" -> fromJavaClass(Byte.class).MakeArrayType();
@@ -660,6 +665,7 @@ public abstract class Type extends MemberInfo {
             case "system.io.filenotfoundexception" -> ignoreCase ? fromJavaClass(FileNotFoundException.class) : null;
             case "system.decimal" -> ignoreCase ? fromJavaClass(Decimal.class) : null;
             case "system.datetime" -> ignoreCase ? fromJavaClass(DateTime.class) : null;
+            case "system.timespan" -> ignoreCase ? fromJavaClass(TimeSpan.class) : null;
             case "system.datetimekind" -> ignoreCase ? fromJavaClass(DateTimeKind.class) : null;
             case "system.dayofweek" -> ignoreCase ? fromJavaClass(DayOfWeek.class) : null;
             case "system.overflowexception" -> ignoreCase ? fromJavaClass(OverflowException.class) : null;
@@ -691,6 +697,10 @@ public abstract class Type extends MemberInfo {
             case "system.collections.generic.dictionary`2+entry[]" -> ignoreCase
                     ? fromJavaClass(java.util.Map.Entry.class).MakeArrayType() : null;
             case "system.string[]" -> ignoreCase ? fromJavaClass(String[].class) : null;
+            case "system.datetime[]" -> ignoreCase ? fromJavaClass(DateTime.class).MakeArrayType() : null;
+            case "system.timespan[]" -> ignoreCase ? fromJavaClass(TimeSpan.class).MakeArrayType() : null;
+            case "system.datetimekind[]" -> ignoreCase ? fromJavaClass(DateTimeKind.class).MakeArrayType() : null;
+            case "system.dayofweek[]" -> ignoreCase ? fromJavaClass(DayOfWeek.class).MakeArrayType() : null;
             case "system.boolean[]" -> ignoreCase ? fromJavaClass(Boolean.class).MakeArrayType() : null;
             case "system.char[]" -> ignoreCase ? fromJavaClass(Character.class).MakeArrayType() : null;
             case "system.byte[]" -> ignoreCase ? fromJavaClass(Byte.class).MakeArrayType() : null;
@@ -990,7 +1000,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == SByte.class) {
             return fromJavaClass(Number.class);
         }
-        if (this.definition == Decimal.class || this.definition == DateTime.class
+        if (this.definition == Decimal.class || this.definition == DateTime.class || this.definition == TimeSpan.class
                 || this.definition == StreamingContext.class
                 || this.definition == SerializationEntry.class
                 || this.definition == DictionaryEntry.class
@@ -1038,6 +1048,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == Byte.class || this.definition == SByte.class
                         || this.definition == Decimal.class
                         || this.definition == DateTime.class
+                        || this.definition == TimeSpan.class
                         || this.definition == StreamingContext.class
                         || this.definition == SerializationEntry.class
                         || this.definition == DictionaryEntry.class
@@ -1082,7 +1093,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Double.class
                 || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == Int32.class || this.definition == Void.class
-                || this.definition == Decimal.class || this.definition == DateTime.class
+                || this.definition == Decimal.class || this.definition == DateTime.class || this.definition == TimeSpan.class
                 || this.definition == StreamingContext.class
                 || this.definition == StreamingContextStates.class
                 || this.get_IsEnum();
@@ -1460,6 +1471,11 @@ public abstract class Type extends MemberInfo {
         if (candidate == null) {
             return false;
         }
+        if ((candidate.definition == DateTime.class || candidate.definition == TimeSpan.class)
+                && (this.definition == IComparable.class || this.definition == IFormattable.class
+                    || this.definition == ISpanFormattable.class || this.definition == IUtf8SpanFormattable.class)) {
+            return true;
+        }
         if (this == candidate) {
             return true;
         }
@@ -1560,18 +1576,20 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Number.class) {
             return value instanceof Integer || value instanceof Int32
                     || value instanceof Decimal || value instanceof DateTime
+                    || value instanceof TimeSpan || value instanceof DateTimeKind || value instanceof DayOfWeek
                     || value instanceof MemberTypes || value instanceof TypeCode
                     || value instanceof NumberStyles;
         }
         if (this.definition == Enum.class) {
             return value instanceof MemberTypes || value instanceof TypeCode
-                    || value instanceof NumberStyles;
+                    || value instanceof NumberStyles || value instanceof DateTimeKind || value instanceof DayOfWeek;
         }
         if (this.definition == IComparable.class) {
-            return value instanceof String || value instanceof Integer || value instanceof Int32;
+            return value instanceof String || value instanceof Integer || value instanceof Int32
+                    || value instanceof DateTime || value instanceof TimeSpan;
         }
         if (this.definition == IFormattable.class) {
-            return value instanceof Integer || value instanceof Int32;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
         }
         if (this.definition == IConvertible.class) {
             return value instanceof Integer || value instanceof Int32 || value instanceof DBNull
@@ -1583,10 +1601,10 @@ public abstract class Type extends MemberInfo {
             return value instanceof DBNull || value instanceof Exception;
         }
         if (this.definition == ISpanFormattable.class) {
-            return value instanceof Integer || value instanceof Int32;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
         }
         if (this.definition == IUtf8SpanFormattable.class) {
-            return value instanceof Integer || value instanceof Int32;
+            return value instanceof Integer || value instanceof Int32 || value instanceof DateTime || value instanceof TimeSpan;
         }
         if (this.definition == Int32.class && value instanceof Integer) {
             return true;
@@ -1829,6 +1847,14 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
+        if (this.definition == DateTime.class) {
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class),
+                    fromJavaClass(IConvertible.class), fromJavaClass(ISpanFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
+        }
+        if (this.definition == TimeSpan.class) {
+            return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IFormattable.class),
+                    fromJavaClass(ISpanFormattable.class), fromJavaClass(IUtf8SpanFormattable.class)};
+        }
         if (this.definition == IDictionary.class) {
             return new Type[] {fromJavaClass(ICollection.class), fromJavaClass(IEnumerable.class)};
         }
@@ -1853,7 +1879,7 @@ public abstract class Type extends MemberInfo {
         }
         if (this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
-                || this.definition == DateTime.class || this.definition == Decimal.class) {
+                || this.definition == Decimal.class) {
             return new Type[] {fromJavaClass(IConvertible.class)};
         }
         if (this.definition == Object.class || this.definition == IDisposable.class
@@ -1943,6 +1969,18 @@ public abstract class Type extends MemberInfo {
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) {
             throw new ArgumentNullException("fullname");
+        }
+        if (this.definition == DateTime.class || this.definition == TimeSpan.class) {
+            int separator = fullname.lastIndexOf('.');
+            String namespace = separator < 0 ? null : fullname.substring(0, separator);
+            String name = fullname.substring(separator + 1);
+            for (Type contract : GetInterfaces()) {
+                if ((namespace == null || namespace.equals(contract.get_Namespace()))
+                        && (name.equals(contract.get_Name()) || ignoreCase && name.equalsIgnoreCase(contract.get_Name()))) {
+                    return contract;
+                }
+            }
+            return null;
         }
         if (this.definition == Object.class || this.definition == IDisposable.class) {
             return null;

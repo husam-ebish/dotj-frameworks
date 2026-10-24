@@ -1,0 +1,1079 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "08d88f1f1b93e664a019e7204238fa5428ada9980bf4930dc32ab5dc5dd31f66",
+  "types": [
+    {
+      "name": "System.DateTime",
+      "simpleName": "DateTime",
+      "baseType": "System.ValueType",
+      "isClass": false,
+      "isValueType": true,
+      "isEnum": false,
+      "isSealed": true,
+      "isPrimitive": false,
+      "typeCode": 16,
+      "arrayName": "System.DateTime[]",
+      "selectedInterfaces": [
+        "System.IComparable",
+        "System.IConvertible",
+        "System.IFormattable",
+        "System.ISpanFormattable",
+        "System.IUtf8SpanFormattable"
+      ],
+      "omittedInterfaces": [
+        "System.IComparable`1[[System.DateTime, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.IEquatable`1[[System.DateTime, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.IParsable`1[[System.DateTime, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.ISpanParsable`1[[System.DateTime, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.Runtime.Serialization.ISerializable"
+      ]
+    },
+    {
+      "name": "System.TimeSpan",
+      "simpleName": "TimeSpan",
+      "baseType": "System.ValueType",
+      "isClass": false,
+      "isValueType": true,
+      "isEnum": false,
+      "isSealed": true,
+      "isPrimitive": false,
+      "typeCode": 1,
+      "arrayName": "System.TimeSpan[]",
+      "selectedInterfaces": [
+        "System.IComparable",
+        "System.IFormattable",
+        "System.ISpanFormattable",
+        "System.IUtf8SpanFormattable"
+      ],
+      "omittedInterfaces": [
+        "System.IComparable`1[[System.TimeSpan, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.IEquatable`1[[System.TimeSpan, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.IParsable`1[[System.TimeSpan, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "System.ISpanParsable`1[[System.TimeSpan, System.Private.CoreLib, Version=10.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+      ]
+    },
+    {
+      "name": "System.DateTimeKind",
+      "simpleName": "DateTimeKind",
+      "baseType": "System.Enum",
+      "isClass": false,
+      "isValueType": true,
+      "isEnum": true,
+      "isSealed": true,
+      "isPrimitive": false,
+      "typeCode": 9,
+      "arrayName": "System.DateTimeKind[]"
+    },
+    {
+      "name": "System.DayOfWeek",
+      "simpleName": "DayOfWeek",
+      "baseType": "System.Enum",
+      "isClass": false,
+      "isValueType": true,
+      "isEnum": true,
+      "isSealed": true,
+      "isPrimitive": false,
+      "typeCode": 9,
+      "arrayName": "System.DayOfWeek[]"
+    }
+  ],
+  "assignability": [
+    {
+      "source": "System.DateTime",
+      "target": "System.DateTime",
+      "result": true
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.DateTimeKind",
+      "result": false
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.DayOfWeek",
+      "result": false
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.ValueType",
+      "result": true
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.Int32",
+      "result": false
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.String",
+      "result": false
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.IComparable",
+      "result": true
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.IFormattable",
+      "result": true
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.ISpanFormattable",
+      "result": true
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.IUtf8SpanFormattable",
+      "result": true
+    },
+    {
+      "source": "System.DateTime",
+      "target": "System.IConvertible",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.TimeSpan",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.DateTimeKind",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.DayOfWeek",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.ValueType",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.Int32",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.String",
+      "result": false
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.IComparable",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.IFormattable",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.ISpanFormattable",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.IUtf8SpanFormattable",
+      "result": true
+    },
+    {
+      "source": "System.TimeSpan",
+      "target": "System.IConvertible",
+      "result": false
+    }
+  ],
+  "instances": [
+    {
+      "sample": "Null",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.DateTimeKind",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.DayOfWeek",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Object",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.Int32",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.String",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.ISpanFormattable",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.IUtf8SpanFormattable",
+      "result": false
+    },
+    {
+      "sample": "Null",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.DateTimeKind",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.DayOfWeek",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "Object",
+      "target": "System.ValueType",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.Int32",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.String",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.IComparable",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.IFormattable",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.ISpanFormattable",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.IUtf8SpanFormattable",
+      "result": false
+    },
+    {
+      "sample": "Object",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.DateTime",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.DateTimeKind",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.DayOfWeek",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.ValueType",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.Int32",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.String",
+      "result": false
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.IComparable",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.IFormattable",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.ISpanFormattable",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.IUtf8SpanFormattable",
+      "result": true
+    },
+    {
+      "sample": "DateTime",
+      "target": "System.IConvertible",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.TimeSpan",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.DateTimeKind",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.DayOfWeek",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.ValueType",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Enum",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.Int32",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.String",
+      "result": false
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.IComparable",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.IFormattable",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.ISpanFormattable",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.IUtf8SpanFormattable",
+      "result": true
+    },
+    {
+      "sample": "TimeSpan",
+      "target": "System.IConvertible",
+      "result": false
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.DateTimeKind",
+      "result": true
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.DayOfWeek",
+      "result": false
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.ValueType",
+      "result": true
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.Enum",
+      "result": true
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.Int32",
+      "result": false
+    },
+    {
+      "sample": "DateTimeKind",
+      "target": "System.String",
+      "result": false
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.DateTime",
+      "result": false
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.TimeSpan",
+      "result": false
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.DateTimeKind",
+      "result": false
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.DayOfWeek",
+      "result": true
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.Object",
+      "result": true
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.ValueType",
+      "result": true
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.Enum",
+      "result": true
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.Int32",
+      "result": false
+    },
+    {
+      "sample": "DayOfWeek",
+      "target": "System.String",
+      "result": false
+    }
+  ],
+  "interfaceLookups": [
+    {
+      "source": "System.DateTime",
+      "query": "System.IComparable",
+      "ignoreCase": false,
+      "result": "System.IComparable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "IComparable",
+      "ignoreCase": false,
+      "result": "System.IComparable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.icomparable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.icomparable",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.icomparable",
+      "ignoreCase": true,
+      "result": "System.IComparable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "icomparable",
+      "ignoreCase": true,
+      "result": "System.IComparable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.icomparable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "icomparable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.IFormattable",
+      "ignoreCase": false,
+      "result": "System.IFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "IFormattable",
+      "ignoreCase": false,
+      "result": "System.IFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.iformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.iformattable",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.iformattable",
+      "ignoreCase": true,
+      "result": "System.IFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "iformattable",
+      "ignoreCase": true,
+      "result": "System.IFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.iformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "iformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.ISpanFormattable",
+      "ignoreCase": false,
+      "result": "System.ISpanFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "ISpanFormattable",
+      "ignoreCase": false,
+      "result": "System.ISpanFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.ispanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.ispanformattable",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.ispanformattable",
+      "ignoreCase": true,
+      "result": "System.ISpanFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "ispanformattable",
+      "ignoreCase": true,
+      "result": "System.ISpanFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.ispanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "ispanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": "System.IUtf8SpanFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": "System.IUtf8SpanFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.iutf8spanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.iutf8spanformattable",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.iutf8spanformattable",
+      "ignoreCase": true,
+      "result": "System.IUtf8SpanFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "iutf8spanformattable",
+      "ignoreCase": true,
+      "result": "System.IUtf8SpanFormattable"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.iutf8spanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "iutf8spanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.IConvertible",
+      "ignoreCase": false,
+      "result": "System.IConvertible"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": "System.IConvertible"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.iconvertible",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "system.iconvertible",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.iconvertible",
+      "ignoreCase": true,
+      "result": "System.IConvertible"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "iconvertible",
+      "ignoreCase": true,
+      "result": "System.IConvertible"
+    },
+    {
+      "source": "System.DateTime",
+      "query": "System.iconvertible",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.DateTime",
+      "query": "iconvertible",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.IComparable",
+      "ignoreCase": false,
+      "result": "System.IComparable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "IComparable",
+      "ignoreCase": false,
+      "result": "System.IComparable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.icomparable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.icomparable",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.icomparable",
+      "ignoreCase": true,
+      "result": "System.IComparable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "icomparable",
+      "ignoreCase": true,
+      "result": "System.IComparable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.icomparable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "icomparable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.IFormattable",
+      "ignoreCase": false,
+      "result": "System.IFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "IFormattable",
+      "ignoreCase": false,
+      "result": "System.IFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.iformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.iformattable",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.iformattable",
+      "ignoreCase": true,
+      "result": "System.IFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "iformattable",
+      "ignoreCase": true,
+      "result": "System.IFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.iformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "iformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.ISpanFormattable",
+      "ignoreCase": false,
+      "result": "System.ISpanFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "ISpanFormattable",
+      "ignoreCase": false,
+      "result": "System.ISpanFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.ispanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.ispanformattable",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.ispanformattable",
+      "ignoreCase": true,
+      "result": "System.ISpanFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "ispanformattable",
+      "ignoreCase": true,
+      "result": "System.ISpanFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.ispanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "ispanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": "System.IUtf8SpanFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "IUtf8SpanFormattable",
+      "ignoreCase": false,
+      "result": "System.IUtf8SpanFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.iutf8spanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.iutf8spanformattable",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.iutf8spanformattable",
+      "ignoreCase": true,
+      "result": "System.IUtf8SpanFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "iutf8spanformattable",
+      "ignoreCase": true,
+      "result": "System.IUtf8SpanFormattable"
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.iutf8spanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "iutf8spanformattable",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.IConvertible",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "IConvertible",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.iconvertible",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "system.iconvertible",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.iconvertible",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "iconvertible",
+      "ignoreCase": true,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "System.iconvertible",
+      "ignoreCase": false,
+      "result": null
+    },
+    {
+      "source": "System.TimeSpan",
+      "query": "iconvertible",
+      "ignoreCase": false,
+      "result": null
+    }
+  ],
+  "qualification": "SELECTED_TEMPORAL_METADATA_ONLY; OMITTED_INTERFACES_AND_LANGUAGE_MAPPING_OPEN"
+}
