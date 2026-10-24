@@ -78,12 +78,29 @@ $metadata = [ordered]@{
     methods = @([TimeSpan].GetMethods([Reflection.BindingFlags]'Public,Static,Instance,DeclaredOnly') | ForEach-Object { $_.ToString() } | Sort-Object)
     fields = @([TimeSpan].GetFields([Reflection.BindingFlags]'Public,Static') | ForEach-Object { [ordered]@{ name = $_.Name; type = $_.FieldType.FullName; value = $_.GetValue($null).ToString() } })
 }
+$properties = @()
+$propertyNames = @('Ticks', 'Days', 'Hours', 'Minutes', 'Seconds', 'Milliseconds', 'Microseconds', 'Nanoseconds',
+    'TotalDays', 'TotalHours', 'TotalMinutes', 'TotalSeconds', 'TotalMilliseconds', 'TotalMicroseconds', 'TotalNanoseconds')
+$tickInputs = @([long]::MinValue, ([long]::MinValue + 1), [long]-864000000001, [long]-10001,
+    [long]-10000, [long]-9999, [long]-11, [long]-10, [long]-9, [long]-1, [long]0, [long]1,
+    [long]9, [long]10, [long]11, [long]9999, [long]10000, [long]10001, [long]864000000001,
+    ([long]::MaxValue - 1), [long]::MaxValue)
+foreach ($ticks in $tickInputs) {
+    $span = [TimeSpan]::FromTicks($ticks)
+    foreach ($name in $propertyNames) {
+        $value = [TimeSpan].GetProperty($name).GetValue($span)
+        $result = if ($value -is [double]) {
+            [ordered]@{ bits = [BitConverter]::DoubleToInt64Bits($value).ToString('X16'); isNaN = $false }
+        } else { [ordered]@{ value = $value } }
+        $properties += [ordered]@{ ticks = $ticks; property = $name; result = $result }
+    }
+}
 $record = [ordered]@{
-    schemaVersion = 1; scope = 'Pinned TimeSpan metadata, interval factories, constructors, Multiply and Divide vectors; bounded oracle only'
+    schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
     oracleSha256 = (Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
-    metadata = $metadata; factories = $factories; constructors = $constructors; operations = $operations; ratios = $ratios
+    metadata = $metadata; factories = $factories; constructors = $constructors; operations = $operations; ratios = $ratios; properties = $properties
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
-Write-Output "PASS pinned TimeSpan oracle: $($factories.Count) factories, $($constructors.Count) constructors, $($operations.Count) scaling and $($ratios.Count) ratio vectors"
+Write-Output "PASS pinned TimeSpan oracle: $($factories.Count) factories, $($constructors.Count) constructors, $($operations.Count) scaling, $($ratios.Count) ratios and $($properties.Count) property vectors"

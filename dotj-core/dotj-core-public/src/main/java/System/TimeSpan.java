@@ -292,11 +292,17 @@ public final class TimeSpan implements IComparable {
     }
 
     public double get_TotalMilliseconds() {
-        return (double) this.ticks / 10_000L;
+        double value = (double) this.ticks / 10_000L;
+        return java.lang.Math.max((double) (Long.MIN_VALUE / 10_000L),
+                java.lang.Math.min(value, (double) (Long.MAX_VALUE / 10_000L)));
     }
 
     public double get_TotalMicroseconds() {
         return (double) this.ticks / 10L;
+    }
+
+    public double get_TotalNanoseconds() {
+        return (double) this.ticks * 100L;
     }
 
     public int get_Days() {
