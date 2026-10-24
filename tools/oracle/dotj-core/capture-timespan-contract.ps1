@@ -330,6 +330,22 @@ foreach ($ticks in @([long]::MinValue, -123456789012345, 0, 1, 123456789012345, 
         }
     }
 }
+$byteFormatter = New-TimeSpanBufferFormatter ([byte])
+$utf8Formatting = @()
+foreach ($ticks in @([long]::MinValue, -123456789012345, 0, 1, 123456789012345, [long]::MaxValue)) {
+    foreach ($format in @($null, '', 'c', 't', 'T', '%d', 'hh\:mm\:ss\.FFFFFFF',
+        "'東京'", "'é'", '\é', "'\é'", "'\東'", "'é東'", "'😀'", 'z', "'unclosed")) {
+        foreach ($capacity in @(0,1,2,5,6,7,8,16,26,40)) {
+            $buffer = [byte[]]::new($capacity)
+            [Array]::Fill($buffer, [byte]35)
+            $written = [int[]]@(99)
+            try { $result = [ordered]@{ boolean = $byteFormatter.Invoke([TimeSpan]::FromTicks($ticks),$buffer,$written,$format,$null) } }
+            catch { $result = Failure $_ }
+            $utf8Formatting += [ordered]@{ ticks = $ticks; format = $format; capacity = $capacity; result = $result
+                written = $written[0]; bufferHex = [Convert]::ToHexString($buffer) }
+        }
+    }
+}
 $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
@@ -349,6 +365,7 @@ $record = [ordered]@{
     customFormats = $customFormats
     parsing = $parsing
     charFormatting = $charFormatting
+    utf8Formatting = $utf8Formatting
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))

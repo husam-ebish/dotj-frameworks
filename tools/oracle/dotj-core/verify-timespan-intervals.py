@@ -25,6 +25,7 @@ def main():
     kinds.add_argument('--custom-formats', action='store_true')
     kinds.add_argument('--parsing', action='store_true')
     kinds.add_argument('--char-formatting', action='store_true')
+    kinds.add_argument('--utf8-formatting', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -38,7 +39,7 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    section = ('charFormatting' if args.char_formatting else 'parsing' if args.parsing else 'customFormats' if args.custom_formats else 'formats' if args.formats else 'checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
+    section = ('utf8Formatting' if args.utf8_formatting else 'charFormatting' if args.char_formatting else 'parsing' if args.parsing else 'customFormats' if args.custom_formats else 'formats' if args.formats else 'checkedArithmetic' if args.checked_arithmetic else 'comparisons' if args.comparison else 'compositeFactories' if args.composite_factories else 'integerFactories' if args.integer_factories else 'constants' if args.constants else 'properties' if args.properties else 'arithmetic' if args.arithmetic else
                'constructors' if args.constructors else 'factories')
     vectors = oracle['operations'] + oracle['ratios'] if args.arithmetic else oracle[section]
     for index, case in enumerate(vectors):
@@ -58,8 +59,9 @@ def main():
                        f'check(left.equals(right) == {str(case["equalsObject"]).lower()}, {index});']
             cases.append('{\n' + '\n'.join(checks) + '\n}')
             continue
-        if args.char_formatting:
-            expression = f'((ISpanFormattable) TimeSpan.FromTicks({case["ticks"]}L)).TryFormat(buffer, written, {json.dumps(case["format"])}, null)'
+        if args.char_formatting or args.utf8_formatting:
+            interface = 'IUtf8SpanFormattable' if args.utf8_formatting else 'ISpanFormattable'
+            expression = f'(({interface}) TimeSpan.FromTicks({case["ticks"]}L)).TryFormat(buffer, written, {json.dumps(case["format"])}, null)'
         elif args.parsing:
             expression = f'TimeSpan.Parse({json.dumps(case["input"])})'
         elif args.formats or args.custom_formats:
@@ -133,6 +135,10 @@ def main():
             cases[-1] = ('{\n' + f'char[] buffer = new char[{case["capacity"]}]; java.util.Arrays.fill(buffer, \'#\'); int[] written = {{99}};\n' +
                          cases[-1] + f'\ncheck(written[0] == {case["written"]}, {index});\n' +
                          f'check(new String(buffer).equals({json.dumps(case["buffer"])}), {index});\n}}')
+        if args.utf8_formatting:
+            cases[-1] = ('{\n' + f'byte[] buffer = new byte[{case["capacity"]}]; java.util.Arrays.fill(buffer, (byte)35); int[] written = {{99}};\n' +
+                         cases[-1] + f'\ncheck(written[0] == {case["written"]}, {index});\n' +
+                         f'check(java.util.HexFormat.of().withUpperCase().formatHex(buffer).equals("{case["bufferHex"]}"), {index});\n}}')
     if args.constants:
         cases.append(f'check(new TimeSpan().get_Ticks() == {oracle["defaultValueTicks"]}L, {len(cases)});')
         cases.append(f'check(TimeSpan.class.getFields().length == {len(vectors)}, {len(cases)});')
@@ -142,7 +148,7 @@ def main():
     # Keep independent blocks in small methods so larger oracle sets cannot exceed JVM method limits.
     methods = ['static void group' + str(offset // 40) + '() throws java.lang.Exception {\n' +
                '\n'.join(cases[offset:offset + 40]) + '\n}\n' for offset in range(0, len(cases), 40)]
-    source.write_text('import System.TimeSpan;\nimport System.IFormattable;\nimport System.ISpanFormattable;\nimport System.ArgumentException;\nimport System.ArgumentNullException;\nimport System.ArgumentOutOfRangeException;\nimport System.OverflowException;\nimport System.FormatException;\npublic class TimeSpanIntervalProbe {\n'
+    source.write_text('import System.TimeSpan;\nimport System.IFormattable;\nimport System.ISpanFormattable;\nimport System.IUtf8SpanFormattable;\nimport System.ArgumentException;\nimport System.ArgumentNullException;\nimport System.ArgumentOutOfRangeException;\nimport System.OverflowException;\nimport System.FormatException;\npublic class TimeSpanIntervalProbe {\n'
                       'static void check(boolean ok, int id) { if (!ok) throw new AssertionError("case " + id); }\n'
                       + ''.join(methods) + 'public static void main(String[] args) throws java.lang.Exception {\n' +
                       '\n'.join(f'group{index}();' for index in range(len(methods))) +
@@ -155,7 +161,8 @@ def main():
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
         'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    name = ('timespan-char-format-differential-v1.json' if args.char_formatting else
+    name = ('timespan-utf8-format-differential-v1.json' if args.utf8_formatting else
+            'timespan-char-format-differential-v1.json' if args.char_formatting else
             'timespan-parse-differential-v1.json' if args.parsing else
             'timespan-custom-format-differential-v1.json' if args.custom_formats else
             'timespan-format-differential-v1.json' if args.formats else
