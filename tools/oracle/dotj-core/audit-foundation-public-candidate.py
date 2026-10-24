@@ -240,6 +240,7 @@ def main():
                                     "public boolean equals(java.lang.Object);",
                                     "public int GetHashCode();",
                                     "public int hashCode();",
+                                    "public System.DateTime AddTicks(long);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();", "public int get_DayOfYear();",
                                     "public System.DateTime get_Date();",
