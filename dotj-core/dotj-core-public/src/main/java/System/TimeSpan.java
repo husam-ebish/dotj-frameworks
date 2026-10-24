@@ -23,6 +23,10 @@ public final class TimeSpan {
         return fromScaled(value, 36_000_000_000L);
     }
 
+    public static TimeSpan FromMinutes(double value) {
+        return fromScaled(value, 600_000_000L);
+    }
+
     private static TimeSpan fromScaled(double value, long ticksPerUnit) {
         double scaled = java.lang.Math.rint(value * ticksPerUnit);
         if (!Double.isFinite(scaled) || scaled < Long.MIN_VALUE
