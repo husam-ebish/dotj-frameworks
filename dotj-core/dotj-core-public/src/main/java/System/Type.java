@@ -203,27 +203,27 @@ public abstract class Type extends MemberInfo {
 
     private static Type resolveSelectedCoreLibGeneric(String name, boolean ignoreCase) {
         if (name.endsWith("&")) {
-            Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 1), ignoreCase);
+            Type element = GetType(name.substring(0, name.length() - 1), false, ignoreCase);
             return element == null ? null : element.MakeByRefType();
         }
         if (name.endsWith("*")) {
-            Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 1), ignoreCase);
+            Type element = GetType(name.substring(0, name.length() - 1), false, ignoreCase);
             return element == null ? null : element.MakePointerType();
         }
         if (name.endsWith("[]")) {
-            Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 2), ignoreCase);
+            Type element = GetType(name.substring(0, name.length() - 2), false, ignoreCase);
             return element == null ? null : element.MakeArrayType();
         }
         if (name.endsWith("[,]")) {
-            Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 3), ignoreCase);
+            Type element = GetType(name.substring(0, name.length() - 3), false, ignoreCase);
             return element == null ? null : element.MakeArrayType(2);
         }
         if (name.endsWith("[,,]")) {
-            Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 4), ignoreCase);
+            Type element = GetType(name.substring(0, name.length() - 4), false, ignoreCase);
             return element == null ? null : element.MakeArrayType(3);
         }
         if (name.endsWith("[*]")) {
-            Type element = resolveSelectedCoreLibGeneric(name.substring(0, name.length() - 3), ignoreCase);
+            Type element = GetType(name.substring(0, name.length() - 3), false, ignoreCase);
             return element == null ? null : element.MakeArrayType(1);
         }
         int start = name.indexOf("[[");
