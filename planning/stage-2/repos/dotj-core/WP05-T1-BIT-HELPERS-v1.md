@@ -697,3 +697,5 @@ The public DateTime candidate now implements IComparable and exposes typed and o
 The public DateTime candidate now exposes Equals and GetHashCode and aligns Java equals/hashCode with tick equality. A packaged consumer checks equal and unequal instances and a .NET hash value. Broader DateTime parity remains open.
 
 The public DateTime candidate now exposes AddTicks with 100-nanosecond arithmetic and .NET date-range checks. A packaged consumer checks epoch increments, leap-day rollover, maximum ticks, and overflow parameter names. Broader DateTime arithmetic remains open.
+
+The public DateTime candidate now exposes AddMonths with end-of-month clipping, preserved time fields, and .NET month and date ranges. A packaged consumer checks leap and common February and invalid month deltas. Broader DateTime arithmetic remains open.

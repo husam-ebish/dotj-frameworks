@@ -139,6 +139,17 @@ public final class DateTime implements IConvertible, IComparable {
         return new DateTime(added);
     }
 
+    public DateTime AddMonths(int months) {
+        if (months < -120_000 || months > 120_000) {
+            throw new ArgumentOutOfRangeException("months");
+        }
+        LocalDateTime added = this.date.plusMonths(months);
+        if (added.getYear() < 1 || added.getYear() > 9999) {
+            throw new ArgumentOutOfRangeException("months");
+        }
+        return new DateTime(added);
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }

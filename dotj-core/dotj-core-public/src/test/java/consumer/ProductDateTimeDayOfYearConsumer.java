@@ -190,6 +190,30 @@ public final class ProductDateTimeDayOfYearConsumer {
                 }
             }
         }
+        DateTime januaryEnd = new DateTime(2024, 1, 31, 12, 34, 56, 789);
+        DateTime leapEnd = januaryEnd.AddMonths(1);
+        DateTime commonEnd = new DateTime(2023, 1, 31).AddMonths(1);
+        if (leapEnd.get_Year() != 2024 || leapEnd.get_Month() != 2
+                || leapEnd.get_Day() != 29 || leapEnd.get_Hour() != 12
+                || leapEnd.get_Millisecond() != 789
+                || commonEnd.get_Day() != 28
+                || new DateTime(2024, 3, 31).AddMonths(-1).get_Day() != 29
+                || januaryEnd.AddMonths(0).get_Ticks() != januaryEnd.get_Ticks()) {
+            throw new AssertionError("DateTime AddMonths changed");
+        }
+        int[][] invalidMonthsDelta = {{1, -1}, {9999, 1}, {2024, -120001},
+            {2024, 120001}};
+        for (int[] row : invalidMonthsDelta) {
+            DateTime target = new DateTime(row[0], row[0] == 9999 ? 12 : 1, 1);
+            try {
+                target.AddMonths(row[1]);
+                throw new AssertionError("Out-of-range month addition accepted");
+            } catch (ArgumentOutOfRangeException caught) {
+                if (!"months".equals(caught.get_ParamName())) {
+                    throw new AssertionError("Month addition parameter changed");
+                }
+            }
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }
