@@ -236,6 +236,7 @@ def main():
                                     "public int get_Hour();",
                                     "public int get_Minute();", "public int get_Second();",
                                     "public int get_Millisecond();",
+                                    "public int get_Microsecond();",
                                     "public System.TypeCode GetTypeCode();",
                                     "public boolean ToBoolean(System.IFormatProvider);",
                                     "public char ToChar(System.IFormatProvider);",
