@@ -436,4 +436,9 @@ public final class DateTime implements IConvertible, IComparable {
         }
         throw new UnsupportedOperationException("DateTime format is not mapped for this candidate");
     }
+
+    public String ToLongDateString() {
+        return this.date.format(DateTimeFormatter.ofPattern(
+                "EEEE, dd MMMM uuuu", java.util.Locale.US));
+    }
 }

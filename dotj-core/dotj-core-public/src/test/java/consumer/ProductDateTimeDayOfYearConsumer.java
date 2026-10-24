@@ -10,6 +10,12 @@ import System.FormatException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (!"Thursday, 29 February 2024".equals(
+                    new DateTime(2024, 2, 29).ToLongDateString())
+                || !"Monday, 01 January 0001".equals(
+                    new DateTime(1, 1, 1).ToLongDateString())) {
+            throw new AssertionError("Invariant long-date text changed");
+        }
         for (long fileTime : new long[] {0L, 116444736000000000L,
                 2650467743999999999L}) {
             if (DateTime.FromFileTimeUtc(fileTime).ToFileTimeUtc() != fileTime) {

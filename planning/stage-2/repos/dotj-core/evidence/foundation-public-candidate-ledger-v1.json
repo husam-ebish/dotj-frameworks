@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "6c3a0fe955944f8dc5af0e7a09840f8772d95c35ce52997ec0e69d4a3d885f06",
+  "candidateJarSha256": "2f584ae8f5efa8e62138258f4bfce242ed6e8b05a76e54dd2cfcfa199e393a68",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -342,7 +342,8 @@
         "public System.DateTime ToDateTime(System.IFormatProvider);",
         "public java.lang.String ToString(System.IFormatProvider);",
         "public java.lang.Object ToType(System.Type, System.IFormatProvider);",
-        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);"
+        "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
+        "public java.lang.String ToLongDateString();"
       ],
       "disposition": "PARTIAL_VALUE_SURFACE; selected DateTime IConvertible and date construction/Parse/properties/text",
       "qualified": false
