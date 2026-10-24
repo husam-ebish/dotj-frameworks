@@ -1124,7 +1124,8 @@ public abstract class Type extends MemberInfo {
         if (this.get_IsArray()) {
             return true;
         }
-        return this.definition == Object.class || this.definition == Number.class
+        return this.definition == Object.class || this.definition == java.lang.reflect.Array.class
+                || this.definition == Number.class
                 || this.definition == Enum.class || this.definition == String.class
                 || this.definition == DBNull.class || this.get_IsPrimitive() || this.get_IsEnum()
                 || this.definition == Decimal.class || this.definition == DateTime.class
@@ -1466,7 +1467,8 @@ public abstract class Type extends MemberInfo {
             return false;
         }
         if (this.get_IsArray() && candidate.get_IsArray()) {
-            if (this.GetArrayRank() != candidate.GetArrayRank() || this.get_IsSZArray() != candidate.get_IsSZArray()) { return false; }
+            if (this.GetArrayRank() != candidate.GetArrayRank()
+                    || this.get_IsSZArray() && !candidate.get_IsSZArray()) { return false; }
             Type targetElement = this.GetElementType();
             Type sourceElement = candidate.GetElementType();
             if (targetElement.get_IsValueType() || sourceElement.get_IsValueType()) {
@@ -1480,6 +1482,10 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this == candidate) {
+            return true;
+        }
+        if ((this.definition == IEnumerable.class || this.definition == ICollection.class)
+                && (candidate.get_IsArray() || candidate.definition == java.lang.reflect.Array.class)) {
             return true;
         }
         if ((this.definition == IEnumerable.class || this.definition == ICollection.class
@@ -1581,13 +1587,17 @@ public abstract class Type extends MemberInfo {
             return false;
         }
         if (this.get_IsArray()) {
-            if (!this.get_IsSZArray() || this.GetArrayRank() != 1 || !value.getClass().isArray()) { return false; }
+            if (this.GetArrayRank() != 1 || !value.getClass().isArray()) { return false; }
             Type targetElement = this.GetElementType();
             Type component = runtimeArrayComponent(value.getClass().getComponentType());
             if (targetElement.get_IsValueType() || component.get_IsValueType()) {
                 return targetElement == component;
             }
             return targetElement.IsAssignableFrom(component);
+        }
+        if ((this.definition == IEnumerable.class || this.definition == ICollection.class)
+                && value.getClass().isArray()) {
+            return true;
         }
         if (this.definition == Object.class) {
             return true;
@@ -1875,6 +1885,10 @@ public abstract class Type extends MemberInfo {
     }
 
     public Type[] GetInterfaces() {
+        if (this.get_IsArray() || this.definition == java.lang.reflect.Array.class) {
+            return new Type[] {fromJavaClass(ICollection.class), fromJavaClass(IEnumerable.class)};
+        }
+
         if (this.definition == String.class) {
             return new Type[] {fromJavaClass(IComparable.class), fromJavaClass(IConvertible.class)};
         }
@@ -2007,7 +2021,8 @@ public abstract class Type extends MemberInfo {
 
     public Type GetInterface(String fullname, boolean ignoreCase) {
         if (fullname == null) throw new ArgumentNullException("fullname");
-        if (this.definition == String.class || this.definition == Int32.class
+        if (this.get_IsArray() || this.definition == java.lang.reflect.Array.class
+                || this.definition == String.class || this.definition == Int32.class
                 || this.definition == Byte.class || this.definition == SByte.class
                 || this.definition == UInt16.class || this.definition == UInt32.class
                 || this.definition == Decimal.class || this.definition == DBNull.class
