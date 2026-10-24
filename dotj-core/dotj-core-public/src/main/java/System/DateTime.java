@@ -394,12 +394,13 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (Double.isNaN(value)) {
             return new DateTime(this.date, this.kind);
         }
-        double ticks = java.lang.Math.rint(value * ticksPerUnit);
-        if (!Double.isFinite(ticks) || ticks < Long.MIN_VALUE
-                || ticks >= 0x1.0p63) {
+        if (java.lang.Math.abs(value) > (double) (MAX_TICKS / ticksPerUnit)) {
             throw new ArgumentOutOfRangeException("value");
         }
-        return AddTicks((long) ticks);
+        long wholeUnits = (long) value;
+        double remainder = value - wholeUnits;
+        long offset = wholeUnits * ticksPerUnit + (long) (remainder * ticksPerUnit);
+        return AddTicks(offset);
     }
 
     public int get_Year() {
