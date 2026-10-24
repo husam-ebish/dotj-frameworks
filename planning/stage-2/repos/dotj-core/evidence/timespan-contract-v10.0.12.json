@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "Pinned TimeSpan metadata, interval factories, constructors, Multiply and Divide vectors; bounded oracle only",
+  "scope": "Pinned TimeSpan metadata, numeric and component boundary vectors; bounded oracle only",
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "483ffbfe1fb9c01318b123674125902e4f62f59889f06fee8d64bc25e7a165c7",
+  "oracleSha256": "937b364d3e1749fd1cbfa4d0c9ec0d9dc0c036e94d2250634dd47d36c973ea03",
   "metadata": {
     "type": "System.TimeSpan",
     "interfaces": [
@@ -4712,6 +4712,2360 @@
       "divisorTicks": -9223372036854775808,
       "result": {
         "bits": "3FF0000000000000",
+        "isNaN": false
+      }
+    }
+  ],
+  "properties": [
+    {
+      "ticks": -9223372036854775808,
+      "property": "Ticks",
+      "result": {
+        "value": -9223372036854775808
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "Days",
+      "result": {
+        "value": -10675199
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "Hours",
+      "result": {
+        "value": -2
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "Minutes",
+      "result": {
+        "value": -48
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "Seconds",
+      "result": {
+        "value": -5
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "Milliseconds",
+      "result": {
+        "value": -477
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "Microseconds",
+      "result": {
+        "value": -580
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "Nanoseconds",
+      "result": {
+        "value": -800
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "TotalDays",
+      "result": {
+        "bits": "C1645C7FE3BC40B0",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "TotalHours",
+      "result": {
+        "bits": "C1AE8ABFD59A6108",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "C20CA213D840BAF8",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "C26AD7F29ABCAF48",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "C30A36E2EB1C4328",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "C3A999999999999A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775808,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C449000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "Ticks",
+      "result": {
+        "value": -9223372036854775807
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "Days",
+      "result": {
+        "value": -10675199
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "Hours",
+      "result": {
+        "value": -2
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "Minutes",
+      "result": {
+        "value": -48
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "Seconds",
+      "result": {
+        "value": -5
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "Milliseconds",
+      "result": {
+        "value": -477
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "Microseconds",
+      "result": {
+        "value": -580
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "Nanoseconds",
+      "result": {
+        "value": -700
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "TotalDays",
+      "result": {
+        "bits": "C1645C7FE3BC40B0",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "TotalHours",
+      "result": {
+        "bits": "C1AE8ABFD59A6108",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "C20CA213D840BAF8",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "C26AD7F29ABCAF48",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "C30A36E2EB1C4328",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "C3A999999999999A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9223372036854775807,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C449000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "Ticks",
+      "result": {
+        "value": -864000000001
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "Days",
+      "result": {
+        "value": -1
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "Nanoseconds",
+      "result": {
+        "value": -100
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "TotalDays",
+      "result": {
+        "bits": "BFF000000000145C",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "TotalHours",
+      "result": {
+        "bits": "C038000000001E8B",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "C096800000001CA2",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "C0F5180000001AD8",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "C194997000001A37",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "C2341DD76000199A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -864000000001,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C2D3A52453C01900",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "Ticks",
+      "result": {
+        "value": -10001
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "Milliseconds",
+      "result": {
+        "value": -1
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "Nanoseconds",
+      "result": {
+        "value": -100
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "TotalDays",
+      "result": {
+        "bits": "BE48DB8D017E6AD9",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "TotalHours",
+      "result": {
+        "bits": "BE92A4A9C11ED023",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "BEF17A5F250CE321",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "BF5062B932BC14EF",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "BFF00068DB8BAC71",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "C08F40CCCCCCCCCD",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10001,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C12E854800000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "Ticks",
+      "result": {
+        "value": -10000
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "Milliseconds",
+      "result": {
+        "value": -1
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "TotalDays",
+      "result": {
+        "bits": "BE48DAEA1D7F4CF7",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "TotalHours",
+      "result": {
+        "bits": "BE92A42F961F79B9",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "BEF179EC9CBD821E",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "BF50624DD2F1A9FC",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "BFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "C08F400000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10000,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C12E848000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "Ticks",
+      "result": {
+        "value": -9999
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "Microseconds",
+      "result": {
+        "value": -999
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "Nanoseconds",
+      "result": {
+        "value": -900
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "TotalDays",
+      "result": {
+        "bits": "BE48DA4739802F15",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "TotalHours",
+      "result": {
+        "bits": "BE92A3B56B202350",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "BEF1797A146E211B",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "BF5061E273273F09",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "BFEFFF2E48E8A71E",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "C08F3F3333333333",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9999,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C12E83B800000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "Ticks",
+      "result": {
+        "value": -11
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "Microseconds",
+      "result": {
+        "value": -1
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "Nanoseconds",
+      "result": {
+        "value": -100
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "TotalDays",
+      "result": {
+        "bits": "BDABFF2FD922D8F2",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "TotalHours",
+      "result": {
+        "bits": "BDF4FF63E2DA22B6",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "BE53AF6DA4AC808A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "BEB27476CA61B882",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "BF5205BC01A36E2F",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "BFF199999999999A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -11,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C091300000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "Ticks",
+      "result": {
+        "value": -10
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "Microseconds",
+      "result": {
+        "value": -1
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "TotalDays",
+      "result": {
+        "bits": "BDA9739FDCAB50DC",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "TotalHours",
+      "result": {
+        "bits": "BDF316B7E5807CA5",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "BE51E54C672874DB",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "BEB0C6F7A0B5ED8D",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "BF50624DD2F1A9FC",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "BFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -10,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C08F400000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "Ticks",
+      "result": {
+        "value": -9
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "Nanoseconds",
+      "result": {
+        "value": -900
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "TotalDays",
+      "result": {
+        "bits": "BDA6E80FE033C8C6",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "TotalHours",
+      "result": {
+        "bits": "BDF12E0BE826D695",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "BE501B2B29A4692B",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "BEAE32F0EE144531",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "BF4D7DBF487FCB92",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "BFECCCCCCCCCCCCD",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -9,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C08C200000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "Ticks",
+      "result": {
+        "value": -1
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "Nanoseconds",
+      "result": {
+        "value": -100
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "TotalDays",
+      "result": {
+        "bits": "BD745C7FE3BC40B0",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "TotalHours",
+      "result": {
+        "bits": "BDBE8ABFD59A6108",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "BE1CA213D840BAF8",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "BE7AD7F29ABCAF48",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "BF1A36E2EB1C432D",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "BFB999999999999A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": -1,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "C059000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "Ticks",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "TotalDays",
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "TotalHours",
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 0,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "Ticks",
+      "result": {
+        "value": 1
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 100
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "TotalDays",
+      "result": {
+        "bits": "3D745C7FE3BC40B0",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "TotalHours",
+      "result": {
+        "bits": "3DBE8ABFD59A6108",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "3E1CA213D840BAF8",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "3E7AD7F29ABCAF48",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "3F1A36E2EB1C432D",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "3FB999999999999A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 1,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "4059000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "Ticks",
+      "result": {
+        "value": 9
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 900
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "TotalDays",
+      "result": {
+        "bits": "3DA6E80FE033C8C6",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "TotalHours",
+      "result": {
+        "bits": "3DF12E0BE826D695",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "3E501B2B29A4692B",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "3EAE32F0EE144531",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "3F4D7DBF487FCB92",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "3FECCCCCCCCCCCCD",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "408C200000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "Ticks",
+      "result": {
+        "value": 10
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "Microseconds",
+      "result": {
+        "value": 1
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "TotalDays",
+      "result": {
+        "bits": "3DA9739FDCAB50DC",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "TotalHours",
+      "result": {
+        "bits": "3DF316B7E5807CA5",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "3E51E54C672874DB",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "3EB0C6F7A0B5ED8D",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "3F50624DD2F1A9FC",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "3FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "408F400000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "Ticks",
+      "result": {
+        "value": 11
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "Microseconds",
+      "result": {
+        "value": 1
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 100
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "TotalDays",
+      "result": {
+        "bits": "3DABFF2FD922D8F2",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "TotalHours",
+      "result": {
+        "bits": "3DF4FF63E2DA22B6",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "3E53AF6DA4AC808A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "3EB27476CA61B882",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "3F5205BC01A36E2F",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "3FF199999999999A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 11,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "4091300000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "Ticks",
+      "result": {
+        "value": 9999
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "Microseconds",
+      "result": {
+        "value": 999
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 900
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "TotalDays",
+      "result": {
+        "bits": "3E48DA4739802F15",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "TotalHours",
+      "result": {
+        "bits": "3E92A3B56B202350",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "3EF1797A146E211B",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "3F5061E273273F09",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "3FEFFF2E48E8A71E",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "408F3F3333333333",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9999,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "412E83B800000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "Ticks",
+      "result": {
+        "value": 10000
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "Milliseconds",
+      "result": {
+        "value": 1
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "TotalDays",
+      "result": {
+        "bits": "3E48DAEA1D7F4CF7",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "TotalHours",
+      "result": {
+        "bits": "3E92A42F961F79B9",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "3EF179EC9CBD821E",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "3F50624DD2F1A9FC",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "3FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "408F400000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10000,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "412E848000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "Ticks",
+      "result": {
+        "value": 10001
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "Days",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "Milliseconds",
+      "result": {
+        "value": 1
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 100
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "TotalDays",
+      "result": {
+        "bits": "3E48DB8D017E6AD9",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "TotalHours",
+      "result": {
+        "bits": "3E92A4A9C11ED023",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "3EF17A5F250CE321",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "3F5062B932BC14EF",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "3FF00068DB8BAC71",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "408F40CCCCCCCCCD",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 10001,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "412E854800000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "Ticks",
+      "result": {
+        "value": 864000000001
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "Days",
+      "result": {
+        "value": 1
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "Hours",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "Minutes",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "Seconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "Milliseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "Microseconds",
+      "result": {
+        "value": 0
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 100
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "TotalDays",
+      "result": {
+        "bits": "3FF000000000145C",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "TotalHours",
+      "result": {
+        "bits": "4038000000001E8B",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "4096800000001CA2",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "40F5180000001AD8",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "4194997000001A37",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "42341DD76000199A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 864000000001,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "42D3A52453C01900",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "Ticks",
+      "result": {
+        "value": 9223372036854775806
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "Days",
+      "result": {
+        "value": 10675199
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "Hours",
+      "result": {
+        "value": 2
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "Minutes",
+      "result": {
+        "value": 48
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "Seconds",
+      "result": {
+        "value": 5
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "Milliseconds",
+      "result": {
+        "value": 477
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "Microseconds",
+      "result": {
+        "value": 580
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 600
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "TotalDays",
+      "result": {
+        "bits": "41645C7FE3BC40B0",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "TotalHours",
+      "result": {
+        "bits": "41AE8ABFD59A6108",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "420CA213D840BAF8",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "426AD7F29ABCAF48",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "430A36E2EB1C4328",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "43A999999999999A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775806,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "4449000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "Ticks",
+      "result": {
+        "value": 9223372036854775807
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "Days",
+      "result": {
+        "value": 10675199
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "Hours",
+      "result": {
+        "value": 2
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "Minutes",
+      "result": {
+        "value": 48
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "Seconds",
+      "result": {
+        "value": 5
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "Milliseconds",
+      "result": {
+        "value": 477
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "Microseconds",
+      "result": {
+        "value": 580
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "Nanoseconds",
+      "result": {
+        "value": 700
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "TotalDays",
+      "result": {
+        "bits": "41645C7FE3BC40B0",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "TotalHours",
+      "result": {
+        "bits": "41AE8ABFD59A6108",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "TotalMinutes",
+      "result": {
+        "bits": "420CA213D840BAF8",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "TotalSeconds",
+      "result": {
+        "bits": "426AD7F29ABCAF48",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "TotalMilliseconds",
+      "result": {
+        "bits": "430A36E2EB1C4328",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "TotalMicroseconds",
+      "result": {
+        "bits": "43A999999999999A",
+        "isNaN": false
+      }
+    },
+    {
+      "ticks": 9223372036854775807,
+      "property": "TotalNanoseconds",
+      "result": {
+        "bits": "4449000000000000",
         "isNaN": false
       }
     }

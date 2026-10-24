@@ -15,6 +15,7 @@ def main():
     kinds = parser.add_mutually_exclusive_group()
     kinds.add_argument('--constructors', action='store_true')
     kinds.add_argument('--arithmetic', action='store_true')
+    kinds.add_argument('--properties', action='store_true')
     parser.add_argument('--work', type=Path, default=Path('D:/AI/Implementation/dotj Frameworks/verification/timespan-intervals'))
     args = parser.parse_args()
     if args.jar is None:
@@ -28,10 +29,13 @@ def main():
     assert oracle['coreLibSha256'] == '1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678'
     assert oracle['oracleSha256'] == hashlib.sha256((ROOT / 'tools/oracle/dotj-core/capture-timespan-contract.ps1').read_bytes()).hexdigest()
     cases = []
-    section = 'arithmetic' if args.arithmetic else 'constructors' if args.constructors else 'factories'
+    section = ('properties' if args.properties else 'arithmetic' if args.arithmetic else
+               'constructors' if args.constructors else 'factories')
     vectors = oracle['operations'] + oracle['ratios'] if args.arithmetic else oracle[section]
     for index, case in enumerate(vectors):
-        if args.arithmetic:
+        if args.properties:
+            expression = f"TimeSpan.FromTicks({case['ticks']}L).get_{case['property']}()"
+        elif args.arithmetic:
             operand = (f"TimeSpan.FromTicks({case['divisorTicks']}L)" if 'divisorTicks' in case
                        else f"Double.longBitsToDouble(0x{case['operandBits']}L)")
             expression = f"TimeSpan.FromTicks({case['ticks']}L).{case['method']}({operand})"
@@ -43,6 +47,8 @@ def main():
         if 'bits' in result:
             predicate = f'Double.isNaN({expression})' if result['isNaN'] else f'Double.doubleToRawLongBits({expression}) == 0x{result["bits"]}L'
             cases.append(f'check({predicate}, {index});')
+        elif 'value' in result:
+            cases.append(f'check({expression} == {result["value"]}L, {index});')
         elif 'ticks' in result:
             cases.append(f'check({expression}.get_Ticks() == {result["ticks"]}L, {index});')
         else:
@@ -67,7 +73,8 @@ def main():
         'candidateJarSha256': hashlib.sha256(args.jar.read_bytes()).hexdigest(),
         'casesPassed': len(cases), 'qualification': 'BOUNDED_DIFFERENTIAL_PASS; PUBLIC_QUALIFICATION_OPEN',
     }
-    name = ('timespan-arithmetic-differential-v1.json' if args.arithmetic else
+    name = ('timespan-property-differential-v1.json' if args.properties else
+            'timespan-arithmetic-differential-v1.json' if args.arithmetic else
             'timespan-constructor-differential-v1.json' if args.constructors else 'timespan-interval-differential-v1.json')
     (EVIDENCE / name).write_text(json.dumps(record, indent=2) + '\n', encoding='utf-8')
 
