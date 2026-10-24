@@ -755,3 +755,5 @@ The public DateTime candidate now exposes FromFileTime using the process default
 The public DateTime candidate now exposes ToFileTime using the process default time zone before UTC file-time encoding. A packaged consumer checks New York Unix-epoch round trips. Local kind and ambiguous-time metadata remain open.
 
 The public DateTime candidate now exposes ToUniversalTime by interpreting its current date as process-local time. A packaged consumer checks the New York Unix-epoch offset. UTC kind metadata and full .NET boundary behavior remain open.
+
+The public DateTime candidate now exposes ToLocalTime by interpreting its current date as UTC and converting to the process default time zone. A packaged consumer checks the New York Unix-epoch offset. Local kind metadata and full boundary behavior remain open.
