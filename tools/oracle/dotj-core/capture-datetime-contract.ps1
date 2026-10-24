@@ -108,12 +108,37 @@ foreach ($type in @([DayOfWeek],[DateTimeKind])) {
         names=[Enum]::GetNames($type);values=@([Enum]::GetValues($type)|ForEach-Object{[int]$_})
         queries=@((-1..8)|ForEach-Object{[ordered]@{value=$_;defined=$type.IsEnumDefined([int]$_);name=$type.GetEnumName([int]$_)}})}
 }
+$floatingAddition = @()
+$scales = [ordered]@{AddDays=[long]864000000000;AddHours=[long]36000000000;AddMinutes=[long]600000000
+    AddSeconds=[long]10000000;AddMilliseconds=[long]10000;AddMicroseconds=[long]10}
+foreach ($entry in $scales.GetEnumerator()) {
+    $scale = $entry.Value
+    $limit = [double]([Numerics.BigInteger]::Divide([Numerics.BigInteger]::Parse('3155378975999999999'),[Numerics.BigInteger]$scale))
+    $method = [DateTime].GetMethod($entry.Key,[type[]]@([double]))
+    $values = @([double]0,[double]-0.0,[double]1,[double]-1,[double]0.5,[double]-0.5,[double]0.15,[double]-0.15,
+        [double]1.5,[double]-1.5,[double]24.123456789,[double]-24.123456789,[double]1048576.0000001,[double]-1048576.0000001,
+        [double]::NaN,[double]::PositiveInfinity,[double]::NegativeInfinity,[double]::MaxValue,[double]::MinValue,[double]::Epsilon)
+    foreach ($fraction in @(0.19,0.5,0.75,1,1.5,1.9)) { $values += [double]($fraction/$scale); $values += [double](-$fraction/$scale) }
+    $values += @($limit,[Math]::BitDecrement($limit),[Math]::BitIncrement($limit),-$limit,[Math]::BitDecrement(-$limit),[Math]::BitIncrement(-$limit))
+    foreach ($ticks in @([long]0,[long]1,[long]621355968000000000,[long]3155378975999999998,[long]3155378975999999999)) {
+        foreach ($kind in [Enum]::GetValues([DateTimeKind])) {
+            $origin = [DateTime]::new($ticks,$kind)
+            foreach ($number in $values) {
+                try { $value = $method.Invoke($origin,[object[]]@([double]$number)); $result = [ordered]@{ticks=$value.Ticks;kind=$value.Kind.ToString()} }
+                catch { $result = Failure $_ }
+                $floatingAddition += [ordered]@{ticks=$ticks;kind=$kind.ToString();method=$entry.Key
+                    inputBits=[BitConverter]::DoubleToInt64Bits($number).ToString('X16');result=$result}
+            }
+        }
+    }
+}
 $defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
     oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
     comparisons=$comparisons;tickConstructors=$tickConstructors;constants=$constants
     componentConstructors=$componentConstructors
     calendarProperties=$calendarProperties;enums=$enums
+    floatingAddition=$floatingAddition
     defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
     qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))
