@@ -13,6 +13,22 @@ import System.TimeSpan;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (TimeSpan.FromHours(1).Add(TimeSpan.FromMinutes(30)).get_Ticks()
+                    != 54_000_000_000L
+                || TimeSpan.FromHours(1).Add(TimeSpan.FromHours(-2)).get_Ticks()
+                    != -36_000_000_000L) {
+            throw new AssertionError("TimeSpan addition changed");
+        }
+        try {
+            TimeSpan.FromTicks(Long.MAX_VALUE).Add(TimeSpan.FromTicks(1));
+            throw new AssertionError("TimeSpan addition overflow accepted");
+        } catch (OverflowException expected) {
+        }
+        try {
+            TimeSpan.FromTicks(0).Add(null);
+            throw new AssertionError("Null TimeSpan addition accepted");
+        } catch (ArgumentNullException expected) {
+        }
         long componentTicks = 864_000_000_000L + 72_000_000_000L
                 + 1_800_000_000L + 40_000_000L + 50_000L + 60L + 7L;
         TimeSpan components = TimeSpan.FromTicks(componentTicks);

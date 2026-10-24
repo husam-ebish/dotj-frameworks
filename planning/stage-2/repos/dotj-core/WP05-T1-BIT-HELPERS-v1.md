@@ -785,3 +785,5 @@ The public TimeSpan candidate now exposes FromMicroseconds with checked tick con
 The public TimeSpan candidate now exposes TotalDays, TotalHours, TotalMinutes, TotalSeconds, TotalMilliseconds and TotalMicroseconds. A packaged consumer checks a 36-hour interval and a negative fractional interval. Component getters remain open.
 
 The public TimeSpan candidate now exposes day through nanosecond component getters. A packaged consumer checks a mixed positive interval and signed negative components. Broader TimeSpan formatting and arithmetic remain open.
+
+The public TimeSpan candidate now exposes Add with checked tick arithmetic. A packaged consumer checks positive and negative results, overflow and null rejection. Subtraction and comparison remain open.
