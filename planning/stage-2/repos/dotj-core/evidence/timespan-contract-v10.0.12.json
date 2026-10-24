@@ -3,7 +3,7 @@
   "scope": "Pinned TimeSpan metadata, interval factories, constructors, Multiply and Divide vectors; bounded oracle only",
   "runtimeVersion": "10.0.12",
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
-  "oracleSha256": "319725b9da0e9fb24464242aeb215510136e6865e06ebf46dbe8c9731f836091",
+  "oracleSha256": "483ffbfe1fb9c01318b123674125902e4f62f59889f06fee8d64bc25e7a165c7",
   "metadata": {
     "type": "System.TimeSpan",
     "interfaces": [
@@ -4270,6 +4270,449 @@
       "result": {
         "exception": "System.OverflowException",
         "paramName": null
+      }
+    }
+  ],
+  "ratios": [
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "divisorTicks": 0,
+      "result": {
+        "bits": "FFF8000000000000",
+        "isNaN": true
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "divisorTicks": 1,
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "divisorTicks": -1,
+      "result": {
+        "bits": "8000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "divisorTicks": 3,
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "divisorTicks": -3,
+      "result": {
+        "bits": "8000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "divisorTicks": 9223372036854775807,
+      "result": {
+        "bits": "0000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 0,
+      "divisorTicks": -9223372036854775808,
+      "result": {
+        "bits": "8000000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "divisorTicks": 0,
+      "result": {
+        "bits": "7FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "divisorTicks": 1,
+      "result": {
+        "bits": "3FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "divisorTicks": -1,
+      "result": {
+        "bits": "BFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "divisorTicks": 3,
+      "result": {
+        "bits": "3FD5555555555555",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "divisorTicks": -3,
+      "result": {
+        "bits": "BFD5555555555555",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "divisorTicks": 9223372036854775807,
+      "result": {
+        "bits": "3C00000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 1,
+      "divisorTicks": -9223372036854775808,
+      "result": {
+        "bits": "BC00000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -1,
+      "divisorTicks": 0,
+      "result": {
+        "bits": "FFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -1,
+      "divisorTicks": 1,
+      "result": {
+        "bits": "BFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -1,
+      "divisorTicks": -1,
+      "result": {
+        "bits": "3FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -1,
+      "divisorTicks": 3,
+      "result": {
+        "bits": "BFD5555555555555",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -1,
+      "divisorTicks": -3,
+      "result": {
+        "bits": "3FD5555555555555",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -1,
+      "divisorTicks": 9223372036854775807,
+      "result": {
+        "bits": "BC00000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -1,
+      "divisorTicks": -9223372036854775808,
+      "result": {
+        "bits": "3C00000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "divisorTicks": 0,
+      "result": {
+        "bits": "7FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "divisorTicks": 1,
+      "result": {
+        "bits": "4008000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "divisorTicks": -1,
+      "result": {
+        "bits": "C008000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "divisorTicks": 3,
+      "result": {
+        "bits": "3FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "divisorTicks": -3,
+      "result": {
+        "bits": "BFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "divisorTicks": 9223372036854775807,
+      "result": {
+        "bits": "3C18000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 3,
+      "divisorTicks": -9223372036854775808,
+      "result": {
+        "bits": "BC18000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "divisorTicks": 0,
+      "result": {
+        "bits": "FFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "divisorTicks": 1,
+      "result": {
+        "bits": "C008000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "divisorTicks": -1,
+      "result": {
+        "bits": "4008000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "divisorTicks": 3,
+      "result": {
+        "bits": "BFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "divisorTicks": -3,
+      "result": {
+        "bits": "3FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "divisorTicks": 9223372036854775807,
+      "result": {
+        "bits": "BC18000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -3,
+      "divisorTicks": -9223372036854775808,
+      "result": {
+        "bits": "3C18000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "divisorTicks": 0,
+      "result": {
+        "bits": "7FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "divisorTicks": 1,
+      "result": {
+        "bits": "43E0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "divisorTicks": -1,
+      "result": {
+        "bits": "C3E0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "divisorTicks": 3,
+      "result": {
+        "bits": "43C5555555555555",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "divisorTicks": -3,
+      "result": {
+        "bits": "C3C5555555555555",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "divisorTicks": 9223372036854775807,
+      "result": {
+        "bits": "3FF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": 9223372036854775807,
+      "divisorTicks": -9223372036854775808,
+      "result": {
+        "bits": "BFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "divisorTicks": 0,
+      "result": {
+        "bits": "FFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "divisorTicks": 1,
+      "result": {
+        "bits": "C3E0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "divisorTicks": -1,
+      "result": {
+        "bits": "43E0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "divisorTicks": 3,
+      "result": {
+        "bits": "C3C5555555555555",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "divisorTicks": -3,
+      "result": {
+        "bits": "43C5555555555555",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "divisorTicks": 9223372036854775807,
+      "result": {
+        "bits": "BFF0000000000000",
+        "isNaN": false
+      }
+    },
+    {
+      "method": "Divide",
+      "ticks": -9223372036854775808,
+      "divisorTicks": -9223372036854775808,
+      "result": {
+        "bits": "3FF0000000000000",
+        "isNaN": false
       }
     }
   ],

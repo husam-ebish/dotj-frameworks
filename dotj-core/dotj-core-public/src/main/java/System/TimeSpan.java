@@ -83,6 +83,27 @@ public final class TimeSpan implements IComparable {
         return new TimeSpan((long) ticks);
     }
 
+    public TimeSpan Multiply(double factor) {
+        if (Double.isNaN(factor)) {
+            throw new ArgumentException("TimeSpan does not accept a NaN factor.", "factor");
+        }
+        return fromDoubleTicks(java.lang.Math.rint(this.ticks * factor));
+    }
+
+    public TimeSpan Divide(double divisor) {
+        if (Double.isNaN(divisor)) {
+            throw new ArgumentException("TimeSpan does not accept a NaN divisor.", "divisor");
+        }
+        return fromDoubleTicks(java.lang.Math.rint(this.ticks / divisor));
+    }
+
+    public double Divide(TimeSpan ts) {
+        if (ts == null) {
+            throw new ArgumentNullException("ts");
+        }
+        return this.ticks / (double) ts.ticks;
+    }
+
     public long get_Ticks() {
         return this.ticks;
     }
