@@ -12,6 +12,7 @@ import java.time.format.ResolverStyle;
 
 /** Bounded immutable DateTime candidate for a calendar date and invariant text. */
 public final class DateTime implements IConvertible, IComparable, ISpanFormattable, IUtf8SpanFormattable {
+    private static final long BINARY_TICK_CEILING = 0x4000_0000_0000_0000L;
     private static final long TICKS_PER_DAY = 864_000_000_000L;
     private static final long FILE_TIME_EPOCH_TICKS = 504_911_232_000_000_000L;
     private static final long OA_EPOCH_TICKS = 599_264_352_000_000_000L;
@@ -263,12 +264,25 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
 
     public static DateTime FromBinary(long dateData) {
         long ticks = dateData & 0x3fff_ffff_ffff_ffffL;
-        long flags = dateData & 0xc000_0000_0000_0000L;
-        if (ticks > MAX_TICKS || (flags != 0 && flags != 0x4000_0000_0000_0000L)) {
-            throw new ArgumentException("Invalid binary date value", "dateData");
+        if ((dateData & Long.MIN_VALUE) != 0L) {
+            if (ticks > BINARY_TICK_CEILING - TICKS_PER_DAY) { ticks -= BINARY_TICK_CEILING; }
+            LocalDateTime utc = LocalDate.of(1, 1, 1).atStartOfDay()
+                    .plusDays(java.lang.Math.floorDiv(ticks, TICKS_PER_DAY))
+                    .plusNanos(java.lang.Math.floorMod(ticks, TICKS_PER_DAY) * 100L);
+            ZoneId zone = ZoneId.systemDefault();
+            java.time.ZonedDateTime converted = utc.atZone(ZoneOffset.UTC).withZoneSameInstant(zone);
+            LocalDateTime local = converted.toLocalDateTime();
+            if (local.getYear() < 1) { local = local.plusDays(1); }
+            else if (local.getYear() > 9999) { local = local.minusDays(1); }
+            if (local.getYear() < 1 || local.getYear() > 9999) {
+                throw new ArgumentException("Invalid binary date value", "dateData");
+            }
+            boolean daylightOverlap = zone.getRules().getValidOffsets(local).size() > 1
+                    && zone.getRules().isDaylightSavings(converted.toInstant());
+            return new DateTime(local, DateTimeKind.Local, daylightOverlap);
         }
-        DateTime parsed = new DateTime(1, 1, 1).AddTicks(ticks);
-        return flags == 0 ? parsed : SpecifyKind(parsed, DateTimeKind.Utc);
+        if (ticks > MAX_TICKS) { throw new ArgumentException("Invalid binary date value", "dateData"); }
+        return new DateTime(ticks, (dateData & BINARY_TICK_CEILING) == 0L ? DateTimeKind.Unspecified : DateTimeKind.Utc);
     }
 
     public static DateTime FromFileTimeUtc(long fileTime) {
@@ -532,8 +546,12 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public long ToBinary() {
-        return this.get_Ticks()
-                | (this.kind == DateTimeKind.Utc ? 0x4000_0000_0000_0000L : 0L);
+        if (this.kind == DateTimeKind.Local) {
+            long storedTicks = this.get_Ticks() - selectedLocalOffset(ZoneId.systemDefault()).getTotalSeconds() * 10_000_000L;
+            if (storedTicks < 0L) { storedTicks += BINARY_TICK_CEILING; }
+            return storedTicks | Long.MIN_VALUE;
+        }
+        return this.get_Ticks() | (this.kind == DateTimeKind.Utc ? BINARY_TICK_CEILING : 0L);
     }
 
     public long ToFileTimeUtc() {
