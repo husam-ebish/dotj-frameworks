@@ -665,3 +665,5 @@ Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quo
 Selected grouped Decimal per-mille formatting now has eighteen .NET 10 mixed quoted and escaped affix vectors for 20-place high-precision rounding, including values around the tie boundary. They are checked through a packaged consumer. Broader precision combinations remain open.
 
 Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 mixed quoted and escaped affix vectors for multicharacter group and decimal separators. They are checked through a packaged consumer. Broader separator combinations remain open.
+
+Selected grouped Int32 and Decimal per-mille formatting now has twelve .NET 10 mixed quoted and escaped affix vectors for an empty group separator. They are checked through a packaged consumer. Broader grouping combinations remain open.
