@@ -95,6 +95,84 @@ public final class TimeSpan implements IComparable {
         return fromUnits(microseconds, TicksPerMicrosecond);
     }
 
+    public static TimeSpan FromDays(int days, int hours) {
+        return FromDays(days, hours, 0L, 0L, 0L, 0L);
+    }
+
+    public static TimeSpan FromDays(int days, int hours, long minutes) {
+        return FromDays(days, hours, minutes, 0L, 0L, 0L);
+    }
+
+    public static TimeSpan FromDays(int days, int hours, long minutes, long seconds) {
+        return FromDays(days, hours, minutes, seconds, 0L, 0L);
+    }
+
+    public static TimeSpan FromDays(int days, int hours, long minutes, long seconds, long milliseconds) {
+        return FromDays(days, hours, minutes, seconds, milliseconds, 0L);
+    }
+
+    public static TimeSpan FromDays(int days, int hours, long minutes, long seconds, long milliseconds, long microseconds) {
+        return fromCompositeMicroseconds(new long[] {days, hours, minutes, seconds, milliseconds, microseconds},
+                new long[] {MicrosecondsPerDay, MicrosecondsPerHour, MicrosecondsPerMinute, MicrosecondsPerSecond, MicrosecondsPerMillisecond, 1L});
+    }
+
+    public static TimeSpan FromHours(int hours, long minutes) {
+        return FromHours(hours, minutes, 0L, 0L, 0L);
+    }
+
+    public static TimeSpan FromHours(int hours, long minutes, long seconds) {
+        return FromHours(hours, minutes, seconds, 0L, 0L);
+    }
+
+    public static TimeSpan FromHours(int hours, long minutes, long seconds, long milliseconds) {
+        return FromHours(hours, minutes, seconds, milliseconds, 0L);
+    }
+
+    public static TimeSpan FromHours(int hours, long minutes, long seconds, long milliseconds, long microseconds) {
+        return fromCompositeMicroseconds(new long[] {hours, minutes, seconds, milliseconds, microseconds},
+                new long[] {MicrosecondsPerHour, MicrosecondsPerMinute, MicrosecondsPerSecond, MicrosecondsPerMillisecond, 1L});
+    }
+
+    public static TimeSpan FromMinutes(long minutes, long seconds) {
+        return FromMinutes(minutes, seconds, 0L, 0L);
+    }
+
+    public static TimeSpan FromMinutes(long minutes, long seconds, long milliseconds) {
+        return FromMinutes(minutes, seconds, milliseconds, 0L);
+    }
+
+    public static TimeSpan FromMinutes(long minutes, long seconds, long milliseconds, long microseconds) {
+        return fromCompositeMicroseconds(new long[] {minutes, seconds, milliseconds, microseconds},
+                new long[] {MicrosecondsPerMinute, MicrosecondsPerSecond, MicrosecondsPerMillisecond, 1L});
+    }
+
+    public static TimeSpan FromSeconds(long seconds, long milliseconds) {
+        return FromSeconds(seconds, milliseconds, 0L);
+    }
+
+    public static TimeSpan FromSeconds(long seconds, long milliseconds, long microseconds) {
+        return fromCompositeMicroseconds(new long[] {seconds, milliseconds, microseconds},
+                new long[] {MicrosecondsPerSecond, MicrosecondsPerMillisecond, 1L});
+    }
+
+    public static TimeSpan FromMilliseconds(long milliseconds, long microseconds) {
+        return fromCompositeMicroseconds(new long[] {milliseconds, microseconds},
+                new long[] {MicrosecondsPerMillisecond, 1L});
+    }
+
+    private static TimeSpan fromCompositeMicroseconds(long[] components, long[] scales) {
+        java.math.BigInteger total = java.math.BigInteger.ZERO;
+        for (int index = 0; index < components.length; index++) {
+            total = total.add(java.math.BigInteger.valueOf(components[index])
+                    .multiply(java.math.BigInteger.valueOf(scales[index])));
+        }
+        if (total.compareTo(java.math.BigInteger.valueOf(Long.MIN_VALUE / TicksPerMicrosecond)) < 0
+                || total.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE / TicksPerMicrosecond)) > 0) {
+            throw new ArgumentOutOfRangeException(null, "TimeSpan value was out of range.");
+        }
+        return new TimeSpan(total.longValue() * TicksPerMicrosecond);
+    }
+
     private static TimeSpan fromUnits(long value, long ticksPerUnit) {
         if (value < Long.MIN_VALUE / ticksPerUnit || value > Long.MAX_VALUE / ticksPerUnit) {
             throw new ArgumentOutOfRangeException(null, "TimeSpan value was out of range.");
