@@ -103,22 +103,7 @@ public final class UInt16 implements IConvertible {
 
     @Override
     public Object ToType(Type conversionType, IFormatProvider provider) {
-        if (conversionType == null) {
-            throw new ArgumentNullException("conversionType");
-        }
-        if (conversionType == Type.GetType("System.UInt16")) {
-            return this;
-        }
-        if (conversionType == Type.GetType("System.UInt32")) {
-            return new UInt32(this.value);
-        }
-        if (conversionType == Type.GetType("System.Int64")) {
-            return this.ToInt64(provider);
-        }
-        if (conversionType == Type.GetType("System.String")) {
-            return this.ToString(provider);
-        }
-        return new Int32(this.value).ToType(conversionType, provider);
+        return Int32.selectedDefaultToType(this, conversionType, provider);
     }
 
     @Override
