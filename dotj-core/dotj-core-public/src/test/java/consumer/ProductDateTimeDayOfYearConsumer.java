@@ -10,6 +10,17 @@ import System.FormatException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        for (long fileTime : new long[] {0L, 116444736000000000L,
+                2650467743999999999L}) {
+            if (DateTime.FromFileTimeUtc(fileTime).ToFileTimeUtc() != fileTime) {
+                throw new AssertionError("UTC file-time round trip changed");
+            }
+        }
+        try {
+            new DateTime(1600, 12, 31).ToFileTimeUtc();
+            throw new AssertionError("Pre-file-time date accepted");
+        } catch (ArgumentOutOfRangeException expected) {
+        }
         if (DateTime.FromFileTimeUtc(0).get_Ticks() != 504911232000000000L
                 || DateTime.FromFileTimeUtc(116444736000000000L).get_Ticks()
                     != new DateTime(1970, 1, 1).get_Ticks()
