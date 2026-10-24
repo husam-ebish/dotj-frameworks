@@ -412,6 +412,22 @@ public final class ProductDateTimeDayOfYearConsumer {
             } catch (FormatException expected) {
             }
         }
+        DateTime[] exactResult = {new DateTime(2024, 1, 1)};
+        if (!DateTime.TryParseExact("2024-02-29T12:34:56.1234567",
+                    "yyyy-MM-ddTHH:mm:ss.fffffff", null, exactResult)
+                || exactResult[0].get_Ticks() != 638448068961234567L
+                || !DateTime.TryParseExact("2024-02-29", "yyyy-MM-dd", null,
+                    exactResult)
+                || exactResult[0].get_DayOfYear() != 60
+                || DateTime.TryParseExact("2023-02-29", "yyyy-MM-dd", null,
+                    exactResult)
+                || exactResult[0].get_Ticks() != 0L
+                || DateTime.TryParseExact(null, "yyyy-MM-dd", null, exactResult)
+                || exactResult[0].get_Ticks() != 0L
+                || DateTime.TryParseExact("2024-02-29", null, null, exactResult)
+                || exactResult[0].get_Ticks() != 0L) {
+            throw new AssertionError("DateTime TryParseExact changed");
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }
