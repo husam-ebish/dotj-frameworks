@@ -52,6 +52,17 @@ public final class TimeSpan {
         return this.ticks;
     }
 
+    public TimeSpan Add(TimeSpan other) {
+        if (other == null) {
+            throw new ArgumentNullException("other");
+        }
+        try {
+            return new TimeSpan(java.lang.Math.addExact(this.ticks, other.ticks));
+        } catch (java.lang.ArithmeticException overflow) {
+            throw new OverflowException("TimeSpan value was out of range.");
+        }
+    }
+
     public double get_TotalDays() {
         return (double) this.ticks / TICKS_PER_DAY;
     }
