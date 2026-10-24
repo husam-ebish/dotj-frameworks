@@ -5,10 +5,10 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "d3d0788ea110e6088f68353d6e5a7b02de502d9efa0fcc6dcef18882a6d26a4c",
+  "javaCandidateEvidenceSha256": "d24717e38d2dacd91d56b57c14a6b7a57c4899724b18448986969a9b7bd79dad",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 39,
-  "nameLevelMissingPublicGetterCount": 24,
+  "nameLevelMissingPublicGetterCount": 21,
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -5942,6 +5942,9 @@
         "public System.DateTime AddSeconds(double);",
         "public System.DateTime AddMilliseconds(double);",
         "public System.DateTime AddMicroseconds(double);",
+        "public static System.DateTime get_UtcNow();",
+        "public static System.DateTime get_Now();",
+        "public static System.DateTime get_Today();",
         "public int get_Year();",
         "public int get_Month();",
         "public int get_Day();",
@@ -6111,19 +6114,18 @@
           "get_Minute": 1,
           "get_Month": 1,
           "get_Nanosecond": 1,
+          "get_Now": 1,
           "get_Second": 1,
           "get_Ticks": 1,
           "get_TimeOfDay": 1,
+          "get_Today": 1,
+          "get_UtcNow": 1,
           "get_Year": 1,
           "hashCode": 1,
           "toString": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [],
-        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "Now",
-          "Today",
-          "UtcNow"
-        ],
+        "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [],
         "limitation": "Name-only, declared-member comparison; inherited Java methods, JVM type adaptation, overload signatures, conditional source attribution and behavior require separate review"
       }
     },
