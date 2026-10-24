@@ -5,10 +5,10 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "1ceed9ef232a9ff9167dddd6e5009d8e10bd1aabe8c98f628840b66eaba721df",
+  "javaCandidateEvidenceSha256": "b5c39ded6cb038b81b3b2c6047af23a47cddc7d20aac3333c654ea142bad50cd",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 81,
-  "nameLevelMissingPublicGetterCount": 31,
+  "nameLevelMissingPublicGetterCount": 30,
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -5897,6 +5897,7 @@
         "public int get_Month();",
         "public int get_Day();",
         "public int get_DayOfYear();",
+        "public System.DateTime get_Date();",
         "public int get_Hour();",
         "public int get_Minute();",
         "public int get_Second();",
@@ -5984,6 +5985,7 @@
           "ToUInt16": 1,
           "ToUInt32": 1,
           "ToUInt64": 1,
+          "get_Date": 1,
           "get_Day": 1,
           "get_DayOfYear": 1,
           "get_Hour": 1,
@@ -6035,7 +6037,6 @@
           "TryParseExact"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
-          "Date",
           "DayOfWeek",
           "Kind",
           "Microsecond",

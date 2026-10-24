@@ -231,6 +231,7 @@ def main():
                                     "public static System.DateTime Parse(java.lang.String);",
                                     "public int get_Year();", "public int get_Month();",
                                     "public int get_Day();", "public int get_DayOfYear();",
+                                    "public System.DateTime get_Date();",
                                     "public int get_Hour();",
                                     "public int get_Minute();", "public int get_Second();",
                                     "public int get_Millisecond();",
