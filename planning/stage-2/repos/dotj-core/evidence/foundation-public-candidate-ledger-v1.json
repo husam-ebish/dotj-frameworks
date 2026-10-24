@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "29d4e36461db92db2db16ccefaec16d71a7d3c8919ce4f305d2335e07ce284a3",
+  "candidateJarSha256": "2ecfb647b6dca9a516c22b71647d3fdca59bb3eb8a8e999b2f6057aa0b07e80b",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -280,7 +280,7 @@
       "upstreamDeclaredProperties": 18,
       "upstreamPublicConstructors": 17,
       "javaPublicConstructors": 3,
-      "javaPublicHeader": "public final class System.DateTime implements System.IConvertible,System.IComparable {",
+      "javaPublicHeader": "public final class System.DateTime implements System.IConvertible,System.IComparable,System.ISpanFormattable {",
       "javaPublicDeclarations": [
         "public System.DateTime(int, int, int);",
         "public System.DateTime(int, int, int, int, int, int);",
@@ -348,7 +348,8 @@
         "public java.lang.String ToLongDateString();",
         "public java.lang.String ToShortDateString();",
         "public java.lang.String ToLongTimeString();",
-        "public java.lang.String ToShortTimeString();"
+        "public java.lang.String ToShortTimeString();",
+        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);"
       ],
       "disposition": "PARTIAL_VALUE_SURFACE; selected DateTime IConvertible and date construction/Parse/properties/text",
       "qualified": false

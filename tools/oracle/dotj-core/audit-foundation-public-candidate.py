@@ -224,7 +224,7 @@ def main():
             assert upstream["declaredPublicMethodCount"] == 78
             disposition = "PARTIAL_VALUE_SURFACE; selected Decimal IConvertible, Parse and invariant text"
         elif name == "System.DateTime":
-            assert header == "public final class System.DateTime implements System.IConvertible,System.IComparable {"
+            assert header == "public final class System.DateTime implements System.IConvertible,System.IComparable,System.ISpanFormattable {"
             assert declarations == ["public System.DateTime(int, int, int);",
                                     "public System.DateTime(int, int, int, int, int, int);",
                                     "public System.DateTime(int, int, int, int, int, int, int);",
@@ -288,7 +288,8 @@ def main():
                                     "public java.lang.String ToLongDateString();",
                                     "public java.lang.String ToShortDateString();",
                                     "public java.lang.String ToLongTimeString();",
-                                    "public java.lang.String ToShortTimeString();"]
+                                    "public java.lang.String ToShortTimeString();",
+                                    "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 70
             disposition = "PARTIAL_VALUE_SURFACE; selected DateTime IConvertible and date construction/Parse/properties/text"
         elif name == "System.Int32":

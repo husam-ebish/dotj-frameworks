@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "3e63ef6f195508436bd2909efb33891bc38ae5ffb3fe9d79b4662644898de823",
+  "javaCandidateEvidenceSha256": "b766f8d3a4125306b8c3ca0c4d1fc0a55ced6117dcfe6803d6ea32eadb08dbdd",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 50,
+  "nameLevelMissingMethodCount": 49,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5887,7 +5887,7 @@
         "events": [],
         "nestedPublicTypes": []
       },
-      "javaCandidatePublicHeader": "public final class System.DateTime implements System.IConvertible,System.IComparable {",
+      "javaCandidatePublicHeader": "public final class System.DateTime implements System.IConvertible,System.IComparable,System.ISpanFormattable {",
       "javaCandidateDeclaredPublicDeclarations": [
         "public System.DateTime(int, int, int);",
         "public System.DateTime(int, int, int, int, int, int);",
@@ -5955,7 +5955,8 @@
         "public java.lang.String ToLongDateString();",
         "public java.lang.String ToShortDateString();",
         "public java.lang.String ToLongTimeString();",
-        "public java.lang.String ToShortTimeString();"
+        "public java.lang.String ToShortTimeString();",
+        "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -6047,6 +6048,7 @@
           "ToUInt16": 1,
           "ToUInt32": 1,
           "ToUInt64": 1,
+          "TryFormat": 1,
           "TryParse": 1,
           "TryParseExact": 1,
           "equals": 1,
@@ -6074,8 +6076,7 @@
           "Subtract",
           "ToFileTime",
           "ToLocalTime",
-          "ToUniversalTime",
-          "TryFormat"
+          "ToUniversalTime"
         ],
         "upstreamPublicPropertyGettersAbsentFromJavaDeclarations": [
           "DayOfWeek",

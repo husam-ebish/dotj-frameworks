@@ -745,3 +745,5 @@ The public DateTime candidate now exposes ToShortTimeString using selected invar
 The public DateTime candidate now exposes ToOADate using the pinned CoreLib millisecond and negative-fraction rules. A packaged consumer checks default, epoch, post-epoch, negative fraction and lower bound. Round-trip FromOADate remains open.
 
 The public DateTime candidate now exposes FromOADate using the pinned CoreLib millisecond rounding, negative-fraction adjustment and range checks. A packaged consumer checks selected dates and invalid inputs. The candidate retains unspecified DateTime kind.
+
+The public DateTime candidate now implements ISpanFormattable with a selected char-array TryFormat carrier. A packaged consumer checks successful invariant date text and unchanged undersized buffers. Broader format and culture parity remains open.
