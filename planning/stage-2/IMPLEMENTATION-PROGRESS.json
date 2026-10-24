@@ -2072,7 +2072,8 @@
     "Batch-2055",
     "Batch-2056",
     "Batch-2057",
-    "Batch-2058"
+    "Batch-2058",
+    "Batch-2059"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2265,7 +2266,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2058",
+      "lastUpdatedBatch": "Batch-2059",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -11876,19 +11877,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2059",
+    "id": "Batch-2060",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-WP-05-T1"
     ],
-    "outcome": "Run independent foundation checks in three bounded workers with serial prerequisite live-clock and audit barriers, and retain fail-closed diagnostics.",
+    "outcome": "Implement native-backed Int32 IConvertible target dispatch, checked primitive targets and invalid-target errors.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2058,
+    "completedBatches": 2059,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -11897,8 +11898,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2101",
     "requestedBatches": 100,
-    "completedBatches": 57,
-    "remainingBatches": 43,
+    "completedBatches": 58,
+    "remainingBatches": 42,
     "note": "User-requested run target; not a project-wide batch baseline."
   }
 }
