@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "7ff5cab57b3ec69a2f6093d2efa6a20ca45d5c0ee9a2f1d5553dffd8a42bcb3e",
+  "javaCandidateEvidenceSha256": "846851bba3af8213a89da9947e56039bf84fe5ec73dc3927914b66bfe4454587",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 47,
+  "nameLevelMissingMethodCount": 46,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5928,6 +5928,7 @@
         "public long get_Ticks();",
         "public long ToBinary();",
         "public long ToFileTimeUtc();",
+        "public long ToFileTime();",
         "public double ToOADate();",
         "public int get_Hour();",
         "public int get_Minute();",
@@ -6037,6 +6038,7 @@
           "ToDateTime": 1,
           "ToDecimal": 1,
           "ToDouble": 1,
+          "ToFileTime": 1,
           "ToFileTimeUtc": 1,
           "ToInt16": 1,
           "ToInt32": 1,
@@ -6077,7 +6079,6 @@
           "IsDaylightSavingTime",
           "SpecifyKind",
           "Subtract",
-          "ToFileTime",
           "ToLocalTime",
           "ToUniversalTime"
         ],
