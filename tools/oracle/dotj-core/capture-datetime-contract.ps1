@@ -74,7 +74,8 @@ foreach ($length in @(3,6,7,8)) {
         }
     }
     foreach ($values in $inputs) {
-        $kinds = if ($length -eq 3) { @($null) } else { @($null,[DateTimeKind]::Unspecified,[DateTimeKind]::Utc,[DateTimeKind]::Local) }
+        if ($length -eq 3) { $kinds = @($null) }
+        else { $kinds = @($null,[DateTimeKind]::Unspecified,[DateTimeKind]::Utc,[DateTimeKind]::Local) }
         foreach ($kind in $kinds) {
             $types = [Collections.Generic.List[type]]::new(); $arguments = [Collections.Generic.List[object]]::new()
             foreach ($number in $values) { $types.Add([int]); $arguments.Add([int]$number) }

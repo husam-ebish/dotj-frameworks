@@ -61,6 +61,8 @@ check(java.util.Objects.equals(expected.get_ParamName(), {json.dumps(result['par
         cases.append('{\n' + '\n'.join(checks) + '\n}')
     if args.tick_domain or args.component_constructors or args.floating_addition:
         vectors = oracle['floatingAddition'] if args.floating_addition else oracle['componentConstructors'] if args.component_constructors else oracle['tickConstructors']
+        if args.component_constructors:
+            assert {len(row['components']) for row in vectors} == {3,6,7,8}, 'Missing component constructor width'
         for index, row in enumerate(vectors):
             parameters = (','.join(str(value) for value in row['components']) if args.component_constructors else str(row['ticks']) + 'L')
             parameters += '' if row['kind'] is None else ', DateTimeKind.' + row['kind']

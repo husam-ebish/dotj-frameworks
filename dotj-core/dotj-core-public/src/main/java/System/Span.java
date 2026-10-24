@@ -62,4 +62,20 @@ public final class Span<T> {
         java.lang.System.arraycopy(encoded, 0, this.bytes, this.offset, encoded.length);
         return encoded.length;
     }
+
+    Object selectedBufferCopy() {
+        return this.chars != null
+                ? java.util.Arrays.copyOfRange(this.chars, this.offset, this.offset + this.length)
+                : java.util.Arrays.copyOfRange(this.bytes, this.offset, this.offset + this.length);
+    }
+
+    void writeSelectedBuffer(Object buffer) {
+        if (this.chars != null && buffer instanceof char[] chars && chars.length == this.length) {
+            java.lang.System.arraycopy(chars, 0, this.chars, this.offset, this.length);
+        } else if (this.bytes != null && buffer instanceof byte[] bytes && bytes.length == this.length) {
+            java.lang.System.arraycopy(bytes, 0, this.bytes, this.offset, this.length);
+        } else {
+            throw new ArgumentException("Buffer does not match this span view.", "buffer");
+        }
+    }
 }

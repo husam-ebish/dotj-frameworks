@@ -319,7 +319,8 @@ def main():
                                     "public java.lang.String[] GetDateTimeFormats(char, System.IFormatProvider);",
                                     "public java.lang.String[] GetDateTimeFormats();",
                                     "public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);",
-                                    "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);"]
+                                    "public boolean TryFormat(byte[], int[], java.lang.String, System.IFormatProvider);",
+                                    "public <T> boolean TryFormat(System.Span<T>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);"]
             assert upstream["declaredPublicMethodCount"] == 70
             disposition = "PARTIAL_VALUE_SURFACE; selected DateTime IConvertible and date construction/Parse/properties/text"
         elif name == "System.Int32":
