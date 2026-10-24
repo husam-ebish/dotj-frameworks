@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "oracleSha256": "4235a88b1014552888365fbd9d7c1dfbfeca4fab5ba26f49fbe4708e8716c607",
+  "helperSha256": "2cdf249c21aa21f08584a091bc6a3d22d2bb460096487eace96915fec65a227c",
+  "nativeLocalZone": "W. Europe Standard Time",
+  "cases": [
+    {
+      "name": "stable-utc",
+      "inputs": {
+        "Ticks": 638655849010000000,
+        "UtcTicks": 638655849010000000,
+        "TimeTicks": 9010000000,
+        "Property": "UtcNow",
+        "AfterPropertyTicks": 638655849020000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638655849000000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655849000000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638655849020000000,
+        "Kind": "Utc"
+      },
+      "expectedStatus": "Pass",
+      "actualStatus": "Pass",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    },
+    {
+      "name": "stable-local",
+      "inputs": {
+        "Ticks": 638655921010000000,
+        "UtcTicks": 638655849010000000,
+        "TimeTicks": 81010000000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638655921020000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638655921000000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655849000000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638655849020000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Pass",
+      "actualStatus": "Pass",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    },
+    {
+      "name": "fold-before-transition",
+      "inputs": {
+        "Ticks": 638655947999500000,
+        "UtcTicks": 638655875999500000,
+        "TimeTicks": 107999500000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638655912001000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638655947999000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655875999000000,
+        "AfterOffsetTicks": 36000000000,
+        "AfterUtcTicks": 638655876001000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Pass",
+      "actualStatus": "Pass",
+      "legacyCalendarEnvelopeAccepted": false,
+      "passed": true
+    },
+    {
+      "name": "fold-after-transition",
+      "inputs": {
+        "Ticks": 638655912000500000,
+        "UtcTicks": 638655876000500000,
+        "TimeTicks": 72000500000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638655912001000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638655947999000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655875999000000,
+        "AfterOffsetTicks": 36000000000,
+        "AfterUtcTicks": 638655876001000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Pass",
+      "actualStatus": "Pass",
+      "legacyCalendarEnvelopeAccepted": false,
+      "passed": true
+    },
+    {
+      "name": "gap-before-transition",
+      "inputs": {
+        "Ticks": 638474471999500000,
+        "UtcTicks": 638474435999500000,
+        "TimeTicks": 71999500000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638474508001000000,
+        "DateTicks": 638474400000000000,
+        "BeforePropertyTicks": 638474471999000000,
+        "BeforeOffsetTicks": 36000000000,
+        "BeforeUtcTicks": 638474435999000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638474436001000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Pass",
+      "actualStatus": "Pass",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    },
+    {
+      "name": "gap-after-transition",
+      "inputs": {
+        "Ticks": 638474508000500000,
+        "UtcTicks": 638474436000500000,
+        "TimeTicks": 108000500000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638474508001000000,
+        "DateTicks": 638474400000000000,
+        "BeforePropertyTicks": 638474471999000000,
+        "BeforeOffsetTicks": 36000000000,
+        "BeforeUtcTicks": 638474435999000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638474436001000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Pass",
+      "actualStatus": "Pass",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    },
+    {
+      "name": "lost-overlap-state",
+      "inputs": {
+        "Ticks": 638655921010000000,
+        "UtcTicks": 638655885010000000,
+        "TimeTicks": 81010000000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638655921020000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638655921000000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655849000000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638655849020000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Fail",
+      "actualStatus": "Fail",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    },
+    {
+      "name": "wrong-kind",
+      "inputs": {
+        "Ticks": 638655849010000000,
+        "UtcTicks": 638655849010000000,
+        "TimeTicks": 9010000000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638655921020000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638655921000000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655849000000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638655849020000000,
+        "Kind": "Utc"
+      },
+      "expectedStatus": "Fail",
+      "actualStatus": "Fail",
+      "legacyCalendarEnvelopeAccepted": false,
+      "passed": true
+    },
+    {
+      "name": "outside-utc-frame",
+      "inputs": {
+        "Ticks": 638655921030000000,
+        "UtcTicks": 638655849030000000,
+        "TimeTicks": 81030000000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638655921020000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638655921000000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655849000000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638655849020000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Fail",
+      "actualStatus": "Fail",
+      "legacyCalendarEnvelopeAccepted": false,
+      "passed": true
+    },
+    {
+      "name": "nonexistent-local-gap",
+      "inputs": {
+        "Ticks": 638474490000000000,
+        "UtcTicks": 638474454000000000,
+        "TimeTicks": 90000000000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638474508001000000,
+        "DateTicks": 638474400000000000,
+        "BeforePropertyTicks": 638474471999000000,
+        "BeforeOffsetTicks": 36000000000,
+        "BeforeUtcTicks": 638474435999000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638474436001000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Fail",
+      "actualStatus": "Fail",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    },
+    {
+      "name": "today-before-midnight",
+      "inputs": {
+        "Ticks": 638654976000000000,
+        "UtcTicks": 638654904000000000,
+        "TimeTicks": 0,
+        "Property": "Today",
+        "AfterPropertyTicks": 638655840000000000,
+        "DateTicks": 638654976000000000,
+        "BeforePropertyTicks": 638654976000000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655767999000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638655768001000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Pass",
+      "actualStatus": "Pass",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    },
+    {
+      "name": "today-after-midnight",
+      "inputs": {
+        "Ticks": 638655840000000000,
+        "UtcTicks": 638655768000000000,
+        "TimeTicks": 0,
+        "Property": "Today",
+        "AfterPropertyTicks": 638655840000000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638654976000000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655767999000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638655768001000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "Pass",
+      "actualStatus": "Pass",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    },
+    {
+      "name": "reversed-native-utc-frame",
+      "inputs": {
+        "Ticks": 638655921010000000,
+        "UtcTicks": 638655849010000000,
+        "TimeTicks": 81010000000,
+        "Property": "Now",
+        "AfterPropertyTicks": 638655921000000000,
+        "DateTicks": 638655840000000000,
+        "BeforePropertyTicks": 638655921020000000,
+        "BeforeOffsetTicks": 72000000000,
+        "BeforeUtcTicks": 638655849020000000,
+        "AfterOffsetTicks": 72000000000,
+        "AfterUtcTicks": 638655849000000000,
+        "Kind": "Local"
+      },
+      "expectedStatus": "ReferenceClockReversed",
+      "actualStatus": "ReferenceClockReversed",
+      "legacyCalendarEnvelopeAccepted": true,
+      "passed": true
+    }
+  ],
+  "casesPassed": 13,
+  "validFoldCounterexamples": 2,
+  "qualification": "DESIGNED_UTC_ENVELOPE_FIXTURE_PASS; NOT_UPSTREAM_TEST_IDS; OTHER_CLOCK_JUMPS_ZONES_PRECISION_AND_RELEASE_OPEN"
+}

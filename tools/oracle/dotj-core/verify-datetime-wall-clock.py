@@ -22,6 +22,7 @@ def main():
     assert record['runtimeVersion']=='10.0.12' and record['casesPassed']==24
     assert record['candidateJarSha256']==hashlib.sha256(args.jar.read_bytes()).hexdigest()
     assert record['oracleSha256']==hashlib.sha256((ORACLE/'capture-datetime-clock-contract.ps1').read_bytes()).hexdigest()
+    assert record['helperSha256']==hashlib.sha256((ORACLE/'clock-envelope-v1.ps1').read_bytes()).hexdigest()
     assert record['consumerSourceSha256']==hashlib.sha256((ORACLE/'fixtures/WallClockProbe.java').read_bytes()).hexdigest()
     assert record['consumerClassSha256']==hashlib.sha256((work/'WallClockProbe.class').read_bytes()).hexdigest()
     assert Counter(row['property'] for row in record['cases'])=={'UtcNow':8,'Now':8,'Today':8}
