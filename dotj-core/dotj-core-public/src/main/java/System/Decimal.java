@@ -1632,12 +1632,12 @@ public final class Decimal implements IConvertible {
 
     @Override
     public float ToSingle(IFormatProvider provider) {
-        return this.value.floatValue();
+        return ToSingle(this);
     }
 
     @Override
     public double ToDouble(IFormatProvider provider) {
-        return this.value.doubleValue();
+        return ToDouble(this);
     }
 
     @Override
@@ -1652,22 +1652,8 @@ public final class Decimal implements IConvertible {
 
     @Override
     public Object ToType(Type conversionType, IFormatProvider provider) {
-        if (conversionType == null) {
-            throw new ArgumentNullException("conversionType");
-        }
-        if (conversionType == Type.GetType("System.Decimal")) {
-            return this.ToDecimal(provider);
-        }
-        if (conversionType == Type.GetType("System.String")) {
-            return this.ToString(provider);
-        }
-        if (conversionType == Type.GetType("System.Int32")) {
-            return new Int32(this.ToInt32(provider));
-        }
-        if (conversionType == Type.GetType("System.Double")) {
-            return this.ToDouble(provider);
-        }
-        throw new InvalidCastException("Decimal target type is not mapped");
+        if (conversionType == Type.GetType("System.Decimal")) return this.ToDecimal(provider);
+        return Int32.selectedDefaultToType(this, conversionType, provider);
     }
 
     private BigInteger rounded(long minimum, long maximum) {
