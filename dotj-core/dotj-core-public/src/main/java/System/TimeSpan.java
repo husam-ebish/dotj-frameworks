@@ -406,7 +406,90 @@ public final class TimeSpan implements IComparable, IFormattable {
                 || format.equals("t") || format.equals("T")) {
             return ToString();
         }
-        throw new FormatException("This candidate currently supports constant TimeSpan formats only.");
+        if (format.length() > 1) {
+            String result = customText(format);
+            if (formatProvider == null) {
+                return result;
+            }
+        }
+        throw new FormatException("This candidate supports constant formats and null-provider custom formats.");
+    }
+
+    private String customText(String format) {
+        // Components are magnitudes, including at MinValue. Custom patterns supply their own sign.
+        long days = java.lang.Math.abs(this.ticks / TicksPerDay);
+        long remainder = java.lang.Math.abs(this.ticks % TicksPerDay);
+        String fraction = String.format(java.util.Locale.ROOT, "%07d", remainder % TicksPerSecond);
+        StringBuilder output = new StringBuilder();
+        for (int index = 0; index < format.length();) {
+            char token = format.charAt(index++);
+            if (token == '\\') {
+                if (index == format.length()) {
+                    throw new FormatException();
+                }
+                output.append(format.charAt(index++));
+            } else if (token == '\'' || token == '"') {
+                boolean closed = false;
+                while (index < format.length()) {
+                    char literal = format.charAt(index++);
+                    if (literal == token) {
+                        closed = true;
+                        break;
+                    }
+                    if (literal == '\\') {
+                        if (index == format.length()) {
+                            throw new FormatException();
+                        }
+                        literal = format.charAt(index++);
+                    }
+                    output.append(literal);
+                }
+                if (!closed) {
+                    throw new FormatException();
+                }
+            } else if (token == '%') {
+                if (index == format.length() || format.charAt(index) == '%') {
+                    throw new FormatException();
+                }
+                output.append(customText(format.substring(index, index + 1)));
+                index++;
+            } else {
+                int count = 1;
+                while (index < format.length() && format.charAt(index) == token) {
+                    count++;
+                    index++;
+                }
+                if (token == 'f' || token == 'F') {
+                    if (count > 7) {
+                        throw new FormatException();
+                    }
+                    String digits = fraction.substring(0, count);
+                    if (token == 'F') {
+                        int end = digits.length();
+                        while (end > 0 && digits.charAt(end - 1) == '0') {
+                            end--;
+                        }
+                        digits = digits.substring(0, end);
+                    }
+                    output.append(digits);
+                } else {
+                    long value;
+                    switch (token) {
+                        case 'd': value = days; break;
+                        case 'h': value = remainder / TicksPerHour; break;
+                        case 'm': value = remainder / TicksPerMinute % 60L; break;
+                        case 's': value = remainder / TicksPerSecond % 60L; break;
+                        default: throw new FormatException();
+                    }
+                    if (count > (token == 'd' ? 8 : 2)) {
+                        throw new FormatException();
+                    }
+                    String digits = Long.toString(value);
+                    output.append("0".repeat(java.lang.Math.max(0, count - digits.length()))).append(digits);
+                }
+            }
+        }
+        return output.toString();
     }
 
     public static boolean TryParse(String input, TimeSpan[] result) {

@@ -13,6 +13,7 @@ Reference: .NET 10.0.12, CoreLib SHA-256 `1125acc8106c43fc8bad2d203c4c4485df6182
 | Five composite integer factory declarations | Same full parameter widths, with exact intermediate accumulation before range checking | Bounded pinned vector coverage only |
 | Omitted trailing zero defaults | Ten additional Java prefix overloads forward to the five full composite signatures | Syntax representation, not ten additional CLR declarations; oracle verifies actual CLR optional/default metadata before testing prefixes |
 | TryParse out result | Existing one-element TimeSpan array carrier | Full out-parameter and invalid-carrier lowering remain open |
+| Custom-format ToString with null provider | Component and fractional tokens, percent selectors, escaped and quoted literals; magnitude output including MinValue | Bounded pinned cases only; non-null custom providers deliberately remain unsupported and throw FormatException in this candidate. Provider callbacks and DateTimeFormatInfo integration are open |
 
 Composite arithmetic normalizes signed and out-of-unit-range components by their combined value. It uses JDK BigInteger for the bounded Int128 calculation domain rather than overflowing an intermediate long. Public component constructors retain their separately observed CLR arithmetic semantics; they are not reused as composite factory implementations.
 
