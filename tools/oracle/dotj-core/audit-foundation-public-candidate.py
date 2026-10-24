@@ -260,6 +260,7 @@ def main():
                                     "public long get_Ticks();",
                                     "public long ToBinary();",
                                     "public long ToFileTimeUtc();",
+                                    "public double ToOADate();",
                                     "public int get_Hour();",
                                     "public int get_Minute();", "public int get_Second();",
                                     "public int get_Millisecond();",

@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "d555b233aa83db11f80a1d8ae5f9c0a55dad23f7e65061a58db0adc7e90327e1",
+  "javaCandidateEvidenceSha256": "aaa072ae4676a553a0e907e7b61ead8494b5644763bf227bd51fed0572cc2a8a",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 52,
+  "nameLevelMissingMethodCount": 51,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5926,6 +5926,7 @@
         "public long get_Ticks();",
         "public long ToBinary();",
         "public long ToFileTimeUtc();",
+        "public double ToOADate();",
         "public int get_Hour();",
         "public int get_Minute();",
         "public int get_Second();",
@@ -6034,6 +6035,7 @@
           "ToInt64": 1,
           "ToLongDateString": 1,
           "ToLongTimeString": 1,
+          "ToOADate": 1,
           "ToSByte": 1,
           "ToShortDateString": 1,
           "ToShortTimeString": 1,
@@ -6071,7 +6073,6 @@
           "Subtract",
           "ToFileTime",
           "ToLocalTime",
-          "ToOADate",
           "ToUniversalTime",
           "TryFormat"
         ],

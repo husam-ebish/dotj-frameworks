@@ -6,10 +6,23 @@ import System.ArgumentNullException;
 import System.ArgumentException;
 import System.IComparable;
 import System.FormatException;
+import System.OverflowException;
 
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (new DateTime(1, 1, 1).ToOADate() != 0.0
+                || new DateTime(1899, 12, 30).ToOADate() != 0.0
+                || new DateTime(1900, 1, 1).ToOADate() != 2.0
+                || new DateTime(1970, 1, 1).ToOADate() != 25569.0
+                || new DateTime(1899, 12, 29, 12, 0, 0).ToOADate() != -1.5) {
+            throw new AssertionError("OLE Automation date conversion changed");
+        }
+        try {
+            new DateTime(99, 12, 31).ToOADate();
+            throw new AssertionError("Pre-OLE minimum date accepted");
+        } catch (OverflowException expected) {
+        }
         if (!"00:00".equals(new DateTime(1, 1, 1).ToShortTimeString())
                 || !"23:59".equals(new DateTime(2024, 2, 29, 23, 59, 58)
                     .ToShortTimeString())) {

@@ -12,6 +12,9 @@ import java.time.format.ResolverStyle;
 public final class DateTime implements IConvertible, IComparable {
     private static final long TICKS_PER_DAY = 864_000_000_000L;
     private static final long FILE_TIME_EPOCH_TICKS = 504_911_232_000_000_000L;
+    private static final long OA_EPOCH_TICKS = 599_264_352_000_000_000L;
+    private static final long OA_MIN_TICKS = 31_241_376_000_000_000L;
+    private static final long MILLIS_PER_DAY = 86_400_000L;
     private static final long MAX_TICKS = 3_155_378_975_999_999_999L;
     private final LocalDateTime date;
 
@@ -301,6 +304,27 @@ public final class DateTime implements IConvertible, IComparable {
             throw new ArgumentOutOfRangeException("fileTime");
         }
         return ticks - FILE_TIME_EPOCH_TICKS;
+    }
+
+    public double ToOADate() {
+        long ticks = this.get_Ticks();
+        if (ticks == 0) {
+            return 0.0;
+        }
+        if (ticks < TICKS_PER_DAY) {
+            ticks += OA_EPOCH_TICKS;
+        }
+        if (ticks < OA_MIN_TICKS) {
+            throw new OverflowException("Not a valid OLE Automation date.");
+        }
+        long millis = (ticks - OA_EPOCH_TICKS) / 10_000L;
+        if (millis < 0) {
+            long fraction = millis % MILLIS_PER_DAY;
+            if (fraction != 0) {
+                millis -= (MILLIS_PER_DAY + fraction) * 2;
+            }
+        }
+        return (double) millis / MILLIS_PER_DAY;
     }
 
     public int get_Hour() {
