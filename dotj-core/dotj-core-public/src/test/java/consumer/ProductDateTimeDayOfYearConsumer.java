@@ -381,6 +381,17 @@ public final class ProductDateTimeDayOfYearConsumer {
                 throw new AssertionError("Microsecond addition parameter changed");
             }
         }
+        DateTime[] parsed = {new DateTime(2024, 1, 1)};
+        if (!DateTime.TryParse("2024-02-29T12:34:56.1234567", parsed)
+                || parsed[0].get_Ticks() != 638448068961234567L
+                || !DateTime.TryParse(" 2024-02-29 ", parsed)
+                || parsed[0].get_DayOfYear() != 60
+                || DateTime.TryParse("2023-02-29", parsed)
+                || parsed[0].get_Ticks() != 0L
+                || DateTime.TryParse(null, parsed)
+                || parsed[0].get_Ticks() != 0L) {
+            throw new AssertionError("DateTime TryParse changed");
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }

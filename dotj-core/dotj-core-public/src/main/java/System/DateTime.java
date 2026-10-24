@@ -50,6 +50,19 @@ public final class DateTime implements IConvertible, IComparable {
         }
     }
 
+    public static boolean TryParse(String text, DateTime[] result) {
+        result[0] = new DateTime(1, 1, 1);
+        if (text == null) {
+            return false;
+        }
+        try {
+            result[0] = Parse(text);
+            return true;
+        } catch (FormatException expected) {
+            return false;
+        }
+    }
+
     public static boolean IsLeapYear(int year) {
         if (year < 1 || year > 9999) {
             throw new ArgumentOutOfRangeException("year");
