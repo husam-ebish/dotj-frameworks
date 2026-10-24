@@ -64,6 +64,10 @@ public final class DateTime implements IConvertible {
         return this.date.getDayOfYear();
     }
 
+    public DateTime get_Date() {
+        return new DateTime(this.date.toLocalDate().atStartOfDay());
+    }
+
     public int get_Hour() {
         return this.date.getHour();
     }

@@ -20,6 +20,18 @@ public final class ProductDateTimeDayOfYearConsumer {
                         + row[0] + "-" + row[1] + "-" + row[2]);
             }
         }
+        DateTime withTime = new DateTime(2024, 2, 29, 23, 59, 58, 999);
+        DateTime date = withTime.get_Date();
+        if (date == withTime || date.get_Year() != 2024
+                || date.get_Month() != 2 || date.get_Day() != 29
+                || date.get_DayOfYear() != 60 || date.get_Hour() != 0
+                || date.get_Minute() != 0 || date.get_Second() != 0
+                || date.get_Millisecond() != 0) {
+            throw new AssertionError("DateTime Date did not truncate the time");
+        }
+        if (date.get_Date().get_Hour() != 0) {
+            throw new AssertionError("DateTime Date changed after a second access");
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }
