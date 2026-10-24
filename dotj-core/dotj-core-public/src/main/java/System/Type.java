@@ -1483,7 +1483,8 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if ((this.definition == IEnumerable.class || this.definition == ICollection.class
-                || this.definition == IDictionary.class || this.definition == IDictionaryEnumerator.class)
+                || this.definition == IDictionary.class || this.definition == IDictionaryEnumerator.class
+                || this.definition == IEnumerator.class)
                 && this.definition.isAssignableFrom(candidate.definition)) {
             return true;
         }
@@ -1592,11 +1593,7 @@ public abstract class Type extends MemberInfo {
             return true;
         }
         if (this.definition == Number.class) {
-            return value instanceof Integer || value instanceof Int32
-                    || value instanceof Decimal || value instanceof DateTime
-                    || value instanceof TimeSpan || value instanceof DateTimeKind || value instanceof DayOfWeek
-                    || value instanceof MemberTypes || value instanceof TypeCode
-                    || value instanceof NumberStyles || value instanceof TimeSpanStyles;
+            return fromJavaClass(value.getClass()).get_IsValueType();
         }
         if (this.definition == Enum.class) {
             return value instanceof MemberTypes || value instanceof TypeCode
@@ -1922,7 +1919,8 @@ public abstract class Type extends MemberInfo {
         if (this.definition == Object.class || this.definition == Stopwatch.class || this.definition == IDisposable.class
                 || this.definition == IUtf8SpanFormattable.class || this.definition == IConvertible.class
                 || this.definition == IComparable.class || this.definition == IFormattable.class || this.definition == IFormatProvider.class
-                || this.definition == ISerializable.class) {
+                || this.definition == ISerializable.class || this.definition == IEnumerator.class
+                || this.definition == IFormatterConverter.class) {
             return new Type[0];
         }
         if (this.definition == ISpanFormattable.class) {
@@ -2016,7 +2014,11 @@ public abstract class Type extends MemberInfo {
                 || this.definition == IConvertible.class || this.definition == IComparable.class || this.definition == IFormattable.class
                 || this.definition == IFormatProvider.class || this.definition == ISerializable.class
                 || this.definition == IDisposable.class || this.definition == ISpanFormattable.class
-                || this.definition == IUtf8SpanFormattable.class
+                || this.definition == IUtf8SpanFormattable.class || this.definition == IEnumerable.class
+                || this.definition == IEnumerator.class || this.definition == ICollection.class
+                || this.definition == IDictionary.class || this.definition == IDictionaryEnumerator.class
+                || this.definition == DictionaryEntry.class || this.definition == SerializationInfoEnumerator.class
+                || this.definition == IFormatterConverter.class
                 || Exception.class.isAssignableFrom(this.definition)) {
             int separator = fullname.lastIndexOf('.');
             String namespace = separator < 0 ? null : fullname.substring(0, separator);
