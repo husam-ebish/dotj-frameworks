@@ -714,7 +714,7 @@ public final class ProductDateTimeDayOfYearConsumer {
                 new DateTime(row[0], 1, 1).AddYears(row[1]);
                 throw new AssertionError("Out-of-range year addition accepted");
             } catch (ArgumentOutOfRangeException caught) {
-                if (!"years".equals(caught.get_ParamName())) {
+                if (!"value".equals(caught.get_ParamName())) {
                     throw new AssertionError("Year addition parameter changed");
                 }
             }
