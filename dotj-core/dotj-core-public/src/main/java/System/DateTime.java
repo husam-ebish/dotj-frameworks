@@ -280,13 +280,12 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public static DateTime FromFileTime(long fileTime) {
-        LocalDateTime utc = FromFileTimeUtc(fileTime).date;
-        LocalDateTime local = utc.atZone(ZoneOffset.UTC)
-                .withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
-        if (local.getYear() < 1 || local.getYear() > 9999) {
+        DateTime utc = FromFileTimeUtc(fileTime);
+        try {
+            return utc.ToLocalTime();
+        } catch (ArgumentOutOfRangeException overflow) {
             throw new ArgumentOutOfRangeException("fileTime");
         }
-        return new DateTime(local, DateTimeKind.Local);
     }
 
     public static DateTime FromOADate(double value) {
@@ -550,8 +549,8 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (this.kind == DateTimeKind.Utc) {
             return this.ToFileTimeUtc();
         }
-        LocalDateTime utc = this.date.atZone(ZoneId.systemDefault())
-                .withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
+        ZoneId zone = ZoneId.systemDefault();
+        LocalDateTime utc = LocalDateTime.ofInstant(this.date.toInstant(selectedLocalOffset(zone)), ZoneOffset.UTC);
         if (utc.getYear() < 1 || utc.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("fileTime");
         }
