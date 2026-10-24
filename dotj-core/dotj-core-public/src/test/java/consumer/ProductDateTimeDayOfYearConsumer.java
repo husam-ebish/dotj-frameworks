@@ -13,6 +13,14 @@ import System.TimeSpan;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (!"00:00:00".equals(TimeSpan.FromTicks(0L).ToString())
+                || !"1.02:03:04.0000005".equals(
+                        TimeSpan.FromTicks(937_840_000_005L).ToString())
+                || !"-00:00:00.0000001".equals(TimeSpan.FromTicks(-1L).toString())
+                || !"-10675199.02:48:05.4775808".equals(
+                        TimeSpan.FromTicks(Long.MIN_VALUE).ToString())) {
+            throw new AssertionError("TimeSpan constant formatting changed");
+        }
         TimeSpan equalLeft = TimeSpan.FromTicks(0x100000001L);
         TimeSpan equalRight = TimeSpan.FromTicks(0x100000001L);
         if (!TimeSpan.Equals(equalLeft, equalRight)

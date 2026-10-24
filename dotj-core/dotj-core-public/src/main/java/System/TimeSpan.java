@@ -144,6 +144,33 @@ public final class TimeSpan implements IComparable {
         return GetHashCode();
     }
 
+    public String ToString() {
+        java.math.BigInteger magnitude = java.math.BigInteger.valueOf(this.ticks).abs();
+        java.math.BigInteger[] dayParts = magnitude.divideAndRemainder(
+                java.math.BigInteger.valueOf(TICKS_PER_DAY));
+        long remainder = dayParts[1].longValue();
+        long hours = remainder / 36_000_000_000L;
+        remainder %= 36_000_000_000L;
+        long minutes = remainder / 600_000_000L;
+        remainder %= 600_000_000L;
+        long seconds = remainder / 10_000_000L;
+        long fractionalTicks = remainder % 10_000_000L;
+        String result = String.format(java.util.Locale.ROOT, "%02d:%02d:%02d",
+                hours, minutes, seconds);
+        if (dayParts[0].signum() != 0) {
+            result = dayParts[0] + "." + result;
+        }
+        if (fractionalTicks != 0L) {
+            result += String.format(java.util.Locale.ROOT, ".%07d", fractionalTicks);
+        }
+        return this.ticks < 0L ? "-" + result : result;
+    }
+
+    @Override
+    public String toString() {
+        return ToString();
+    }
+
     public double get_TotalDays() {
         return (double) this.ticks / TICKS_PER_DAY;
     }
