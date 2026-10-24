@@ -42,6 +42,14 @@ foreach ($ticks in @([long]0, [long]1, [long]3, [long]-3, [long]::MaxValue, [lon
     }
 }
 $constructors = @()
+$ratios = @()
+foreach ($left in @([long]0, [long]1, [long]-1, [long]3, [long]-3, [long]::MaxValue, [long]::MinValue)) {
+    foreach ($right in @([long]0, [long]1, [long]-1, [long]3, [long]-3, [long]::MaxValue, [long]::MinValue)) {
+        $ratio = [TimeSpan]::FromTicks($left).Divide([TimeSpan]::FromTicks($right))
+        $ratios += [ordered]@{ method = 'Divide'; ticks = $left; divisorTicks = $right
+            result = [ordered]@{ bits = [BitConverter]::DoubleToInt64Bits($ratio).ToString('X16'); isNaN = [double]::IsNaN($ratio) } }
+    }
+}
 $constructorInputs = [Collections.Generic.List[object]]::new()
 foreach ($components in @(@(1,2,3), @(25,-2,61), @(1,2,3,4), @(-1,2,-3,4), @(1,2,3,4,5), @(1,2,3,4,5,6), @(2147483647,0,0), @(2147483647,0,0,0), @(10675199,2,48,5,477,580), @(10675199,2,48,5,477,581), @(-10675199,-2,-48,-5,-477,-580), @(-10675199,-2,-48,-5,-477,-581))) {
     $constructorInputs.Add([int[]]$components)
@@ -74,8 +82,8 @@ $record = [ordered]@{
     schemaVersion = 1; scope = 'Pinned TimeSpan metadata, interval factories, constructors, Multiply and Divide vectors; bounded oracle only'
     runtimeVersion = [Environment]::Version.ToString(); coreLibSha256 = $coreHash
     oracleSha256 = (Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
-    metadata = $metadata; factories = $factories; constructors = $constructors; operations = $operations
+    metadata = $metadata; factories = $factories; constructors = $constructors; operations = $operations; ratios = $ratios
     qualification = 'REFERENCE_EVIDENCE_ONLY; NO_JAVA_OR_PUBLIC_QUALIFICATION'
 }
 [IO.File]::WriteAllText($OutputPath, ($record | ConvertTo-Json -Depth 12) + "`n", [Text.UTF8Encoding]::new($false))
-Write-Output "PASS pinned TimeSpan oracle: $($factories.Count) factories, $($constructors.Count) constructors, $($operations.Count) arithmetic vectors"
+Write-Output "PASS pinned TimeSpan oracle: $($factories.Count) factories, $($constructors.Count) constructors, $($operations.Count) scaling and $($ratios.Count) ratio vectors"
