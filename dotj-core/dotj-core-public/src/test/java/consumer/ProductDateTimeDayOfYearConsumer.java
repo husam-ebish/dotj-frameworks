@@ -10,6 +10,12 @@ import System.FormatException;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        if (new DateTime(1, 1, 1).ToBinary() != 0L
+                || new DateTime(1970, 1, 1).ToBinary() != 621355968000000000L
+                || DateTime.Parse("2024-02-29T12:34:56.1234567").ToBinary()
+                    != 638448068961234567L) {
+            throw new AssertionError("Unspecified DateTime binary representation changed");
+        }
         int[][] cases = {
             {1, 1, 1, 1},
             {2000, 2, 29, 60},

@@ -256,6 +256,7 @@ def main():
                                     "public int get_Day();", "public int get_DayOfYear();",
                                     "public System.DateTime get_Date();",
                                     "public long get_Ticks();",
+                                    "public long ToBinary();",
                                     "public int get_Hour();",
                                     "public int get_Minute();", "public int get_Second();",
                                     "public int get_Millisecond();",
