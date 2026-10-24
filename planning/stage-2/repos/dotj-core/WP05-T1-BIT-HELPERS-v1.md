@@ -795,3 +795,5 @@ Batch 1994 adds TimeSpan.Duration with checked minimum-tick overflow and package
 Batch 1995 adds TimeSpan.Negate with checked minimum-tick overflow and packaged consumer coverage for negative, positive, zero and boundary inputs.
 
 Batch 1996 adds TimeSpan.Compare and typed and object CompareTo with packaged consumer coverage for ordering, equality, null and wrong-type inputs.
+
+Batch 1997 adds TimeSpan static and instance equality, Java equality, and matching hash codes, with packaged consumer coverage for equal, unequal and null operands.
