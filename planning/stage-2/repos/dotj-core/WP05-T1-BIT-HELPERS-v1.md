@@ -717,3 +717,5 @@ The public DateTime candidate now exposes AddMicroseconds with selected tenth-mi
 The public DateTime candidate now exposes selected TryParse behavior for ISO local dates and timestamps. A packaged consumer checks success values and default output after invalid or null input. Broader culture and format parsing remain open.
 
 The public DateTime candidate now exposes selected ParseExact behavior for invariant date, second, and seven-digit fractional-second formats. A packaged consumer checks exact matches and rejected mismatches. Broader culture and format parsing remain open.
+
+The public DateTime candidate now exposes selected TryParseExact behavior for invariant formats. A packaged consumer checks exact success values and default output after invalid or null input. Broader culture and format parsing remain open.
