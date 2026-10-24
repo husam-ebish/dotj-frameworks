@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
   "scope": "Built foundation candidate JAR product sources; bounded direct-name comparison only",
-  "jarSha256": "4ba5545743d62c0dc02aec642226f5bbae76385d4a403cdf71a50a6bbc92880c",
+  "jarSha256": "7c66907e85e4029b74f8a0e0e9b52b6405cc8d36a3ca1af7ea4a943ca434271c",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "productLicense": "MIT",
-  "sourceCount": 74,
-  "directNameMatchedCount": 69,
+  "sourceCount": 75,
+  "directNameMatchedCount": 70,
   "directNameMissingCount": 5,
   "overlapReviewRequiredPaths": [
     "dotj-core/dotj-core-public/src/main/java/System/DateTime.java",
@@ -316,6 +316,23 @@
       "directNameMatchedUpstreamFile": "FOUND",
       "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Decimal.cs",
       "upstreamSha256": "89e04b0d528419a4e594f332aae1bdf7ccf249ecfb5e4cc9e562ab4234a878bb",
+      "sharedIdentifierShinglesOfLength12": 0,
+      "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
+      "sharedIdentifierShingleSamples": [],
+      "noticeApplicabilityDecision": "REVIEW_REQUIRED",
+      "supplementalAdjacencyEvidence": null
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Diagnostics/Stopwatch.java",
+      "productSha256": "b438cb114152ddc0005daacbecf230b8ac5893095cb0c56df78ffdfad55d4328",
+      "classEntries": [
+        "System/Diagnostics/Stopwatch.class"
+      ],
+      "mitSpdxHeaderObserved": true,
+      "localIntroductionCommit": "f7562bdc0c7dfb65a551ca2558fd89bc37b79ccf",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Diagnostics/Stopwatch.cs",
+      "upstreamSha256": "8ee76eff6d199d65064dd6e8b29e05b95722e670a8af8dd048c6d7fb84957955",
       "sharedIdentifierShinglesOfLength12": 0,
       "lexicalReviewStatus": "NO_SHARED_RUNS_OBSERVED",
       "sharedIdentifierShingleSamples": [],

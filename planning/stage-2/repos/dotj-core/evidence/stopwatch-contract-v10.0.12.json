@@ -1,0 +1,1488 @@
+{
+  "schemaVersion": 1,
+  "runtimeVersion": "10.0.12",
+  "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
+  "javaSha256": "1f41cc782de7ddd8824376568f9011413d710cf225047906106d2a01a0e3f7a9",
+  "oracleSha256": "cfcd31135cbda92fab26ee353afae51f31328ed672f44cf67473f4e2dcae2b6d",
+  "candidateJarSha256": "7c66907e85e4029b74f8a0e0e9b52b6405cc8d36a3ca1af7ea4a943ca434271c",
+  "consumerSourceSha256": "4b9fa3dde11f90fdb3c22e1bc1da40e6515d9aba64473746234355bafd8b0707",
+  "upstreamSourceMember": "src/libraries/System.Private.CoreLib/src/System/Diagnostics/Stopwatch.cs",
+  "upstreamSourceSha256": "8ee76eff6d199d65064dd6e8b29e05b95722e670a8af8dd048c6d7fb84957955",
+  "metadata": {
+    "name": "System.Diagnostics.Stopwatch",
+    "baseType": "System.Object",
+    "isSealed": false,
+    "constructorCount": 1,
+    "methods": [
+      {
+        "name": "Start",
+        "returnType": "System.Void",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": false
+      },
+      {
+        "name": "StartNew",
+        "returnType": "System.Diagnostics.Stopwatch",
+        "parameters": [],
+        "isStatic": true,
+        "isVirtual": false
+      },
+      {
+        "name": "Stop",
+        "returnType": "System.Void",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": false
+      },
+      {
+        "name": "Reset",
+        "returnType": "System.Void",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": false
+      },
+      {
+        "name": "Restart",
+        "returnType": "System.Void",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": false
+      },
+      {
+        "name": "ToString",
+        "returnType": "System.String",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": true
+      },
+      {
+        "name": "get_IsRunning",
+        "returnType": "System.Boolean",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": false
+      },
+      {
+        "name": "get_Elapsed",
+        "returnType": "System.TimeSpan",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": false
+      },
+      {
+        "name": "get_ElapsedMilliseconds",
+        "returnType": "System.Int64",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": false
+      },
+      {
+        "name": "get_ElapsedTicks",
+        "returnType": "System.Int64",
+        "parameters": [],
+        "isStatic": false,
+        "isVirtual": false
+      },
+      {
+        "name": "GetElapsedTime",
+        "returnType": "System.TimeSpan",
+        "parameters": [
+          "System.Int64"
+        ],
+        "isStatic": true,
+        "isVirtual": false
+      },
+      {
+        "name": "GetElapsedTime",
+        "returnType": "System.TimeSpan",
+        "parameters": [
+          "System.Int64",
+          "System.Int64"
+        ],
+        "isStatic": true,
+        "isVirtual": false
+      },
+      {
+        "name": "GetTimestamp",
+        "returnType": "System.Int64",
+        "parameters": [],
+        "isStatic": true,
+        "isVirtual": false
+      }
+    ],
+    "fields": [
+      {
+        "name": "Frequency",
+        "type": "System.Int64",
+        "isStatic": true,
+        "isInitOnly": true
+      },
+      {
+        "name": "IsHighResolution",
+        "type": "System.Boolean",
+        "isStatic": true,
+        "isInitOnly": true
+      }
+    ]
+  },
+  "frequency": 10000000,
+  "isHighResolution": true,
+  "arithmetic": [
+    {
+      "start": -9223372036854775808,
+      "end": -9223372036854775808,
+      "ticks": 0
+    },
+    {
+      "start": -9223372036854775808,
+      "end": -9223372036854775807,
+      "ticks": 1
+    },
+    {
+      "start": -9223372036854775808,
+      "end": -10000000,
+      "ticks": 9223372036844775424
+    },
+    {
+      "start": -9223372036854775808,
+      "end": -10000,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": -9223372036854775808,
+      "end": -1,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 0,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 1,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 99,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 100,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 9999,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 10000,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 10000000,
+      "ticks": -9223372036844775424
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 9223372036854775806,
+      "ticks": -2
+    },
+    {
+      "start": -9223372036854775808,
+      "end": 9223372036854775807,
+      "ticks": -1
+    },
+    {
+      "start": -9223372036854775807,
+      "end": -9223372036854775808,
+      "ticks": -1
+    },
+    {
+      "start": -9223372036854775807,
+      "end": -9223372036854775807,
+      "ticks": 0
+    },
+    {
+      "start": -9223372036854775807,
+      "end": -10000000,
+      "ticks": 9223372036844775424
+    },
+    {
+      "start": -9223372036854775807,
+      "end": -10000,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": -9223372036854775807,
+      "end": -1,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 0,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 1,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 99,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 100,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 9999,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 10000,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 10000000,
+      "ticks": -9223372036844775424
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 9223372036854775806,
+      "ticks": -3
+    },
+    {
+      "start": -9223372036854775807,
+      "end": 9223372036854775807,
+      "ticks": -2
+    },
+    {
+      "start": -10000000,
+      "end": -9223372036854775808,
+      "ticks": -9223372036844775424
+    },
+    {
+      "start": -10000000,
+      "end": -9223372036854775807,
+      "ticks": -9223372036844775424
+    },
+    {
+      "start": -10000000,
+      "end": -10000000,
+      "ticks": 0
+    },
+    {
+      "start": -10000000,
+      "end": -10000,
+      "ticks": 9990000
+    },
+    {
+      "start": -10000000,
+      "end": -1,
+      "ticks": 9999999
+    },
+    {
+      "start": -10000000,
+      "end": 0,
+      "ticks": 10000000
+    },
+    {
+      "start": -10000000,
+      "end": 1,
+      "ticks": 10000001
+    },
+    {
+      "start": -10000000,
+      "end": 99,
+      "ticks": 10000099
+    },
+    {
+      "start": -10000000,
+      "end": 100,
+      "ticks": 10000100
+    },
+    {
+      "start": -10000000,
+      "end": 9999,
+      "ticks": 10009999
+    },
+    {
+      "start": -10000000,
+      "end": 10000,
+      "ticks": 10010000
+    },
+    {
+      "start": -10000000,
+      "end": 10000000,
+      "ticks": 20000000
+    },
+    {
+      "start": -10000000,
+      "end": 9223372036854775806,
+      "ticks": -9223372036844775424
+    },
+    {
+      "start": -10000000,
+      "end": 9223372036854775807,
+      "ticks": -9223372036844775424
+    },
+    {
+      "start": -10000,
+      "end": -9223372036854775808,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": -10000,
+      "end": -9223372036854775807,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": -10000,
+      "end": -10000000,
+      "ticks": -9990000
+    },
+    {
+      "start": -10000,
+      "end": -10000,
+      "ticks": 0
+    },
+    {
+      "start": -10000,
+      "end": -1,
+      "ticks": 9999
+    },
+    {
+      "start": -10000,
+      "end": 0,
+      "ticks": 10000
+    },
+    {
+      "start": -10000,
+      "end": 1,
+      "ticks": 10001
+    },
+    {
+      "start": -10000,
+      "end": 99,
+      "ticks": 10099
+    },
+    {
+      "start": -10000,
+      "end": 100,
+      "ticks": 10100
+    },
+    {
+      "start": -10000,
+      "end": 9999,
+      "ticks": 19999
+    },
+    {
+      "start": -10000,
+      "end": 10000,
+      "ticks": 20000
+    },
+    {
+      "start": -10000,
+      "end": 10000000,
+      "ticks": 10010000
+    },
+    {
+      "start": -10000,
+      "end": 9223372036854775806,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": -10000,
+      "end": 9223372036854775807,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": -1,
+      "end": -9223372036854775808,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -1,
+      "end": -9223372036854775807,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": -1,
+      "end": -10000000,
+      "ticks": -9999999
+    },
+    {
+      "start": -1,
+      "end": -10000,
+      "ticks": -9999
+    },
+    {
+      "start": -1,
+      "end": -1,
+      "ticks": 0
+    },
+    {
+      "start": -1,
+      "end": 0,
+      "ticks": 1
+    },
+    {
+      "start": -1,
+      "end": 1,
+      "ticks": 2
+    },
+    {
+      "start": -1,
+      "end": 99,
+      "ticks": 100
+    },
+    {
+      "start": -1,
+      "end": 100,
+      "ticks": 101
+    },
+    {
+      "start": -1,
+      "end": 9999,
+      "ticks": 10000
+    },
+    {
+      "start": -1,
+      "end": 10000,
+      "ticks": 10001
+    },
+    {
+      "start": -1,
+      "end": 10000000,
+      "ticks": 10000001
+    },
+    {
+      "start": -1,
+      "end": 9223372036854775806,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": -1,
+      "end": 9223372036854775807,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 0,
+      "end": -9223372036854775808,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 0,
+      "end": -9223372036854775807,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 0,
+      "end": -10000000,
+      "ticks": -10000000
+    },
+    {
+      "start": 0,
+      "end": -10000,
+      "ticks": -10000
+    },
+    {
+      "start": 0,
+      "end": -1,
+      "ticks": -1
+    },
+    {
+      "start": 0,
+      "end": 0,
+      "ticks": 0
+    },
+    {
+      "start": 0,
+      "end": 1,
+      "ticks": 1
+    },
+    {
+      "start": 0,
+      "end": 99,
+      "ticks": 99
+    },
+    {
+      "start": 0,
+      "end": 100,
+      "ticks": 100
+    },
+    {
+      "start": 0,
+      "end": 9999,
+      "ticks": 9999
+    },
+    {
+      "start": 0,
+      "end": 10000,
+      "ticks": 10000
+    },
+    {
+      "start": 0,
+      "end": 10000000,
+      "ticks": 10000000
+    },
+    {
+      "start": 0,
+      "end": 9223372036854775806,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 0,
+      "end": 9223372036854775807,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 1,
+      "end": -9223372036854775808,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 1,
+      "end": -9223372036854775807,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 1,
+      "end": -10000000,
+      "ticks": -10000001
+    },
+    {
+      "start": 1,
+      "end": -10000,
+      "ticks": -10001
+    },
+    {
+      "start": 1,
+      "end": -1,
+      "ticks": -2
+    },
+    {
+      "start": 1,
+      "end": 0,
+      "ticks": -1
+    },
+    {
+      "start": 1,
+      "end": 1,
+      "ticks": 0
+    },
+    {
+      "start": 1,
+      "end": 99,
+      "ticks": 98
+    },
+    {
+      "start": 1,
+      "end": 100,
+      "ticks": 99
+    },
+    {
+      "start": 1,
+      "end": 9999,
+      "ticks": 9998
+    },
+    {
+      "start": 1,
+      "end": 10000,
+      "ticks": 9999
+    },
+    {
+      "start": 1,
+      "end": 10000000,
+      "ticks": 9999999
+    },
+    {
+      "start": 1,
+      "end": 9223372036854775806,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 1,
+      "end": 9223372036854775807,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 99,
+      "end": -9223372036854775808,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 99,
+      "end": -9223372036854775807,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 99,
+      "end": -10000000,
+      "ticks": -10000099
+    },
+    {
+      "start": 99,
+      "end": -10000,
+      "ticks": -10099
+    },
+    {
+      "start": 99,
+      "end": -1,
+      "ticks": -100
+    },
+    {
+      "start": 99,
+      "end": 0,
+      "ticks": -99
+    },
+    {
+      "start": 99,
+      "end": 1,
+      "ticks": -98
+    },
+    {
+      "start": 99,
+      "end": 99,
+      "ticks": 0
+    },
+    {
+      "start": 99,
+      "end": 100,
+      "ticks": 1
+    },
+    {
+      "start": 99,
+      "end": 9999,
+      "ticks": 9900
+    },
+    {
+      "start": 99,
+      "end": 10000,
+      "ticks": 9901
+    },
+    {
+      "start": 99,
+      "end": 10000000,
+      "ticks": 9999901
+    },
+    {
+      "start": 99,
+      "end": 9223372036854775806,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 99,
+      "end": 9223372036854775807,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 100,
+      "end": -9223372036854775808,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 100,
+      "end": -9223372036854775807,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 100,
+      "end": -10000000,
+      "ticks": -10000100
+    },
+    {
+      "start": 100,
+      "end": -10000,
+      "ticks": -10100
+    },
+    {
+      "start": 100,
+      "end": -1,
+      "ticks": -101
+    },
+    {
+      "start": 100,
+      "end": 0,
+      "ticks": -100
+    },
+    {
+      "start": 100,
+      "end": 1,
+      "ticks": -99
+    },
+    {
+      "start": 100,
+      "end": 99,
+      "ticks": -1
+    },
+    {
+      "start": 100,
+      "end": 100,
+      "ticks": 0
+    },
+    {
+      "start": 100,
+      "end": 9999,
+      "ticks": 9899
+    },
+    {
+      "start": 100,
+      "end": 10000,
+      "ticks": 9900
+    },
+    {
+      "start": 100,
+      "end": 10000000,
+      "ticks": 9999900
+    },
+    {
+      "start": 100,
+      "end": 9223372036854775806,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 100,
+      "end": 9223372036854775807,
+      "ticks": 9223372036854775807
+    },
+    {
+      "start": 9999,
+      "end": -9223372036854775808,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 9999,
+      "end": -9223372036854775807,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 9999,
+      "end": -10000000,
+      "ticks": -10009999
+    },
+    {
+      "start": 9999,
+      "end": -10000,
+      "ticks": -19999
+    },
+    {
+      "start": 9999,
+      "end": -1,
+      "ticks": -10000
+    },
+    {
+      "start": 9999,
+      "end": 0,
+      "ticks": -9999
+    },
+    {
+      "start": 9999,
+      "end": 1,
+      "ticks": -9998
+    },
+    {
+      "start": 9999,
+      "end": 99,
+      "ticks": -9900
+    },
+    {
+      "start": 9999,
+      "end": 100,
+      "ticks": -9899
+    },
+    {
+      "start": 9999,
+      "end": 9999,
+      "ticks": 0
+    },
+    {
+      "start": 9999,
+      "end": 10000,
+      "ticks": 1
+    },
+    {
+      "start": 9999,
+      "end": 10000000,
+      "ticks": 9990001
+    },
+    {
+      "start": 9999,
+      "end": 9223372036854775806,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 9999,
+      "end": 9223372036854775807,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 10000,
+      "end": -9223372036854775808,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 10000,
+      "end": -9223372036854775807,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 10000,
+      "end": -10000000,
+      "ticks": -10010000
+    },
+    {
+      "start": 10000,
+      "end": -10000,
+      "ticks": -20000
+    },
+    {
+      "start": 10000,
+      "end": -1,
+      "ticks": -10001
+    },
+    {
+      "start": 10000,
+      "end": 0,
+      "ticks": -10000
+    },
+    {
+      "start": 10000,
+      "end": 1,
+      "ticks": -9999
+    },
+    {
+      "start": 10000,
+      "end": 99,
+      "ticks": -9901
+    },
+    {
+      "start": 10000,
+      "end": 100,
+      "ticks": -9900
+    },
+    {
+      "start": 10000,
+      "end": 9999,
+      "ticks": -1
+    },
+    {
+      "start": 10000,
+      "end": 10000,
+      "ticks": 0
+    },
+    {
+      "start": 10000,
+      "end": 10000000,
+      "ticks": 9990000
+    },
+    {
+      "start": 10000,
+      "end": 9223372036854775806,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 10000,
+      "end": 9223372036854775807,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 10000000,
+      "end": -9223372036854775808,
+      "ticks": 9223372036844775424
+    },
+    {
+      "start": 10000000,
+      "end": -9223372036854775807,
+      "ticks": 9223372036844775424
+    },
+    {
+      "start": 10000000,
+      "end": -10000000,
+      "ticks": -20000000
+    },
+    {
+      "start": 10000000,
+      "end": -10000,
+      "ticks": -10010000
+    },
+    {
+      "start": 10000000,
+      "end": -1,
+      "ticks": -10000001
+    },
+    {
+      "start": 10000000,
+      "end": 0,
+      "ticks": -10000000
+    },
+    {
+      "start": 10000000,
+      "end": 1,
+      "ticks": -9999999
+    },
+    {
+      "start": 10000000,
+      "end": 99,
+      "ticks": -9999901
+    },
+    {
+      "start": 10000000,
+      "end": 100,
+      "ticks": -9999900
+    },
+    {
+      "start": 10000000,
+      "end": 9999,
+      "ticks": -9990001
+    },
+    {
+      "start": 10000000,
+      "end": 10000,
+      "ticks": -9990000
+    },
+    {
+      "start": 10000000,
+      "end": 10000000,
+      "ticks": 0
+    },
+    {
+      "start": 10000000,
+      "end": 9223372036854775806,
+      "ticks": 9223372036844775424
+    },
+    {
+      "start": 10000000,
+      "end": 9223372036854775807,
+      "ticks": 9223372036844775424
+    },
+    {
+      "start": 9223372036854775806,
+      "end": -9223372036854775808,
+      "ticks": 2
+    },
+    {
+      "start": 9223372036854775806,
+      "end": -9223372036854775807,
+      "ticks": 3
+    },
+    {
+      "start": 9223372036854775806,
+      "end": -10000000,
+      "ticks": 9223372036844775424
+    },
+    {
+      "start": 9223372036854775806,
+      "end": -10000,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 9223372036854775806,
+      "end": -1,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 0,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 1,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 99,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 100,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 9999,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 10000,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 10000000,
+      "ticks": -9223372036844775424
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 9223372036854775806,
+      "ticks": 0
+    },
+    {
+      "start": 9223372036854775806,
+      "end": 9223372036854775807,
+      "ticks": 1
+    },
+    {
+      "start": 9223372036854775807,
+      "end": -9223372036854775808,
+      "ticks": 1
+    },
+    {
+      "start": 9223372036854775807,
+      "end": -9223372036854775807,
+      "ticks": 2
+    },
+    {
+      "start": 9223372036854775807,
+      "end": -10000000,
+      "ticks": 9223372036844775424
+    },
+    {
+      "start": 9223372036854775807,
+      "end": -10000,
+      "ticks": 9223372036854765568
+    },
+    {
+      "start": 9223372036854775807,
+      "end": -1,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 0,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 1,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 99,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 100,
+      "ticks": -9223372036854775808
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 9999,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 10000,
+      "ticks": -9223372036854765568
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 10000000,
+      "ticks": -9223372036844775424
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 9223372036854775806,
+      "ticks": -1
+    },
+    {
+      "start": 9223372036854775807,
+      "end": 9223372036854775807,
+      "ticks": 0
+    }
+  ],
+  "nativeTrace": [
+    {
+      "operation": "new",
+      "running": false,
+      "elapsedZero": true,
+      "observedElapsedTicks": 0
+    },
+    {
+      "operation": "stop",
+      "running": false,
+      "elapsedZero": true,
+      "observedElapsedTicks": 0
+    },
+    {
+      "operation": "reset",
+      "running": false,
+      "elapsedZero": true,
+      "observedElapsedTicks": 0
+    },
+    {
+      "operation": "start",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 152
+    },
+    {
+      "operation": "sleep:5",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 223652
+    },
+    {
+      "operation": "start",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 224473
+    },
+    {
+      "operation": "sleep:5",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 376393
+    },
+    {
+      "operation": "stop",
+      "running": false,
+      "elapsedZero": false,
+      "observedElapsedTicks": 376868
+    },
+    {
+      "operation": "stop",
+      "running": false,
+      "elapsedZero": false,
+      "observedElapsedTicks": 376868
+    },
+    {
+      "operation": "reset",
+      "running": false,
+      "elapsedZero": true,
+      "observedElapsedTicks": 0
+    },
+    {
+      "operation": "restart",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 333
+    },
+    {
+      "operation": "sleep:5",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 142843
+    },
+    {
+      "operation": "stop",
+      "running": false,
+      "elapsedZero": false,
+      "observedElapsedTicks": 143263
+    },
+    {
+      "operation": "start",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 143291
+    },
+    {
+      "operation": "sleep:5",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 301666
+    },
+    {
+      "operation": "stop",
+      "running": false,
+      "elapsedZero": false,
+      "observedElapsedTicks": 302387
+    },
+    {
+      "operation": "restart",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 60
+    },
+    {
+      "operation": "reset",
+      "running": false,
+      "elapsedZero": true,
+      "observedElapsedTicks": 0
+    },
+    {
+      "operation": "startNew",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 421
+    },
+    {
+      "operation": "sleep:5",
+      "running": true,
+      "elapsedZero": false,
+      "observedElapsedTicks": 130605
+    },
+    {
+      "operation": "stop",
+      "running": false,
+      "elapsedZero": false,
+      "observedElapsedTicks": 131415
+    }
+  ],
+  "candidateTrace": [
+    {
+      "record": "state",
+      "operation": "new",
+      "running": false,
+      "before": 0,
+      "after": 0,
+      "spanTicks": 0,
+      "milliseconds": 0,
+      "text": "00:00:00",
+      "javaText": "00:00:00"
+    },
+    {
+      "record": "state",
+      "operation": "stop",
+      "running": false,
+      "before": 0,
+      "after": 0,
+      "spanTicks": 0,
+      "milliseconds": 0,
+      "text": "00:00:00",
+      "javaText": "00:00:00"
+    },
+    {
+      "record": "state",
+      "operation": "reset",
+      "running": false,
+      "before": 0,
+      "after": 0,
+      "spanTicks": 0,
+      "milliseconds": 0,
+      "text": "00:00:00",
+      "javaText": "00:00:00"
+    },
+    {
+      "record": "state",
+      "operation": "start",
+      "running": true,
+      "before": 6,
+      "after": 2730,
+      "spanTicks": 10,
+      "milliseconds": 0,
+      "text": "00:00:00.0000016",
+      "javaText": "00:00:00.0002082"
+    },
+    {
+      "record": "state",
+      "operation": "sleep:5",
+      "running": true,
+      "before": 60404,
+      "after": 62019,
+      "spanTicks": 60409,
+      "milliseconds": 6,
+      "text": "00:00:00.0060424",
+      "javaText": "00:00:00.0061555"
+    },
+    {
+      "record": "state",
+      "operation": "start",
+      "running": true,
+      "before": 62432,
+      "after": 63376,
+      "spanTicks": 62434,
+      "milliseconds": 6,
+      "text": "00:00:00.0062440",
+      "javaText": "00:00:00.0062947"
+    },
+    {
+      "record": "state",
+      "operation": "sleep:5",
+      "running": true,
+      "before": 116328,
+      "after": 119032,
+      "spanTicks": 116359,
+      "milliseconds": 11,
+      "text": "00:00:00.0116433",
+      "javaText": "00:00:00.0118577"
+    },
+    {
+      "record": "state",
+      "operation": "stop",
+      "running": false,
+      "before": 120185,
+      "after": 120185,
+      "spanTicks": 120185,
+      "milliseconds": 12,
+      "text": "00:00:00.0120185",
+      "javaText": "00:00:00.0120185"
+    },
+    {
+      "record": "state",
+      "operation": "stop",
+      "running": false,
+      "before": 120185,
+      "after": 120185,
+      "spanTicks": 120185,
+      "milliseconds": 12,
+      "text": "00:00:00.0120185",
+      "javaText": "00:00:00.0120185"
+    },
+    {
+      "record": "state",
+      "operation": "reset",
+      "running": false,
+      "before": 0,
+      "after": 0,
+      "spanTicks": 0,
+      "milliseconds": 0,
+      "text": "00:00:00",
+      "javaText": "00:00:00"
+    },
+    {
+      "record": "state",
+      "operation": "restart",
+      "running": true,
+      "before": 2,
+      "after": 1061,
+      "spanTicks": 4,
+      "milliseconds": 0,
+      "text": "00:00:00.0000009",
+      "javaText": "00:00:00.0000506"
+    },
+    {
+      "record": "state",
+      "operation": "sleep:5",
+      "running": true,
+      "before": 61442,
+      "after": 63724,
+      "spanTicks": 61462,
+      "milliseconds": 6,
+      "text": "00:00:00.0061509",
+      "javaText": "00:00:00.0063260"
+    },
+    {
+      "record": "state",
+      "operation": "stop",
+      "running": false,
+      "before": 64651,
+      "after": 64651,
+      "spanTicks": 64651,
+      "milliseconds": 6,
+      "text": "00:00:00.0064651",
+      "javaText": "00:00:00.0064651"
+    },
+    {
+      "record": "state",
+      "operation": "start",
+      "running": true,
+      "before": 64653,
+      "after": 65425,
+      "spanTicks": 64654,
+      "milliseconds": 6,
+      "text": "00:00:00.0064659",
+      "javaText": "00:00:00.0065069"
+    },
+    {
+      "record": "state",
+      "operation": "sleep:5",
+      "running": true,
+      "before": 120366,
+      "after": 124119,
+      "spanTicks": 120383,
+      "milliseconds": 12,
+      "text": "00:00:00.0120425",
+      "javaText": "00:00:00.0123185"
+    },
+    {
+      "record": "state",
+      "operation": "stop",
+      "running": false,
+      "before": 125353,
+      "after": 125353,
+      "spanTicks": 125353,
+      "milliseconds": 12,
+      "text": "00:00:00.0125353",
+      "javaText": "00:00:00.0125353"
+    },
+    {
+      "record": "state",
+      "operation": "restart",
+      "running": true,
+      "before": 2,
+      "after": 1519,
+      "spanTicks": 4,
+      "milliseconds": 0,
+      "text": "00:00:00.0000009",
+      "javaText": "00:00:00.0000460"
+    },
+    {
+      "record": "state",
+      "operation": "reset",
+      "running": false,
+      "before": 0,
+      "after": 0,
+      "spanTicks": 0,
+      "milliseconds": 0,
+      "text": "00:00:00",
+      "javaText": "00:00:00"
+    },
+    {
+      "record": "state",
+      "operation": "startNew",
+      "running": true,
+      "before": 3,
+      "after": 718,
+      "spanTicks": 4,
+      "milliseconds": 0,
+      "text": "00:00:00.0000009",
+      "javaText": "00:00:00.0000360"
+    },
+    {
+      "record": "state",
+      "operation": "sleep:5",
+      "running": true,
+      "before": 70250,
+      "after": 71591,
+      "spanTicks": 70257,
+      "milliseconds": 7,
+      "text": "00:00:00.0070272",
+      "javaText": "00:00:00.0071300"
+    },
+    {
+      "record": "state",
+      "operation": "stop",
+      "running": false,
+      "before": 72056,
+      "after": 72056,
+      "spanTicks": 72056,
+      "milliseconds": 7,
+      "text": "00:00:00.0072056",
+      "javaText": "00:00:00.0072056"
+    }
+  ],
+  "candidateCounter": {
+    "record": "counter",
+    "frequency": 10000000,
+    "highResolution": true,
+    "nondecreasing": true,
+    "advanced": true,
+    "start": 612901,
+    "end": 612916,
+    "oneArgumentTicks": 10,
+    "derivedReset": true
+  },
+  "liveStateChecksPassed": 21,
+  "outerNativeElapsedTicks": 1585118,
+  "qualification": "BOUNDED_100NS_MONOTONIC_PROFILE_PASS; ORIGIN_LIFETIME_RESOLUTION_SUSPEND_CONCURRENCY_REFLECTION_LANGUAGE_AND_RELEASE_OPEN"
+}
