@@ -86,6 +86,9 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Foundation gate failed; see retained run logs.' }
     $changed = @(& git -C $worktree diff --name-only)
     if ($LASTEXITCODE -ne 0) { throw 'Cannot inventory generated evidence changes.' }
+    $newEvidence = @(& git -C $worktree ls-files --others --exclude-standard)
+    if ($LASTEXITCODE -ne 0) { throw 'Cannot inventory newly generated evidence.' }
+    $changed = @(@($changed) + @($newEvidence) | Sort-Object -Unique)
     foreach ($relative in $changed) {
         if ($relative -notmatch '^planning/stage-2/repos/dotj-core/evidence/[^/]+\.json$') {
             throw "Unexpected tracked output from gate: $relative"
