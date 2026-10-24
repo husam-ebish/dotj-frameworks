@@ -1,10 +1,14 @@
 """Rebuild and verify the bounded public foundation candidate and E01 inputs."""
 
+import argparse
 import hashlib
+import time
 import json
 import subprocess
 import sys
 from pathlib import Path
+sys.path.insert(0,str(Path(__file__).resolve().parent))
+from foundation_check_scheduler import run_checks
 
 
 ROOT = Path(__file__).resolve().parents[3]
@@ -12,6 +16,7 @@ ORACLE = Path(__file__).resolve().parent
 EVIDENCE = ROOT / "planning/stage-2/repos/dotj-core/evidence"
 OUTPUT = EVIDENCE / "foundation-public-candidate-gate-v1.json"
 CHECKS = (
+    "verify-foundation-check-scheduler.py",
     "capture-foundation-public-metadata.py",
     "build-idisposable-product.py",
     "build-system-type-candidate.py",
@@ -97,13 +102,25 @@ def sha256(path):
 
 
 def main():
-    for name in CHECKS:
-        result = subprocess.run([sys.executable, str(ORACLE / name)], cwd=ROOT,
-                                capture_output=True, text=True)
-        if result.returncode or "PASS" not in result.stdout:
-            raise RuntimeError(f"{name} failed ({result.returncode})\n"
-                               f"{result.stdout}{result.stderr}")
-        print(result.stdout.strip(), flush=True)
+    parser=argparse.ArgumentParser()
+    parser.add_argument('--check-workers',type=int,choices=(1,2,3),default=3)
+    args=parser.parse_args()
+    first=CHECKS.index('verify-span-factory-types.py')
+    last=CHECKS.index('verify-idisposable-file-map.py')
+    live_names={'verify-datetime-wall-clock.py','verify-clock-envelope.py','verify-stopwatch.py'}
+    independent=tuple(name for name in CHECKS[first:last] if name not in live_names)
+    live=tuple(name for name in CHECKS[first:last] if name in live_names)
+    phases=(('prerequisites',CHECKS[:first],1),('independent',independent,args.check_workers),
+            ('live',live,1),('audits',CHECKS[last:],1))
+    scheduled=tuple(name for _,names,_ in phases for name in names)
+    assert len(scheduled)==len(set(scheduled))==len(CHECKS) and set(scheduled)==set(CHECKS)
+    def execute(name):
+        return subprocess.run([sys.executable,str(ORACLE/name)],cwd=ROOT,capture_output=True,text=True)
+    phase_results=[]
+    for phase_name,names,workers in phases:
+        started=time.perf_counter()
+        run_checks(names,execute,workers=workers,emit=lambda output:print(output,flush=True))
+        phase_results.append(dict(name=phase_name,checks=list(names),workers=workers,elapsedSeconds=round(time.perf_counter()-started,3)))
 
     artifact = read("foundation-product-candidate-v1.json")
     mapping = read("foundation-file-notice-map-v1.json")
@@ -211,6 +228,7 @@ def main():
         "timespan-comparison-differential-v1.json",
         "timespan-checked-arithmetic-differential-v1.json",
         "timespan-format-differential-v1.json",
+        "foundation-check-scheduler-v1.json",
         "foundation-product-candidate-v1.json",
         "foundation-rights-inputs-v1.json",
         "foundation-notice-review-queue-v1.json",
@@ -220,6 +238,7 @@ def main():
     record = {
         "schemaVersion": 1,
         "scope": "Current dotj-core public foundation candidate and bounded E01 inputs",
+        "executionPhases": phase_results,
         "checks": list(CHECKS),
         "candidateJarSha256": jar_hash,
         "productSourceCount": len(artifact["productSources"]),

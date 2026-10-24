@@ -7,6 +7,7 @@ param(
     [string]$JdkHome,
     [string]$RunName,
     [ValidateRange(64,1024)][int]$JavaHeapMiB = 256,
+    [ValidateRange(1,3)][int]$CheckWorkers = 3,
     [switch]$ExportEvidence,
     [switch]$PreflightOnly
 )
@@ -84,7 +85,7 @@ try {
     $ErrorActionPreference = 'Stop'
     if ($LASTEXITCODE -ne 0) { throw 'Compile-only candidate bootstrap failed.' }
     $ErrorActionPreference = 'Continue'
-    & $python (Join-Path $oracle 'run-captured-python.py') --log (Join-Path $runRoot 'foundation-gate.log') -- (Join-Path $oracle 'run-foundation-public-candidate-gate.py')
+    & $python (Join-Path $oracle 'run-captured-python.py') --log (Join-Path $runRoot 'foundation-gate.log') -- (Join-Path $oracle 'run-foundation-public-candidate-gate.py') --check-workers $CheckWorkers
     $ErrorActionPreference = 'Stop'
     if ($LASTEXITCODE -ne 0) { throw 'Foundation gate failed; see retained run logs.' }
     $changed = @(& git -C $worktree diff --name-only)
@@ -101,6 +102,7 @@ try {
         schemaVersion = 1; sourceRevision = $revision; runRoot = $runRoot
         pinnedBinaryChecks = $binaryChecks; gatePassed = $true
         javaValidationOptions = $env:JAVA_TOOL_OPTIONS
+        independentCheckWorkers = $CheckWorkers
         changedEvidencePaths = $changed; evidenceExportRequested = [bool]$ExportEvidence; evidenceExported = $false
         qualification = 'BOUNDED_CANDIDATE_ONLY; E01/E02/E03/N01/Q01_OPEN'
     }
