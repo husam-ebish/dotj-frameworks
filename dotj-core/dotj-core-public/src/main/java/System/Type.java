@@ -142,6 +142,7 @@ public abstract class Type extends MemberInfo {
         if (type.definition == Double.class || type.definition == double.class) return TypeCode.Double;
         if (type.definition == Decimal.class) return TypeCode.Decimal;
         if (type.definition == DateTime.class) return TypeCode.DateTime;
+        if (type.definition == DBNull.class) return TypeCode.DBNull;
         return TypeCode.Object;
     }
 
@@ -1102,7 +1103,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == Float.class
                 || this.definition == Double.class
                 || this.definition == Byte.class || this.definition == SByte.class
-                || this.definition == Int32.class || this.definition == Void.class
+                || this.definition == Int32.class || this.definition == Void.class || this.definition == DBNull.class
                 || this.definition == Decimal.class || this.definition == DateTime.class || this.definition == TimeSpan.class
                 || this.definition == StreamingContext.class
                 || this.definition == StreamingContextStates.class
@@ -1129,7 +1130,7 @@ public abstract class Type extends MemberInfo {
         if (this.get_IsArray()) {
             return true;
         }
-        return this.definition == String.class || this.definition == Int32.class
+        return this.definition == String.class || this.definition == Int32.class || this.definition == DBNull.class
                 || this.definition == java.util.List.class || this.get_IsEnum()
                 || Exception.class.isAssignableFrom(this.definition);
     }

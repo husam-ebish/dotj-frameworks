@@ -88,7 +88,8 @@ public final class DBNull implements IConvertible, ISerializable {
         if (conversionType == Type.GetType("System.String")) {
             return "";
         }
-        if (conversionType == Type.GetType("System.DBNull")) {
+        if (conversionType == Type.GetType("System.DBNull")
+                || conversionType == Type.GetType("System.Object")) {
             return Value;
         }
         throw invalidConversion();
