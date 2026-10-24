@@ -473,7 +473,7 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
         if (input == null) { throw new ArgumentNullException("input"); }
         if (format == null) { throw new ArgumentNullException("format"); }
         if (!format.equals("c") && !format.equals("t") && !format.equals("T")) {
-            throw new FormatException("Only invariant constant exact formats are mapped.");
+            return parseCustomExact(input, format);
         }
         int start = 0;
         int end = input.length();
@@ -524,6 +524,78 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
         if (negative) { total = total.negate(); }
         if (total.compareTo(java.math.BigInteger.valueOf(Long.MIN_VALUE)) < 0
                 || total.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) > 0) { throw new OverflowException(); }
+        return new TimeSpan(total.longValue());
+    }
+
+    private static TimeSpan parseCustomExact(String input, String format) {
+        if (format.length() < 2) { throw new FormatException(); }
+        long[] components = new long[5];
+        boolean[] assigned = new boolean[5];
+        int cursor = 0;
+        for (int index = 0; index < format.length();) {
+            char token = format.charAt(index++);
+            if (token == '%') {
+                if (index == format.length() || format.charAt(index) == '%') { throw new FormatException(); }
+                continue;
+            }
+            if (token == '\\') {
+                if (index == format.length() || cursor == input.length()
+                        || input.charAt(cursor++) != format.charAt(index++)) { throw new FormatException(); }
+                continue;
+            }
+            if (token == '\'' || token == '"') {
+                boolean closed = false;
+                while (index < format.length()) {
+                    char literal = format.charAt(index++);
+                    if (literal == token) { closed = true; break; }
+                    if (literal == '\\') {
+                        if (index == format.length()) { throw new FormatException(); }
+                        literal = format.charAt(index++);
+                    }
+                    if (cursor == input.length() || input.charAt(cursor++) != literal) { throw new FormatException(); }
+                }
+                if (!closed) { throw new FormatException(); }
+                continue;
+            }
+            int width = 1;
+            while (index < format.length() && format.charAt(index) == token) { width++; index++; }
+            int component;
+            int minimum;
+            int maximum;
+            switch (token) {
+                case 'd': component = 0; minimum = width; maximum = width == 1 ? 8 : width; break;
+                case 'h': component = 1; minimum = width; maximum = width == 1 ? 2 : width; break;
+                case 'm': component = 2; minimum = width; maximum = width == 1 ? 2 : width; break;
+                case 's': component = 3; minimum = width; maximum = width == 1 ? 2 : width; break;
+                case 'f': component = 4; minimum = width; maximum = width; break;
+                case 'F': component = 4; minimum = 0; maximum = width; break;
+                default: throw new FormatException();
+            }
+            int allowed = component == 0 ? 8 : component == 4 ? 7 : 2;
+            if (width > allowed || assigned[component]) { throw new FormatException(); }
+            assigned[component] = true;
+            int digits = 0;
+            long value = 0L;
+            while (digits < maximum && cursor < input.length()) {
+                char digit = input.charAt(cursor);
+                if (digit < '0' || digit > '9') { break; }
+                value = value * 10L + digit - '0';
+                cursor++;
+                digits++;
+            }
+            if (digits < minimum) { throw new FormatException(); }
+            if (component == 4) {
+                for (int padding = digits; padding < 7; padding++) { value *= 10L; }
+            }
+            components[component] = value;
+        }
+        if (cursor != input.length()) { throw new FormatException(); }
+        if (components[1] > 23L || components[2] > 59L || components[3] > 59L) { throw new OverflowException(); }
+        java.math.BigInteger total = java.math.BigInteger.valueOf(components[0])
+                .multiply(java.math.BigInteger.valueOf(TicksPerDay))
+                .add(java.math.BigInteger.valueOf(components[1] * TicksPerHour + components[2] * TicksPerMinute
+                        + components[3] * TicksPerSecond + components[4]));
+        if (total.compareTo(java.math.BigInteger.valueOf(Long.MAX_VALUE)) > 0) { throw new OverflowException(); }
         return new TimeSpan(total.longValue());
     }
 
