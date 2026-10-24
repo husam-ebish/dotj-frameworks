@@ -1076,7 +1076,7 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsPrimitive() {
-        return this.definition == Int32.class || this.definition == Void.class
+        return this.definition == Int32.class
                 || this.definition == Boolean.class
                 || this.definition == Character.class || this.definition == Short.class
                 || this.definition == Long.class || this.definition == BigInteger.class
@@ -1096,18 +1096,11 @@ public abstract class Type extends MemberInfo {
     }
 
     public boolean get_IsSealed() {
-        return this.get_IsArray() || this.definition == String.class || this.definition == Boolean.class
-                || this.definition == Character.class
-                || this.definition == Short.class
-                || this.definition == Long.class
-                || this.definition == Float.class
-                || this.definition == Double.class
-                || this.definition == Byte.class || this.definition == SByte.class
-                || this.definition == Int32.class || this.definition == Void.class || this.definition == DBNull.class
-                || this.definition == Decimal.class || this.definition == DateTime.class || this.definition == TimeSpan.class
-                || this.definition == StreamingContext.class
-                || this.definition == StreamingContextStates.class
-                || this.get_IsEnum();
+        return this.get_IsArray() || this.get_IsValueType() || this.definition == String.class
+                || this.definition == DBNull.class || this.definition == NumberFormatInfo.class
+                || this.definition == SerializationInfo.class
+                || this.definition == SerializationInfoEnumerator.class
+                || this.definition == NullableAttribute.class;
     }
 
     public boolean get_IsPublic() {
@@ -1130,8 +1123,13 @@ public abstract class Type extends MemberInfo {
         if (this.get_IsArray()) {
             return true;
         }
-        return this.definition == String.class || this.definition == Int32.class || this.definition == DBNull.class
-                || this.definition == java.util.List.class || this.get_IsEnum()
+        return this.definition == Object.class || this.definition == Number.class
+                || this.definition == Enum.class || this.definition == String.class
+                || this.definition == DBNull.class || this.get_IsPrimitive() || this.get_IsEnum()
+                || this.definition == Decimal.class || this.definition == DateTime.class
+                || this.definition == TimeSpan.class || this.definition == DictionaryEntry.class
+                || this.definition == ValueTuple.class
+                || this.definition == java.util.List.class || this.definition == java.util.Map.class
                 || Exception.class.isAssignableFrom(this.definition);
     }
 
