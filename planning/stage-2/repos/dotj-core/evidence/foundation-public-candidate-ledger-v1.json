@@ -3,7 +3,7 @@
   "coreLibSha256": "1125acc8106c43fc8bad2d203c4c4485df6182d292846c2fff415c1040c54678",
   "metadataEvidence": "foundation-selected-metadata-v10.0.12.json",
   "candidateEvidence": "foundation-product-candidate-v1.json",
-  "candidateJarSha256": "bef02701b7bfc053cb4b16669ac355a4a0a04e1687d4edb0f883d002aac461f3",
+  "candidateJarSha256": "3a4795b2bcc642bd82b0dfb251ed53cfa31526a158e9b5c8fb672c64926419f6",
   "typeCount": 30,
   "typeMethodCountNote": "The earlier Type snapshot lists 181 declared methods including property accessors; this oracle counts 109 non-accessor methods and 70 properties.",
   "types": [
@@ -291,6 +291,7 @@
         "public static boolean TryParseExact(java.lang.String, java.lang.String, System.IFormatProvider, System.DateTime[]);",
         "public static System.DateTime FromBinary(long);",
         "public static System.DateTime FromFileTimeUtc(long);",
+        "public static System.DateTime FromFileTime(long);",
         "public static System.DateTime FromOADate(double);",
         "public static boolean IsLeapYear(int);",
         "public static int DaysInMonth(int, int);",
