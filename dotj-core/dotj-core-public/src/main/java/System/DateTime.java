@@ -68,6 +68,13 @@ public final class DateTime implements IConvertible {
         return new DateTime(this.date.toLocalDate().atStartOfDay());
     }
 
+    public long get_Ticks() {
+        long days = this.date.toLocalDate().toEpochDay()
+                - LocalDate.of(1, 1, 1).toEpochDay();
+        return days * 864_000_000_000L
+                + this.date.toLocalTime().toNanoOfDay() / 100L;
+    }
+
     public int get_Hour() {
         return this.date.getHour();
     }

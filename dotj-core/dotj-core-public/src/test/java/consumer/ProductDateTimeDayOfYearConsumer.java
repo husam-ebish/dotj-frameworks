@@ -32,6 +32,16 @@ public final class ProductDateTimeDayOfYearConsumer {
         if (date.get_Date().get_Hour() != 0) {
             throw new AssertionError("DateTime Date changed after a second access");
         }
+        if (new DateTime(1, 1, 1).get_Ticks() != 0L
+                || new DateTime(1970, 1, 1).get_Ticks() != 621355968000000000L
+                || new DateTime(2000, 2, 29, 12, 34, 56, 789).get_Ticks()
+                    != 630874244967890000L
+                || new DateTime(9999, 12, 31, 23, 59, 59, 999).get_Ticks()
+                    != 3155378975999990000L
+                || withTime.get_Date().get_Ticks()
+                    != new DateTime(2024, 2, 29).get_Ticks()) {
+            throw new AssertionError("DateTime ticks changed");
+        }
         java.lang.System.out.println("PASS external selected DateTime day of year");
     }
 }

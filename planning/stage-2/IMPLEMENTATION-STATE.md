@@ -4,7 +4,7 @@ Updated: 2026-10-24. Baseline: `stage-2-2026-10-20-v2`.
 
 ## Current position
 
-- Completed batches: `Batch-001` through `Batch-1938` (`dotj-core` E01 preparation, bounded WP-01/WP-02 E02/E03/N01 evidence, and internal foundation helpers). No batch is active.
+- Completed batches: `Batch-001` through `Batch-1939` (`dotj-core` E01 preparation, bounded WP-01/WP-02 E02/E03/N01 evidence, and internal foundation helpers). No batch is active.
 - Internal Java ownership, type, context, cancellation, and async state sources plus executable fixtures exist in `dotj-core/dotj-core-01`; 16 source files build into an 18-class JDK-only JAR. The internal async helper includes timed waits and cleanup checks. The N01 selected-method ledger verifies 99 pinned public method signatures across nine async/cancellation types. No public .j compiler integration or qualified framework implementation exists. The C# oracles are reference tools.
 - Core E01: **IN PROGRESS**. The source archive and notices are recorded in [source-archive-v10.0.12.json](repos/dotj-core/evidence/source-archive-v10.0.12.json). [Runtime artifact evidence](repos/dotj-core/evidence/runtime-artifact-v10.0.12-win-x64.json) confirms the official win-x64 ZIP checksum, 189 installed-runtime file matches, and identical CoreLib source subtrees between the embedded `dotnet/dotnet` commit and `dotnet/runtime` v10.0.12 tag. The pinned [oracle bootstrap manifest](repos/dotj-core/evidence/oracle-bootstrap-v10.0.12/manifest.json) records a clean C# build and run. The [bounded rights-scope record](repos/dotj-core/evidence/rights-scope-v10.0.12.json) verifies 14 selected C# file headers and direct generator inputs. The [Roslyn package record](repos/dotj-core/evidence/roslyn-package-v4.14.0/manifest.json) verifies the declared 4.14.0 NuGet artifact, MIT expression and notice. The [generator restore graph](repos/dotj-core/evidence/restore-graph-v10.0.12-netstandard2.0/manifest.json) confirms effective 4.14.0 and 20 resolved packages in one `netstandard2.0` profile with static graph disabled. A fresh [NuGet.org-only hash probe](repos/dotj-core/evidence/nuget-hash-probe-v4.14.0/manifest.json) reproduced the Azure-feed Roslyn hash difference. NuGet documents the metadata content hash as excluding package signature metadata, while the sidecar hashes the full signed package bytes. NuGet.org alone cannot restore the full generator project because required beta/internal packages are unavailable. Static-graph restore failed only when the redundant global `TargetFramework=netstandard2.0` property was passed; it succeeded without that property in a complete pinned extraction and the earlier subset. Transitive rights, file-to-notice applicability and generated-output release qualification remain open. This is not the mapped E03 behavior oracle; only the bounded CoreLib project build has passed, not a full upstream runtime build. See [baseline-lock.json](repos/dotj-core/evidence/baseline-lock.json).
 - The [20-package rights inventory](repos/dotj-core/evidence/generator-package-rights-v10.0.12/manifest.json) snapshots every resolved package nuspec and 32 notice-like files. Fourteen nuspecs declare an MIT expression; six have legacy license URLs without a license element. One beta package has no notice-like extracted file by filename. This is an inventory, not rights clearance.
@@ -1936,15 +1936,16 @@ Updated: 2026-10-24. Baseline: `stage-2-2026-10-20-v2`.
 - Batch-1936: Expose Decimal scale getter Broader Decimal property parity remains open
 - Batch-1937: Expose DateTime day of year Broader DateTime parity remains open
 - Batch-1938: Expose DateTime date getter Broader DateTime parity remains open
+- Batch-1939: Expose DateTime ticks getter Broader DateTime parity remains open
 - E02, E03 and N01: **IN PROGRESS** for the bounded WP-01 disposal slice. WP-01-T1/T2/T3 implementation: **IN PROGRESS**; WP-02: **IN PROGRESS**. Existing development-pin samples are not qualified against the chosen release candidate.
 - All other frameworks: implementation **NOT STARTED**. Their preparation and qualification gates remain open.
 - Implementation percentage: **0.00% (0/1,092 equal-weight implementation tasks complete)**. WP and SDK integration task IDs form the denominator; N01 and E01-E03/Q01 are prerequisites. Partial tasks earn no completion credit. This is task completion, not an estimate of engineering effort.
-- Batch tracking: 1,938 total batches completed under `stage-2-batches-v7`; total planned and total remaining batches are unknown. 1,686 acceptance items remain; these are not a batch count. The next proposed batch is `Batch-1939`.
+- Batch tracking: 1,939 total batches completed under `stage-2-batches-v7`; total planned and total remaining batches are unknown. 1,686 acceptance items remain; these are not a batch count. The next proposed batch is `Batch-1940`.
 
 Every future batch report and user handoff should show only the overall implementation percentage, total batches completed, total batches planned and remaining (or "unknown"), and the next batch. Do not show overlapping request-series or tranche counters. Keep the 0/66 qualified-framework measure separate from the implementation percentage. Rebaseline the batch plan when acceptance work needs additional batches or the named scope changes.
 
 ## Continuation
 
-Proposed `Batch-1939`: Expose DateTime ticks getter
+Proposed `Batch-1940`: Implement another missing DateTime public getter
 
-See [Batch-1938](implementation/batches/Batch-1938.md) for the latest validation record and limitations. The current request authorizes the next batch.
+See [Batch-1939](implementation/batches/Batch-1939.md) for the latest validation record and limitations. The current request authorizes the next batch.
