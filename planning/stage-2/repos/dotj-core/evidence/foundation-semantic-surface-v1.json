@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "b72e59fe4d6bd78670a4e098972ce9fa61f3af49e04fcfab56b47f743eab4db2",
+  "javaCandidateEvidenceSha256": "d555b233aa83db11f80a1d8ae5f9c0a55dad23f7e65061a58db0adc7e90327e1",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 53,
+  "nameLevelMissingMethodCount": 52,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5952,7 +5952,8 @@
         "public java.lang.String ToString(java.lang.String, System.IFormatProvider);",
         "public java.lang.String ToLongDateString();",
         "public java.lang.String ToShortDateString();",
-        "public java.lang.String ToLongTimeString();"
+        "public java.lang.String ToLongTimeString();",
+        "public java.lang.String ToShortTimeString();"
       ],
       "nameLevelComparison": {
         "upstreamNonAccessorOverloads": {
@@ -6035,6 +6036,7 @@
           "ToLongTimeString": 1,
           "ToSByte": 1,
           "ToShortDateString": 1,
+          "ToShortTimeString": 1,
           "ToSingle": 1,
           "ToString": 2,
           "ToType": 1,
@@ -6070,7 +6072,6 @@
           "ToFileTime",
           "ToLocalTime",
           "ToOADate",
-          "ToShortTimeString",
           "ToUniversalTime",
           "TryFormat"
         ],

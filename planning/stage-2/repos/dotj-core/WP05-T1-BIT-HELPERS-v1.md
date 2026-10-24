@@ -739,3 +739,5 @@ The public DateTime candidate now exposes ToLongDateString using selected invari
 The public DateTime candidate now exposes ToShortDateString using selected invariant-culture MM/dd/yyyy output. A packaged consumer checks leap-day and minimum-date text. Current-culture formatting remains open.
 
 The public DateTime candidate now exposes ToLongTimeString using selected invariant-culture HH:mm:ss output. A packaged consumer checks midnight and late-evening text. Current-culture formatting remains open.
+
+The public DateTime candidate now exposes ToShortTimeString using selected invariant-culture HH:mm output. A packaged consumer checks midnight and late-evening text. Current-culture formatting remains open.
