@@ -132,6 +132,46 @@ foreach ($entry in $scales.GetEnumerator()) {
         }
     }
 }
+$checkedArithmetic = @()
+foreach ($ticks in $ticksList) {
+    foreach ($kind in [Enum]::GetValues([DateTimeKind])) {
+        $origin = [DateTime]::new($ticks,$kind)
+        foreach ($operand in @([long]::MinValue,([long]::MinValue+1),[long]-3155378975999999999,[long]-864000000000,[long]-1,[long]0,[long]1,[long]864000000000,[long]3155378975999999999,[long]::MaxValue)) {
+            foreach ($operation in @('AddTicks','AddSpan','SubtractSpan')) {
+                try {
+                    $value = switch ($operation) {
+                        'AddTicks' { $origin.AddTicks($operand) }
+                        'AddSpan' { $origin.Add([TimeSpan]::FromTicks($operand)) }
+                        'SubtractSpan' { $origin.Subtract([TimeSpan]::FromTicks($operand)) }
+                    }
+                    $result = [ordered]@{ticks=$value.Ticks;kind=$value.Kind.ToString()}
+                } catch { $result = Failure $_ }
+                $checkedArithmetic += [ordered]@{ticks=$ticks;kind=$kind.ToString();operation=$operation;operand=$operand;result=$result}
+            }
+        }
+        foreach ($otherTicks in $ticksList) {
+            foreach ($otherKind in [Enum]::GetValues([DateTimeKind])) {
+                $value = $origin.Subtract([DateTime]::new($otherTicks,$otherKind))
+                $checkedArithmetic += [ordered]@{ticks=$ticks;kind=$kind.ToString();operation='SubtractDate';operand=$otherTicks
+                    operandKind=$otherKind.ToString();result=[ordered]@{spanTicks=$value.Ticks}}
+            }
+        }
+    }
+}
+foreach ($date in @(@(1,1,1),@(9999,12,31),@(1900,2,28),@(2000,2,29),@(2023,1,31),@(2024,1,31),@(2024,2,29),@(2024,3,31),@(2024,4,30))) {
+    foreach ($kind in [Enum]::GetValues([DateTimeKind])) {
+        $origin = [DateTime]::SpecifyKind([DateTime]::new($date[0],$date[1],$date[2],12,34,56,789,123).AddTicks(7),$kind)
+        foreach ($operand in @([int]::MinValue,-120001,-120000,-10001,-10000,-13,-12,-1,0,1,12,13,10000,10001,120000,120001,[int]::MaxValue)) {
+            foreach ($operation in @('AddMonths','AddYears')) {
+                try {
+                    $value = if ($operation -eq 'AddMonths') { $origin.AddMonths($operand) } else { $origin.AddYears($operand) }
+                    $result = [ordered]@{ticks=$value.Ticks;kind=$value.Kind.ToString()}
+                } catch { $result = Failure $_ }
+                $checkedArithmetic += [ordered]@{ticks=$origin.Ticks;kind=$kind.ToString();operation=$operation;operand=$operand;result=$result}
+            }
+        }
+    }
+}
 $defaultDate = [Activator]::CreateInstance([DateTime])
 $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToString();coreLibSha256=$coreHash
     oracleSha256=(Get-FileHash -LiteralPath $PSCommandPath -Algorithm SHA256).Hash.ToLowerInvariant()
@@ -139,6 +179,7 @@ $record = [ordered]@{schemaVersion=1;runtimeVersion=[Environment]::Version.ToStr
     componentConstructors=$componentConstructors
     calendarProperties=$calendarProperties;enums=$enums
     floatingAddition=$floatingAddition
+    checkedArithmetic=$checkedArithmetic
     defaultValue=[ordered]@{ticks=$defaultDate.Ticks;kind=$defaultDate.Kind.ToString()}
     qualification='BOUNDED_REFERENCE_ONLY; PUBLIC_QUALIFICATION_OPEN'}
 [IO.File]::WriteAllText($OutputPath,($record|ConvertTo-Json -Depth 12)+"`n",[Text.UTF8Encoding]::new($false))

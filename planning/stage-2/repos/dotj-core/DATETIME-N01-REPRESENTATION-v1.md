@@ -11,6 +11,7 @@
 | DayOfWeek, Date and TimeOfDay | Gregorian weekday and positive tick remainder; midnight Date retains Kind | Pinned extrema and seven consecutive weekdays in five centuries; no timezone conversion or full calendar qualification implied |
 | DayOfWeek and DateTimeKind enum projection | Exact CLR names and selected integer values represented by Java enum ordinals; Type lookup, enum names/values and underlying Int32 projection | Selected declared values and query cases only; arbitrary numeric enum carriers and full CLR enum/language semantics remain open |
 | Floating-unit addition | Six unit methods accumulate whole units exactly and truncate fractional ticks toward zero; pinned maximum-unit range and Kind retention | Selected IEEE-bit inputs, subticks, NaN, infinities and endpoint neighbors only; wall-clock/DST and full arithmetic qualification remain open |
+| Checked and calendar arithmetic | Tick and interval addition/subtraction, date subtraction, month-end normalization and leap-year adjustment preserve selected tick and Kind results; AddYears reports ParamName value | Pinned extrema, wide offsets, calendar bounds and mixed-Kind subtraction only; timezone/language integration and complete arithmetic qualification remain open |
 
 The product uses JDK APIs only. Pinned .NET and Python/JDK scripts provide development evidence. Broader project dependency resolution and distribution remain open. These selected checks close no implementation task, E01 decision or framework qualification.
 
