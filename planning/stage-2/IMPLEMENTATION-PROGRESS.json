@@ -2053,7 +2053,8 @@
     "Batch-2036",
     "Batch-2037",
     "Batch-2038",
-    "Batch-2039"
+    "Batch-2039",
+    "Batch-2040"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2246,7 +2247,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2039",
+      "lastUpdatedBatch": "Batch-2040",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -11857,19 +11858,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2040",
+    "id": "Batch-2041",
     "framework": "dotj-core",
     "planTaskIds": [
-      "DJ-001-WP-05-T1"
+      "DJ-001-WP-05-T3"
     ],
-    "outcome": "Implement TimeSpan exact parsing with ordered String format arrays and selected Char input views",
+    "outcome": "Add DateTime wall-clock getters and paired pinned CLR clock-envelope validation, keeping monotonic deadlines separate",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2039,
+    "completedBatches": 2040,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -11878,8 +11879,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2101",
     "requestedBatches": 100,
-    "completedBatches": 38,
-    "remainingBatches": 62,
+    "completedBatches": 39,
+    "remainingBatches": 61,
     "note": "User-requested run target; not a project-wide batch baseline."
   }
 }

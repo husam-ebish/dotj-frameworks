@@ -634,6 +634,45 @@ public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanF
         }
     }
 
+    public static TimeSpan ParseExact(String input, String[] formats, IFormatProvider formatProvider) {
+        if (input == null) { throw new ArgumentNullException("input"); }
+        if (formats == null) { throw new ArgumentNullException("formats"); }
+        if (input.isEmpty()) { throw new FormatException(); }
+        for (String format : formats) {
+            if (format == null || format.isEmpty()) { throw new FormatException(); }
+            try {
+                return ParseExact(input, format, formatProvider);
+            } catch (FormatException | OverflowException invalid) {
+                // Each alternative is independent; a failed alternative does not escape.
+            }
+        }
+        throw new FormatException();
+    }
+
+    public static boolean TryParseExact(String input, String[] formats, IFormatProvider formatProvider,
+            TimeSpan[] result) {
+        result[0] = Zero;
+        if (input == null || formats == null) { return false; }
+        try {
+            result[0] = ParseExact(input, formats, formatProvider);
+            return true;
+        } catch (FormatException | OverflowException invalid) {
+            return false;
+        }
+    }
+
+    public static TimeSpan ParseExact(ReadOnlySpan<Character> input, String[] formats,
+            IFormatProvider formatProvider) {
+        if (input == null) { throw new ArgumentNullException("input"); }
+        return ParseExact(input.selectedText(), formats, formatProvider);
+    }
+
+    public static boolean TryParseExact(ReadOnlySpan<Character> input, String[] formats,
+            IFormatProvider formatProvider, TimeSpan[] result) {
+        if (input == null) { throw new ArgumentNullException("input"); }
+        return TryParseExact(input.selectedText(), formats, formatProvider, result);
+    }
+
     public static TimeSpan ParseExact(ReadOnlySpan<Character> input, ReadOnlySpan<Character> format,
             IFormatProvider formatProvider) {
         if (input == null) { throw new ArgumentNullException("input"); }

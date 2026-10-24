@@ -65,7 +65,8 @@ def main():
             expression = f'(({interface}) TimeSpan.FromTicks({case["ticks"]}L)).TryFormat(buffer, written, {json.dumps(case["format"])}, null)'
         elif args.parsing or args.exact_parsing:
             input_value = '(String)null' if case['input'] is None else json.dumps(case['input'])
-            arguments = input_value + (',' + json.dumps(case['format']) + ',null' if args.exact_parsing else '')
+            format_value = '(String)null' if args.exact_parsing and case['format'] is None else json.dumps(case['format']) if args.exact_parsing else ''
+            arguments = input_value + (',' + format_value + ',null' if args.exact_parsing else '')
             parse_method = 'ParseExact' if args.exact_parsing else 'Parse'
             expression = f'TimeSpan.{parse_method}({arguments})'
         elif args.formats or args.custom_formats:
