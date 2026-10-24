@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "scope": "Current foundation development and reference-validation tools; not Java product dependencies or a .j SDK distribution",
+  "packages": [
+    {
+      "id": "python",
+      "version": "3.13.9",
+      "purpose": "Run repository build and audit scripts; this bootstrap version is selected for reproducibility, not a product requirement",
+      "role": "development",
+      "url": "https://www.python.org/ftp/python/3.13.9/python-3.13.9-embed-amd64.zip",
+      "file": "python-3.13.9.zip",
+      "hashAlgorithm": "SHA256",
+      "hash": "91d828c2da3a029b41699e918674a0cb379c02cf20dab9c501306885f837402a",
+      "verificationBasis": "Observed official Python.org archive, tested interpreter and standard library; archive hash locked in this bootstrap",
+      "extractTo": "python-3.13.9"
+    },
+    {
+      "id": "microsoft-openjdk",
+      "version": "21.0.12.1+1-LTS",
+      "purpose": "Compile Java 21 candidate, package and inspect JARs, execute packaged consumers",
+      "role": "development-and-jdk-runtime",
+      "url": "https://aka.ms/download-jdk/microsoft-jdk-21.0.12.1-windows-x64.zip",
+      "file": "jdk-21.0.12.1.zip",
+      "hashAlgorithm": "SHA256",
+      "hash": "192441a9d27da813bada974bb88b4cf64d37a9589ed37f204374d411ca5ce07f",
+      "verificationBasis": "Microsoft redirect downloaded and tested; java, javac and jar executable hashes match baseline-lock.json and the E01 packet",
+      "extractTo": "jdk-qualified"
+    },
+    {
+      "id": "dotnet-sdk",
+      "version": "10.0.401",
+      "purpose": "Compile reference oracles; archive also supplies required .NET runtime 10.0.12",
+      "role": "reference-validation",
+      "url": "https://builds.dotnet.microsoft.com/dotnet/Sdk/10.0.401/dotnet-sdk-10.0.401-win-x64.zip",
+      "file": "dotnet-sdk-10.0.401.zip",
+      "hashAlgorithm": "SHA512",
+      "hash": "24b670ad3d923bfcf47df6c3b034152398b42f6dbc388e10d783aee1cfb5e5817d399fc0ae2a12cfa822a55e61d34830ccb15c50ef6efee437ab874bb7c79430",
+      "verificationBasis": "Official .NET 10.0 release metadata for SDK 10.0.401; host, SDK and CoreLib executable hashes match baseline-lock.json",
+      "metadataUrl": "https://builds.dotnet.microsoft.com/dotnet/release-metadata/10.0/releases.json",
+      "extractTo": "dotnet"
+    },
+    {
+      "id": "powershell-framework-dependent",
+      "version": "7.6.0",
+      "purpose": "Run new PowerShell reference probes on the shared pinned .NET runtime; not the self-contained package",
+      "role": "reference-validation",
+      "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.6.0/PowerShell-7.6.0-win-fxdependent.zip",
+      "file": "powershell-7.6.0-fxdependent.zip",
+      "hashAlgorithm": "SHA256",
+      "hash": "24d2ce61260ba62faf2fba472f383c375fa067ba67c15f14ee5c2b2f16987dcf",
+      "verificationBasis": "Archive hash matches publisher hashes.sha256; TimeSpan oracle independently requires the pinned CoreLib hash",
+      "metadataUrl": "https://github.com/PowerShell/PowerShell/releases/download/v7.6.0/hashes.sha256",
+      "extractTo": "powershell-7.6.0-fxdependent"
+    },
+    {
+      "id": "runtime-reference-source",
+      "version": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
+      "purpose": "Immutable upstream source reference for foundation comparisons and upstream fixture mapping",
+      "role": "reference-source",
+      "url": "https://codeload.github.com/dotnet/runtime/zip/4271d88e0aebf3d04f188f1334c2220d80555ef6",
+      "file": "runtime-source-v10.0.12.zip",
+      "hashAlgorithm": "SHA256",
+      "hash": "ae0460937c3d6ca394d8240a8e34eb61b80bb34951ec47efab1ba302b04ce115",
+      "verificationBasis": "Existing source-archive-v10.0.12.json URL and SHA-256; no new upstream baseline selected",
+      "extractTo": null
+    }
+  ],
+  "broaderProject": "Complete resolved 66-framework dependency graph is open. Upstream PackageReference examples are not Java runtime requirements. No public .j SDK installer or feed is documented as released."
+}
