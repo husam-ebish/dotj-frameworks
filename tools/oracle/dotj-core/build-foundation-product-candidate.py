@@ -21,6 +21,7 @@ SOURCES += [PRODUCT / "src/main/java/System/Collections" / (name + ".java") for 
 SOURCES.append(PRODUCT / "src/main/java/org/dotj/internal/collections/ExceptionDataDictionary.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberStyles.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/NumberFormatInfo.java")
+SOURCES.append(PRODUCT / "src/main/java/System/Diagnostics/Stopwatch.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Globalization/CultureNotFoundException.java")
 SOURCES.append(PRODUCT / "src/main/java/System/Runtime/CompilerServices/NullableAttribute.java")
 SOURCES += [PRODUCT / "src/main/java/System/Runtime/Serialization" / (name + ".java") for name in
@@ -153,6 +154,7 @@ EXPECTED_CLASSES = [
     "System/DateTimeKind.class",
     "System/DayOfWeek.class",
     "System/Decimal.class",
+    "System/Diagnostics/Stopwatch.class",
     "System/DivideByZeroException.class",
     "System/Exception.class",
     "System/FormatException.class",

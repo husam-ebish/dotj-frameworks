@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "scope": "All 74 candidate Java paths; direct name-matched pinned upstream paths only",
+  "scope": "All 75 candidate Java paths; direct name-matched pinned upstream paths only",
   "upstreamCommit": "4271d88e0aebf3d04f188f1334c2220d80555ef6",
   "artifactEvidence": "foundation-product-candidate-v1.json",
-  "jarSha256": "4ba5545743d62c0dc02aec642226f5bbae76385d4a403cdf71a50a6bbc92880c",
+  "jarSha256": "7c66907e85e4029b74f8a0e0e9b52b6405cc8d36a3ca1af7ea4a943ca434271c",
   "method": "Case-sensitive C#/Java identifier tokenization; count shared contiguous runs of 12 identifiers",
   "rows": [
     {
@@ -216,6 +216,18 @@
       "productIdentifierCount": 6094,
       "upstreamIdentifierCount": 7134,
       "sharedIdentifierShinglesOfLength12": 0
+    },
+    {
+      "productPath": "dotj-core/dotj-core-public/src/main/java/System/Diagnostics/Stopwatch.java",
+      "productSha256": "b438cb114152ddc0005daacbecf230b8ac5893095cb0c56df78ffdfad55d4328",
+      "upstreamPath": "src/libraries/System.Private.CoreLib/src/System/Diagnostics/Stopwatch.cs",
+      "upstreamUrl": "https://raw.githubusercontent.com/dotnet/runtime/4271d88e0aebf3d04f188f1334c2220d80555ef6/src/libraries/System.Private.CoreLib/src/System/Diagnostics/Stopwatch.cs",
+      "directNameMatchedUpstreamFile": "FOUND",
+      "upstreamSha256": "8ee76eff6d199d65064dd6e8b29e05b95722e670a8af8dd048c6d7fb84957955",
+      "productIdentifierCount": 221,
+      "upstreamIdentifierCount": 372,
+      "sharedIdentifierShinglesOfLength12": 0,
+      "sharedIdentifierShingleSamples": []
     },
     {
       "productPath": "dotj-core/dotj-core-public/src/main/java/System/DivideByZeroException.java",
