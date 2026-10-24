@@ -138,7 +138,7 @@ check(java.util.Objects.equals(expected.get_ParamName(), {json.dumps(result['par
 }}''')
     if args.parsing or args.exact_parsing:
         for index,row in enumerate(oracle['exactParsing'] if args.exact_parsing else oracle['parsing']):
-            parameters=json.dumps(row['input'])
+            parameters='(String)null' if row['input'] is None else json.dumps(row['input'])
             if args.exact_parsing:
                 parameters+=','+json.dumps(row['format'])+',null'
             method='ParseExact' if args.exact_parsing else 'Parse'

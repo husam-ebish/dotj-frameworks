@@ -149,6 +149,20 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         }
     }
 
+    public static DateTime Parse(String s, IFormatProvider provider) {
+        if (provider != null) { throw new UnsupportedOperationException("Only null-provider invariant parsing is mapped."); }
+        return Parse(s);
+    }
+
+    public static DateTime Parse(ReadOnlySpan<Character> s) {
+        return Parse(s, null);
+    }
+
+    public static DateTime Parse(ReadOnlySpan<Character> s, IFormatProvider provider) {
+        if (s == null) { throw new ArgumentNullException("s"); }
+        return Parse(s.selectedText(), provider);
+    }
+
     private static boolean parseSpace(char value) {
         return value >= '\t' && value <= '\r' || value == '\u0085' || Character.isSpaceChar(value);
     }
@@ -164,6 +178,20 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         } catch (FormatException expected) {
             return false;
         }
+    }
+
+    public static boolean TryParse(String s, IFormatProvider provider, DateTime[] result) {
+        if (provider != null) { throw new UnsupportedOperationException("Only null-provider invariant parsing is mapped."); }
+        return TryParse(s, result);
+    }
+
+    public static boolean TryParse(ReadOnlySpan<Character> s, DateTime[] result) {
+        return TryParse(s, null, result);
+    }
+
+    public static boolean TryParse(ReadOnlySpan<Character> s, IFormatProvider provider, DateTime[] result) {
+        if (s == null) { throw new ArgumentNullException("s"); }
+        return TryParse(s.selectedText(), provider, result);
     }
 
     public static DateTime ParseExact(String text, String format, IFormatProvider provider) {
