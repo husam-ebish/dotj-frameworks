@@ -1,7 +1,8 @@
 <# Run a selected reference oracle against shared pinned CoreLib, never bundled CoreLib. #>
 [CmdletBinding()]
-param([Parameter(Mandatory)][ValidateSet('timespan', 'exception', 'datetime', 'temporal-type', 'temporal-span', 'temporal-span-parsing', 'temporal-span-exact', 'timespan-custom-exact', 'timespan-general-exact', 'timespan-general-format', 'timespan-array-exact')][string]$Contract,
-      [string]$StorageRoot = 'D:\AI\Implementation\dotj Frameworks')
+param([Parameter(Mandatory)][ValidateSet('timespan', 'exception', 'datetime', 'temporal-type', 'temporal-span', 'temporal-span-parsing', 'temporal-span-exact', 'timespan-custom-exact', 'timespan-general-exact', 'timespan-general-format', 'timespan-array-exact', 'datetime-clock')][string]$Contract,
+      [string]$StorageRoot = 'D:\AI\Implementation\dotj Frameworks',
+      [string]$JarPath, [string]$ConsumerClassPath)
 $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 $storage = [IO.Path]::GetFullPath($StorageRoot)
@@ -23,7 +24,12 @@ try {
     $env:PSModuleAnalysisCachePath = Join-Path $storage 'cache/powershell-analysis'
     New-Item -ItemType Directory -Force -Path $env:TEMP, $env:DOTNET_CLI_HOME | Out-Null
     $outputPath = Join-Path $root "planning/stage-2/repos/dotj-core/evidence/$Contract-contract-v10.0.12.json"
-    & $dotnet exec --runtimeconfig $config $pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "capture-$Contract-contract.ps1") -OutputPath $outputPath
+    $captureArguments=@('-OutputPath',$outputPath)
+    if($Contract -eq 'datetime-clock'){
+        if(!$JarPath -or !$ConsumerClassPath){throw 'Clock capture requires an explicit product JAR and consumer class path.'}
+        $captureArguments+=@('-JarPath',$JarPath,'-ConsumerClassPath',$ConsumerClassPath)
+    }
+    & $dotnet exec --runtimeconfig $config $pwsh -NoLogo -NoProfile -ExecutionPolicy Bypass -File (Join-Path $PSScriptRoot "capture-$Contract-contract.ps1") @captureArguments
     if ($LASTEXITCODE -ne 0) { throw 'Pinned reference oracle failed.' }
     # Preserve a stable byte representation across PowerShell/checkout line endings.
     $canonical = [IO.File]::ReadAllText($outputPath).Replace("`r`n", "`n")

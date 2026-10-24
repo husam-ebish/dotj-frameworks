@@ -472,6 +472,19 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return AddTicks(offset);
     }
 
+    public static DateTime get_UtcNow() {
+        LocalDateTime value = LocalDateTime.now(ZoneOffset.UTC);
+        return new DateTime(value.withNano(value.getNano() / 100 * 100), DateTimeKind.Utc);
+    }
+
+    public static DateTime get_Now() {
+        return get_UtcNow().ToLocalTime();
+    }
+
+    public static DateTime get_Today() {
+        return get_Now().get_Date();
+    }
+
     public int get_Year() {
         return this.date.getYear();
     }
