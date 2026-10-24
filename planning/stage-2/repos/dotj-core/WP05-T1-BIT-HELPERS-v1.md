@@ -727,3 +727,5 @@ The public ArgumentException candidate now exposes ThrowIfNullOrEmpty with an ex
 The public ArgumentException candidate now exposes ThrowIfNullOrWhiteSpace with an explicit parameter-name overload. A packaged consumer checks nonwhite text, null, empty text, and selected Unicode whitespace. CallerArgumentExpression name inference remains open.
 
 The public DateTime candidate now exposes ToBinary for the current unspecified-kind model; its binary value equals ticks. A packaged consumer checks minimum, Unix epoch, and fractional ticks. Local and UTC kind encodings and the TimeSpan dependency remain open.
+
+The public DateTime candidate now exposes FromBinary for the current unspecified-kind model. A packaged consumer checks selected valid tick values and rejects out-of-range binary values. Local and UTC kind decoding remains open.

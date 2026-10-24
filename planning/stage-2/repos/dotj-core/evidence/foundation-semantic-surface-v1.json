@@ -5,9 +5,9 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "60ed3c1987a774ff499467b2bd6e8b3849e493273cdaafe5fbdc099eb6d4495c",
+  "javaCandidateEvidenceSha256": "78faed731f2c7c535ab34df36c31d3519c5b4880d17a8937716d4047c00b8d97",
   "selectedTypeCount": 30,
-  "nameLevelMissingMethodCount": 59,
+  "nameLevelMissingMethodCount": 58,
   "nameLevelMissingPublicGetterCount": 27,
   "types": [
     {
@@ -5896,6 +5896,7 @@
         "public static boolean TryParse(java.lang.String, System.DateTime[]);",
         "public static System.DateTime ParseExact(java.lang.String, java.lang.String, System.IFormatProvider);",
         "public static boolean TryParseExact(java.lang.String, java.lang.String, System.IFormatProvider, System.DateTime[]);",
+        "public static System.DateTime FromBinary(long);",
         "public static boolean IsLeapYear(int);",
         "public static int DaysInMonth(int, int);",
         "public static int Compare(System.DateTime, System.DateTime);",
@@ -6007,6 +6008,7 @@
           "CompareTo": 2,
           "DaysInMonth": 1,
           "Equals": 3,
+          "FromBinary": 1,
           "GetHashCode": 1,
           "GetTypeCode": 1,
           "IsLeapYear": 1,
@@ -6049,7 +6051,6 @@
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
           "Add",
           "Deconstruct",
-          "FromBinary",
           "FromFileTime",
           "FromFileTimeUtc",
           "FromOADate",
