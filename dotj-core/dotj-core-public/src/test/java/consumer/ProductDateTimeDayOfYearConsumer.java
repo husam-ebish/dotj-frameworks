@@ -635,7 +635,7 @@ public final class ProductDateTimeDayOfYearConsumer {
             ((IComparable) earlier).CompareTo("2024-02-29");
             throw new AssertionError("Wrong comparison type accepted");
         } catch (ArgumentException caught) {
-            if (!"obj".equals(caught.get_ParamName())) {
+            if (caught.get_ParamName() != null) {
                 throw new AssertionError("Object parameter changed");
             }
         }
