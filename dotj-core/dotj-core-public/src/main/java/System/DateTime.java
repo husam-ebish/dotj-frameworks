@@ -334,6 +334,15 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return ticks - FILE_TIME_EPOCH_TICKS;
     }
 
+    public long ToFileTime() {
+        LocalDateTime utc = this.date.atZone(ZoneId.systemDefault())
+                .withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
+        if (utc.getYear() < 1 || utc.getYear() > 9999) {
+            throw new ArgumentOutOfRangeException("fileTime");
+        }
+        return new DateTime(utc).ToFileTimeUtc();
+    }
+
     public double ToOADate() {
         long ticks = this.get_Ticks();
         if (ticks == 0) {

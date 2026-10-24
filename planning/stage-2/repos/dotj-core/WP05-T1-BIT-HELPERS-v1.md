@@ -751,3 +751,5 @@ The public DateTime candidate now implements ISpanFormattable with a selected ch
 The public DateTime candidate now exposes selected GetDateTimeFormats variants for invariant d, D, t and T text. A packaged consumer checks format selection, new result arrays and invalid specifiers. The complete standard-format permutation set remains open.
 
 The public DateTime candidate now exposes FromFileTime using the process default time zone after UTC file-time conversion. A packaged consumer checks the Unix epoch under America/New_York. Local kind metadata, ambiguous-time flags and boundary normalization remain open.
+
+The public DateTime candidate now exposes ToFileTime using the process default time zone before UTC file-time encoding. A packaged consumer checks New York Unix-epoch round trips. Local kind and ambiguous-time metadata remain open.
