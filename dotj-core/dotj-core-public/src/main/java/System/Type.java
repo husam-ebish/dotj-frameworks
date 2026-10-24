@@ -39,6 +39,7 @@ import System.Collections.DictionaryEntry;
 import System.Runtime.Serialization.StreamingContext;
 import System.Runtime.Serialization.StreamingContextStates;
 import System.Globalization.NumberStyles;
+import System.Globalization.TimeSpanStyles;
 import System.Globalization.NumberFormatInfo;
 import System.Globalization.CultureNotFoundException;
 
@@ -509,6 +510,8 @@ public abstract class Type extends MemberInfo {
             case "System.IO.FileLoadException" -> fromJavaClass(FileLoadException.class);
             case "System.FormatException" -> fromJavaClass(FormatException.class);
             case "System.Globalization.NumberStyles" -> fromJavaClass(NumberStyles.class);
+            case "System.Globalization.TimeSpanStyles" -> fromJavaClass(TimeSpanStyles.class);
+            case "System.Globalization.TimeSpanStyles[]" -> fromJavaClass(TimeSpanStyles.class).MakeArrayType();
             case "System.Globalization.NumberFormatInfo" -> fromJavaClass(NumberFormatInfo.class);
             case "System.Globalization.CultureNotFoundException" -> fromJavaClass(CultureNotFoundException.class);
             case "System.Reflection.MemberTypes" -> fromJavaClass(MemberTypes.class);
@@ -679,6 +682,8 @@ public abstract class Type extends MemberInfo {
             case "system.io.fileloadexception" -> ignoreCase ? fromJavaClass(FileLoadException.class) : null;
             case "system.formatexception" -> ignoreCase ? fromJavaClass(FormatException.class) : null;
             case "system.globalization.numberstyles" -> ignoreCase ? fromJavaClass(NumberStyles.class) : null;
+            case "system.globalization.timespanstyles" -> ignoreCase ? fromJavaClass(TimeSpanStyles.class) : null;
+            case "system.globalization.timespanstyles[]" -> ignoreCase ? fromJavaClass(TimeSpanStyles.class).MakeArrayType() : null;
             case "system.globalization.numberformatinfo" ->
                     ignoreCase ? fromJavaClass(NumberFormatInfo.class) : null;
             case "system.globalization.culturenotfoundexception" -> ignoreCase
@@ -1017,7 +1022,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == ParameterAttributes.class
                 || this.definition == TypeCode.class
-                || this.definition == NumberStyles.class
+                || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class
                 || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class) {
             return fromJavaClass(Enum.class);
         }
@@ -1063,7 +1068,7 @@ public abstract class Type extends MemberInfo {
                         || this.definition == StreamingContextStates.class
                         || this.definition == GenericParameterAttributes.class
                         || this.definition == ParameterAttributes.class
-                        || this.definition == TypeCode.class || this.definition == NumberStyles.class
+                        || this.definition == TypeCode.class || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class
                         || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class);
     }
 
@@ -1255,7 +1260,7 @@ public abstract class Type extends MemberInfo {
                 || this.definition == GenericParameterAttributes.class
                 || this.definition == ParameterAttributes.class
                 || this.definition == TypeCode.class
-                || this.definition == NumberStyles.class
+                || this.definition == NumberStyles.class || this.definition == TimeSpanStyles.class
                 || this.definition == DateTimeKind.class || this.definition == DayOfWeek.class;
     }
 
@@ -1314,6 +1319,9 @@ public abstract class Type extends MemberInfo {
             return false;
         }
         if (value.getClass() == this.definition) {
+            if (value instanceof TimeSpanStyles styles) {
+                return styles.get_Value() == 0 || styles.get_Value() == 1;
+            }
             if (value instanceof BindingFlags flags) {
                 return flags.get_Name() != null;
             }
@@ -1353,6 +1361,9 @@ public abstract class Type extends MemberInfo {
             throw new ArgumentException("Value must be an enum or its underlying type", "value");
         }
         if (value.getClass() == this.definition) {
+            if (value instanceof TimeSpanStyles styles) {
+                return styles.get_Value() == 0 || styles.get_Value() == 1 ? styles.get_Name() : null;
+            }
             if (value instanceof BindingFlags flags) {
                 return flags.get_Name();
             }
@@ -1389,6 +1400,9 @@ public abstract class Type extends MemberInfo {
     }
 
     private Object[] enumConstants() {
+        if (this.definition == TimeSpanStyles.class) {
+            return TimeSpanStyles.values();
+        }
         if (this.definition == NumberStyles.class) {
             return NumberStyles.values();
         }
@@ -1411,6 +1425,9 @@ public abstract class Type extends MemberInfo {
     }
 
     private static String enumConstantName(Object constant) {
+        if (constant instanceof TimeSpanStyles styles) {
+            return styles.get_Name();
+        }
         if (constant instanceof NumberStyles style) {
             return style.get_Name();
         }
@@ -1433,6 +1450,9 @@ public abstract class Type extends MemberInfo {
     }
 
     private static int enumNumericValue(Object constant) {
+        if (constant instanceof TimeSpanStyles styles) {
+            return styles.get_Value();
+        }
         if (constant instanceof DateTimeKind || constant instanceof DayOfWeek) {
             return ((java.lang.Enum<?>) constant).ordinal();
         }
@@ -1605,11 +1625,11 @@ public abstract class Type extends MemberInfo {
                     || value instanceof Decimal || value instanceof DateTime
                     || value instanceof TimeSpan || value instanceof DateTimeKind || value instanceof DayOfWeek
                     || value instanceof MemberTypes || value instanceof TypeCode
-                    || value instanceof NumberStyles;
+                    || value instanceof NumberStyles || value instanceof TimeSpanStyles;
         }
         if (this.definition == Enum.class) {
             return value instanceof MemberTypes || value instanceof TypeCode
-                    || value instanceof NumberStyles || value instanceof DateTimeKind || value instanceof DayOfWeek;
+                    || value instanceof NumberStyles || value instanceof TimeSpanStyles || value instanceof DateTimeKind || value instanceof DayOfWeek;
         }
         if (this.definition == IComparable.class) {
             return value instanceof String || value instanceof Integer || value instanceof Int32
