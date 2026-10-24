@@ -3,7 +3,7 @@
 package System;
 
 /** Immutable tick interval for the selected DateTime arithmetic candidate. */
-public final class TimeSpan implements IComparable, ISpanFormattable {
+public final class TimeSpan implements IComparable, ISpanFormattable, IUtf8SpanFormattable {
     public static final long NanosecondsPerTick = 100L;
     public static final long TicksPerMicrosecond = 10L;
     public static final long TicksPerMillisecond = 10_000L;
@@ -475,6 +475,10 @@ public final class TimeSpan implements IComparable, ISpanFormattable {
     }
 
     private String customText(String format) {
+        return customText(format, false);
+    }
+
+    private String customText(String format, boolean byteEncoding) {
         // Components are magnitudes, including at MinValue. Custom patterns supply their own sign.
         long days = java.lang.Math.abs(this.ticks / TicksPerDay);
         long remainder = java.lang.Math.abs(this.ticks % TicksPerDay);
@@ -486,7 +490,8 @@ public final class TimeSpan implements IComparable, ISpanFormattable {
                 if (index == format.length()) {
                     throw new FormatException();
                 }
-                output.append(format.charAt(index++));
+                char literal = format.charAt(index++);
+                output.append(byteEncoding ? (char) (literal & 0xff) : literal);
             } else if (token == '\'' || token == '"') {
                 boolean closed = false;
                 while (index < format.length()) {
@@ -500,8 +505,18 @@ public final class TimeSpan implements IComparable, ISpanFormattable {
                             throw new FormatException();
                         }
                         literal = format.charAt(index++);
+                        output.append(byteEncoding ? (char) (literal & 0xff) : literal);
+                    } else if (byteEncoding) {
+                        if (Character.isSurrogate(literal)) {
+                            throw new ArgumentOutOfRangeException("ch");
+                        }
+                        byte[] encoded = String.valueOf(literal).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+                        for (byte value : encoded) {
+                            output.append((char) (value & 0xff));
+                        }
+                    } else {
+                        output.append(literal);
                     }
-                    output.append(literal);
                 }
                 if (!closed) {
                     throw new FormatException();
@@ -510,7 +525,7 @@ public final class TimeSpan implements IComparable, ISpanFormattable {
                 if (index == format.length() || format.charAt(index) == '%') {
                     throw new FormatException();
                 }
-                output.append(customText(format.substring(index, index + 1)));
+                output.append(customText(format.substring(index, index + 1), byteEncoding));
                 index++;
             } else {
                 int count = 1;
@@ -561,6 +576,26 @@ public final class TimeSpan implements IComparable, ISpanFormattable {
         }
         text.getChars(0, text.length(), destination, 0);
         charsWritten[0] = text.length();
+        return true;
+    }
+
+    @Override
+    public boolean TryFormat(byte[] destination, int[] bytesWritten, String format,
+            IFormatProvider provider) {
+        byte[] encoded;
+        if (format != null && format.length() > 1 && provider == null) {
+            // In the pinned UTF-8 formatter, quoted BMP literals are encoded while backslash
+            // escapes use their low byte. Keep that distinction instead of re-encoding ToString.
+            encoded = customText(format, true).getBytes(java.nio.charset.StandardCharsets.ISO_8859_1);
+        } else {
+            encoded = ToString(format, provider).getBytes(java.nio.charset.StandardCharsets.UTF_8);
+        }
+        if (encoded.length > destination.length) {
+            bytesWritten[0] = 0;
+            return false;
+        }
+        java.lang.System.arraycopy(encoded, 0, destination, 0, encoded.length);
+        bytesWritten[0] = encoded.length;
         return true;
     }
 
