@@ -787,3 +787,5 @@ The public TimeSpan candidate now exposes TotalDays, TotalHours, TotalMinutes, T
 The public TimeSpan candidate now exposes day through nanosecond component getters. A packaged consumer checks a mixed positive interval and signed negative components. Broader TimeSpan formatting and arithmetic remain open.
 
 The public TimeSpan candidate now exposes Add with checked tick arithmetic. A packaged consumer checks positive and negative results, overflow and null rejection. Subtraction and comparison remain open.
+
+Batch 1993 adds TimeSpan.Subtract with checked tick arithmetic, null rejection, and packaged consumer coverage for positive, negative, and overflow results.
