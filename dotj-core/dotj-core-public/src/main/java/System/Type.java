@@ -1571,6 +1571,9 @@ public abstract class Type extends MemberInfo {
         if (this.get_IsInterface() && parent == fromJavaClass(Object.class)) {
             return true;
         }
+        if ((this.get_IsByRef() || this.get_IsPointer()) && parent == fromJavaClass(Object.class)) {
+            return true;
+        }
         Type ancestor = this.get_BaseType();
         while (ancestor != null) {
             if (ancestor == parent) {
