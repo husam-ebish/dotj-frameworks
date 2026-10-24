@@ -13,6 +13,21 @@ import System.TimeSpan;
 /** Selected Gregorian day-of-year values checked outside the product JAR. */
 public final class ProductDateTimeDayOfYearConsumer {
     public static void main(String[] args) {
+        DateTime firstDate = new DateTime(2024, 2, 29, 12, 0, 0);
+        DateTime previousDate = new DateTime(2024, 2, 28, 12, 0, 0);
+        if (firstDate.Subtract(previousDate).get_Ticks() != 864_000_000_000L
+                || previousDate.Subtract(firstDate).get_Ticks() != -864_000_000_000L
+                || firstDate.Subtract(firstDate).get_Ticks() != 0L) {
+            throw new AssertionError("DateTime difference changed");
+        }
+        try {
+            firstDate.Subtract((DateTime) null);
+            throw new AssertionError("Null DateTime operand accepted");
+        } catch (ArgumentNullException expected) {
+            if (!"value".equals(expected.get_ParamName())) {
+                throw new AssertionError("Null DateTime operand parameter changed");
+            }
+        }
         DateTime subtractOrigin = new DateTime(2024, 2, 29, 12, 0, 0);
         if (subtractOrigin.Subtract(TimeSpan.FromTicks(10_000_000L)).get_Second() != 59
                 || subtractOrigin.Subtract(TimeSpan.FromTicks(-10_000_000L)).get_Second() != 1) {
