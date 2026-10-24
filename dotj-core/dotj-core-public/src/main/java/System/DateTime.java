@@ -366,6 +366,12 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         return zone.getRules().isDaylightSavings(this.date.atZone(zone).toInstant());
     }
 
+    public void Deconstruct(int[] year, int[] month, int[] day) {
+        year[0] = this.get_Year();
+        month[0] = this.get_Month();
+        day[0] = this.get_Day();
+    }
+
     public double ToOADate() {
         long ticks = this.get_Ticks();
         if (ticks == 0) {
