@@ -771,3 +771,5 @@ The public DateTime candidate now exposes Subtract(TimeSpan) through tick arithm
 The public DateTime candidate now exposes Subtract(DateTime) and returns a TimeSpan tick difference. A packaged consumer checks positive, negative and zero intervals and null rejection. DateTime kind does not alter the tick difference.
 
 The public TimeSpan candidate now exposes FromDays with checked tick conversion. A packaged consumer checks positive, negative and zero durations and overflow. Other interval factories remain open.
+
+The public TimeSpan candidate now exposes FromHours with checked tick conversion. A packaged consumer checks positive, negative and zero intervals and infinity rejection. Additional interval factories remain open.
