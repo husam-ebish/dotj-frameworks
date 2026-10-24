@@ -2023,7 +2023,8 @@
     "Batch-2006",
     "Batch-2007",
     "Batch-2008",
-    "Batch-2009"
+    "Batch-2009",
+    "Batch-2010"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2216,7 +2217,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2009",
+      "lastUpdatedBatch": "Batch-2010",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -11827,19 +11828,17 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2010",
+    "id": "Batch-2011",
     "framework": "dotj-core",
-    "planTaskIds": [
-      "DJ-001-WP-05-T1"
-    ],
-    "outcome": "Make acceptance dependency reports distinguish default PATH from verified isolated tools and use current tracker next task",
+    "planTaskIds": [],
+    "outcome": "Expose TimeSpan public unit constants, Zero/MinValue/MaxValue and zero-value construction",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2009,
+    "completedBatches": 2010,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -11848,8 +11847,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2101",
     "requestedBatches": 100,
-    "completedBatches": 8,
-    "remainingBatches": 92,
+    "completedBatches": 9,
+    "remainingBatches": 91,
     "note": "User-requested run target; not a project-wide batch baseline."
   }
 }
