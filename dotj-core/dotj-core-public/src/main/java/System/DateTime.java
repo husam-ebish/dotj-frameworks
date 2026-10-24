@@ -19,25 +19,44 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     private static final long MILLIS_PER_DAY = 86_400_000L;
     private static final long MAX_TICKS = 3_155_378_975_999_999_999L;
     private final LocalDateTime date;
+    private final DateTimeKind kind;
 
     public DateTime(int year, int month, int day) {
         this.date = LocalDate.of(year, month, day).atStartOfDay();
+        this.kind = DateTimeKind.Unspecified;
     }
 
     public DateTime(int year, int month, int day, int hourOfDay,
                     int minuteOfHour, int secondOfMinute) {
         this.date = LocalDateTime.of(year, month, day,
                 hourOfDay, minuteOfHour, secondOfMinute);
+        this.kind = DateTimeKind.Unspecified;
     }
 
     public DateTime(int year, int month, int day, int hourOfDay,
                     int minuteOfHour, int secondOfMinute, int millisecondOfSecond) {
         this.date = LocalDateTime.of(year, month, day,
                 hourOfDay, minuteOfHour, secondOfMinute, millisecondOfSecond * 1_000_000);
+        this.kind = DateTimeKind.Unspecified;
     }
 
     private DateTime(LocalDateTime date) {
+        this(date, DateTimeKind.Unspecified);
+    }
+
+    private DateTime(LocalDateTime date, DateTimeKind kind) {
         this.date = date;
+        this.kind = kind;
+    }
+
+    public static DateTime SpecifyKind(DateTime value, DateTimeKind kind) {
+        if (value == null) {
+            throw new ArgumentNullException("value");
+        }
+        if (kind == null) {
+            throw new ArgumentException("Invalid DateTime kind", "kind");
+        }
+        return new DateTime(value.date, kind);
     }
 
     public static DateTime Parse(String text) {
@@ -109,17 +128,21 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public static DateTime FromBinary(long dateData) {
-        if (dateData < 0 || dateData > MAX_TICKS) {
+        long ticks = dateData & 0x3fff_ffff_ffff_ffffL;
+        long flags = dateData & 0xc000_0000_0000_0000L;
+        if (ticks > MAX_TICKS || (flags != 0 && flags != 0x4000_0000_0000_0000L)) {
             throw new ArgumentException("Invalid binary date value", "dateData");
         }
-        return new DateTime(1, 1, 1).AddTicks(dateData);
+        DateTime parsed = new DateTime(1, 1, 1).AddTicks(ticks);
+        return flags == 0 ? parsed : SpecifyKind(parsed, DateTimeKind.Utc);
     }
 
     public static DateTime FromFileTimeUtc(long fileTime) {
         if (fileTime < 0 || fileTime > MAX_TICKS - FILE_TIME_EPOCH_TICKS) {
             throw new ArgumentOutOfRangeException("fileTime");
         }
-        return new DateTime(1, 1, 1).AddTicks(fileTime + FILE_TIME_EPOCH_TICKS);
+        return SpecifyKind(new DateTime(1, 1, 1)
+                .AddTicks(fileTime + FILE_TIME_EPOCH_TICKS), DateTimeKind.Utc);
     }
 
     public static DateTime FromFileTime(long fileTime) {
@@ -129,7 +152,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (local.getYear() < 1 || local.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("fileTime");
         }
-        return new DateTime(local);
+        return new DateTime(local, DateTimeKind.Local);
     }
 
     public static DateTime FromOADate(double value) {
@@ -234,7 +257,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         LocalDateTime added = LocalDate.of(1, 1, 1).atStartOfDay()
                 .plusDays(result / TICKS_PER_DAY)
                 .plusNanos((result % TICKS_PER_DAY) * 100L);
-        return new DateTime(added);
+        return new DateTime(added, this.kind);
     }
 
     public DateTime AddMonths(int months) {
@@ -245,7 +268,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (added.getYear() < 1 || added.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("months");
         }
-        return new DateTime(added);
+        return new DateTime(added, this.kind);
     }
 
     public DateTime AddYears(int years) {
@@ -256,7 +279,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
         if (added.getYear() < 1 || added.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("years");
         }
-        return new DateTime(added);
+        return new DateTime(added, this.kind);
     }
 
     public DateTime AddDays(double value) {
@@ -285,7 +308,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
 
     private DateTime addScaled(double value, long ticksPerUnit) {
         if (Double.isNaN(value)) {
-            return new DateTime(this.date);
+            return new DateTime(this.date, this.kind);
         }
         double ticks = java.lang.Math.rint(value * ticksPerUnit);
         if (!Double.isFinite(ticks) || ticks < Long.MIN_VALUE
@@ -312,7 +335,11 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public DateTime get_Date() {
-        return new DateTime(this.date.toLocalDate().atStartOfDay());
+        return new DateTime(this.date.toLocalDate().atStartOfDay(), this.kind);
+    }
+
+    public DateTimeKind get_Kind() {
+        return this.kind;
     }
 
     public long get_Ticks() {
@@ -323,11 +350,13 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public long ToBinary() {
-        return this.get_Ticks();
+        return this.get_Ticks()
+                | (this.kind == DateTimeKind.Utc ? 0x4000_0000_0000_0000L : 0L);
     }
 
     public long ToFileTimeUtc() {
-        long ticks = this.get_Ticks();
+        long ticks = this.kind == DateTimeKind.Local
+                ? this.ToUniversalTime().get_Ticks() : this.get_Ticks();
         if (ticks < FILE_TIME_EPOCH_TICKS) {
             throw new ArgumentOutOfRangeException("fileTime");
         }
@@ -335,6 +364,9 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public long ToFileTime() {
+        if (this.kind == DateTimeKind.Utc) {
+            return this.ToFileTimeUtc();
+        }
         LocalDateTime utc = this.date.atZone(ZoneId.systemDefault())
                 .withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
         if (utc.getYear() < 1 || utc.getYear() > 9999) {
@@ -344,24 +376,33 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     }
 
     public DateTime ToUniversalTime() {
+        if (this.kind == DateTimeKind.Utc) {
+            return this;
+        }
         LocalDateTime utc = this.date.atZone(ZoneId.systemDefault())
                 .withZoneSameInstant(ZoneOffset.UTC).toLocalDateTime();
         if (utc.getYear() < 1 || utc.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("value");
         }
-        return new DateTime(utc);
+        return new DateTime(utc, DateTimeKind.Utc);
     }
 
     public DateTime ToLocalTime() {
+        if (this.kind == DateTimeKind.Local) {
+            return this;
+        }
         LocalDateTime local = this.date.atZone(ZoneOffset.UTC)
                 .withZoneSameInstant(ZoneId.systemDefault()).toLocalDateTime();
         if (local.getYear() < 1 || local.getYear() > 9999) {
             throw new ArgumentOutOfRangeException("value");
         }
-        return new DateTime(local);
+        return new DateTime(local, DateTimeKind.Local);
     }
 
     public boolean IsDaylightSavingTime() {
+        if (this.kind == DateTimeKind.Utc) {
+            return false;
+        }
         ZoneId zone = ZoneId.systemDefault();
         return zone.getRules().isDaylightSavings(this.date.atZone(zone).toInstant());
     }
@@ -489,7 +530,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
 
     @Override
     public DateTime ToDateTime(IFormatProvider provider) {
-        return new DateTime(this.date);
+        return new DateTime(this.date, this.kind);
     }
 
     @Override

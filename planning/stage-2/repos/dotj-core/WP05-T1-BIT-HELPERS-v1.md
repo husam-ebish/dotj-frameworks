@@ -761,3 +761,5 @@ The public DateTime candidate now exposes ToLocalTime by interpreting its curren
 The public DateTime candidate now exposes IsDaylightSavingTime for its process-local date interpretation. A packaged consumer checks winter and summer in America/New_York. UTC kind behavior and transition-edge parity remain open.
 
 The public DateTime candidate now exposes year/month/day Deconstruct using Java one-element output arrays. A packaged consumer checks leap-day components. The DateOnly/TimeOnly overload and out-parameter lowering remain open.
+
+The public DateTime candidate now includes DateTimeKind and SpecifyKind for selected identity behavior. A packaged consumer checks default, UTC and local kinds, tick preservation and selected arithmetic/round trips. Full local binary encoding and ambiguous-time metadata remain open.
