@@ -76,9 +76,13 @@ try {
     New-Item -ItemType Directory -Force -Path $env:TEMP, $env:DOTNET_CLI_HOME, $env:NUGET_PACKAGES, $env:PYTHONPYCACHEPREFIX | Out-Null
     $oracle = Join-Path $worktree 'tools/oracle/dotj-core'
     # This prerequisite was implicit in the old machine's existing build folder.
+    $ErrorActionPreference = 'Continue'
     & $python (Join-Path $oracle 'build-idisposable-candidate.py') 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'candidate-bootstrap.log')
+    $ErrorActionPreference = 'Stop'
     if ($LASTEXITCODE -ne 0) { throw 'Compile-only candidate bootstrap failed.' }
+    $ErrorActionPreference = 'Continue'
     & $python (Join-Path $oracle 'run-foundation-public-candidate-gate.py') 2>&1 | Tee-Object -FilePath (Join-Path $runRoot 'foundation-gate.log')
+    $ErrorActionPreference = 'Stop'
     if ($LASTEXITCODE -ne 0) { throw 'Foundation gate failed; see retained run logs.' }
     $changed = @(& git -C $worktree diff --name-only)
     if ($LASTEXITCODE -ne 0) { throw 'Cannot inventory generated evidence changes.' }
