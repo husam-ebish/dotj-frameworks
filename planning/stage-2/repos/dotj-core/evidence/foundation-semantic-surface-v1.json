@@ -5,10 +5,10 @@
   "oracleEvidence": "foundation-selected-metadata-v10.0.12.json",
   "oracleEvidenceSha256": "78b3038330744f49c0cbf4bae8ebbe0d423a1a5366e542952cc35ae69eafe95e",
   "javaCandidateEvidence": "foundation-public-candidate-ledger-v1.json",
-  "javaCandidateEvidenceSha256": "b5c39ded6cb038b81b3b2c6047af23a47cddc7d20aac3333c654ea142bad50cd",
+  "javaCandidateEvidenceSha256": "356b830b302811bd02e572033ec2cefd37916471008fe5d7d91489566e652ba1",
   "selectedTypeCount": 30,
   "nameLevelMissingMethodCount": 81,
-  "nameLevelMissingPublicGetterCount": 30,
+  "nameLevelMissingPublicGetterCount": 29,
   "types": [
     {
       "fullName": "System.IDisposable",
@@ -5898,6 +5898,7 @@
         "public int get_Day();",
         "public int get_DayOfYear();",
         "public System.DateTime get_Date();",
+        "public long get_Ticks();",
         "public int get_Hour();",
         "public int get_Minute();",
         "public int get_Second();",
@@ -5993,6 +5994,7 @@
           "get_Minute": 1,
           "get_Month": 1,
           "get_Second": 1,
+          "get_Ticks": 1,
           "get_Year": 1
         },
         "upstreamMethodNamesAbsentFromJavaDeclarations": [
@@ -6042,7 +6044,6 @@
           "Microsecond",
           "Nanosecond",
           "Now",
-          "Ticks",
           "TimeOfDay",
           "Today",
           "UtcNow"

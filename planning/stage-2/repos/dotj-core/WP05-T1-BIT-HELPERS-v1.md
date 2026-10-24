@@ -679,3 +679,5 @@ The public Decimal candidate now exposes get_Scale for its stored scale, includi
 The public DateTime candidate now exposes get_DayOfYear. An independent packaged consumer checks year 1, leap day and year end, non-leap March, and year 9999. Broader DateTime parity remains open.
 
 The public DateTime candidate now exposes get_Date. The packaged consumer checks that leap-day calendar fields are retained and time fields reset to midnight. Broader DateTime parity remains open.
+
+The public DateTime candidate now exposes get_Ticks as 100-nanosecond units from 0001-01-01. The packaged consumer checks epoch, Unix epoch, leap-day time, maximum-day time, and date truncation against .NET tick values. Broader DateTime parity remains open.
