@@ -800,6 +800,10 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
                 case 't' -> ToShortTimeString();
                 case 'T' -> ToLongTimeString();
                 case 'y', 'Y' -> this.date.format(DateTimeFormatter.ofPattern("uuuu MMMM", java.util.Locale.US));
+                case 'o', 'O' -> selectedRoundTripText(provider);
+                case 'r', 'R' -> this.date.format(DateTimeFormatter.ofPattern("EEE, dd MMM uuuu HH:mm:ss 'GMT'", java.util.Locale.US));
+                case 'u' -> ToString("yyyy-MM-dd HH:mm:ss", provider) + "Z";
+                case 'U' -> ToUniversalTime().ToString("F", provider);
                 default -> null;
             };
             if (text != null) return text;
@@ -824,6 +828,16 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
             throw new FormatException("Input string was not in a correct format");
         }
         throw new UnsupportedOperationException("DateTime format is not mapped for this candidate");
+    }
+
+    private String selectedRoundTripText(IFormatProvider provider) {
+        String text = ToString("yyyy-MM-ddTHH:mm:ss.fffffff", provider);
+        if (this.kind == DateTimeKind.Utc) return text + "Z";
+        if (this.kind == DateTimeKind.Unspecified) return text;
+        int seconds = selectedLocalOffset(ZoneId.systemDefault()).getTotalSeconds();
+        int minutes = Math.abs(seconds) / 60;
+        return text + String.format(java.util.Locale.ROOT, "%s%02d:%02d",
+                seconds < 0 ? "-" : "+", minutes / 60, minutes % 60);
     }
 
     public String ToLongDateString() {
@@ -907,6 +921,7 @@ public final class DateTime implements IConvertible, IComparable, ISpanFormattab
     private int selectedFormatCopyLength(String format, String text, int capacity) {
         int textLength = text.length();
         if (capacity >= textLength) { return textLength; }
+        if ("U".equals(format)) return ToUniversalTime().selectedFormatCopyLength("F", text, capacity);
         int[] chunks;
         if (format != null && format.length() == 1 && "dDfFgGmMtTyY".indexOf(format.charAt(0)) >= 0) {
             int month = this.date.getMonth().getDisplayName(java.time.format.TextStyle.FULL, java.util.Locale.US).length();
