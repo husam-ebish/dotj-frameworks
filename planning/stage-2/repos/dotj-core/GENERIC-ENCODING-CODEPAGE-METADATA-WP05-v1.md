@@ -1,0 +1,11 @@
+# Generic Encoding code-page metadata
+
+Batch 2223 supplies the default generic Encoding metadata getters using the stored constructor code page. A public CodePage override does not change the metadata lookup key. The eight captured built-in entries cover body/header/web/display names, Windows family and browser/mail flags. Unknown base entries throw the selected NotSupportedException with the stored code page in the message. IsSingleByte remains the generic false default, independent of the reported code page. This metadata does not implement additional codecs or establish provider availability.
+
+System.NotSupportedException adds the three selected public constructors, observed null/default/empty messages, inner exception identity, HRESULT -2146233067 and exact/case-insensitive Type lookup. The private metadata record and new public exception have explicit class inventory and source-to-class mapping. The product has 96 Java source files and retains JDK-only runtime requirements.
+
+The native corpus records 352 property rows, 34 constructor controls and seven exception constructor cases. The packaged consumer passes 421 comparison groups. Controls include a subclass reporting 65001 while constructed with a different code page, negative constructors and base metadata rejection for 932/1252 even though the reference host has code-page providers. The host provider list is reference context, not a Java product dependency list. The 96-source owned map, distribution/rights-input audits, existing selected compiled API audit and retained generic/default/UTF8/custom/stateful regressions pass. Temporary verification is serialized through the shared scratch lease.
+
+Producer, CoreLib, fixture, consumer and JAR hashes are bound; source/evidence output is LF-pinned and build/map replay matches. Display/error messages are pinned English observations. Codecs, provider registration, localization, arbitrary overrides, complete reflection/source ABI, E01 applicability and WP-05 task acceptance remain open. No accepted task, qualified framework or rights clearance is credited.
+
+Next is the generic GetCharCount array facade and native abstract-method contract: make the whole-array method concrete and range counter abstract, preserve UTF8 behavior, and qualify a minimal six-method subclass plus count/allocation/decoder/span routes.

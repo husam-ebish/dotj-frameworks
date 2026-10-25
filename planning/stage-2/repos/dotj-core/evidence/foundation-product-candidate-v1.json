@@ -87,7 +87,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Type.java",
-      "sha256": "29137ce8f29790890ed77459148343d6a42bb49d2a6cf1754dfe3bdc43b0f505"
+      "sha256": "3d084912882683186ad8d946be600234490a96722e39bdbda533898753c0c832"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/DBNull.java",
@@ -219,7 +219,7 @@
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/Encoding.java",
-      "sha256": "9b02ee92c63ae6884e0e4c68cc8fa7c39cc1373046a5c4372c3efada16bdbd28"
+      "sha256": "0cf6d0721a7e3f28127d94f769c373a0a43c272e91ada4176fff00bd3cacd035"
     },
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/Text/UTF8Encoding.java",
@@ -380,10 +380,14 @@
     {
       "path": "dotj-core/dotj-core-public/src/main/java/System/OutOfMemoryException.java",
       "sha256": "e9f160838c185b810593cbd244adf07bf90d87c8a0485461366f586af67d66b4"
+    },
+    {
+      "path": "dotj-core/dotj-core-public/src/main/java/System/NotSupportedException.java",
+      "sha256": "ef6fb3b5ad202856ae19143066d8b2e40e06de01e78e93bde332bcc2ec5f9958"
     }
   ],
   "jarPath": "dotj-core/dotj-core-public/build/foundation-v1/dotj-core-foundation-v1.jar",
-  "jarSha256": "20d3db78b4cf5213d67a4b78adec2501e93ca8bd5787913d3387aa9cdf7b2e57",
+  "jarSha256": "2de8efda4297f0ff9b167e1702904ad6dbe948472a89a6d6ece4f5168c2b1c16",
   "licensePath": "dotj-core/LICENSE",
   "licenseSha256": "0f960ed427fefc8ca859c9ec24e2dc29c2a2f5dbbfce615288edd8898f517b65",
   "licenseEntry": "META-INF/LICENSE",
@@ -432,6 +436,7 @@
     "System/InvalidCastException.class",
     "System/InvalidOperationException.class",
     "System/MidpointRounding.class",
+    "System/NotSupportedException.class",
     "System/NullReferenceException.class",
     "System/OutOfMemoryException.class",
     "System/OverflowException.class",
@@ -482,6 +487,7 @@
     "System/Text/Encoding$DefaultDecoder.class",
     "System/Text/Encoding$DefaultEncoder.class",
     "System/Text/Encoding$DefaultUtf8.class",
+    "System/Text/Encoding$Metadata.class",
     "System/Text/Encoding.class",
     "System/Text/UTF8Encoding$Utf8Decoder.class",
     "System/Text/UTF8Encoding$Utf8Encoder.class",
@@ -555,6 +561,7 @@
     "System/InvalidCastException.class": "34d4296ea9a9dea4ab9de9377b5bce1abbe7117250789f063cd4d5aadc96c615",
     "System/InvalidOperationException.class": "6ac2e00a347847734577f1ed03091762014e37d9ee502a04aecfb9bf9fd663f8",
     "System/MidpointRounding.class": "89ac08432fbcc2af502850ff5b5ec2fe5b4d8d22162c6a3b35aafd9fb7c090ad",
+    "System/NotSupportedException.class": "debe51d9dfcb2c98849d0f91fdcf80fd9a1b0ac7f7c22b7e922dd14f30d7f1a5",
     "System/NullReferenceException.class": "a39f0c401c84b41a114779cb098616abffda03c70f46e1e7c9e3f22c6a6e7c89",
     "System/OutOfMemoryException.class": "5840f8bf04832dc94d16d91abd8668ecde374052ebadd6d3dd9ab228f0b1ee46",
     "System/OverflowException.class": "c83397edf9180b6f3b096c6b9fa99deac3fb711f722dc0b63fdd97acb2fab831",
@@ -602,25 +609,26 @@
     "System/Text/EncoderFallbackException.class": "7fa4f5e381a26568df3b0b8c295dbfbbc06e6f746a7d46448ed733179f8d3612",
     "System/Text/EncoderReplacementFallback$Buffer.class": "e4884c69e981af4213e1cbc0daf02e1eab9e029307f3c0abbb51a55ef0045c42",
     "System/Text/EncoderReplacementFallback.class": "ec9206a48254f79af0d5fd1a64663b82c90a0b18cc778eb81b33cfe86a6c8c85",
-    "System/Text/Encoding$DefaultDecoder.class": "4a20e89cf3b641fc21ffc46252bbcf9dd6a0fcd33b010c8f24d4805ac50b8c29",
-    "System/Text/Encoding$DefaultEncoder.class": "68625bbcdd661c3df49343f4fd8ee3b38b68edd1cae88538b93e05fc19620736",
-    "System/Text/Encoding$DefaultUtf8.class": "9a2b8af48c5bb26ce1d5457a8c795682b8afc465ed526170cd1d8c03bf5b6343",
-    "System/Text/Encoding.class": "27f47aeaec13dc5ab4fcc2ae1a0cda96828ef1c1b774c71875137a9db9e847b5",
+    "System/Text/Encoding$DefaultDecoder.class": "7a6b862a0b22e1f4d5005112552ca04601193ad98ee9a25e16525a032ff0631a",
+    "System/Text/Encoding$DefaultEncoder.class": "5e8f04de83a229ee92ebb6839ed33734eda2571eb26c11623e0c34dc4266725e",
+    "System/Text/Encoding$DefaultUtf8.class": "029076a6e6d15057c59421b7787d333dcb3fe843b3f95cad40141de4f20e6052",
+    "System/Text/Encoding$Metadata.class": "7b1d6d49801f33326eecc220109000b26649bc150a60e4fb66cf4e8ba19221c8",
+    "System/Text/Encoding.class": "b308ba4aab00614690b0c55f3d32068652feff1167ee8caf9c43b0bcec044019",
     "System/Text/UTF8Encoding$Utf8Decoder.class": "04ead5e28fbe3479f1eba7b1412c22d3c47be93967f4c51e6b6a41d28fa05a42",
     "System/Text/UTF8Encoding$Utf8Encoder.class": "04661f66d2422a33d312627973470dac8ccd3a26efcd0e890abcedfe7e8cf32b",
     "System/Text/UTF8Encoding.class": "980396e0841ac6c9fe153c528b567526f6392cd30100ef0946ed6a5647acef9e",
     "System/TimeSpan.class": "7ba310346c6886e0f736c7256230fb27631c73e233e5bbb1adcc25419e598994",
     "System/Type$1.class": "64e23d577b80c6185fe6f5c38f3b4024891880fecf420f0d9483b341308c3660",
     "System/Type$2.class": "d2273345f18af7b3e6cd672397f49418ad7aed805f5bb31b02b4caa744524c1e",
-    "System/Type$ArrayType.class": "5d6331de76f92942dc50adee182f6ab12a3742868ab32572a611f5659afd33fe",
-    "System/Type$ByRefType.class": "1900fa1edb63cf36bdb4d76b4e87518601074a977dba1163c331fcccd300f828",
-    "System/Type$DefaultMethodMember.class": "83f132befb9cc82a2593825acfd6ba18529dbf41c8f2e317702de55c3096118e",
-    "System/Type$DefaultParameterInfo.class": "1fa13e96d03d0ac408bde2a79ca15757e2658533200b74d12539042d793b9d77",
-    "System/Type$DefaultPropertyMember.class": "2a69f5ca990da1010287622c185403f27f15c1cc5b1ddcc5395e4d25eb2a5a4f",
-    "System/Type$GenericParameterType.class": "b09339db6730d73e7de2b298fd53e3d3014f957c7cc3ee5efeebda5729d04328",
-    "System/Type$PointerType.class": "9ea114a3ab8f16a935345cdd6bd6373de9a96400267baf909e939e3c64ab304c",
-    "System/Type$ResolvedType.class": "df6c0c4554a684d8ec186dc15d4a2f5d4ca7951f7499e322480cb4e5a2720ca3",
-    "System/Type.class": "93fd6e32b55de53883a67ab2bef36c6e71a779c28da26b3e342bfafe3816e683",
+    "System/Type$ArrayType.class": "ca7bc0a937dcb7b3a024d8f231b86be27cbadbb74702c9f07a2b13a971b7ca71",
+    "System/Type$ByRefType.class": "43cdd9a2782233b01b9b3fd4892f4b5f5ebefa01d06eb749b7fe31360c35dd69",
+    "System/Type$DefaultMethodMember.class": "41a23a2dc4afaa4585156b56da68f2f5c3dc0ad97f98040a772f66136276eff4",
+    "System/Type$DefaultParameterInfo.class": "02cd0dc71eeab3bd6ab5d680e5dcde4269545a3ea02ef60e508717d79be993db",
+    "System/Type$DefaultPropertyMember.class": "b30002b06ea526fd58306b67fb47f9ede315847305641086ca6efc44eea1a3b6",
+    "System/Type$GenericParameterType.class": "485eef54b67a4f47438124131e870861acd85d57bb0ae54640abdc3e95247345",
+    "System/Type$PointerType.class": "2e92d5df82620fbca9004058e108bb6c7c1409448851a7ffe1ff6a21558a2910",
+    "System/Type$ResolvedType.class": "ac74ddca0f2799d618960bb80125187548d713f418af1ea7e16bca9eab0e011f",
+    "System/Type.class": "10018413f4ac41c5bb000dfded90aa1dbce1ed1ebe211765be6ec6460edd902b",
     "System/TypeCode.class": "5f6956717c868ad4b0c4eb615505de94484bd689c0ee71825a7769f7b94d2c6e",
     "System/TypeLoadException.class": "4c635384504421fae41239b2d4f290cc6812c82eb53e09666ceba9bf553c8990",
     "System/UInt16.class": "40ebc78730ff9fa0ff6d8e7c0db895e28ea88e6b71d7e1c7edf85b32b63ea070",

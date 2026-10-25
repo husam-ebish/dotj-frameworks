@@ -2236,7 +2236,8 @@
     "Batch-2219",
     "Batch-2220",
     "Batch-2221",
-    "Batch-2222"
+    "Batch-2222",
+    "Batch-2223"
   ],
   "overall": {
     "frameworkCount": 66,
@@ -2429,7 +2430,7 @@
         "N01": "IN PROGRESS",
         "Q01": "NOT STARTED"
       },
-      "lastUpdatedBatch": "Batch-2222",
+      "lastUpdatedBatch": "Batch-2223",
       "blocked": false,
       "unclassifiedTaskIds": [],
       "plannedImplementationTaskIds": [
@@ -12040,19 +12041,19 @@
   ],
   "measurementNote": "0.00% is completed-task share (0/1092), not engineering effort elapsed. The 1092 WP and SDK integration tasks are equally weighted; 264 N01 prerequisites and E01-E03/Q01 gates are excluded. In-progress tasks receive zero completion credit. Framework qualification is reported separately.",
   "nextProposedBatch": {
-    "id": "Batch-2223",
+    "id": "Batch-2224",
     "framework": "dotj-core",
     "planTaskIds": [
       "DJ-001-WP-05-T2"
     ],
-    "outcome": "Implement and qualify default Encoding code-page metadata using stored constructor values despite public CodePage overrides, supported/unknown data entries and selected NotSupportedException behavior.",
+    "outcome": "Implement generic GetCharCount whole-array facade/range abstract contract, preserve UTF8 behavior and qualify a minimal six-method subclass with count/allocation/decoder/span routes.",
     "requiresContinue": false
   },
   "batchPlan": {
     "version": "stage-2-batches-v7",
     "source": "planning/stage-2/implementation/BATCH-PLAN-v7.json",
     "plannedTotalBatches": null,
-    "completedBatches": 2222,
+    "completedBatches": 2223,
     "remainingPlannedBatches": null,
     "outstandingAcceptanceItems": 1686,
     "status": "Future batch count UNKNOWN; report only total completed, planned and remaining batches"
@@ -12061,8 +12062,8 @@
     "firstBatch": "Batch-2002",
     "lastBatch": "Batch-2500",
     "requestedBatches": 499,
-    "completedBatches": 221,
-    "remainingBatches": 278,
+    "completedBatches": 222,
+    "remainingBatches": 277,
     "previousFixedTarget": "Batch-2101",
     "note": "User explicitly expanded the milestone to Batch-2500 on 2026-10-25. Range count 499 is derived from Batch-2002 through Batch-2500; not a project-wide batch baseline."
   },
