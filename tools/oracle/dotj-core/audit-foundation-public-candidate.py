@@ -154,6 +154,7 @@ def main():
             assert "public int get_Value();" in declarations
             assert upstream["baseType"] == "System.Enum"
             assert "public static System.Reflection.GenericParameterAttributes FromInt32(int);" in declarations
+            assert 'public boolean HasFlag(java.lang.Object);' in declarations
             assert 'public boolean TryFormat(char[], int[], java.lang.String, System.IFormatProvider);' in declarations
             assert 'public boolean TryFormat(System.Span<java.lang.Character>, int[], System.ReadOnlySpan<java.lang.Character>, System.IFormatProvider);' in declarations
             assert 'public System.TypeCode GetTypeCode();' in declarations
