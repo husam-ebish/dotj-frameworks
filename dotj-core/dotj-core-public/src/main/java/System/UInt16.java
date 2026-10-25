@@ -3,7 +3,7 @@
 package System;
 
 /** Selected unsigned 16-bit value carrier for public serialization paths. */
-public final class UInt16 implements IConvertible {
+public final class UInt16 implements IConvertible, IFormattable {
     private final int value;
 
     public UInt16(int value) {
@@ -18,7 +18,7 @@ public final class UInt16 implements IConvertible {
     }
 
     public String ToString() {
-        return Integer.toString(this.value);
+        return ToString((IFormatProvider)null);
     }
 
     @Override
@@ -98,12 +98,24 @@ public final class UInt16 implements IConvertible {
 
     @Override
     public String ToString(IFormatProvider provider) {
-        return this.ToString();
+        return new Int32(this.value).ToString(provider);
     }
 
     @Override
     public Object ToType(Type conversionType, IFormatProvider provider) {
         return Int32.selectedDefaultToType(this, conversionType, provider);
+    }
+
+    public String ToString(String format) { return ToString(format, null); }
+
+    @Override public String ToString(String format, IFormatProvider provider) {
+        if (format != null && format.matches("[xXbB][0-9]*")) {
+            return new Int32(this.value & 0xffff).ToString(format, provider);
+        }
+        if ("d".equals(format)) format = "D";
+        if (format != null && format.matches("[A-Za-z]") && !format.matches("[cCdDeEfFgGnNpPrRxXbB]")) throw new FormatException("Format specifier was invalid");
+        if ("R".equals(format) || "r".equals(format)) format = "G";
+        return new Int32(this.value).ToString(format, provider);
     }
 
     @Override
