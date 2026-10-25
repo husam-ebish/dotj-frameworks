@@ -1002,14 +1002,16 @@ public final class Int32 implements IConvertible, ISpanFormattable,
                     ? sign + prefix + core.substring(sign.length()) : prefix + core;
             return prefixed + suffix;
         }
-        if (format == null || format.isEmpty() || format.equals("D")) {
+        if (format == null || format.isEmpty() || format.equals("D") || format.equals("d")) {
             if (this.value >= 0) return Integer.toString(this.value);
             NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
             String sign = numberFormat == null ? "-" : numberFormat.get_NegativeSign();
             return sign + BigInteger.valueOf(this.value).abs();
         }
-        if (format.equals("D-1") || format.equals("X-1")) {
-            return format;
+        if (format.matches("[dDxX]-1")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-" : numberFormat.get_NegativeSign()) : "";
+            return sign + format;
         }
         if (format.equals("0;(0);zero") || format.equals("0;(0);'zero'")) {
             if (this.value == 0) {
@@ -1494,6 +1496,12 @@ public final class Int32 implements IConvertible, ISpanFormattable,
         }
         if (format.equals("Q")) {
             throw new FormatException("Format specifier was invalid");
+        }
+        if (format.matches("[A-Za-z]")) throw new FormatException("Format specifier was invalid");
+        if (format.equals("?")) {
+            NumberFormatInfo numberFormat = selectedNumberFormatInfo(provider);
+            String sign = this.value < 0 ? (numberFormat == null ? "-" : numberFormat.get_NegativeSign()) : "";
+            return sign + format;
         }
         throw new UnsupportedOperationException("Int32 format is not mapped");
     }
