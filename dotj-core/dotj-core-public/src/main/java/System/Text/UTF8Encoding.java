@@ -203,10 +203,11 @@ public class UTF8Encoding extends Encoding {
                 && get_DecoderFallback().Equals(other.get_DecoderFallback());
     }
     @Override public int GetHashCode() { return get_EncoderFallback().GetHashCode() + get_DecoderFallback().GetHashCode() + 65001 + (this.emitIdentifier ? 1 : 0); }
-    @Override public Encoder GetEncoder() { return new Utf8Encoder(get_EncoderFallback()); }
+    @Override public Encoder GetEncoder() { return new Utf8Encoder(this); }
     private static final class Utf8Encoder extends Encoder {
         private char pending;
-        private Utf8Encoder(EncoderFallback fallback) { set_Fallback(fallback); }
+        private final Encoding encoding;
+        private Utf8Encoder(Encoding encoding) { this.encoding = encoding; set_Fallback(encoding.get_EncoderFallback()); }
         @Override public void Reset() { this.pending = 0; resetFallbackBuffer(); }
         @Override public int GetByteCount(char[] chars, int index, int count, boolean flush) {
             if (chars == null) throw new ArgumentNullException("chars");
@@ -229,6 +230,7 @@ public class UTF8Encoding extends Encoding {
         private EncoderFallbackBuffer fallbackBuffer() {
             EncoderFallbackBuffer result = get_FallbackBuffer();
             if (result == null) throw new NullReferenceException();
+            result.encodingContext = this.encoding;
             return result;
         }
         private int emit(String rune, Byte[] bytes, int offset, boolean counting) {
@@ -247,6 +249,7 @@ public class UTF8Encoding extends Encoding {
             int written = 0;
             String rune;
             while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
+                if (!counting && buffer.encodingContext == null) throw new NullReferenceException();
                 written += emit(rune, bytes, offset + written, counting);
             }
             return written;
@@ -356,6 +359,7 @@ public class UTF8Encoding extends Encoding {
             if (units == 1 && Character.isSurrogate(text.charAt(i))) {
                 if (buffer == null) buffer = this.encoderFallback.CreateFallbackBuffer();
                 if (buffer == null) throw new NullReferenceException();
+                buffer.encodingContext = this;
                 if (buffer.Fallback(text.charAt(i), i - index)) {
                     String rune;
                     while (!(rune = nextFallbackRune(buffer)).isEmpty()) {
