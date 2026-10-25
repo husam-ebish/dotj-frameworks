@@ -130,6 +130,19 @@ public final class SByte implements IConvertible, IFormattable, IComparable, ISp
         }
     }
 
+    /** One Java generic carrier for the native Char and UTF-8 Byte parsing overloads. */
+    public static <T> SByte Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("text");
+        return Parse(text.selectedInt32Text(), provider);
+    }
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, SByte[] result) {
+        return TryParse(text, null, result);
+    }
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider, SByte[] result) {
+        if (text == null) throw new ArgumentNullException("text");
+        return TryParse(text.selectedInt32Text(), provider, result);
+    }
+
     public SByte(int value) {
         if (value < -128 || value > 127) {
             throw new OverflowException("Value was outside the range of SByte");

@@ -105,6 +105,19 @@ public final class Byte implements IConvertible, IFormattable, IComparable, ISpa
         }
     }
 
+    /** One Java generic carrier for the native Char and UTF-8 Byte parsing overloads. */
+    public static <T> Byte Parse(ReadOnlySpan<T> text, IFormatProvider provider) {
+        if (text == null) throw new ArgumentNullException("text");
+        return Parse(text.selectedInt32Text(), provider);
+    }
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, Byte[] result) {
+        return TryParse(text, null, result);
+    }
+    public static <T> boolean TryParse(ReadOnlySpan<T> text, IFormatProvider provider, Byte[] result) {
+        if (text == null) throw new ArgumentNullException("text");
+        return TryParse(text.selectedInt32Text(), provider, result);
+    }
+
     public Byte(int value) {
         if (value < 0 || value > 255) {
             throw new OverflowException("Value was outside the range of Byte");

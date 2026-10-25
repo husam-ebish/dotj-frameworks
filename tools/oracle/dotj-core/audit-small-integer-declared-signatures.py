@@ -16,13 +16,16 @@ def main():
   owner=native['fullName'];output=subprocess.run(['javap','-public','-classpath',str(a.jar),owner],check=True,text=True,capture_output=True).stdout
   declarations=[s.strip() for s in output.splitlines() if s.strip().startswith('public ')];candidate=[v for s in declarations if (v:=parser.java_method(s)) is not None]
   primitive={'System.Boolean':'boolean','System.Int32':'int','System.String':'java.lang.String','System.Object':'java.lang.Object','System.IFormatProvider':'System.IFormatProvider','System.TypeCode':'System.TypeCode',owner:owner}
-  methods=[];matched=set();selected=0
+  methods=[];matched=set();selected=0;collapsed=0;parsing_bridges=set()
   for method in native['methods']:
    parameters=[v['type'] for v in method['parameters']];name=method['name'];is_selected=not method['isSpecialName'] and ((not method['isStatic'] and name in ['ToString','CompareTo','Equals','GetHashCode','GetTypeCode','TryFormat']) or (method['isStatic'] and name in ['Min','Max','Clamp','LeadingZeroCount','TrailingZeroCount','PopCount','RotateLeft','RotateRight','IsEvenInteger','IsOddInteger','IsPow2','Log2','Sign'] or (owner=='System.SByte' and method['isStatic'] and name in ['Abs','Sign','CopySign','MaxMagnitude','MinMagnitude']) or (owner!='System.SByte' and method['isStatic'] and name=='Log2'))) or (method['isStatic'] and ((name=='Parse' and parameters in [['System.String'],['System.String','System.IFormatProvider']]) or (name=='TryParse' and parameters in [['System.String',owner+'&'],['System.String','System.IFormatProvider',owner+'&']])))
+   is_span=method['isStatic'] and bool(parameters) and parameters[0] in ['System.ReadOnlySpan`1[System.Char]','System.ReadOnlySpan`1[System.Byte]'] and ((name=='Parse' and parameters[1:]==['System.IFormatProvider']) or (name=='TryParse' and parameters[1:] in [[owner+'&'],['System.IFormatProvider',owner+'&']]))
+   is_selected=is_selected or is_span
    item=dict(nativeSignature=method['signature'],selected=is_selected)
    if is_selected:
     selected+=1
     def project(value):
+     if is_span and value.startswith('System.ReadOnlySpan`1['):return 'System.ReadOnlySpan<T>'
      if value==owner+'&':return owner+'[]'
      if value=='System.Int32&':return 'int[]'
      if value=='System.Span`1[System.Char]':return 'char[]'
@@ -30,17 +33,19 @@ def main():
      if value=='System.ReadOnlySpan`1[System.Char]':return 'java.lang.String'
      assert value in primitive,(owner,name,value)
      return primitive[value]
-    expected=dict(name=name,isStatic=method['isStatic'],genericArity=0,returnType=project(method['returnType']),parameters=[project(v) for v in parameters])
+    expected=dict(name=name,isStatic=method['isStatic'],genericArity=(1 if is_span else 0),returnType=project(method['returnType']),parameters=[project(v) for v in parameters])
     found=[v for v in candidate if all(v[k]==v2 for k,v2 in expected.items())];assert len(found)==1,(owner,method,expected,found)
-    item.update(status='PROJECTED_SELECTED_DECLARATION',candidateDeclaration=found[0]['declaration'],projectedJava=expected);matched.add(found[0]['declaration'])
+    item.update(status=('ERASURE_COLLAPSED_TYPED_SPAN' if is_span else 'PROJECTED_SELECTED_DECLARATION'),candidateDeclaration=found[0]['declaration'],projectedJava=expected);matched.add(found[0]['declaration'])
+    if is_span:collapsed+=1;parsing_bridges.add(found[0]['declaration'])
    else:item['status']='OUTSIDE_SELECTED_PROJECTION_AUDIT'
    methods.append(item)
-  assert selected==(33 if owner=='System.SByte' else 29),(owner,selected)
+  assert selected==(39 if owner=='System.SByte' else 35),(owner,selected)
+  assert collapsed==6 and len(parsing_bridges)==3,(owner,collapsed,parsing_bridges)
   bridge=[v for v in candidate if v['name']=='TryFormat' and v['genericArity']==1 and v['parameters']==['System.Span<T>','int[]','System.ReadOnlySpan<java.lang.Character>','System.IFormatProvider'] and v['returnType']=='boolean'];assert len(bridge)==1,(owner,bridge)
   matched.add(bridge[0]['declaration'])
   fields=[dict(nativeField=v,candidateNamePresent=any(s.endswith(' '+v['name']+';') for s in declarations)) for v in native['fields']]
-  records.append(dict(fullName=owner,nativeDeclaredMethodCount=len(native['methods']),selectedProjectedMethodCount=selected,outsideSelectedMethodCount=len(methods)-selected,methods=methods,fields=fields,typedSpanBridge=bridge[0]['declaration'],typedSpanBridgeNativeOverloadCount=2,extraJavaPublicMethods=[v['declaration'] for v in candidate if v['declaration'] not in matched],javaPublicDeclarations=declarations))
- record=dict(schemaVersion=1,types=records,selectedProjectedMethodCount=sum(v['selectedProjectedMethodCount'] for v in records),oracleEvidence=oracle_path.name,oracleSha256=hashlib.sha256(oracle_path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN')
+  records.append(dict(fullName=owner,nativeDeclaredMethodCount=len(native['methods']),selectedNativeMethodCount=selected,selectedProjectedMethodCount=selected-collapsed,erasureCollapsedNativeMethodCount=collapsed,typedParsingBridges=sorted(parsing_bridges),outsideSelectedMethodCount=len(methods)-selected,methods=methods,fields=fields,typedSpanBridge=bridge[0]['declaration'],typedSpanBridgeNativeOverloadCount=2,extraJavaPublicMethods=[v['declaration'] for v in candidate if v['declaration'] not in matched],javaPublicDeclarations=declarations))
+ record=dict(schemaVersion=1,types=records,selectedNativeMethodCount=sum(v['selectedNativeMethodCount'] for v in records),erasureCollapsedNativeMethodCount=sum(v['erasureCollapsedNativeMethodCount'] for v in records),selectedProjectedMethodCount=sum(v['selectedProjectedMethodCount'] for v in records),oracleEvidence=oracle_path.name,oracleSha256=hashlib.sha256(oracle_path.read_bytes()).hexdigest(),candidateJarSha256=hashlib.sha256(a.jar.read_bytes()).hexdigest(),qualification='SELECTED_DECLARATION_AUDIT_ONLY; OUTSIDE_SCOPE_METHODS_FIELDS_GENERIC_INTERFACES_CLR_ABI_BEHAVIOR_TASK_ACCEPTANCE_AND_RELEASE_OPEN')
  (EVIDENCE/'small-integer-signatures-differential-v1.json').write_text(json.dumps(record,indent=2)+'\n')
- print(f"PASS small-integer signature audit: {len(records)} types; {record['selectedProjectedMethodCount']} selected native declarations; four typed span erasure bridges; remaining declarations/fields inventoried")
+ print(f"PASS small-integer signature audit: {len(records)} types; {record['selectedProjectedMethodCount']} direct projections; {record['erasureCollapsedNativeMethodCount']} native parsing overloads through twelve typed bridges; four formatting bridges; remaining declarations/fields inventoried")
 if __name__=='__main__':main()
